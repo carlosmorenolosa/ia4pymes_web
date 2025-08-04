@@ -1,294 +1,52 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect } from "react"
 import {
-  ChevronLeft,
-  ChevronRight,
   BarChart2,
   Code,
   Settings,
-  Heart,
-  Sliders,
-  MessageCircle,
-  Shield,
-  Mail,
-  Clock,
-  Users,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
   Zap,
   Target,
   Wrench,
   Timer,
+  Users,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  MessageCircle,
+  Mail,
+  Clock,
+  Calendar,
 } from "lucide-react"
-
-// Custom Cursor Component - Versión simplificada y más fluida
-const CustomCursor = () => {
-  const cursorRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const cursor = cursorRef.current
-    if (!cursor) return
-
-    const moveCursor = (e: MouseEvent) => {
-      if (cursor) {
-        cursor.style.left = e.clientX + "px"
-        cursor.style.top = e.clientY + "px"
-      }
-    }
-
-    const handleMouseEnter = () => {
-      if (cursor) cursor.classList.add("hover")
-    }
-
-    const handleMouseLeave = () => {
-      if (cursor) cursor.classList.remove("hover")
-    }
-
-    const handleMouseDown = () => {
-      if (cursor) cursor.classList.add("click")
-    }
-
-    const handleMouseUp = () => {
-      if (cursor) cursor.classList.remove("click")
-    }
-
-    // Event listeners básicos
-    document.addEventListener("mousemove", moveCursor)
-    document.addEventListener("mousedown", handleMouseDown)
-    document.addEventListener("mouseup", handleMouseUp)
-
-    // Hover effects para elementos interactivos - versión simplificada
-    const interactiveElements = document.querySelectorAll("button, a")
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter)
-      el.addEventListener("mouseleave", handleMouseLeave)
-    })
-
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousemove", moveCursor)
-      document.removeEventListener("mousedown", handleMouseDown)
-      document.removeEventListener("mouseup", handleMouseUp)
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter)
-        el.removeEventListener("mouseleave", handleMouseLeave)
-      })
-    }
-  }, [])
-
-  return <div ref={cursorRef} className="custom-cursor" />
-}
-
-// Particles animation component
-const ParticlesBackground = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      opacity: number
-      size: number
-    }> = []
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      for (let i = 0; i < 50; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: (Math.random() - 0.5) * 0.8,
-          opacity: Math.random() * 0.4 + 0.1,
-          size: Math.random() * 3 + 1,
-        })
-      }
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((particle, i) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity * 0.7})`
-        ctx.fill()
-
-        // Draw connections
-        particles.slice(i + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - distance / 100)})`
-            ctx.lineWidth = 0.8
-            ctx.stroke()
-          }
-        })
-      })
-
-      requestAnimationFrame(animate)
-    }
-
-    resizeCanvas()
-    createParticles()
-    animate()
-
-    window.addEventListener("resize", resizeCanvas)
-    return () => window.removeEventListener("resize", resizeCanvas)
-  }, [])
-
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />
-}
-
-// Counter animation hook
-const useCounter = (end: number, duration = 1500) => {
-  const [count, setCount] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-          let start = 0
-          const increment = end / (duration / 16)
-          const timer = setInterval(() => {
-            start += increment
-            if (start >= end) {
-              setCount(end)
-              clearInterval(timer)
-            } else {
-              setCount(Math.floor(start))
-            }
-          }, 16)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [end, duration, isVisible])
-
-  return { count, ref }
-}
-
-const Counter = ({ target, prefix = "", suffix = "" }: { target: number; prefix?: string; suffix?: string }) => {
-  const { count, ref } = useCounter(target)
-  return (
-    <span ref={ref} className="text-3xl font-extrabold">
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  )
-}
+import { CustomCursor } from "@/components/custom-cursor"
+import { ParticlesBackground } from "@/components/particles-background"
+import { SuccessCasesCarousel } from "@/components/success-cases-carousel"
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-
-  const successCases = [
-    {
-      title: "IA Dermatológica",
-      company: "Hospital de Toledo",
-      description:
-        "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.",
-      icon: Heart,
-      color: "blue",
-      benefit: "Diagnósticos más rápidos y precisos",
-    },
-    {
-      title: "Automatizador de Presupuestos",
-      company: "Constructora CORSAM",
-      description:
-        "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.",
-      icon: Sliders,
-      color: "orange",
-      benefit: "Presupuestos en minutos, no horas",
-    },
-    {
-      title: "Chatbot de Atención al Cliente",
-      company: "Viajes Rascado",
-      description:
-        "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.",
-      icon: MessageCircle,
-      color: "green",
-      benefit: "Atención 24/7 sin interrupciones",
-    },
-    {
-      title: "Predicción de Daños",
-      company: "Puerto de Alicante",
-      description:
-        "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.",
-      icon: Shield,
-      color: "purple",
-      benefit: "Prevención proactiva de incidencias",
-    },
-  ]
-
-  useEffect(() => {
-    if (!isAutoPlaying) return
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % successCases.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, successCases.length])
-
-  const nextSlide = () => {
-    setIsAutoPlaying(false)
-    setCurrentSlide((prev) => (prev + 1) % successCases.length)
-  }
-
-  const prevSlide = () => {
-    setIsAutoPlaying(false)
-    setCurrentSlide((prev) => (prev - 1 + successCases.length) % successCases.length)
-  }
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       const elementRect = element.getBoundingClientRect()
       const absoluteElementTop = elementRect.top + window.pageYOffset
       const middle = absoluteElementTop - window.innerHeight / 2 + elementRect.height / 2
-
       window.scrollTo({
         top: middle,
         behavior: "smooth",
       })
     }
   }
+
+  useEffect(() => {
+    // Load Calendly script
+    const script = document.createElement("script")
+    script.src = "https://assets.calendly.com/assets/external/widget.js"
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     <main className="bg-white">
@@ -298,61 +56,77 @@ export default function Home() {
       <section id="inicio" className="relative overflow-hidden min-h-screen">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/70 via-indigo-50/50 to-transparent"></div>
         <ParticlesBackground />
-
         <div className="relative z-10">
           {/* Navigation */}
-          <div className="container mx-auto px-6 py-6">
+          <div className="container mx-auto px-4 sm:px-6 py-8 max-w-7xl">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex items-center">
-                  <span className="text-4xl font-bold text-blue-700">I</span>
-                  <span className="text-4xl font-bold text-blue-700">A</span>
-                  <span className="text-4xl font-bold text-slate-900">4</span>
+              <div className="flex items-center group">
+                <div className="flex items-center relative">
+                  <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm">
+                    I
+                  </span>
+                  <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm">
+                    A
+                  </span>
+                  <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm">
+                    4
+                  </span>
+                  <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                </div>
+                <div className="ml-3 lg:ml-4">
+                  <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">PYMES</div>
+                  <div className="text-xs text-slate-500">Soluciones IA</div>
                 </div>
               </div>
-              <nav className="hidden md:flex items-center gap-8">
+              <nav className="hidden md:flex items-center gap-4 lg:gap-8">
                 <button
                   onClick={() => scrollToSection("proceso")}
-                  className="text-slate-700 font-medium text-lg hover:text-blue-600 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50/50"
+                  className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                 >
                   Proceso
+                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"></div>
                 </button>
                 <button
                   onClick={() => scrollToSection("casos-exito")}
-                  className="text-slate-700 font-medium text-lg hover:text-blue-600 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50/50"
+                  className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                 >
                   Casos de Éxito
+                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"></div>
                 </button>
                 <button
                   onClick={() => scrollToSection("beneficios")}
-                  className="text-slate-700 font-medium text-lg hover:text-blue-600 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50/50"
+                  className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                 >
                   Por Qué Nosotros
+                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"></div>
                 </button>
                 <button
                   onClick={() => scrollToSection("contacto")}
-                  className="bg-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4"
+                  className="bg-blue-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4 lg:ml-6 text-sm lg:text-base whitespace-nowrap"
                 >
-                  <span className="relative z-10">Agendar Llamada</span>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    Agendar Llamada
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-30 transition-opacity duration-300 animate-pulse"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300 animate-pulse"></div>
                 </button>
               </nav>
             </div>
           </div>
 
           {/* Hero Content */}
-          <div className="container mx-auto px-6 min-h-[calc(100vh-92px)] flex items-center pt-12 pb-16">
-            <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+          <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-92px)] flex items-center pt-12 pb-16 max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
               <div className="flex flex-col justify-center text-center lg:text-left">
-                <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 self-center lg:self-start">
-                  <Zap className="w-4 h-4 mr-2" />
-                  Soluciones IA 100% Personalizadas
+                <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 self-center lg:self-start max-w-fit">
+                  <Zap className="w-4 h-4 mr-2 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Soluciones IA 100% Personalizadas</span>
                 </div>
-                <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow break-words">
                   Automatiza tu PYME con IA
                 </h1>
-                <p className="text-xl lg:text-2xl mb-8 text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                   Reducimos drásticamente el tiempo de tus tareas repetitivas con herramientas de IA diseñadas{" "}
                   <span className="font-bold text-blue-600">específicamente para tu negocio</span>, no soluciones
                   genéricas.
@@ -430,49 +204,275 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="beneficios" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">¿Por Qué Elegir I4PYMES?</h2>
-            <p className="max-w-3xl mx-auto text-xl text-slate-600">
-              No vendemos software genérico. Creamos la herramienta exacta que necesitas.
+      <section id="beneficios" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50/30 overflow-hidden relative">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div
+            className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "2s" }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-400/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "4s" }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+          <div className="text-center mb-20">
+            <div
+              className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-sm animate-bounce"
+              style={{ animationDuration: "3s" }}
+            >
+              <Target className="w-5 h-5 mr-2" />
+              <span>¿Por Qué Somos Diferentes?</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient leading-relaxed py-4">
+              ¿Por Qué Elegir I4PYMES?
+            </h2>
+            <p className="max-w-4xl mx-auto text-xl lg:text-2xl text-slate-600 leading-relaxed">
+              No vendemos software genérico.{" "}
+              <span className="font-bold text-blue-600 relative">
+                Creamos la herramienta exacta que necesitas
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 animate-pulse"></span>
+              </span>
+              , diseñada específicamente para tu negocio y tus procesos únicos.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {[
               {
                 icon: Wrench,
                 title: "100% Personalizado",
                 description: "Cada línea de código diseñada específicamente para tu negocio y procesos únicos",
+                color: "blue",
+                stat: "0%",
+                statLabel: "Código Genérico",
               },
               {
                 icon: Users,
-                title: "Acompañamiento Total",
-                description: "Estamos contigo durante todo el desarrollo hasta que tengas exactamente lo que necesitas",
+                title: "Soporte Completo",
+                description: "Te acompañamos durante todo el desarrollo hasta lograr exactamente lo que necesitas",
+                color: "green",
+                stat: "24/7",
+                statLabel: "Disponibilidad",
               },
               {
                 icon: Timer,
                 title: "Ahorro de Tiempo Real",
                 description: "Nuestras soluciones reducen drásticamente el tiempo de tareas repetitivas",
+                color: "orange",
+                stat: "80%",
+                statLabel: "Tiempo Ahorrado",
               },
               {
                 icon: Target,
                 title: "Enfoque PYME",
                 description: "Entendemos los retos específicos de las pequeñas y medianas empresas",
+                color: "purple",
+                stat: "100%",
+                statLabel: "Enfoque PYME",
               },
             ].map((benefit, index) => {
               const IconComponent = benefit.icon
               return (
+                <div key={index} className="group" style={{ animationDelay: `${index * 200}ms` }}>
+                  {/* Main Card with enhanced effects */}
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border border-gray-100 h-full flex flex-col relative overflow-hidden group-hover:border-gray-200">
+                    {/* Animated gradient border on hover */}
+                    <div
+                      className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r ${
+                        benefit.color === "blue"
+                          ? "from-blue-400/20 via-blue-500/20 to-blue-600/20"
+                          : benefit.color === "green"
+                            ? "from-green-400/20 via-green-500/20 to-green-600/20"
+                            : benefit.color === "orange"
+                              ? "from-orange-400/20 via-orange-500/20 to-orange-600/20"
+                              : "from-purple-400/20 via-purple-500/20 to-purple-600/20"
+                      } animate-gradient`}
+                    ></div>
+
+                    {/* Floating particles effect */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div
+                        className={`w-2 h-2 rounded-full animate-ping ${
+                          benefit.color === "blue"
+                            ? "bg-blue-400"
+                            : benefit.color === "green"
+                              ? "bg-green-400"
+                              : benefit.color === "orange"
+                                ? "bg-orange-400"
+                                : "bg-purple-400"
+                        }`}
+                      ></div>
+                    </div>
+                    <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-700">
+                      <div
+                        className={`w-1.5 h-1.5 rounded-full animate-ping ${
+                          benefit.color === "blue"
+                            ? "bg-blue-300"
+                            : benefit.color === "green"
+                              ? "bg-green-300"
+                              : benefit.color === "orange"
+                                ? "bg-orange-300"
+                                : "bg-purple-300"
+                        }`}
+                        style={{ animationDelay: "0.5s" }}
+                      ></div>
+                    </div>
+
+                    {/* Icon with enhanced animation */}
+                    <div className="mb-6 relative z-10">
+                      <div
+                        className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 ${
+                          benefit.color === "blue"
+                            ? "bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600"
+                            : benefit.color === "green"
+                              ? "bg-gradient-to-br from-green-500 to-green-700 group-hover:from-green-400 group-hover:to-green-600"
+                              : benefit.color === "orange"
+                                ? "bg-gradient-to-br from-orange-500 to-orange-700 group-hover:from-orange-400 group-hover:to-orange-600"
+                                : "bg-gradient-to-br from-purple-500 to-purple-700 group-hover:from-purple-400 group-hover:to-purple-600"
+                        } shadow-lg group-hover:shadow-xl`}
+                      >
+                        <IconComponent className="w-10 h-10 text-white transform group-hover:scale-110 transition-all duration-300" />
+
+                        {/* Pulsing ring effect */}
+                        <div
+                          className={`absolute inset-0 rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${
+                            benefit.color === "blue"
+                              ? "border-blue-300"
+                              : benefit.color === "green"
+                                ? "border-green-300"
+                                : benefit.color === "orange"
+                                  ? "border-orange-300"
+                                  : "border-purple-300"
+                          }`}
+                        ></div>
+                      </div>
+                    </div>
+
+                    {/* Content with enhanced typography */}
+                    <div className="text-center flex-grow relative z-10">
+                      <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-slate-900 transition-colors duration-300">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed mb-6 text-base group-hover:text-gray-700 transition-colors duration-300">
+                        {benefit.description}
+                      </p>
+                    </div>
+
+                    {/* Enhanced Stats Badge */}
+                    <div className="mt-auto text-center relative z-10">
+                      <div
+                        className={`inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${
+                          benefit.color === "blue"
+                            ? "bg-blue-100 text-blue-700 group-hover:bg-blue-200 group-hover:text-blue-800"
+                            : benefit.color === "green"
+                              ? "bg-green-100 text-green-700 group-hover:bg-green-200 group-hover:text-green-800"
+                              : benefit.color === "orange"
+                                ? "bg-orange-100 text-orange-700 group-hover:bg-orange-200 group-hover:text-orange-800"
+                                : "bg-purple-100 text-purple-700 group-hover:bg-purple-200 group-hover:text-purple-800"
+                        }`}
+                      >
+                        <span className="text-lg mr-1 font-extrabold">{benefit.stat}</span>
+                        <span className="text-xs opacity-80">{benefit.statLabel}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Enhanced Bottom CTA */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient"></div>
+              <CheckCircle className="w-6 h-6 mr-3 relative z-10 group-hover:animate-pulse" />
+              <span className="font-semibold text-lg relative z-10">¿Listo para una solución 100% personalizada?</span>
+              <ArrowRight className="w-6 h-6 ml-3 transform group-hover:translate-x-2 transition-transform duration-300 relative z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="proceso" className="py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Nuestro Proceso de Trabajo</h2>
+            <p className="max-w-3xl mx-auto text-xl text-slate-600">
+              Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10 relative">
+            {[
+              {
+                icon: BarChart2,
+                step: 1,
+                title: "Análisis Profundo",
+                description:
+                  "Estudiamos a fondo tus procesos actuales, identificamos exactamente qué necesitas automatizar y cómo debe funcionar tu herramienta ideal.",
+                benefit: "Análisis detallado incluido",
+                color: "blue",
+              },
+              {
+                icon: Code,
+                step: 2,
+                title: "Desarrollo Colaborativo",
+                description:
+                  "Construimos tu solución paso a paso, con tu feedback constante. Cada funcionalidad se ajusta hasta que sea exactamente lo que necesitas.",
+                benefit: "Feedback continuo",
+                color: "orange",
+              },
+              {
+                icon: Settings,
+                step: 3,
+                title: "Entrega y Soporte",
+                description:
+                  "Te entregamos tu herramienta funcionando perfectamente, te enseñamos a usarla y te damos soporte continuo para cualquier ajuste.",
+                benefit: "Soporte incluido",
+                color: "green",
+              },
+            ].map((process, index) => {
+              const IconComponent = process.icon
+              return (
                 <div
                   key={index}
-                  className="text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                  className={`text-center bg-white p-8 rounded-3xl shadow-xl border border-${process.color}-100 hover:transform hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden hover:shadow-${process.color}-500/20 hover:shadow-2xl`}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div
+                    className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
+                  >
+                    <div
+                      className={`absolute inset-0 rounded-3xl border-2 border-${process.color}-400 shadow-[0_0_30px_rgba(${
+                        process.color === "blue"
+                          ? "59,130,246"
+                          : process.color === "orange"
+                            ? "249,115,22"
+                            : "34,197,94"
+                      },0.3)]`}
+                    ></div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <div className="relative z-10">
+                    <div
+                      className={`w-20 h-20 bg-gradient-to-r from-${process.color}-500 to-${process.color}-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <IconComponent className="w-10 h-10 text-white" />
+                    </div>
+                    <div
+                      className={`w-8 h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold`}
+                    >
+                      {process.step}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-slate-800">{process.title}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-6">{process.description}</p>
+                    <div className={`flex items-center justify-center gap-2 text-${process.color}-600 font-semibold`}>
+                      <CheckCircle className="w-5 h-5" />
+                      <span>{process.benefit}</span>
+                    </div>
+                  </div>
                 </div>
               )
             })}
@@ -480,95 +480,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="proceso" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Nuestro Proceso de Trabajo</h2>
-            <p className="max-w-3xl mx-auto text-xl text-slate-600">
-              Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10 relative">
-            <div className="text-center bg-white p-8 rounded-3xl shadow-xl border border-blue-100 hover:transform hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden hover:shadow-blue-500/20 hover:shadow-2xl">
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 rounded-3xl border-2 border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]"></div>
-              </div>
-
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <BarChart2 className="w-10 h-10 text-white" />
-                </div>
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
-                  1
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-800">Análisis Profundo</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Estudiamos a fondo tus procesos actuales, identificamos exactamente qué necesitas automatizar y cómo
-                  debe funcionar tu herramienta ideal.
-                </p>
-                <div className="flex items-center justify-center gap-2 text-blue-600 font-semibold">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Análisis detallado incluido</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center bg-white p-8 rounded-3xl shadow-xl border border-orange-100 hover:transform hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden hover:shadow-orange-500/20 hover:shadow-2xl">
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 rounded-3xl border-2 border-orange-400 shadow-[0_0_30px_rgba(249,115,22,0.3)]"></div>
-              </div>
-
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Code className="w-10 h-10 text-white" />
-                </div>
-                <div className="w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
-                  2
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-800">Desarrollo Colaborativo</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Construimos tu solución paso a paso, con tu feedback constante. Cada funcionalidad se ajusta hasta que
-                  sea exactamente lo que necesitas.
-                </p>
-                <div className="flex items-center justify-center gap-2 text-orange-600 font-semibold">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Feedback continuo</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center bg-white p-8 rounded-3xl shadow-xl border border-green-100 hover:transform hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden hover:shadow-green-500/20 hover:shadow-2xl">
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 rounded-3xl border-2 border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"></div>
-              </div>
-
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-green-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Settings className="w-10 h-10 text-white" />
-                </div>
-                <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
-                  3
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-800">Entrega y Soporte</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Te entregamos tu herramienta funcionando perfectamente, te enseñamos a usarla y te damos soporte
-                  continuo para cualquier ajuste.
-                </p>
-                <div className="flex items-center justify-center gap-2 text-green-600 font-semibold">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Soporte incluido</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Success Cases Section */}
-      <section id="casos-exito" className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-visible">
-        <div className="container mx-auto px-6">
+      <section id="casos-exito" className="py-20 bg-gradient-to-b from-gray-50 to-white relative" style={{ zIndex: 1 }}>
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Casos de Éxito Destacados</h2>
             <p className="max-w-3xl mx-auto text-xl text-slate-600">
@@ -596,137 +510,65 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative max-w-3xl mx-auto">
-            <div className="overflow-visible">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {successCases.map((case_, index) => {
-                  const IconComponent = case_.icon
-
-                  return (
-                    <div key={index} className="w-full flex-shrink-0 px-4">
-                      <div className="flex flex-col p-10 rounded-3xl h-full text-left bg-gradient-to-br from-white via-gray-50 to-white border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-4 cursor-pointer group relative overflow-hidden z-20 hover:z-30">
-                        {/* Always visible colored border overlay */}
-                        <div
-                          className={`absolute inset-0 rounded-3xl border-2 opacity-30 pointer-events-none transition-all duration-300 group-hover:opacity-100 ${
-                            case_.color === "blue"
-                              ? "border-blue-400 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]"
-                              : case_.color === "orange"
-                                ? "border-orange-400 group-hover:shadow-[0_0_40px_rgba(249,115,22,0.4)]"
-                                : case_.color === "green"
-                                  ? "border-green-400 group-hover:shadow-[0_0_40px_rgba(34,197,94,0.4)]"
-                                  : "border-purple-400 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.4)]"
-                          }`}
-                        ></div>
-
-                        <div className="flex justify-between items-start mb-6 relative z-10">
-                          <div>
-                            <h3 className="text-3xl font-bold text-slate-800 mb-2">{case_.title}</h3>
-                            <p className="text-xl font-semibold text-slate-600">{case_.company}</p>
-                          </div>
-                          <div
-                            className={`w-16 h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center shrink-0 shadow-lg transition-all duration-300 group-hover:scale-110 ${
-                              case_.color === "blue"
-                                ? "text-blue-600 bg-blue-500/10 border-blue-500/20"
-                                : case_.color === "orange"
-                                  ? "text-orange-600 bg-orange-500/10 border-orange-500/20"
-                                  : case_.color === "green"
-                                    ? "text-green-600 bg-green-500/10 border-green-500/20"
-                                    : "text-purple-600 bg-purple-500/10 border-purple-500/20"
-                            }`}
-                          >
-                            <IconComponent className="w-8 h-8" />
-                          </div>
-                        </div>
-                        <p className="text-gray-700 leading-relaxed flex-grow mb-8 text-lg relative z-10">
-                          {case_.description}
-                        </p>
-                        <div className="mt-auto pt-8 border-t border-gray-200/80 relative z-10">
-                          <div className="flex items-center gap-3">
-                            <CheckCircle
-                              className={`w-6 h-6 ${
-                                case_.color === "blue"
-                                  ? "text-blue-600"
-                                  : case_.color === "orange"
-                                    ? "text-orange-600"
-                                    : case_.color === "green"
-                                      ? "text-green-600"
-                                      : "text-purple-600"
-                              }`}
-                            />
-                            <p className="text-lg font-semibold text-slate-700">{case_.benefit}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 -translate-y-1/2 left-0 sm:-left-20 z-10 flex items-center justify-center w-14 h-14 bg-white/90 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft className="w-8 h-8 text-blue-600" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 -translate-y-1/2 right-0 sm:-right-20 z-10 flex items-center justify-center w-14 h-14 bg-white/90 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight className="w-8 h-8 text-blue-600" />
-            </button>
-          </div>
+          <SuccessCasesCarousel />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-blue-800 via-blue-700 to-slate-800 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-slate-800 via-blue-800 to-slate-900 relative overflow-hidden">
+        {/* Subtle animated background */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Cpath%20d=%22M10%2010%20L90%2090%20M10%2090%20L90%2010%22%20strokeWidth=%220.5%22%20stroke=%22rgba(255,255,255,0.2)%22%20/%3E%3C/svg%3E')] bg-[length:30px_30px] animate-pulse"></div>
+          <div className="absolute top-20 right-20 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div
+            className="absolute bottom-20 left-20 w-48 h-48 bg-purple-400/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "3s" }}
+          ></div>
         </div>
-        <div className="container mx-auto px-6 py-24 md:py-32 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">¿Listo para Tu Herramienta Personalizada?</h2>
-          <p className="max-w-4xl mx-auto text-xl text-blue-100 mb-12 leading-relaxed">
-            En una llamada de 30 minutos analizamos tus procesos específicos y te explicamos exactamente cómo podemos
-            automatizar las tareas que más tiempo te quitan. Sin compromisos, solo información valiosa.
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <div className="flex items-center text-blue-100">
-              <CheckCircle className="w-6 h-6 text-green-400 mr-3" />
-              <span>Consulta gratuita de 30 min</span>
+        <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center relative z-10 max-w-6xl">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              ¿Listo para Tu Herramienta Personalizada?
+            </h2>
+            <p className="text-lg lg:text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
+              En una llamada de 30 minutos analizamos tus procesos específicos y te explicamos exactamente cómo podemos
+              automatizar las tareas que más tiempo te quitan.
+            </p>
+
+            {/* Compact benefits */}
+            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+              <div className="flex items-center text-blue-200">
+                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                <span>Consulta gratuita de 30 min</span>
+              </div>
+              <div className="flex items-center text-blue-200">
+                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                <span>Análisis de procesos específicos</span>
+              </div>
+              <div className="flex items-center text-blue-200">
+                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                <span>Presupuesto personalizado</span>
+              </div>
             </div>
-            <div className="flex items-center text-blue-100">
-              <CheckCircle className="w-6 h-6 text-green-400 mr-3" />
-              <span>Análisis de tus procesos específicos</span>
-            </div>
-            <div className="flex items-center text-blue-100">
-              <CheckCircle className="w-6 h-6 text-green-400 mr-3" />
-              <span>Presupuesto personalizado</span>
-            </div>
+
+            <button
+              onClick={() => scrollToSection("contacto")}
+              className="inline-flex items-center bg-white text-slate-800 font-bold py-4 px-8 rounded-xl shadow-lg text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <TrendingUp className="w-5 h-5" />
+                Quiero Mi Consulta Gratuita
+                <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
           </div>
-
-          <button
-            onClick={() => scrollToSection("contacto")}
-            className="inline-block bg-white text-blue-800 font-bold py-5 px-12 rounded-xl shadow-2xl text-xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group border-2 border-white hover:border-blue-200"
-          >
-            <span className="relative z-10 flex items-center gap-3">
-              <TrendingUp className="w-6 h-6" />
-              Quiero Mi Consulta Gratuita
-              <ArrowRight className="w-6 h-6 transform transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-300 to-blue-500 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-          </button>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
+      <section id="contacto" className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Agenda tu Consulta Gratuita</h2>
             <p className="max-w-3xl mx-auto text-xl text-slate-600">
@@ -740,7 +582,6 @@ export default function Home() {
               data-url="https://calendly.com/ia4pymes/30min"
               style={{ minWidth: "320px", height: "650px" }}
             ></div>
-            <Script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></Script>
           </div>
           <div className="text-center mt-12">
             <button
@@ -754,8 +595,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white">
-        <div className="container mx-auto px-6 py-20">
+      <footer className="bg-slate-900 text-white overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 py-20 max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
