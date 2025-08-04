@@ -60,7 +60,8 @@
     "vaul": "^0.9.9",
     "zod": "3.25.67",
     "react-markdown": "^8.0.3",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "framer-motion": "^10.12.16"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
