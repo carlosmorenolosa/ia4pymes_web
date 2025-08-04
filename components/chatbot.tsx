@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -85,9 +86,9 @@ export function Chatbot() {
       const scrollContainer = scrollAreaRef.current
       const lastMessageElement = lastMessageRef.current
 
-      // Posiciona el scroll al inicio del último mensaje.
+      // Ajusta la posición del scroll para que el inicio del mensaje sea visible, subiendo 50px.
       scrollContainer.scrollTo({
-        top: lastMessageElement.offsetTop,
+        top: Math.max(0, lastMessageElement.offsetTop - 50),
         behavior: "smooth",
       })
     }
