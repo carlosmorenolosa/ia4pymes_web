@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -26,6 +27,7 @@ export function Chatbot() {
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const lastMessageRef = useRef<HTMLDivElement>(null)
 
   const handleSendMessage = async () => {
     if (!currentInput.trim() || isLoading) return
@@ -80,8 +82,8 @@ export function Chatbot() {
   }
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
     }
   }, [messages, isLoading])
 
@@ -93,13 +95,13 @@ export function Chatbot() {
         </div>
         <div>
           <h3 className="text-xl font-bold text-slate-800">PymerIA</h3>
-          <p className="text-sm text-slate-600">Tu Asistente IA</p>
         </div>
       </div>
       <div ref={scrollAreaRef} className="flex-1 p-4 flex flex-col space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-[#f0f4ff]">
         {messages.map((msg, index) => (
           <motion.div
             key={index}
+            ref={index === messages.length - 1 ? lastMessageRef : null}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -123,6 +125,7 @@ export function Chatbot() {
         ))}
         {isLoading && (
           <motion.div
+            ref={lastMessageRef}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
