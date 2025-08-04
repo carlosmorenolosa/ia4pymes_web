@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -82,20 +83,21 @@ export function Chatbot() {
 
   useEffect(() => {
     if (lastMessageRef.current && scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current;
-      const lastMessageElement = lastMessageRef.current;
-      
-      const topPosition = lastMessageElement.offsetTop;
-      
+      const scrollContainer = scrollAreaRef.current
+      const lastMessageElement = lastMessageRef.current
+
+      // We subtract 40 to leave a small margin at the top
+      const topPosition = lastMessageElement.offsetTop - 40
+
       scrollContainer.scrollTo({
-        top: topPosition,
-        behavior: 'smooth'
-      });
+        top: Math.max(0, topPosition),
+        behavior: "smooth",
+      })
     }
   }, [messages, isLoading])
 
   return (
-    <div className="w-full max-w-lg h-[600px] flex flex-col justify-center p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl">
+    <div className="w-full max-w-xl h-[600px] flex flex-col justify-center p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl">
       <div className="flex items-center mb-6">
         <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4 shrink-0">
           <MessageCircle className="text-white w-7 h-7" />
@@ -140,9 +142,9 @@ export function Chatbot() {
           >
             <div className="flex items-center justify-center space-x-2">
               <span className="text-sm font-medium text-slate-700">PymerIA está pensando</span>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0s" }}></div>
+              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
+              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
             </div>
           </motion.div>
         )}
