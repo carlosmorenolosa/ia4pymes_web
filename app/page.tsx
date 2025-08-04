@@ -740,7 +740,7 @@ export default function Home() {
               data-url="https://calendly.com/ia4pymes/30min"
               style={{ minWidth: "320px", height: "650px" }}
             ></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <Script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></Script>
           </div>
           <div className="text-center mt-12">
             <button
