@@ -171,33 +171,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-center p-4">
-                <div className="w-full max-w-lg h-full flex flex-col justify-center p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl">
-                  <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4 shrink-0">
-                      <MessageCircle className="text-white w-7 h-7" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-800">Asistente IA</h3>
-                      <p className="text-sm text-slate-600">Hecho a medida</p>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-50 p-4 rounded-2xl rounded-bl-sm shadow-sm self-start max-w-sm">
-                      <p className="text-slate-800">¡Hola! 👋 ¿Qué tareas repetitivas te quitan más tiempo cada día?</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-2xl rounded-br-sm shadow-sm self-end max-w-sm ml-auto border border-gray-200">
-                      <p className="text-slate-600">
-                        Generar presupuestos me lleva horas, y responder emails de clientes todo el día...
-                      </p>
-                    </div>
-                    <div className="bg-gradient-to-r from-blue-100 to-blue-50 p-4 rounded-2xl rounded-bl-sm shadow-sm self-start max-w-sm">
-                      <p className="text-slate-800">
-                        Perfecto! Podemos automatizar ambos procesos. Te creo herramientas específicas para tu negocio
-                        🚀
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <Chatbot />
               </div>
             </div>
           </div>
