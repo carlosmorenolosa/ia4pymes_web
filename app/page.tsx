@@ -21,6 +21,7 @@ import {
 import { CustomCursor } from "@/components/custom-cursor"
 import { ParticlesBackground } from "@/components/particles-background"
 import { SuccessCasesCarousel } from "@/components/success-cases-carousel"
+import { Chatbot } from "@/components/chatbot"
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
