@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -82,8 +81,16 @@ export function Chatbot() {
   }
 
   useEffect(() => {
-    if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+    if (lastMessageRef.current && scrollAreaRef.current) {
+      const scrollContainer = scrollAreaRef.current;
+      const lastMessageElement = lastMessageRef.current;
+      
+      const topPosition = lastMessageElement.offsetTop;
+      
+      scrollContainer.scrollTo({
+        top: topPosition,
+        behavior: 'smooth'
+      });
     }
   }, [messages, isLoading])
 
