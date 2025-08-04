@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -86,11 +85,9 @@ export function Chatbot() {
       const scrollContainer = scrollAreaRef.current
       const lastMessageElement = lastMessageRef.current
 
-      // The container has p-4, which is 1rem (16px). We subtract this to leave a margin.
-      const topPosition = lastMessageElement.offsetTop - 16
-
+      // Posiciona el scroll al inicio del último mensaje.
       scrollContainer.scrollTo({
-        top: Math.max(0, topPosition),
+        top: lastMessageElement.offsetTop,
         behavior: "smooth",
       })
     }
