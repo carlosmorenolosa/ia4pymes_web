@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
@@ -26,6 +27,7 @@ export function Chatbot() {
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const lastMessageRef = useRef<HTMLDivElement>(null)
 
   const handleSendMessage = async () => {
     if (!currentInput.trim() || isLoading) return
@@ -80,10 +82,15 @@ export function Chatbot() {
   }
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
+    if (lastMessageRef.current && scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current
+      const lastMessageElement = lastMessageRef.current
+
+      // The container has p-4, which is 1rem (16px). We subtract this to leave a margin.
+      const topPosition = lastMessageElement.offsetTop - 16
+
       scrollContainer.scrollTo({
-        top: scrollContainer.scrollHeight,
+        top: Math.max(0, topPosition),
         behavior: "smooth",
       })
     }
@@ -103,6 +110,7 @@ export function Chatbot() {
         {messages.map((msg, index) => (
           <motion.div
             key={index}
+            ref={index === messages.length - 1 ? lastMessageRef : null}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -126,6 +134,7 @@ export function Chatbot() {
         ))}
         {isLoading && (
           <motion.div
+            ref={lastMessageRef}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
