@@ -8,6 +8,7 @@ export const ParticlesBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
@@ -40,11 +41,9 @@ export const ParticlesBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-
       particles.forEach((particle, i) => {
         particle.x += particle.vx
         particle.y += particle.vy
-
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
 
@@ -58,7 +57,6 @@ export const ParticlesBackground = () => {
           const dx = particle.x - otherParticle.x
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
-
           if (distance < 100) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
@@ -69,7 +67,6 @@ export const ParticlesBackground = () => {
           }
         })
       })
-
       requestAnimationFrame(animate)
     }
 

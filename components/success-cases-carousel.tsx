@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle } from "lucide-react"
 
@@ -50,18 +49,14 @@ const TiltCard = ({ children, className = "" }: { children: React.ReactNode; cla
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
-
     const card = cardRef.current
     const rect = card.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
-
     const centerX = rect.width / 2
     const centerY = rect.height / 2
-
     const rotateX = (y - centerY) / 20 // Reducido de /10 a /20 para ser más sutil
     const rotateY = (centerX - x) / 20 // Reducido de /10 a /20 para ser más sutil
-
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)` // Reducido translateZ de 20px a 10px
   }
 
@@ -148,7 +143,6 @@ export const SuccessCasesCarousel = () => {
                         }`}
                         style={{ zIndex: -1 }}
                       ></div>
-
                       {/* Animated background gradient */}
                       <div
                         className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-all duration-500 ${
@@ -162,7 +156,6 @@ export const SuccessCasesCarousel = () => {
                         }`}
                         style={{ zIndex: -1 }}
                       ></div>
-
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 relative z-10 gap-4">
                         <div className="flex-1 min-w-0">
                           <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2 break-words group-hover:text-slate-900 transition-colors duration-300">
@@ -215,7 +208,6 @@ export const SuccessCasesCarousel = () => {
           })}
         </div>
       </div>
-
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
@@ -231,7 +223,6 @@ export const SuccessCasesCarousel = () => {
       >
         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
       </button>
-
       {/* Dot Navigation */}
       <div className="flex justify-center mt-8 gap-3" style={{ zIndex: 1001 }}>
         {successCases.map((_, index) => (
@@ -244,7 +235,6 @@ export const SuccessCasesCarousel = () => {
           />
         ))}
       </div>
-
       {/* Progress Bar */}
       <div className="mt-6 w-full bg-gray-200 rounded-full h-1 overflow-hidden" style={{ zIndex: 1001 }}>
         <div
@@ -252,7 +242,6 @@ export const SuccessCasesCarousel = () => {
           style={{ width: `${((currentSlide + 1) / successCases.length) * 100}%` }}
         />
       </div>
-
       {/* Case Counter */}
       <div className="text-center mt-4 text-sm text-gray-600" style={{ zIndex: 1001 }}>
         <span className="font-semibold text-blue-600">{currentSlide + 1}</span> de{" "}
