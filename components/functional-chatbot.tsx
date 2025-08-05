@@ -130,8 +130,7 @@ export function FunctionalChatbot() {
           <MessageCircle className="text-white w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
         </div>
         <div>
-          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800">Asistente IA</h3>
-          <p className="text-xs sm:text-sm text-slate-600">Hecho a medida</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800">PymerIA</h3>
         </div>
       </div>
 
