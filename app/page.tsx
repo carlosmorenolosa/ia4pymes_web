@@ -175,7 +175,7 @@ export default function Home() {
 
               {/* Mobile Menu */}
               {mobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl z-50 animate-in slide-in-from-top duration-300">
+                <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl z-[9999] animate-in slide-in-from-top duration-300">
                   <div className="container mx-auto px-4 py-6 space-y-4">
                     <button
                       onClick={() => scrollToSection("proceso")}
