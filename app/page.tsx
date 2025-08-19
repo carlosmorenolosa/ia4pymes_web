@@ -37,6 +37,11 @@ export default function Home() {
       const elementRect = element.getBoundingClientRect()
       const absoluteElementTop = elementRect.top + window.pageYOffset
       const middle = absoluteElementTop - window.innerHeight / 2 + elementRect.height / 2
+      console.log(`Scrolling to ${sectionId}:`)
+      console.log("Element:", element)
+      console.log("elementRect:", elementRect)
+      console.log("absoluteElementTop:", absoluteElementTop)
+      console.log("middle:", middle)
       window.scrollTo({
         top: middle,
         behavior: "smooth",
