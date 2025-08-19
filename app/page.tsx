@@ -534,7 +534,11 @@ export default function Home() {
 
             {/* Enhanced Bottom CTA */}
             <div className="text-center mt-12 sm:mt-16">
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group relative overflow-hidden">
+              <button
+                onClick={() => scrollToSection("contacto")}
+                className="inline-flex items-center bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group relative overflow-hidden"
+                aria-label="Ir a la sección de contacto"
+              >
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient"
                   aria-hidden="true"
@@ -550,7 +554,7 @@ export default function Home() {
                   className="w-5 sm:w-6 h-5 sm:h-6 ml-2 sm:ml-3 transform group-hover:translate-x-2 transition-transform duration-300 relative z-10"
                   aria-hidden="true"
                 />
-              </div>
+              </button>
             </div>
           </div>
         </section>
