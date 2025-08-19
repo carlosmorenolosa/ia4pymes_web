@@ -1,1 +1,1 @@
-Botón de contacto (listo para una solucion 100% personalizada): Revisa y corrige el funcionamiento del segundo botón de esa sección, ya que no está respondiendo. Haz que, al hacer clic, lleve correctamente al formulario de contacto o al sistema de agendar llamada, según corresponda. Verifica que funcione en escritorio y en móvil.
+Cursor que no aparezca en móvil: En la versión móvil de la web, oculta el cursor personalizado para que no aparezca sobre la pantalla táctil. Mantén el cursor en la versión de escritorio sin cambios.
