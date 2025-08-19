@@ -166,7 +166,7 @@ export default function Home() {
                     setMobileMenuOpen(!mobileMenuOpen);
                     console.log("mobileMenuOpen: ", !mobileMenuOpen);
                   }}
-                  className="md:hidden p-2 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors duration-300 z-[10000] relative"
+                  className="md:hidden p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300 z-[10000] relative"
                   aria-label="Abrir menú de navegación"
                 >
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
