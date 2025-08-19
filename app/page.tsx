@@ -87,11 +87,8 @@ export default function Home() {
                     >
                       4
                     </span>
-                    ></div>
                     </div>
-                  </div>
-                  <div
-                  </div>
+                </div>
                   <div className="ml-2 lg:ml-4">
                     <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">
                       PYMES
