@@ -162,7 +162,10 @@ export default function Home() {
 
                 {/* Mobile Menu Button */}
                 <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  onClick={() => {
+                    setMobileMenuOpen(!mobileMenuOpen);
+                    console.log("mobileMenuOpen: ", !mobileMenuOpen);
+                  }}
                   className="md:hidden p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
                   aria-label="Abrir menú de navegación"
                 >
