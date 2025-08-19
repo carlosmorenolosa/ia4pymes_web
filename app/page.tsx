@@ -615,6 +615,7 @@ export default function Home() {
                   color: "green",
                 },
               ].map((process, index) => {
+                console.log(`Process step for index ${index}:`, process.step);
                 const IconComponent = process.icon
                 return (
                   <article
@@ -650,7 +651,7 @@ export default function Home() {
                         <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold`}
+                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-black rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold`}
                         aria-label={`Paso ${process.step}`}
                       >
                         {process.step}
