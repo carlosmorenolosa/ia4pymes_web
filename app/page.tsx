@@ -37,11 +37,6 @@ export default function Home() {
       const elementRect = element.getBoundingClientRect()
       const absoluteElementTop = elementRect.top + window.pageYOffset
       const middle = absoluteElementTop - window.innerHeight / 2 + elementRect.height / 2
-      console.log(`Scrolling to ${sectionId}:`)
-      console.log("Element:", element)
-      console.log("elementRect:", elementRect)
-      console.log("absoluteElementTop:", absoluteElementTop)
-      console.log("middle:", middle)
       window.scrollTo({
         top: middle,
         behavior: "smooth",
@@ -169,7 +164,6 @@ export default function Home() {
                 <button
                   onClick={() => {
                     setMobileMenuOpen(!mobileMenuOpen);
-                    console.log("mobileMenuOpen: ", !mobileMenuOpen);
                   }}
                   className="md:hidden p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300 z-[10000] relative"
                   aria-label="Abrir menú de navegación"
@@ -615,12 +609,11 @@ export default function Home() {
                   color: "green",
                 },
               ].map((process, index) => {
-                console.log(`Process step for index ${index}:`, process.step);
                 const IconComponent = process.icon
                 return (
                   <article
                     key={index}
-                    className={`text-center bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-${process.color}-100 hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 transition-all duration-300 group relative overflow-hidden hover:shadow-${process.color}-500/20 hover:shadow-2xl`}
+                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-${process.color}-100 hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 transition-all duration-500 group relative overflow-hidden hover:shadow-${process.color}-500/20 hover:shadow-2xl`}
                     itemProp="step"
                     itemScope
                     itemType="https://schema.org/HowToStep"
@@ -643,6 +636,36 @@ export default function Home() {
                         },0.3)]`}
                       ></div>
                     </div>
+                    {/* Floating particles effect */}
+                    <div
+                      className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                      aria-hidden="true"
+                    >
+                      <div
+                        className={`w-2 h-2 rounded-full animate-ping ${
+                          process.color === "blue"
+                            ? "bg-blue-400"
+                            : process.color === "orange"
+                              ? "bg-orange-400"
+                              : "bg-green-400"
+                        }`}
+                      ></div>
+                    </div>
+                    <div
+                      className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-700"
+                      aria-hidden="true"
+                    >
+                      <div
+                        className={`w-1.5 h-1.5 rounded-full animate-ping ${
+                          process.color === "blue"
+                            ? "bg-blue-300"
+                            : process.color === "orange"
+                              ? "bg-orange-300"
+                              : "bg-green-300"
+                        }`}
+                        style={{ animationDelay: "0.5s" }}
+                      ></div>
+                    </div>
                     <div className="relative z-10">
                       <div
                         className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-${process.color}-500 to-${process.color}-700 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -651,7 +674,7 @@ export default function Home() {
                         <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-black rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold`}
+                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold`}
                         aria-label={`Paso ${process.step}`}
                       >
                         {process.step}
