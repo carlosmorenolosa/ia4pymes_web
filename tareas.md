@@ -1,1 +1,1 @@
-Cursor que no aparezca en móvil: En la versión móvil de la web, oculta el cursor personalizado para que no aparezca sobre la pantalla táctil. Mantén el cursor en la versión de escritorio sin cambios.
+Cursor que desaparezca en el calendario: Configura el comportamiento del cursor para que se oculte cuando el usuario interactúe con el calendario (selector de fechas) y vuelva a mostrarse cuando salga de esa sección.

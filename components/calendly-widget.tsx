@@ -69,7 +69,11 @@ export function CalendlyWidget() {
   }, [scriptLoaded, isLoading])
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div
+      className="max-w-5xl mx-auto"
+      onMouseEnter={() => document.body.classList.add("calendly-hover")}
+      onMouseLeave={() => document.body.classList.remove("calendly-hover")}
+    >
       <div className="bg-white p-3 sm:p-4 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
         {/* Decorative elements */}
         <div

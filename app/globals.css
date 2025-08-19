@@ -229,3 +229,7 @@ h6 {
   transform: translate(-50%, -50%) scale(0.8);
   background: linear-gradient(45deg, #06b6d4, #0891b2);
 }
+
+body.calendly-hover .custom-cursor {
+  display: none;
+}
