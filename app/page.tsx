@@ -87,10 +87,10 @@ export default function Home() {
                     >
                       4
                     </span>
-                    <div
-                      className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                      aria-hidden="true"
                     ></div>
+                    </div>
+                  </div>
+                  <div
                   </div>
                   <div className="ml-2 lg:ml-4">
                     <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">
