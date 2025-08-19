@@ -111,9 +111,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
 
         {/* Favicon optimizado */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />
 
         {/* Schema.org JSON-LD */}
@@ -126,7 +125,7 @@ export default function RootLayout({
               name: "I4PYMES",
               description: "Soluciones de Inteligencia Artificial personalizadas para PYMES",
               url: "https://ia4pymes.com",
-              logo: "https://ia4pymes.com/logo.png",
+              logo: "/LOGO.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+34-XXX-XXX-XXX",
