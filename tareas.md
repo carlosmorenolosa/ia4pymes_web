@@ -1,1 +1,1 @@
-Cursor que desaparezca en el calendario: Configura el comportamiento del cursor para que se oculte cuando el usuario interactúe con el calendario (selector de fechas) y vuelva a mostrarse cuando salga de esa sección.
+Menú hamburguesa en móvil: En la versión móvil, corrige el botón del menú hamburguesa (las tres barras) para que abra y cierre correctamente el menú de navegación en todos los navegadores móviles.

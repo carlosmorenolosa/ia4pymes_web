@@ -45,17 +45,7 @@ export default function Home() {
     setMobileMenuOpen(false)
   }
 
-  useEffect(() => {
-    // Mobile menu close on scroll
-    const handleScroll = () => {
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [mobileMenuOpen])
+  
 
   return (
     <>
