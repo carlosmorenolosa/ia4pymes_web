@@ -613,7 +613,13 @@ export default function Home() {
                 return (
                   <article
                     key={index}
-                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-${process.color}-100 hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 transition-all duration-500 group relative overflow-hidden hover:shadow-${process.color}-500/20 hover:shadow-2xl`}
+                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${
+                      process.color === "blue"
+                        ? "border-blue-100 hover:shadow-blue-500/20"
+                        : process.color === "orange"
+                        ? "border-orange-100 hover:shadow-orange-500/20"
+                        : "border-green-100 hover:shadow-green-500/20"
+                    }`}
                     itemProp="step"
                     itemScope
                     itemType="https://schema.org/HowToStep"
@@ -682,9 +688,16 @@ export default function Home() {
                                 : "border-green-300"
                           }`}
                         ></div>
+                        ></div>
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10`}
+                        className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${
+                          process.color === "blue"
+                            ? "bg-blue-600"
+                            : process.color === "orange"
+                            ? "bg-orange-600"
+                            : "bg-green-600"
+                        }`}
                         aria-label={`Paso ${process.step}`}
                       >
                         {process.step}
