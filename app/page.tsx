@@ -46,7 +46,6 @@ export default function Home() {
   }
 
   
-
   return (
     <>
       {/* Skip to main content para accesibilidad */}
