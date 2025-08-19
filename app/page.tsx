@@ -668,13 +668,23 @@ export default function Home() {
                     </div>
                     <div className="relative z-10">
                       <div
-                        className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-${process.color}-500 to-${process.color}-700 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-${process.color}-500 to-${process.color}-700 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
                         aria-hidden="true"
                       >
                         <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                        {/* Pulsing ring effect */}
+                        <div
+                          className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${
+                            process.color === "blue"
+                              ? "border-blue-300"
+                              : process.color === "orange"
+                                ? "border-orange-300"
+                                : "border-green-300"
+                          }`}
+                        ></div>
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold`}
+                        className={`w-6 sm:w-8 h-6 sm:h-8 bg-${process.color}-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10`}
                         aria-label={`Paso ${process.step}`}
                       >
                         {process.step}
