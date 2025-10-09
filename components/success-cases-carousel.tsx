@@ -6,6 +6,15 @@ import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, Check
 
 const successCases = [
   {
+    title: "Asociación de Hostelería y Turismo de Navarra",
+    company: "Chatbot IA 24/7",
+    description:
+      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.",
+    icon: MessageCircle,
+    color: "green",
+    benefit: "Atención 24/7 y respuestas instantáneas",
+  },
+  {
     title: "IA Dermatológica",
     company: "Hospital de Toledo",
     description:
