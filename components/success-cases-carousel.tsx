@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
@@ -249,7 +249,8 @@ export const SuccessCasesCarousel = () => {
         <div
           className="bg-gradient-to-r from-blue-500 to-blue-600 h-1 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${((currentSlide + 1) / successCases.length) * 100}%` }}
-        />
+        >
+        </div>
       </div>
       {/* Case Counter */}
       <div className="text-center mt-4 text-sm text-gray-600" style={{ zIndex: 1001 }}>
