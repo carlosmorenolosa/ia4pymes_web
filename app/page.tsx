@@ -684,7 +684,6 @@ export default function Home() {
                                 : "border-green-300"
                           }`}
                         ></div>
-                        ></div>
                       </div>
                       <div
                         className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${
