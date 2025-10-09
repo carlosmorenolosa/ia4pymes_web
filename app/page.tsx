@@ -95,7 +95,6 @@ export default function Home() {
                     </div>
                     <div className="text-xs text-slate-500">Soluciones IA</div>
                   </div>
-                </div>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-4 lg:gap-8" role="menubar">
