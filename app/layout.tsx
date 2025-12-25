@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ia4pymes.com"),
+  metadataBase: new URL("https://ia4pymes.tech"),
   alternates: {
     canonical: "/",
     languages: {
@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     title: "I4PYMES - Automatización con IA para PYMES | Soluciones 100% Personalizadas",
     description:
       "Transformamos tu PYME con IA personalizada. Automatizamos procesos, creamos chatbots y herramientas específicas para tu negocio. 80% menos tiempo en tareas repetitivas.",
-    url: "https://ia4pymes.com",
+    url: "https://ia4pymes.tech",
     siteName: "I4PYMES",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "I4PYMES - Automatización con IA para PYMES",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "I4PYMES - Automatización con IA para PYMES",
     description:
       "Herramientas de IA 100% personalizadas para PYMES. Automatiza procesos, crea chatbots y reduce 80% el tiempo en tareas repetitivas.",
-    images: ["/twitter-image.jpg"],
+    images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
   robots: {
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     // yandex: "tu-codigo-yandex",
     // yahoo: "tu-codigo-yahoo",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -124,7 +124,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "I4PYMES",
               description: "Soluciones de Inteligencia Artificial personalizadas para PYMES",
-              url: "https://ia4pymes.com",
+              url: "https://ia4pymes.tech",
               logo: "/LOGO.png",
               contactPoint: {
                 "@type": "ContactPoint",
@@ -157,7 +157,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "I4PYMES",
               description: "Automatización con IA para PYMES - Soluciones personalizadas",
-              url: "https://ia4pymes.com",
+              url: "https://ia4pymes.tech",
               telephone: "+34-XXX-XXX-XXX",
               email: "contacto@ia4pymes.tech",
               address: {
@@ -187,7 +187,7 @@ export default function RootLayout({
               provider: {
                 "@type": "Organization",
                 name: "I4PYMES",
-                url: "https://ia4pymes.com",
+                url: "https://ia4pymes.tech",
               },
               serviceType: "Automatización empresarial",
               areaServed: "España",
@@ -213,6 +213,51 @@ export default function RootLayout({
                   },
                 ],
               },
+            }),
+          }}
+        />
+
+        {/* FAQPage Schema for Rich Snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "¿Qué es I4PYMES?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "I4PYMES es una empresa especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas personalizadas para cada negocio.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Cuánto cuesta automatizar mi negocio con IA?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "El coste depende del proyecto específico. Ofrecemos una consulta gratuita de 30 minutos para analizar tus necesidades y darte un presupuesto personalizado sin compromiso.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Qué tipo de empresas pueden beneficiarse de vuestros servicios?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Cualquier PYME que quiera reducir tiempo en tareas repetitivas, mejorar la atención al cliente con chatbots, o automatizar procesos internos. Trabajamos con empresas de todos los sectores.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Cuánto tiempo tarda en implementarse una solución de IA?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Depende de la complejidad del proyecto. Un chatbot básico puede estar listo en 2-3 semanas, mientras que proyectos más complejos pueden tardar 1-3 meses. Siempre trabajamos de forma colaborativa contigo.",
+                  },
+                },
+              ],
             }),
           }}
         />
