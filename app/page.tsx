@@ -45,7 +45,7 @@ export default function Home() {
     setMobileMenuOpen(false)
   }
 
-  
+
   return (
     <>
       {/* Skip to main content para accesibilidad */}
@@ -87,14 +87,14 @@ export default function Home() {
                     >
                       4
                     </span>
-                    </div>
-                </div>
-                  <div className="ml-2 lg:ml-4">
-                    <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">
-                      PYMES
-                    </div>
-                    <div className="text-xs text-slate-500">Soluciones IA</div>
                   </div>
+                </div>
+                <div className="ml-2 lg:ml-4">
+                  <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">
+                    PYMES
+                  </div>
+                  <div className="text-xs text-slate-500">Soluciones IA</div>
+                </div>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-4 lg:gap-8" role="menubar">
@@ -218,9 +218,8 @@ export default function Home() {
                     Automatiza tu PYME con IA
                   </h1>
                   <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Reducimos drásticamente el tiempo de tus tareas repetitivas con herramientas de IA diseñadas{" "}
-                    <strong className="font-bold text-blue-600">específicamente para tu negocio</strong>, no soluciones
-                    genéricas.
+                    Automatización empresarial con inteligencia artificial para PYMES en España. Reducimos hasta un 80% el tiempo en tareas repetitivas con{" "}
+                    <strong className="font-bold text-blue-600">chatbots personalizados y herramientas diseñadas específicamente para tu negocio</strong>.
                   </p>
 
                   {/* Stats con schema markup */}
@@ -411,15 +410,14 @@ export default function Home() {
                     <div className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:scale-105 border border-gray-100 h-full flex flex-col relative overflow-hidden group-hover:border-gray-200">
                       {/* Animated gradient border on hover */}
                       <div
-                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r ${
-                          benefit.color === "blue"
+                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r ${benefit.color === "blue"
                             ? "from-blue-400/20 via-blue-500/20 to-blue-600/20"
                             : benefit.color === "green"
                               ? "from-green-400/20 via-green-500/20 to-green-600/20"
                               : benefit.color === "orange"
                                 ? "from-orange-400/20 via-orange-500/20 to-orange-600/20"
                                 : "from-purple-400/20 via-purple-500/20 to-purple-600/20"
-                        } animate-gradient`}
+                          } animate-gradient`}
                         aria-hidden="true"
                       ></div>
 
@@ -429,15 +427,14 @@ export default function Home() {
                         aria-hidden="true"
                       >
                         <div
-                          className={`w-2 h-2 rounded-full animate-ping ${
-                            benefit.color === "blue"
+                          className={`w-2 h-2 rounded-full animate-ping ${benefit.color === "blue"
                               ? "bg-blue-400"
                               : benefit.color === "green"
                                 ? "bg-green-400"
                                 : benefit.color === "orange"
                                   ? "bg-orange-400"
                                   : "bg-purple-400"
-                          }`}
+                            }`}
                         ></div>
                       </div>
                       <div
@@ -445,15 +442,14 @@ export default function Home() {
                         aria-hidden="true"
                       >
                         <div
-                          className={`w-1.5 h-1.5 rounded-full animate-ping ${
-                            benefit.color === "blue"
+                          className={`w-1.5 h-1.5 rounded-full animate-ping ${benefit.color === "blue"
                               ? "bg-blue-300"
                               : benefit.color === "green"
                                 ? "bg-green-300"
                                 : benefit.color === "orange"
                                   ? "bg-orange-300"
                                   : "bg-purple-300"
-                          }`}
+                            }`}
                           style={{ animationDelay: "0.5s" }}
                         ></div>
                       </div>
@@ -461,29 +457,27 @@ export default function Home() {
                       {/* Icon with enhanced animation */}
                       <div className="mb-4 sm:mb-6 relative z-10">
                         <div
-                          className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 ${
-                            benefit.color === "blue"
+                          className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 ${benefit.color === "blue"
                               ? "bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600"
                               : benefit.color === "green"
                                 ? "bg-gradient-to-br from-green-500 to-green-700 group-hover:from-green-400 group-hover:to-green-600"
                                 : benefit.color === "orange"
                                   ? "bg-gradient-to-br from-orange-500 to-orange-700 group-hover:from-orange-400 group-hover:to-orange-600"
                                   : "bg-gradient-to-br from-purple-500 to-purple-700 group-hover:from-purple-400 group-hover:to-purple-600"
-                          } shadow-lg group-hover:shadow-xl`}
+                            } shadow-lg group-hover:shadow-xl`}
                           aria-hidden="true"
                         >
                           <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white transform group-hover:scale-110 transition-all duration-300" />
                           {/* Pulsing ring effect */}
                           <div
-                            className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${
-                              benefit.color === "blue"
+                            className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${benefit.color === "blue"
                                 ? "border-blue-300"
                                 : benefit.color === "green"
                                   ? "border-green-300"
                                   : benefit.color === "orange"
                                     ? "border-orange-300"
                                     : "border-purple-300"
-                            }`}
+                              }`}
                           ></div>
                         </div>
                       </div>
@@ -501,15 +495,14 @@ export default function Home() {
                       {/* Enhanced Stats Badge */}
                       <div className="mt-auto text-center relative z-10">
                         <div
-                          className={`inline-flex items-center justify-center px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${
-                            benefit.color === "blue"
+                          className={`inline-flex items-center justify-center px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${benefit.color === "blue"
                               ? "bg-blue-100 text-blue-700 group-hover:bg-blue-200 group-hover:text-blue-800"
                               : benefit.color === "green"
                                 ? "bg-green-100 text-green-700 group-hover:bg-green-200 group-hover:text-green-800"
                                 : benefit.color === "orange"
                                   ? "bg-orange-100 text-orange-700 group-hover:bg-orange-200 group-hover:text-orange-800"
                                   : "bg-purple-100 text-purple-700 group-hover:bg-purple-200 group-hover:text-purple-800"
-                          }`}
+                            }`}
                         >
                           <span className="text-base sm:text-lg mr-1 font-extrabold">{benefit.stat}</span>
                           <span className="text-xs opacity-80">{benefit.statLabel}</span>
@@ -608,13 +601,12 @@ export default function Home() {
                 return (
                   <article
                     key={index}
-                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${
-                      process.color === "blue"
+                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${process.color === "blue"
                         ? "border-blue-100 hover:shadow-blue-500/20"
                         : process.color === "orange"
-                        ? "border-orange-100 hover:shadow-orange-500/20"
-                        : "border-green-100 hover:shadow-green-500/20"
-                    }`}
+                          ? "border-orange-100 hover:shadow-orange-500/20"
+                          : "border-green-100 hover:shadow-green-500/20"
+                      }`}
                     itemProp="step"
                     itemScope
                     itemType="https://schema.org/HowToStep"
@@ -628,13 +620,12 @@ export default function Home() {
                       aria-hidden="true"
                     >
                       <div
-                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-${process.color}-400 shadow-[0_0_30px_rgba(${
-                          process.color === "blue"
+                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-${process.color}-400 shadow-[0_0_30px_rgba(${process.color === "blue"
                             ? "59,130,246"
                             : process.color === "orange"
                               ? "249,115,22"
                               : "34,197,94"
-                        },0.3)]`}
+                          },0.3)]`}
                       ></div>
                     </div>
                     {/* Floating particles effect */}
@@ -643,13 +634,12 @@ export default function Home() {
                       aria-hidden="true"
                     >
                       <div
-                        className={`w-2 h-2 rounded-full animate-ping ${
-                          process.color === "blue"
+                        className={`w-2 h-2 rounded-full animate-ping ${process.color === "blue"
                             ? "bg-blue-400"
                             : process.color === "orange"
                               ? "bg-orange-400"
                               : "bg-green-400"
-                        }`}
+                          }`}
                       ></div>
                     </div>
                     <div
@@ -657,13 +647,12 @@ export default function Home() {
                       aria-hidden="true"
                     >
                       <div
-                        className={`w-1.5 h-1.5 rounded-full animate-ping ${
-                          process.color === "blue"
+                        className={`w-1.5 h-1.5 rounded-full animate-ping ${process.color === "blue"
                             ? "bg-blue-300"
                             : process.color === "orange"
                               ? "bg-orange-300"
                               : "bg-green-300"
-                        }`}
+                          }`}
                         style={{ animationDelay: "0.5s" }}
                       ></div>
                     </div>
@@ -675,23 +664,21 @@ export default function Home() {
                         <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
                         {/* Pulsing ring effect */}
                         <div
-                          className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${
-                            process.color === "blue"
+                          className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${process.color === "blue"
                               ? "border-blue-300"
                               : process.color === "orange"
                                 ? "border-orange-300"
                                 : "border-green-300"
-                          }`}
+                            }`}
                         ></div>
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${
-                          process.color === "blue"
+                        className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${process.color === "blue"
                             ? "bg-blue-600"
                             : process.color === "orange"
-                            ? "bg-orange-600"
-                            : "bg-green-600"
-                        }`}
+                              ? "bg-orange-600"
+                              : "bg-green-600"
+                          }`}
                         aria-label={`Paso ${process.step}`}
                       >
                         {process.step}

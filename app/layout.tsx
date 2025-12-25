@@ -261,6 +261,49 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Inicio",
+                  item: "https://ia4pymes.tech",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Proceso",
+                  item: "https://ia4pymes.tech/#proceso",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Casos de Éxito",
+                  item: "https://ia4pymes.tech/#casos-exito",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "Beneficios",
+                  item: "https://ia4pymes.tech/#beneficios",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 5,
+                  name: "Contacto",
+                  item: "https://ia4pymes.tech/#contacto",
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>{children}</body>
     </html>

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ia4pymes.com/sitemap.xml
+Sitemap: https://ia4pymes.tech/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
