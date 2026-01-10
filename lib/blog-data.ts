@@ -104,7 +104,7 @@ No te voy a decir que un chatbot te va a cambiar la vida. Pero sí te puede quit
 
 Si quieres ver cómo funcionaría esto en tu negocio específico, escríbenos. No mordemos y tampoco somos de esos que te van a llamar 47 veces después.
 
-**[Reserva una llamada rápida](/contacto)** y lo hablamos sin ñoñerías.
+**[Reserva una llamada rápida](https://calendly.com/ia4pymes/30min)** y lo hablamos sin ñoñerías.
     `.trim(),
     },
 ]
