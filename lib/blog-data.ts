@@ -21,94 +21,90 @@ export const blogPosts: BlogPost[] = [
         category: "Automatización",
         image: "/blog/chatbot-pyme.png",
         content: `
-## El problema: tu cliente no espera
+## Mira, te voy a ser sincero
 
-Imagina esta situación: son las 11 de la noche y un cliente potencial visita tu web. Tiene una duda sobre tu producto, pero no hay nadie para responderle. ¿Qué hace? Se va a la competencia.
+El otro día estaba hablando con un cliente que tiene una tienda de ropa online. Me contaba que perdía ventas porque la gente le escribía a las 10 de la noche preguntando tallas, y claro, él estaba cenando con su familia. Normal, ¿no?
 
-Según estudios recientes, **el 82% de los consumidores espera una respuesta inmediata** cuando contacta con una empresa. Y aquí está el problema: las PYMES no pueden permitirse un equipo de atención al cliente 24/7.
+Pero aquí viene lo interesante: esas ventas se iban a la competencia. Así de simple.
 
-Aquí es donde entra el chatbot.
-
----
-
-## ¿Qué es exactamente un chatbot?
-
-Un chatbot es un programa que simula una conversación humana. Pero ojo, no hablamos de esos bots antiguos que solo respondían "No entiendo tu pregunta". 
-
-Los chatbots modernos con **Inteligencia Artificial**:
-
-- Entienden el contexto de la conversación
-- Aprenden de cada interacción
-- Responden de forma natural y personalizada
-- Se integran con tus sistemas (CRM, inventario, etc.)
+Y no es un caso aislado. Hemos visto esto decenas de veces. La gente quiere respuestas YA. No mañana, no en 2 horas. Ahora.
 
 ---
 
-## 5 beneficios concretos para tu negocio
+## Vale, pero ¿qué es un chatbot exactamente?
 
-### 1. Atención 24/7 sin coste de personal
+Seguramente te imaginas esos bots horribles de hace años que solo sabían decir "No he entendido tu consulta, por favor reformula". Qué desastre, ¿verdad?
 
-Tu chatbot nunca duerme, nunca se pone enfermo y nunca tiene un mal día. Está disponible los 365 días del año, a cualquier hora.
+Bueno, eso ha cambiado bastante. Los chatbots actuales con IA son otra historia:
 
-**Caso real:** Una tienda online implementó un chatbot y redujo las consultas al email en un 60%, mientras aumentaba las ventas nocturnas en un 35%.
+- Pillan el contexto de lo que les dices (si preguntas por un producto y luego dices "¿y en azul?", entienden que sigues hablando del mismo producto)
+- Van aprendiendo con el tiempo
+- Responden como una persona normal, no como un robot
 
-### 2. Respuestas instantáneas = clientes satisfechos
-
-El tiempo medio de respuesta de un chatbot es de **menos de 1 segundo**. Compáralo con los 10 minutos de media que tarda un humano en responder un email.
-
-### 3. Cualificación automática de leads
-
-Tu chatbot puede hacer las preguntas correctas para identificar si un visitante es un cliente potencial real. Cuando lo sea, te lo pasa directamente con toda la información.
-
-### 4. Reducción de costes operativos
-
-Un chatbot puede gestionar **cientos de conversaciones simultáneas**. Esto significa menos personal dedicado a responder las mismas preguntas una y otra vez.
-
-### 5. Datos e insights valiosos
-
-Cada conversación es información. ¿Qué preguntan más tus clientes? ¿Dónde se pierden? ¿Qué productos generan más dudas? El chatbot te lo dice.
+Lo mejor es que se pueden conectar con tu inventario, tu CRM, tu sistema de reservas... Lo que tengas.
 
 ---
 
-## ¿Para qué tipo de negocio funciona?
+## ¿Por qué debería importarme esto?
 
-Los chatbots son especialmente útiles para:
+Mira, no te voy a soltar el rollo típico de "la transformación digital es fundamental para tu negocio". Eso ya lo has oído mil veces.
 
-| Tipo de negocio | Uso principal |
-|-----------------|---------------|
-| **Tiendas online** | Seguimiento de pedidos, recomendaciones, devoluciones |
-| **Clínicas/Consultas** | Reserva de citas, información de servicios |
-| **Inmobiliarias** | Filtrado de propiedades, concertar visitas |
-| **Restaurantes** | Reservas, menú, horarios |
-| **Servicios profesionales** | Presupuestos, cualificación de leads |
+Te cuento casos reales que hemos visto:
 
----
+### Están ahí cuando tú no puedes estar
 
-## ¿Cuánto cuesta implementar un chatbot?
+Un cliente nuestro con una clínica dental nos dijo que el 40% de las citas se pedían fuera de horario. Antes las perdía. Ahora el chatbot las gestiona solito y él se levanta con la agenda llena.
 
-Esta es la pregunta del millón. Y la respuesta es: **depende**.
+### La gente odia esperar
 
-Un chatbot genérico (tipo los que vienen con algunas plataformas) puede ser gratuito o muy barato, pero sus limitaciones son evidentes.
+Esto es así. Si alguien tiene que esperar más de 5 minutos para una respuesta, muchos se van. Con un chatbot, la respuesta es instantánea. Aunque sea un "Ahora mismo te paso con alguien del equipo", al menos sienten que les están atendiendo.
 
-Un **chatbot personalizado** para tu negocio, entrenado con tu información y que realmente entienda tu sector, tiene un coste variable según la complejidad.
+### Te filtra el ruido
 
-En I4PYMES ofrecemos una **consulta gratuita** donde analizamos tu caso específico y te damos un presupuesto sin compromiso.
+¿Cuántas veces te escriben para preguntarte el horario? ¿O dónde estáis? ¿O si aceptáis tarjeta? El chatbot responde eso automáticamente y solo te pasa las consultas que de verdad necesitan tu atención.
 
 ---
 
-## Conclusión: no es el futuro, es el presente
+## ¿Esto sirve para mi tipo de negocio?
 
-Los chatbots ya no son una tecnología experimental. Son una herramienta probada que **miles de PYMES** están usando para competir con empresas más grandes.
+Depende, pero en general funciona bien para:
 
-La pregunta no es si deberías implementar uno, sino **cuándo**.
+| Si tienes... | El chatbot puede... |
+|--------------|---------------------|
+| Una tienda online | Ayudar con pedidos, recomendar productos, gestionar devoluciones |
+| Una clínica o consulta | Agendar citas, responder dudas frecuentes |
+| Una inmobiliaria | Filtrar qué busca cada cliente y agendar visitas |
+| Un restaurante | Tomar reservas, mostrar el menú, dar indicaciones |
+
+Básicamente, si recibes las mismas preguntas una y otra vez, un chatbot te va a quitar mucho trabajo de encima.
 
 ---
 
-## ¿Quieres ver cómo funcionaría en tu negocio?
+## ¿Y cuánto cuesta esto?
 
-En I4PYMES creamos chatbots 100% personalizados para cada cliente. No usamos plantillas genéricas: entrenamos cada bot con la información específica de tu negocio.
+Buena pregunta. Y te voy a dar una respuesta sincera: depende de lo que necesites.
 
-**[Agenda una consulta gratuita](/contacto)** y te mostramos exactamente cómo un chatbot podría transformar tu atención al cliente.
+Hay chatbots gratuitos que vienen con algunas plataformas, pero son bastante limitados. Sirven para cosas muy básicas.
+
+Un chatbot personalizado, entrenado específicamente para tu negocio, con tu tono, tu información y tus productos... eso ya es otro nivel. Y sí, cuesta más, pero los resultados son muy diferentes.
+
+Si te interesa saber qué encajaría mejor en tu caso, podemos hacer una videollamada rápida (sin compromiso, eh) y te cuento opciones concretas.
+
+---
+
+## En resumen
+
+No te voy a decir que un chatbot te va a cambiar la vida. Pero sí te puede quitar un montón de trabajo repetitivo, atender a tus clientes cuando tú no puedes, y evitar que se te escape gente por no responder a tiempo.
+
+¿Que si merece la pena? Pues depende de tu situación. Pero si recibes consultas fuera de horario, o si tu equipo pierde tiempo respondiendo lo mismo todo el rato, probablemente sí.
+
+---
+
+## ¿Te pica la curiosidad?
+
+Si quieres ver cómo funcionaría esto en tu negocio específico, escríbenos. No mordemos y tampoco somos de esos que te van a llamar 47 veces después.
+
+**[Reserva una llamada rápida](/contacto)** y lo hablamos sin ñoñerías.
     `.trim(),
     },
 ]

@@ -253,56 +253,56 @@ body.calendly-hover .custom-cursor {
 
 /* Article content wrapper */
 .blog-article-content {
-  font-size: 1.25rem !important;
-  /* 20px */
-  line-height: 2 !important;
+  font-size: 1.125rem !important;
+  /* 18px */
+  line-height: 1.9 !important;
   color: #334155 !important;
   /* slate-700 */
 }
 
 /* Paragraphs - Large, justified, with spacing */
 .blog-article-content p {
-  font-size: 1.375rem !important;
-  /* 22px */
-  line-height: 2 !important;
+  font-size: 1.125rem !important;
+  /* 18px */
+  line-height: 1.9 !important;
   text-align: justify !important;
   hyphens: auto !important;
-  margin-bottom: 2.5rem !important;
-  /* 40px */
+  margin-bottom: 1.75rem !important;
+  /* 28px */
   color: #334155 !important;
 }
 
 /* H2 - Very large with underline */
 .blog-article-content h2 {
-  font-size: 2.5rem !important;
-  /* 40px */
+  font-size: 1.875rem !important;
+  /* 30px */
   font-weight: 700 !important;
-  margin-top: 5rem !important;
-  /* 80px */
-  margin-bottom: 2rem !important;
-  /* 32px */
-  padding-bottom: 1rem !important;
-  border-bottom: 3px solid #dbeafe !important;
+  margin-top: 3.5rem !important;
+  /* 56px */
+  margin-bottom: 1.5rem !important;
+  /* 24px */
+  padding-bottom: 0.75rem !important;
+  border-bottom: 2px solid #dbeafe !important;
   /* blue-100 */
   color: #0f172a !important;
   /* slate-900 */
   font-family: system-ui, -apple-system, sans-serif !important;
-  line-height: 1.2 !important;
+  line-height: 1.3 !important;
 }
 
 /* H3 - Large with accent color */
 .blog-article-content h3 {
-  font-size: 1.875rem !important;
-  /* 30px */
-  font-weight: 700 !important;
-  margin-top: 4rem !important;
-  /* 64px */
-  margin-bottom: 1.5rem !important;
+  font-size: 1.5rem !important;
   /* 24px */
+  font-weight: 700 !important;
+  margin-top: 2.5rem !important;
+  /* 40px */
+  margin-bottom: 1rem !important;
+  /* 16px */
   color: #1e40af !important;
   /* blue-800 */
   font-family: system-ui, -apple-system, sans-serif !important;
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
 }
 
 /* Lists */
@@ -367,20 +367,20 @@ body.calendly-hover .custom-cursor {
   /* slate-200 */
 }
 
-/* Responsive: Larger on desktop */
+/* Responsive: Slightly larger on desktop */
 @media (min-width: 768px) {
   .blog-article-content p {
-    font-size: 1.5rem !important;
-    /* 24px */
+    font-size: 1.1875rem !important;
+    /* 19px */
   }
 
   .blog-article-content h2 {
-    font-size: 3rem !important;
-    /* 48px */
+    font-size: 2.25rem !important;
+    /* 36px */
   }
 
   .blog-article-content h3 {
-    font-size: 2.25rem !important;
-    /* 36px */
+    font-size: 1.75rem !important;
+    /* 28px */
   }
 }
