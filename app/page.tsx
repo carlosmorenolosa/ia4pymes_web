@@ -134,6 +134,18 @@ export default function Home() {
                       aria-hidden="true"
                     ></div>
                   </button>
+                  <a
+                    href="/blog"
+                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
+                    role="menuitem"
+                    aria-label="Ir al blog"
+                  >
+                    Blog
+                    <div
+                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
+                      aria-hidden="true"
+                    ></div>
+                  </a>
                   <button
                     onClick={() => scrollToSection("contacto")}
                     className="bg-blue-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4 lg:ml-6 text-sm lg:text-base whitespace-nowrap"
@@ -411,12 +423,12 @@ export default function Home() {
                       {/* Animated gradient border on hover */}
                       <div
                         className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r ${benefit.color === "blue"
-                            ? "from-blue-400/20 via-blue-500/20 to-blue-600/20"
-                            : benefit.color === "green"
-                              ? "from-green-400/20 via-green-500/20 to-green-600/20"
-                              : benefit.color === "orange"
-                                ? "from-orange-400/20 via-orange-500/20 to-orange-600/20"
-                                : "from-purple-400/20 via-purple-500/20 to-purple-600/20"
+                          ? "from-blue-400/20 via-blue-500/20 to-blue-600/20"
+                          : benefit.color === "green"
+                            ? "from-green-400/20 via-green-500/20 to-green-600/20"
+                            : benefit.color === "orange"
+                              ? "from-orange-400/20 via-orange-500/20 to-orange-600/20"
+                              : "from-purple-400/20 via-purple-500/20 to-purple-600/20"
                           } animate-gradient`}
                         aria-hidden="true"
                       ></div>
@@ -428,12 +440,12 @@ export default function Home() {
                       >
                         <div
                           className={`w-2 h-2 rounded-full animate-ping ${benefit.color === "blue"
-                              ? "bg-blue-400"
-                              : benefit.color === "green"
-                                ? "bg-green-400"
-                                : benefit.color === "orange"
-                                  ? "bg-orange-400"
-                                  : "bg-purple-400"
+                            ? "bg-blue-400"
+                            : benefit.color === "green"
+                              ? "bg-green-400"
+                              : benefit.color === "orange"
+                                ? "bg-orange-400"
+                                : "bg-purple-400"
                             }`}
                         ></div>
                       </div>
@@ -443,12 +455,12 @@ export default function Home() {
                       >
                         <div
                           className={`w-1.5 h-1.5 rounded-full animate-ping ${benefit.color === "blue"
-                              ? "bg-blue-300"
-                              : benefit.color === "green"
-                                ? "bg-green-300"
-                                : benefit.color === "orange"
-                                  ? "bg-orange-300"
-                                  : "bg-purple-300"
+                            ? "bg-blue-300"
+                            : benefit.color === "green"
+                              ? "bg-green-300"
+                              : benefit.color === "orange"
+                                ? "bg-orange-300"
+                                : "bg-purple-300"
                             }`}
                           style={{ animationDelay: "0.5s" }}
                         ></div>
@@ -458,12 +470,12 @@ export default function Home() {
                       <div className="mb-4 sm:mb-6 relative z-10">
                         <div
                           className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 ${benefit.color === "blue"
-                              ? "bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600"
-                              : benefit.color === "green"
-                                ? "bg-gradient-to-br from-green-500 to-green-700 group-hover:from-green-400 group-hover:to-green-600"
-                                : benefit.color === "orange"
-                                  ? "bg-gradient-to-br from-orange-500 to-orange-700 group-hover:from-orange-400 group-hover:to-orange-600"
-                                  : "bg-gradient-to-br from-purple-500 to-purple-700 group-hover:from-purple-400 group-hover:to-purple-600"
+                            ? "bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600"
+                            : benefit.color === "green"
+                              ? "bg-gradient-to-br from-green-500 to-green-700 group-hover:from-green-400 group-hover:to-green-600"
+                              : benefit.color === "orange"
+                                ? "bg-gradient-to-br from-orange-500 to-orange-700 group-hover:from-orange-400 group-hover:to-orange-600"
+                                : "bg-gradient-to-br from-purple-500 to-purple-700 group-hover:from-purple-400 group-hover:to-purple-600"
                             } shadow-lg group-hover:shadow-xl`}
                           aria-hidden="true"
                         >
@@ -471,12 +483,12 @@ export default function Home() {
                           {/* Pulsing ring effect */}
                           <div
                             className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${benefit.color === "blue"
-                                ? "border-blue-300"
-                                : benefit.color === "green"
-                                  ? "border-green-300"
-                                  : benefit.color === "orange"
-                                    ? "border-orange-300"
-                                    : "border-purple-300"
+                              ? "border-blue-300"
+                              : benefit.color === "green"
+                                ? "border-green-300"
+                                : benefit.color === "orange"
+                                  ? "border-orange-300"
+                                  : "border-purple-300"
                               }`}
                           ></div>
                         </div>
@@ -496,12 +508,12 @@ export default function Home() {
                       <div className="mt-auto text-center relative z-10">
                         <div
                           className={`inline-flex items-center justify-center px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${benefit.color === "blue"
-                              ? "bg-blue-100 text-blue-700 group-hover:bg-blue-200 group-hover:text-blue-800"
-                              : benefit.color === "green"
-                                ? "bg-green-100 text-green-700 group-hover:bg-green-200 group-hover:text-green-800"
-                                : benefit.color === "orange"
-                                  ? "bg-orange-100 text-orange-700 group-hover:bg-orange-200 group-hover:text-orange-800"
-                                  : "bg-purple-100 text-purple-700 group-hover:bg-purple-200 group-hover:text-purple-800"
+                            ? "bg-blue-100 text-blue-700 group-hover:bg-blue-200 group-hover:text-blue-800"
+                            : benefit.color === "green"
+                              ? "bg-green-100 text-green-700 group-hover:bg-green-200 group-hover:text-green-800"
+                              : benefit.color === "orange"
+                                ? "bg-orange-100 text-orange-700 group-hover:bg-orange-200 group-hover:text-orange-800"
+                                : "bg-purple-100 text-purple-700 group-hover:bg-purple-200 group-hover:text-purple-800"
                             }`}
                         >
                           <span className="text-base sm:text-lg mr-1 font-extrabold">{benefit.stat}</span>
@@ -602,10 +614,10 @@ export default function Home() {
                   <article
                     key={index}
                     className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${process.color === "blue"
-                        ? "border-blue-100 hover:shadow-blue-500/20"
-                        : process.color === "orange"
-                          ? "border-orange-100 hover:shadow-orange-500/20"
-                          : "border-green-100 hover:shadow-green-500/20"
+                      ? "border-blue-100 hover:shadow-blue-500/20"
+                      : process.color === "orange"
+                        ? "border-orange-100 hover:shadow-orange-500/20"
+                        : "border-green-100 hover:shadow-green-500/20"
                       }`}
                     itemProp="step"
                     itemScope
@@ -621,10 +633,10 @@ export default function Home() {
                     >
                       <div
                         className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-${process.color}-400 shadow-[0_0_30px_rgba(${process.color === "blue"
-                            ? "59,130,246"
-                            : process.color === "orange"
-                              ? "249,115,22"
-                              : "34,197,94"
+                          ? "59,130,246"
+                          : process.color === "orange"
+                            ? "249,115,22"
+                            : "34,197,94"
                           },0.3)]`}
                       ></div>
                     </div>
@@ -635,10 +647,10 @@ export default function Home() {
                     >
                       <div
                         className={`w-2 h-2 rounded-full animate-ping ${process.color === "blue"
-                            ? "bg-blue-400"
-                            : process.color === "orange"
-                              ? "bg-orange-400"
-                              : "bg-green-400"
+                          ? "bg-blue-400"
+                          : process.color === "orange"
+                            ? "bg-orange-400"
+                            : "bg-green-400"
                           }`}
                       ></div>
                     </div>
@@ -648,10 +660,10 @@ export default function Home() {
                     >
                       <div
                         className={`w-1.5 h-1.5 rounded-full animate-ping ${process.color === "blue"
-                            ? "bg-blue-300"
-                            : process.color === "orange"
-                              ? "bg-orange-300"
-                              : "bg-green-300"
+                          ? "bg-blue-300"
+                          : process.color === "orange"
+                            ? "bg-orange-300"
+                            : "bg-green-300"
                           }`}
                         style={{ animationDelay: "0.5s" }}
                       ></div>
@@ -665,19 +677,19 @@ export default function Home() {
                         {/* Pulsing ring effect */}
                         <div
                           className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${process.color === "blue"
-                              ? "border-blue-300"
-                              : process.color === "orange"
-                                ? "border-orange-300"
-                                : "border-green-300"
+                            ? "border-blue-300"
+                            : process.color === "orange"
+                              ? "border-orange-300"
+                              : "border-green-300"
                             }`}
                         ></div>
                       </div>
                       <div
                         className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${process.color === "blue"
-                            ? "bg-blue-600"
-                            : process.color === "orange"
-                              ? "bg-orange-600"
-                              : "bg-green-600"
+                          ? "bg-blue-600"
+                          : process.color === "orange"
+                            ? "bg-orange-600"
+                            : "bg-green-600"
                           }`}
                         aria-label={`Paso ${process.step}`}
                       >
