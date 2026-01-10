@@ -107,6 +107,108 @@ Si quieres ver cómo funcionaría esto en tu negocio específico, escríbenos. N
 **[Reserva una llamada rápida](https://calendly.com/ia4pymes/30min)** y lo hablamos sin ñoñerías.
     `.trim(),
     },
+    {
+        slug: "automatizar-tareas-repetitivas-guia-pymes",
+        title: "Automatizar tareas repetitivas: guía práctica para PYMES",
+        description: "Descubre qué tareas de tu negocio puedes automatizar hoy mismo, cuánto tiempo puedes ahorrar y por dónde empezar sin liarte.",
+        date: "2026-01-10",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Automatización",
+        image: "/blog/automatizacion-tareas.png",
+        content: `
+## Vamos al grano
+
+¿Cuántas horas a la semana pierdes haciendo cosas que podrían hacerse solas? No me refiero a cosas complicadas. Hablo de copiar datos de un sitio a otro, enviar el mismo email 50 veces, o actualizar el stock manualmente.
+
+La mayoría de PYMES con las que hablamos pierden entre 10 y 20 horas semanales en tareas repetitivas. Eso son más de 40 horas al mes. Un empleado a tiempo parcial, básicamente.
+
+Y lo peor: muchas de estas tareas se pueden automatizar en cuestión de días.
+
+---
+
+## ¿Qué se puede automatizar exactamente?
+
+Te pongo ejemplos concretos que hemos implementado en negocios reales:
+
+### Emails automáticos (pero que no parezcan robots)
+
+Un cliente nuestro con una academia de formación mandaba emails de confirmación a mano. Cada vez que alguien se apuntaba a un curso, tocaba escribir el email, adjuntar el PDF con la info, y darle a enviar.
+
+Ahora eso va solo. El alumno se apunta, recibe el email con toda la info personalizada (su nombre, el curso, las fechas, el link de acceso), y el dueño ni se entera hasta que revisa los informes.
+
+### Actualización de inventario
+
+Si vendes en varios canales (web + tienda física, o web + Amazon), sabes el follón que es mantener el stock actualizado. Vendes algo en la tienda y tienes que correr a quitarlo de la web.
+
+Hay formas de que eso se sincronice automáticamente. Sin errores humanos, sin "ups, lo vendí dos veces".
+
+### Respuestas a preguntas frecuentes
+
+Esto conecta con el tema de los chatbots, pero va más allá. Puedes montar sistemas que detecten preguntas tipo en tus emails y sugieran (o envíen directamente) respuestas predefinidas.
+
+### Generación de facturas y albaranes
+
+Si todavía estás haciendo facturas a mano en Word o Excel... bueno, no te voy a juzgar, pero hay vida más allá. Sistemas que generan la factura automáticamente cuando se cierra una venta, la envían al cliente y la guardan organizada.
+
+### Recordatorios y seguimientos
+
+Ese cliente que te pidió presupuesto hace dos semanas y no contestó. ¿Le has escrito? Probablemente no, porque se te olvidó.
+
+Un sistema automatizado puede enviar un recordatorio amable a los X días, y otro a los X+7, sin que tengas que acordarte de nada.
+
+---
+
+## "Vale, suena bien, pero ¿cuánto tiempo ahorro realmente?"
+
+Depende de tu negocio, obviamente. Pero te doy referencias reales:
+
+| Tarea | Tiempo manual | Tiempo automatizado | Ahorro |
+|-------|---------------|---------------------|--------|
+| Emails de confirmación (100/mes) | ~8 horas | 0 horas | 8h/mes |
+| Actualización de stock | ~5 horas/semana | ~30 min revisión | 18h/mes |
+| Responder FAQs | ~10 horas/semana | ~2 horas | 32h/mes |
+| Generación de facturas | ~4 horas/semana | 0 horas | 16h/mes |
+
+¿Ves por dónde voy? Estamos hablando de recuperar días enteros cada mes. Días que puedes dedicar a vender, a pensar estrategia, o simplemente a no quemarte.
+
+---
+
+## Por dónde empezar (sin volverte loco)
+
+El error típico es querer automatizarlo todo de golpe. No hagas eso. Empieza por lo que más duele:
+
+1. **Identifica la tarea que más odias** (o la que más tiempo te quita)
+2. **Pregúntate: ¿esto sigue un patrón?** Si siempre haces los mismos pasos, probablemente se puede automatizar
+3. **Empieza pequeño** - Una sola automatización bien hecha vale más que 10 a medias
+
+Y un consejo: no necesitas ser técnico para esto. Hay herramientas que conectan cosas sin tocar código, y para lo más específico, ahí entramos nosotros.
+
+---
+
+## Lo que no te cuentan
+
+Automatizar no es magia. Hay cosas importantes que debes saber:
+
+- **Requiere configuración inicial**: No es "click y ya funciona". Hay que pensar bien qué quieres que haga y cómo.
+- **A veces falla**: Como todo. Pero un buen sistema te avisa cuando algo no va bien.
+- **No sustituye el criterio humano**: Automatizas lo repetitivo, no las decisiones importantes.
+
+Dicho esto, una vez que lo tienes montado, funciona. Y funciona mientras tú duermes, mientras estás de vacaciones, mientras cenas con tu familia.
+
+---
+
+## ¿Te suena esto?
+
+Si has llegado hasta aquí, probablemente estés pensando "sí, yo pierdo tiempo en esto". Normal. Le pasa al 90% de las PYMES que conocemos.
+
+La diferencia está en quién decide hacer algo al respecto.
+
+Si quieres que echemos un vistazo a tu caso concreto y te digamos qué podrías automatizar (y qué no merece la pena), escríbenos. Es gratis y sin compromiso.
+
+**[Hablamos cuando quieras](https://calendly.com/ia4pymes/30min)** - Prometemos no intentar venderte cosas que no necesitas.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
