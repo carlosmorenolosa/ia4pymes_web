@@ -200,6 +200,12 @@ export default function Home() {
                     >
                       Por Qué Nosotros
                     </button>
+                    <a
+                      href="/blog"
+                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
+                    >
+                      Blog
+                    </a>
                     <button
                       onClick={() => scrollToSection("contacto")}
                       className="block w-full bg-blue-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
