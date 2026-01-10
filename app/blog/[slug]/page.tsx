@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
-import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Sparkles, BookOpen } from "lucide-react"
+import { Calendar, Clock, ArrowLeft, User, ArrowRight, Sparkles, BookOpen } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
             />
 
-            <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-slate-50">
                 {/* Hero Header with Image */}
                 <header className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
                     {/* Background Image */}
@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                                 src={post.image}
                                 alt={post.title}
                                 fill
-                                className="object-cover opacity-20"
+                                className="object-cover opacity-15"
                                 priority
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent" />
@@ -184,117 +184,84 @@ export default async function BlogPostPage({ params }: PageProps) {
 
                 {/* Content */}
                 <article className="py-12 sm:py-16 lg:py-20">
-                    <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-                        {/* Article content with enhanced styling */}
-                        <div
-                            className="
-                prose prose-lg prose-slate max-w-none
-                prose-headings:font-bold prose-headings:text-slate-900
-                prose-h2:text-2xl prose-h2:sm:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-slate-200
-                prose-h3:text-xl prose-h3:sm:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-blue-800
-                prose-p:text-slate-600 prose-p:leading-relaxed prose-p:text-lg
-                prose-a:text-blue-600 prose-a:font-semibold prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-blue-800
-                prose-strong:text-slate-800 prose-strong:font-bold
-                prose-ul:text-slate-600 prose-ul:text-lg prose-ul:my-6
-                prose-ol:text-slate-600 prose-ol:text-lg prose-ol:my-6
-                prose-li:my-2 prose-li:marker:text-blue-500
-                prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:italic prose-blockquote:text-slate-700
-                prose-hr:my-12 prose-hr:border-slate-200
-              "
-                        >
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={{
-                                    table: ({ children }) => (
-                                        <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-                                            <table className="w-full text-left border-collapse">
-                                                {children}
-                                            </table>
-                                        </div>
-                                    ),
-                                    thead: ({ children }) => (
-                                        <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                                            {children}
-                                        </thead>
-                                    ),
-                                    th: ({ children }) => (
-                                        <th className="px-6 py-4 font-bold text-sm uppercase tracking-wide border-b border-blue-500">
-                                            {children}
-                                        </th>
-                                    ),
-                                    td: ({ children }) => (
-                                        <td className="px-6 py-4 border-b border-slate-100 text-slate-600">
-                                            {children}
-                                        </td>
-                                    ),
-                                    tr: ({ children }) => (
-                                        <tr className="hover:bg-slate-50 transition-colors">
-                                            {children}
-                                        </tr>
-                                    ),
-                                }}
+                    <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+                        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 sm:p-12 lg:p-16">
+                            {/* Article content with professional typography */}
+                            <div
+                                className="
+                  prose prose-xl max-w-none
+                  prose-headings:font-bold prose-headings:text-slate-900 prose-headings:font-[system-ui]
+                  prose-h2:text-3xl prose-h2:sm:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-blue-100
+                  prose-h3:text-2xl prose-h3:sm:text-3xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-blue-900
+                  prose-p:text-slate-700 prose-p:leading-loose prose-p:text-xl prose-p:text-justify prose-p:mb-8
+                  prose-a:text-blue-600 prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-blue-800
+                  prose-strong:text-slate-900 prose-strong:font-bold
+                  prose-ul:text-slate-700 prose-ul:text-xl prose-ul:my-8 prose-ul:leading-loose
+                  prose-ol:text-slate-700 prose-ol:text-xl prose-ol:my-8 prose-ol:leading-loose
+                  prose-li:my-3 prose-li:marker:text-blue-500 prose-li:pl-2
+                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-gradient-to-r prose-blockquote:from-blue-50 prose-blockquote:to-transparent prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-slate-700 prose-blockquote:text-xl prose-blockquote:my-10
+                  prose-hr:my-16 prose-hr:border-slate-200
+                "
                             >
-                                {post.content}
-                            </ReactMarkdown>
-                        </div>
-
-                        {/* Share Section */}
-                        <div className="mt-16 pt-8 border-t-2 border-slate-100">
-                            <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-6 sm:p-8">
-                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                                            <Share2 className="w-6 h-6 text-blue-600" />
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-slate-800">¿Te ha sido útil?</p>
-                                            <p className="text-slate-500 text-sm">Compártelo con otros empresarios</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-3">
-                                        <a
-                                            href={`https://www.linkedin.com/sharing/share-offsite/?url=https://ia4pymes.tech/blog/${post.slug}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-5 py-2.5 bg-[#0077B5] text-white rounded-xl text-sm font-bold hover:bg-[#006399] transition-colors shadow-lg cursor-pointer"
-                                        >
-                                            LinkedIn
-                                        </a>
-                                        <a
-                                            href={`https://twitter.com/intent/tweet?url=https://ia4pymes.tech/blog/${post.slug}&text=${encodeURIComponent(post.title)}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-5 py-2.5 bg-black text-white rounded-xl text-sm font-bold hover:bg-slate-800 transition-colors shadow-lg cursor-pointer"
-                                        >
-                                            X (Twitter)
-                                        </a>
-                                    </div>
-                                </div>
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={{
+                                        table: ({ children }) => (
+                                            <div className="my-12 overflow-x-auto rounded-2xl border-2 border-slate-200 shadow-lg">
+                                                <table className="w-full text-left border-collapse text-lg">
+                                                    {children}
+                                                </table>
+                                            </div>
+                                        ),
+                                        thead: ({ children }) => (
+                                            <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                                                {children}
+                                            </thead>
+                                        ),
+                                        th: ({ children }) => (
+                                            <th className="px-8 py-5 font-bold text-base uppercase tracking-wide border-b border-blue-500">
+                                                {children}
+                                            </th>
+                                        ),
+                                        td: ({ children }) => (
+                                            <td className="px-8 py-5 border-b border-slate-100 text-slate-700 text-lg">
+                                                {children}
+                                            </td>
+                                        ),
+                                        tr: ({ children }) => (
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                {children}
+                                            </tr>
+                                        ),
+                                    }}
+                                >
+                                    {post.content}
+                                </ReactMarkdown>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 {/* CTA Section */}
-                <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+                <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
                     <div className="absolute inset-0 overflow-hidden">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/20 rounded-full blur-3xl" />
                     </div>
 
                     <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
                             <Sparkles className="w-4 h-4 text-amber-400" />
                             Consulta sin compromiso
                         </div>
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
                             ¿Quieres implementar esto en tu negocio?
                         </h2>
-                        <p className="text-xl text-blue-200 mb-10 leading-relaxed">
-                            Te ayudamos a automatizar tu PYME con soluciones de IA 100% personalizadas. Sin plantillas genéricas.
+                        <p className="text-xl sm:text-2xl text-blue-200 mb-12 leading-relaxed">
+                            Te ayudamos a automatizar tu PYME con soluciones de IA 100% personalizadas.
                         </p>
                         <Link
                             href="/#contacto"
-                            className="inline-flex items-center gap-3 bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl cursor-pointer"
+                            className="inline-flex items-center gap-3 bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl cursor-pointer"
                         >
                             Agendar Consulta Gratuita
                             <ArrowRight className="w-6 h-6" />

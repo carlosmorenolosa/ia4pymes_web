@@ -186,10 +186,11 @@ h6 {
   font-family: var(--font-poppins);
 }
 
-/* Custom Cursor - Versión simplificada y más fluida */
-* {
+/* Custom Cursor - Solo se activa cuando el componente CustomCursor está presente */
+.has-custom-cursor * {
   cursor: none !important;
 }
+
 
 .custom-cursor {
   position: fixed;

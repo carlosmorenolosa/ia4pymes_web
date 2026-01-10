@@ -9,6 +9,10 @@ export const CustomCursor = () => {
     const cursor = cursorRef.current
     if (!cursor) return
 
+    // Add class to body to hide default cursor only when custom cursor is active
+    document.body.classList.add("has-custom-cursor")
+
+
     const moveCursor = (e: MouseEvent) => {
       if (cursor) {
         cursor.style.left = e.clientX + "px"
@@ -46,6 +50,7 @@ export const CustomCursor = () => {
 
     // Cleanup
     return () => {
+      document.body.classList.remove("has-custom-cursor")
       document.removeEventListener("mousemove", moveCursor)
       document.removeEventListener("mousedown", handleMouseDown)
       document.removeEventListener("mouseup", handleMouseUp)
