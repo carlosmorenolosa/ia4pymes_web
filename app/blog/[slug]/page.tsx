@@ -187,104 +187,105 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                         <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 sm:p-12 lg:p-16">
                             {/* Article content with professional typography */}
-                            className="
-                            prose prose-lg sm:prose-xl lg:prose-2xl max-w-none
-                            prose-headings:font-bold prose-headings:text-slate-900 prose-headings:font-[system-ui]
-                            prose-h1:text-4xl prose-h1:sm:text-5xl prose-h1:lg:text-6xl prose-h1:mb-12
-                            prose-h2:text-3xl prose-h2:sm:text-4xl prose-h2:lg:text-5xl prose-h2:mt-20 prose-h2:mb-10 prose-h2:pb-6 prose-h2:border-b-2 prose-h2:border-blue-100
-                            prose-h3:text-2xl prose-h3:sm:text-3xl prose-h3:lg:text-4xl prose-h3:mt-16 prose-h3:mb-8 prose-h3:text-blue-900
-                            prose-p:text-slate-700 prose-p:leading-relaxed prose-p:text-xl prose-p:sm:text-2xl prose-p:text-justify prose-p:mb-10
-                            prose-a:text-blue-600 prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-blue-800
-                            prose-strong:text-slate-900 prose-strong:font-bold
-                            prose-ul:text-slate-700 prose-ul:text-xl prose-ul:sm:text-2xl prose-ul:my-10 prose-ul:leading-relaxed
-                            prose-ol:text-slate-700 prose-ol:text-xl prose-ol:sm:text-2xl prose-ol:my-10 prose-ol:leading-relaxed
-                            prose-li:my-4 prose-li:marker:text-blue-500 prose-li:pl-2
-                            prose-blockquote:border-l-8 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50/50 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-slate-800 prose-blockquote:text-xl prose-blockquote:sm:text-2xl prose-blockquote:my-16 prose-blockquote:font-serif
-                            prose-hr:my-20 prose-hr:border-slate-200
-                  [&>p]:text-justify
-                            "
+                            <div
+                                className="
+                                    prose prose-lg sm:prose-xl lg:prose-2xl max-w-none
+                                    prose-headings:font-bold prose-headings:text-slate-900 prose-headings:font-[system-ui]
+                                    prose-h1:text-4xl prose-h1:sm:text-5xl prose-h1:lg:text-6xl prose-h1:mb-12
+                                    prose-h2:text-3xl prose-h2:sm:text-4xl prose-h2:lg:text-5xl prose-h2:mt-20 prose-h2:mb-10 prose-h2:pb-6 prose-h2:border-b-2 prose-h2:border-blue-100
+                                    prose-h3:text-2xl prose-h3:sm:text-3xl prose-h3:lg:text-4xl prose-h3:mt-16 prose-h3:mb-8 prose-h3:text-blue-900
+                                    prose-p:text-slate-700 prose-p:leading-relaxed prose-p:text-xl prose-p:sm:text-2xl prose-p:text-justify prose-p:mb-10
+                                    prose-a:text-blue-600 prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-blue-800
+                                    prose-strong:text-slate-900 prose-strong:font-bold
+                                    prose-ul:text-slate-700 prose-ul:text-xl prose-ul:sm:text-2xl prose-ul:my-10 prose-ul:leading-relaxed
+                                    prose-ol:text-slate-700 prose-ol:text-xl prose-ol:sm:text-2xl prose-ol:my-10 prose-ol:leading-relaxed
+                                    prose-li:my-4 prose-li:marker:text-blue-500 prose-li:pl-2
+                                    prose-blockquote:border-l-8 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50/50 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-slate-800 prose-blockquote:text-xl prose-blockquote:sm:text-2xl prose-blockquote:my-16 prose-blockquote:font-serif
+                                    prose-hr:my-20 prose-hr:border-slate-200
+                                    [&>p]:text-justify
+                                "
                             >
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={{
-                                    table: ({ children }) => (
-                                        <div className="my-12 overflow-x-auto rounded-2xl border-2 border-slate-200 shadow-lg">
-                                            <table className="w-full text-left border-collapse text-lg">
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={{
+                                        table: ({ children }) => (
+                                            <div className="my-12 overflow-x-auto rounded-2xl border-2 border-slate-200 shadow-lg">
+                                                <table className="w-full text-left border-collapse text-lg">
+                                                    {children}
+                                                </table>
+                                            </div>
+                                        ),
+                                        thead: ({ children }) => (
+                                            <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                                                 {children}
-                                            </table>
-                                        </div>
-                                    ),
-                                    thead: ({ children }) => (
-                                        <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                                            {children}
-                                        </thead>
-                                    ),
-                                    th: ({ children }) => (
-                                        <th className="px-8 py-5 font-bold text-base uppercase tracking-wide border-b border-blue-500">
-                                            {children}
-                                        </th>
-                                    ),
-                                    td: ({ children }) => (
-                                        <td className="px-8 py-5 border-b border-slate-100 text-slate-700 text-lg">
-                                            {children}
-                                        </td>
-                                    ),
-                                    tr: ({ children }) => (
-                                        <tr className="hover:bg-slate-50 transition-colors">
-                                            {children}
-                                        </tr>
-                                    ),
-                                }}
-                            >
-                                {post.content}
-                            </ReactMarkdown>
+                                            </thead>
+                                        ),
+                                        th: ({ children }) => (
+                                            <th className="px-8 py-5 font-bold text-base uppercase tracking-wide border-b border-blue-500">
+                                                {children}
+                                            </th>
+                                        ),
+                                        td: ({ children }) => (
+                                            <td className="px-8 py-5 border-b border-slate-100 text-slate-700 text-lg">
+                                                {children}
+                                            </td>
+                                        ),
+                                        tr: ({ children }) => (
+                                            <tr className="hover:bg-slate-50 transition-colors">
+                                                {children}
+                                            </tr>
+                                        ),
+                                    }}
+                                >
+                                    {post.content}
+                                </ReactMarkdown>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/20 rounded-full blur-3xl" />
-                </div>
-
-                <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
-                        <Sparkles className="w-4 h-4 text-amber-400" />
-                        Consulta sin compromiso
+                {/* CTA Section */}
+                <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/20 rounded-full blur-3xl" />
                     </div>
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-                        ¿Quieres implementar esto en tu negocio?
-                    </h2>
-                    <p className="text-xl sm:text-2xl text-blue-200 mb-12 leading-relaxed">
-                        Te ayudamos a automatizar tu PYME con soluciones de IA 100% personalizadas.
-                    </p>
-                    <Link
-                        href="/#contacto"
-                        className="inline-flex items-center gap-3 bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl cursor-pointer"
-                    >
-                        Agendar Consulta Gratuita
-                        <ArrowRight className="w-6 h-6" />
-                    </Link>
-                </div>
-            </section>
 
-            {/* Footer */}
-            <footer className="py-10 bg-slate-950 text-slate-400">
-                <div className="container mx-auto px-4 sm:px-6 max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p>© {new Date().getFullYear()} I4PYMES - Automatización con IA para PYMES</p>
-                    <div className="flex items-center gap-6">
-                        <Link href="/blog" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
-                            Más artículos
-                        </Link>
-                        <Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
-                            Inicio
+                    <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
+                            <Sparkles className="w-4 h-4 text-amber-400" />
+                            Consulta sin compromiso
+                        </div>
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                            ¿Quieres implementar esto en tu negocio?
+                        </h2>
+                        <p className="text-xl sm:text-2xl text-blue-200 mb-12 leading-relaxed">
+                            Te ayudamos a automatizar tu PYME con soluciones de IA 100% personalizadas.
+                        </p>
+                        <Link
+                            href="/#contacto"
+                            className="inline-flex items-center gap-3 bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl cursor-pointer"
+                        >
+                            Agendar Consulta Gratuita
+                            <ArrowRight className="w-6 h-6" />
                         </Link>
                     </div>
-                </div>
-            </footer>
-        </main >
+                </section>
+
+                {/* Footer */}
+                <footer className="py-10 bg-slate-950 text-slate-400">
+                    <div className="container mx-auto px-4 sm:px-6 max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <p>© {new Date().getFullYear()} I4PYMES - Automatización con IA para PYMES</p>
+                        <div className="flex items-center gap-6">
+                            <Link href="/blog" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
+                                Más artículos
+                            </Link>
+                            <Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
+                                Inicio
+                            </Link>
+                        </div>
+                    </div>
+                </footer>
+            </main >
         </>
     )
 }
