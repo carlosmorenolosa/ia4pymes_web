@@ -384,3 +384,10 @@ body.calendly-hover .custom-cursor {
     /* 28px */
   }
 }
+
+/* Table row hover - only for body rows, not header */
+.blog-article-content table tbody tr:hover {
+  background-color: #f8fafc !important;
+  /* slate-50 */
+  transition: background-color 0.15s ease;
+}

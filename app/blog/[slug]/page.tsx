@@ -214,7 +214,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                                         </td>
                                     ),
                                     tr: ({ children }) => (
-                                        <tr className="hover:bg-slate-50 transition-colors">
+                                        <tr>
                                             {children}
                                         </tr>
                                     ),
