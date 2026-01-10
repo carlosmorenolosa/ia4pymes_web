@@ -20,8 +20,8 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 
-import { CustomCursor } from "@/components/custom-cursor"
 import { ParticlesBackground } from "@/components/particles-background"
+
 import { SuccessCasesCarousel } from "@/components/success-cases-carousel"
 import { FunctionalChatbot } from "@/components/functional-chatbot"
 import { CalendlyWidget } from "@/components/calendly-widget"
@@ -57,7 +57,6 @@ export default function Home() {
       </a>
 
       <main id="main-content" className="bg-white">
-        {isMobile ? null : <CustomCursor />}
 
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen" aria-labelledby="hero-heading">

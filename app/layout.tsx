@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+import { CustomCursor } from "@/components/custom-cursor"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -305,7 +306,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>{children}</body>
+      <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   )
 }

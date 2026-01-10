@@ -1,11 +1,15 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
+    if (isMobile) return
+
     const cursor = cursorRef.current
     if (!cursor) return
 
@@ -59,7 +63,9 @@ export const CustomCursor = () => {
         el.removeEventListener("mouseleave", handleMouseLeave)
       })
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return <div ref={cursorRef} className="custom-cursor" />
 }
