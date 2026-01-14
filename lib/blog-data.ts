@@ -340,6 +340,160 @@ Si al final decides no hacer nada, perfecto. Al menos tendrás la información p
 **[Agenda una consulta gratis](https://calendly.com/ia4pymes/30min)** - Sin compromiso, sin presión, solo información útil.
     `.trim(),
     },
+    {
+        slug: "whatsapp-business-ia-guia-vender-mas",
+        title: "WhatsApp Business + IA: guía para vender más sin estar pegado al móvil",
+        description: "Aprende a automatizar WhatsApp Business con inteligencia artificial para responder clientes 24/7, cerrar más ventas y recuperar tu tiempo.",
+        date: "2026-01-14",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Ventas",
+        image: "/blog/whatsapp-business-ia.png",
+        content: `
+## El problema que todos conocemos
+
+Son las 11 de la noche. Estás cenando con tu familia y te suena el móvil. Es un cliente preguntando el precio de un producto. ¿Qué haces? ¿Respondes y molestas a tu familia, o esperas a mañana y arriesgas perder la venta?
+
+Este dilema lo vive el 90% de los dueños de PYMES que usan WhatsApp Business. Y es agotador.
+
+La buena noticia: hay forma de responder a ese cliente automáticamente, bien, y sin que tú levantes un dedo.
+
+---
+
+## ¿Qué puede hacer la IA en WhatsApp Business?
+
+No estamos hablando de esos bots horribles que responden "No entiendo tu consulta". La IA actual es otra cosa:
+
+### Responder preguntas frecuentes
+
+"¿Cuánto cuesta X?" "¿Tienen talla M?" "¿Cuál es el horario?" "¿Hacen envíos a Sevilla?"
+
+Todas estas preguntas se pueden responder automáticamente con la información correcta de tu negocio. Y no con respuestas genéricas, sino personalizadas.
+
+### Cualificar clientes antes de que hables con ellos
+
+El bot puede preguntar: "¿Qué producto te interesa?" "¿Para cuándo lo necesitas?" "¿Cuál es tu presupuesto aproximado?"
+
+Cuando tú cojas la conversación, ya sabes exactamente qué necesita y si es un cliente serio o alguien que solo pregunta.
+
+### Agendar citas y reservas
+
+"Quiero una cita para el viernes" → El bot mira tu calendario, ofrece huecos disponibles, y agenda directamente. Tú recibes la notificación y listo.
+
+### Enviar seguimientos automáticos
+
+Cliente que preguntó hace 3 días y no contestó → Mensaje automático: "¿Sigues interesado? Tenemos una oferta especial esta semana"
+
+---
+
+## Ejemplos reales de negocios usando esto
+
+### Tienda de ropa online
+
+**Antes:** La dueña pasaba 3 horas al día respondiendo "¿Tienen la talla X?" y "¿Cuánto tarda el envío?"
+
+**Después:** El bot responde el 80% de las preguntas. Ella solo interviene para cerrar ventas complicadas o resolver problemas.
+
+**Resultado:** Pasó de vender 40 pedidos/semana a 65, trabajando menos horas.
+
+### Clínica de fisioterapia
+
+**Antes:** Perdían llamadas porque el fisio estaba con pacientes. La gente llamaba a otra clínica.
+
+**Después:** WhatsApp con IA agenda citas automáticamente, responde preguntas sobre tratamientos y envía recordatorios.
+
+**Resultado:** 30% más de citas agendadas, cero llamadas perdidas.
+
+### Taller mecánico
+
+**Antes:** Llamadas a todas horas preguntando "¿Cuánto cuesta cambiar el aceite?" y "¿Tenéis hora para mañana?"
+
+**Después:** Bot responde precios, disponibilidad y agenda directamente.
+
+**Resultado:** El dueño dejó de contestar el teléfono 50 veces al día y pudo enfocarse en el taller.
+
+---
+
+## ¿Cómo funciona técnicamente?
+
+No te preocupes, no necesitas saber programar. Pero te explico por encima para que entiendas:
+
+1. **Conectamos tu WhatsApp Business a una IA** que entiende lenguaje natural
+2. **Entrenamos la IA con tu información:** precios, productos, horarios, FAQs, etc.
+3. **Configuramos reglas:** cuándo responde el bot, cuándo te pasa la conversación a ti
+4. **Probamos todo** antes de lanzar para asegurarnos de que funciona bien
+
+La IA aprende el "tono" de tu negocio. Si vendes productos premium, responde de una forma. Si tienes un bar de barrio, responde de otra.
+
+---
+
+## ¿Cuánto cuesta implementar esto?
+
+Te doy rangos reales:
+
+| Nivel | Qué incluye | Precio aproximado |
+|-------|-------------|-------------------|
+| **Básico** | Responde FAQs, horarios, precios fijos | 800€ - 1.500€ |
+| **Intermedio** | + Agenda citas, cualifica leads, seguimientos | 1.500€ - 3.500€ |
+| **Avanzado** | + Integración con tu CRM/inventario, personalización total | 3.500€ - 6.000€ |
+
+Más un coste mensual de la plataforma de WhatsApp Business API (entre 50€ y 150€/mes dependiendo del volumen).
+
+---
+
+## Lo que NO puede hacer (todavía)
+
+Seamos honestos sobre las limitaciones:
+
+- **Ventas complejas que requieren negociación:** El bot puede cualificar, pero cerrar una venta de 10.000€ lo tienes que hacer tú
+- **Gestionar quejas complicadas:** Un cliente enfadado necesita el toque humano
+- **Entender contexto muy específico:** Si alguien pregunta algo muy raro, el bot puede fallar
+- **Reemplazarte por completo:** Es un asistente, no un sustituto
+
+La clave es saber cuándo el bot responde solo y cuándo te pasa la conversación a ti.
+
+---
+
+## Errores comunes al automatizar WhatsApp
+
+He visto empresas cargarse la relación con clientes por hacer esto mal:
+
+1. **Bot demasiado robótico:** Si suena a máquina, la gente se frustra
+2. **No dar opción de hablar con humano:** Siempre tiene que haber escape
+3. **Respuestas genéricas:** "Gracias por contactarnos" no aporta nada
+4. **No actualizar la información:** El bot dice que hay stock cuando no lo hay
+5. **Spam de mensajes:** Enviar ofertas todos los días quema al cliente
+
+Un bot bien hecho mejora la experiencia. Uno mal hecho la destroza.
+
+---
+
+## ¿Cómo saber si esto es para tu negocio?
+
+Te merece la pena si:
+
+- Recibes más de 20 WhatsApps al día de clientes
+- Muchas preguntas son repetitivas (precios, horarios, stock)
+- Pierdes ventas por no responder a tiempo
+- Estás quemado de estar siempre pendiente del móvil
+- Quieres escalar sin contratar a alguien solo para contestar mensajes
+
+Si encajas en 3 o más de estos puntos, probablemente te interese explorarlo.
+
+---
+
+## ¿Siguiente paso?
+
+Si te ha picado la curiosidad y quieres ver cómo funcionaría en tu negocio concreto, podemos hacer una demo personalizada.
+
+Te mostramos:
+- Cómo respondería el bot a tus clientes típicos
+- Qué preguntas automatizaríamos primero
+- Cuánto tiempo/dinero podrías ahorrar
+
+**[Ver demo personalizada](https://calendly.com/ia4pymes/30min)** - 30 minutos y te llevas un plan claro para tu negocio.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
