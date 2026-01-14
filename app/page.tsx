@@ -1104,7 +1104,7 @@ export default function Home() {
 
               {/* Copyright */}
               <div className="border-t border-slate-200 pt-6 sm:pt-8">
-                <p className="text-slate-600 text-base sm:text-lg">© 2025 I4PYMES. Todos los derechos reservados.</p>
+                <p className="text-slate-600 text-base sm:text-lg">© 2026 I4PYMES. Todos los derechos reservados.</p>
                 <p className="text-xs sm:text-sm text-slate-500 mt-2">
                   Herramientas de IA hechas a medida para tu PYME
                 </p>
