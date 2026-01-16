@@ -586,21 +586,21 @@ Aquí viene la parte importante: no todo se puede (ni se debe) automatizar.
 
 ### La IA funciona genial para:
 
-✅ Preguntas repetitivas (precios, horarios, disponibilidad)
-✅ Cualificar leads antes de que hables tú
-✅ Agendar citas y reservas
-✅ Enviar recordatorios y seguimientos
-✅ Procesar datos de un sitio a otro
-✅ Generar informes automáticos
+- ✅ Preguntas repetitivas (precios, horarios, disponibilidad)
+- ✅ Cualificar leads antes de que hables tú
+- ✅ Agendar citas y reservas
+- ✅ Enviar recordatorios y seguimientos
+- ✅ Procesar datos de un sitio a otro
+- ✅ Generar informes automáticos
 
 ### La IA NO funciona para:
 
-❌ Ventas complejas que requieren negociación
-❌ Resolver problemas que nunca has visto antes
-❌ Empatizar con un cliente muy enfadado
-❌ Tomar decisiones estratégicas
-❌ Creatividad genuina (campañas, diseño, contenido original)
-❌ Relaciones de confianza a largo plazo
+- ❌ Ventas complejas que requieren negociación
+- ❌ Resolver problemas que nunca has visto antes
+- ❌ Empatizar con un cliente muy enfadado
+- ❌ Tomar decisiones estratégicas
+- ❌ Creatividad genuina (campañas, diseño, contenido original)
+- ❌ Relaciones de confianza a largo plazo
 
 ---
 
