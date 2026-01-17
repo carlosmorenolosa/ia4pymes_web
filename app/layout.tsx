@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
+import { CookieConsent } from "@/components/cookie-consent"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -111,19 +112,6 @@ export default function RootLayout({
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />
-
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLTFRCVCDZ"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-ZLTFRCVCDZ');
-            `,
-          }}
-        />
 
         {/* Schema.org JSON-LD */}
         <script
@@ -317,6 +305,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>
         <CustomCursor />
         {children}
+        <CookieConsent />
       </body>
     </html>
   )
