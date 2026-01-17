@@ -72,66 +72,63 @@ export default function BlogPage() {
                             </p>
                         </div>
                     ) : (
-                        <div className="grid gap-10">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {posts.map((post, index) => (
                                 <Link key={post.slug} href={`/blog/${post.slug}`} className="cursor-pointer block">
-                                    <article className="group bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
-                                        <div className="grid md:grid-cols-5 gap-0">
-                                            {/* Image */}
-                                            <div className="md:col-span-2 relative h-56 md:h-full min-h-[220px] overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100">
-                                                {post.image && (
-                                                    <Image
-                                                        src={post.image}
-                                                        alt={post.title}
-                                                        fill
-                                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                                    />
-                                                )}
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:bg-gradient-to-r" />
-                                                {index === 0 && (
-                                                    <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
-                                                        <Sparkles className="w-3 h-3" />
-                                                        NUEVO
-                                                    </div>
-                                                )}
+                                    <article className="group bg-white rounded-2xl shadow-lg shadow-slate-200/60 border border-slate-100 overflow-hidden hover:shadow-2xl hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                                        {/* Image */}
+                                        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100">
+                                            {post.image && (
+                                                <Image
+                                                    src={post.image}
+                                                    alt={post.title}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                />
+                                            )}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                                            {index === 0 && (
+                                                <div className="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+                                                    <Sparkles className="w-3 h-3" />
+                                                    NUEVO
+                                                </div>
+                                            )}
+                                            <span className="absolute bottom-3 left-3 px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-semibold rounded-full shadow-sm">
+                                                {post.category}
+                                            </span>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="p-5 flex flex-col flex-grow">
+                                            {/* Meta */}
+                                            <div className="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="w-3.5 h-3.5" />
+                                                    {new Date(post.date).toLocaleDateString("es-ES", {
+                                                        day: "numeric",
+                                                        month: "short",
+                                                    })}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <Clock className="w-3.5 h-3.5" />
+                                                    {post.readingTime}
+                                                </span>
                                             </div>
 
-                                            {/* Content */}
-                                            <div className="md:col-span-3 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-                                                {/* Category & Meta */}
-                                                <div className="flex flex-wrap items-center gap-3 mb-4">
-                                                    <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-sm font-semibold rounded-full shadow-sm">
-                                                        {post.category}
-                                                    </span>
-                                                    <div className="flex items-center gap-4 text-sm text-slate-500">
-                                                        <span className="flex items-center gap-1.5">
-                                                            <Calendar className="w-4 h-4" />
-                                                            {new Date(post.date).toLocaleDateString("es-ES", {
-                                                                day: "numeric",
-                                                                month: "long",
-                                                                year: "numeric",
-                                                            })}
-                                                        </span>
-                                                        <span className="flex items-center gap-1.5">
-                                                            <Clock className="w-4 h-4" />
-                                                            {post.readingTime}
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                            {/* Title */}
+                                            <h2 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">
+                                                {post.title}
+                                            </h2>
 
-                                                {/* Title & Description */}
-                                                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 group-hover:text-blue-600 transition-colors leading-tight">
-                                                    {post.title}
-                                                </h2>
-                                                <p className="text-slate-600 text-lg leading-relaxed mb-6 line-clamp-2">
-                                                    {post.description}
-                                                </p>
+                                            {/* Description */}
+                                            <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+                                                {post.description}
+                                            </p>
 
-                                                {/* CTA */}
-                                                <div className="flex items-center gap-2 text-blue-600 font-bold text-lg group-hover:gap-4 transition-all">
-                                                    Leer artículo completo
-                                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                                </div>
+                                            {/* CTA */}
+                                            <div className="flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all mt-auto">
+                                                Leer más
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </div>
                                     </article>

@@ -673,6 +673,166 @@ Sin compromiso. Si la respuesta es "contrata a alguien", te lo diremos.
 **[Analizamos tu caso gratis](https://calendly.com/ia4pymes/30min)** - 30 minutos para aclarar qué te conviene más.
     `.trim(),
     },
+    {
+        slug: "5-errores-matan-proyecto-ia-como-evitarlos",
+        title: "5 errores que matan tu proyecto de IA (y cómo evitarlos)",
+        description: "Te contamos los errores más comunes que vemos en empresas que intentan implementar IA. Y cómo asegurarte de no cometerlos.",
+        date: "2026-01-17",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Estrategia",
+        image: "/blog/errores-ia.png",
+        content: `
+## Lo que nadie te cuenta
+
+Hemos visto muchos proyectos de IA fracasar. Y no por la tecnología, no. La tecnología funciona. Fracasan por cómo se plantean, se implementan o se gestionan.
+
+Te voy a contar los 5 errores más comunes que vemos, para que tú no los cometas.
+
+---
+
+## Error 1: Automatizar sin saber qué automatizar
+
+Este es el clásico. Una empresa viene y dice: "Quiero IA". Vale, ¿pero para qué?
+
+**Lo que pasa:**
+- Implementan algo porque "hay que digitalizarse"
+- No tienen claro qué problema resuelve
+- Al mes nadie lo usa
+- Conclusión: "la IA no funciona"
+
+**Cómo evitarlo:**
+
+Antes de tocar nada tecnológico, haz este ejercicio:
+
+1. Lista las tareas que más tiempo te quitan a ti o a tu equipo
+2. Marca las que son repetitivas y siguen un patrón
+3. Prioriza por impacto: ¿cuál te ahorraría más dinero/tiempo?
+4. Empieza por UNA sola
+
+Si no puedes explicar en una frase qué problema resuelve la automatización, no estás listo.
+
+---
+
+## Error 2: Elegir al proveedor más barato
+
+El presupuesto importa, claro. Pero elegir solo por precio es una receta para el desastre.
+
+**Lo que pasa:**
+- Contratas al que cobra menos
+- La implementación va rápida pero superficial
+- A los 3 meses tienes problemas que "no estaban en el alcance"
+- Al final pagas el doble arreglando lo que hicieron mal
+
+**Cómo evitarlo:**
+
+Cuando evalúes proveedores, pregunta:
+
+- **¿Tienen casos de éxito en negocios como el mío?** Que te los enseñen, no que te los cuenten
+- **¿Qué pasa si algo falla?** Quieres saber cómo gestionan problemas, no solo cómo venden
+- **¿Incluye formación y soporte?** Si te dejan solo después de implementar, estás vendido
+- **¿Cuál es el coste TOTAL a 12 meses?** No solo la implementación, todo: mantenimiento, licencias, cambios
+
+A veces el proveedor "caro" sale más barato a la larga.
+
+---
+
+## Error 3: No involucrar al equipo
+
+La IA la van a usar personas. Si esas personas no entienden para qué sirve o sienten que les quita el trabajo, van a sabotearla (consciente o inconscientemente).
+
+**Lo que pasa:**
+- Se implementa algo sin consultar a los que lo van a usar
+- El equipo no entiende cómo funciona
+- Siguen haciendo las cosas "a su manera"
+- El sistema existe pero nadie lo usa
+
+**Cómo evitarlo:**
+
+Involucra al equipo desde el día 1:
+
+- **Explícales el porqué:** "Esto va a quitarnos las tareas aburridas, no vuestros trabajos"
+- **Pide su input:** Los que hacen el trabajo saben mejor qué se puede mejorar
+- **Forma bien:** No basta con "aquí tienes el sistema". Dedica tiempo a enseñar
+- **Celebra los wins:** Cuando algo funcione bien gracias a la IA, que se sepa
+
+El cambio cultural es tan importante como el técnico.
+
+---
+
+## Error 4: Lanzar sin probar bien
+
+La prisa mata proyectos. "Necesitamos esto para ayer" es el inicio de muchos desastres.
+
+**Lo que pasa:**
+- Se lanza rápido para cumplir una fecha
+- No se prueba lo suficiente
+- Los clientes encuentran los errores que deberían haberse pillado antes
+- La imagen de la empresa sufre
+- Hay que parar todo y arreglar
+
+**Cómo evitarlo:**
+
+Define un proceso de pruebas mínimo:
+
+- **Prueba interna primero:** Tu equipo usa el sistema como si fueran clientes
+- **Piloto controlado:** Un grupo pequeño de clientes reales, monitorizando de cerca
+- **Feedback activo:** Pregunta específicamente qué ha fallado, no esperes a que te lo digan
+- **Iteración rápida:** Arregla lo que salga mal antes de escalar
+
+Una semana extra de pruebas puede ahorrarte meses de problemas.
+
+---
+
+## Error 5: Pensar que es "instalar y olvidar"
+
+La IA no es como comprar una impresora. No la enchufas y funciona para siempre.
+
+**Lo que pasa:**
+- Se implementa y "ya está"
+- Nadie lo revisa ni lo mejora
+- Los datos cambian pero el sistema no
+- Empieza a dar respuestas incorrectas o irrelevantes
+- La gente pierde confianza y deja de usarlo
+
+**Cómo evitarlo:**
+
+Planifica el mantenimiento desde el principio:
+
+- **Revisión mensual:** ¿Qué preguntas no está respondiendo bien? ¿Qué ha cambiado en el negocio?
+- **Actualiza la información:** Precios, productos, horarios, políticas... todo cambia
+- **Mide resultados:** Si no mides, no sabes si funciona
+- **Mejora continua:** Un chatbot bien mantenido en 6 meses es 10x mejor que el día 1
+
+Reserva un presupuesto de mantenimiento. Es inversión, no gasto.
+
+---
+
+## El patrón que vemos
+
+Los proyectos que funcionan tienen esto en común:
+
+1. ✅ Objetivo claro y medible
+2. ✅ Proveedor con experiencia demostrable
+3. ✅ Equipo involucrado y formado
+4. ✅ Pruebas exhaustivas antes de lanzar
+5. ✅ Plan de mantenimiento y mejora continua
+
+Los que fracasan suelen fallar en al menos 2-3 de estos puntos.
+
+---
+
+## ¿Estás pensando en implementar IA?
+
+Si estás valorando automatizar algo en tu negocio, te ofrecemos una consulta gratuita donde:
+
+- Analizamos tu caso específico
+- Identificamos posibles errores antes de que los cometas
+- Te damos una opinión honesta (aunque sea "espera, no estás listo")
+
+**[Consulta sin compromiso](https://calendly.com/ia4pymes/30min)** - 30 minutos para ahorrarte meses de problemas.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
