@@ -84,11 +84,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "tu-codigo-google-search-console",
-    // yandex: "tu-codigo-yandex",
-    // yahoo: "tu-codigo-yahoo",
-  },
+  // verification: {
+  //   google: "TU-CODIGO-AQUI", // Añade tu código de Google Search Console
+  // },
   generator: 'v0.dev'
 }
 
@@ -129,9 +127,9 @@ export default function RootLayout({
               logo: "/LOGO.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+34-XXX-XXX-XXX",
                 contactType: "customer service",
                 availableLanguage: "Spanish",
+                email: "contacto@ia4pymes.tech",
               },
               address: {
                 "@type": "PostalAddress",
@@ -159,7 +157,6 @@ export default function RootLayout({
               name: "I4PYMES",
               description: "Automatización con IA para PYMES - Soluciones personalizadas",
               url: "https://ia4pymes.tech",
-              telephone: "+34-XXX-XXX-XXX",
               email: "contacto@ia4pymes.tech",
               address: {
                 "@type": "PostalAddress",

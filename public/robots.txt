@@ -1,21 +1,19 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap
+# Allow blog content explicitly
+Allow: /blog
+Allow: /blog/*
+
+# Sitemap location
 Sitemap: https://ia4pymes.tech/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Block access to admin areas (if any)
+# Block technical/admin areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
-
-# Allow important pages
-Allow: /
-Allow: /#proceso
-Allow: /#casos-exito
-Allow: /#beneficios
-Allow: /#contacto
