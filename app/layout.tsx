@@ -114,6 +114,19 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />
 
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLTFRCVCDZ"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ZLTFRCVCDZ');
+            `,
+          }}
+        />
+
         {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
