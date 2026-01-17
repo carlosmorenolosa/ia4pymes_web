@@ -59,8 +59,9 @@ export function CookieConsent() {
 
     return (
         <div
-            className={`fixed bottom-0 left-0 right-0 z-[9999] p-4 transition-all duration-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+            className={`fixed bottom-0 left-0 right-0 z-[9999] p-4 transition-all duration-300 cookie-banner ${isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
                 }`}
+            style={{ cursor: "default" }}
         >
             <div className="container mx-auto max-w-4xl">
                 <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">

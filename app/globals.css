@@ -202,6 +202,12 @@ h6 {
   cursor: none !important;
 }
 
+/* Exception: Show normal cursor on cookie banner */
+.has-custom-cursor .cookie-banner,
+.has-custom-cursor .cookie-banner * {
+  cursor: default !important;
+}
+
 
 .custom-cursor {
   position: fixed;
