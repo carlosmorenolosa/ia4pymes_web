@@ -101,13 +101,11 @@ export default function RootLayout({
         {/* Preconnect para mejorar performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://assets.calendly.com" />
-        <link rel="preconnect" href="https://calendly.com" />
 
-        {/* Preload Calendly resources */}
-        <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
+        {/* DNS prefetch for lazy-loaded resources */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* Favicon optimizado */}
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
