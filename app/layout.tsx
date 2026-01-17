@@ -7,16 +7,14 @@ import { CustomCursor } from "@/components/custom-cursor"
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "optional",
-  preload: true,
+  display: "swap",
 })
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   variable: "--font-poppins",
-  display: "optional",
-  preload: true,
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -100,6 +98,10 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        {/* Preconnect para mejorar performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* DNS prefetch for lazy-loaded resources */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
