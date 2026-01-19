@@ -833,6 +833,211 @@ Si estás valorando automatizar algo en tu negocio, te ofrecemos una consulta gr
 **[Consulta sin compromiso](https://calendly.com/ia4pymes/30min)** - 30 minutos para ahorrarte meses de problemas.
     `.trim(),
     },
+    {
+        slug: "cualificar-leads-automaticamente-ia",
+        title: "Cómo usar IA para cualificar leads mientras duermes",
+        description: "Aprende a automatizar la cualificación de leads con inteligencia artificial. Tu negocio captará clientes potenciales 24/7 sin que tengas que mover un dedo.",
+        date: "2026-01-19",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "Automatización",
+        image: "/blog/cualificar-leads.png",
+        content: `
+## El problema que tiene el 90% de las PYMES
+
+Son las 11 de la noche. Estás viendo una serie en el sofá. Tu móvil suena: alguien ha rellenado el formulario de contacto de tu web.
+
+¿Qué haces? ¿Le contestas ahora? ¿Esperas a mañana?
+
+Si esperas, igual mañana ya ha contactado con tres competidores más. Si contestas, adiós a tu noche.
+
+Este es el drama del empresario moderno. Y aquí es donde la IA entra en juego.
+
+---
+
+## ¿Qué significa "cualificar leads"?
+
+Antes de meternos en faena, vamos a aclarar esto.
+
+**Un lead** es cualquier persona que muestra interés en tu producto o servicio. Alguien que deja su email, rellena un formulario, te escribe por WhatsApp...
+
+**Cualificar** significa determinar si ese lead es:
+
+- **Caliente** → Tiene dinero, necesidad y urgencia. Hay que llamarle YA.
+- **Tibio** → Está interesado pero no tiene prisa. Hay que nutrirlo.
+- **Frío** → Solo curioseaba. No merece tu tiempo ahora mismo.
+
+El problema es que cualificar leads a mano lleva tiempo. Mucho tiempo. Y si tienes 20 leads al día, te pasas el día haciendo filtro en vez de vendiendo.
+
+---
+
+## Cómo la IA puede hacer esto por ti
+
+### 1. Chatbot que hace las preguntas correctas
+
+En vez de un formulario aburrido que nadie quiere rellenar, un chatbot conversacional puede hacer preguntas naturales:
+
+- "¿Qué problema estás intentando resolver?"
+- "¿Para cuándo lo necesitas?"
+- "¿Cuál es tu presupuesto aproximado?"
+
+Y aquí viene lo bueno: **según las respuestas, el chatbot asigna una puntuación automáticamente**.
+
+| Respuesta | Puntuación |
+|-----------|------------|
+| "Lo necesito esta semana" | +30 puntos |
+| "Es para dentro de 6 meses" | +5 puntos |
+| "Tengo presupuesto de 5.000€" | +40 puntos |
+| "Solo estoy mirando precios" | +5 puntos |
+
+Al final de la conversación, el chatbot ya sabe si es un lead caliente o frío. **Sin que tú hagas nada.**
+
+---
+
+### 2. Lead scoring automático
+
+El lead scoring es ponerle una nota del 0 al 100 a cada lead según su probabilidad de comprar.
+
+La IA puede calcular esta nota basándose en:
+
+- Las respuestas del formulario/chatbot
+- Cuántas páginas ha visitado en tu web
+- Si ha abierto tus emails
+- De dónde viene (¿Google? ¿Instagram? ¿Recomendación?)
+- Cuánto tiempo ha pasado en tu web
+
+Un lead que ha visitado tu página de precios 3 veces y ha leído 4 artículos del blog es muy diferente a uno que solo vio la home y se fue.
+
+**La IA detecta estos patrones y puntúa automáticamente.**
+
+---
+
+### 3. Notificaciones inteligentes
+
+"Oye, te ha llegado un lead caliente. Puntuación: 87/100. Es el dueño de una clínica dental, necesita un chatbot para gestionar citas, y tiene presupuesto de 3.000€. ¿Le llamas?"
+
+Imagínate recibir esto en tu móvil. Ya no tienes que revisar 50 leads para encontrar los buenos. La IA te avisa solo cuando merece la pena.
+
+Y lo mejor: **puedes configurar umbrales**.
+
+- Lead > 80 puntos → Te llega WhatsApp inmediatamente
+- Lead 50-80 → Email de resumen cada mañana
+- Lead < 50 → Se mete en secuencia de nurturing automático
+
+---
+
+## Ejemplo real: cómo lo montamos para una inmobiliaria
+
+Un cliente nuestro, una inmobiliaria de Valencia, recibía unos 40 leads al día desde Idealista, Fotocasa y su web.
+
+El problema: el 70% eran curiosos que solo preguntaban precios. El equipo comercial perdía horas filtrando.
+
+### Lo que hicimos:
+
+1. **Chatbot en la web** que preguntaba:
+   - ¿Comprar o alquilar?
+   - ¿Zona preferida?
+   - ¿Presupuesto máximo?
+   - ¿Cuándo quieres mudarte?
+
+2. **Lead scoring automático** basado en las respuestas + comportamiento en la web
+
+3. **Notificación al comercial** solo cuando el lead tenía puntuación > 70
+
+### Resultado:
+
+- El equipo comercial pasó de gestionar 40 leads/día a solo 12 (los buenos)
+- Ratio de conversión subió del 3% al 11%
+- Tiempo de respuesta bajó de 4 horas a 6 minutos
+
+**¿El truco?** La IA hacía el trabajo sucio de filtrar. Los comerciales solo hablaban con gente que realmente quería comprar.
+
+---
+
+## ¿Qué herramientas necesito?
+
+Depende de tu nivel técnico y presupuesto:
+
+### Opción básica (hazlo tú mismo):
+
+- **Typeform o Tally** para formularios inteligentes
+- **Zapier** para conectar con tu CRM
+- **HubSpot gratuito** para gestionar los leads
+
+Coste: 0-50€/mes
+
+### Opción intermedia:
+
+- **Chatbot personalizado** (nosotros o similar)
+- **Make o n8n** para automatizaciones
+- **Pipedrive o HubSpot** para CRM
+
+Coste: 200-500€/mes
+
+### Opción avanzada:
+
+- **Sistema completo a medida** con IA propia
+- **Integración con todos tus canales** (web, WhatsApp, Instagram, email)
+- **Dashboard de analytics** en tiempo real
+
+Coste: 500-2.000€/mes
+
+---
+
+## Los errores más comunes
+
+### 1. Hacer demasiadas preguntas
+
+Si tu chatbot parece un interrogatorio, la gente se va. Máximo 4-5 preguntas, y que fluyan natural.
+
+### 2. No responder rápido a los leads calientes
+
+De nada sirve detectar un lead caliente si luego tardas 2 días en llamar. La velocidad de respuesta es clave.
+
+### 3. Ignorar a los leads fríos
+
+Un lead frío hoy puede ser caliente en 3 meses. Mételos en una secuencia de emails automáticos para mantener el contacto.
+
+### 4. No revisar y ajustar
+
+El scoring hay que ajustarlo con el tiempo. Revisa qué leads puntuaban alto y no compraron, y viceversa. Afina los criterios.
+
+---
+
+## ¿Esto es para mí?
+
+Buen momento para ser honesto:
+
+**Sí te conviene si:**
+
+- Recibes más de 10 leads al día
+- Pierdes tiempo filtrando leads malos
+- Tu equipo comercial está desbordado
+- Quieres responder más rápido a los leads buenos
+
+**Quizás no te conviene si:**
+
+- Recibes 2-3 leads a la semana (puedes gestionarlos a mano)
+- Tu proceso de venta es muy personal y único
+- No tienes claro qué hace a un lead "bueno" para tu negocio
+
+---
+
+## El siguiente paso
+
+Si estás leyendo esto y piensas "esto me vendría bien", el primer paso es muy simple:
+
+**Define qué hace a un lead bueno para ti.**
+
+¿Es el presupuesto? ¿La urgencia? ¿El tamaño de la empresa? ¿La zona geográfica?
+
+Una vez tengas eso claro, automatizar la cualificación es pan comido.
+
+Y si quieres que te ayudemos a montarlo, [agenda una llamada](https://calendly.com/ia4pymes/30min). Te enseñamos ejemplos reales y vemos si encaja para tu negocio.
+
+**Tu tiempo vale más que filtrar leads a mano.** Deja que la IA haga el trabajo sucio.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
