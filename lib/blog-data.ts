@@ -1038,6 +1038,210 @@ Y si quieres que te ayudemos a montarlo, [agenda una llamada](https://calendly.c
 **Tu tiempo vale más que filtrar leads a mano.** Deja que la IA haga el trabajo sucio.
     `.trim(),
     },
+    {
+        slug: "chatgpt-para-negocios-15-usos-practicos",
+        title: "ChatGPT para tu negocio: 15 usos prácticos que no conocías",
+        description: "Descubre 15 formas concretas de usar ChatGPT en tu empresa para ahorrar tiempo, mejorar ventas y automatizar tareas. Guía práctica con ejemplos reales.",
+        date: "2026-01-21",
+        author: "I4PYMES",
+        readingTime: "12 min",
+        category: "Herramientas IA",
+        image: "/blog/chatgpt-negocios.png",
+        content: `
+## ChatGPT no es solo para chatear
+
+Vamos al grano. La mayoría de empresarios que conozco han probado ChatGPT para "ver qué tal". Le han preguntado alguna tontería, han flipado un poco, y luego lo han dejado ahí cogiendo polvo.
+
+Error.
+
+ChatGPT es una herramienta de productividad brutal si sabes cómo usarla. Y hoy te voy a enseñar 15 formas concretas de aplicarlo en tu negocio.
+
+No teoría. Ejemplos reales que puedes copiar y pegar.
+
+---
+
+## Atención al cliente
+
+### 1. Responder emails repetitivos
+
+¿Cuántos emails recibes preguntando lo mismo? Horarios, precios, disponibilidad...
+
+**Prompt ejemplo:**
+> "Actúa como el responsable de atención al cliente de [tu empresa]. Un cliente pregunta sobre nuestros horarios de entrega. Responde de forma profesional pero cercana. Nuestros horarios son: L-V de 9 a 18h, envíos en 24-48h."
+
+Resultado: Email profesional en 10 segundos que puedes copiar, pegar y enviar.
+
+### 2. Crear plantillas de respuesta
+
+En vez de responder uno a uno, crea plantillas para las 10 preguntas más frecuentes.
+
+**Prompt:**
+> "Crea 5 plantillas de email para responder a clientes que preguntan por: 1) Precios, 2) Plazos de entrega, 3) Devoluciones, 4) Garantía, 5) Disponibilidad de producto. Tono profesional pero cercano. Empresa: tienda online de electrónica."
+
+### 3. Gestionar quejas difíciles
+
+Cuando un cliente está enfadado, es fácil responder mal. ChatGPT te ayuda a mantener la calma.
+
+**Prompt:**
+> "Un cliente está muy enfadado porque su pedido llegó tarde. Quiere que le devolvamos el dinero. Escribe una respuesta empática que reconozca el problema, ofrezca una solución (descuento del 20% en próxima compra) y mantenga la relación."
+
+---
+
+## Ventas y marketing
+
+### 4. Escribir descripciones de producto que vendan
+
+Las descripciones aburridas no venden. Las que conectan con el problema del cliente, sí.
+
+**Prompt:**
+> "Escribe una descripción de producto para un [producto]. El cliente ideal es [descripción]. Su principal problema es [problema]. Incluye beneficios, no solo características. Máximo 150 palabras."
+
+### 5. Crear posts para redes sociales
+
+¿Sin ideas para Instagram o LinkedIn? ChatGPT te genera 10 en un minuto.
+
+**Prompt:**
+> "Genera 10 ideas de posts para LinkedIn para una empresa de [sector]. Objetivo: posicionarnos como expertos y generar leads. Incluye hook, contenido y CTA para cada uno."
+
+### 6. Escribir emails de seguimiento que no parezcan spam
+
+El follow-up es clave en ventas, pero nadie quiere ser pesado.
+
+**Prompt:**
+> "Escribe un email de seguimiento para un cliente potencial con el que hablé hace una semana. Mostró interés en [servicio] pero no ha respondido. Tono: profesional, no agresivo. Objetivo: retomar la conversación."
+
+### 7. Analizar a la competencia
+
+Antes de una reunión o propuesta, investiga rápido.
+
+**Prompt:**
+> "Analiza las fortalezas y debilidades de [empresa competidora] basándote en su web y presencia online. ¿Qué hacen bien? ¿Qué podríamos hacer mejor nosotros?"
+
+---
+
+## Operaciones y productividad
+
+### 8. Resumir documentos largos
+
+¿Un contrato de 20 páginas? ¿Un informe eterno? Resume lo importante.
+
+**Prompt:**
+> "Resume este documento en 5 puntos clave. Destaca: obligaciones principales, fechas límite y riesgos potenciales. [Pega el texto]"
+
+### 9. Crear procedimientos internos (SOPs)
+
+Documentar procesos es un coñazo. ChatGPT lo hace por ti.
+
+**Prompt:**
+> "Crea un procedimiento paso a paso para [proceso, ej: onboarding de nuevo cliente]. Incluye: pasos, responsable de cada uno, herramientas necesarias y tiempo estimado."
+
+### 10. Generar actas de reunión
+
+Después de una reunión, transcribe tus notas en un acta profesional.
+
+**Prompt:**
+> "Convierte estas notas de reunión en un acta formal. Incluye: asistentes, temas tratados, decisiones tomadas y próximos pasos con responsables. Notas: [pega tus notas]"
+
+---
+
+## Recursos humanos
+
+### 11. Escribir ofertas de empleo atractivas
+
+Las ofertas aburridas atraen candidatos aburridos.
+
+**Prompt:**
+> "Escribe una oferta de empleo para [puesto] en [tipo de empresa]. Destaca: cultura de empresa, beneficios reales, oportunidades de crecimiento. Evita clichés como 'buscamos rockstar'. Tono: profesional pero humano."
+
+### 12. Preparar preguntas de entrevista
+
+Más allá del "háblame de ti".
+
+**Prompt:**
+> "Genera 10 preguntas de entrevista para el puesto de [puesto]. Incluye: preguntas técnicas, situacionales y de cultura. Objetivo: detectar si el candidato encaja con un equipo pequeño y dinámico."
+
+### 13. Dar feedback constructivo
+
+Decirle a alguien que lo está haciendo mal sin desmotivarlo es un arte.
+
+**Prompt:**
+> "Ayúdame a dar feedback a un empleado sobre [situación]. Quiero ser directo pero constructivo. Objetivo: que mejore sin sentirse atacado."
+
+---
+
+## Herramientas internas
+
+### 14. Crear fórmulas de Excel/Sheets
+
+¿Atascado con una fórmula? ChatGPT es tu mejor amigo.
+
+**Prompt:**
+> "Necesito una fórmula de Excel que: busque un valor en la columna A, y si lo encuentra, devuelva el valor correspondiente de la columna C. Si no lo encuentra, que muestre 'No encontrado'."
+
+### 15. Automatizar con prompts personalizados
+
+Crea tus propios "mini-asistentes" para tareas repetitivas.
+
+**Prompt inicial:**
+> "A partir de ahora, actúa como mi asistente de [área]. Cuando te pase [tipo de información], quiero que automáticamente la transformes en [formato deseado]. ¿Entendido?"
+
+Luego solo tienes que pasarle la información y hace el trabajo.
+
+---
+
+## Errores comunes (y cómo evitarlos)
+
+### 1. Prompts vagos = respuestas vagas
+
+Mal: "Escríbeme un email"
+Bien: "Escríbeme un email de seguimiento para un cliente B2B del sector industrial que pidió presupuesto hace 5 días. Tono formal pero no frío."
+
+### 2. No dar contexto
+
+ChatGPT no sabe nada de tu empresa. Cuanto más contexto le des, mejor resultado.
+
+### 3. Aceptar la primera respuesta
+
+La primera respuesta está bien, pero puedes mejorarla:
+- "Hazlo más corto"
+- "Usa un tono más cercano"
+- "Añade un ejemplo concreto"
+
+### 4. Usarlo para todo
+
+ChatGPT es genial, pero no sustituye tu criterio. Revisa siempre antes de enviar.
+
+---
+
+## ¿Y si quiero ir más allá?
+
+ChatGPT "a mano" está muy bien para empezar. Pero imagina:
+
+- Un chatbot que responde a tus clientes 24/7 con tu tono y tu información
+- Automatizaciones que procesan emails y los clasifican solos
+- Informes que se generan automáticamente cada semana
+
+Eso ya es otro nivel. Y es lo que hacemos nosotros.
+
+Si quieres explorar cómo automatizar de verdad (no solo copiar y pegar), [agenda una llamada](https://calendly.com/ia4pymes/30min). Te enseñamos qué es posible para tu caso concreto.
+
+---
+
+## Resumen: los 15 usos de ChatGPT para negocios
+
+| Área | Usos |
+|------|------|
+| **Atención al cliente** | Emails repetitivos, plantillas, quejas |
+| **Ventas y marketing** | Descripciones, posts, seguimiento, competencia |
+| **Operaciones** | Resúmenes, SOPs, actas |
+| **RRHH** | Ofertas, entrevistas, feedback |
+| **Herramientas** | Excel, automatizaciones |
+
+**La clave no es saber que existe ChatGPT. Es saber usarlo bien.**
+
+Empieza con uno de estos 15 usos hoy. Mañana habrás ahorrado tiempo. En un mes, no podrás vivir sin él.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
