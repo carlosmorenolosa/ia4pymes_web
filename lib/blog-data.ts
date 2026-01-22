@@ -1242,6 +1242,163 @@ Si quieres explorar cómo automatizar de verdad (no solo copiar y pegar), [agend
 Empieza con uno de estos 15 usos hoy. Mañana habrás ahorrado tiempo. En un mes, no podrás vivir sin él.
     `.trim(),
     },
+    {
+        slug: "caso-real-chatbots-ia-hosteleria-navarra",
+        title: "Caso real: Cómo automatizamos la atención de la Asociación de Hostelería de Navarra con IA",
+        description: "Descubre cómo implementamos dos chatbots con IA para la Asociación de Hostelería y Turismo de Navarra. 270+ consultas mensuales, disponibilidad 24/7 y un dashboard de analytics completo.",
+        date: "2026-01-22",
+        author: "I4PYMES",
+        readingTime: "8 min",
+        category: "Casos Reales",
+        image: "/blog/caso-hosteleria-navarra.png",
+        content: `
+## El reto: atender a cientos de personas sin multiplicar el equipo
+
+La Asociación de Hostelería y Turismo de Navarra se enfrentaba a un problema que seguro te suena: demasiadas consultas, poco tiempo para responderlas todas.
+
+Por un lado, visitantes de su web preguntando por servicios, precios de cursos, horarios, cómo asociarse... Las típicas dudas de alguien que llega por primera vez.
+
+Por otro, sus propios asociados necesitando información sobre normativas, derechos, las últimas circulares, publicaciones del sector...
+
+Y todo esto llegaba por email, teléfono, formularios... El equipo hacía lo que podía, pero era imposible responder rápido a todo. Y menos aún fuera de horario.
+
+---
+
+## La solución: dos chatbots de IA especializados
+
+Desarrollamos **dos asistentes virtuales con tecnología RAG** (Retrieval-Augmented Generation), cada uno diseñado para un público diferente:
+
+### 1. Chatbot público (para visitantes de la web)
+
+Disponible para cualquier persona que entra en la web. Responde a preguntas como:
+
+- ¿Qué servicios ofrece la asociación?
+- ¿Cuánto cuesta el curso de manipulador de alimentos?
+- ¿Cuáles son los horarios de atención?
+- ¿Cómo puedo asociarme?
+- ¿Dónde están las oficinas?
+
+El chatbot consulta la base de conocimiento en tiempo real y da respuestas precisas, actualizadas y en segundos.
+
+### 2. Chatbot para asociados (tras iniciar sesión)
+
+Una vez que el usuario se identifica como asociado, accede a un asistente diferente con información exclusiva:
+
+- Consultas sobre derechos y obligaciones
+- Últimas circulares y publicaciones
+- Normativas del sector
+- Información específica para miembros
+
+Esto reduce drásticamente las llamadas repetitivas al equipo y permite que los asociados resuelvan sus dudas al instante, incluso a las 3 de la madrugada.
+
+---
+
+## Disponibilidad 24/7: el cambio de juego
+
+Antes, si alguien tenía una duda a las 10 de la noche o en fin de semana, tenía que esperar. Ahora no.
+
+Los dos chatbots están operativos **las 24 horas del día, los 7 días de la semana**. Eso significa:
+
+- Respuestas inmediatas, sin esperas
+- Cero dependencia del horario del equipo
+- Mejor experiencia para usuarios y asociados
+
+---
+
+## El panel de control: visibilidad total
+
+Pero no nos quedamos en los chatbots. Creamos una **plataforma de gestión y analytics** donde el equipo de la asociación puede ver todo lo que pasa:
+
+### Gestión de documentos
+
+- Ver todos los documentos que alimentan la base de conocimiento
+- Buscar, subir nuevos y eliminar los obsoletos
+- Actualizar la información sin tocar código
+
+### Métricas en tiempo real
+
+| Métrica | Para qué sirve |
+|---------|----------------|
+| **Número de mensajes totales** | Volumen de uso del chatbot |
+| **Actividad en tiempo real** | Ver picos de consultas |
+| **Análisis de sentimientos** | Detectar usuarios frustrados |
+| **Mapa de calor semanal** | Qué días hay más actividad |
+| **Distribución horaria** | A qué horas preguntan más |
+| **Temas recurrentes** | Qué dudas se repiten |
+| **Acciones sugeridas** | Recomendaciones de la IA |
+
+### Historial completo
+
+Acceso a todas las conversaciones: qué preguntó el usuario y qué respondió el sistema. Útil para:
+
+- Detectar preguntas que el chatbot no supo responder
+- Mejorar la base de conocimiento
+- Auditar la calidad de las respuestas
+
+---
+
+## Resultados
+
+### +270 consultas mensuales automatizadas
+
+El chatbot gestiona más de 270 conversaciones al mes. Son 270 interacciones que antes requerían tiempo del equipo y ahora se resuelven solas.
+
+### Implementación en 3 semanas
+
+Desde la primera reunión hasta tener los dos chatbots funcionando y el panel de analytics listo: **3 semanas**.
+
+Nada de proyectos eternos. Definimos bien el alcance, trabajamos rápido y entregamos.
+
+### Cliente satisfecho
+
+El equipo de la asociación tiene ahora visibilidad total de lo que preguntan sus usuarios, puede actualizar la información cuando quiera, y ha liberado tiempo para tareas que realmente requieren atención humana.
+
+---
+
+## ¿Por qué funcionó?
+
+### 1. Dos chatbots, no uno genérico
+
+En vez de un bot que intentara hacer todo, separamos por audiencia. El visitante público tiene unas necesidades, el asociado tiene otras. Cada uno recibe un trato especializado.
+
+### 2. RAG: respuestas basadas en datos reales
+
+Los chatbots no "inventan". Consultan la base de documentos de la asociación y generan respuestas basadas en información real y actualizada.
+
+### 3. Panel de control sin depender de nosotros
+
+El cliente puede subir nuevos documentos, ver estadísticas y revisar conversaciones sin tener que llamarnos. Autonomía total.
+
+### 4. Alcance bien definido
+
+Sabíamos exactamente qué había que hacer antes de empezar. Eso permitió entregar en 3 semanas sin sorpresas.
+
+---
+
+## ¿Esto funcionaría para mi empresa?
+
+Si tu negocio o asociación:
+
+- Recibe consultas repetitivas
+- Tiene información que la gente necesita consultar
+- Quiere atender fuera de horario sin contratar más personal
+- Necesita separar información pública de privada
+
+Entonces sí, algo similar podría funcionar para ti.
+
+No tiene que ser exactamente igual. Cada proyecto es diferente. Pero la lógica es la misma: **automatizar lo repetitivo para que las personas se centren en lo importante**.
+
+---
+
+## ¿Quieres explorar algo parecido?
+
+Si tienes un caso similar o simplemente quieres ver si esto encaja en tu negocio, podemos hacer una videollamada rápida.
+
+Te enseñamos más ejemplos, respondemos dudas y vemos si tiene sentido avanzar.
+
+**[Agenda tu consulta gratuita](https://calendly.com/ia4pymes/30min)** - Sin compromiso, 30 minutos para ver opciones.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
