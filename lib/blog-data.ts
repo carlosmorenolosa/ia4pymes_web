@@ -1371,7 +1371,7 @@ El cliente puede subir nuevos documentos, ver estadísticas y revisar conversaci
 
 ### 4. Alcance bien definido
 
-Sabíamos exactamente qué había que hacer antes de empezar. Eso permitió entregar en 3 semanas sin sorpresas.
+Sabíamos exactamente qué había que hacer antes de empezar. Eso permitió entregar en 4 semanas sin sorpresas.
 
 ---
 
