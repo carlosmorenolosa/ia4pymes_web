@@ -1343,9 +1343,9 @@ Acceso a todas las conversaciones: qué preguntó el usuario y qué respondió e
 
 El chatbot gestiona más de 270 conversaciones al mes. Son 270 interacciones que antes requerían tiempo del equipo y ahora se resuelven solas.
 
-### Implementación en 3 semanas
+### Implementación en 4 semanas
 
-Desde la primera reunión hasta tener los dos chatbots funcionando y el panel de analytics listo: **3 semanas**.
+Desde la primera reunión hasta tener los dos chatbots funcionando y el panel de analytics listo: **4 semanas**.
 
 Nada de proyectos eternos. Definimos bien el alcance, trabajamos rápido y entregamos.
 
