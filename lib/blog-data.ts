@@ -1399,6 +1399,131 @@ Te enseñamos más ejemplos, respondemos dudas y vemos si tiene sentido avanzar.
 **[Agenda tu consulta gratuita](https://calendly.com/ia4pymes/30min)** - Sin compromiso, 30 minutos para ver opciones.
     `.trim(),
     },
+    {
+        slug: "ia-para-inmobiliarias-mas-ventas-piloto-automatico",
+        title: "IA para Inmobiliarias: Cómo vender más casas en piloto automático",
+        description: "Automatiza tu inmobiliaria con IA: cualifica leads de Idealista/Fotocasa 24/7, agenda visitas automáticamente y deja de perder el tiempo con curiosos.",
+        date: "2026-01-24",
+        author: "I4PYMES",
+        readingTime: "10 min",
+        category: "Sector Inmobiliario",
+        image: "/blog/ia-inmobiliaria.png",
+        content: `
+## El problema del agente inmobiliario en 2026
+
+Tu móvil no para de sonar. Emails de Idealista, mensajes de Fotocasa, WhatsApps de clientes...
+
+Parece algo bueno, ¿no? Muchos leads significan muchas ventas.
+
+**Falso.**
+
+El 80% de esos leads son:
+1.  Curiosos que "solo están mirando".
+2.  Gente que no tiene el presupuesto necesario.
+3.  Personas que preguntan cosas que ya están en la descripción.
+4.  Compradores que quieren visitar a horas imposibles.
+
+Resultado: te pasas el día respondiendo lo mismo y filtrando "paja", en vez de estar enseñando casas y cerrando ventas.
+
+---
+
+## La solución: Tu agente virtual 24/7
+
+Imagina tener un empleado que:
+- Trabaja 24 horas al día, 7 días a la semana.
+- Responde al segundo a cada lead que entra.
+- Sabe todo sobre todas tus propiedades.
+- Filtra a los curiosos con elegancia.
+- Agenda visitas directamente en tu calendario.
+- Y todo esto **mientras tú duermes o estás en una firma**.
+
+Esto no es ciencia ficción. Es lo que estamos montando para inmobiliarias modernas hoy mismo.
+
+---
+
+## 4 formas en que la IA revoluciona tu inmobiliaria
+
+### 1. Respuesta inmediata (adiós a perder al cliente impaciente)
+
+Si alguien ve un piso en Idealista a las 11 de la noche y manda una solicitud, quiere respuesta YA. Si esperas a mañana a las 9:00, ya ha contactado con otras 3 agencias.
+
+**Con IA:**
+El lead entra → La IA le saluda por WhatsApp inmediatamente → **"Hola Juan, he visto que te interesa el ático en la Avenida. ¿Buscas para comprar o alquilar?"**
+
+### 2. Cualificación automática (el filtro anti-curiosos)
+
+Antes de que tú muevas un dedo, la IA hace las preguntas incómodas pero necesarias:
+
+- "¿Cuál es tu presupuesto máximo?"
+- "¿Necesitas financiación?"
+- "¿Para cuándo quieres mudarte?"
+- "¿Buscas para invertir o para vivir?"
+
+Si el cliente no encaja (ej. presupuesto muy bajo para la zona), la IA lo gestiona amablemente o lo redirige a otras opciones. Si el cliente es "pata negra", te avisa: **"🔥 LEAD CALIENTE: Juan, presupuesto 350k, quiere comprar ya, financiación aprobada."**
+
+### 3. Matching de propiedades (el recomendador perfecto)
+
+"Oye, ese piso ya se ha vendido, pero tengo otros dos parecidos".
+
+¿Cuántas veces has dicho eso? La IA lo hace mejor.
+
+Si un cliente busca "3 habitaciones en el centro con terraza por 200k", la IA busca en tu CRM y le dice:
+**"Ese piso justo está reservado, pero mira, tengo este otro en la calle paralela que encaja perfecto y además tiene garaje. ¿Te mando fotos?"**
+
+Mantienes al cliente enganchado sin hacer nada.
+
+### 4. Agendado de visitas automático
+
+Nada de "te va bien el martes?", "no, mejor el jueves", "uy el jueves tengo notaría".
+
+La IA tiene acceso a tu calendario.
+**IA:** "Genial Juan, ¿te parece bien visitarlo este jueves a las 17:00 o el viernes a las 10:00?"
+**Cliente:** "El viernes mejor."
+**IA:** "¡Adjudicado! Te mando la ubicación y te espera mi compañero Carlos."
+
+Tú solo recibes la notificación: **Viernes 10:00 - Visita Ático con Juan.**
+
+---
+
+## Caso real: Inmobiliaria en Valencia
+
+Implementamos este sistema para una agencia mediana (5 agentes).
+
+**Antes:**
+- 40 leads/día (desde portales + web).
+- 2 horas/día por agente solo respondiendo mensajes y llamadas de filtrado.
+- Tasa de visitas agendadas baja (mucho lead basura).
+
+**Después de la IA:**
+- La IA atiende el 100% de los leads iniciales.
+- Filtra automáticamente al 60% (curiosos/sin presupuesto).
+- **Los agentes recuperaron 2 horas al día CADA UNO.**
+- Las visitas agendadas son de mucha mayor calidad (cierre +20%).
+
+---
+
+## ¿Y el toque humano?
+
+"¿Pero la gente no quiere hablar con una persona?"
+
+La gente quiere **rapidez** y **soluciones**.
+Prefieren mil veces una respuesta inmediata de una IA competente que esperar 4 horas a que un humano les diga "sí, sigue disponible".
+
+Además, la IA no sustituye al agente. **Lo potencia**.
+La IA hace el trabajo sucio (filtrar, agendar). El agente hace lo que mejor se le da: **enseñar la casa, negociar y cerrar la venta.**
+
+---
+
+## ¿Cómo empezamos?
+
+No necesitas cambiar tu CRM ni hacer una obra faraónica.
+Podemos conectar una IA a tu WhatsApp y a tus portales en cuestión de días.
+
+Si estás cansado de ser secretario/a y quieres volver a ser vendedor/a, hablemos.
+
+**[Reserva tu auditoría gratuita](https://calendly.com/ia4pymes/30min)** - Vemos tus números y te decimos cuánto tiempo podrías ahorrar.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
