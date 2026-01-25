@@ -19,6 +19,7 @@ import {
   X,
 } from "lucide-react"
 import { useState } from "react"
+import Link from "next/link"
 
 import { ParticlesBackground } from "@/components/particles-background"
 
@@ -30,20 +31,6 @@ import { useIsMobile } from "@/hooks/use-mobile"
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const elementRect = element.getBoundingClientRect()
-      const absoluteElementTop = elementRect.top + window.pageYOffset
-      const middle = absoluteElementTop - window.innerHeight / 2 + elementRect.height / 2
-      window.scrollTo({
-        top: middle,
-        behavior: "smooth",
-      })
-    }
-    setMobileMenuOpen(false)
-  }
 
 
   return (
@@ -97,8 +84,8 @@ export default function Home() {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-4 lg:gap-8" role="menubar">
-                  <button
-                    onClick={() => scrollToSection("proceso")}
+                  <Link
+                    href="#proceso"
                     className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                     role="menuitem"
                     aria-label="Ir a la sección de proceso"
@@ -108,9 +95,9 @@ export default function Home() {
                       className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
                       aria-hidden="true"
                     ></div>
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("casos-exito")}
+                  </Link>
+                  <Link
+                    href="#casos-exito"
                     className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                     role="menuitem"
                     aria-label="Ir a la sección de casos de éxito"
@@ -120,9 +107,9 @@ export default function Home() {
                       className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
                       aria-hidden="true"
                     ></div>
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("beneficios")}
+                  </Link>
+                  <Link
+                    href="#beneficios"
                     className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                     role="menuitem"
                     aria-label="Ir a la sección de beneficios"
@@ -132,8 +119,8 @@ export default function Home() {
                       className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
                       aria-hidden="true"
                     ></div>
-                  </button>
-                  <a
+                  </Link>
+                  <Link
                     href="/blog"
                     className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
                     role="menuitem"
@@ -144,10 +131,10 @@ export default function Home() {
                       className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
                       aria-hidden="true"
                     ></div>
-                  </a>
-                  <button
-                    onClick={() => scrollToSection("contacto")}
-                    className="bg-blue-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4 lg:ml-6 text-sm lg:text-base whitespace-nowrap"
+                  </Link>
+                  <Link
+                    href="#contacto"
+                    className="bg-blue-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4 lg:ml-6 text-sm lg:text-base whitespace-nowrap inline-flex items-center"
                     role="menuitem"
                     aria-label="Agendar una llamada de consulta"
                   >
@@ -163,7 +150,7 @@ export default function Home() {
                       className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300 animate-pulse"
                       aria-hidden="true"
                     ></div>
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -182,39 +169,43 @@ export default function Home() {
               {mobileMenuOpen && (
                 <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl z-[9999] animate-in slide-in-from-top duration-300">
                   <div className="container mx-auto px-4 py-6 space-y-4">
-                    <button
-                      onClick={() => scrollToSection("proceso")}
+                    <Link
+                      href="#proceso"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
                     >
                       Proceso
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("casos-exito")}
+                    </Link>
+                    <Link
+                      href="#casos-exito"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
                     >
                       Casos de Éxito
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("beneficios")}
+                    </Link>
+                    <Link
+                      href="#beneficios"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
                     >
                       Por Qué Nosotros
-                    </button>
-                    <a
+                    </Link>
+                    <Link
                       href="/blog"
                       className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
                     >
                       Blog
-                    </a>
-                    <button
-                      onClick={() => scrollToSection("contacto")}
+                    </Link>
+                    <Link
+                      href="#contacto"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block w-full bg-blue-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
                     >
                       <span className="flex items-center justify-center gap-2">
                         <Calendar className="w-4 h-4" />
                         Agendar Llamada
                       </span>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -284,9 +275,9 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start">
-                    <button
-                      onClick={() => scrollToSection("contacto")}
-                      className="bg-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-xl text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
+                    <Link
+                      href="#contacto"
+                      className="bg-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-xl text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group inline-flex items-center"
                       aria-label="Solicitar consulta gratuita"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
@@ -304,14 +295,14 @@ export default function Home() {
                         className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"
                         aria-hidden="true"
                       ></div>
-                    </button>
-                    <button
-                      onClick={() => scrollToSection("casos-exito")}
-                      className="border-2 border-slate-300 text-slate-700 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg"
+                    </Link>
+                    <Link
+                      href="#casos-exito"
+                      className="border-2 border-slate-300 text-slate-700 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg inline-flex items-center justify-center"
                       aria-label="Ver casos de éxito reales"
                     >
                       Ver Casos Reales
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2">
@@ -533,8 +524,8 @@ export default function Home() {
 
             {/* Enhanced Bottom CTA */}
             <div className="text-center mt-12 sm:mt-16">
-              <button
-                onClick={() => scrollToSection("contacto")}
+              <Link
+                href="#contacto"
                 className="inline-flex items-center bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group relative overflow-hidden"
                 aria-label="Ir a la sección de contacto"
               >
@@ -553,7 +544,7 @@ export default function Home() {
                   className="w-5 sm:w-6 h-5 sm:h-6 ml-2 sm:ml-3 transform group-hover:translate-x-2 transition-transform duration-300 relative z-10"
                   aria-hidden="true"
                 />
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -821,8 +812,8 @@ export default function Home() {
                 </li>
               </ul>
 
-              <button
-                onClick={() => scrollToSection("contacto")}
+              <Link
+                href="#contacto"
                 className="inline-flex items-center bg-white text-slate-800 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl shadow-lg text-base sm:text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
                 aria-label="Solicitar consulta gratuita personalizada"
               >
@@ -838,7 +829,7 @@ export default function Home() {
                   className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   aria-hidden="true"
                 ></div>
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -1028,14 +1019,14 @@ export default function Home() {
                   <span className="font-medium text-sm sm:text-base">Respuesta Inmediata</span>
                 </li>
               </ul>
-              <button
-                onClick={() => scrollToSection("inicio")}
+              <Link
+                href="#inicio"
                 className="mt-6 sm:mt-8 text-blue-600 hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
                 aria-label="Volver al inicio de la página"
               >
                 <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 rotate-180" aria-hidden="true" />
                 Volver al Inicio
-              </button>
+              </Link>
             </div>
           </div>
         </section>

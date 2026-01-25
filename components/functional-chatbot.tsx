@@ -6,6 +6,8 @@ import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 interface Message {
   sender: string
@@ -152,19 +154,17 @@ export function FunctionalChatbot() {
             className={`${msg.sender === "User" ? "text-right" : "text-left"}`}
           >
             <div
-              className={`inline-block p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm max-w-xs sm:max-w-sm break-words ${
-                msg.sender === "User"
+              className={`inline-block p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm max-w-xs sm:max-w-sm break-words ${msg.sender === "User"
                   ? "bg-white ml-auto border border-gray-200"
                   : "bg-gradient-to-r from-blue-100 to-blue-50"
-              } ${msg.sender === "User" ? "rounded-br-sm" : "rounded-bl-sm"}`}
+                } ${msg.sender === "User" ? "rounded-br-sm" : "rounded-bl-sm"}`}
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
-                className={`prose prose-sm max-w-none ${
-                  msg.sender === "User"
+                className={`prose prose-sm max-w-none ${msg.sender === "User"
                     ? "text-slate-600 prose-strong:text-slate-700"
                     : "text-slate-800 prose-strong:text-blue-600"
-                }`}
+                  }`}
                 components={{
                   p: ({ children }) => <p className="mb-1 sm:mb-2 last:mb-0 text-xs sm:text-sm">{children}</p>,
                   ul: ({ children }) => (
@@ -214,21 +214,26 @@ export function FunctionalChatbot() {
       </div>
 
       <div className="mt-3 sm:mt-4 flex items-center space-x-2">
-        <input
+        <Input
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
-          className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:opacity-50"
+          className="flex-1"
           disabled={isLoading}
+          name="message"
+          autoComplete="off"
+          aria-label="Escribe tu mensaje"
         />
-        <button
+        <Button
           onClick={handleSendMessage}
-          className="p-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          size="icon"
+          className="bg-blue-800 hover:bg-blue-900"
           disabled={isLoading}
+          aria-label="Enviar mensaje"
         >
           <Send className="w-4 sm:w-5 h-4 sm:h-5" />
-        </button>
+        </Button>
       </div>
     </div>
   )
