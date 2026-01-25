@@ -19,9 +19,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "I4PYMES - Automatización con IA para PYMES | Soluciones Personalizadas",
+  title: "I4PYMES - Automatización con IA para PYMES",
   description:
-    "Automatiza tu PYME con herramientas de IA 100% personalizadas. Reducimos el 80% del tiempo en tareas repetitivas. Chatbots, automatización de procesos y más. Consulta gratuita.",
+    "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
   keywords: [
     "automatización PYMES",
     "inteligencia artificial empresas",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "I4PYMES - Automatización con IA para PYMES | Soluciones 100% Personalizadas",
+    title: "I4PYMES - Automatización con IA para PYMES",
     description:
-      "Transformamos tu PYME con IA personalizada. Automatizamos procesos, creamos chatbots y herramientas específicas para tu negocio. 80% menos tiempo en tareas repetitivas.",
+      "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
     url: "https://ia4pymes.tech",
     siteName: "I4PYMES",
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "I4PYMES - Automatización con IA para PYMES",
     description:
-      "Herramientas de IA 100% personalizadas para PYMES. Automatiza procesos, crea chatbots y reduce 80% el tiempo en tareas repetitivas.",
+      "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
