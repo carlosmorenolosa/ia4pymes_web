@@ -21,11 +21,25 @@ import {
 import { useState } from "react"
 import Link from "next/link"
 
+import dynamic from "next/dynamic"
+
 import { ParticlesBackground } from "@/components/particles-background"
 
-import { SuccessCasesCarousel } from "@/components/success-cases-carousel"
-import { FunctionalChatbot } from "@/components/functional-chatbot"
-import { CalendlyWidget } from "@/components/calendly-widget"
+// Lazy load heavy components
+const SuccessCasesCarousel = dynamic(() => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel), {
+  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+  ssr: false
+})
+
+const FunctionalChatbot = dynamic(() => import("@/components/functional-chatbot").then((mod) => mod.FunctionalChatbot), {
+  loading: () => <div className="h-[500px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+  ssr: false
+})
+
+const CalendlyWidget = dynamic(() => import("@/components/calendly-widget").then((mod) => mod.CalendlyWidget), {
+  ssr: false
+})
+
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
