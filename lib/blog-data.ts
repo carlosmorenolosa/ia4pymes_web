@@ -1524,6 +1524,120 @@ Si estás cansado de ser secretario/a y quieres volver a ser vendedor/a, hablemo
 **[Reserva tu auditoría gratuita](https://calendly.com/ia4pymes/30min)** - Vemos tus números y te decimos cuánto tiempo podrías ahorrar.
     `.trim(),
     },
+    {
+        slug: "ia-para-clinicas-agenda-llena-sin-no-shows",
+        title: "IA para Clínicas: Cómo llenar tu agenda y reducir el 'no-show' de pacientes",
+        description: "Automatiza tu clínica dental, de fisioterapia o estética. Reduce el ausentismo, gestiona citas 24/7 y reactiva pacientes antiguos con IA.",
+        date: "2026-01-26",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "Sector Salud",
+        image: "/blog/ia-clinicas.png",
+        content: `
+## El dolor de cabeza de toda clínica: el teléfono y los huecos vacíos
+
+Si gestionas una clínica (dental, fisio, estética, podología...), conoces esta pesadilla:
+
+1.  El teléfono suena justo cuando estás atendiendo a un paciente en recepción.
+2.  Pacientes que reservaron hace dos semanas no aparecen (**no-show**) y te dejan un hueco de una hora tirado.
+3.  Mensajes de WhatsApp el domingo por la noche preguntando "¿tenéis hueco para mañana?".
+4.  Cientos de fichas de pacientes que hace 2 años que no vienen y nadie contacta.
+
+¿El resultado? **Pierdes dinero y tiempo.**
+
+---
+
+## La solución no es contratar más recepcionistas
+
+Es tener un **Asistente de IA** que trabaje en paralelo a tu equipo humano.
+
+Imagina un sistema que:
+- Atiende pacientes por WhatsApp las 24h.
+- Envía recordatorios automáticos para que no se olviden de la cita.
+- Si alguien cancela, ofrece el hueco libre a otros pacientes automáticamente.
+- Reactiva a pacientes antiguos con mensajes personalizados.
+
+Esto ya existe y se está implementando en clínicas modernas.
+
+---
+
+## 4 estrategias de IA para clínicas rentables
+
+### 1. Gestión de citas 100% automatizada
+
+Tu paciente quiere reservar un martes a las diez de la noche desde el sofá. Si tiene que llamar mañana de 10 a 14, probablemente se olvide o llame a otra clínica que le ponga las cosas fáciles.
+
+**Con IA:**
+- El paciente escribe por WhatsApp: "Hola, me duele una muela, ¿tenéis hueco?"
+- La IA (conectada a tu agenda/CRM) responde: "Hola, siento oír eso. Tenemos un hueco mañana a las 11:30 o el jueves a las 16:00. ¿Cuál prefieres?"
+- El paciente elige y la cita **aparece mágicamente en tu calendario**.
+
+Tú llegas por la mañana y tienes la agenda llena.
+
+### 2. Eliminando el temido "No-Show"
+
+Un paciente que no viene te cuesta dinero. Sala vacía, doctor parado, coste de oportunidad.
+
+**El sistema clásico:** Un SMS genérico 24h antes. (La gente los ignora).
+**El sistema con IA:** Una conversación real por WhatsApp.
+
+**IA (24h antes):** "Hola María, recuerda que mañana a las 16:00 te esperamos para tu revisión con el Dr. Pérez. ¿Me confirmas que vienes?"
+**María:** "Uy, se me había olvidado y me ha surgido una reunión..."
+**IA:** "Vaya, no te preocupes. ¿Quieres que la cambiemos al próximo martes a la misma hora?"
+
+Resultado: **El hueco de mañana queda libre con tiempo para llenarlo**, y María no se pierde, se reagenda.
+
+### 3. La "Lista de Espera" inteligente
+
+Siguiendo el ejemplo anterior: se ha liberado un hueco mañana a las 16:00.
+
+La IA puede buscar en tu lista de pacientes que querían cita pronto y escribirles:
+"¡Hola Juan! Se nos ha quedado libre un hueco mañana a las 16:00. ¿Te va mejor que esperar al mes que viene?"
+
+Así cubres cancelaciones en minutos sin hacer una sola llamada.
+
+### 4. Reactivación de pacientes inactivos
+
+Tienes una base de datos con 2.000 pacientes. 1.500 no han venido en 1 año.
+
+Poner a una recepcionista a llamar uno a uno es inviable.
+La IA puede iniciar conversaciones personalizadas:
+
+"Hola Carmen, hace un año de tu última limpieza dental. ¿Te va bien que agendemos una revisión para la semana que viene y así prevenimos problemas?"
+
+Si responde el 10% de 1.500 pacientes... **son 150 citas nuevas generadas de la nada.**
+
+---
+
+## ¿Esto sustituye a mi recepción?
+
+**No.**
+Tu personal de recepción es clave para el trato humano: recibir al paciente con una sonrisa, gestionar cobros, resolver problemas complejos, tranquilizar a alguien nervioso.
+
+La IA está para que tu recepción **deje de ser un call-center** y pueda centrarse en cuidar a los pacientes que están en la clínica.
+
+La IA gestiona el "ruido" (citas, dudas de horarios, recordatorios). Las personas gestionan a las personas.
+
+---
+
+## ¿Es difícil de implementar?
+
+Para nada.
+No necesitas cambiar tu programa de gestión (se integra con la mayoría o funciona en paralelo).
+
+Lo que sí necesitas es decidir: **¿Quiero seguir perdiendo horas al teléfono o quiero una clínica que funcione como un reloj suizo?**
+
+---
+
+## Empieza a llenar tu agenda hoy
+
+Si quieres ver cómo funciona esto en directo y calcular cuánto dinero estás perdiendo en huecos libres:
+
+**[Reserva una demo de 30 minutos](https://calendly.com/ia4pymes/30min)**.
+
+Te enseñamos ejemplos de clínicas que ya lo usan y cómo cambia su día a día.
+    `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
