@@ -1633,9 +1633,110 @@ Lo que sí necesitas es decidir: **¿Quiero seguir perdiendo horas al teléfono 
 
 Si quieres ver cómo funciona esto en directo y calcular cuánto dinero estás perdiendo en huecos libres:
 
-**[Reserva una demo de 30 minutos](https://calendly.com/ia4pymes/30min)**.
+**[Reserva una demo de 30 minutos](https://calendly.com/ia4pymes/30min)** - Vemos tus números y te decimos cuánto tiempo podrías ahorrar.
 
 Te enseñamos ejemplos de clínicas que ya lo usan y cómo cambia su día a día.
+    `.trim(),
+    },
+    {
+        slug: "ia-para-abogados-automatizacion-despachos",
+        title: "IA para Abogados: Automatiza la captación y el triaje de clientes",
+        description: "Descubre cómo los despachos de abogados usan IA para filtrar 'curiosos', responder consultas iniciales 24/7 y centrarse solo en casos rentables.",
+        date: "2026-01-29",
+        author: "I4PYMES",
+        readingTime: "11 min",
+        category: "Sector Legal",
+        image: "/blog/ia-abogados.png",
+        content: `
+## "Tengo una consulta rápida..." (que dura 40 minutos gratis)
+
+Si eres abogado, vives esto cada día.
+El teléfono suena. Alguien tiene un problema. Le escuchas durante media hora. Revisas documentación por encima.
+Al final, resulta que:
+A) No es tu especialidad.
+B) No tiene viabilidad jurídica.
+C) El cliente no tiene dinero para pagarte.
+
+**Resultado: Una hora perdida que no puedes facturar.**
+Multiplica esto por 5 llamadas a la semana y perderás **20 horas al mes**. Casi 3 días de trabajo tirados a la basura.
+
+---
+
+## El Triaje Jurídico Automático con IA
+
+En medicina, el triaje decide quién es urgente y quién puede esperar. En la abogacía, necesitas un sistema que decida: **¿Este caso es rentable para mi despacho?**
+
+La IA puede hacer este filtro por ti, 24/7, antes de que tú cojas el teléfono.
+
+### ¿Cómo funciona?
+
+1.  **El cliente contacta (Web/WhatsApp):** "Hola, me han despedido y quiero demandar".
+2.  **La IA hace las preguntas clave (Pre-filtro):**
+    *   "¿Cuándo te notificaron el despido?" (Para calcular plazos).
+    *   "¿Qué tipo de contrato tenías?"
+    *   "¿Cuál era tu antigüedad?"
+3.  **Análisis instantáneo:**
+    *   *Si está fuera de plazo:* La IA le informa amablemente y no te molesta.
+    *   *Si es viable:* La IA le pide sus datos y agenda una cita contigo.
+
+**Tú solo recibes una notificación:** "Cita agendada: Despido improcedente, plazo vigente, 5 años antigüedad. Viable."
+
+---
+
+## 3 Ventajas Inmediatas para tu Despacho
+
+### 1. Captación 24/7 (mientras estás en el juzgado)
+
+Los problemas legales no tienen horario. Si alguien busca "abogado divorcio urgente" un domingo a las 11 de la noche y tú no contestas, llamará al siguiente de Google.
+Tu Asistente IA responde al instante, empatiza con su problema ("Entiendo que es una situación difícil...") y captura sus datos para que el lunes a primera hora ya sea tu cliente.
+
+### 2. Adiós a las tareas administrativas repetitivas
+
+"¿Qué documentación necesito?"
+"¿Dónde está vuestro despacho?"
+"¿Cuánto cuesta la primera consulta?"
+
+El 80% de los emails que recibes son preguntas de "copia y pega".
+La IA las responde sola. Tú te dedicas a preparar juicios y redactar demandas, que es lo que da dinero.
+
+### 3. Imagen de Modernidad y Eficiencia
+
+El cliente actual no quiere esperar 2 días a que le devuelvan la llamada. Quiere inmediatez.
+Un despacho que te atiende por WhatsApp al instante y te resuelve dudas básicas transmite una imagen de tecnología y eficiencia muy potente.
+
+---
+
+## Caso de uso: Despacho de Familia
+
+Implementamos un sistema para un despacho especializado en divorcios.
+
+**Problema:** Saturados de llamadas de gente preguntando dudas genéricas sobre custodia que nunca contrataban.
+**Solución:** Chatbot IA en la web + WhatsApp.
+**Resultado:**
+- El bot responde la duda básica y ofrece una **"Sesión de Estrategia Legal" de pago**.
+- Si el cliente paga, se agenda sola en el calendario del abogado.
+- **Se eliminaron las consultas gratuitas por teléfono.**
+- La facturación subió un 30% al filtrar solo clientes dispuestos a pagar.
+
+---
+
+## ¿Es seguro? ¿Y el secreto profesional?
+
+Absolutamente.
+Implementamos soluciones que cumplen con el RGPD y los estándares de seguridad más altos. Los datos de tus clientes están tan seguros (o más) que en tu correo electrónico actual.
+
+Además, la IA se entrena con **TU criterio jurídico**. No "inventa" leyes. Responde lo que tú le has enseñado a responder.
+
+---
+
+## Deja de regalar tu tiempo
+
+La abogacía es un negocio de tiempo y conocimiento.
+Si regalas tu tiempo filtrando llamadas, estás perdiendo dinero.
+
+Deja que la IA sea tu barrera de entrada y tu secretaria 24h.
+
+**[Auditoría LegalTech Gratuita](https://calendly.com/ia4pymes/30min)** - Analizamos tu despacho y te decimos dónde puedes automatizar.
     `.trim(),
     },
 ]
