@@ -1782,14 +1782,11 @@ Tú les gestionas el tráfico con Ads o SEO, ¿verdad?
 Ofrecerles un chatbot que atienda esos leads 24/7 es el complemento natural a tus servicios.
 **"Oye cliente, te estoy trayendo leads, pero veo que se te escapan. Pon este chatbot que te lo soluciona."** -> Venta cerrada.
 
-### 2. Se instala en días, no en meses
-Olvídate de desarrollos a medida de 6 meses.
-Nuestra tecnología ya está lista. Solo necesitamos:
-*   La URL de la web del cliente (para que la IA lea la info).
-*   Sus PDFs de precios/servicios.
-*   Instalar un pequeño código en su web (como el píxel de Facebook).
-
-En **48-72 horas** puedes entregar un chatbot 100% funcional. Tu cliente pensará que tienes un equipo de ingenieros en la cueva.
+### 2. Proceso 'Llave en Mano' en 2 semanas
+Olvídate de eternos desarrollos. Nuestro flujo está optimizado:
+1.  **Confirmación:** Tu cliente acepta el presupuesto.
+2.  **Desarrollo Express:** En un máximo de **2 semanas**, desarrollamos un frontend a medida y configuramos la plataforma.
+3.  **Entrega:** Le entregas las llaves de su nuevo "empleado digital" completamente operativo.
 
 ### 3. Ingresos Recurrentes (MRR) reales
 Vender una web es "pan para hoy". Vender un chatbot es **ingreso pasivo**.
@@ -1819,14 +1816,25 @@ Vamos a ser transparentes con un ejemplo real de uno de nuestros partners.
 
 ---
 
-## ¿Qué incluimos en el servicio de Marca Blanca?
-Nosotros somos tu departamento técnico invisible. Tú no te manchas las manos.
+## La Joya de la Corona: Tu Propia Plataforma de Control
+No solo entregas un chatbot, entregas el control total. Les daremos acceso a una plataforma (que pueden percibir como tuya) con funcionalidades premium:
 
-1.  **Tecnología RAG (Retrieval-Augmented Generation):** La IA responde basándose SOLO en los datos de tu cliente. Cero alucinaciones.
-2.  **Multicanal:** Web, WhatsApp y (próximamente) Instagram/Facebook.
-3.  **Lead Gen & Citas:** La IA no solo responde, pide datos y agenda citas en Calendly/Google Calendar.
-4.  **Dashboard para tu cliente:** (Opcional) Tu cliente puede entrar a ver las conversaciones y estadísticas... ¡y verá TU LOGO en el panel de control!
-5.  **Soporte Prioritario:** Si pasa algo, nos escribes y lo arreglamos. Tu cliente nunca sabrá que existimos.
+1.  **Configuración a Medida:**
+    *   **Prompting Visual:** Pueden modificar las instrucciones del bot (nombre, tono, estilo, longitud de respuesta) sin código. Tranquilo, nosotros mantenemos un "prompt base" de seguridad para que el bot nunca deje de funcionar.
+    *   **Identidad de Marca:** El bot hablará exactamente como ellos quieran.
+
+2.  **Gestión de Conocimiento (RAG):**
+    *   Carga de documentos (PDF, Word, TXT) con arrastrar y soltar.
+    *   Gestión total: subir, borrar y ver qué documentos está leyendo la IA en tiempo real.
+
+3.  **Métricas e Insights Avanzados:**
+    *   **Datos Cuantitativos:** Número de conversaciones, horas punta, duración media.
+    *   **Análisis Cualitativo:** La IA analiza las conversaciones y les dice *qué* están preguntando sus clientes y *cómo* se sienten.
+    *   **Historial Completo:** Acceso transparente a todas las conversaciones mantenidas (Web, WhatsApp, Email).
+
+4.  **Sandbox de Pruebas:**
+    *   Antes de publicar cambios, pueden probar el bot en un entorno seguro.
+    *   Verificación en tiempo real de cómo responde en Web, WhatsApp o Email antes de salir a producción.
 
 ---
 
