@@ -1817,7 +1817,7 @@ No solo entregas un chatbot, entregas el control total. Les daremos acceso a una
     *   **Identidad de Marca:** El bot hablará exactamente como ellos quieran.
 
 2.  **Gestión de Conocimiento (RAG):**
-    *   Carga de documentos (PDF, Word, TXT) con arrastrar y soltar.
+    *   Carga de documentos (PDF y Word) con arrastrar y soltar.
     *   Gestión total: subir, borrar y ver qué documentos está leyendo la IA en tiempo real.
 
 3.  **Métricas e Insights Avanzados:**
