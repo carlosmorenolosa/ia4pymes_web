@@ -1795,24 +1795,17 @@ Si tienes 10 clientes a 200€/mes de margen... haz las cuentas. Son 24.000€ a
 
 ---
 
-## Los números: ¿Cuánto puedo ganar?
-Vamos a ser transparentes con un ejemplo real de uno de nuestros partners.
+## Tu Margen: ¿Cuánto puedo ganar?
+El modelo es simple y transparente. Nosotros te cobramos:
+1.  **Una tarifa única de implementación (Setup)** por cada chatbot.
+2.  **Una tarifa mensual de mantenimiento** muy ajustada.
 
-### Coste para ti (Agencia)
-*   Setup con nosotros: **Bajo coste fijo** (contáctanos para tarifas de partner).
-*   Mantenimiento mensual: **Tarifa plana reducida**.
+**Tú decides el precio final.**
+Nuestras tarifas están diseñadas para que tú puedas añadir tu margen y ofrecer un precio competitivo a tu cliente, llevándote la mayor parte del pastel.
 
-### Precio para tu cliente (PVP recomendado)
-*   Setup inicial: **1.500€ - 3.000€** (dependiendo de la complejidad).
-*   Mantenimiento mensual: **150€ - 400€/mes**.
-
-### Tu Beneficio neto por cliente
-*   En el setup: **Ganas ~1.000€ - 2.000€** limpios nada más empezar.
-*   En el mensual: **Ganas ~100€ - 250€** al mes por cliente, *sin hacer nada*.
-
-**Con solo 5 clientes:**
-*   Setup: **+7.500€ de caja inmediata.**
-*   Mensual: **+1.000€/mes de facturación recurrente extra.**
+### Escalabilidad Real
+*   **Descuentos por Volumen:** A medida que traigas más clientes, nuestros costes para ti bajan. Tu margen crece automáticamente.
+*   **Gestión Centralizada (Multi-Tenant):** ¿Tienes 5, 10 o 50 clientes? No te vuelvas loco con mil contraseñas. Podrás **gestionar todos los chatbots de tus clientes desde un único panel de control**, centralizado y sin cambiar de dominio. Tu propia "Torre de Control" de IA.
 
 ---
 
