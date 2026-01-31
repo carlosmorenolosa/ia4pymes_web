@@ -1766,7 +1766,7 @@ Es muy simple:
 1.  **Nosotros (I4PYMES) creamos la tecnología.** Ponemos los servidores, la IA, el entrenamiento y el soporte técnico.
 2.  **Tú (La Agencia) le pones tu logo y tu precio.** Se lo vendes a tu cliente como un producto propio: "El Chatbot Inteligente de [Tu Agencia]".
 3.  **Tu cliente flipa.** Ve que su agencia le ha montado una tecnología puntera en días.
-4.  **Tú ganas dinero.** Cobras un setup inicial + una mensualidad ricorrente, pagándonos a nosotros una fracción de eso.
+4.  **Tú ganas dinero.** Cobras un setup inicial + una mensualidad recurrente, pagándonos a nosotros una fracción de eso.
 
 Es como vender hosting, pero mucho más rentable y sexy.
 
