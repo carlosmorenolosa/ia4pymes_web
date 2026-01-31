@@ -1836,6 +1836,18 @@ No solo entregas un chatbot, entregas el control total. Les daremos acceso a una
     *   Antes de publicar cambios, pueden probar el bot en un entorno seguro.
     *   Verificación en tiempo real de cómo responde en Web, WhatsApp o Email antes de salir a producción.
 
+### ¿Quién controla la plataforma? Tú decides.
+Hemos diseñado el sistema para que se adapte al 100% a tu modelo de agencia:
+
+*   **Opción A: Gestión Integral (Done-For-You)**
+    *   **Tú gestionas todo** desde la plataforma. Tu cliente no toca nada, solo recibe los resultados.
+    *   **Ventaja:** Cobras más por el "mantenimiento y gestión" y utilizas los datos de las conversaciones para **mejorar tus campañas de marketing** con *insights* reales de lo que preguntan los usuarios.
+
+*   **Opción B: Acceso al Cliente (Self-Service)**
+    *   Le das **acceso directo** a la plataforma a tu cliente final.
+    *   Ellos mismos suben sus archivos, ajustan los mensajes y revisan el historial.
+    *   **Ventaja:** Ideal para clientes que quieren control total. Tu agencia queda como un **partner tecnológico** que les habilita herramientas potentes, sin tener que hacer tú el trabajo manual.
+
 ---
 
 ## La visión: Esto no es una "moda", es el estándar
