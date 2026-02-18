@@ -748,30 +748,30 @@ export default function Home() {
                 <div className="text-center lg:text-left">
                   <div className="inline-flex items-center bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-blue-400/30">
                     <Zap className="w-4 h-4 mr-2 text-yellow-400" />
-                    Actualidad IA semanal
+                    Un caso real cada día
                   </div>
                   <h2
                     id="newsletter-heading"
                     className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight"
                   >
-                    Mantente a la <span className="text-blue-400">vanguardia</span> de la IA
+                    Un <span className="text-blue-400">caso diario</span> para transformar tu empresa
                   </h2>
                   <p className="text-lg sm:text-xl text-blue-50/80 leading-relaxed mb-8">
-                    Únete a nuestra newsletter para recibir las últimas noticias, tendencias y herramientas de Inteligencia Artificial diseñadas específicamente para maximizar la eficiencia de las PYMES.
+                    Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
                   </p>
 
                   <ul className="space-y-4 mb-8 hidden sm:block text-blue-100/70">
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Tendencias del sector para 2026
+                      Casos de uso reales paso a paso
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Nuevas herramientas de automatización
+                      Automatizaciones listas para tu PYME
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Casos de uso reales y aplicables
+                      Herramientas que ahorran tiempo real
                     </li>
                   </ul>
                 </div>
