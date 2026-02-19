@@ -2340,6 +2340,76 @@ Delegar la gestión rutinaria en la IA no te aleja de tus alumnos; te permite es
 **[Reserva una auditoría para tu academia](https://calendly.com/ia4pymes/30min)** - Analizamos tus procesos y te enseñamos cómo la IA puede llenar tus aulas.
         `.trim(),
     },
+    {
+        slug: "ia-ecommerce-recuperacion-carritos-abandonados",
+        title: "E-commerce & Retail: El fin de los carritos abandonados con IA",
+        description: "Descubre cómo los agentes de IA pueden recuperar ventas perdidas en tiempo real y recomendar productos de forma inteligente.",
+        date: "2026-02-19",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "E-commerce",
+        image: "/blog/ia-ecommerce.png",
+        content: `
+## El agujero negro del E-commerce: El 70% de carritos abandonados
+
+Si tienes una tienda online, conoces este dolor: un usuario entra, navega, elige productos, los añade al carrito... y se va. Sin comprar. 
+
+En promedio, el **70,19% de los carritos de e-commerce son abandonados**. Es dinero que estaba a punto de entrar en tu caja y que se esfuma por un email que no llegó a tiempo, una duda sobre el envío no resuelta o simplemente una distracción.
+
+Hasta ahora, la solución eran los emails de recuperación. Pero, seamos honestos: la mayoría acaban en la pestaña de promociones o en la papelera.
+
+---
+
+## La Revolución Conversacional: Recuperar ventas en caliente
+
+A diferencia de un email que se lee tres horas después, un **agente de IA conversacional** actúa cuando el interés del cliente está en su punto máximo.
+
+### 1. Resolución de dudas en el "momento de la verdad"
+Muchos clientes abandonan porque tienen una duda de último segundo: "¿Llegará antes del viernes?", "¿Es compatible con X?", "¿Cómo funciona la devolución?". 
+Si tu tienda responde al instante mediante un chat inteligente, eliminas la fricción y cierras la venta.
+
+### 2. Recuperación proactiva vía WhatsApp
+Imagina que, 15 minutos después de que un usuario abandone el carrito, recibe un mensaje de WhatsApp amable:
+*"Hola Juan, he visto que te dejaste unas zapatillas en el carrito. ¿Tienes alguna duda con la talla o el envío? Estoy aquí para ayudarte."*
+
+La tasa de apertura de WhatsApp roza el **98%**. Comparado con el 20% del email, las matemáticas hablan solas.
+
+### 3. Upselling y Cross-selling inteligente
+La IA no solo recupera la venta; la aumenta. Basándose en lo que hay en el carrito, puede sugerir complementos: *"Por cierto, estas zapatillas combinan genial con estos calcetines técnicos. ¿Quieres que los añada con un 10% de descuento?"*.
+
+---
+
+## Beneficios clave para tu tienda online
+
+| Estrategia Tradicional | Estrategia con IA | Impacto en Ventas |
+|-------------------------|-------------------|-------------------|
+| Email de recuperación (24h tarde) | WhatsApp en caliente (15-30 min) | +25% recuperación |
+| Filtros de búsqueda estáticos | Recomendador IA personalizado | +15% ticket medio |
+| Atención por email (24-48h) | Chatbot resolutivo 24/7 | Mayor confianza |
+| Descuentos genéricos | Ofertas dinámicas por usuario | Mejor margen |
+
+---
+
+## Caso real: Tienda de Complementos de Moda
+
+Un e-commerce de accesorios con el que trabajamos sufría un abandono de carrito del 75%. El equipo no daba abasto para responder dudas por Instagram y WhatsApp a mano.
+
+**La implementación:**
+- Instalamos un asistente IA que resolvía dudas sobre materiales y plazos de entrega.
+- Configuramos un flujo de recuperación que enviaba un WhatsApp automático a los carritos de más de 50€.
+- **Resultado:** En solo 30 días, recuperaron el **18% de los carritos abandonados** y aumentaron la satisfacción del cliente, ya que las dudas se resolvían en segundos, no en horas.
+
+---
+
+## No dejes que tus clientes se escapen por la puerta de atrás
+
+El e-commerce de 2026 ya no se trata solo de tener un buen producto y publicidad; se trata de la **experiencia y la inmediatez**. Un cliente ignorado es una venta perdida. Una duda resuelta es una conversión ganada.
+
+**¿Quieres tapar el agujero de tus carritos abandonados?**
+
+**[Auditoría E-commerce Gratuita](https://calendly.com/ia4pymes/30min)** - Analizamos tu funnel de ventas y te decimos dónde estás perdiendo dinero y cómo la IA puede recuperarlo.
+        `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
