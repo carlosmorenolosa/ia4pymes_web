@@ -2410,6 +2410,73 @@ El e-commerce de 2026 ya no se trata solo de tener un buen producto y publicidad
 **[Auditoría E-commerce Gratuita](https://calendly.com/ia4pymes/30min)** - Analizamos tu funnel de ventas y te decimos dónde estás perdiendo dinero y cómo la IA puede recuperarlo.
         `.trim(),
     },
+    {
+        slug: "ia-logistica-transporte-digitalizacion-albaranes",
+        title: "IA en Logística y Transporte: Adiós al picado manual de albaranes",
+        description: "Descubre cómo la IA y el OCR están eliminando el trabajo manual en las oficinas de transporte, automatizando la entrada de datos y mejorando la trazabilidad.",
+        date: "2026-02-20",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "Logística",
+        image: "/blog/ia-logistica.png",
+        content: `
+## El cuello de botella de la logística: El papel y los errores humanos
+
+Si gestionas una empresa de transporte o logística, conoces bien esta escena: camiones llegando, albaranes firmados (a veces con letra ilegible), facturas que no cuadran y una montaña de papeles que alguien tiene que "picar" a mano en el ordenador al final del día.
+
+Este proceso no solo es lento y aburrido, sino que es una fuente constante de errores: una matrícula mal anotada, un bulto que no se registra o un precio mal introducido que acaba en una reclamación del cliente.
+
+**El papel sigue mandando en el sector, pero la forma de gestionarlo ha cambiado para siempre.**
+
+---
+
+## De OCR tradicional a Inteligencia Artificial Cognitiva
+
+Hasta hace poco, el OCR (Reconocimiento Óptico de Caracteres) era rígido. Si el albarán no era exactamente igual a la plantilla configurada, el sistema fallaba. 
+
+Hoy, gracias a la **IA generativa aplicada a la visión**, el juego ha cambiado:
+- **Entiende cualquier formato:** No importa si el albarán es de un proveedor de Francia o de una empresa local. La IA identifica dónde está el número de pedido, el peso y el destinatario.
+- **Lee letra manuscrita:** Incluso esas firmas y anotaciones rápidas en el muelle de carga son interpretadas con una precisión asombrosa.
+- **Valida datos en tiempo real:** Si el albarán dice que vienen 10 cajas pero el pedido de origen decía 12, el sistema lanza una alerta antes de que el camión se vaya.
+
+---
+
+## 3 Beneficios que impactan directamente en tu margen
+
+1. **Ahorro de horas administrativas:** Tareas que antes llevaban toda la mañana (digitalizar albaranes y facturas) ahora se hacen en segundos. Tu equipo puede centrarse en optimizar rutas y buscar nuevos clientes.
+2. **Cero errores en la facturación:** Al automatizar la entrada de datos directamente al ERP, te aseguras de que lo que se entrega es exactamente lo que se factura.
+3. **Trazabilidad total e inmediata:** En el momento en que se escanea el albarán (incluso con la cámara del móvil del conductor), la oficina ya sabe que la mercancía ha llegado. Se acabó el esperar a que el chófer vuelva para saber si hubo incidencias.
+
+---
+
+## Comparativa: Gestión Manual vs. Gestión con IA4PYMES
+
+| Tarea | Gestión Manual | Con Agente IA | Mejora |
+|-------|----------------|---------------|--------|
+| Registro de un albarán | 3-5 minutos | < 5 segundos | -98% tiempo |
+| Error en entrada de datos | 5-10% (humano) | < 1% (IA) | Mayor precisión |
+| Acceso a la información | Horas (buscar papel) | Instantáneo (digital) | Eficiencia total |
+| Escalabilidad | Necesitas más personal | Misma estructura | Crecimiento libre |
+
+---
+
+## Caso real: Empresa de transporte con flota propia
+
+Implementamos un sistema de digitalización para una empresa de logística que movía 500 albaranes diarios. Su equipo de administración estaba "enterrado" en papeles cada tarde.
+
+**La solución:** Un agente de IA que recibe los PDFs o fotos de los albaranes por WhatsApp/Email, extrae la información y la vuelca automáticamente en su software de gestión (LogisPlan).
+
+**El resultado:** Administrativos liberados de la carga repetitiva, reducción total de facturas erróneas y una visibilidad en tiempo real que les permitió mejorar el servicio al cliente, informando proactivamente de las entregas cumplidas.
+
+---
+
+## ¿Tu flota es del siglo XXI pero tu oficina sigue en el XX?
+
+La tecnología para digitalizar tu operativa sin complicaciones ya está aquí. No se trata de cambiar todo tu software, sino de añadir una **capa de inteligencia** que trabaje por ti.
+
+**[Reserva tu Auditoría Logística Gratuita](https://calendly.com/ia4pymes/30min)** - Analizamos tus procesos de documentación y te decimos cuánto podrías ahorrar automatizando tu "picado" de datos.
+        `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
