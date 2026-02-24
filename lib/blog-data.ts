@@ -2548,6 +2548,76 @@ No dejes la seguridad de tu empresa al azar o a la "intuición" de tu equipo. Ev
 **[Auditoría de Seguridad IA Gratis](https://calendly.com/ia4pymes/30min)** - Analizamos tus protocolos de pago y comunicación para detectar grietas antes de que los atacantes las encuentren.
         `.trim(),
     },
+    {
+        slug: "ia-reformas-construccion-presupuestos-automaticos",
+        title: "IA para Reformas y Construcción: Presupuestos que no se enfrían y atención 24/7",
+        description: "Descubre cómo los agentes de IA pueden atender a tus clientes, pedirles fotos de sus obras y agendar visitas mientras tú estás a pie de obra.",
+        date: "2026-02-24",
+        author: "I4PYMES",
+        readingTime: "10 min",
+        category: "Reformas y Construcción",
+        image: "/blog/ia-construccion.png",
+        content: `
+## El drama del autónomo de reformas: "Si cojo el teléfono, no trabajo. Si trabajo, no cojo clientes."
+
+Si te dedicas a las reformas, instalaciones o construcción, sabes perfectamente de lo que hablo. Estás subido a una escalera, con las manos manchadas de yeso o gestionando una cuadrilla, y el teléfono no para de sonar.
+- "Hola, ¿me das presupuesto para pintar un piso?"
+- "¿Cuándo podrías venir a ver un baño en el centro?"
+- "Te mando las fotos de la humedad por WhatsApp..."
+
+El resultado: **clientes que se "enfrían"** porque tardas tres días en devolverles la llamada o en mandarles esa primera estimación básica. En un sector tan competitivo como la construcción, la rapidez en la respuesta es el 80% de la venta.
+
+---
+
+## El Agente de IA: Tu jefe de obra en la oficina 24/7
+
+Imagina tener un empleado que nunca duerme, que atiende a cada cliente por WhatsApp o desde tu web con la misma profesionalidad que tú, y que deja el trabajo masticado para cuando bajes de la escalera.
+
+### 1. Pre-cualificación y captación de datos
+Nuestra IA no se limita a dar "las gracias". Es capaz de mantener una conversación técnica:
+- Pregunta los metros cuadrados.
+- Detecta el tipo de reforma (integral, baño, cocina).
+- **Pide las fotos de la estancia o avería** y las organiza por ti.
+- Recoge la ubicación y el plazo deseado.
+
+### 2. Presupuestos orientativos inmediatos
+Basándose en tus tarifas estándar, la IA puede dar rangos de precios aproximados para que el cliente no se quede a ciegas: *"Por lo que me cuentas, una reforma de este tipo suele rondar entre los X€ y los Y€, pero necesito que mi responsable técnico la vea en persona"*.
+
+### 3. Agenda de visitas inteligente
+Si el cliente encaja en tu perfil, la IA le ofrece directamente tus huecos libres de la semana para ir a medir. Sin llamadas de ida y vuelta.
+
+---
+
+## ¿Por qué esto cambia tu negocio? (Impacto Real)
+
+| Situación Actual | Con IA4PYMES | Impacto |
+|------------------|--------------|---------|
+| Llamadas perdidas mientras trabajas | Atención instantánea 24/7 | +40% de leads captados |
+| Citas que se olvidan en el coche | Sincronización automática Google Calendar | Organización perfecta |
+| El cliente se va a la competencia | Respuesta inmediata y profesional | Mayor tasa de conversión |
+| Horas perdidas en oficina por la noche | Datos de clientes ya organizados | -5h de oficina semanales |
+
+---
+
+## Caso real: Empresa de Reformas Integrales
+
+Trabajamos con una empresa de 3 personas que perdía mucha energía atendiendo consultas que no llegaban a nada (mirones o presupuestos fuera de rango).
+
+**La solución:** Un asistente de IA que filtraba el interés real pidiendo fotos y descripción de la obra antes de agendar ninguna visita.
+- **Antes:** Iban a ver 10 obras y cerraban 2.
+- **Después:** La IA desvía a los que solo buscan "lo más barato del mundo" y el equipo va a 4 visitas de las cuales cierran 3. **Menos tiempo en carretera, más rentabilidad.**
+
+---
+
+## Tu oficio es la obra, nuestro oficio es que no te falte ninguna
+
+No dejes que tu negocio dependa de tu capacidad física para contestar llamadas. Digitalizar la captación de tus obras no es solo "poner un chatbot", es crear una máquina de ventas que trabaja mientras tú echas el hormigón.
+
+**¿Quieres saber cuántas obras estás perdiendo por no contestar a tiempo?**
+
+**[Reserva tu Auditoría para Construcción](https://calendly.com/ia4pymes/30min)** - Analizamos tu captación y te enseñamos cómo la IA puede ser tu mejor comercial de reformas.
+        `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
