@@ -2763,7 +2763,7 @@ La automatización agente ha llegado para quedarse y Claude Cowork es la herrami
         author: "I4PYMES",
         readingTime: "12 min",
         category: "Estrategia IA",
-        image: "/blog/comparativa-ia.jpg",
+        image: "/blog/comparativa-ia.png",
         content: `
 ## ¿Cuál elegir? La pregunta de los 50.000€
 
