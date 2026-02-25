@@ -2694,7 +2694,7 @@ Tu taller vive de la confianza y de la calidad de tus reparaciones. Delegar la m
         author: "I4PYMES",
         readingTime: "11 min",
         category: "IA Generativa",
-        image: "/blog/claude-cowork.png",
+        image: "/blog/claude-cowork.jpg",
         content: `
 ## ¿Sigues chateando con la IA? Estás perdiendo el tiempo
 
