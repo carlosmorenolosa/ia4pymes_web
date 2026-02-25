@@ -2618,6 +2618,74 @@ No dejes que tu negocio dependa de tu capacidad física para contestar llamadas.
 **[Reserva tu Auditoría para Construcción](https://calendly.com/ia4pymes/30min)** - Analizamos tu captación y te enseñamos cómo la IA puede ser tu mejor comercial de reformas.
         `.trim(),
     },
+    {
+        slug: "ia-talleres-mecanicos-gestion-inteligente",
+        title: "Talleres Mecánicos: La IA como el Recepcionista 24/7 que tu taller necesita",
+        description: "Descubre cómo automatizar la gestión de citas, la cualificación de averías y el seguimiento de reparaciones sin soltar la llave inglesa.",
+        date: "2026-02-25",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "Automoción",
+        image: "/blog/ia-talleres.png",
+        content: `
+## El mayor enemigo de la rentabilidad en un taller: El teléfono
+
+Si eres dueño de un taller mecánico, sabes que tu tiempo se divide entre arreglar coches y atender a clientes. El problema es que, cada vez que suena el teléfono para pedir una cita o preguntar "¿Cómo va lo mío?", tienes que soltar la herramienta, lavarte las manos y romper tu flujo de trabajo.
+
+Esa interrupción no es gratuita: te hace perder dinero, retrasa las entregas y genera estrés. Y si no coges el teléfono, el cliente se va al taller de la acera de enfrente.
+
+**¿Y si pudieras tener un recepcionista técnico que atienda cada consulta con precisión cirujana las 24 horas del día?**
+
+---
+
+## La Recepción Inteligente: Más que un simple bot
+
+Un asistente de IA para talleres mecánicos no es un "contestador automático". Es una herramienta diseñada para entender el lenguaje técnico y agilizar la entrada del vehículo al taller.
+
+### 1. Cualificación técnica desde el primer minuto
+Cuando un cliente escribe por WhatsApp diciendo "el coche hace un ruido raro", la IA toma el mando:
+- Solicita la **matrícula o el número de bastidor (VIN)** para identificar el modelo exacto.
+- Pide al cliente que **suba un vídeo o audio del ruido** o una foto del testigo encendido en el cuadro.
+- Clasifica la avería (mecánica, eléctrica, chapa) para que cuando tú lo veas, ya sepas qué esperar.
+
+### 2. Gestión de citas sin errores
+La IA se conecta a tu calendario de taller y ofrece huecos disponibles según la carga de trabajo de cada sección. El cliente recibe su confirmación y tú tienes tu agenda organizada sin haber dicho una sola palabra.
+
+### 3. Seguimiento automático de la reparación
+"¿Cuándo estará listo mi coche?". Esta es la pregunta más repetida. La IA puede informar sobre el estado actual (*"Estamos esperando la llegada de la bomba de agua", "Tu coche está en la zona de limpieza para entregártelo"*), reduciendo la ansiedad del cliente y las llamadas a secretaría.
+
+---
+
+## Comparativa: Taller Tradicional vs. Taller Inteligente
+
+| Proceso | Taller Tradicional | Taller con IA4PYMES | Resultado |
+|---------|--------------------|---------------------|-----------|
+| Cita previa | Llamada (mecánico para de trabajar) | WhatsApp 24/7 automático | +30% productividad |
+| Recepción de datos | Se toman a mano al llegar el coche | Matrícula y VIN captados por IA | Entrada más rápida |
+| Seguimiento | El cliente llama varias veces | Notificaciones proactivas | Clientes más felices |
+| Pedido de recambios | Se hace tras ver el coche | Se pre-identifican por la matrícula | Menos tiempo de parada |
+
+---
+
+## Caso real: Taller Multimarca en Polígono Industrial
+
+Un taller con 4 mecánicos estaba perdiendo clientes nuevos porque nadie podía atender el teléfono durante las horas de mayor carga.
+
+**La solución:** Implementamos un asistente IA que cualificaba la urgencia de la avería. Si era un simple cambio de aceite, daba cita directa; si era una avería compleja, pedía fotos de la ficha técnica y un vídeo del problema.
+- **Resultado:** El dueño recuperó **2 horas diarias** de trabajo real en los elevadores.
+- **Impacto:** Las reseñas en Google Maps mejoraron notablemente porque los clientes se sentían "atendidos" incluso fuera del horario comercial.
+
+---
+
+## No cambies tu forma de trabajar, solo cámbiale las herramientas
+
+Tu taller vive de la confianza y de la calidad de tus reparaciones. Delegar la maquinaria administrativa en la Inteligencia Artificial te permite volver a lo que de verdad importa: la mecánica.
+
+**¿Quieres saber cuánto tiempo estás regalando a las llamadas este mes?**
+
+**[Reserva tu Auditoría para Talleres](https://calendly.com/ia4pymes/30min)** - Analizamos tu flujo de recepción y te enseñamos cómo la IA puede ser tu mejor empleado, sin mancharse de grasa.
+        `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
