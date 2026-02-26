@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-// Usar variable de entorno inyectada por Vercel
-const apiKey = process.env.RESEND_API_KEY;
-
 export async function POST(request: Request) {
+  // Evaluamos en runtime para asegurar que Vercel inyecte la variable
+  const apiKey = process.env.RESEND_API_KEY;
+
   try {
     const data = await request.json();
     const { name, company, email, phone, budget, message } = data;

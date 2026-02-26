@@ -21,6 +21,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>
 export function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+    const [errorMessage, setErrorMessage] = useState<string>("")
 
     const form = useForm<ContactFormValues>({
         resolver: zodResolver(contactFormSchema),
@@ -47,15 +48,26 @@ export function ContactForm() {
                 body: JSON.stringify(data),
             })
 
+            const result = await response.json().catch(() => ({}));
+
             if (!response.ok) {
-                throw new Error("Ocurrió un error al enviar el formulario")
+                let errorText = result.details || result.error || "Ocurrió un error al enviar el formulario";
+
+                // Si Resend dice que falta API key:
+                if (response.status === 401 && typeof errorText === "string" && errorText.toLowerCase().includes("key")) {
+                    errorText = "Missing Resend API Key in Server";
+                }
+
+                throw new Error(errorText);
             }
 
             setSubmitStatus("success")
             form.reset()
+            setErrorMessage("")
         } catch (error) {
             console.error("Error submitting form:", error)
             setSubmitStatus("error")
+            setErrorMessage(error instanceof Error ? error.message : "Error desconocido")
         } finally {
             setIsSubmitting(false)
         }
@@ -213,9 +225,15 @@ export function ContactForm() {
 
                     {/* Error general */}
                     {submitStatus === "error" && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex items-start gap-3">
-                            <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
-                            <p>Ha ocurrido un problema al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde o contáctanos directamente a nuestro correo.</p>
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex flex-col gap-2 transition-all">
+                            <div className="flex items-start gap-3">
+                                <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                                <div>
+                                    <p className="font-bold mb-1">Error al enviar la solicitud:</p>
+                                    <p className="font-mono text-xs bg-white/50 p-2 rounded border border-red-100">{errorMessage}</p>
+                                    <p className="mt-2 text-xs">Por favor, contáctanos directamente a nuestro correo: alejandro@ia4pymes.tech</p>
+                                </div>
+                            </div>
                         </div>
                     )}
 
