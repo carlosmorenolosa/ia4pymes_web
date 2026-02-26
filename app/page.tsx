@@ -292,10 +292,10 @@ export default function Home() {
                     <Link
                       href="#contacto"
                       className="bg-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-xl text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group inline-flex items-center"
-                      aria-label="Solicitar consulta gratuita"
+                      aria-label="Analizar mi caso"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        Consulta Gratuita
+                        Analizar mi caso
                         <ArrowRight
                           className="w-4 sm:w-5 h-4 sm:h-5 transform transition-transform duration-300 group-hover:translate-x-1"
                           aria-hidden="true"
@@ -807,6 +807,21 @@ export default function Home() {
                   </article>
                 )
               })}
+            </div>
+
+            {/* Added CTA button here as requested */}
+            <div className="mt-12 sm:mt-16 text-center">
+              <Link
+                href="#contacto"
+                className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                aria-label="Analizar mi caso"
+              >
+                <span>Analizar mi caso</span>
+                <ArrowRight
+                  className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
             </div>
           </div>
         </section>
