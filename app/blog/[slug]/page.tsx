@@ -1,41 +1,51 @@
-"use client"
-
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
-import { Calendar, Clock, ArrowLeft, ArrowRight, Sparkles, Terminal, BookOpenText } from "lucide-react"
+import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
-import { useEffect, useState } from "react"
-import { use } from "react"
-
-// Mover exportaciones de lado del servidor a un archivo layout o manejar client-side hydration
-// Por simplicidad en esta demo, lo mantendremos como client component para la progress bar.
-// En producción, extraer la progress bar a un componente aparte.
+import ReadingProgressBar from "./reading-progress-bar"
 
 interface PageProps {
     params: Promise<{ slug: string }>
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-    const { slug } = use(params)
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params
     const post = getPostBySlug(slug)
-    const [readingProgress, setReadingProgress] = useState(0)
 
-    useEffect(() => {
-        const updateScroll = () => {
-            const currentScrollY = window.scrollY;
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            if (scrollHeight) {
-                setReadingProgress(Number((currentScrollY / scrollHeight).toFixed(2)) * 100);
-            }
-        };
+    if (!post) {
+        return {
+            title: "Post no encontrado | I4PYMES",
+            description: "El artículo que buscas no existe."
+        }
+    }
 
-        window.addEventListener('scroll', updateScroll);
-        return () => window.removeEventListener('scroll', updateScroll);
-    }, []);
+    return {
+        title: `${post.title} | I4PYMES Blog`,
+        description: post.description,
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            type: "article",
+            publishedTime: post.date,
+            authors: [post.author],
+            images: post.image ? [post.image] : [],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.description,
+            images: post.image ? [post.image] : [],
+        }
+    }
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+    const { slug } = await params
+    const post = getPostBySlug(slug)
 
     if (!post) {
         notFound()
@@ -43,11 +53,7 @@ export default function BlogPostPage({ params }: PageProps) {
 
     return (
         <main className="min-h-screen bg-white selection:bg-blue-500/30">
-            {/* Reading Progress Bar */}
-            <div
-                className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 z-50 transition-all duration-150 ease-out"
-                style={{ width: `${readingProgress}%` }}
-            />
+            <ReadingProgressBar />
 
             {/* Hero Header Inmersivo (Elegante y Limpio) */}
             <header className="relative bg-slate-50 min-h-[50vh] flex flex-col justify-end pb-16 pt-32 overflow-hidden border-b border-slate-200">
