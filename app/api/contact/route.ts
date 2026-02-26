@@ -26,8 +26,10 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        // IMPORTANTE: Resend requiere que el From sea de un dominio verificado o onboarding@resend.dev para pruebas
         from: "I4PYMES Web <onboarding@resend.dev>",
         to: "alejandro@ia4pymes.tech",
+        reply_to: email, // Permite contestar al lead directamente
         subject: emailSubject,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
@@ -60,7 +62,7 @@ export async function POST(request: Request) {
       console.error("Resend error:", result);
       return NextResponse.json(
         { error: "Error al enviar el correo a través de Resend" },
-        { status: 500 }
+        { status: response.status }
       );
     }
 
@@ -68,8 +70,9 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error en el endpoint de contacto:", error);
     return NextResponse.json(
-      { error: "Error interno del servidor" },
+      { error: "Error interno del servidor", details: error instanceof Error ? error.message : "Desconocido" },
       { status: 500 }
     );
   }
 }
+

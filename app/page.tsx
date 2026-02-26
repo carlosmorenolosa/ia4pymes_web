@@ -154,7 +154,7 @@ export default function Home() {
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       <Calendar className="w-4 h-4" aria-hidden="true" />
-                      Agendar Llamada
+                      Solicitar Presupuesto
                     </span>
                     <div
                       className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -217,7 +217,7 @@ export default function Home() {
                     >
                       <span className="flex items-center justify-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        Agendar Llamada
+                        Solicitar Presupuesto
                       </span>
                     </Link>
                   </div>
