@@ -36,7 +36,7 @@ const FunctionalChatbot = dynamic(() => import("@/components/functional-chatbot"
   ssr: false
 })
 
-const CalendlyWidget = dynamic(() => import("@/components/calendly-widget").then((mod) => mod.CalendlyWidget), {
+const ContactForm = dynamic(() => import("@/components/contact-form").then((mod) => mod.ContactForm), {
   ssr: false
 })
 
@@ -1100,8 +1100,8 @@ export default function Home() {
               </article>
             </div>
 
-            {/* Calendly widget with enhanced styling and preloader */}
-            <CalendlyWidget />
+            {/* Custom Contact Form */}
+            <ContactForm />
 
             {/* Trust indicators */}
             <div className="text-center mt-8 sm:mt-12">
