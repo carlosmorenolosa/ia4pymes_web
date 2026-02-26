@@ -188,10 +188,10 @@ export function ContactForm() {
                                 {...form.register("budget")}
                             >
                                 <option value="" disabled className="text-slate-400">Elige tu rango de inversión...</option>
-                                <option value="1.000€ - 3.000€">1.000€ - 3.000€</option>
-                                <option value="3.000€ - 6.000€">3.000€ - 6.000€</option>
-                                <option value="6.000€ - 10.000€">6.000€ - 10.000€</option>
-                                <option value="+10.000€">+10.000€</option>
+                                <option value="Automatización Inicial (1.000€ - 3.000€)">Automatización Inicial (1.000€ - 3.000€)</option>
+                                <option value="Sistema Avanzado (3.000€ - 6.000€)">Sistema Avanzado (3.000€ - 6.000€)</option>
+                                <option value="Transformación Integral (6.000€ - 10.000€)">Transformación Integral (6.000€ - 10.000€)</option>
+                                <option value="Solución a Gran Escala (+10.000€)">Solución a Gran Escala (+10.000€)</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>

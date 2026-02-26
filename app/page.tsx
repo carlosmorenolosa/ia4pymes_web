@@ -870,69 +870,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section
-          className="bg-gradient-to-br from-slate-800 via-blue-800 to-slate-900 relative overflow-hidden"
-          aria-labelledby="cta-heading"
-        >
-          {/* Subtle animated background */}
-          <div className="absolute inset-0 opacity-20" aria-hidden="true">
-            <div className="absolute top-20 right-20 w-48 sm:w-64 h-48 sm:h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-            <div
-              className="absolute bottom-20 left-20 w-32 sm:w-48 h-32 sm:h-48 bg-purple-400/20 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "3s" }}
-            ></div>
-          </div>
-          <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20 text-center relative z-10 max-w-6xl">
-            <div className="max-w-4xl mx-auto">
-              <h2
-                id="cta-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
-              >
-                ¿Listo para Tu Herramienta Personalizada?
-              </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto px-4">
-                En una llamada de 30 minutos analizamos tus procesos específicos y te explicamos exactamente cómo
-                podemos automatizar las tareas que más tiempo te quitan.
-              </p>
-
-              {/* Compact benefits */}
-              <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-xs sm:text-sm list-none">
-                <li className="flex items-center justify-center text-blue-200">
-                  <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-400 mr-2" aria-hidden="true" />
-                  <span>Consulta gratuita de 30 min</span>
-                </li>
-                <li className="flex items-center justify-center text-blue-200">
-                  <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-400 mr-2" aria-hidden="true" />
-                  <span>Análisis de procesos específicos</span>
-                </li>
-                <li className="flex items-center justify-center text-blue-200">
-                  <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-400 mr-2" aria-hidden="true" />
-                  <span>Presupuesto personalizado</span>
-                </li>
-              </ul>
-
-              <Link
-                href="#contacto"
-                className="inline-flex items-center bg-white text-slate-800 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl shadow-lg text-base sm:text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group"
-                aria-label="Solicitar consulta gratuita personalizada"
-              >
-                <span className="relative z-10 flex items-center gap-2 sm:gap-3">
-                  <TrendingUp className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                  Quiero Mi Consulta Gratuita
-                  <ArrowRight
-                    className="w-4 sm:w-5 h-4 sm:h-5 transform transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </span>
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  aria-hidden="true"
-                ></div>
-              </Link>
-            </div>
-          </div>
-        </section>
 
         {/* Contact Section */}
         <section
