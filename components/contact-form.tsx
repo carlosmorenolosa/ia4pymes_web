@@ -85,14 +85,7 @@ export function ContactForm() {
     }
 
     return (
-        <div className="w-full max-w-3xl mx-auto my-16 px-4">
-            <div className="text-center mb-10">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Hablemos de tu proyecto</h2>
-                <p className="text-slate-600 max-w-xl mx-auto text-lg">
-                    Completa el siguiente formulario y nuestro equipo analizará tu caso para ofrecerte la mejor solución de Inteligencia Artificial para tu empresa.
-                </p>
-            </div>
-
+        <div className="w-full max-w-3xl mx-auto mb-16 px-4">
             <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
