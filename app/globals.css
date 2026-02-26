@@ -254,147 +254,99 @@ body.calendly-hover .custom-cursor {
 }
 
 /* ============================================
-   BLOG ARTICLE TYPOGRAPHY OVERRIDES
-   These override @tailwindcss/typography plugin
+   BLOG ARTICLE TYPOGRAPHY OVERRIDES (High-End Elegant)
    ============================================ */
 
 /* Article content wrapper */
 .blog-article-content {
-  font-size: 1.125rem !important;
-  /* 18px */
-  line-height: 1.9 !important;
-  color: #334155 !important;
-  /* slate-700 */
+  font-size: 1.1875rem !important; /* 19px for supreme readability */
+  line-height: 1.85 !important;
+  color: #334155 !important; /* slate-700 */
+  font-family: var(--font-inter);
 }
 
-/* Paragraphs - Large, justified, with spacing */
+/* Paragraphs */
 .blog-article-content p {
-  font-size: 1.125rem !important;
-  /* 18px */
-  line-height: 1.9 !important;
-  text-align: justify !important;
-  hyphens: auto !important;
-  margin-bottom: 1.75rem !important;
-  /* 28px */
+  margin-bottom: 2rem !important;
   color: #334155 !important;
+  letter-spacing: -0.01em;
 }
 
-/* H2 - Very large with underline */
+/* Headings - Modern and sharp */
 .blog-article-content h2 {
-  font-size: 1.875rem !important;
-  /* 30px */
+  font-size: 2.25rem !important;
   font-weight: 700 !important;
   margin-top: 3.5rem !important;
-  /* 56px */
   margin-bottom: 1.5rem !important;
-  /* 24px */
-  padding-bottom: 0.75rem !important;
-  border-bottom: 2px solid #dbeafe !important;
-  /* blue-100 */
-  color: #0f172a !important;
-  /* slate-900 */
-  font-family: system-ui, -apple-system, sans-serif !important;
-  line-height: 1.3 !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #0f172a !important; /* slate-900 */
+  font-family: var(--font-poppins) !important;
+  letter-spacing: -0.02em !important;
 }
 
-/* H3 - Large with accent color */
 .blog-article-content h3 {
   font-size: 1.5rem !important;
-  /* 24px */
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   margin-top: 2.5rem !important;
-  /* 40px */
   margin-bottom: 1rem !important;
-  /* 16px */
-  color: #1e40af !important;
-  /* blue-800 */
-  font-family: system-ui, -apple-system, sans-serif !important;
-  line-height: 1.4 !important;
+  color: #0f172a !important;
+  font-family: var(--font-poppins) !important;
 }
 
 /* Lists */
 .blog-article-content ul,
 .blog-article-content ol {
-  font-size: 1.25rem !important;
-  /* 20px */
-  line-height: 2 !important;
-  margin-top: 2rem !important;
+  margin-top: 1.5rem !important;
   margin-bottom: 2rem !important;
-  padding-left: 2rem !important;
+  padding-left: 1.5rem !important;
 }
 
 .blog-article-content li {
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
   padding-left: 0.5rem !important;
 }
 
 .blog-article-content li::marker {
-  color: #3b82f6 !important;
-  /* blue-500 */
+  color: #94a3b8 !important; /* slate-400 */
 }
 
 /* Strong text */
 .blog-article-content strong {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   color: #0f172a !important;
-  /* slate-900 */
 }
 
 /* Links */
 .blog-article-content a {
-  color: #2563eb !important;
-  /* blue-600 */
-  font-weight: 600 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 4px !important;
+  color: #3b82f6 !important; /* blue-500 */
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.2s ease;
 }
 
 .blog-article-content a:hover {
-  color: #1d4ed8 !important;
-  /* blue-700 */
+  color: #2563eb !important;
+  border-bottom-color: #2563eb !important;
 }
 
-/* Blockquotes */
+/* Blockquotes - Elegant Tech */
 .blog-article-content blockquote {
-  border-left: 6px solid #3b82f6 !important;
-  background: linear-gradient(to right, #eff6ff, transparent) !important;
-  padding: 2rem 2.5rem !important;
+  border-left: 2px solid #3b82f6 !important;
+  background-color: #f8fafc !important; /* slate-50 */
+  padding: 1.5rem 2rem !important;
   margin: 3rem 0 !important;
-  border-radius: 0 1rem 1rem 0 !important;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
   font-style: italic !important;
   font-size: 1.25rem !important;
   color: #475569 !important;
-  /* slate-600 */
 }
 
 /* Horizontal rules */
 .blog-article-content hr {
   margin: 4rem 0 !important;
-  border-color: #e2e8f0 !important;
-  /* slate-200 */
-}
-
-/* Responsive: Slightly larger on desktop */
-@media (min-width: 768px) {
-  .blog-article-content p {
-    font-size: 1.1875rem !important;
-    /* 19px */
-  }
-
-  .blog-article-content h2 {
-    font-size: 2.25rem !important;
-    /* 36px */
-  }
-
-  .blog-article-content h3 {
-    font-size: 1.75rem !important;
-    /* 28px */
-  }
-}
-
-/* Table row hover - only for body rows, not header */
-.blog-article-content table tbody tr:hover {
-  background-color: #f8fafc !important;
-  /* slate-50 */
-  transition: background-color 0.15s ease;
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(to right, transparent, #cbd5e1, transparent) !important;
 }

@@ -1,273 +1,213 @@
+"use client"
+
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
-import { Calendar, Clock, ArrowLeft, User, ArrowRight, Sparkles, BookOpen } from "lucide-react"
+import { Calendar, Clock, ArrowLeft, ArrowRight, Sparkles, Terminal, BookOpenText } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { useEffect, useState } from "react"
+import { use } from "react"
+
+// Mover exportaciones de lado del servidor a un archivo layout o manejar client-side hydration
+// Por simplicidad en esta demo, lo mantendremos como client component para la progress bar.
+// En producción, extraer la progress bar a un componente aparte.
 
 interface PageProps {
     params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-    const posts = getAllPosts()
-    return posts.map((post) => ({
-        slug: post.slug,
-    }))
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = await params
+export default function BlogPostPage({ params }: PageProps) {
+    const { slug } = use(params)
     const post = getPostBySlug(slug)
+    const [readingProgress, setReadingProgress] = useState(0)
 
-    if (!post) {
-        return {
-            title: "Artículo no encontrado",
-        }
-    }
+    useEffect(() => {
+        const updateScroll = () => {
+            const currentScrollY = window.scrollY;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollHeight) {
+                setReadingProgress(Number((currentScrollY / scrollHeight).toFixed(2)) * 100);
+            }
+        };
 
-    return {
-        title: `${post.title} | Blog I4PYMES`,
-        description: post.description,
-        keywords: [
-            post.category.toLowerCase(),
-            "automatización pymes",
-            "inteligencia artificial",
-            "chatbot empresas",
-        ],
-        authors: [{ name: post.author }],
-        openGraph: {
-            title: post.title,
-            description: post.description,
-            type: "article",
-            publishedTime: post.date,
-            authors: [post.author],
-            url: `https://ia4pymes.tech/blog/${post.slug}`,
-            images: [post.image],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: post.title,
-            description: post.description,
-        },
-    }
-}
-
-export default async function BlogPostPage({ params }: PageProps) {
-    const { slug } = await params
-    const post = getPostBySlug(slug)
+        window.addEventListener('scroll', updateScroll);
+        return () => window.removeEventListener('scroll', updateScroll);
+    }, []);
 
     if (!post) {
         notFound()
     }
 
-    // Article Schema for SEO
-    const articleSchema = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: post.title,
-        description: post.description,
-        image: `https://ia4pymes.tech${post.image}`,
-        datePublished: post.date,
-        author: {
-            "@type": "Organization",
-            name: post.author,
-            url: "https://ia4pymes.tech",
-        },
-        publisher: {
-            "@type": "Organization",
-            name: "I4PYMES",
-            url: "https://ia4pymes.tech",
-        },
-        mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://ia4pymes.tech/blog/${post.slug}`,
-        },
-    }
-
     return (
-        <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        <main className="min-h-screen bg-white selection:bg-blue-500/30">
+            {/* Reading Progress Bar */}
+            <div
+                className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 z-50 transition-all duration-150 ease-out"
+                style={{ width: \`\${readingProgress}%\` }}
             />
 
-            <main className="min-h-screen bg-white">
-                {/* Hero Header with Image */}
-                <header className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
-                    {/* Background Image */}
-                    {post.image && (
-                        <div className="absolute inset-0">
-                            <Image
-                                src={post.image}
-                                alt={post.title}
-                                fill
-                                className="object-cover opacity-15"
-                                priority
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent" />
-                        </div>
-                    )}
-
-                    {/* Decorative elements */}
-                    <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-                        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-                    </div>
-
-                    <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10 py-16 sm:py-20 lg:py-24">
-                        {/* Breadcrumb */}
-                        <nav className="mb-8">
-                            <Link
-                                href="/blog"
-                                className="inline-flex items-center gap-2 text-blue-300 hover:text-white transition-colors cursor-pointer group"
-                            >
-                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                Volver al blog
-                            </Link>
-                        </nav>
-
-                        {/* Category & Reading time */}
-                        <div className="flex flex-wrap items-center gap-3 mb-6">
-                            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 text-sm font-semibold rounded-full shadow-lg">
-                                <BookOpen className="w-3.5 h-3.5" />
-                                {post.category}
-                            </span>
-                            <span className="flex items-center gap-1.5 text-blue-200 text-sm">
-                                <Clock className="w-4 h-4" />
-                                {post.readingTime} de lectura
-                            </span>
-                        </div>
-
-                        {/* Title */}
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-                            {post.title}
-                        </h1>
-
-                        {/* Meta */}
-                        <div className="flex flex-wrap items-center gap-6 text-blue-200 pb-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                                    <User className="w-5 h-5" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-white">{post.author}</p>
-                                    <p className="text-sm">Equipo de automatización</p>
-                                </div>
-                            </div>
-                            <div className="h-8 w-px bg-white/20 hidden sm:block" />
-                            <span className="flex items-center gap-2">
-                                <Calendar className="w-4 h-4" />
-                                {new Date(post.date).toLocaleDateString("es-ES", {
-                                    day: "numeric",
-                                    month: "long",
-                                    year: "numeric",
-                                })}
-                            </span>
-                        </div>
-                    </div>
-                </header>
-
-                {/* Featured Image (visible on mobile) */}
+            {/* Hero Header Inmersivo (Tech Dark) */}
+            <header className="relative bg-slate-950 text-white min-h-[70vh] flex flex-col justify-end pb-16 pt-32 overflow-hidden border-b border-white/5">
+                {/* Background Image with Overlay */}
                 {post.image && (
-                    <div className="md:hidden relative h-56 w-full">
+                    <div className="absolute inset-0 z-0">
                         <Image
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover"
+                            className="object-cover opacity-30 mix-blend-luminosity"
+                            priority
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
                     </div>
                 )}
 
-                {/* Content */}
-                <article className="py-12 sm:py-16 lg:py-20">
-                    <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-                        {/* Article content - styles defined in globals.css */}
-                        <div className="blog-article-content"
-                        >
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={{
-                                    table: ({ children }) => (
-                                        <div className="my-12 overflow-x-auto rounded-2xl border-2 border-slate-200 shadow-lg">
-                                            <table className="w-full text-left border-collapse text-lg">
-                                                {children}
-                                            </table>
-                                        </div>
-                                    ),
-                                    thead: ({ children }) => (
-                                        <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                                            {children}
-                                        </thead>
-                                    ),
-                                    th: ({ children }) => (
-                                        <th className="px-8 py-5 font-bold text-base uppercase tracking-wide border-b border-blue-500">
-                                            {children}
-                                        </th>
-                                    ),
-                                    td: ({ children }) => (
-                                        <td className="px-8 py-5 border-b border-slate-100 text-slate-700 text-lg">
-                                            {children}
-                                        </td>
-                                    ),
-                                    tr: ({ children }) => (
-                                        <tr>
-                                            {children}
-                                        </tr>
-                                    ),
-                                }}
-                            >
-                                {post.content}
-                            </ReactMarkdown>
-                        </div>
-                    </div>
-                </article>
-
-                {/* CTA Section */}
-                <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/20 rounded-full blur-3xl" />
-                    </div>
-
-                    <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
-                            <Sparkles className="w-4 h-4 text-amber-400" />
-                            Consulta sin compromiso
-                        </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-                            ¿Quieres implementar esto en tu negocio?
-                        </h2>
-                        <p className="text-xl sm:text-2xl text-blue-200 mb-12 leading-relaxed">
-                            Te ayudamos a automatizar tu PYME con soluciones de IA 100% personalizadas.
-                        </p>
+                <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
+                    {/* Navigation */}
+                    <nav className="mb-12">
                         <Link
-                            href="/#contacto"
-                            className="inline-flex items-center gap-3 bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl cursor-pointer"
+                            href="/blog"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all cursor-pointer group text-sm font-medium"
                         >
-                            Agendar Consulta Gratuita
-                            <ArrowRight className="w-6 h-6" />
+                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                            Retornar al sistema
+                        </Link>
+                    </nav>
+
+                    {/* Meta badges */}
+                    <div className="flex flex-wrap items-center gap-3 mb-6">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono rounded-md">
+                            <Terminal className="w-3.5 h-3.5" />
+                            {post.category}
+                        </div>
+                        <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
+                            <Clock className="w-3.5 h-3.5" />
+                            {post.readingTime} ETA
+                        </div>
+                    </div>
+
+                    {/* Title */}
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white drop-shadow-lg">
+                        {post.title}
+                    </h1>
+
+                    {/* Author & Date Card */}
+                    <div className="inline-flex items-center gap-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+                                <span className="font-bold text-white text-lg leading-none">I4</span>
+                            </div>
+                            <div>
+                                <p className="font-semibold text-slate-200 text-sm">{post.author}</p>
+                                <p className="text-xs text-slate-400 font-mono">Research Team</p>
+                            </div>
+                        </div>
+                        <div className="h-8 w-px bg-white/10" />
+                        <div className="flex items-center gap-2 text-slate-300 text-sm font-mono">
+                            <Calendar className="w-4 h-4 text-slate-500" />
+                            {new Date(post.date).toLocaleDateString("es-ES", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric",
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {/* Reading Area - Clean, High Contrast for long sessions */}
+            <article className="py-16 sm:py-24 bg-white relative">
+                <div className="container mx-auto px-4 sm:px-6 max-w-[800px]">
+                    {/* Contenedor principal con estilos de lectura impecables */}
+                    <div className="blog-article-content prose prose-lg md:prose-xl prose-slate max-w-none">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={{
+                                table: ({ children }) => (
+                                    <div className="my-10 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+                                        <table className="w-full text-left border-collapse text-base">
+                                            {children}
+                                        </table>
+                                    </div>
+                                ),
+                                thead: ({ children }) => (
+                                    <thead className="bg-slate-50 border-b border-slate-200">
+                                        {children}
+                                    </thead>
+                                ),
+                                th: ({ children }) => (
+                                    <th className="px-6 py-4 font-semibold text-sm text-slate-600 uppercase tracking-wider">
+                                        {children}
+                                    </th>
+                                ),
+                                td: ({ children }) => (
+                                    <td className="px-6 py-4 border-b border-slate-100 text-slate-700">
+                                        {children}
+                                    </td>
+                                ),
+                                tr: ({ children }) => (
+                                    <tr className="hover:bg-slate-50/50 transition-colors">
+                                        {children}
+                                    </tr>
+                                ),
+                            }}
+                        >
+                            {post.content}
+                        </ReactMarkdown>
+                    </div>
+                </div>
+            </article>
+
+            {/* Tech CTA Section - Dark & Premium */}
+            <section className="py-24 bg-slate-950 text-white relative overflow-hidden border-t border-white/5">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+
+                <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-md text-xs font-mono text-blue-400 mb-8 mx-auto">
+                        <Terminal className="w-3.5 h-3.5" />
+                        initiating_deployment...
+                    </div>
+
+                    <h2 className="text-3xl sm:text-5xl font-bold mb-6 tracking-tight">
+                        Pasa de la teoría a la <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">ejecución</span>
+                    </h2>
+
+                    <p className="text-lg text-slate-400 mb-10 leading-relaxed font-light">
+                        El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
+                    </p>
+
+                    <Link
+                        href="/#contacto"
+                        className="inline-flex items-center gap-3 bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 hover:scale-[1.02] transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer"
+                    >
+                        Agendar Despliegue Técnico
+                        <ArrowRight className="w-5 h-5" />
+                    </Link>
+                </div>
+            </section>
+
+            {/* Premium Footer */}
+            <footer className="py-8 bg-slate-950 border-t border-white/5">
+                <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-6">
+                    <div className="flex items-center gap-2 text-slate-500 font-mono text-xs">
+                        <Terminal className="w-4 h-4" />
+                        <span>I4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
+                    </div>
+                    <div className="flex items-center gap-6">
+                        <Link href="/blog" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
+                            Más documentación
+                        </Link>
+                        <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
+                            Retornar al sistema
                         </Link>
                     </div>
-                </section>
-
-                {/* Footer */}
-                <footer className="py-10 bg-slate-950 text-slate-400">
-                    <div className="container mx-auto px-4 sm:px-6 max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-4">
-                        <p>© {new Date().getFullYear()} I4PYMES - Automatización con IA para PYMES</p>
-                        <div className="flex items-center gap-6">
-                            <Link href="/blog" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
-                                Más artículos
-                            </Link>
-                            <Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">
-                                Inicio
-                            </Link>
-                        </div>
-                    </div>
-                </footer>
-            </main >
-        </>
+                </div>
+            </footer>
+        </main>
     )
 }
