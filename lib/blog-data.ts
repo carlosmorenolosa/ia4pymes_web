@@ -2831,7 +2831,7 @@ No dejes que tus empleados pierdan horas "peleándose" con una IA que no es la a
         author: "I4PYMES",
         readingTime: "8 min",
         category: "Noticias IA",
-        image: "/blog/claude-remote.jpg",
+        image: "/blog/claude-remote.png",
         content: `
 ## El anuncio que nadie esperaba en Febrero de 2026
 
