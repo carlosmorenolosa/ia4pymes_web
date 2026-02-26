@@ -46,11 +46,11 @@ export default function BlogPostPage({ params }: PageProps) {
             {/* Reading Progress Bar */}
             <div
                 className="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 z-50 transition-all duration-150 ease-out"
-                style={{ width: \`\${readingProgress}%\` }}
+                style={{ width: `${readingProgress}%` }}
             />
 
-            {/* Hero Header Inmersivo (Tech Dark) */}
-            <header className="relative bg-slate-950 text-white min-h-[70vh] flex flex-col justify-end pb-16 pt-32 overflow-hidden border-b border-white/5">
+            {/* Hero Header Inmersivo (Elegante y Limpio) */}
+            <header className="relative bg-slate-50 min-h-[50vh] flex flex-col justify-end pb-16 pt-32 overflow-hidden border-b border-slate-200">
                 {/* Background Image with Overlay */}
                 {post.image && (
                     <div className="absolute inset-0 z-0">
@@ -58,11 +58,10 @@ export default function BlogPostPage({ params }: PageProps) {
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover opacity-30 mix-blend-luminosity"
+                            className="object-cover opacity-10"
                             priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/80 to-transparent" />
                     </div>
                 )}
 
@@ -71,7 +70,7 @@ export default function BlogPostPage({ params }: PageProps) {
                     <nav className="mb-12">
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all cursor-pointer group text-sm font-medium"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-white backdrop-blur-md transition-all cursor-pointer group text-sm font-medium shadow-sm"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Retornar al sistema
@@ -91,29 +90,31 @@ export default function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white drop-shadow-lg">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-slate-900 drop-shadow-sm">
                         {post.title}
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex items-center gap-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                    <div className="inline-flex items-center gap-6 p-4 rounded-xl bg-white/60 border border-slate-200 backdrop-blur-md shadow-sm">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md">
                                 <span className="font-bold text-white text-lg leading-none">I4</span>
                             </div>
                             <div>
-                                <p className="font-semibold text-slate-200 text-sm">{post.author}</p>
-                                <p className="text-xs text-slate-400 font-mono">Research Team</p>
+                                <p className="font-semibold text-slate-900 text-sm">{post.author}</p>
+                                <p className="text-xs text-slate-500 font-mono">Research Team</p>
                             </div>
                         </div>
-                        <div className="h-8 w-px bg-white/10" />
-                        <div className="flex items-center gap-2 text-slate-300 text-sm font-mono">
-                            <Calendar className="w-4 h-4 text-slate-500" />
-                            {new Date(post.date).toLocaleDateString("es-ES", {
-                                day: "2-digit",
-                                month: "short",
-                                year: "numeric",
-                            })}
+                        <div className="h-8 w-px bg-slate-200" />
+                        <div className="flex items-center gap-2 text-slate-600 text-sm font-mono">
+                            <Calendar className="w-4 h-4 text-slate-400" />
+                            <time dateTime={post.date}>
+                                {new Date(post.date).toLocaleDateString("es-ES", {
+                                    day: "2-digit",
+                                    month: "short",
+                                    year: "numeric",
+                                })}
+                            </time>
                         </div>
                     </div>
                 </div>
