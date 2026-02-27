@@ -3295,6 +3295,214 @@ En IA4PYMES diseñamos e implementamos soluciones de IA que se integran con las 
 **[Solicita un diagnóstico gratuito de integración IA](#contacto)** — Analizamos tu ecosistema de herramientas y te proponemos un plan de automatización realista.
         `.trim(),
     },
+    {
+        slug: "curso-gratis-claude-code-anthropic",
+        title: "Anthropic regala un curso completo de Claude Code (y te explicamos por qué deberías hacerlo ahora mismo)",
+        description: "Anthropic ha lanzado 'Claude Code in Action', un curso gratuito para aprender a usar su herramienta de programación con IA. Te contamos qué incluye, qué vas a aprender y por qué es una oportunidad que no deberías dejar pasar.",
+        date: "2026-02-27",
+        author: "I4PYMES",
+        readingTime: "9 min",
+        category: "Formación IA",
+        image: "/blog/curso-claude-code-gratis.png",
+        content: `
+## Anthropic está regalando conocimiento (y casi nadie se ha enterado)
+
+Vamos al grano: **Anthropic ha lanzado un curso completamente gratuito** para aprender a usar Claude Code, su herramienta de programación con inteligencia artificial que está cambiando la forma en la que se desarrolla software en 2026.
+
+El curso se llama **"Claude Code in Action"** y está alojado en la Anthropic Academy, la plataforma de formación oficial de Anthropic.
+
+👉 **[Acceder al curso gratuito: Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)**
+
+¿Lo mejor? No necesitas ser programador senior. No necesitas pagar nada. Y al terminar te dan un **certificado oficial** que puedes añadir a tu LinkedIn.
+
+Déjame explicarte por qué esto importa y qué vas a aprender.
+
+---
+
+## ¿Qué es exactamente este curso?
+
+"Claude Code in Action" es un curso práctico y estructurado que te enseña a integrar Claude Code en tu flujo de trabajo de desarrollo. No es un tutorial de YouTube de 10 minutos: es un programa completo con vídeos, ejercicios y evaluación final.
+
+Está dividido en **4 módulos**:
+
+### Módulo 1: ¿Qué es Claude Code?
+
+- **Introducción**: Qué es Claude Code y por qué es diferente a otras herramientas de IA para programación
+- **¿Qué es un asistente de código?**: La arquitectura que hay detrás de los asistentes de IA para programación — cómo interactúan con tu código, analizan archivos y proponen cambios
+- **Claude Code en acción**: Demostración práctica de lo que puede hacer
+
+### Módulo 2: Manos a la obra
+
+Aquí es donde te remangan y empiezas a trabajar de verdad:
+
+- **Configuración de Claude Code**: Cómo instalarlo y dejarlo listo para funcionar
+- **Configuración del proyecto**: Cómo preparar tu proyecto para trabajar con Claude Code
+- **Añadir contexto**: Cómo darle a Claude Code la información que necesita para trabajar bien con tu código
+- **Hacer cambios**: Cómo pedirle que modifique código de forma efectiva
+- **Controlar el contexto**: Estrategias avanzadas para mantener el contexto relevante durante conversaciones largas
+- **Comandos personalizados**: Cómo crear tus propios comandos reutilizables para automatizar tareas repetitivas
+- **Servidores MCP con Claude Code**: Cómo conectar herramientas externas (bases de datos, APIs, servicios) usando el Model Context Protocol
+- **Integración con GitHub**: Cómo configurar revisiones de código automáticas e integrar Claude Code en tu flujo de control de versiones
+
+### Módulo 3: Hooks y el SDK
+
+El nivel avanzado:
+
+- **Introducción a los Hooks**: Qué son y para qué sirven los hooks en Claude Code
+- **Definir hooks**: Cómo crear hooks que se ejecutan antes o después de las acciones de Claude Code
+- **Implementar un hook**: Paso a paso para crear tu primer hook funcional
+- **Errores comunes con hooks**: Los "gotchas" que te van a ahorrar horas de frustración
+- **Hooks útiles**: Recetas de hooks prácticos que puedes usar desde el día uno
+- **El SDK de Claude Code**: Cómo usar el SDK para programar interacciones con Claude Code desde tus propias aplicaciones
+
+### Módulo 4: Cierre
+
+- **Quiz final**: Evaluación para asegurarte de que has pillado los conceptos clave
+- **Resumen y siguientes pasos**: Plan de acción para seguir avanzando
+
+---
+
+## ¿Para quién es este curso?
+
+Anthropic lo define para dos perfiles:
+
+1. **Desarrolladores de software** que quieren integrar asistencia de IA en sus flujos de trabajo de programación
+2. **Equipos que buscan implementar integración con GitHub** potenciada por IA para múltiples flujos de trabajo
+
+Pero seamos realistas: **si trabajas con tecnología de cualquier forma**, este curso te va a ser útil. Ya seas developer, tech lead, CTO de una PYME o simplemente alguien curioso por entender cómo la IA está transformando la programación.
+
+### Requisitos previos
+
+Son mínimos:
+- Familiaridad con la línea de comandos y operaciones de terminal
+- Conocimientos básicos de control de versiones con Git
+
+Si alguna vez has abierto una terminal y has escrito \`git commit\`, vas sobrado.
+
+---
+
+## ¿Por qué deberías hacerlo? 5 razones
+
+### 1. Es gratis. Literalmente gratis
+
+No hay trampa ni cartón. No necesitas ni siquiera una cuenta de Anthropic. Solo te registras en Skilljar (la plataforma de formación) y ya tienes acceso a todo el contenido.
+
+En un mundo donde los bootcamps de IA cuestan entre 500€ y 5.000€, que el propio creador de la herramienta te la enseñe gratis es un regalo que no tiene sentido ignorar.
+
+### 2. Certificado oficial para tu LinkedIn
+
+Al completar el curso recibes un **certificado verificable a través de Skilljar** que puedes añadir directamente a tu perfil de LinkedIn. Es una credencial oficial de Anthropic, no un badge random de internet.
+
+Para tu CV y tu perfil profesional, tener una certificación de Anthropic en 2026 es como tener una certificación de AWS en 2018 — te diferencia del 95% de la competencia.
+
+### 3. Aprendes directamente de los creadores
+
+No es un curso hecho por un tercero que ha leído la documentación. Es **el curso oficial de Anthropic**, los que han creado Claude Code. Nadie sabe mejor cómo usar la herramienta que los que la han construido.
+
+### 4. Es práctico, no teórico
+
+No te van a soltar 3 horas de PowerPoint sobre "la importancia de la IA en el desarrollo de software". Te enseñan a configurar Claude Code, a usarlo con tu proyecto, a crear hooks, a integrarlo con GitHub y a extenderlo con servidores MCP.
+
+Cuando acabes el curso, **sabes hacer cosas**, no solo "entenderlas".
+
+### 5. Te posiciona en la primera fila de la revolución IA
+
+La programación asistida por IA no es el futuro. Es el presente. Los desarrolladores que dominan estas herramientas producen **3-5 veces más** que los que no las usan. Y las empresas lo saben.
+
+Si eres PYME y tienes un equipo técnico, que hagan este curso puede ser la mejor inversión de tiempo de todo el trimestre.
+
+---
+
+## Lo que más nos gusta del curso
+
+Después de revisarlo, hay tres cosas que destacan por encima del resto:
+
+### La sección de Hooks
+
+Los hooks son funcionalidades que permiten ejecutar código automáticamente antes o después de que Claude Code haga algo. Por ejemplo:
+
+- Antes de que Claude haga un commit → ejecutar automáticamente los tests
+- Después de que Claude modifique un archivo → pasar el linter automáticamente
+- Antes de que Claude ejecute un comando → pedir confirmación si es destructivo
+
+Esto es **oro** para equipos que quieren automatizar sin perder el control.
+
+### La integración con GitHub
+
+Poder configurar revisiones de código automáticas con IA en tu repositorio de GitHub cambia completamente la dinámica de un equipo. Cada pull request puede ser revisada por Claude antes de que un humano la mire, ahorrando horas de revisión manual.
+
+### Los servidores MCP
+
+El curso te enseña a conectar Claude Code con herramientas externas usando el Model Context Protocol. Esto significa que Claude Code puede usar un navegador para hacer tests visuales, conectarse con tu base de datos para entender tu modelo de datos, o integrarse con herramientas de monitorización.
+
+---
+
+## ¿Cómo le saca partido a esto una PYME?
+
+Si diriges una PYME, piénsalo así:
+
+| Inversión | Retorno |
+|-----------|---------|
+| 0€ + unas horas de tu equipo | Equipo técnico que programa 3-5x más rápido |
+| Un certificado oficial de Anthropic | Mayor credibilidad y valor de tu equipo |
+| Conocimiento de hooks y MCP | Automatización de procesos de desarrollo |
+| Integración con GitHub | Revisiones de código automáticas = menos bugs |
+
+El ROI es infinito porque la inversión económica es cero. Es pura inversión de tiempo, y el retorno es inmediato.
+
+### Ideas concretas para tu PYME:
+
+1. **Tu único desarrollador se convierte en un equipo**: Con Claude Code bien configurado, un solo desarrollador puede producir lo que antes hacían 3-4 personas
+2. **Reduces bugs**: Las revisiones automáticas de código pillan errores que los humanos pasan por alto cuando llevan 8 horas mirando pantalla
+3. **Estandarizas tu código**: Con hooks y CLAUDE.md, todo el equipo sigue las mismas convenciones automáticamente
+4. **Aceleras el onboarding**: Un nuevo desarrollador se pone al día con el proyecto en horas, no en semanas, porque Claude Code le explica la base de código
+
+---
+
+## Cómo acceder al curso (paso a paso)
+
+1. Ve a **[anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action)**
+2. Haz clic en "Enroll" o "Inscribirse"
+3. Crea una cuenta en Skilljar (es gratis, solo email y contraseña)
+4. Empieza a aprender
+
+No necesitas tarjeta de crédito, no necesitas cuenta de Anthropic, no necesitas nada más.
+
+---
+
+## Otros cursos gratuitos de la Anthropic Academy
+
+Ya que estás, échale un ojo al catálogo completo de la Anthropic Academy. Tienen más cursos gratuitos sobre:
+
+- **Fluidez en IA**: Conceptos fundamentales de inteligencia artificial
+- **API de Claude**: Cómo usar la API de Claude para integrar IA en tus aplicaciones
+- **Prompt Engineering**: Cómo escribir instrucciones efectivas para la IA
+
+Todo gratuito. Todo con certificado. Anthropic lo tiene claro: quieren que la gente aprenda a usar sus herramientas, y están dispuestos a enseñarte gratis.
+
+---
+
+## Nuestra recomendación
+
+En IA4PYMES usamos Claude Code todos los días. Es una de las herramientas centrales con las que construimos soluciones de IA para PYMES españolas. Y cuando vemos que el propio fabricante lanza un curso gratuito de esta calidad, no podemos hacer otra cosa que recomendarlo.
+
+**Si tienes equipo técnico**: que lo hagan todos. Hoy. Es una inversión de unas horas que multiplicará su productividad durante años.
+
+**Si no tienes equipo técnico pero tienes curiosidad**: hazlo tú. Te va a ayudar a entender qué puede hacer la IA por tu negocio, y vas a poder hablar con mucho más criterio cuando contrates servicios de desarrollo.
+
+👉 **[Acceder al curso gratuito: Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)**
+
+---
+
+## ¿Necesitas ayuda para aplicar lo que aprendes?
+
+Aprender la herramienta es el primer paso. Aplicarla a tu negocio concreto es donde de verdad se genera el valor.
+
+En IA4PYMES te ayudamos a pasar de "sé usar Claude Code" a "mi empresa funciona mejor gracias a Claude Code".
+
+**[Cuéntanos tu caso](#contacto)** — Te ayudamos a diseñar la estrategia de IA que mejor encaje con tu negocio.
+        `.trim(),
+    },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
