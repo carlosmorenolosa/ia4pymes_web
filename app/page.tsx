@@ -890,9 +890,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Latest Articles Section */}
-        <LatestArticles />
-
         {/* Contact Section */}
         <section
           id="contacto"
@@ -956,6 +953,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Latest Articles Section */}
+        <LatestArticles />
 
         {/* Footer */}
         <footer className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 sm:py-16 relative overflow-hidden">
