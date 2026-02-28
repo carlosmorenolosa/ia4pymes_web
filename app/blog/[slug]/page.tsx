@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: post.title,
             description: post.description,
             images: post.image ? [post.image] : [],
+        },
+        alternates: {
+            canonical: `https://ia4pymes.tech/blog/${post.slug}`
         }
     }
 }
@@ -53,6 +56,39 @@ export default async function BlogPostPage({ params }: PageProps) {
 
     return (
         <main className="min-h-screen bg-slate-950 selection:bg-blue-500/30">
+            {/* Article JSON-LD Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        "headline": post.title,
+                        "description": post.description,
+                        "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
+                        "datePublished": new Date(post.date).toISOString(),
+                        "dateModified": new Date(post.date).toISOString(),
+                        "author": [{
+                            "@type": "Organization",
+                            "name": post.author,
+                            "url": "https://ia4pymes.tech"
+                        }],
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "I4PYMES",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://ia4pymes.tech/LOGO.png"
+                            }
+                        },
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": `https://ia4pymes.tech/blog/${post.slug}`
+                        }
+                    })
+                }}
+            />
+
             <ReadingProgressBar />
 
             {/* Hero Header Inmersivo (Dark & Elegant) */}

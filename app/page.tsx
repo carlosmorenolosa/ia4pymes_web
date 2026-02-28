@@ -40,6 +40,11 @@ const ContactForm = dynamic(() => import("@/components/contact-form").then((mod)
   ssr: false
 })
 
+const LatestArticles = dynamic(() => import("@/components/latest-articles").then((mod) => mod.LatestArticles), {
+  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+  ssr: false
+})
+
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
@@ -885,6 +890,8 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Latest Articles Section */}
+        <LatestArticles />
 
         {/* Contact Section */}
         <section
