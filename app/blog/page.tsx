@@ -5,7 +5,7 @@ import { getAllPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowRight, BookOpen, Sparkles, Terminal } from "lucide-react"
 
 export const metadata: Metadata = {
-    title: "Intelligence Hub - I4PYMES | Vanguardia en IA para Empresas",
+    title: "Blog de IA4PYMES | Inteligencia Artificial para Empresas",
     description: "Análisis estratégico, noticias de frontera y casos de uso avanzados sobre Inteligencia Artificial para el sector empresarial.",
     keywords: [
         "blog inteligencia artificial",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         "innovación empresarial",
     ],
     openGraph: {
-        title: "Intelligence Hub - I4PYMES | Vanguardia en IA",
+        title: "Blog de IA4PYMES | Inteligencia Artificial para Empresas",
         description: "Análisis estratégico y casos de uso avanzados sobre Inteligencia Artificial para el sector empresarial.",
         url: "https://ia4pymes.tech/blog",
         type: "website",
@@ -44,11 +44,11 @@ export default function BlogPage() {
                     <div className="flex flex-col gap-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 w-fit text-sm font-mono">
                             <Terminal className="w-4 h-4" />
-                            <span>/intelligence-hub</span>
+                            <span>/blog-ia4pymes</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight">
-                            Vanguardia <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Inteligente</span>
+                            Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">IA4PYMES</span>
                         </h1>
 
                         <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl leading-relaxed font-light">
@@ -177,7 +177,7 @@ export default function BlogPage() {
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2 text-slate-500 font-mono text-xs">
                         <Terminal className="w-4 h-4" />
-                        <span>I4PYMES // INTELLIGENCE_HUB_2026</span>
+                        <span>I4PYMES // BLOG_IA4PYMES_2026</span>
                     </div>
                     <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
                         Retornar al Core
