@@ -49,7 +49,7 @@ export function LatestArticles() {
                             INTELLIGENCE_HUB
                         </div>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-                            Vanguardia <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Inteligente</span>
+                            Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">IA4PYMES</span>
                         </h2>
                         <p className="text-slate-400 max-w-2xl text-lg font-light">
                             Perspectivas técnicas y análisis estratégico sobre cómo la Inteligencia Artificial redefine el tejido empresarial.
