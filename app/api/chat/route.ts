@@ -39,9 +39,10 @@ export async function POST(request: Request) {
         const body = await request.json();
 
         const lambdaUrl = process.env.CHATBOT_LAMBDA_URL;
+        const apiKey = process.env.CHATBOT_API_KEY;
 
-        if (!lambdaUrl) {
-            console.error("Falta la variable de entorno CHATBOT_LAMBDA_URL");
+        if (!lambdaUrl || !apiKey) {
+            console.error("Faltan las variables de entorno CHATBOT_LAMBDA_URL o CHATBOT_API_KEY");
             return NextResponse.json(
                 { error: "Error de configuración del servidor" },
                 { status: 500 }
@@ -53,6 +54,7 @@ export async function POST(request: Request) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "x-api-key": apiKey,
             },
             body: JSON.stringify(body),
         });
