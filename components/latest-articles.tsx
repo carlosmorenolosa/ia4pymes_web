@@ -2,37 +2,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Calendar, Clock, Terminal } from "lucide-react"
 
-// Hardcodeamos los últimos 3 para no tener que cambiar page.tsx a Server Component
-// y poder mantener toda la magia del client-side de Framer Motion / etc en la home
-const latestPosts = [
-    {
-        slug: "trump-vs-anthropic-guerra-seguridad-ia",
-        title: "Trump vs Anthropic: La guerra por los límites éticos de la Inteligencia Artificial",
-        description: "El Pentágono exige eliminar las barreras de seguridad de la IA para uso militar. Anthropic se niega, Trump reacciona prohibiendo su uso en el gobierno y OpenAI entra en escena.",
-        date: "2026-02-28",
-        readingTime: "10 min",
-        category: "Noticias IA",
-        image: "/blog/trump-anthropic-seguridad-ia.png",
-    },
-    {
-        slug: "curso-gratis-claude-code-anthropic",
-        title: "Anthropic regala un curso completo de Claude Code",
-        description: "Anthropic ha lanzado 'Claude Code in Action', un curso gratuito para aprender a usar su herramienta de programación con IA.",
-        date: "2026-02-27",
-        readingTime: "9 min",
-        category: "Formación IA",
-        image: "/blog/curso-claude-code-gratis.png",
-    },
-    {
-        slug: "mcp-protocolo-inteligencia-artificial-explicado",
-        title: "MCP: El 'USB Universal' que conecta la IA con todo tu negocio",
-        description: "Qué es el Model Context Protocol, por qué los gigantes de la IA lo están estandarizando y cómo tu PYME puede usarlo hoy mismo para automatizar flujos de trabajo enteros.",
-        date: "2026-02-27",
-        readingTime: "11 min",
-        category: "Tecnología",
-        image: "/blog/mcp-protocolo-ia.png",
-    }
-]
+import { blogPosts } from "@/lib/blog-data"
+
+// Obtenemos los 3 artículos más recientes directamente de nuestra base de datos
+// Al estar en un dynamic import en page.tsx, esto se carga en su propio chunk sin bloquear la vista inicial
+const latestPosts = blogPosts.slice(0, 3).map(post => ({
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    readingTime: post.readingTime,
+    category: post.category,
+    image: post.image,
+}))
 
 export function LatestArticles() {
     return (
