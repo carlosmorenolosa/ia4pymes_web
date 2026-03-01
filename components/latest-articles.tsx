@@ -4,17 +4,20 @@ import { ArrowRight, Calendar, Clock, Terminal } from "lucide-react"
 
 import { blogPosts } from "@/lib/blog-data"
 
-// Obtenemos los 3 artículos más recientes directamente de nuestra base de datos
+// Obtenemos los 3 artículos más recientes directamente de nuestra base de datos ordenados por fecha
 // Al estar en un dynamic import en page.tsx, esto se carga en su propio chunk sin bloquear la vista inicial
-const latestPosts = blogPosts.slice(0, 3).map(post => ({
-    slug: post.slug,
-    title: post.title,
-    description: post.description,
-    date: post.date,
-    readingTime: post.readingTime,
-    category: post.category,
-    image: post.image,
-}))
+const latestPosts = [...blogPosts]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3)
+    .map(post => ({
+        slug: post.slug,
+        title: post.title,
+        description: post.description,
+        date: post.date,
+        readingTime: post.readingTime,
+        category: post.category,
+        image: post.image,
+    }))
 
 export function LatestArticles() {
     return (
