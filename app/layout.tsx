@@ -4,6 +4,7 @@ import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -305,6 +306,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>
         <CustomCursor />
         {children}
+        <Analytics />
         <CookieConsent />
       </body>
     </html>
