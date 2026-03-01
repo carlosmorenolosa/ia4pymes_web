@@ -21,9 +21,6 @@ const sampleMessages: Message[] = [
   },
 ]
 
-const LAMBDA_URL = "https://go066mldzb.execute-api.eu-west-1.amazonaws.com/prod"
-const API_KEY = "jR72QE1yTW2gMIvIy5IZt5YJsVaN9Puz7X7PxcaF"
-
 export function FunctionalChatbot() {
   const [messages, setMessages] = useState<Message[]>(sampleMessages)
   const [currentInput, setCurrentInput] = useState("")
@@ -45,16 +42,18 @@ export function FunctionalChatbot() {
     setIsLoading(true)
 
     try {
-      const response = await fetch(LAMBDA_URL, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": API_KEY,
         },
         body: JSON.stringify({ conversation: updatedMessages.slice(-20) }),
       })
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Has enviado muchos mensajes. Por favor, espera un minuto.")
+        }
         throw new Error("Error al conectar con el servidor")
       }
 
@@ -68,7 +67,7 @@ export function FunctionalChatbot() {
     } catch (error) {
       const errorMessage: Message = {
         sender: "PymerIA",
-        content: "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
+        content: error instanceof Error ? error.message : "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
       }
       setMessages((prev) => [...prev, errorMessage])
       console.error("Error al llamar a la Lambda:", error)
@@ -155,15 +154,15 @@ export function FunctionalChatbot() {
           >
             <div
               className={`inline-block p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm max-w-xs sm:max-w-sm break-words ${msg.sender === "User"
-                  ? "bg-white ml-auto border border-gray-200"
-                  : "bg-gradient-to-r from-blue-100 to-blue-50"
+                ? "bg-white ml-auto border border-gray-200"
+                : "bg-gradient-to-r from-blue-100 to-blue-50"
                 } ${msg.sender === "User" ? "rounded-br-sm" : "rounded-bl-sm"}`}
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 className={`prose prose-sm max-w-none ${msg.sender === "User"
-                    ? "text-slate-600 prose-strong:text-slate-700"
-                    : "text-slate-800 prose-strong:text-blue-600"
+                  ? "text-slate-600 prose-strong:text-slate-700"
+                  : "text-slate-800 prose-strong:text-blue-600"
                   }`}
                 components={{
                   p: ({ children }) => <p className="mb-1 sm:mb-2 last:mb-0 text-xs sm:text-sm">{children}</p>,

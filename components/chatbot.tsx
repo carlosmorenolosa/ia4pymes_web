@@ -19,9 +19,6 @@ const sampleMessages: Message[] = [
   },
 ]
 
-const LAMBDA_URL = "https://go066mldzb.execute-api.eu-west-1.amazonaws.com/prod"
-const API_KEY = "jR72QE1yTW2gMIvIy5IZt5YJsVaN9Puz7X7PxcaF"
-
 export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>(sampleMessages)
   const [currentInput, setCurrentInput] = useState("")
@@ -43,16 +40,18 @@ export function Chatbot() {
     setIsLoading(true)
 
     try {
-      const response = await fetch(LAMBDA_URL, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": API_KEY,
         },
         body: JSON.stringify({ conversation: updatedMessages.slice(-20) }),
       })
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Has enviado muchos mensajes. Por favor, espera un minuto.")
+        }
         throw new Error("Error al conectar con el servidor")
       }
 
@@ -66,7 +65,7 @@ export function Chatbot() {
     } catch (error) {
       const errorMessage: Message = {
         sender: "PymerIA",
-        content: "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
+        content: error instanceof Error ? error.message : "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
       }
       setMessages((prev) => [...prev, errorMessage])
       console.error("Error al llamar a la Lambda:", error)
@@ -112,19 +111,17 @@ export function Chatbot() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`my-2 px-4 py-3 rounded-2xl break-words shadow-md w-fit max-w-[90%] ${
-              msg.sender === "User"
+            className={`my-2 px-4 py-3 rounded-2xl break-words shadow-md w-fit max-w-[90%] ${msg.sender === "User"
                 ? "bg-blue-800 self-end ml-auto text-right text-white rounded-br-sm"
                 : "bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
-            }`}
+              }`}
           >
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
-              className={`prose prose-sm max-w-none ${
-                msg.sender === "User"
+              className={`prose prose-sm max-w-none ${msg.sender === "User"
                   ? "text-white prose-strong:text-white"
                   : "text-slate-800 prose-strong:text-blue-600"
-              }`}
+                }`}
             >
               {msg.content}
             </ReactMarkdown>
