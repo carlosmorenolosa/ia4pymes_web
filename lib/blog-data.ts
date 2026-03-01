@@ -12,6 +12,81 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "importar-memoria-claude-anthropic-chatgpt",
+        title: "Claude ahora permite importar tu memoria desde ChatGPT: Cómo hacerlo paso a paso",
+        description: "Anthropic lanza 'Import Memory'. Ahora puedes migrar todo tu contexto, preferencias y proyectos de otras IAs a Claude en un minuto sin empezar desde cero.",
+        date: "2026-03-01",
+        author: "I4PYMES",
+        readingTime: "5 min",
+        category: "Noticias IA",
+        image: "/blog/claude-import-memory.png",
+        content: `
+¿Te imaginas cambiar de móvil pero tener que volver a meter todos tus contactos, contraseñas y aplicaciones a mano? Qué pereza, ¿verdad? Pues eso exactamente es lo que pasaba hasta ahora cuando querías cambiar de una Inteligencia Artificial a otra. 
+
+Si llevabas meses "entrenando" a ChatGPT para que entendiera cómo hablas, cómo es tu empresa o qué formato te gusta para los emails, pasarte a probar el nuevo modelo de Claude de Anthropic daba mucha pereza. Era empezar desde cero. 
+
+Pero eso se ha acabado. Anthropic acaba de dinamitar esa barrera con su nueva función: **Import Memory** (Importar Memoria).
+
+En I4PYMES te contamos qué es esto, por qué es un movimiento maestro contra OpenAI y cómo puedes usarlo tú mismo en menos de un minuto.
+
+---
+
+## ¿Qué es exactamente "Import Memory" de Claude?
+
+Básicamente, Anthropic ha creado un "puente" automático. Esta nueva funcionalidad, disponible para usuarios de Claude, permite transferir todo el contexto que tienes acumulado en otras IA (principalmente ChatGPT o Google Gemini) directamente a tu perfil de Claude.
+
+**¿Qué puedes importar?**
+- Tus "Instrucciones Personalizadas" (cómo quieres que la IA te responda).
+- El contexto sobre quién eres, de qué trata tu empresa y cuál es tu tono.
+- Proyectos específicos o convenciones de código si eres programador.
+
+En resumen: **Tu IA debería conocerte desde el primer día**, y con esto, Claude se asegura de que así sea, robándole a OpenAI el "costo de fricción" (la pereza de cambiar) que retenía a muchos usuarios en ChatGPT.
+
+---
+
+## ¿Cómo importar tu memoria de ChatGPT a Claude paso a paso?
+
+El proceso está pensado para ser absurdamente fácil. Literalmente, tardas menos de un minuto. Aquí tienes los pasos:
+
+### Paso 1: Pide a tu IA actual que "empaquete" tus datos
+Abre ChatGPT (o la IA que uses habitualmente) y copia y pega exactamente este prompt:
+
+> *"Por favor, haz un resumen súper detallado de mi perfil, mis preferencias y todo el contexto útil que sabes sobre mí hasta el momento. Estructúralo para que se lo pueda pasar a otro asistente de IA como contexto."*
+
+Guarda la respuesta en un archivo de texto o simplemente cópiala en el portapapeles.
+
+### Paso 2: Pégalo en Claude
+1. Ve a tu cuenta de **[Claude.com](https://claude.com)**.
+2. Accede a tu sección de configuración (Settings) o a la función de **Memoria**.
+3. Pega todo el resumen que te generó ChatGPT.
+
+¡Y ya está! Claude asimilará esa información instantáneamente. A partir de la siguiente conversación que abras, Claude ya sabrá a qué te dedicas, cómo quieres que te estructure los textos y qué cosas no soportas. 
+
+---
+
+## ¿Por qué esto es una bomba para las PYMES?
+
+En el sector empresarial, el tiempo es dinero. Si eres dueño de una PYME y usas la IA para redactar propuestas comerciales, organizar inventario o analizar datos, **el contexto lo es todo**.
+
+Una IA que no sabe nada de tu empresa te escribirá un correo muy frío y robótico. Una IA que ya tiene tu "memoria" escribirá el correo exactamente como lo harías tú.
+
+Con esta función, si tu empresa ya usaba ChatGPT y os sentíais "atrapados" ahí porque la IA ya os conocía, ahora podéis migrar a **Claude (considerado por muchos analistas, incluyendo nuestro equipo en I4PYMES, como el mejor modelo actual para tareas complejas y programación)** en literalmente sesenta segundos.
+
+### La privacidad, el escudo de Anthropic
+Además, Anthropic hace hincapié en algo vital: el control granulado. En la sección de memoria de Claude puedes ver, editar o borrar cualquier recuerdo en cualquier momento. Si importas algo que no quieres que sepa, lo borras con un clic. Además, los proyectos están aislados: la memoria de tu proyecto de "Marketing" no contamina tu proyecto de "Recursos Humanos".
+
+---
+
+## El Jaque Mate al Mercado
+
+Esta jugada de Anthropic es brillante. Mientras todos los competidores están luchando por sacar un modelo que sea un 2% más inteligente que el anterior, Anthropic se ha dado cuenta de que el verdadero problema del usuario es el **cambio (switching cost)**. 
+
+Al facilitar la importación de memoria, han bajado el puente levadizo para que los millones de usuarios frustrados de otras plataformas puedan probar la potencia de Claude sin perder semanas re-educando al asistente.
+
+Si todavía no has probado Claude en tu negocio, ya no hay excusa para no hacer el salto. Y recuerda, si necesitas llevar esta inteligencia al siguiente nivel e integrarla directamente en tu web, WhatsApp o software interno de empresa, en **I4PYMES** creamos las autopistas para que la IA trabaje para ti de forma automática.
+`
+    },
+    {
         slug: "por-que-tu-pyme-necesita-un-chatbot",
         title: "Por qué tu PYME necesita un chatbot en 2026",
         description: "Descubre cómo un chatbot puede transformar la atención al cliente de tu negocio, reducir costes y aumentar las ventas. Guía completa para PYMES.",
