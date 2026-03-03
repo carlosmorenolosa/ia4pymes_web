@@ -12,6 +12,78 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "skills-programacion-ia-claude-cursor",
+        title: "Qué son las 'Skills' en la programación con IA y cómo usarlas en Cursor o Claude Code",
+        description: "Descubre qué son las Agent Skills (el 'NPM de la IA'), para qué sirven y cómo instalar habilidades de la plataforma skills.sh en tus editores de código IA para desarrollar apps como un profesional.",
+        date: "2026-03-03",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Formación IA",
+        image: "/blog/skills-programacion-ia.jpeg",
+        content: `
+Si estás usando herramientas como Cursor, Claude Code, GitHub Copilot o Windsurf para programar, seguro que te has encontrado con este problema: la IA es muy lista, pero a veces usa versiones antiguas de librerías, inventa funciones que no existen (alucinaciones) o programa con un estilo que no es el tuyo.
+
+¿La solución? Tienes que estar corrigiéndole con *prompts* eternos en cada chat. 
+
+Hasta ahora. Ha nacido un nuevo concepto que va a cambiar radicalmente cómo trabajamos con agentes de código: **las "Skills"** (o Habilidades). Y herramientas como **[skills.sh](https://skills.sh)** se están convirtiendo en la pieza central de esta revolución.
+
+En I4PYMES te explicamos qué son, por qué todo el mundo habla del "NPM de las IA" y cómo puedes usarlas hoy mismo.
+
+---
+
+## ¿Qué son exactamente las Agent Skills?
+
+En el mundo de la programación tradicional, cuando necesitas que tu app haga algo específico (como generar un PDF o conectarse a Stripe), no lo programas desde cero; descargas una librería de repositorios como NPM o PyPI.
+
+Las **Agent Skills** son el equivalente exacto, pero para el "cerebro" de tu Inteligencia Artificial. Son pequeños paquetes de instrucciones, reglas y contexto experto empaquetados en archivos (normalmente llamados \`SKILL.md\`) que le dicen a la IA **exactamente cómo tiene que comportarse** al hacer una tarea específica.
+
+En lugar de decirle a Claude Code: *"Crea un componente de React, pero recuerda usar Tailwind y los hooks modernos"*, le instalas la **Skill de React Best Practices** y el agente ya lo sabe para siempre.
+
+### ¿Para qué sirven las Skills? Sus mayores ventajas
+
+1. **Eliminan las alucinaciones por contexto:** Si instalas una Skill sobre *Next.js App Router*, la IA dejará de intentar usar código obsoleto del antiguo *Pages Router*.
+2. **Estandarizan el código de tu empresa:** Puedes crear una Skill privada para que todos tus desarrolladores (y sus IA) programen con la misma arquitectura y reglas de nombrado de carpetas.
+3. **Flujos de trabajo complejos con un clic:** Hay Skills para hacer auditorías de SEO automático, para testear APIs o para migrar bases de datos. La IA ya trae "leída" la documentación oficial de esa tarea.
+
+---
+
+## Skills.sh: El "NPM Moment" de la Inteligencia Artificial
+
+Si las librerías de Javascript viven en NPM, las habilidades de los agentes IA viven en **skills.sh**.
+
+Creado impulsado por el equipo de Vercel y desarrollado como código abierto, **skills.sh** es un directorio gigante donde los desarrolladores y expertos publican habilidades listas para ser consumidas por editores y agentes como **Claude Code** o **Cursor**.
+
+Imagínatelo como una "App Store" para tu asistente de código. ¿Quieres que Cursor sea un experto en refactorización de Python? Vas a skills.sh, buscas la habilidad, la instalas, y de repente tu Cursor programa Python como un desarrollador Senior especializado en rendimiento.
+
+---
+
+## Cómo usar las Skills en Claude Code y Cursor
+
+La magia de este estándar es que instalar una Skill es ridículamente fácil.
+
+### Usando Skills en Claude Code
+Claude Code (el agente de terminal de Anthropic) está diseñado para ingerir estas reglas de forma nativa. 
+Normalmente, solo tienes que descargar el archivo \`.md\` de la habilidad desde skills.sh y guardarlo en una carpeta (por ejemplo \`.agents/skills/\`) o usar el comando integrado si la plataforma lo soporta, referenciando la Skill. Claude leerá automáticamente el contexto antes de ejecutar tus instrucciones, aplicando las mejores prácticas como si de un programador experto se tratase.
+
+### Usando Skills en Cursor
+Cursor tiene el concepto de **Rules for AI** (Reglas para la IA) en su archivo \`.cursorrules\`.
+Muchas de las Skills que encuentras en el directorio público están formateadas directamente para que copies y pegues ese conocimiento experto dentro de tu archivo de reglas, o para que las menciones usando el símbolo \`@\` en el chat de Cursor (ejemplo: \`@React-Skill.md revisa este componente\`). 
+
+### Creando tus propias Skills
+Las Skills no son magia negra. Son simples archivos Markdown enriquecidos donde tú, como experto de tu propio negocio, le explicas a la IA tus flujos de validación, tus diseños o tus librerías favoritas. Una vez creadas, las puedes compartir con tu equipo o subirlas a *skills.sh* para aportar a la comunidad.
+
+---
+
+## Conclusión
+
+Saber lanzar *prompts* está dejando de ser la habilidad más importante del futuro. La verdadera habilidad del desarrollador moderno será saber buscar, instalar y conectar las **Skills** correctas para que los agentes de IA ensamblen sistemas perfectos a una velocidad récord.
+
+Si en tu PYME tenéis un equipo de desarrollo y sentís que la IA "se inventa cosas" o "produce código de mala calidad", el problema no es que la IA no sepa programar; el problema es que la tenéis trabajando sin las **Skills** adecuadas.
+
+Entra hoy en *skills.sh*, rebusca entre las más populares y descubre de lo que realmente son capaces estas herramientas cuando se les enseña el camino.
+`
+    },
+    {
         slug: "nano-banana-2-revolucion-generacion-imagenes-ia",
         title: "Nano Banana 2: El nuevo modelo de Google que cambiará el marketing de tu PYME",
         description: "Google lanza Nano Banana 2 (Gemini 3.1 Flash Image), una bestia en generación y edición de imágenes con IA. Descubre cómo revolucionará tus campañas de marketing, catálogos y redes sociales.",
