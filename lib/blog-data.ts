@@ -12,6 +12,78 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "gpt-5-4-openai-novedades-modelo-frontera-ia",
+        title: "GPT-5.4 ya está aquí: Las 5 novedades que van a cambiar cómo usas la IA",
+        description: "OpenAI lanza GPT-5.4, su modelo más avanzado. Una ventana de contexto de 1 millón de tokens, control real del ordenador, modo de pensamiento extremo y un 18% menos de errores. Análisis completo.",
+        date: "2026-03-06",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Noticias IA",
+        image: "/blog/gpt-5-4-openai.png",
+        content: `
+Cuando los ciclos de actualización de los modelos de lenguaje se miden en semanas, no en años, cada lanzamiento de OpenAI sacude el ecosistema completo. Y **GPT-5.4** no es la excepción. Es el nuevo modelo "frontera" de OpenAI, un salto cuantitativo que introduce capacidades que hace solo unos meses hubieran parecido ciencia ficción.
+
+Escúchadme bien: esto no es una actualización de parche. Es el primer modelo de OpenAI que puede **operar un ordenador como lo haría un humano**. Vamos por partes.
+
+---
+
+## Las 5 grandes novedades de GPT-5.4
+
+### 1. Üsa el ordenador por ti (Y supera a los humanos en ello)
+
+La novedad estrella y la que más debates está generando: **GPT-5.4 puede controlar un ordenador de forma autónoma**. No hablamos de generar código; hablamos de mover el ratón, cliquear botones, rellenar formularios web y navegar por aplicaciones de escritorio respondiendo a capturas de pantalla, exactamente como lo haría una persona.
+
+En el benchmark **OSWorld-Verified**, el test de referencia mundial para medir la capacidad de navegar un escritorio real, GPT-5.4 obtuvo un **75% de tasa de éxito**. La media humana está en torno al 72%. La máquina ya ha superado al operador humano medio en moverse por un ordenador.
+
+*¿Qué significa esto para tu empresa?* Imagina un agente de IA que entre en tu ERP, extraiga 200 facturas, las consolide en una hoja de Excel y te mande un informe al email. Sin que nadie mueva un dedo.
+
+### 2. Un millón de tokens de contexto: La memoria elefántica
+
+La ventana de contexto ha explotado hasta **1.000.000 de tokens de entrada** (con hasta 128.000 tokens de salida). Para que lo entiendas en términos prácticos: puedes pegarle dentro de una conversación todo el código fuente de un proyecto mediano, o el contenido íntegro de varios libros, sin que se le olvide nada entre pregunta y pregunta.
+
+Esto pone a OpenAI en igualdad de condiciones con los modelos de larga memoria de Google (Gemini) y Anthropic (Claude), que ya llevaban tiempo presumiendo de ello.
+
+### 3. Modo de Pensamiento Extremo: Para los problemas de verdad difíciles
+
+GPT-5.4 trae un nuevo modo llamado **"Thinking Extreme"** (Pensamiento Extremo). Cuando lo activas, el modelo puede “pensar” durante mucho más tiempo y con muchos más recursos computacionales antes de darte su respuesta.
+
+¿Cuándo se usa esto? En problemas que requieren razonamientos muy largos: investigación científica compleja, análisis legal de cientos de documentos, diseño de arquitecturas de software. No es para el día a día (consume más tokens y tiempo), pero cuando lo necesitas, es el martillo más grande que existe.
+
+Además, en la versión "Thinking", el modelo ahora puede mostrarte su plan de trabajo antes de empezar, y tú puedes ajustarlo en mitad del proceso.
+
+### 4. Integra a Codex: Un programador sénior de sueldo
+
+GPT-5.4 incorpora las capacidades de su hermano especializado **GPT-5.3-Codex**. No solo escribe código mejor; ahora trabaja de forma nativa con entornos de software complejos, hojas de cálculo, presentaciones y documentos de ofimática.
+
+Si le mandas un Excel con datos de ventas extraído por uno de sus agentes de computer use, puede análizarlo, crear un informe en PowerPoint con gráficos y mandarte un resumen ejecutivo. Todo en un solo flujo.
+
+### 5. El modelo más veraz de OpenAI: 18% menos de errores
+
+OpenAI afirma que GPT-5.4 es el más factual de su historia. Las respuestas tienen un **18% menos de errores fácticos** comparado con GPT-5.2, y es el modelo más confiable de la compañía en tareas prolongadas (tareas que duran más de una hora).
+
+---
+
+## GPT-5.4 vs. La competencia
+
+| Característica | GPT-5.4 (OpenAI) | Claude (Anthropic) | Gemini (Google) |
+|---|---|---|---|
+| Contexto | 1M tokens | 200K tokens | 1M tokens |
+| Computer Use | Sí (75% OSWorld) | Sí | En desarrollo |
+| Modo Extremo | Sí | Sí (Extended Thinking) | No |
+| Codificación | Muy Alta | Muy Alta | Alta |
+
+---
+
+## ¿Y esto qué le importa a tu PYME?
+
+La carrera armamentística de la IA beneficia directamente a las empresas. Cada avance en los modelos base significa que las herramientas de automatización que construimos en **I4PYMES** para nuestros clientes se vuelven más potentes, más baratas de ejecutar y más confiables.
+
+Imagina un agente de IA que coge una orden de compra de tu email, entra en tu plataforma de gestión, actualiza el pedido, genera la factura, la envía al cliente y registra el pago. Sin tocar el teclado. Sin pagar a nadie. Con GPT-5.4, ese flujo ya es posible.
+
+¿Quieres que lo montemos juntos para tu negocio? Concértanos una llamada.
+`
+    },
+    {
         slug: "guerra-ia-estados-unidos-israel-iran-claude",
         title: "La primera 'Guerra IA': Cómo EE.UU. e Israel están usando Claude contra Irán",
         description: "El campo de batalla ha cambiado para siempre. Descubre cómo el ejército estadounidense está integrando a Claude (Anthropic) en operaciones reales y el debate ético que ha desatado.",
