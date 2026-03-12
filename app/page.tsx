@@ -83,19 +83,19 @@ export default function Home() {
                 <div className="flex items-center group">
                   <div className="flex items-center relative">
                     <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       I
                     </span>
                     <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       A
                     </span>
                     <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       4
@@ -332,7 +332,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2">
-                  <div className="w-full max-w-sm sm:max-w-lg">
+                  <div className="w-full max-w-md sm:max-w-xl lg:max-w-2xl">
                     <FunctionalChatbot />
                   </div>
                 </div>
