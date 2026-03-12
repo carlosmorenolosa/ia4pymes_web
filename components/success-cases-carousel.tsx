@@ -9,7 +9,7 @@ const successCases = [
     title: "Asociación de Hostelería y Turismo de Navarra",
     company: "Chatbot IA 24/7",
     description:
-      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.\n\n🎯 ROI Estimado: +210% | ⏱️ Ahorro: 35h semanales",
+      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.\n\n🎯 ROI Estimado: +240% | ⏱️ Ahorro: 35h semanales | 📅 Tiempo: 5 meses",
     icon: MessageCircle,
     color: "green",
     benefit: "Atención 24/7 y respuestas instantáneas",
@@ -18,7 +18,7 @@ const successCases = [
     title: "IA Dermatológica",
     company: "Hospital de Toledo",
     description:
-      "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.\n\n🎯 ROI Estimado: +150% | ⏱️ Ahorro: 20h semanales",
+      "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.\n\n🎯 ROI Estimado: +380% | ⏱️ Ahorro: 60h semanales | 📅 Tiempo: 1 año",
     icon: Heart,
     color: "blue",
     benefit: "Diagnósticos más rápidos y precisos",
@@ -27,7 +27,7 @@ const successCases = [
     title: "Automatizador de Presupuestos",
     company: "Constructora CORSAM",
     description:
-      "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +320% | ⏱️ Ahorro: 45h semanales",
+      "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +285% | ⏱️ Ahorro: 45h semanales | 📅 Tiempo: 6 meses",
     icon: Sliders,
     color: "orange",
     benefit: "Presupuestos en minutos, no horas",
@@ -36,7 +36,7 @@ const successCases = [
     title: "Chatbot de Atención al Cliente",
     company: "Viajes Rascado",
     description:
-      "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.\n\n🎯 ROI Estimado: +180% | ⏱️ Ahorro: 40h semanales",
+      "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.\n\n🎯 ROI Estimado: +420% | ⏱️ Ahorro: 40h semanales | 📅 Tiempo: 2 años",
     icon: MessageCircle,
     color: "green",
     benefit: "Atención 24/7 sin interrupciones",
@@ -45,7 +45,7 @@ const successCases = [
     title: "Predicción de Daños",
     company: "Puerto de Alicante",
     description:
-      "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.\n\n🎯 ROI Estimado: +400% | ⏱️ Ahorro: 15h semanales + reducción siniestros",
+      "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.\n\n🎯 ROI Estimado: +490% | ⏱️ Ahorro: 90h semanales + reducción siniestros | 📅 Tiempo: 2 años",
     icon: Shield,
     color: "purple",
     benefit: "Prevención proactiva de incidencias",

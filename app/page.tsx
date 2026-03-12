@@ -167,7 +167,7 @@ export default function Home() {
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       <Calendar className="w-4 h-4" aria-hidden="true" />
-                      Solicitar Presupuesto
+                      Solicitar Diagnóstico Gratuito
                     </span>
                     <div
                       className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -231,7 +231,7 @@ export default function Home() {
                     >
                       <span className="flex items-center justify-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        Solicitar Presupuesto
+                        Solicitar Diagnóstico Gratuito
                       </span>
                     </Link>
                   </div>
@@ -270,9 +270,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-blue-600" itemProp="name">
-                        Multi
+                        +360%
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Sector</div>
+                      <div className="text-xs sm:text-sm text-slate-600">ROI Medio</div>
                       <meta itemProp="position" content="1" />
                     </div>
                     <div
@@ -282,9 +282,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-green-600" itemProp="name">
-                        100%
+                        +1.000h
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Personalizado</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Ahorradas al Mes</div>
                       <meta itemProp="position" content="2" />
                     </div>
                     <div
@@ -294,9 +294,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-orange-600" itemProp="name">
-                        24/7
+                        100%
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Acompañamiento</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Tasa de Éxito</div>
                       <meta itemProp="position" content="3" />
                     </div>
                   </div>
@@ -308,7 +308,7 @@ export default function Home() {
                       aria-label="Analizar mi caso"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        Analizar mi caso
+                        Solicitar Diagnóstico Gratuito
                         <ArrowRight
                           className="w-4 sm:w-5 h-4 sm:h-5 transform transition-transform duration-300 group-hover:translate-x-1"
                           aria-hidden="true"
@@ -357,7 +357,7 @@ export default function Home() {
           aria-labelledby="newsletter-heading"
         >
           {/* Futuristic background elements */}
-          <div className="absolute inset-0 bg-blue-900 shadow-2xl shadow-blue-500/20"></div>
+          <div className="absolute inset-0 bg-slate-900 shadow-2xl shadow-blue-500/20"></div>
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-25"></div>
 
           {/* Animated Glow Orbs */}
