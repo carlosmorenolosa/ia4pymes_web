@@ -640,37 +640,30 @@ export default function Home() {
 
             {/* Stats Section */}
             <div
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-4xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-4xl mx-auto"
               itemScope
               itemType="https://schema.org/ItemList"
             >
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                 <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2" itemProp="name">
-                  4
+                  +360%
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Sectores Diferentes</div>
+                <div className="text-slate-600 text-sm sm:text-base">Media del ROI</div>
                 <meta itemProp="position" content="1" />
               </div>
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                 <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2" itemProp="name">
-                  100%
+                  +1.000h
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Éxito en Entregas</div>
+                <div className="text-slate-600 text-sm sm:text-base">Horas ahorradas al mes</div>
                 <meta itemProp="position" content="2" />
               </div>
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
                 <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2" itemProp="name">
-                  3
+                  100%
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Tipos de IA</div>
+                <div className="text-slate-600 text-sm sm:text-base">Tasa de éxito</div>
                 <meta itemProp="position" content="3" />
-              </div>
-              <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-2" itemProp="name">
-                  24/7
-                </div>
-                <div className="text-slate-600 text-sm sm:text-base">Soporte Continuo</div>
-                <meta itemProp="position" content="4" />
               </div>
             </div>
             <SuccessCasesCarousel />
