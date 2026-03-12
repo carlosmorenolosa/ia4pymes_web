@@ -348,244 +348,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section
-          id="beneficios"
-          className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-blue-50/30 overflow-hidden relative"
-          aria-labelledby="benefits-heading"
-        >
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-            <div
-              className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "2s" }}
-            ></div>
-            <div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 sm:w-80 h-56 sm:h-80 bg-green-400/10 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "4s" }}
-            ></div>
-          </div>
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <header className="text-center mb-12 sm:mb-16 lg:mb-20">
-              <div
-                className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-sm animate-bounce"
-                style={{ animationDuration: "3s" }}
-              >
-                <Target className="w-4 sm:w-5 h-4 sm:h-5 mr-2" aria-hidden="true" />
-                <span>¿Por Qué Somos Diferentes?</span>
-              </div>
-              <h2
-                id="benefits-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-800 mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient leading-relaxed py-2 sm:py-4"
-              >
-                ¿Por Qué Elegir I4PYMES?
-              </h2>
-              <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
-                No vendemos software genérico.{" "}
-                <strong className="font-bold text-blue-600 relative">
-                  Creamos la herramienta exacta que necesitas
-                  <span
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 animate-pulse"
-                    aria-hidden="true"
-                  ></span>
-                </strong>
-                , diseñada específicamente para tu negocio y tus procesos únicos.
-              </p>
-            </header>
-
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10"
-              itemScope
-              itemType="https://schema.org/ItemList"
-            >
-              {[
-                {
-                  icon: Wrench,
-                  title: "100% Personalizado",
-                  description: "Cada línea de código diseñada específicamente para tu negocio y procesos únicos",
-                  color: "blue",
-                  stat: "0%",
-                  statLabel: "Código Genérico",
-                },
-                {
-                  icon: Users,
-                  title: "Soporte Completo",
-                  description: "Te acompañamos durante todo el desarrollo hasta lograr exactamente lo que necesitas",
-                  color: "green",
-                  stat: "24/7",
-                  statLabel: "Disponibilidad",
-                },
-                {
-                  icon: Timer,
-                  title: "Ahorro de Tiempo Real",
-                  description: "Nuestras soluciones reducen drásticamente el tiempo de tareas repetitivas",
-                  color: "orange",
-                  stat: "80%",
-                  statLabel: "Tiempo Ahorrado",
-                },
-                {
-                  icon: Target,
-                  title: "Enfoque PYME",
-                  description: "Entendemos los retos específicos de las pequeñas y medianas empresas",
-                  color: "purple",
-                  stat: "100%",
-                  statLabel: "Enfoque PYME",
-                },
-              ].map((benefit, index) => {
-                const IconComponent = benefit.icon
-                return (
-                  <article
-                    key={index}
-                    className="group"
-                    style={{ animationDelay: `${index * 200}ms` }}
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Service"
-                  >
-                    <meta itemProp="position" content={`${index + 1}`} />
-                    <meta itemProp="name" content={benefit.title} />
-                    <meta itemProp="description" content={benefit.description} />
-
-                    {/* Main Card with enhanced effects */}
-                    <div className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:scale-105 border border-gray-100 h-full flex flex-col relative overflow-hidden group-hover:border-gray-200">
-                      {/* Animated gradient border on hover */}
-                      <div
-                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r ${benefit.color === "blue"
-                          ? "from-blue-400/20 via-blue-500/20 to-blue-600/20"
-                          : benefit.color === "green"
-                            ? "from-green-400/20 via-green-500/20 to-green-600/20"
-                            : benefit.color === "orange"
-                              ? "from-orange-400/20 via-orange-500/20 to-orange-600/20"
-                              : "from-purple-400/20 via-purple-500/20 to-purple-600/20"
-                          } animate-gradient`}
-                        aria-hidden="true"
-                      ></div>
-
-                      {/* Floating particles effect */}
-                      <div
-                        className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                        aria-hidden="true"
-                      >
-                        <div
-                          className={`w-2 h-2 rounded-full animate-ping ${benefit.color === "blue"
-                            ? "bg-blue-400"
-                            : benefit.color === "green"
-                              ? "bg-green-400"
-                              : benefit.color === "orange"
-                                ? "bg-orange-400"
-                                : "bg-purple-400"
-                            }`}
-                        ></div>
-                      </div>
-                      <div
-                        className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-700"
-                        aria-hidden="true"
-                      >
-                        <div
-                          className={`w-1.5 h-1.5 rounded-full animate-ping ${benefit.color === "blue"
-                            ? "bg-blue-300"
-                            : benefit.color === "green"
-                              ? "bg-green-300"
-                              : benefit.color === "orange"
-                                ? "bg-orange-300"
-                                : "bg-purple-300"
-                            }`}
-                          style={{ animationDelay: "0.5s" }}
-                        ></div>
-                      </div>
-
-                      {/* Icon with enhanced animation */}
-                      <div className="mb-4 sm:mb-6 relative z-10">
-                        <div
-                          className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:scale-110 ${benefit.color === "blue"
-                            ? "bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600"
-                            : benefit.color === "green"
-                              ? "bg-gradient-to-br from-green-500 to-green-700 group-hover:from-green-400 group-hover:to-green-600"
-                              : benefit.color === "orange"
-                                ? "bg-gradient-to-br from-orange-500 to-orange-700 group-hover:from-orange-400 group-hover:to-orange-600"
-                                : "bg-gradient-to-br from-purple-500 to-purple-700 group-hover:from-purple-400 group-hover:to-purple-600"
-                            } shadow-lg group-hover:shadow-xl`}
-                          aria-hidden="true"
-                        >
-                          <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white transform group-hover:scale-110 transition-all duration-300" />
-                          {/* Pulsing ring effect */}
-                          <div
-                            className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${benefit.color === "blue"
-                              ? "border-blue-300"
-                              : benefit.color === "green"
-                                ? "border-green-300"
-                                : benefit.color === "orange"
-                                  ? "border-orange-300"
-                                  : "border-purple-300"
-                              }`}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Content with enhanced typography */}
-                      <div className="text-center flex-grow relative z-10">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 group-hover:text-slate-900 transition-colors duration-300">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">
-                          {benefit.description}
-                        </p>
-                      </div>
-
-                      {/* Enhanced Stats Badge */}
-                      <div className="mt-auto text-center relative z-10">
-                        <div
-                          className={`inline-flex items-center justify-center px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${benefit.color === "blue"
-                            ? "bg-blue-100 text-blue-700 group-hover:bg-blue-200 group-hover:text-blue-800"
-                            : benefit.color === "green"
-                              ? "bg-green-100 text-green-700 group-hover:bg-green-200 group-hover:text-green-800"
-                              : benefit.color === "orange"
-                                ? "bg-orange-100 text-orange-700 group-hover:bg-orange-200 group-hover:text-orange-800"
-                                : "bg-purple-100 text-purple-700 group-hover:bg-purple-200 group-hover:text-purple-800"
-                            }`}
-                        >
-                          <span className="text-base sm:text-lg mr-1 font-extrabold">{benefit.stat}</span>
-                          <span className="text-xs opacity-80">{benefit.statLabel}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
-
-            {/* Enhanced Bottom CTA */}
-            <div className="text-center mt-12 sm:mt-16">
-              <Link
-                href="#contacto"
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group relative overflow-hidden"
-                aria-label="Ir a la sección de contacto"
-              >
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient"
-                  aria-hidden="true"
-                ></div>
-                <CheckCircle
-                  className="w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 relative z-10 group-hover:animate-pulse"
-                  aria-hidden="true"
-                />
-                <span className="font-semibold text-base sm:text-lg relative z-10">
-                  ¿Listo para una solución 100% personalizada?
-                </span>
-                <ArrowRight
-                  className="w-5 sm:w-6 h-5 sm:h-6 ml-2 sm:ml-3 transform group-hover:translate-x-2 transition-transform duration-300 relative z-10"
-                  aria-hidden="true"
-                />
-              </Link>
-            </div>
-          </div>
-        </section>
 
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="py-16 sm:py-24 relative overflow-hidden"
+          className="py-12 sm:py-16 relative overflow-hidden"
           aria-labelledby="newsletter-heading"
         >
           {/* Futuristic background elements */}
@@ -596,24 +363,24 @@ export default function Home() {
           <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[60%] bg-blue-500/20 rounded-full blur-[120px] animate-pulse"></div>
           <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[50%] bg-indigo-600/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-          <div className="container mx-auto px-4 max-w-6xl relative z-10">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden group">
+          <div className="container mx-auto px-4 max-w-4xl relative z-10">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden group">
               {/* Decorative scanline effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-2 top-0 animate-[scanline_8s_linear_infinite] pointer-events-none"></div>
 
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div className="text-center lg:text-left">
-                  <div className="inline-flex items-center bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-blue-400/30">
-                    <Zap className="w-4 h-4 mr-2 text-yellow-400" />
+                  <div className="inline-flex items-center bg-blue-500/20 text-blue-300 px-3 py-1.5 rounded-full text-xs font-semibold mb-4 border border-blue-400/30">
+                    <Zap className="w-3.5 h-3.5 mr-1.5 text-yellow-400" />
                     Un caso real cada día
                   </div>
                   <h2
                     id="newsletter-heading"
-                    className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight"
                   >
                     Un <span className="text-blue-400">caso diario</span> para transformar tu empresa
                   </h2>
-                  <p className="text-lg sm:text-xl text-blue-50/80 leading-relaxed mb-8">
+                  <p className="text-base sm:text-lg text-blue-50/80 leading-relaxed mb-6">
                     Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
                   </p>
 

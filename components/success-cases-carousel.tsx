@@ -9,7 +9,7 @@ const successCases = [
     title: "Asociación de Hostelería y Turismo de Navarra",
     company: "Chatbot IA 24/7",
     description:
-      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.",
+      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.\n\n🎯 ROI Estimado: +210% | ⏱️ Ahorro: 35h semanales",
     icon: MessageCircle,
     color: "green",
     benefit: "Atención 24/7 y respuestas instantáneas",
@@ -18,7 +18,7 @@ const successCases = [
     title: "IA Dermatológica",
     company: "Hospital de Toledo",
     description:
-      "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.",
+      "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.\n\n🎯 ROI Estimado: +150% | ⏱️ Ahorro: 20h semanales",
     icon: Heart,
     color: "blue",
     benefit: "Diagnósticos más rápidos y precisos",
@@ -27,7 +27,7 @@ const successCases = [
     title: "Automatizador de Presupuestos",
     company: "Constructora CORSAM",
     description:
-      "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.",
+      "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +320% | ⏱️ Ahorro: 45h semanales",
     icon: Sliders,
     color: "orange",
     benefit: "Presupuestos en minutos, no horas",
@@ -36,7 +36,7 @@ const successCases = [
     title: "Chatbot de Atención al Cliente",
     company: "Viajes Rascado",
     description:
-      "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.",
+      "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.\n\n🎯 ROI Estimado: +180% | ⏱️ Ahorro: 40h semanales",
     icon: MessageCircle,
     color: "green",
     benefit: "Atención 24/7 sin interrupciones",
@@ -45,7 +45,7 @@ const successCases = [
     title: "Predicción de Daños",
     company: "Puerto de Alicante",
     description:
-      "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.",
+      "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.\n\n🎯 ROI Estimado: +400% | ⏱️ Ahorro: 15h semanales + reducción siniestros",
     icon: Shield,
     color: "purple",
     benefit: "Prevención proactiva de incidencias",
@@ -53,7 +53,7 @@ const successCases = [
 ]
 
 // 3D Tilt Card Component
-const TiltCard = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+const TiltCard = ({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) => {
   const cardRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -141,28 +141,26 @@ export const SuccessCasesCarousel = () => {
                     >
                       {/* Glow effect */}
                       <div
-                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none ${
-                          case_.color === "blue"
-                            ? "shadow-[0_0_60px_rgba(59,130,246,0.3)] border-2 border-blue-400/50"
-                            : case_.color === "orange"
-                              ? "shadow-[0_0_60px_rgba(249,115,22,0.3)] border-2 border-orange-400/50"
-                              : case_.color === "green"
-                                ? "shadow-[0_0_60px_rgba(34,197,94,0.3)] border-2 border-green-400/50"
-                                : "shadow-[0_0_60px_rgba(147,51,234,0.3)] border-2 border-purple-400/50"
-                        }`}
+                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none ${case_.color === "blue"
+                          ? "shadow-[0_0_60px_rgba(59,130,246,0.3)] border-2 border-blue-400/50"
+                          : case_.color === "orange"
+                            ? "shadow-[0_0_60px_rgba(249,115,22,0.3)] border-2 border-orange-400/50"
+                            : case_.color === "green"
+                              ? "shadow-[0_0_60px_rgba(34,197,94,0.3)] border-2 border-green-400/50"
+                              : "shadow-[0_0_60px_rgba(147,51,234,0.3)] border-2 border-purple-400/50"
+                          }`}
                         style={{ zIndex: -1 }}
                       ></div>
                       {/* Animated background gradient */}
                       <div
-                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-all duration-500 ${
-                          case_.color === "blue"
-                            ? "bg-gradient-to-br from-blue-100 via-blue-50 to-transparent"
-                            : case_.color === "orange"
-                              ? "bg-gradient-to-br from-orange-100 via-orange-50 to-transparent"
-                              : case_.color === "green"
-                                ? "bg-gradient-to-br from-green-100 via-green-50 to-transparent"
-                                : "bg-gradient-to-br from-purple-100 via-purple-50 to-transparent"
-                        }`}
+                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-all duration-500 ${case_.color === "blue"
+                          ? "bg-gradient-to-br from-blue-100 via-blue-50 to-transparent"
+                          : case_.color === "orange"
+                            ? "bg-gradient-to-br from-orange-100 via-orange-50 to-transparent"
+                            : case_.color === "green"
+                              ? "bg-gradient-to-br from-green-100 via-green-50 to-transparent"
+                              : "bg-gradient-to-br from-purple-100 via-purple-50 to-transparent"
+                          }`}
                         style={{ zIndex: -1 }}
                       ></div>
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 relative z-10 gap-4">
@@ -175,34 +173,32 @@ export const SuccessCasesCarousel = () => {
                           </p>
                         </div>
                         <div
-                          className={`w-14 h-14 sm:w-16 sm:h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center shrink-0 shadow-lg transition-all duration-500 group-hover:scale-125 ${
-                            case_.color === "blue"
-                              ? "text-blue-600 bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20 group-hover:border-blue-500/40"
-                              : case_.color === "orange"
-                                ? "text-orange-600 bg-orange-500/10 border-orange-500/20 group-hover:bg-orange-500/20 group-hover:border-orange-500/40"
-                                : case_.color === "green"
-                                  ? "text-green-600 bg-green-500/10 border-green-500/20 group-hover:bg-green-500/20 group-hover:border-green-500/40"
-                                  : "text-purple-600 bg-purple-500/10 border-purple-500/20 group-hover:bg-purple-500/20 group-hover:border-purple-500/40"
-                          }`}
+                          className={`w-14 h-14 sm:w-16 sm:h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center shrink-0 shadow-lg transition-all duration-500 group-hover:scale-125 ${case_.color === "blue"
+                            ? "text-blue-600 bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20 group-hover:border-blue-500/40"
+                            : case_.color === "orange"
+                              ? "text-orange-600 bg-orange-500/10 border-orange-500/20 group-hover:bg-orange-500/20 group-hover:border-orange-500/40"
+                              : case_.color === "green"
+                                ? "text-green-600 bg-green-500/10 border-green-500/20 group-hover:bg-green-500/20 group-hover:border-green-500/40"
+                                : "text-purple-600 bg-purple-500/10 border-purple-500/20 group-hover:bg-purple-500/20 group-hover:border-purple-500/40"
+                            }`}
                         >
                           <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
                         </div>
                       </div>
-                      <p className="text-gray-700 leading-relaxed flex-grow mb-6 sm:mb-8 text-base sm:text-lg relative z-10 group-hover:text-gray-800 transition-colors duration-300">
+                      <p className="text-gray-700 leading-relaxed flex-grow mb-6 sm:mb-8 text-base sm:text-lg relative z-10 group-hover:text-gray-800 transition-colors duration-300 whitespace-pre-line">
                         {case_.description}
                       </p>
                       <div className="mt-auto pt-6 sm:pt-8 border-t border-gray-200/80 relative z-10 group-hover:border-gray-300/80 transition-colors duration-300">
                         <div className="flex items-center gap-3">
                           <CheckCircle
-                            className={`w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${
-                              case_.color === "blue"
-                                ? "text-blue-600 group-hover:text-blue-700"
-                                : case_.color === "orange"
-                                  ? "text-orange-600 group-hover:text-orange-700"
-                                  : case_.color === "green"
-                                    ? "text-green-600 group-hover:text-green-700"
-                                    : "text-purple-600 group-hover:text-purple-700"
-                            }`}
+                            className={`w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${case_.color === "blue"
+                              ? "text-blue-600 group-hover:text-blue-700"
+                              : case_.color === "orange"
+                                ? "text-orange-600 group-hover:text-orange-700"
+                                : case_.color === "green"
+                                  ? "text-green-600 group-hover:text-green-700"
+                                  : "text-purple-600 group-hover:text-purple-700"
+                              }`}
                           />
                           <p className="text-base sm:text-lg font-semibold text-slate-700 break-words group-hover:text-slate-800 transition-colors duration-300">
                             {case_.benefit}
@@ -238,9 +234,8 @@ export const SuccessCasesCarousel = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-              index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
+              }`}
           />
         ))}
       </div>
