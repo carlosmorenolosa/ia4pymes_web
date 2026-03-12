@@ -447,7 +447,7 @@ export default function Home() {
                 id="process-heading"
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4"
               >
-                Nuestro Proceso de Trabajo
+                Cómo trabajamos en IA4PYMES
               </h2>
               <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
                 Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
