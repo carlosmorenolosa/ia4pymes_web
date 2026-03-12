@@ -270,9 +270,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-blue-600" itemProp="name">
-                        +360%
+                        ROI
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">ROI Medio</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Asegurado</div>
                       <meta itemProp="position" content="1" />
                     </div>
                     <div
@@ -282,9 +282,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-green-600" itemProp="name">
-                        +1.000h
+                        100%
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Ahorradas al Mes</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Personalizado</div>
                       <meta itemProp="position" content="2" />
                     </div>
                     <div
@@ -294,9 +294,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-orange-600" itemProp="name">
-                        100%
+                        0
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Tasa de Éxito</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Costes Ocultos</div>
                       <meta itemProp="position" content="3" />
                     </div>
                   </div>
