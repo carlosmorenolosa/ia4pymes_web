@@ -45,6 +45,14 @@ const LatestArticles = dynamic(() => import("@/components/latest-articles").then
   ssr: false
 })
 
+const CostCalculator = dynamic(() => import("@/components/cost-calculator").then((mod) => mod.CostCalculator), {
+  ssr: false
+})
+
+const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) => mod.FaqSection), {
+  ssr: false
+})
+
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
@@ -242,11 +250,10 @@ export default function Home() {
                     id="hero-heading"
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow break-words"
                   >
-                    Automatiza tu PYME con IA
+                    Reduce Costes y Aumenta tus Márgenes con IA
                   </h1>
                   <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Automatización empresarial con inteligencia artificial para PYMES en España. Reducimos hasta un 80% el tiempo en tareas repetitivas con{" "}
-                    <strong className="font-bold text-blue-600">chatbots personalizados y herramientas diseñadas específicamente para tu negocio</strong>.
+                    Somos una agencia especializada en reducir costes operativos y aumentar los márgenes de PYMES en España. Contamos con <strong className="font-bold text-blue-600">5 transformaciones exitosas</strong> donde reducimos costes y generamos beneficios reales mediante Inteligencia Artificial personalizada.
                   </p>
 
                   {/* Stats con schema markup */}
@@ -331,6 +338,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Cost Calculator Section */}
+        <section id="calculadora" className="py-16 sm:py-24 bg-white relative">
+          <div className="container mx-auto px-4 max-w-7xl relative z-10">
+            <CostCalculator />
           </div>
         </section>
 
@@ -685,28 +699,28 @@ export default function Home() {
                 {
                   icon: BarChart2,
                   step: 1,
-                  title: "Análisis Profundo",
+                  title: "Analizamos el Despilfarro",
                   description:
-                    "Estudiamos a fondo tus procesos actuales, identificamos exactamente qué necesitas automatizar y cómo debe funcionar tu herramienta ideal.",
-                  benefit: "Análisis detallado incluido",
+                    "Estudiamos a fondo tu empresa para ver el gasto que se está despilfarrando en tareas manuales y repetitivas que se podrían hacer con IA.",
+                  benefit: "Identificación de ahorro",
                   color: "blue",
                 },
                 {
                   icon: Code,
                   step: 2,
-                  title: "Desarrollo Colaborativo",
+                  title: "Solución con ROI Asegurado",
                   description:
-                    "Construimos tu solución paso a paso, con tu feedback constante. Cada funcionalidad se ajusta hasta que sea exactamente lo que necesitas.",
-                  benefit: "Feedback continuo",
+                    "Generamos una solución personalizada que asegura un retorno de inversión (ROI) rápido y beneficios reales para tu negocio.",
+                  benefit: "Beneficios garantizados",
                   color: "orange",
                 },
                 {
                   icon: Settings,
                   step: 3,
-                  title: "Entrega y Soporte",
+                  title: "Soporte y Mejora Continua",
                   description:
-                    "Te entregamos tu herramienta funcionando perfectamente, te enseñamos a usarla y te damos soporte continuo para cualquier ajuste.",
-                  benefit: "Soporte incluido",
+                    "Implementamos la herramienta, te enseñamos a usarla y te acompañamos para que tu empresa siga optimizándose continuamente.",
+                  benefit: "Acompañamiento a largo plazo",
                   color: "green",
                 },
               ].map((process, index) => {
@@ -889,6 +903,9 @@ export default function Home() {
             <SuccessCasesCarousel />
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FaqSection />
 
         {/* Contact Section */}
         <section

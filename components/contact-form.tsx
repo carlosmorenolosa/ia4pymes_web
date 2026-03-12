@@ -4,7 +4,8 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
+import { Send, Loader2, CheckCircle2, AlertCircle, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 // Validación del formulario
 const contactFormSchema = z.object({
@@ -85,12 +86,23 @@ export function ContactForm() {
                     <p className="text-slate-600 text-lg mb-8">
                         Gracias por tu propuesta. Nos pondremos en contacto contigo lo antes posible.
                     </p>
-                    <button
-                        onClick={() => setSubmitStatus("idle")}
-                        className="text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium"
-                    >
-                        Enviar otra solicitud
-                    </button>
+                    <div className="flex flex-col gap-4 max-w-sm mx-auto">
+                        <Link
+                            href="https://calendly.com/ia4pymes"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
+                        >
+                            Agendar Llamada en Calendly
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <button
+                            onClick={() => setSubmitStatus("idle")}
+                            className="text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium mt-4"
+                        >
+                            Enviar otra solicitud
+                        </button>
+                    </div>
                 </div>
             </div>
         )
