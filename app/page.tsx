@@ -135,7 +135,18 @@ export default function Home() {
                       aria-hidden="true"
                     ></div>
                   </Link>
-
+                  <Link
+                    href="#calculadora"
+                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
+                    role="menuitem"
+                    aria-label="Ir a la calculadora de costes"
+                  >
+                    Calculadora
+                    <div
+                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
+                      aria-hidden="true"
+                    ></div>
+                  </Link>
                   <Link
                     href="/blog"
                     className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
@@ -198,6 +209,13 @@ export default function Home() {
                       className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
                     >
                       Casos de Éxito
+                    </Link>
+                    <Link
+                      href="#calculadora"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
+                    >
+                      Calculadora
                     </Link>
 
                     <Link
@@ -498,10 +516,10 @@ export default function Home() {
                     >
                       <div
                         className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 ${process.color === "blue"
-                            ? "border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]"
-                            : process.color === "orange"
-                              ? "border-orange-400 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
-                              : "border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+                          ? "border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+                          : process.color === "orange"
+                            ? "border-orange-400 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
+                            : "border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
                           }`}
                       ></div>
                     </div>
@@ -536,10 +554,10 @@ export default function Home() {
                     <div className="relative z-10">
                       <div
                         className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r ${process.color === "blue"
-                            ? "from-blue-500 to-blue-700"
-                            : process.color === "orange"
-                              ? "from-orange-500 to-orange-700"
-                              : "from-green-500 to-green-700"
+                          ? "from-blue-500 to-blue-700"
+                          : process.color === "orange"
+                            ? "from-orange-500 to-orange-700"
+                            : "from-green-500 to-green-700"
                           } rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
                         aria-hidden="true"
                       >
