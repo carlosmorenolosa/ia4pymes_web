@@ -83,19 +83,19 @@ export default function Home() {
                 <div className="flex items-center group">
                   <div className="flex items-center relative">
                     <span
-                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       I
                     </span>
                     <span
-                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       A
                     </span>
                     <span
-                      className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
+                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
                       aria-hidden="true"
                     >
                       4
@@ -248,7 +248,7 @@ export default function Home() {
                   </div>
                   <h1
                     id="hero-heading"
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow break-words"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow break-words"
                   >
                     Reduce Costes y Aumenta tus Márgenes con IA
                   </h1>
@@ -331,8 +331,8 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2">
-                  <div className="w-full max-w-md sm:max-w-xl lg:max-w-2xl">
+                <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12">
+                  <div className="w-full max-w-lg sm:max-w-2xl lg:max-w-3xl transform -translate-y-4 lg:-translate-y-12">
                     <FunctionalChatbot />
                   </div>
                 </div>
