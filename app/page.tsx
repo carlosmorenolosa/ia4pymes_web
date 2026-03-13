@@ -282,9 +282,9 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-green-600" itemProp="name">
-                        100%
+                        Integración
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Personalizado</div>
+                      <div className="text-xs sm:text-sm text-slate-600">Total</div>
                       <meta itemProp="position" content="2" />
                     </div>
                     <div
@@ -294,7 +294,7 @@ export default function Home() {
                       itemType="https://schema.org/ListItem"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-orange-600" itemProp="name">
-                        0
+                        SIN
                       </div>
                       <div className="text-xs sm:text-sm text-slate-600">Costes Ocultos</div>
                       <meta itemProp="position" content="3" />
@@ -357,7 +357,7 @@ export default function Home() {
           aria-labelledby="newsletter-heading"
         >
           {/* Futuristic background elements */}
-          <div className="absolute inset-0 bg-slate-900 shadow-2xl shadow-blue-500/20"></div>
+          <div className="absolute inset-0 bg-blue-950 shadow-2xl shadow-blue-500/20"></div>
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-25"></div>
 
           {/* Animated Glow Orbs */}
@@ -606,9 +606,8 @@ export default function Home() {
               <Link
                 href="#contacto"
                 className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                aria-label="Analizar mi caso"
               >
-                <span>Analizar mi caso</span>
+                <span>Solicitar diagnóstico gratuito</span>
                 <ArrowRight
                   className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
@@ -645,28 +644,43 @@ export default function Home() {
               itemType="https://schema.org/ItemList"
             >
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2" itemProp="name">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600 mb-1" itemProp="name">
                   +360%
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Media del ROI</div>
+                <div className="text-slate-600 text-base sm:text-lg">Media del ROI</div>
                 <meta itemProp="position" content="1" />
               </div>
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2" itemProp="name">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-green-600 mb-1" itemProp="name">
                   +1.000h
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Horas ahorradas al mes</div>
+                <div className="text-slate-600 text-base sm:text-lg">Horas ahorradas al mes</div>
                 <meta itemProp="position" content="2" />
               </div>
               <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2" itemProp="name">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-1" itemProp="name">
                   100%
                 </div>
-                <div className="text-slate-600 text-sm sm:text-base">Tasa de éxito</div>
+                <div className="text-slate-600 text-base sm:text-lg">Tasa de éxito</div>
                 <meta itemProp="position" content="3" />
               </div>
             </div>
             <SuccessCasesCarousel />
+
+            {/* CTA Button for Success Cases */}
+            <div className="mt-12 sm:mt-16 text-center">
+              <Link
+                href="#contacto"
+                className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                aria-label="Solicitar diagnóstico gratuito"
+              >
+                <span>Solicitar diagnóstico gratuito</span>
+                <ArrowRight
+                  className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
           </div>
         </section>
 
