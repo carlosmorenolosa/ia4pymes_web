@@ -264,7 +264,7 @@ export default function Home() {
                     itemType="https://schema.org/ItemList"
                   >
                     <div
-                      className="text-center lg:text-left"
+                      className="text-center"
                       itemProp="itemListElement"
                       itemScope
                       itemType="https://schema.org/ListItem"
@@ -276,7 +276,7 @@ export default function Home() {
                       <meta itemProp="position" content="1" />
                     </div>
                     <div
-                      className="text-center lg:text-left"
+                      className="text-center"
                       itemProp="itemListElement"
                       itemScope
                       itemType="https://schema.org/ListItem"
@@ -288,7 +288,7 @@ export default function Home() {
                       <meta itemProp="position" content="2" />
                     </div>
                     <div
-                      className="text-center lg:text-left"
+                      className="text-center"
                       itemProp="itemListElement"
                       itemScope
                       itemType="https://schema.org/ListItem"
