@@ -12,6 +12,61 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "nvidia-dlss-5-ia-graficos-realismo-rtx-50",
+        title: "El fin de los gráficos 'de videojuego': Cómo el DLSS 5 de NVIDIA cruza el valle inquietante",
+        description: "NVIDIA ha presentado DLSS 5, el 'momento GPT de los gráficos'. Ya no se trata de frames por segundo, sino de inyectar fotorealismo neuronal en tiempo real. Descubre cómo la IA está borrando la frontera entre realidad y renderizado.",
+        date: "2026-03-17",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Tecnología",
+        image: "/blog/nvidia-dlss-5-graficos-ia.png",
+        content: `
+Durante décadas, la industria de los videojuegos ha perseguido un sueño: el fotorealismo absoluto. Hemos visto el paso del 2D al 3D, la llegada del Ray Tracing y la revolución del escalado por IA. Pero lo que NVIDIA acaba de presentar en el GTC 2026 bajo el nombre de **DLSS 5** no es un paso más. Es un salto al vacío.
+
+Jensen Huang lo ha definido como el **"momento GPT de los gráficos"**. Y no es una exageración comercial. Por primera vez, la IA no se limita a "estirar" una imagen de baja resolución; ahora la IA **entiende** lo que está dibujando y lo reconstruye con parámetros físicos de la vida real.
+
+---
+
+## Del escalado de píxeles al Renderizado Neuronal
+
+Para entender por qué DLSS 5 es revolucionario, hay que entender qué hacían las versiones anteriores:
+- **DLSS 2:** Rescataba detalles usando IA para subir la resolución.
+- **DLSS 3:** Inventaba fotogramas enteros (Frame Generation) para ganar fluidez.
+- **DLSS 3.5:** Mejoraba los reflejos (Ray Reconstruction).
+
+**DLSS 5 introduce el "Neural Material & Lighting Reconstruction".** La IA ya no mira solo píxeles; mira semántica. Sabe que ese grupo de píxeles es "piel humana" y que este otro es "terciopelo". 
+
+Al identificar el material en tiempo real, DLSS 5 inyecta comportamientos lumínicos que antes eran imposibles de procesar en vivo. ¿El resultado? La luz atraviesa la piel de forma realista (subsurface scattering), el brillo de la seda cambia según el ángulo de forma física y el pelo proyecta miles de sombras individuales sin hundir el rendimiento.
+
+---
+
+## Cruzando el 'Valle Inquietante'
+
+Uno de los mayores retos de la IA y los gráficos es el *Uncanny Valley* o valle inquietante: ese punto donde algo parece casi humano, pero algo "falla" y nos da grima. 
+
+DLSS 5 está diseñado específicamente para cerrar esa brecha. Al aplicar modelos neuronales entrenados con miles de millones de imágenes reales de materiales y comportamientos ópticos, la IA corrige las imperfecciones del renderizado tradicional. Los personajes ya no parecen muñecos de cera; tienen la sutil imperfección de la realidad.
+
+---
+
+## ¿Qué significa esto para el futuro (y para tu RTX 50)?
+
+NVIDIA ha confirmado que DLSS 5 será el estandarte de la nueva **serie RTX 50**, cuyo lanzamiento está previsto para otoño de 2026. Aunque el hardware será potente, el verdadero músculo lo pondrán los núcleos Tensor especializados en este nuevo tipo de renderizado neuronal.
+
+### Los primeros juegos en dar el salto
+Títulos como *Assassin's Creed Shadows*, *Hogwarts Legacy* (con su parche de actualización) y el esperadísimo *Resident Evil Requiem* ya han mostrado demos técnicas con DLSS 5 activado. La diferencia no está en si el juego va a 60 o 120 FPS, sino en que **deja de parecer un juego para empezar a parecer cine en directo.**
+
+---
+
+## Conclusión: La IA como el pincel definitivo
+
+En **I4PYMES** seguimos de cerca estas tecnologías porque demuestran una tendencia imparable: la IA generativa no solo sirve para escribir textos o crear logos. Está a punto de convertirse en el "motor de renderizado" de nuestra realidad digital.
+
+Si la IA puede generar fotorealismo en un videojuego a 60 fotogramas por segundo, imagina lo que podrá hacer en aplicaciones industriales, diseño de interiores o simulaciones de arquitectura en los próximos 24 meses.
+
+NVIDIA ha dejado claro que el futuro de la imagen ya no pertenece al cálculo bruto de polígonos, sino a la **intuición neuronal**. La frontera entre lo que es una cámara y lo que es un algoritmo es hoy más borrosa que nunca.
+`
+    },
+    {
         slug: "ia-no-despide-ia-contrata-informe-bce-marzo-2026",
         title: "La IA no despide, la IA contrata: El sorprendente informe del BCE sobre el empleo en Europa",
         description: "Existía el miedo a que la Inteligencia Artificial vaciara las oficinas. Sin embargo, los datos del Banco Central Europeo de marzo de 2026 muestran lo contrario: las empresas que más invierten en IA están contratando a más gente. Análisis del cambio de paradigma.",
