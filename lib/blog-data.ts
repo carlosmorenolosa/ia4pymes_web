@@ -12,6 +12,86 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "ollama-ia-local-open-source-pymes-privacidad-ahorro",
+        title: "Qué es Ollama y por qué es el mayor aliado de las PYMES que quieren usar IA sin pagar suscripciones",
+        description: "Ollama permite a cualquier empresa ejecutar modelos de Inteligencia Artificial de alto nivel directamente en su propio ordenador, sin enviar ninguno de sus datos a la nube. Descubre por qué es la herramienta de IA más importante para PYMES en 2026.",
+        date: "2026-03-20",
+        author: "I4PYMES",
+        readingTime: "7 min",
+        category: "Herramientas IA",
+        image: "/blog/ollama-ia-local-pymes.png",
+        content: `
+La gran promesa de la Inteligencia Artificial para las empresas sigue topando con dos muros: el coste mensual acumulado de las suscripciones y el miedo a que los datos del negocio terminen en los servidores de una empresa americana. En 2026, hay una herramienta que derriba ambos muros a la vez. Se llama **Ollama**.
+
+Ollama es una plataforma de código abierto que permite a cualquier empresa instalar y ejecutar modelos de lenguaje avanzados (LLMs) **directamente en su propio ordenador o servidor**, sin necesidad de internet y sin que ningún dato abandone jamás las instalaciones de la empresa.
+
+---
+
+## ¿Qué es exactamente Ollama?
+
+Imagina que puedes tener la potencia de un ChatGPT o un Claude funcionando en el ordenador de tu oficina, como si fuera un programa más. Sin suscripción mensual, sin límite de consultas, sin que nadie vea lo que le preguntas.
+
+Eso es Ollama. Es un gestor de modelos de IA open-source que:
+- **Se instala en minutos** en Windows, Mac o Linux.
+- **Descarga los modelos** con un solo comando (como si instalaras una app).
+- **Los ejecuta localmente** usando la CPU o la GPU de tu máquina.
+- **Funciona sin conexión** una vez instalado.
+
+Los modelos disponibles incluyen algunas de las IAs más potentes del mundo en 2026: **Llama 4** (Meta), **Mistral Large 3** (Mistral AI), **Gemma** (Google), **Qwen 3.5** (Alibaba) y decenas más.
+
+---
+
+## Las 4 razones por las que Ollama es ideal para PYMES
+
+### 1. 🔒 Privacidad total: tus datos nunca salen de tu oficina
+Esta es la ventaja más poderosa. Cuando le preguntas algo a ChatGPT, esa conversación viaja a los servidores de OpenAI en Estados Unidos. Con Ollama, **la consulta sucede en tu hardware**. Nadie la ve, nadie la guarda, nadie la analiza.
+
+Para sectores como el legal, la salud, la gestoría o cualquier PYME que maneje datos sensibles de clientes, esto no es solo una ventaja competitiva. Es una necesidad legal bajo el **Reglamento General de Protección de Datos (RGPD)**.
+
+### 2. 💰 Cero costes recurrentes
+Las grandes plataformas de IA funcionan con modelos de pago por uso (por cada pregunta que haces, pagas fracciones de céntimo que se acumulan) o con suscripciones mensuales por usuario que rápidamente escalan a cientos de euros.
+
+Con Ollama, el modelo de costes cambia completamente:
+- **Coste inicial:** El hardware donde corre el modelo (puede ser un ordenador que ya tienes).
+- **Coste mensual: 0 €.** Sin suscripciones, sin tokens, sin sorpresas en la factura.
+
+Para una empresa que usa la IA de forma intensiva, el ahorro anual puede superar fácilmente los **3.000 € al año** respecto a los servicios en la nube equivalentes.
+
+### 3. 🔧 Personalización para tu negocio
+Las IAs genéricas como ChatGPT no saben cómo se llaman tus productos, cómo habla tu empresa o cuáles son tus políticas internas. Con Ollama, los modelos open-source se pueden **afinar (*fine-tune*)** con tus propios documentos, listas de precios, procédimientos y manuales.
+
+El resultado es una IA que parece haber trabajado en tu empresa desde el principio.
+
+### 4. 📴 Funciona sin internet
+Uónica ventaja que casi nadie menciona: Ollama funciona completamente offline. Para empresas en zonas industriales con conexiones inestables, para reuniones en cliente donde no hay wifi, o simplemente para evitar cualquier punto de fallo externo, esta independencia es invaluable.
+
+---
+
+## ¿Qué modelos puedo usar?
+
+En 2026 el catálogo de modelos compatibles con Ollama es enorme. Algunos ejemplos prácticos para PYMES:
+
+| Modelo | Fabricante | Ideal para |
+|---|---|---|
+| Llama 4 Scout | Meta | Asistente general, redacción, análisis |
+| Mistral Small 3 | Mistral AI | Documentos, presupuestos, atención al cliente |
+| Gemma 3 | Google | Uso ligero en ordenadores poco potentes |
+| Qwen 3.5 | Alibaba | Multilingue, comercio, logística |
+
+Cada modelo ocupa entre 4 GB y 70 GB de disco según su tamaño. Para la mayoría de usos en PYME, los modelos de 7B-14B parámetros (que caben en cualquier PC moderno con 16 GB de RAM) son más que suficientes.
+
+---
+
+## Conclusión: La soberanía digital está al alcance de tu PYME
+
+Ollama democratiza algo que hasta hace poco era exclusivo de empresas con departamentos de IT potentes: tener una IA propia, privada y sin coste recurrente.
+
+No es el futuro. Es el presente. Y en **I4PYMES** llevamos meses ayudando a empresas a desplegar Ollama con los modelos más adecuados para su sector, configurando interfaces visuales sencillas para que cualquier empleado pueda usarlo sin conocimientos técnicos.
+
+Si tu empresa maneja datos confidenciales, tiene un uso intensivo de IA o simplemente quiere dejar de depender de suscripciones externas, hablemos.
+`
+    },
+    {
         slug: "chatgpt-excel-analisis-ventas-pymes-sin-analista",
         title: "Ya no necesitas analista: ChatGPT analiza tu Excel de ventas y te dice qué clientes van a crecer",
         description: "GPT-5.4 ya vive dentro de Microsoft Excel. Descubre cómo una PYME puede analizar su cartera de clientes, detectar oportunidades ocultas y tomar decisiones de ventas basadas en datos, sin saber programar ni contratar a nadie.",
