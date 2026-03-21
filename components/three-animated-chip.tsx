@@ -34,30 +34,25 @@ function InteractiveChip() {
 
       {/* The 3D Projected Chatbot - Now centered and perfectly scaled */}
         <Html 
-          transform
-          position={[0, 0, 0]} 
-          scale={0.2} 
-          className="pointer-events-auto"
-          center
+        transform
+        position={[0, 0, 0]} 
+        scale={0.16} 
+        className="pointer-events-auto"
+        center
+      >
+        <div 
+          style={{ 
+            width: '340px', 
+            height: '480px', 
+            backgroundColor: 'white',
+            zoom: 3 // Forces native 3x layout resolution in webkit for crisp CSS3D
+          }}
+          className="rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
+          onPointerDown={(e) => e.stopPropagation()}
         >
-          {/* Outer container matches the scaled dimensions (340 * 2.5, 480 * 2.5) */}
-          <div style={{ width: '850px', height: '1200px' }}>
-            {/* Inner container scales the layout up by 2.5x to force crisp CSS3D rasterization */}
-            <div 
-              style={{ 
-                width: '340px', 
-                height: '480px', 
-                transform: 'scale(2.5)', 
-                transformOrigin: 'top left',
-                backgroundColor: 'white' 
-              }}
-              className="rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
-              onPointerDown={(e) => e.stopPropagation()}
-            >
-              <FunctionalChatbot is3D={true} onInteractionChange={setIsInteracting} />
-            </div>
-          </div>
-        </Html>
+          <FunctionalChatbot is3D={true} onInteractionChange={setIsInteracting} />
+        </div>
+      </Html>
     </group>
   );
 }

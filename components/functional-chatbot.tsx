@@ -49,6 +49,12 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
     setMessages(updatedMessages)
     setCurrentInput("")
     setIsLoading(true)
+    setIsFocused(false)
+    
+    // Force the browser to drop focus from the input so it doesn't get stuck later
+    if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
 
     try {
       const response = await fetch("/api/chat", {
