@@ -119,27 +119,27 @@ export function FunctionalChatbot({ is3D = false }: { is3D?: boolean }) {
 
   return (
     <div
-      className={`w-full h-full flex flex-col justify-center p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-white/50 shadow-2xl ${
-        is3D ? "bg-white" : "bg-white/80 backdrop-blur-xl"
-      }`}
+      className={`w-full h-full flex flex-col border border-white/50 shadow-2xl ${
+        is3D ? "bg-white p-3" : "bg-white/80 backdrop-blur-xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl"
+      } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
       aria-label="Ejemplo de conversación con asistente IA"
     >
-      <div className="flex items-center mb-4 sm:mb-6">
+      <div className={`flex items-center ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
         <div
-          className="w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 sm:mr-4 shrink-0"
+          className={`${is3D ? "w-8 h-8" : "w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14"} bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 shrink-0`}
           aria-hidden="true"
         >
-          <MessageCircle className="text-white w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
         </div>
         <div>
-          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800">PymerIA</h3>
+          <h3 className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-bold text-slate-800`}>PymerIA</h3>
         </div>
       </div>
 
       <div
         ref={scrollAreaRef}
-        className="space-y-3 sm:space-y-4 flex-1 overflow-y-auto max-h-60 sm:max-h-72 lg:max-h-80"
+        className={`space-y-3 flex-1 overflow-y-auto ${is3D ? "max-h-full" : "max-h-60 sm:max-h-72 lg:max-h-80"}`}
         style={{
           scrollbarWidth: "thin",
           scrollbarColor: "#2563eb #dbeafe",

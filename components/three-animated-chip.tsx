@@ -49,13 +49,14 @@ function InteractiveChip() {
         {/* The 3D Projected Chatbot */}
         {/* We use scale={0.01} so a 340x440 px div fits the frame */}
         <Html 
-          transform 
-          position={[0, 0, 0.08]} 
-          scale={0.01}
+          position={[0, 0, 0.1]} 
+          prepend
+          center
+          distanceFactor={6}
           className="pointer-events-auto"
         >
           <div 
-            className="w-[340px] h-[440px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200"
+            className="w-[350px] h-[500px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
             onPointerDown={(e) => e.stopPropagation()}
           >
             <FunctionalChatbot is3D={true} />
@@ -69,14 +70,16 @@ function InteractiveChip() {
 export function ThreeAnimatedChip() {
   return (
     <div className="w-full max-w-[500px] aspect-square mx-auto cursor-pointer relative z-40">
-      <Canvas camera={{ position: [0, 0, 8], fov: 40 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 8], fov: 40 }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      >
         <ambientLight intensity={1.5} />
-        <spotLight position={[10, 10, 10]} intensity={2.5} angle={0.2} penumbra={1} castShadow />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#3b82f6" />
+        <spotLight position={[10, 10, 10]} intensity={2} angle={0.2} penumbra={1} castShadow />
+        <pointLight position={[-5, 5, 5]} intensity={1} color="#60a5fa" />
         
         <InteractiveChip />
-        
-        <Environment preset="city" />
         
         <ContactShadows 
           position={[0, -2.5, 0]} 

@@ -224,7 +224,6 @@ export default function Home() {
         >
           {/* Futuristic background elements */}
           <div className="absolute inset-0 bg-blue-950 shadow-2xl shadow-blue-500/20"></div>
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-25"></div>
 
           {/* Animated Glow Orbs */}
           <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[60%] bg-blue-500/20 rounded-full blur-[120px] animate-pulse"></div>
