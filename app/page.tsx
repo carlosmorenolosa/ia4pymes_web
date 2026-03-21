@@ -164,12 +164,14 @@ export default function Home() {
                   
                   <h1
                     id="hero-heading"
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6 text-slate-900 drop-shadow-sm"
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter leading-[1.05] mb-6 text-slate-900"
                   >
-                    Reduce Costes y Aumenta tus Márgenes con IA
+                    Reduce Costes y <br className="hidden md:block" />
+                    Aumenta tus <br className="hidden md:block" />
+                    Márgenes con IA
                   </h1>
                   
-                  <p className="text-lg md:text-xl lg:text-2xl mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.4] tracking-tight text-pretty">
+                  <p className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty">
                     Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-500/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
                   </p>
 
