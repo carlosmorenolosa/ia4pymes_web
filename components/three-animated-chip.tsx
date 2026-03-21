@@ -1,85 +1,66 @@
-"use client";
+"use client"
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Float, RoundedBox, Text, ContactShadows, SpotLight, Html } from "@react-three/drei";
-import { useRef, useState } from "react";
-import * as THREE from "three";
-
-import { FunctionalChatbot } from "./functional-chatbot";
-
-function InteractiveChip() {
-  const group = useRef<THREE.Group>(null);
-  const [isInteracting, setIsInteracting] = useState(false);
- 
-  // Smooth rotation based on mouse or idle state
-  useFrame((state) => {
-    if (!group.current) return;
-    
-    // If interacting, target 0 rotation. Otherwise target mouse-based rotation.
-    const targetRotY = isInteracting ? 0 : (state.pointer.x * Math.PI) / 6;
-    const targetRotX = isInteracting ? 0 : -(state.pointer.y * Math.PI) / 8;
-    
-    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.05);
-    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.05);
-    
-    // Stabilize Y position: remove bobbing to avoid "moving up/down" jumps on interaction
-    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, 0, 0.05);
-  });
-
-  return (
-    <group ref={group}>
-      <Float speed={isInteracting ? 0 : 1.5} rotationIntensity={isInteracting ? 0 : 0.4} floatIntensity={isInteracting ? 0 : 0.4}>
-        {/* The background panel is removed as requested */}
-      </Float>
-
-      {/* The 3D Projected Chatbot - Now centered and perfectly scaled */}
-        <Html 
-        transform
-        position={[0, 0, 0]} 
-        scale={0.16} 
-        className="pointer-events-auto"
-        center
-      >
-        <div 
-          style={{ 
-            width: '340px', 
-            height: '480px', 
-            backgroundColor: 'white',
-            zoom: 3 // Forces native 3x layout resolution in webkit for crisp CSS3D
-          }}
-          className="rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
-          onPointerDown={(e) => e.stopPropagation()}
-        >
-          <FunctionalChatbot is3D={true} onInteractionChange={setIsInteracting} />
-        </div>
-      </Html>
-    </group>
-  );
-}
+import { FunctionalChatbot } from "./functional-chatbot"
 
 export function ThreeAnimatedChip() {
   return (
-    <div className="w-full max-w-[500px] aspect-square mx-auto cursor-pointer relative z-40">
-      <Canvas 
-        camera={{ position: [0, 0, 8], fov: 40 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+    <div className="w-full flex items-center justify-center p-4 lg:p-8 pointer-events-auto">
+      {/* 3D Perspective Wrapper */}
+      <div 
+        className="relative w-[340px] h-[480px] sm:w-[380px] sm:h-[540px]"
+        style={{
+          perspective: "2000px", 
+        }}
       >
-        <ambientLight intensity={1.5} />
-        <spotLight position={[10, 10, 10]} intensity={2} angle={0.2} penumbra={1} castShadow />
-        <pointLight position={[-5, 5, 5]} intensity={1} color="#60a5fa" />
-        
-        <InteractiveChip />
-        
-        <ContactShadows 
-          position={[0, -2.5, 0]} 
-          opacity={0.4} 
-          scale={10} 
-          blur={2.5} 
-          far={5} 
-          color="#94a3b8"
-        />
-      </Canvas>
+        {/* The 3D Object Container */}
+        <div 
+          className="w-full h-full relative transition-transform duration-1000 ease-out"
+          style={{
+            transformStyle: "preserve-3d",
+            // Fixed isometric-like orientation
+            transform: "rotateY(-14deg) rotateX(6deg) rotateZ(-1deg)", 
+          }}
+        >
+          {/* Floor Shadow (Creates depth relative to the page) */}
+          <div 
+            className="absolute inset-0 bg-blue-900/15 blur-[40px] rounded-[40px] pointer-events-none"
+            style={{ transform: "translateZ(-60px) translateY(40px) translateX(-20px)" }}
+          ></div>
+
+          {/* 3D Extrusion (Thickness of the device) */}
+          {/* Using 12 layers to simulate a solid block of depth */}
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 rounded-[40px] pointer-events-none ${
+                i === 0 ? "bg-slate-300" : "bg-slate-100 border border-slate-200/50"
+              }`}
+              style={{ transform: `translateZ(${-i * 1.5}px)` }}
+            ></div>
+          ))}
+
+          {/* Device Backplate / Outer Rim */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.05)]"
+            style={{ transform: "translateZ(-1px)" }}
+          ></div>
+
+          {/* Front Face (The actual Chatbot UI) */}
+          <div 
+            className="absolute inset-0 bg-white rounded-[40px] shadow-sm flex flex-col overflow-hidden border border-slate-100"
+            style={{ transform: "translateZ(1px)" }}
+          >
+            <FunctionalChatbot />
+          </div>
+          
+          {/* Subtle screen glare/reflection effect over the chatbot */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-[40px] pointer-events-none"
+            style={{ transform: "translateZ(2px)" }}
+          ></div>
+
+        </div>
+      </div>
     </div>
-  );
+  )
 }
