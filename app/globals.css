@@ -186,7 +186,7 @@
 }
 
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-montserrat);
 }
 
 h1,
@@ -195,8 +195,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-inter);
-  letter-spacing: -0.02em;
+  font-family: var(--font-montserrat);
+  letter-spacing: -0.02em; /* Adjusted slightly so Montserrat doesn't look too squished */
+  font-weight: 800; /* Montserrat is very readable at 800 for headers */
 }
 
 .font-mono {
