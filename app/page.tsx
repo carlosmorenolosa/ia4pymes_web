@@ -219,86 +219,93 @@ export default function Home() {
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="py-12 sm:py-16 relative overflow-hidden"
+          className="py-20 sm:py-32 relative overflow-hidden bg-slate-900 border-t border-slate-800"
           aria-labelledby="newsletter-heading"
         >
           {/* Futuristic background elements */}
-          <div className="absolute inset-0 bg-blue-950 shadow-2xl shadow-blue-500/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pointer-events-none"></div>
 
           {/* Animated Glow Orbs */}
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[60%] bg-blue-500/20 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[50%] bg-indigo-600/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
+          <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-indigo-600/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none" style={{ animationDelay: '2s' }}></div>
 
-          <div className="container mx-auto px-4 max-w-4xl relative z-10">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden group">
-              {/* Decorative scanline effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-2 top-0 animate-[scanline_8s_linear_infinite] pointer-events-none"></div>
-
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="text-center lg:text-left">
-                  <div className="inline-flex items-center bg-blue-500/20 text-blue-300 px-3 py-1.5 rounded-full text-xs font-semibold mb-4 border border-blue-400/30">
-                    <Zap className="w-3.5 h-3.5 mr-1.5 text-yellow-400" />
-                    Un caso real cada día
-                  </div>
-                  <h2
-                    id="newsletter-heading"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight"
-                  >
-                    Un <span className="text-blue-400">caso diario</span> para transformar tu empresa
-                  </h2>
-                  <p className="text-base sm:text-lg text-blue-50/80 leading-relaxed mb-6">
-                    Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
-                  </p>
-
-                  <ul className="space-y-4 mb-8 hidden sm:block text-blue-100/70">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Casos de uso reales paso a paso
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Automatizaciones listas para tu PYME
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-400" />
-                      Herramientas que ahorran tiempo real
-                    </li>
-                  </ul>
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+              
+              {/* Left Column: Text & Value Prop */}
+              <div className="lg:col-span-7 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-300 font-semibold text-sm mb-8 border border-blue-500/20 shadow-sm shadow-blue-500/10">
+                  <Zap className="w-4 h-4 text-yellow-400" />
+                  <span>Un caso real cada día</span>
                 </div>
+                
+                <h2
+                  id="newsletter-heading"
+                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tighter mb-6 leading-[1.1]"
+                >
+                  La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-indigo-300">ventaja competitiva</span> que llega a tu correo
+                </h2>
+                
+                <p className="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
+                  Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
+                </p>
 
-                <div className="flex flex-col items-center justify-center space-y-6">
-                  <div className="relative group/btn w-full max-w-md">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500 animate-gradient-slow"></div>
+                <ul className="space-y-5 text-slate-300 font-medium hidden sm:block text-lg">
+                  <li className="flex items-center justify-center lg:justify-start gap-4">
+                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    Casos de uso reales paso a paso
+                  </li>
+                  <li className="flex items-center justify-center lg:justify-start gap-4">
+                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    Automatizaciones listas para tu PYME
+                  </li>
+                  <li className="flex items-center justify-center lg:justify-start gap-4">
+                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    Herramientas que ahorran tiempo real
+                  </li>
+                </ul>
+              </div>
+
+              {/* Right Column: CTA / Opt-in */}
+              <div className="lg:col-span-5 relative mt-8 lg:mt-0">
+                {/* Subtle base glow */}
+                <div className="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
+                
+                <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl relative overflow-hidden group">
+                  {/* Scanline decoration */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
+                  
+                  <div className="w-20 h-20 bg-blue-900/40 border border-blue-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-inner shadow-blue-500/20 relative group-hover:scale-110 transition-transform duration-500">
+                    <Mail className="w-10 h-10 text-blue-400" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-6 text-center tracking-tight">
+                    Únete a cientos de PYMES
+                  </h3>
+                  
+                  <div className="relative group/btn w-full mt-8">
+                    {/* Glowing effect on hover */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                    
                     <Link
                       href="https://newsletter.ia4pymes.tech"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative block w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-2xl shadow-2xl text-xl hover:bg-blue-700 transition-all duration-300 text-center transform hover:scale-[1.02] flex items-center justify-center gap-3"
+                      className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl transform group-hover/btn:scale-[1.02]"
                     >
-                      <Mail className="w-6 h-6" />
                       Suscribirse Ahora
                       <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
-                  <p className="text-blue-200/50 text-sm italic">
-                    * Sin spam, solo contenido de alto valor técnico y estratégico.
+                  
+                  <p className="text-slate-400/80 text-sm mt-6 text-center italic">
+                    * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
                   </p>
-
-                  {/* Floating Icon Decoration */}
-                  <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none">
-                    <Mail className="w-64 h-64 text-white rotate-[-15deg]" />
-                  </div>
                 </div>
               </div>
+
             </div>
           </div>
-
-          <style jsx>{`
-            @keyframes scanline {
-              0% { top: -10%; }
-              100% { top: 110%; }
-            }
-          `}</style>
         </section>
 
         {/* Process Section */}
