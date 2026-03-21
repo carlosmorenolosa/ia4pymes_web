@@ -21,7 +21,7 @@ const sampleMessages: Message[] = [
   },
 ]
 
-export function FunctionalChatbot({ is3D = false }: { is3D?: boolean }) {
+export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?: boolean, onInteractionChange?: (active: boolean) => void }) {
   const [messages, setMessages] = useState<Message[]>(sampleMessages)
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -221,6 +221,8 @@ export function FunctionalChatbot({ is3D = false }: { is3D?: boolean }) {
           onChange={(e) => setCurrentInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
+          onFocus={() => onInteractionChange?.(true)}
+          onBlur={() => onInteractionChange?.(false)}
           className="flex-1"
           disabled={isLoading}
           name="message"

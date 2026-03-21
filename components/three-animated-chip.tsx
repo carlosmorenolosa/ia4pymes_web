@@ -9,7 +9,8 @@ import { FunctionalChatbot } from "./functional-chatbot";
 
 function InteractiveChip() {
   const group = useRef<THREE.Group>(null);
-
+  const [isInteracting, setIsInteracting] = useState(false);
+ 
   // Smooth rotation based on mouse or idle state
   useFrame((state) => {
     if (!group.current) return;
@@ -17,20 +18,21 @@ function InteractiveChip() {
     // Idle rotation + follow mouse
     const t = state.clock.getElapsedTime();
     
-    // Increased rotation for a more "3D" feel
-    const targetRotY = (state.pointer.x * Math.PI) / 6;
-    const targetRotX = -(state.pointer.y * Math.PI) / 8;
+    // If interacting, target 0 rotation. Otherwise target mouse-based rotation.
+    const targetRotY = isInteracting ? 0 : (state.pointer.x * Math.PI) / 6;
+    const targetRotX = isInteracting ? 0 : -(state.pointer.y * Math.PI) / 8;
     
     group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.05);
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.05);
     
-    // Slight idle bob
-    group.current.position.y = Math.sin(t * 1.5) * 0.1;
+    // Disable bobbing while interacting
+    const targetPosY = isInteracting ? 0 : Math.sin(t * 1.5) * 0.1;
+    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, targetPosY, 0.05);
   });
 
   return (
     <group ref={group}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+      <Float speed={isInteracting ? 0 : 2} rotationIntensity={isInteracting ? 0 : 0.5} floatIntensity={isInteracting ? 0 : 0.5}>
         {/* Main Glass Screen Frame */}
         <RoundedBox args={[3.4, 4.4, 0.1]} radius={0.15} smoothness={8}>
           <meshPhysicalMaterial 
@@ -51,7 +53,7 @@ function InteractiveChip() {
         <Html 
           transform
           position={[0, 0, 0.1]} 
-          scale={0.5}
+          scale={0.38}
           className="pointer-events-auto"
           center
         >
@@ -60,7 +62,7 @@ function InteractiveChip() {
             className="rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
             onPointerDown={(e) => e.stopPropagation()}
           >
-            <FunctionalChatbot is3D={true} />
+            <FunctionalChatbot is3D={true} onInteractionChange={setIsInteracting} />
           </div>
         </Html>
     </group>

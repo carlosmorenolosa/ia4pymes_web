@@ -86,22 +86,17 @@ export default function Home() {
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Navigation */}
-            <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[100] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2">
-              <nav className="flex items-center justify-between w-full relative" aria-label="Navegación principal">
-                
-                {/* Logo Section - Restored from main */}
-                <Link href="#inicio" className="flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95 bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl border border-slate-200 shadow-sm">
-                  <div className="flex items-center relative gap-0.5">
-                    <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">I</span>
-                    <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">A</span>
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tighter">4</span>
-                  </div>
-                  <div className="ml-2 border-l border-slate-200 pl-2">
-                    <div className="text-[10px] font-bold text-slate-800 uppercase tracking-tight leading-none mb-0.5">PYMES</div>
-                    <div className="text-[7px] font-medium text-blue-600 uppercase tracking-widest leading-none">Soluciones IA</div>
-                  </div>
-                </Link>
+            <header className="fixed top-4 md:top-8 px-4 sm:px-6 z-[100] w-full flex flex-col items-center gap-4">
+              {/* Centered Logo Section */}
+              <Link href="#inicio" className="flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95 bg-white/40 backdrop-blur-md px-5 py-2 rounded-2xl border border-white/40 shadow-sm">
+                <div className="flex items-center relative gap-0.5">
+                  <span className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tighter">I</span>
+                  <span className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tighter">A</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter">4</span>
+                </div>
+              </Link>
 
+              <nav className="flex items-center justify-center w-full relative" aria-label="Navegación principal">
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 items-center shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300">
                   <Link
@@ -138,7 +133,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex md:hidden items-center">
-                  {/* Mobile Menu Button */}
+                  {/* Mobile Menu Button - Centered below logo */}
                   <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     className="flex items-center justify-center size-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/60 text-slate-800 transition-all active:scale-95 shadow-sm"
