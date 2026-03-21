@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import {
   BarChart2,
   Code,
@@ -18,7 +19,6 @@ import {
   Menu,
   X,
 } from "lucide-react"
-import { useState } from "react"
 import Link from "next/link"
 
 import dynamic from "next/dynamic"
@@ -62,6 +62,19 @@ export default function Home() {
   const isMobile = useIsMobile()
   const [splashFinished, setSplashFinished] = useState(false)
 
+  // Reusable scroll reveal wrapper
+  const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
+      className="w-full"
+    >
+      {children}
+    </motion.div>
+  )
+
   return (
     <>
       <SplashScreen onComplete={() => setSplashFinished(true)} />
@@ -77,7 +90,12 @@ export default function Home() {
       <main id="main-content" className="bg-white">
 
         {/* Navigation - Moved outside of section to remain globally fixed */}
-        <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[9999] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+        <motion.header 
+          className="fixed top-6 md:top-10 px-4 sm:px-6 z-[9999] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none"
+          initial={{ opacity: 0, y: -20 }}
+          animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        >
           {/* Logo Section - Top Left, No Container */}
           <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95 pointer-events-auto">
             <div className="flex items-center relative tracking-[-0.04em]">
@@ -150,7 +168,7 @@ export default function Home() {
               </Link>
             </div>
           )}
-        </header>
+        </motion.header>
 
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
@@ -162,7 +180,12 @@ export default function Home() {
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Hero Content */}
-            <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
+            <motion.div 
+              className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl"
+              initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+              animate={splashFinished ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            >
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
                   <h1
@@ -203,16 +226,17 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Cost Calculator Section */}
-
         <section id="calculadora" className="py-16 sm:py-24 bg-white relative">
-          <div className="container mx-auto px-4 max-w-7xl relative z-10">
-            <CostCalculator />
-          </div>
+          <FadeIn>
+            <div className="container mx-auto px-4 max-w-7xl relative z-10">
+              <CostCalculator />
+            </div>
+          </FadeIn>
         </section>
 
 
@@ -227,72 +251,74 @@ export default function Home() {
           <div className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-blue-100/50 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
           <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-indigo-50/80 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" style={{ animationDelay: '2s' }}></div>
 
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-              
-              <div className="lg:col-span-7 text-center lg:text-left">
-                <h2
-                  id="newsletter-heading"
-                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
-                >
-                  La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-indigo-600">ventaja competitiva</span> que llega a tu correo
-                </h2>
+          <FadeIn>
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 
-                <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
-                  Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
-                </p>
-
-                <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
-                  <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-600" />
-                    Casos de uso reales paso a paso
-                  </li>
-                  <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-600" />
-                    Automatizaciones listas para tu PYME
-                  </li>
-                  <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-600" />
-                    Herramientas que ahorran tiempo real
-                  </li>
-                </ul>
-              </div>
-
-              <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-                <div className="absolute inset-0 bg-blue-500/5 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
-                
-                <div className="bg-white/80 backdrop-blur-2xl border border-blue-100 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-blue-900/5 relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
+                <div className="lg:col-span-7 text-center lg:text-left">
+                  <h2
+                    id="newsletter-heading"
+                    className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
+                  >
+                    La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-indigo-600">ventaja competitiva</span> que llega a tu correo
+                  </h2>
                   
-                  <div className="w-20 h-20 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
-                    <Mail className="w-10 h-10 text-blue-600" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
-                    Únete a cientos de PYMES
-                  </h3>
-                  
-                  <div className="relative group/btn w-full mt-8">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
-                    <Link
-                      href="https://newsletter.ia4pymes.tech"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl transform group-hover/btn:scale-[1.02]"
-                    >
-                      Suscribirse Ahora
-                      <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                  
-                  <p className="text-slate-500 text-sm mt-6 text-center italic">
-                    * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
+                  <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
+                    Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
                   </p>
-                </div>
-              </div>
 
+                  <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
+                    <li className="flex items-center justify-center lg:justify-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      Casos de uso reales paso a paso
+                    </li>
+                    <li className="flex items-center justify-center lg:justify-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      Automatizaciones listas para tu PYME
+                    </li>
+                    <li className="flex items-center justify-center lg:justify-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      Herramientas que ahorran tiempo real
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="lg:col-span-5 relative mt-8 lg:mt-0">
+                  <div className="absolute inset-0 bg-blue-500/5 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
+                  
+                  <div className="bg-white/80 backdrop-blur-2xl border border-blue-100 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-blue-900/5 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
+                    
+                    <div className="w-20 h-20 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
+                      <Mail className="w-10 h-10 text-blue-600" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
+                      Únete a cientos de PYMES
+                    </h3>
+                    
+                    <div className="relative group/btn w-full mt-8">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                      <Link
+                        href="https://newsletter.ia4pymes.tech"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl transform group-hover/btn:scale-[1.02]"
+                      >
+                        Suscribirse Ahora
+                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                    
+                    <p className="text-slate-500 text-sm mt-6 text-center italic">
+                      * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Process Section */}
@@ -301,179 +327,181 @@ export default function Home() {
           className="py-16 sm:py-24 bg-white overflow-hidden"
           aria-labelledby="process-heading"
         >
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <header className="text-center mb-16 sm:mb-20">
-              <h2
-                id="process-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+          <FadeIn>
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+              <header className="text-center mb-16 sm:mb-20">
+                <h2
+                  id="process-heading"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+                >
+                  Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
+                </h2>
+                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                  Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
+                </p>
+              </header>
+
+              <div
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 relative"
+                itemScope
+                itemType="https://schema.org/HowTo"
               >
-                Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
-              </h2>
-              <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
-              </p>
-            </header>
+                <meta itemProp="name" content="Proceso de desarrollo de IA para PYMES" />
+                <meta itemProp="description" content="Proceso de 3 pasos para crear herramientas de IA personalizadas" />
 
-            <div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 relative"
-              itemScope
-              itemType="https://schema.org/HowTo"
-            >
-              <meta itemProp="name" content="Proceso de desarrollo de IA para PYMES" />
-              <meta itemProp="description" content="Proceso de 3 pasos para crear herramientas de IA personalizadas" />
+                {[
+                  {
+                    icon: BarChart2,
+                    step: 1,
+                    title: "Analizamos el Despilfarro",
+                    description:
+                      "Estudiamos a fondo tu empresa para ver el gasto que se está despilfarrando en tareas manuales y repetitivas que se podrían hacer con IA.",
+                    benefit: "Identificación de ahorro",
+                    color: "blue",
+                  },
+                  {
+                    icon: Code,
+                    step: 2,
+                    title: "Solución con ROI Asegurado",
+                    description:
+                      "Generamos una solución personalizada que asegura un retorno de inversión (ROI) rápido y beneficios reales para tu negocio.",
+                    benefit: "Beneficios garantizados",
+                    color: "orange",
+                  },
+                  {
+                    icon: Settings,
+                    step: 3,
+                    title: "Soporte y Mejora Continua",
+                    description:
+                      "Implementamos la herramienta, te enseñamos a usarla y te acompañamos para que tu empresa siga optimizándose continuamente.",
+                    benefit: "Acompañamiento a largo plazo",
+                    color: "green",
+                  },
+                ].map((process, index) => {
+                  const IconComponent = process.icon
+                  return (
+                    <article
+                      key={index}
+                      className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${process.color === "blue"
+                        ? "border-blue-100 hover:shadow-blue-500/20"
+                        : process.color === "orange"
+                          ? "border-orange-100 hover:shadow-orange-500/20"
+                          : "border-green-100 hover:shadow-green-500/20"
+                        }`}
+                      itemProp="step"
+                      itemScope
+                      itemType="https://schema.org/HowToStep"
+                    >
+                      <meta itemProp="position" content={`${process.step}`} />
+                      <meta itemProp="name" content={process.title} />
+                      <meta itemProp="text" content={process.description} />
 
-              {[
-                {
-                  icon: BarChart2,
-                  step: 1,
-                  title: "Analizamos el Despilfarro",
-                  description:
-                    "Estudiamos a fondo tu empresa para ver el gasto que se está despilfarrando en tareas manuales y repetitivas que se podrían hacer con IA.",
-                  benefit: "Identificación de ahorro",
-                  color: "blue",
-                },
-                {
-                  icon: Code,
-                  step: 2,
-                  title: "Solución con ROI Asegurado",
-                  description:
-                    "Generamos una solución personalizada que asegura un retorno de inversión (ROI) rápido y beneficios reales para tu negocio.",
-                  benefit: "Beneficios garantizados",
-                  color: "orange",
-                },
-                {
-                  icon: Settings,
-                  step: 3,
-                  title: "Soporte y Mejora Continua",
-                  description:
-                    "Implementamos la herramienta, te enseñamos a usarla y te acompañamos para que tu empresa siga optimizándose continuamente.",
-                  benefit: "Acompañamiento a largo plazo",
-                  color: "green",
-                },
-              ].map((process, index) => {
-                const IconComponent = process.icon
-                return (
-                  <article
-                    key={index}
-                    className={`text-center bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 group relative overflow-hidden hover:transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:shadow-2xl ${process.color === "blue"
-                      ? "border-blue-100 hover:shadow-blue-500/20"
-                      : process.color === "orange"
-                        ? "border-orange-100 hover:shadow-orange-500/20"
-                        : "border-green-100 hover:shadow-green-500/20"
-                      }`}
-                    itemProp="step"
-                    itemScope
-                    itemType="https://schema.org/HowToStep"
-                  >
-                    <meta itemProp="position" content={`${process.step}`} />
-                    <meta itemProp="name" content={process.title} />
-                    <meta itemProp="text" content={process.description} />
-
-                    <div
-                      className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
-                      aria-hidden="true"
-                    >
                       <div
-                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 ${process.color === "blue"
-                          ? "border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]"
-                          : process.color === "orange"
-                            ? "border-orange-400 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
-                            : "border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
-                          }`}
-                      ></div>
-                    </div>
-                    {/* Floating particles effect */}
-                    <div
-                      className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                      aria-hidden="true"
-                    >
-                      <div
-                        className={`w-2 h-2 rounded-full animate-ping ${process.color === "blue"
-                          ? "bg-blue-400"
-                          : process.color === "orange"
-                            ? "bg-orange-400"
-                            : "bg-green-400"
-                          }`}
-                      ></div>
-                    </div>
-                    <div
-                      className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-700"
-                      aria-hidden="true"
-                    >
-                      <div
-                        className={`w-1.5 h-1.5 rounded-full animate-ping ${process.color === "blue"
-                          ? "bg-blue-300"
-                          : process.color === "orange"
-                            ? "bg-orange-300"
-                            : "bg-green-300"
-                          }`}
-                        style={{ animationDelay: "0.5s" }}
-                      ></div>
-                    </div>
-                    <div className="relative z-10">
-                      <div
-                        className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r ${process.color === "blue"
-                          ? "from-blue-500 to-blue-700"
-                          : process.color === "orange"
-                            ? "from-orange-500 to-orange-700"
-                            : "from-green-500 to-green-700"
-                          } rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
+                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
                         aria-hidden="true"
                       >
-                        <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
-                        {/* Pulsing ring effect */}
                         <div
-                          className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${process.color === "blue"
-                            ? "border-blue-300"
+                          className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 ${process.color === "blue"
+                            ? "border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]"
                             : process.color === "orange"
-                              ? "border-orange-300"
-                              : "border-green-300"
+                              ? "border-orange-400 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
+                              : "border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]"
+                            }`}
+                        ></div>
+                      </div>
+                      {/* Floating particles effect */}
+                      <div
+                        className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                        aria-hidden="true"
+                      >
+                        <div
+                          className={`w-2 h-2 rounded-full animate-ping ${process.color === "blue"
+                            ? "bg-blue-400"
+                            : process.color === "orange"
+                              ? "bg-orange-400"
+                              : "bg-green-400"
                             }`}
                         ></div>
                       </div>
                       <div
-                        className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${process.color === "blue"
-                          ? "bg-blue-600"
-                          : process.color === "orange"
-                            ? "bg-orange-600"
-                            : "bg-green-600"
-                          }`}
-                        aria-label={`Paso ${process.step}`}
+                        className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-700"
+                        aria-hidden="true"
                       >
-                        {process.step}
+                        <div
+                          className={`w-1.5 h-1.5 rounded-full animate-ping ${process.color === "blue"
+                            ? "bg-blue-300"
+                            : process.color === "orange"
+                              ? "bg-orange-300"
+                              : "bg-green-300"
+                            }`}
+                          style={{ animationDelay: "0.5s" }}
+                        ></div>
                       </div>
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-slate-800">
-                        {process.title}
-                      </h3>
-                      <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                        {process.description}
-                      </p>
-                      <div
-                        className={`flex items-center justify-center gap-2 text-${process.color}-600 font-semibold text-sm sm:text-base`}
-                      >
-                        <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
-                        <span>{process.benefit}</span>
+                      <div className="relative z-10">
+                        <div
+                          className={`w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r ${process.color === "blue"
+                            ? "from-blue-500 to-blue-700"
+                            : process.color === "orange"
+                              ? "from-orange-500 to-orange-700"
+                              : "from-green-500 to-green-700"
+                            } rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
+                          aria-hidden="true"
+                        >
+                          <IconComponent className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                          {/* Pulsing ring effect */}
+                          <div
+                            className={`absolute inset-0 rounded-2xl sm:rounded-3xl border-2 opacity-0 group-hover:opacity-100 animate-ping ${process.color === "blue"
+                              ? "border-blue-300"
+                              : process.color === "orange"
+                                ? "border-orange-300"
+                                : "border-green-300"
+                              }`}
+                          ></div>
+                        </div>
+                        <div
+                          className={`w-6 sm:w-8 h-6 sm:h-8 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xs sm:text-sm font-bold relative z-10 ${process.color === "blue"
+                            ? "bg-blue-600"
+                            : process.color === "orange"
+                              ? "bg-orange-600"
+                              : "bg-green-600"
+                            }`}
+                          aria-label={`Paso ${process.step}`}
+                        >
+                          {process.step}
+                        </div>
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-slate-800">
+                          {process.title}
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                          {process.description}
+                        </p>
+                        <div
+                          className={`flex items-center justify-center gap-2 text-${process.color}-600 font-semibold text-sm sm:text-base`}
+                        >
+                          <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
+                          <span>{process.benefit}</span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
+                    </article>
+                  )
+                })}
+              </div>
 
-            {/* Added CTA button here as requested */}
-            <div className="mt-12 sm:mt-16 text-center">
-              <Link
-                href="#contacto"
-                className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-              >
-                <span>Solicitar diagnóstico gratuito</span>
-                <ArrowRight
-                  className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
+              {/* Added CTA button here as requested */}
+              <div className="mt-12 sm:mt-16 text-center">
+                <Link
+                  href="#contacto"
+                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                >
+                  <span>Solicitar diagnóstico gratuito</span>
+                  <ArrowRight
+                    className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Success Cases Section */}
@@ -483,64 +511,66 @@ export default function Home() {
           style={{ zIndex: 1 }}
           aria-labelledby="success-cases-heading"
         >
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <header className="text-center mb-16 sm:mb-20">
-              <h2
-                id="success-cases-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
-              >
-                Casos de Éxito <span className="text-blue-600">Destacados</span>
-              </h2>
-              <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                Impacto real garantizado.
-              </p>
-            </header>
+          <FadeIn>
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+              <header className="text-center mb-16 sm:mb-20">
+                <h2
+                  id="success-cases-heading"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+                >
+                  Casos de Éxito <span className="text-blue-600">Destacados</span>
+                </h2>
+                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                  Impacto real garantizado.
+                </p>
+              </header>
 
-            {/* Stats Section */}
-            <div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-4xl mx-auto"
-              itemScope
-              itemType="https://schema.org/ItemList"
-            >
-              <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600 mb-1" itemProp="name">
-                  +360%
+              {/* Stats Section */}
+              <div
+                className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-4xl mx-auto"
+                itemScope
+                itemType="https://schema.org/ItemList"
+              >
+                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600 mb-1" itemProp="name">
+                    +360%
+                  </div>
+                  <div className="text-slate-600 text-base sm:text-lg">Media del ROI</div>
+                  <meta itemProp="position" content="1" />
                 </div>
-                <div className="text-slate-600 text-base sm:text-lg">Media del ROI</div>
-                <meta itemProp="position" content="1" />
+                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-green-600 mb-1" itemProp="name">
+                    +1.000h
+                  </div>
+                  <div className="text-slate-600 text-base sm:text-lg">Horas ahorradas al mes</div>
+                  <meta itemProp="position" content="2" />
+                </div>
+                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-1" itemProp="name">
+                    100%
+                  </div>
+                  <div className="text-slate-600 text-base sm:text-lg">Tasa de éxito</div>
+                  <meta itemProp="position" content="3" />
+                </div>
               </div>
-              <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-green-600 mb-1" itemProp="name">
-                  +1.000h
-                </div>
-                <div className="text-slate-600 text-base sm:text-lg">Horas ahorradas al mes</div>
-                <meta itemProp="position" content="2" />
-              </div>
-              <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-1" itemProp="name">
-                  100%
-                </div>
-                <div className="text-slate-600 text-base sm:text-lg">Tasa de éxito</div>
-                <meta itemProp="position" content="3" />
+              <SuccessCasesCarousel />
+
+              {/* CTA Button for Success Cases */}
+              <div className="mt-12 sm:mt-16 text-center">
+                <Link
+                  href="#contacto"
+                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                  aria-label="Solicitar diagnóstico gratuito"
+                >
+                  <span>Solicitar diagnóstico gratuito</span>
+                  <ArrowRight
+                    className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
             </div>
-            <SuccessCasesCarousel />
-
-            {/* CTA Button for Success Cases */}
-            <div className="mt-12 sm:mt-16 text-center">
-              <Link
-                href="#contacto"
-                className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                aria-label="Solicitar diagnóstico gratuito"
-              >
-                <span>Solicitar diagnóstico gratuito</span>
-                <ArrowRight
-                  className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-            </div>
-          </div>
+          </FadeIn>
         </section>
 
         {/* FAQ Section */}
@@ -556,50 +586,52 @@ export default function Home() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             <div className="absolute top-10 left-10 w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
           </div>
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <header className="text-center mb-16 sm:mb-20">
-              <h2
-                id="contact-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
-              >
-                Hablemos de Tu <span className="text-blue-600">Proyecto</span>
-              </h2>
-              <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
-                Comienza hoy tu transformación digital aportándonos más detalles sobre lo que necesitas. Nuestro equipo analizará tu caso para ofrecerte la mejor solución de Inteligencia Artificial.
-              </p>
-            </header>
+          <FadeIn>
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+              <header className="text-center mb-16 sm:mb-20">
+                <h2
+                  id="contact-heading"
+                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                >
+                  Hablemos de Tu <span className="text-blue-600">Proyecto</span>
+                </h2>
+                <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
+                  Comienza hoy tu transformación digital aportándonos más detalles sobre lo que necesitas. Nuestro equipo analizará tu caso para ofrecerte la mejor solución de Inteligencia Artificial.
+                </p>
+              </header>
 
-            {/* Removed the 'What to expect' 3-column cards grid as requested */}
+              {/* Removed the 'What to expect' 3-column cards grid as requested */}
 
-            {/* Custom Contact Form */}
-            <ContactForm />
+              {/* Custom Contact Form */}
+              <ContactForm />
 
-            {/* Trust indicators */}
-            <div className="text-center mt-8 sm:mt-12">
-              <ul className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-slate-600 list-none">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
-                  <span className="font-medium text-sm sm:text-base">100% Gratuito</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
-                  <span className="font-medium text-sm sm:text-base">Sin Compromiso</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
-                  <span className="font-medium text-sm sm:text-base">Respuesta Inmediata</span>
-                </li>
-              </ul>
-              <Link
-                href="#inicio"
-                className="mt-6 sm:mt-8 text-blue-600 hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
-                aria-label="Volver al inicio de la página"
-              >
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 rotate-180" aria-hidden="true" />
-                Volver al Inicio
-              </Link>
+              {/* Trust indicators */}
+              <div className="text-center mt-8 sm:mt-12">
+                <ul className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-slate-600 list-none">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
+                    <span className="font-medium text-sm sm:text-base">100% Gratuito</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
+                    <span className="font-medium text-sm sm:text-base">Sin Compromiso</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
+                    <span className="font-medium text-sm sm:text-base">Respuesta Inmediata</span>
+                  </li>
+                </ul>
+                <Link
+                  href="#inicio"
+                  className="mt-6 sm:mt-8 text-blue-600 hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
+                  aria-label="Volver al inicio de la página"
+                >
+                  <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 rotate-180" aria-hidden="true" />
+                  Volver al Inicio
+                </Link>
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Latest Articles Section */}
@@ -607,46 +639,48 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="bg-white py-12 sm:py-16 relative overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <div className="text-center">
-              {/* Brand */}
-              <div className="flex items-center justify-center mb-6 sm:mb-8 group">
-                <Link href="/" className="z-50 relative group">
-                  <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
-                    <span className="font-extrabold flex items-center gap-1">
-                      <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
-                    </span>
-                    <span className="ml-1 font-semibold text-slate-600">PYMES</span>
-                  </div>
-                </Link>
-              </div>
+          <FadeIn delay={0.1}>
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+              <div className="text-center">
+                {/* Brand */}
+                <div className="flex items-center justify-center mb-6 sm:mb-8 group">
+                  <Link href="/" className="z-50 relative group">
+                    <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
+                      <span className="font-extrabold flex items-center gap-1">
+                        <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
+                      </span>
+                      <span className="ml-1 font-semibold text-slate-600">PYMES</span>
+                    </div>
+                  </Link>
+                </div>
 
-              {/* Contact */}
-              <div className="mb-6 sm:mb-8">
-                <a
-                  href="mailto:contacto@ia4pymes.tech"
-                  className="inline-flex items-center gap-2 sm:gap-3 text-slate-700 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg group"
-                  aria-label="Enviar email a contacto@ia4pymes.tech"
-                >
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300 group-hover:scale-110">
-                    <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" aria-hidden="true" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-sm sm:text-base">Contáctanos</div>
-                    <div className="text-xs sm:text-sm text-slate-500">contacto@ia4pymes.tech</div>
-                  </div>
-                </a>
-              </div>
+                {/* Contact */}
+                <div className="mb-6 sm:mb-8">
+                  <a
+                    href="mailto:contacto@ia4pymes.tech"
+                    className="inline-flex items-center gap-2 sm:gap-3 text-slate-700 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg group"
+                    aria-label="Enviar email a contacto@ia4pymes.tech"
+                  >
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300 group-hover:scale-110">
+                      <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" aria-hidden="true" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-semibold text-sm sm:text-base">Contáctanos</div>
+                      <div className="text-xs sm:text-sm text-slate-500">contacto@ia4pymes.tech</div>
+                    </div>
+                  </a>
+                </div>
 
-              {/* Copyright */}
-              <div className="border-t border-slate-200 pt-6 sm:pt-8">
-                <p className="text-slate-600 text-base sm:text-lg">© 2026 I4PYMES. Todos los derechos reservados.</p>
-                <p className="text-xs sm:text-sm text-slate-500 mt-2">
-                  Herramientas de IA hechas a medida para tu PYME
-                </p>
+                {/* Copyright */}
+                <div className="border-t border-slate-200 pt-6 sm:pt-8">
+                  <p className="text-slate-600 text-base sm:text-lg">© 2026 I4PYMES. Todos los derechos reservados.</p>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-2">
+                    Herramientas de IA hechas a medida para tu PYME
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </footer>
       </main>
     </>
