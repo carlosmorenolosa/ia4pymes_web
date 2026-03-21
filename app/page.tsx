@@ -31,7 +31,7 @@ const SuccessCasesCarousel = dynamic(() => import("@/components/success-cases-ca
   ssr: false
 })
 
-const AnimatedChip = dynamic(() => import("@/components/animated-chip").then((mod) => mod.AnimatedChip), {
+const AnimatedChip = dynamic(() => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip), {
   loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />,
   ssr: false
 })
