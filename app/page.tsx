@@ -54,15 +54,18 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
   ssr: false
 })
 
+import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
-
+  const [splashFinished, setSplashFinished] = useState(false)
 
   return (
     <>
+      <SplashScreen onComplete={() => setSplashFinished(true)} />
+      
       {/* Skip to main content para accesibilidad */}
       <a
         href="#main-content"
