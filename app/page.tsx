@@ -219,74 +219,66 @@ export default function Home() {
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="py-20 sm:py-32 relative overflow-hidden bg-slate-900 border-t border-slate-800"
+          className="py-20 sm:py-32 relative overflow-hidden bg-white border-t border-slate-100"
           aria-labelledby="newsletter-heading"
         >
-          {/* Futuristic background elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-white pointer-events-none"></div>
 
-          {/* Animated Glow Orbs */}
-          <div className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
-          <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-indigo-600/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-blue-100/50 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
+          <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-indigo-50/80 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" style={{ animationDelay: '2s' }}></div>
 
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
               
-              {/* Left Column: Text & Value Prop */}
               <div className="lg:col-span-7 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-300 font-semibold text-sm mb-8 border border-blue-500/20 shadow-sm shadow-blue-500/10">
-                  <Zap className="w-4 h-4 text-yellow-400" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-8 border border-blue-100 shadow-sm">
+                  <Zap className="w-4 h-4 text-yellow-500" />
                   <span>Un caso real cada día</span>
                 </div>
                 
                 <h2
                   id="newsletter-heading"
-                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tighter mb-6 leading-[1.1]"
+                  className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
                 >
-                  La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-indigo-300">ventaja competitiva</span> que llega a tu correo
+                  La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-indigo-600">ventaja competitiva</span> que llega a tu correo
                 </h2>
                 
-                <p className="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
+                <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
                   Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
                 </p>
 
-                <ul className="space-y-5 text-slate-300 font-medium hidden sm:block text-lg">
+                <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
                   <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                     Casos de uso reales paso a paso
                   </li>
                   <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                     Automatizaciones listas para tu PYME
                   </li>
                   <li className="flex items-center justify-center lg:justify-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-blue-400 shadow-sm" />
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                     Herramientas que ahorran tiempo real
                   </li>
                 </ul>
               </div>
 
-              {/* Right Column: CTA / Opt-in */}
               <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-                {/* Subtle base glow */}
-                <div className="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
+                <div className="absolute inset-0 bg-blue-500/5 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
                 
-                <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl relative overflow-hidden group">
-                  {/* Scanline decoration */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
+                <div className="bg-white/80 backdrop-blur-2xl border border-blue-100 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-blue-900/5 relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
                   
-                  <div className="w-20 h-20 bg-blue-900/40 border border-blue-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-inner shadow-blue-500/20 relative group-hover:scale-110 transition-transform duration-500">
-                    <Mail className="w-10 h-10 text-blue-400" />
+                  <div className="w-20 h-20 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
+                    <Mail className="w-10 h-10 text-blue-600" />
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-6 text-center tracking-tight">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
                     Únete a cientos de PYMES
                   </h3>
                   
                   <div className="relative group/btn w-full mt-8">
-                    {/* Glowing effect on hover */}
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
-                    
                     <Link
                       href="https://newsletter.ia4pymes.tech"
                       target="_blank"
@@ -298,7 +290,7 @@ export default function Home() {
                     </Link>
                   </div>
                   
-                  <p className="text-slate-400/80 text-sm mt-6 text-center italic">
+                  <p className="text-slate-500 text-sm mt-6 text-center italic">
                     * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
                   </p>
                 </div>
@@ -320,7 +312,7 @@ export default function Home() {
                 id="process-heading"
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
               >
-                Cómo trabajamos en IA4PYMES
+                Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
               </h2>
               <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
                 Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
@@ -492,7 +484,7 @@ export default function Home() {
         {/* Success Cases Section */}
         <section
           id="casos-exito"
-          className="py-16 sm:py-24 bg-slate-50/50 border-t border-slate-100 relative"
+          className="py-16 sm:py-24 bg-white border-t border-slate-100 relative"
           style={{ zIndex: 1 }}
           aria-labelledby="success-cases-heading"
         >
@@ -502,7 +494,7 @@ export default function Home() {
                 id="success-cases-heading"
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
               >
-                Casos de Éxito Destacados
+                Casos de Éxito <span className="text-blue-600">Destacados</span>
               </h2>
               <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
                 Impacto real garantizado.
@@ -579,7 +571,7 @@ export default function Home() {
                 id="contact-heading"
                 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
               >
-                Hablemos de Tu Proyecto
+                Hablemos de Tu <span className="text-blue-600">Proyecto</span>
               </h2>
               <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
                 Comienza hoy tu transformación digital aportándonos más detalles sobre lo que necesitas. Nuestro equipo analizará tu caso para ofrecerte la mejor solución de Inteligencia Artificial.
@@ -623,7 +615,7 @@ export default function Home() {
         <LatestArticles />
 
         {/* Footer */}
-        <footer className="bg-slate-50/50 py-12 sm:py-16 relative overflow-hidden border-t border-slate-100">
+        <footer className="bg-white py-12 sm:py-16 relative overflow-hidden border-t border-slate-100">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <div className="text-center">
               {/* Brand */}

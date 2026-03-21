@@ -39,15 +39,15 @@ export function FaqSection() {
     }
 
     return (
-        <section id="faq" className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
+        <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
             {/* Background decorations */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100 rounded-full blur-3xl opacity-50 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl opacity-50 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
 
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 bg-gradient-to-r from-slate-800 to-blue-800 bg-clip-text text-transparent">
-                        Dudas Frecuentes sobre IA en PYMES
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-slate-900 mb-4">
+                        Dudas Frecuentes sobre <span className="text-blue-600">IA en PYMES</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         Resolvemos las preguntas más comunes sobre la implementación de Inteligencia Artificial en tu negocio.
