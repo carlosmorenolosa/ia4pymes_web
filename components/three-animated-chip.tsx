@@ -1,15 +1,14 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Float, RoundedBox, Text, ContactShadows, SpotLight } from "@react-three/drei";
+import { Environment, Float, RoundedBox, Text, ContactShadows, SpotLight, Html } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 
+import { FunctionalChatbot } from "./functional-chatbot";
+
 function InteractiveChip() {
   const group = useRef<THREE.Group>(null);
-  const coreRef = useRef<THREE.Mesh>(null);
-  const ringRef = useRef<THREE.Mesh>(null);
-  const [hovered, setHovered] = useState(false);
 
   // Smooth rotation based on mouse or idle state
   useFrame((state) => {
@@ -17,36 +16,23 @@ function InteractiveChip() {
     
     // Idle rotation + follow mouse a bit
     const t = state.clock.getElapsedTime();
-    const targetRotY = (state.pointer.x * Math.PI) / 4;
-    const targetRotX = -(state.pointer.y * Math.PI) / 4;
+    
+    // Reduce rotation significantly so the chat is readable and usable
+    const targetRotY = (state.pointer.x * Math.PI) / 12;
+    const targetRotX = -(state.pointer.y * Math.PI) / 16;
     
     group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.1);
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.1);
     
-    // Slight idle bob and spin
-    group.current.position.y = Math.sin(t * 2) * 0.1;
-
-    // Animate the AI core
-    if (coreRef.current) {
-      coreRef.current.rotation.y += 0.01;
-      coreRef.current.rotation.x += 0.01;
-    }
-    if (ringRef.current) {
-      ringRef.current.rotation.z -= 0.005;
-      ringRef.current.rotation.x = Math.sin(t) * 0.1;
-    }
+    // Slight idle bob
+    group.current.position.y = Math.sin(t * 1.5) * 0.05;
   });
 
   return (
-    <group 
-      ref={group}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-      scale={hovered ? 1.05 : 1}
-    >
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        {/* Main Glass Chip Body */}
-        <RoundedBox args={[3.5, 3.5, 0.4]} radius={0.3} smoothness={8}>
+    <group ref={group}>
+      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+        {/* Main Glass Screen Frame */}
+        <RoundedBox args={[3.4, 4.4, 0.1]} radius={0.15} smoothness={8}>
           <meshPhysicalMaterial 
             transmission={1} 
             transparent 
@@ -60,84 +46,31 @@ function InteractiveChip() {
           />
         </RoundedBox>
 
-        {/* AI Holographic Core (Octahedron + Rings) */}
-        <group position={[0, 0, -0.05]}>
-          {/* Base dark chip substrate */}
-          <RoundedBox args={[2.5, 2.5, 0.1]} radius={0.1} smoothness={4}>
-            <meshStandardMaterial color="#020617" metalness={0.9} roughness={0.1} />
-          </RoundedBox>
+        {/* Backplate to ensure the chat is opaque from behind if it rotates too much */}
+        <RoundedBox args={[3.3, 4.3, 0.05]} position={[0, 0, -0.05]} radius={0.1} smoothness={4}>
+          <meshStandardMaterial color="#0f172a" metalness={0.5} roughness={0.8} />
+        </RoundedBox>
 
-          {/* Glowing central node */}
-          <mesh ref={coreRef} position={[0, 0.2, 0.2]}>
-            <octahedronGeometry args={[0.5, 0]} />
-            <meshStandardMaterial 
-              color="#3b82f6" 
-              emissive="#60a5fa" 
-              emissiveIntensity={hovered ? 3 : 1.5} 
-              wireframe={hovered}
-            />
-          </mesh>
-
-          {/* Tech Ring */}
-          <mesh ref={ringRef} position={[0, 0.2, 0.2]}>
-            <torusGeometry args={[0.8, 0.02, 16, 64]} />
-            <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.5} />
-          </mesh>
-
-          {/* Particles/Dots grid representing neural net */}
-          <points position={[-0.8, -0.5, 0.1]}>
-            <bufferGeometry>
-              <bufferAttribute 
-                attach="attributes-position"
-                args={[new Float32Array([
-                  0,0,0, 0.5,0,0, 1.0,0,0,
-                  0,0.5,0, 0.5,0.5,0, 1.0,0.5,0,
-                  0,1.0,0, 0.5,1.0,0, 1.0,1.0,0,
-                ]), 3]}
-              />
-            </bufferGeometry>
-            <pointsMaterial size={0.05} color="#3b82f6" sizeAttenuation transparent opacity={0.6} />
-          </points>
-        </group>
-
-        {/* Main Logo Text on Glass */}
-        <group position={[0, -0.8, 0.35]} scale={0.5}>
-          <Text 
-            position={[-0.5, 0, 0]} 
-            fontSize={1.8} 
-            fontWeight="bold" 
-            letterSpacing={-0.05}
-            color="#ffffff" 
-            outlineWidth={0.02}
-            outlineColor="#333333"
-            sdfGlyphSize={64}
-            font="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf"
-          >
-            IA
-          </Text>
-          <Text 
-            position={[1.0, 0, 0]} 
-            fontSize={1.8} 
-            fontWeight="bold" 
-            color="#60a5fa" 
-            outlineWidth={0.02}
-            outlineColor="#1e3a8a"
-            sdfGlyphSize={64}
-            font="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf"
-          >
-            4
-          </Text>
-        </group>
-        
-        <Text 
-          position={[0, -1.3, 0.35]} 
-          fontSize={0.2} 
-          letterSpacing={0.4}
-          color="#94a3b8" 
-          fontWeight="bold"
+        {/* The 3D Projected Chatbot */}
+        {/* We use scale={0.01} so a 330x430 px div exactly fits a 3.3x4.3 3D unit space */}
+        <Html 
+          transform 
+          position={[0, 0, 0.06]} 
+          scale={0.01}
+          className="pointer-events-auto"
         >
-          PYMES NEURAL CORE
-        </Text>
+          {/* Prevent standard 3D gestures from capturing clicks on the HTML */}
+          <div 
+            className="w-[330px] h-[430px] bg-transparent"
+            onPointerDown={(e) => e.stopPropagation()}
+            onPointerOver={(e) => e.stopPropagation()}
+          >
+            {/* Remove the white background from FunctionalChatbot wrapper by forcing it to fill this container */}
+            <div className="w-full h-full scale-100 origin-center">
+              <FunctionalChatbot />
+            </div>
+          </div>
+        </Html>
       </Float>
     </group>
   );
