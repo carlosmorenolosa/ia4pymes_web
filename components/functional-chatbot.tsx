@@ -158,29 +158,30 @@ export function FunctionalChatbot() {
                 : "bg-gradient-to-r from-blue-100 to-blue-50"
                 } ${msg.sender === "User" ? "rounded-br-sm" : "rounded-bl-sm"}`}
             >
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                className={`prose prose-sm max-w-none ${msg.sender === "User"
-                  ? "text-slate-600 prose-strong:text-slate-700"
-                  : "text-slate-800 prose-strong:text-blue-600"
-                  }`}
-                components={{
-                  p: ({ children }) => <p className="mb-1 sm:mb-2 last:mb-0 text-xs sm:text-sm">{children}</p>,
-                  ul: ({ children }) => (
-                    <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">{children}</ul>
-                  ),
-                  ol: ({ children }) => (
-                    <ol className="list-decimal list-inside space-y-1 text-xs sm:text-sm">{children}</ol>
-                  ),
-                  strong: ({ children }) => (
-                    <strong className={msg.sender === "User" ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
-                      {children}
-                    </strong>
-                  ),
-                }}
-              >
-                {msg.content}
-              </ReactMarkdown>
+              <div className={`prose prose-sm max-w-none ${msg.sender === "User"
+                ? "text-slate-600 prose-strong:text-slate-700"
+                : "text-slate-800 prose-strong:text-blue-600"
+                }`}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    p: ({ children }) => <p className="mb-1 sm:mb-2 last:mb-0 text-xs sm:text-sm">{children}</p>,
+                    ul: ({ children }) => (
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">{children}</ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal list-inside space-y-1 text-xs sm:text-sm">{children}</ol>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className={msg.sender === "User" ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
+                        {children}
+                      </strong>
+                    ),
+                  }}
+                >
+                  {msg.content}
+                </ReactMarkdown>
+              </div>
             </div>
           </motion.div>
         ))}

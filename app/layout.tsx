@@ -1,22 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
+import { Inter_Tight, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 
-const inter = Inter({
+const inter = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 })
 
-const poppins = Poppins({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-poppins",
+  variable: "--font-geist-mono",
   display: "swap",
 })
 
@@ -304,7 +303,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-slate-800`}>
+      <body className={`${inter.variable} ${geistMono.variable} font-sans bg-white text-slate-900`}>
         <CustomCursor />
         {children}
         <Analytics />

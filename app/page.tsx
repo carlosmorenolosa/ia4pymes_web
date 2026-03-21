@@ -31,10 +31,11 @@ const SuccessCasesCarousel = dynamic(() => import("@/components/success-cases-ca
   ssr: false
 })
 
-const FunctionalChatbot = dynamic(() => import("@/components/functional-chatbot").then((mod) => mod.FunctionalChatbot), {
-  loading: () => <div className="h-[500px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+const AnimatedChip = dynamic(() => import("@/components/animated-chip").then((mod) => mod.AnimatedChip), {
+  loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />,
   ssr: false
 })
+
 
 const ContactForm = dynamic(() => import("@/components/contact-form").then((mod) => mod.ContactForm), {
   ssr: false
@@ -73,268 +74,137 @@ export default function Home() {
       <main id="main-content" className="bg-white">
 
         {/* Hero Section */}
-        <section id="inicio" className="relative overflow-hidden min-h-screen" aria-labelledby="hero-heading">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/70 via-indigo-50/50 to-transparent"></div>
-          <ParticlesBackground />
-          <div className="relative z-10">
+        <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
+          {/* Aesthetic Background: Clean white with subtle blurred spheres (Refractweb style but light mode) */}
+          <div className="absolute inset-0 bg-white pointer-events-none z-0">
+            <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-blue-100/50 opacity-60 blur-[150px]"></div>
+            <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-slate-100/80 opacity-60 blur-[150px]"></div>
+          </div>
+          
+          <div className="relative z-10 flex-col flex h-full">
             {/* Navigation */}
-            <header className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-7xl">
-              <nav className="flex items-center justify-between" aria-label="Navegación principal">
-                <div className="flex items-center group">
-                  <div className="flex items-center relative">
-                    <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
-                      aria-hidden="true"
-                    >
-                      I
+            <header className="fixed top-4 md:top-8 px-4 sm:px-6 z-[100] w-full flex justify-between items-center max-w-7xl mx-auto left-1/2 -translate-x-1/2">
+              <nav className="flex items-center justify-between w-full" aria-label="Navegación principal">
+                
+                {/* Logo Chip */}
+                <Link href="/" className="z-50 relative group">
+                  <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
+                    <span className="font-extrabold flex items-center gap-1">
+                      <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
                     </span>
-                    <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-700 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
-                      aria-hidden="true"
-                    >
-                      A
-                    </span>
-                    <span
-                      className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 transition-all duration-300 group-hover:scale-105 drop-shadow-sm"
-                      aria-hidden="true"
-                    >
-                      4
-                    </span>
+                    <span className="ml-1 font-semibold text-slate-600">PYMES</span>
                   </div>
-                </div>
-                <div className="ml-2 lg:ml-4">
-                  <div className="text-xs lg:text-sm font-semibold text-slate-600 uppercase tracking-wider">
-                    PYMES
-                  </div>
-                  <div className="text-xs text-slate-500">Soluciones IA</div>
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-4 lg:gap-8" role="menubar">
+                <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-full p-1.5 items-center gap-2 shadow-sm">
                   <Link
                     href="#proceso"
-                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
-                    role="menuitem"
-                    aria-label="Ir a la sección de proceso"
+                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
                   >
                     Proceso
-                    <div
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
-                      aria-hidden="true"
-                    ></div>
                   </Link>
                   <Link
                     href="#casos-exito"
-                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
-                    role="menuitem"
-                    aria-label="Ir a la sección de casos de éxito"
+                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
                   >
-                    Casos de Éxito
-                    <div
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
-                      aria-hidden="true"
-                    ></div>
+                    Casos
                   </Link>
                   <Link
                     href="#calculadora"
-                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
-                    role="menuitem"
-                    aria-label="Ir a la calculadora de costes"
+                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
                   >
                     Calculadora
-                    <div
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
-                      aria-hidden="true"
-                    ></div>
                   </Link>
                   <Link
                     href="/blog"
-                    className="text-slate-700 font-medium text-lg lg:text-xl hover:text-blue-600 transition-all duration-300 px-3 lg:px-4 py-2 rounded-lg hover:bg-blue-50/50 whitespace-nowrap relative group"
-                    role="menuitem"
-                    aria-label="Ir al blog"
+                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
                   >
                     Blog
-                    <div
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"
-                      aria-hidden="true"
-                    ></div>
-                  </Link>
-                  <Link
-                    href="#contacto"
-                    className="bg-blue-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-800 hover:border-blue-900 hover:bg-blue-900 relative overflow-hidden group ml-4 lg:ml-6 text-sm lg:text-base whitespace-nowrap inline-flex items-center"
-                    role="menuitem"
-                    aria-label="Agendar una llamada de consulta"
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      <Calendar className="w-4 h-4" aria-hidden="true" />
-                      Solicitar Diagnóstico Gratuito
-                    </span>
-                    <div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      aria-hidden="true"
-                    ></div>
-                    <div
-                      className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300 animate-pulse"
-                      aria-hidden="true"
-                    ></div>
                   </Link>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(!mobileMenuOpen);
-                  }}
-                  className="md:hidden p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300 z-[10000] relative"
-                  aria-label="Abrir menú de navegación"
-                >
-                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                <div className="flex items-center gap-3 relative z-[70]">
+                  <Link
+                    href="#contacto"
+                    className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm font-medium transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-sm px-4 py-2 h-9"
+                  >
+                    Diagnóstico Gratuito
+                  </Link>
+                  
+                  {/* Mobile Menu Button */}
+                  <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/60 backdrop-blur-sm border border-slate-200/60 text-slate-800 transition-all hover:bg-white/80"
+                    aria-label="Abrir menú"
+                  >
+                    {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                  </button>
+                </div>
               </nav>
 
               {/* Mobile Menu */}
               {mobileMenuOpen && (
-                <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl z-[9999] animate-in slide-in-from-top duration-300">
-                  <div className="container mx-auto px-4 py-6 space-y-4">
-                    <Link
-                      href="#proceso"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
-                    >
-                      Proceso
-                    </Link>
-                    <Link
-                      href="#casos-exito"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
-                    >
-                      Casos de Éxito
-                    </Link>
-                    <Link
-                      href="#calculadora"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
-                    >
-                      Calculadora
-                    </Link>
-
-                    <Link
-                      href="/blog"
-                      className="block w-full text-left text-slate-700 font-medium text-lg py-3 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
-                    >
-                      Blog
-                    </Link>
-                    <Link
-                      href="#contacto"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full bg-blue-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        Solicitar Diagnóstico Gratuito
-                      </span>
-                    </Link>
-                  </div>
+                <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center">
+                  <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
+                     <X className="w-6 h-6" />
+                  </button>
+                  <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
+                  <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
+                  <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
+                  <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
+                  <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
+                    Diagnóstico Gratuito
+                  </Link>
                 </div>
               )}
             </header>
 
             {/* Hero Content */}
-            <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-8 pb-12 max-w-7xl">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
-                <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
-                  <div className="inline-flex items-center bg-blue-100 text-blue-800 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 self-center lg:self-start max-w-fit">
-                    <Zap className="w-3 sm:w-4 h-3 sm:h-4 mr-2 flex-shrink-0" aria-hidden="true" />
-                    <span className="whitespace-nowrap">Soluciones IA 100% Personalizadas</span>
+            <div className="container mx-auto px-4 sm:px-6 pt-32 lg:pt-40 pb-20 flex-grow flex items-center justify-center max-w-7xl">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+                <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 lg:pr-10">
+                  <div className="inline-flex cursor-pointer bg-white/50 backdrop-blur-sm border border-slate-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 rounded-full items-center gap-2 px-4 py-1.5 mb-6 self-center lg:self-start max-w-fit shadow-sm">
+                    <div className="relative size-2 flex items-center justify-center">
+                      <span className="size-2 rounded-full bg-blue-500 shrink-0 absolute"></span>
+                      <span className="size-2 blur rounded-full bg-blue-400 shrink-0 animate-pulse absolute"></span>
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-slate-700">Soluciones IA 100% Personalizadas</span>
                   </div>
+                  
                   <h1
                     id="hero-heading"
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 bg-clip-text text-transparent animate-gradient-slow break-words"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] mb-6 text-slate-900 drop-shadow-sm"
                   >
                     Reduce Costes y Aumenta tus Márgenes con IA
                   </h1>
-                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Somos una agencia especializada en reducir costes operativos y aumentar los márgenes de PYMES en España. Contamos con <strong className="font-bold text-blue-600">5 transformaciones exitosas</strong> donde reducimos costes y generamos beneficios reales mediante Inteligencia Artificial personalizada.
+                  
+                  <p className="text-lg md:text-xl lg:text-2xl mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.4] tracking-tight text-pretty">
+                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-500/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
                   </p>
 
-                  {/* Stats con schema markup */}
-                  <div
-                    className="grid grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10 max-w-lg mx-auto lg:mx-0"
-                    itemScope
-                    itemType="https://schema.org/ItemList"
-                  >
-                    <div
-                      className="text-center"
-                      itemProp="itemListElement"
-                      itemScope
-                      itemType="https://schema.org/ListItem"
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-blue-600" itemProp="name">
-                        ROI
-                      </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Asegurado</div>
-                      <meta itemProp="position" content="1" />
-                    </div>
-                    <div
-                      className="text-center"
-                      itemProp="itemListElement"
-                      itemScope
-                      itemType="https://schema.org/ListItem"
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-green-600" itemProp="name">
-                        Integración
-                      </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Total</div>
-                      <meta itemProp="position" content="2" />
-                    </div>
-                    <div
-                      className="text-center"
-                      itemProp="itemListElement"
-                      itemScope
-                      itemType="https://schema.org/ListItem"
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-orange-600" itemProp="name">
-                        SIN
-                      </div>
-                      <div className="text-xs sm:text-sm text-slate-600">Costes Ocultos</div>
-                      <meta itemProp="position" content="3" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start relative z-30">
                     <Link
                       href="#contacto"
-                      className="bg-blue-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-xl text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden group inline-flex items-center"
-                      aria-label="Analizar mi caso"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-medium transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:bg-blue-700 px-8 py-3.5"
                     >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        Solicitar Diagnóstico Gratuito
-                        <ArrowRight
-                          className="w-4 sm:w-5 h-4 sm:h-5 transform transition-transform duration-300 group-hover:translate-x-1"
-                          aria-hidden="true"
-                        />
-                      </span>
-                      <div
-                        className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        aria-hidden="true"
-                      ></div>
-                      <div
-                        className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"
-                        aria-hidden="true"
-                      ></div>
+                      Solicitar Diagnóstico
                     </Link>
                     <Link
                       href="#casos-exito"
-                      className="border-2 border-slate-300 text-slate-700 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg inline-flex items-center justify-center"
-                      aria-label="Ver casos de éxito reales"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-medium transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm px-8 py-3.5 group"
                     >
-                      Ver Casos Reales
+                      <span className="flex items-center justify-center relative overflow-hidden">
+                        Explorar casos reales
+                      </span>
+                      <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12">
-                  <div className="w-full max-w-lg sm:max-w-2xl lg:max-w-3xl transform -translate-y-4 lg:-translate-y-12">
-                    <FunctionalChatbot />
+                
+                <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]">
+                  <div className="w-full max-w-lg sm:max-w-xl">
+                    <AnimatedChip />
                   </div>
                 </div>
               </div>
@@ -343,6 +213,7 @@ export default function Home() {
         </section>
 
         {/* Cost Calculator Section */}
+
         <section id="calculadora" className="py-16 sm:py-24 bg-white relative">
           <div className="container mx-auto px-4 max-w-7xl relative z-10">
             <CostCalculator />
@@ -439,14 +310,14 @@ export default function Home() {
         {/* Process Section */}
         <section
           id="proceso"
-          className="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden"
+          className="py-16 sm:py-24 bg-white overflow-hidden border-t border-slate-100"
           aria-labelledby="process-heading"
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <header className="text-center mb-12 sm:mb-16">
+            <header className="text-center mb-16 sm:mb-20">
               <h2
                 id="process-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
               >
                 Cómo trabajamos en IA4PYMES
               </h2>
@@ -620,20 +491,20 @@ export default function Home() {
         {/* Success Cases Section */}
         <section
           id="casos-exito"
-          className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative"
+          className="py-16 sm:py-24 bg-slate-50/50 border-t border-slate-100 relative"
           style={{ zIndex: 1 }}
           aria-labelledby="success-cases-heading"
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <header className="text-center mb-12 sm:mb-16">
+            <header className="text-center mb-16 sm:mb-20">
               <h2
                 id="success-cases-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
               >
                 Casos de Éxito Destacados
               </h2>
               <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                Soluciones reales que transformaron estos sectores clave
+                Impacto real garantizado.
               </p>
             </header>
 
@@ -690,26 +561,22 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contacto"
-          className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white relative overflow-hidden"
+          className="py-16 sm:py-24 bg-white relative overflow-hidden border-t border-slate-100"
           aria-labelledby="contact-heading"
         >
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div className="absolute top-10 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-            <div
-              className="absolute bottom-10 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "2s" }}
-            ></div>
+          {/* Subtle background glow */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <header className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-sm">
-                <Calendar className="w-4 sm:w-5 h-4 sm:h-5 mr-2" aria-hidden="true" />
-                <span>¡El Primer Paso Hacia Tu Transformación!</span>
+            <header className="text-center mb-16 sm:mb-20">
+              <div className="inline-flex cursor-pointer bg-white border border-slate-200 shadow-sm rounded-full items-center gap-2 px-4 py-1.5 mb-6">
+                <Calendar className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600" aria-hidden="true" />
+                <span className="text-xs md:text-sm font-medium text-slate-700">Comienza tu Transformación</span>
               </div>
               <h2
                 id="contact-heading"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-800 mb-4 sm:mb-6 bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
               >
                 Hablemos de Tu Proyecto
               </h2>
@@ -755,48 +622,19 @@ export default function Home() {
         <LatestArticles />
 
         {/* Footer */}
-        <footer className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 sm:py-16 relative overflow-hidden">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div className="absolute top-10 left-10 w-32 sm:w-48 h-32 sm:h-48 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-            <div
-              className="absolute bottom-10 right-10 w-48 sm:w-64 h-48 sm:h-64 bg-purple-400/10 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "2s" }}
-            ></div>
-          </div>
-
+        <footer className="bg-slate-50/50 py-12 sm:py-16 relative overflow-hidden border-t border-slate-100">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <div className="text-center">
               {/* Brand */}
               <div className="flex items-center justify-center mb-6 sm:mb-8 group">
-                <div className="flex items-center relative">
-                  <span
-                    className="text-3xl sm:text-4xl font-bold text-blue-600 transition-all duration-300 group-hover:scale-110"
-                    aria-hidden="true"
-                  >
-                    I
-                  </span>
-                  <span
-                    className="text-3xl sm:text-4xl font-bold text-blue-600 transition-all duration-300 group-hover:scale-110"
-                    aria-hidden="true"
-                  >
-                    A
-                  </span>
-                  <span
-                    className="text-3xl sm:text-4xl font-bold text-slate-800 transition-all duration-300 group-hover:scale-110"
-                    aria-hidden="true"
-                  >
-                    4
-                  </span>
-                  <div
-                    className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                    aria-hidden="true"
-                  ></div>
-                </div>
-                <div className="ml-2 sm:ml-3">
-                  <div className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wider">PYMES</div>
-                  <div className="text-xs text-slate-500">Soluciones IA</div>
-                </div>
+                <Link href="/" className="z-50 relative group">
+                  <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
+                    <span className="font-extrabold flex items-center gap-1">
+                      <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
+                    </span>
+                    <span className="ml-1 font-semibold text-slate-600">PYMES</span>
+                  </div>
+                </Link>
               </div>
 
               {/* Contact */}

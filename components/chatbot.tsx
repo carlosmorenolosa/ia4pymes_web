@@ -116,15 +116,18 @@ export function Chatbot() {
                 : "bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
               }`}
           >
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
+            <div
               className={`prose prose-sm max-w-none ${msg.sender === "User"
                   ? "text-white prose-strong:text-white"
                   : "text-slate-800 prose-strong:text-blue-600"
                 }`}
             >
-              {msg.content}
-            </ReactMarkdown>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+              >
+                {msg.content}
+              </ReactMarkdown>
+            </div>
           </motion.div>
         ))}
         {isLoading && (
