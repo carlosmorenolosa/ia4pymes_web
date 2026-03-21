@@ -88,11 +88,10 @@ export default function Home() {
             {/* Navigation */}
             <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[100] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center">
               {/* Logo Section - Top Left, No Container */}
-              <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
-                <div className="flex items-center relative gap-0.5">
-                  <span className="text-2xl sm:text-4xl font-black text-blue-600 tracking-tighter">I</span>
-                  <span className="text-2xl sm:text-4xl font-black text-blue-600 tracking-tighter">A</span>
-                  <span className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tighter">4</span>
+              <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
+                <div className="flex items-center relative tracking-[-0.04em]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
 

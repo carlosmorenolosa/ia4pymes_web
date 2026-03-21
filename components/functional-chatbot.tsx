@@ -27,6 +27,15 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
   const [isLoading, setIsLoading] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
+  const [isFocused, setIsFocused] = useState(false)
+
+  useEffect(() => {
+    // Determine active interaction: input is focused AND we aren't waiting for a response.
+    // This allows the chatbot to rotate while PymerIA is "thinking".
+    if (onInteractionChange) {
+      onInteractionChange(isFocused && !isLoading)
+    }
+  }, [isFocused, isLoading, onInteractionChange])
 
   const handleSendMessage = async () => {
     if (!currentInput.trim() || isLoading) return
@@ -221,8 +230,8 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
           onChange={(e) => setCurrentInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
-          onFocus={() => onInteractionChange?.(true)}
-          onBlur={() => onInteractionChange?.(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           className="flex-1"
           disabled={isLoading}
           name="message"
