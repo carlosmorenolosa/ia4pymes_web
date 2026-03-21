@@ -167,11 +167,11 @@ export default function Home() {
                   
                   <h1
                     id="hero-heading"
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter leading-[1.05] mb-6 text-slate-900"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black tracking-tighter leading-[1] mb-6 text-slate-900"
                   >
-                    Reduce Costes y <br className="hidden md:block" />
+                    Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                     Aumenta tus <br className="hidden md:block" />
-                    Márgenes con IA
+                    <span className="text-blue-600">Márgenes</span> con IA
                   </h1>
                   
                   <p className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty">
