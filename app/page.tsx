@@ -83,62 +83,52 @@ export default function Home() {
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Navigation */}
-            <header className="fixed top-4 md:top-8 px-4 sm:px-6 z-[100] w-full flex justify-between items-center max-w-7xl mx-auto left-1/2 -translate-x-1/2">
-              <nav className="flex items-center justify-between w-full" aria-label="Navegación principal">
+            <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[100] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2">
+              <nav className="flex items-center justify-center w-full relative" aria-label="Navegación principal">
                 
-                {/* Logo Chip */}
-                <Link href="/" className="z-50 relative group">
-                  <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
-                    <span className="font-extrabold flex items-center gap-1">
-                      <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
-                    </span>
-                    <span className="ml-1 font-semibold text-slate-600">PYMES</span>
-                  </div>
-                </Link>
-
                 {/* Desktop Navigation */}
-                <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-full p-1.5 items-center gap-2 shadow-sm">
+                <div className="hidden md:flex bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 items-center shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300">
                   <Link
                     href="#proceso"
-                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
+                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
                   >
                     Proceso
                   </Link>
                   <Link
                     href="#casos-exito"
-                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
+                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
                   >
                     Casos
                   </Link>
                   <Link
                     href="#calculadora"
-                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
+                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
                   >
                     Calculadora
                   </Link>
                   <Link
                     href="/blog"
-                    className="text-slate-600 text-sm font-medium hover:text-slate-900 transition-all duration-300 px-4 py-1.5 rounded-full hover:bg-white/80 whitespace-nowrap"
+                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
                   >
                     Blog
                   </Link>
-                </div>
-
-                <div className="flex items-center gap-3 relative z-[70]">
+                  <div className="w-px h-6 bg-slate-200 mx-2"></div>
                   <Link
                     href="#contacto"
-                    className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm font-medium transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-sm px-4 py-2 h-9"
+                    className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
                   >
                     Diagnóstico Gratuito
                   </Link>
-                  
+                </div>
+
+                <div className="flex md:hidden items-center justify-end w-full">
                   {/* Mobile Menu Button */}
                   <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/60 backdrop-blur-sm border border-slate-200/60 text-slate-800 transition-all hover:bg-white/80"
+                    className="flex items-center justify-center size-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/60 text-slate-800 transition-all active:scale-95 shadow-sm"
                     aria-label="Abrir menú"
                   >
-                    {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                   </button>
                 </div>
               </nav>
