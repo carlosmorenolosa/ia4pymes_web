@@ -68,15 +68,25 @@ function InteractiveChip() {
         </RoundedBox>
 
         {/* Main Logo Text on Glass */}
-        <Text 
-          position={[0, 0.3, 0.25]} 
-          fontSize={1.2} 
-          fontWeight="bold" 
-          letterSpacing={-0.05}
-          color="#1e293b" // slate-800
-        >
-          IA<span style={{color: '#2563eb'}}>4</span>
-        </Text>
+        <group position={[0, 0.3, 0.25]}>
+          <Text 
+            position={[-0.4, 0, 0]} 
+            fontSize={1.2} 
+            fontWeight="bold" 
+            letterSpacing={-0.05}
+            color="#1e293b" // slate-800
+          >
+            IA
+          </Text>
+          <Text 
+            position={[0.6, 0, 0]} 
+            fontSize={1.2} 
+            fontWeight="bold" 
+            color="#2563eb" // blue-600
+          >
+            4
+          </Text>
+        </group>
         
         <Text 
           position={[0, -0.8, 0.25]} 
