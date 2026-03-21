@@ -15,9 +15,6 @@ function InteractiveChip() {
   useFrame((state) => {
     if (!group.current) return;
     
-    // Idle rotation + follow mouse
-    const t = state.clock.getElapsedTime();
-    
     // If interacting, target 0 rotation. Otherwise target mouse-based rotation.
     const targetRotY = isInteracting ? 0 : (state.pointer.x * Math.PI) / 6;
     const targetRotX = isInteracting ? 0 : -(state.pointer.y * Math.PI) / 8;
@@ -25,22 +22,21 @@ function InteractiveChip() {
     group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.05);
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.05);
     
-    // Disable bobbing while interacting
-    const targetPosY = isInteracting ? 0 : Math.sin(t * 1.5) * 0.1;
-    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, targetPosY, 0.05);
+    // Stabilize Y position: remove bobbing to avoid "moving up/down" jumps on interaction
+    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, 0, 0.05);
   });
 
   return (
     <group ref={group}>
-      <Float speed={isInteracting ? 0 : 2} rotationIntensity={isInteracting ? 0 : 0.5} floatIntensity={isInteracting ? 0 : 0.5}>
+      <Float speed={isInteracting ? 0 : 1.5} rotationIntensity={isInteracting ? 0 : 0.4} floatIntensity={isInteracting ? 0 : 0.4}>
         {/* The background panel is removed as requested */}
       </Float>
 
-      {/* The 3D Projected Chatbot - Now centered and larger */}
+      {/* The 3D Projected Chatbot - Now centered and perfectly scaled */}
         <Html 
           transform
           position={[0, 0, 0]} 
-          scale={0.55}
+          scale={0.5}
           className="pointer-events-auto"
           center
         >

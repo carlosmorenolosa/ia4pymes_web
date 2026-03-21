@@ -90,9 +90,9 @@ export default function Home() {
               {/* Logo Section - Top Left, No Container */}
               <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
                 <div className="flex items-center relative gap-0.5">
-                  <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">I</span>
-                  <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">A</span>
-                  <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tighter">4</span>
+                  <span className="text-2xl sm:text-4xl font-black text-blue-600 tracking-tighter">I</span>
+                  <span className="text-2xl sm:text-4xl font-black text-blue-600 tracking-tighter">A</span>
+                  <span className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tighter">4</span>
                 </div>
               </Link>
 
