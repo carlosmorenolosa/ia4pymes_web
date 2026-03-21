@@ -86,19 +86,20 @@ export default function Home() {
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Navigation */}
-            <header className="fixed top-4 md:top-8 px-4 sm:px-6 z-[100] w-full flex flex-col items-center gap-4">
-              {/* Centered Logo Section */}
-              <Link href="#inicio" className="flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95 bg-white/40 backdrop-blur-md px-5 py-2 rounded-2xl border border-white/40 shadow-sm">
+            <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[100] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center">
+              {/* Logo Section - Top Left, No Container */}
+              <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
                 <div className="flex items-center relative gap-0.5">
-                  <span className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tighter">I</span>
-                  <span className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tighter">A</span>
-                  <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter">4</span>
+                  <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">I</span>
+                  <span className="text-xl sm:text-2xl font-black text-blue-600 tracking-tighter">A</span>
+                  <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tighter">4</span>
                 </div>
               </Link>
 
-              <nav className="flex items-center justify-center w-full relative" aria-label="Navegación principal">
+              {/* Centered Navigation Pill */}
+              <nav className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 items-center shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300" aria-label="Navegación principal">
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 items-center shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300">
+                <div className="hidden md:flex items-center">
                   <Link
                     href="#proceso"
                     className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
@@ -126,17 +127,17 @@ export default function Home() {
                   <div className="w-px h-6 bg-slate-200 mx-2"></div>
                   <Link
                     href="#contacto"
-                    className="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
                   >
                     Diagnóstico Gratuito
                   </Link>
                 </div>
 
                 <div className="flex md:hidden items-center">
-                  {/* Mobile Menu Button - Centered below logo */}
+                  {/* Mobile Menu Button - Same as before but part of centered pill */}
                   <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="flex items-center justify-center size-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/60 text-slate-800 transition-all active:scale-95 shadow-sm"
+                    className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
                     aria-label="Abrir menú"
                   >
                     {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -165,11 +166,6 @@ export default function Home() {
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-                  <div className="inline-flex items-center bg-blue-50 text-blue-600 px-3 sm:px-4 py-2 rounded-full text-[10px] sm:text-xs font-bold mb-4 sm:mb-6 self-center lg:self-start max-w-fit border border-blue-100 shadow-sm">
-                    <Zap className="w-3 sm:w-4 h-3 sm:h-4 mr-2 flex-shrink-0" aria-hidden="true" />
-                    <span className="whitespace-nowrap uppercase tracking-wider">Soluciones IA 100% Personalizadas</span>
-                  </div>
-                  
                   <h1
                     id="hero-heading"
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter leading-[1] mb-6 text-slate-900"

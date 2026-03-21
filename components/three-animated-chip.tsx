@@ -33,27 +33,14 @@ function InteractiveChip() {
   return (
     <group ref={group}>
       <Float speed={isInteracting ? 0 : 2} rotationIntensity={isInteracting ? 0 : 0.5} floatIntensity={isInteracting ? 0 : 0.5}>
-        {/* Main Glass Screen Frame */}
-        <RoundedBox args={[3.4, 4.4, 0.1]} radius={0.15} smoothness={8}>
-          <meshPhysicalMaterial 
-            transmission={1} 
-            transparent 
-            opacity={0.9} 
-            roughness={0.1} 
-            thickness={2} 
-            ior={1.5} 
-            color="#ffffff" 
-            clearcoat={1} 
-            clearcoatRoughness={0.1}
-          />
-        </RoundedBox>
+        {/* The background panel is removed as requested */}
       </Float>
 
-      {/* The 3D Projected Chatbot - Outside Float but inside Group */}
+      {/* The 3D Projected Chatbot - Now centered and larger */}
         <Html 
           transform
-          position={[0, 0, 0.1]} 
-          scale={0.38}
+          position={[0, 0, 0]} 
+          scale={0.55}
           className="pointer-events-auto"
           center
         >
