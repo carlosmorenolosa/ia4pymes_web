@@ -219,7 +219,7 @@ export default function Home() {
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="py-20 sm:py-32 relative overflow-hidden bg-white border-t border-slate-100"
+          className="py-20 sm:py-32 relative overflow-hidden bg-white"
           aria-labelledby="newsletter-heading"
         >
           <div className="absolute inset-0 bg-white pointer-events-none"></div>
@@ -231,11 +231,6 @@ export default function Home() {
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
               
               <div className="lg:col-span-7 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-8 border border-blue-100 shadow-sm">
-                  <Zap className="w-4 h-4 text-yellow-500" />
-                  <span>Un caso real cada día</span>
-                </div>
-                
                 <h2
                   id="newsletter-heading"
                   className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
@@ -303,7 +298,7 @@ export default function Home() {
         {/* Process Section */}
         <section
           id="proceso"
-          className="py-16 sm:py-24 bg-white overflow-hidden border-t border-slate-100"
+          className="py-16 sm:py-24 bg-white overflow-hidden"
           aria-labelledby="process-heading"
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -484,7 +479,7 @@ export default function Home() {
         {/* Success Cases Section */}
         <section
           id="casos-exito"
-          className="py-16 sm:py-24 bg-white border-t border-slate-100 relative"
+          className="py-16 sm:py-24 bg-white relative"
           style={{ zIndex: 1 }}
           aria-labelledby="success-cases-heading"
         >
@@ -554,7 +549,7 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contacto"
-          className="py-16 sm:py-24 bg-white relative overflow-hidden border-t border-slate-100"
+          className="py-16 sm:py-24 bg-white relative overflow-hidden"
           aria-labelledby="contact-heading"
         >
           {/* Subtle background glow */}
@@ -563,10 +558,6 @@ export default function Home() {
           </div>
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <header className="text-center mb-16 sm:mb-20">
-              <div className="inline-flex cursor-pointer bg-white border border-slate-200 shadow-sm rounded-full items-center gap-2 px-4 py-1.5 mb-6">
-                <Calendar className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600" aria-hidden="true" />
-                <span className="text-xs md:text-sm font-medium text-slate-700">Comienza tu Transformación</span>
-              </div>
               <h2
                 id="contact-heading"
                 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
@@ -615,7 +606,7 @@ export default function Home() {
         <LatestArticles />
 
         {/* Footer */}
-        <footer className="bg-white py-12 sm:py-16 relative overflow-hidden border-t border-slate-100">
+        <footer className="bg-white py-12 sm:py-16 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <div className="text-center">
               {/* Brand */}

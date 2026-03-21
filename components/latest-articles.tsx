@@ -19,7 +19,7 @@ const latestPosts = [...blogPosts]
 
 export function LatestArticles() {
     return (
-        <section className="py-20 relative bg-white overflow-hidden text-slate-600 border-t border-slate-100">
+        <section className="py-20 relative bg-white overflow-hidden text-slate-600">
             {/* Elegant background grid & accents for light mode */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40" />
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-[120px] pointer-events-none" />
@@ -27,10 +27,6 @@ export function LatestArticles() {
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 text-xs font-mono rounded-md mb-4 shadow-sm">
-                            <Terminal className="w-3.5 h-3.5" />
-                            INTELLIGENCE_HUB
-                        </div>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
                             Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">IA4PYMES</span>
                         </h2>

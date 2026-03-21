@@ -25,10 +25,6 @@ export function CostCalculator() {
     return (
         <div className="w-full relative">
             <div className="text-center md:text-left mb-12 sm:mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-6 border border-blue-100">
-                    <Calculator className="w-4 h-4" />
-                    <span>Calculadora de ROI</span>
-                </div>
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 relative z-10">
                     ¿Cuánto <span className="text-blue-600">dinero pierdes</span><br className="hidden lg:block"/> por no automatizar?
                 </h2>
