@@ -111,11 +111,23 @@ export function ContactForm() {
 
     return (
         <div className="w-full max-w-3xl mx-auto mb-16 px-4">
-            <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
+            <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative"
+            >
                 {/* Decorative elements removed for pure white theme */}
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    >
                         {/* Nombre */}
                         <div className="space-y-2">
                             <label htmlFor="name" className="text-sm font-semibold text-slate-700">Nombre</label>
@@ -151,7 +163,15 @@ export function ContactForm() {
                                 </p>
                             )}
                         </div>
+                    </motion.div>
 
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    >
                         {/* Email */}
                         <div className="space-y-2">
                             <label htmlFor="email" className="text-sm font-semibold text-slate-700">Email</label>
@@ -187,10 +207,16 @@ export function ContactForm() {
                                 </p>
                             )}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Presupuesto */}
-                    <div className="space-y-2">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="space-y-2"
+                    >
                         <label htmlFor="budget" className="text-sm font-semibold text-slate-700">Presupuesto</label>
                         <div className="relative">
                             <select
@@ -214,10 +240,16 @@ export function ContactForm() {
                                 {form.formState.errors.budget.message}
                             </p>
                         )}
-                    </div>
+                    </motion.div>
 
                     {/* Mensaje */}
-                    <div className="space-y-2">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        className="space-y-2"
+                    >
                         <label htmlFor="message" className="text-sm font-semibold text-slate-700">Cuéntame más sobre tu idea</label>
                         <textarea
                             id="message"
@@ -232,7 +264,7 @@ export function ContactForm() {
                                 {form.formState.errors.message.message}
                             </p>
                         )}
-                    </div>
+                    </motion.div>
 
                     {/* Error general */}
                     {submitStatus === "error" && (
@@ -249,34 +281,41 @@ export function ContactForm() {
                     )}
 
                     {/* Botón enviar */}
-                    <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-100"
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
                     >
-                        <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
-                        {isSubmitting ? (
-                            <>
-                                <Loader2 className="w-5 h-5 animate-spin text-white/80" />
-                                <span>Enviando...</span>
-                            </>
-                        ) : (
-                            <>
-                                <span>ENVIAR SOLICITUD</span>
-                                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </>
-                        )}
-                        <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none"></div>
-                    </motion.button>
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-100"
+                        >
+                            <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="w-5 h-5 animate-spin text-white/80" />
+                                    <span>Enviando...</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span>ENVIAR SOLICITUD</span>
+                                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </>
+                            )}
+                            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none"></div>
+                        </motion.button>
+                    </motion.div>
 
                     <p className="text-center text-xs text-slate-500 mt-4">
                         Al enviar este formulario, confirmas que has leído y aceptas nuestra política de privacidad.
                     </p>
                 </form>
-            </div>
+            </motion.div>
         </div>
     )
 }

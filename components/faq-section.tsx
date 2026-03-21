@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Plus, Minus, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 const faqs = [
     {
@@ -43,21 +44,31 @@ export function FaqSection() {
             {/* Background decorations removed for pure white theme */}
 
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <div className="text-center mb-12 sm:mb-16">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="text-center mb-12 sm:mb-16"
+                >
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-slate-900 mb-4">
                         Dudas Frecuentes sobre <span className="text-blue-600">IA en PYMES</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         Resolvemos las preguntas más comunes sobre la implementación de Inteligencia Artificial en tu negocio.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="space-y-4 mb-12">
                     {faqs.map((faq, index) => {
                         const isOpen = openIndex === index
                         return (
-                            <div
+                            <motion.div
                                 key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                                 className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-400 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
                                     }`}
                             >
@@ -85,13 +96,19 @@ export function FaqSection() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
                 </div>
 
                 {/* CTA */}
-                <div className="text-center">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="text-center"
+                >
                     <p className="text-slate-600 mb-6 font-medium">¿Tienes alguna otra duda?</p>
                     <Link
                         href="#contacto"
@@ -100,7 +117,7 @@ export function FaqSection() {
                         Agendar Consulta Gratuita
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </section>
     )

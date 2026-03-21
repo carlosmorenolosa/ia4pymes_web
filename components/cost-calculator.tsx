@@ -25,14 +25,20 @@ export function CostCalculator() {
 
     return (
         <div className="w-full relative">
-            <div className="text-center md:text-left mb-12 sm:mb-16">
+            <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="text-center md:text-left mb-12 sm:mb-16"
+            >
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 relative z-10">
                     ¿Cuánto <span className="text-blue-600">dinero pierdes</span><br className="hidden lg:block"/> por no automatizar?
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     Descubre el coste real de los procesos manuales y repetitivos en tu empresa. Cada hora invertida en tareas rutinarias es margen de beneficio que dejas sobre la mesa.
                 </p>
-            </div>
+            </motion.div>
 
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 
@@ -40,7 +46,13 @@ export function CostCalculator() {
                 <div className="lg:col-span-7 space-y-10 lg:pr-8">
                     
                     {/* Input: Horas a la semana */}
-                    <div className="space-y-5">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="space-y-5"
+                    >
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
@@ -58,10 +70,16 @@ export function CostCalculator() {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Input: Número de empleados */}
-                    <div className="space-y-5">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="space-y-5"
+                    >
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600"><Users className="w-5 h-5" /></span>
@@ -79,10 +97,16 @@ export function CostCalculator() {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 hover:accent-indigo-700 transition-all shadow-inner"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Input: Salario por hora */}
-                    <div className="space-y-5">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="space-y-5"
+                    >
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
@@ -101,12 +125,18 @@ export function CostCalculator() {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
 
                 {/* Results Section (Right / Bottom) */}
-                <div className="lg:col-span-5 relative">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="lg:col-span-5 relative"
+                >
                     {/* Glow effect behind the results card */}
                     <div className="absolute inset-0 bg-blue-600/10 blur-[60px] rounded-[3rem] -z-10 transform scale-105"></div>
                     
@@ -161,7 +191,7 @@ export function CostCalculator() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

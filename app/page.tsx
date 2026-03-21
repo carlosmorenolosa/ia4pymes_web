@@ -385,19 +385,20 @@ export default function Home() {
           className="py-16 sm:py-24 bg-white overflow-hidden"
           aria-labelledby="process-heading"
         >
-          <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-              <header className="text-center mb-16 sm:mb-20">
-                <h2
-                  id="process-heading"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
-                >
-                  Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
-                </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                  Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
-                </p>
-              </header>
+              <FadeIn delay={0.1}>
+                <header className="text-center mb-16 sm:mb-20">
+                  <h2
+                    id="process-heading"
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+                  >
+                    Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
+                  </h2>
+                  <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                    Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
+                  </p>
+                </header>
+              </FadeIn>
 
               <div
                 className="max-w-4xl mx-auto space-y-16 sm:space-y-24 relative"
@@ -407,7 +408,7 @@ export default function Home() {
                 <meta itemProp="name" content="Proceso de desarrollo de IA para PYMES" />
                 <meta itemProp="description" content="Proceso de 3 pasos para crear herramientas de IA personalizadas" />
 
-                {[
+                { [
                   {
                     icon: BarChart2,
                     step: "01",
@@ -435,8 +436,8 @@ export default function Home() {
                 ].map((process, index, array) => {
                   const IconComponent = process.icon
                   return (
-                    <article
-                      key={index}
+                    <FadeIn key={index} delay={0.2 + index * 0.15}>
+                      <article
                       className="group relative"
                       itemProp="step"
                       itemScope
@@ -480,26 +481,28 @@ export default function Home() {
                         <div className="mt-16 sm:mt-24 border-b border-slate-100 w-full" />
                       )}
                     </article>
-                  )
-                })}
+                  </FadeIn>
+                )
+              })}
               </div>
 
               {/* Added CTA button here as requested */}
-              <div className="mt-12 sm:mt-16 text-center">
-                <Link
-                  href="#contacto"
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                >
-                  <span>Solicitar diagnóstico gratuito</span>
-                  <ArrowRight
-                    className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </div>
+              <FadeIn delay={0.6}>
+                <div className="mt-12 sm:mt-16 text-center">
+                  <Link
+                    href="#contacto"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                  >
+                    <span>Solicitar diagnóstico gratuito</span>
+                    <ArrowRight
+                      className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </div>
+              </FadeIn>
             </div>
-          </FadeIn>
-        </section>
+          </section>
 
         {/* Success Cases Section */}
         <section
