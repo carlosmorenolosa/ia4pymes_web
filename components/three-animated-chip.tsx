@@ -14,55 +14,55 @@ function InteractiveChip() {
   useFrame((state) => {
     if (!group.current) return;
     
-    // Idle rotation + follow mouse a bit
+    // Idle rotation + follow mouse
     const t = state.clock.getElapsedTime();
     
-    // Reduce rotation significantly so the chat is readable and usable
-    const targetRotY = (state.pointer.x * Math.PI) / 12;
-    const targetRotX = -(state.pointer.y * Math.PI) / 16;
+    // Increased rotation for a more "3D" feel
+    const targetRotY = (state.pointer.x * Math.PI) / 6;
+    const targetRotX = -(state.pointer.y * Math.PI) / 8;
     
-    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.1);
-    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.1);
+    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetRotY, 0.05);
+    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetRotX, 0.05);
     
     // Slight idle bob
-    group.current.position.y = Math.sin(t * 1.5) * 0.05;
+    group.current.position.y = Math.sin(t * 1.5) * 0.1;
   });
 
   return (
     <group ref={group}>
-      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
         {/* Main Glass Screen Frame */}
         <RoundedBox args={[3.4, 4.4, 0.1]} radius={0.15} smoothness={8}>
           <meshPhysicalMaterial 
             transmission={1} 
             transparent 
-            opacity={1} 
+            opacity={0.9} 
             roughness={0.1} 
-            thickness={2.5} 
+            thickness={2} 
             ior={1.5} 
             color="#ffffff" 
             clearcoat={1} 
             clearcoatRoughness={0.1}
           />
         </RoundedBox>
+      </Float>
 
-        {/* The 3D Projected Chatbot */}
-        {/* We use scale={0.01} so a 340x440 px div fits the frame */}
+      {/* The 3D Projected Chatbot - Outside Float but inside Group */}
         <Html 
+          transform
           position={[0, 0, 0.1]} 
-          prepend
-          center
-          distanceFactor={6}
+          scale={0.5}
           className="pointer-events-auto"
+          center
         >
           <div 
-            className="w-[350px] h-[500px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
+            style={{ width: '340px', height: '480px', backgroundColor: 'white' }}
+            className="rounded-[40px] shadow-2xl overflow-hidden border border-slate-200 flex flex-col"
             onPointerDown={(e) => e.stopPropagation()}
           >
             <FunctionalChatbot is3D={true} />
           </div>
         </Html>
-      </Float>
     </group>
   );
 }
