@@ -40,9 +40,7 @@ export function FaqSection() {
 
     return (
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
-            {/* Background decorations */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl opacity-50 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+            {/* Background decorations removed for pure white theme */}
 
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 <div className="text-center mb-12 sm:mb-16">

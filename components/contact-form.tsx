@@ -111,9 +111,7 @@ export function ContactForm() {
     return (
         <div className="w-full max-w-3xl mx-auto mb-16 px-4">
             <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div className="absolute top-0 left-0 -mt-4 -ml-4 w-24 h-24 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                {/* Decorative elements removed for pure white theme */}
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

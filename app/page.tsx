@@ -90,22 +90,31 @@ export default function Home() {
       <main id="main-content" className="bg-white">
 
         {/* Navigation - Moved outside of section to remain globally fixed */}
-        <motion.header 
+        <header 
           className="fixed top-6 md:top-10 px-4 sm:px-6 z-[9999] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none"
-          initial={{ opacity: 0, y: -20 }}
-          animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
           {/* Logo Section - Top Left, No Container */}
-          <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95 pointer-events-auto">
-            <div className="flex items-center relative tracking-[-0.04em]">
-              <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
-              <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
-            </div>
-          </Link>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="absolute left-4 sm:left-6 pointer-events-auto"
+          >
+            <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
+              <div className="flex items-center relative tracking-[-0.04em]">
+                <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
+              </div>
+            </Link>
+          </motion.div>
 
           {/* Centered Navigation Pill */}
-          <nav className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal">
+          <motion.nav 
+            initial={{ opacity: 0, y: -20 }}
+            animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal"
+          >
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               <Link
@@ -151,7 +160,7 @@ export default function Home() {
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
-          </nav>
+          </motion.nav>
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
@@ -168,40 +177,45 @@ export default function Home() {
               </Link>
             </div>
           )}
-        </motion.header>
+        </header>
 
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
-          {/* Aesthetic Background: Clean white with subtle blurred spheres (Refractweb style but light mode) */}
-          <div className="absolute inset-0 bg-white pointer-events-none z-0">
-            <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-blue-100/50 opacity-60 blur-[150px]"></div>
-            <div className="absolute top-[10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-slate-100/80 opacity-60 blur-[150px]"></div>
-          </div>
+          {/* Aesthetic Background removed for pure white theme */}
+          <div className="absolute inset-0 bg-white pointer-events-none z-0"></div>
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Hero Content */}
-            <motion.div 
-              className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl"
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-              animate={splashFinished ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            >
+            <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-                  <h1
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                     id="hero-heading"
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter leading-[1] mb-6 text-slate-900"
                   >
                     Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                     Aumenta tus <br className="hidden md:block" />
                     <span className="text-blue-600">Márgenes</span> con IA
-                  </h1>
+                  </motion.h1>
                   
-                  <p className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty">
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                    className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
+                  >
                     Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-500/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
-                  </p>
+                  </motion.p>
 
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start relative z-30">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start relative z-30"
+                  >
                     <Link
                       href="#contacto"
                       className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-medium transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:bg-blue-700 px-8 py-3.5"
@@ -217,16 +231,21 @@ export default function Home() {
                       </span>
                       <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 
-                <div className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                  animate={splashFinished ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+                  className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
+                >
                   <div className="w-full max-w-lg sm:max-w-xl">
                     <AnimatedChip />
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -246,10 +265,8 @@ export default function Home() {
           className="py-20 sm:py-32 relative overflow-hidden bg-white"
           aria-labelledby="newsletter-heading"
         >
+          {/* Aesthetic Background removed for pure white theme */}
           <div className="absolute inset-0 bg-white pointer-events-none"></div>
-
-          <div className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-blue-100/50 rounded-full blur-[120px] mix-blend-multiply pointer-events-none"></div>
-          <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-indigo-50/80 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" style={{ animationDelay: '2s' }}></div>
 
           <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
@@ -284,9 +301,9 @@ export default function Home() {
                 </div>
 
                 <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-                  <div className="absolute inset-0 bg-blue-500/5 blur-[80px] rounded-[3rem] -z-10 transform scale-105"></div>
+                  {/* Aesthetic Background removed for pure white theme */}
                   
-                  <div className="bg-white/80 backdrop-blur-2xl border border-blue-100 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-blue-900/5 relative overflow-hidden group">
+                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
                     
                     <div className="w-20 h-20 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
@@ -577,15 +594,9 @@ export default function Home() {
         <FaqSection />
 
         {/* Contact Section */}
-        <section
-          id="contacto"
-          className="py-16 sm:py-24 bg-white relative overflow-hidden"
-          aria-labelledby="contact-heading"
-        >
-          {/* Subtle background glow */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
-          </div>
+        <section id="contacto" className="py-20 sm:py-32 relative bg-white overflow-hidden">
+          {/* Aesthetic Background removed for pure white theme */}
+          <div className="absolute inset-0 bg-white pointer-events-none" aria-hidden="true"></div>
           <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
               <header className="text-center mb-16 sm:mb-20">
