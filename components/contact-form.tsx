@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -248,12 +249,15 @@ export function ContactForm() {
                     )}
 
                     {/* Botón enviar */}
-                    <button
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full relative overflow-hidden group bg-slate-900 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-slate-200"
+                        className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-100"
                     >
-                        <div className="absolute inset-0 w-full h-full border border-white/10 rounded-xl"></div>
+                        <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
                         {isSubmitting ? (
                             <>
                                 <Loader2 className="w-5 h-5 animate-spin text-white/80" />
@@ -265,8 +269,8 @@ export function ContactForm() {
                                 <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </>
                         )}
-                        <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 pointer-events-none"></div>
-                    </button>
+                        <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none"></div>
+                    </motion.button>
 
                     <p className="text-center text-xs text-slate-500 mt-4">
                         Al enviar este formulario, confirmas que has leído y aceptas nuestra política de privacidad.

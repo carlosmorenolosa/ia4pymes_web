@@ -142,12 +142,18 @@ export default function Home() {
                 Blog
               </Link>
               <div className="w-px h-6 bg-slate-200 mx-2"></div>
-              <Link
-                href="#contacto"
-                className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Diagnóstico Gratuito
-              </Link>
+                <Link
+                  href="#contacto"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                >
+                  Diagnóstico Gratuito
+                </Link>
+              </motion.div>
             </div>
 
             <div className="flex md:hidden items-center">
@@ -214,23 +220,36 @@ export default function Home() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
-                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 self-center lg:self-start relative z-30"
+                    className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
                   >
-                    <Link
-                      href="#contacto"
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-medium transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:bg-blue-700 px-8 py-3.5"
+                    <motion.div
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      Solicitar Diagnóstico
-                    </Link>
-                    <Link
-                      href="#casos-exito"
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-medium transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm px-8 py-3.5 group"
+                      <Link
+                        href="#contacto"
+                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                      >
+                        Solicitar Diagnóstico
+                      </Link>
+                    </motion.div>
+                    
+                    <motion.div
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <span className="flex items-center justify-center relative overflow-hidden">
-                        Explorar casos reales
-                      </span>
-                      <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                      <Link
+                        href="#casos-exito"
+                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
+                      >
+                        <span className="flex items-center justify-center relative overflow-hidden">
+                          Explorar casos reales
+                        </span>
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </motion.div>
                   </motion.div>
                 </div>
                 
@@ -314,18 +333,23 @@ export default function Home() {
                       Únete a cientos de PYMES
                     </h3>
                     
-                    <div className="relative group/btn w-full mt-8">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      className="relative group/btn w-full mt-8"
+                    >
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl transform group-hover/btn:scale-[1.02]"
+                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl"
                       >
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
-                    </div>
+                    </motion.div>
                     
                     <p className="text-slate-500 text-sm mt-6 text-center italic">
                       * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.

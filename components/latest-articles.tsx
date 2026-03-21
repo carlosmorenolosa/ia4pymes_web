@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Calendar, Clock, Terminal } from "lucide-react"
@@ -33,13 +34,19 @@ export function LatestArticles() {
                         </p>
                     </div>
 
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap font-medium shadow-sm"
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                        Ver Documentación
-                        <ArrowRight className="w-4 h-4" />
-                    </Link>
+                        <Link
+                            href="/blog"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap font-bold shadow-sm"
+                        >
+                            Ver Documentación
+                            <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </motion.div>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { Calculator, ArrowRight, Euro, Clock, Users } from "lucide-react"
 
@@ -140,13 +141,20 @@ export function CostCalculator() {
 
                             {/* CTA */}
                             <div className="mt-auto text-center">
-                                <Link
-                                    href="#contacto"
-                                    className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 group hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                    className="w-full"
                                 >
-                                    Frenar estas pérdidas
-                                    <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
+                                    <Link
+                                        href="#contacto"
+                                        className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)]"
+                                    >
+                                        Frenar estas pérdidas
+                                        <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </motion.div>
                                 <p className="text-xs text-slate-400 mt-4 text-center">
                                     Diagnóstico 100% gratuito para analizar tu caso.
                                 </p>
