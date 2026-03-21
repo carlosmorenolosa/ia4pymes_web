@@ -76,6 +76,82 @@ export default function Home() {
 
       <main id="main-content" className="bg-white">
 
+        {/* Navigation - Moved outside of section to remain globally fixed */}
+        <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[9999] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none">
+          {/* Logo Section - Top Left, No Container */}
+          <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95 pointer-events-auto">
+            <div className="flex items-center relative tracking-[-0.04em]">
+              <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+              <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
+            </div>
+          </Link>
+
+          {/* Centered Navigation Pill */}
+          <nav className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center">
+              <Link
+                href="#proceso"
+                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
+              >
+                Proceso
+              </Link>
+              <Link
+                href="#casos-exito"
+                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
+              >
+                Casos
+              </Link>
+              <Link
+                href="#calculadora"
+                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
+              >
+                Calculadora
+              </Link>
+              <Link
+                href="/blog"
+                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
+              >
+                Blog
+              </Link>
+              <div className="w-px h-6 bg-slate-200 mx-2"></div>
+              <Link
+                href="#contacto"
+                className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
+              >
+                Diagnóstico Gratuito
+              </Link>
+            </div>
+
+            <div className="flex md:hidden items-center">
+              {/* Mobile Menu Button - Same as before but part of centered pill */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
+                aria-label="Abrir menú"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </nav>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
+              <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
+                 <X className="w-6 h-6" />
+              </button>
+              <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
+              <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
+              <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
+              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
+              <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
+                Diagnóstico Gratuito
+              </Link>
+            </div>
+          )}
+        </header>
+
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
           {/* Aesthetic Background: Clean white with subtle blurred spheres (Refractweb style but light mode) */}
@@ -85,82 +161,6 @@ export default function Home() {
           </div>
           
           <div className="relative z-10 flex-col flex h-full">
-            {/* Navigation */}
-            <header className="fixed top-6 md:top-10 px-4 sm:px-6 z-[100] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center">
-              {/* Logo Section - Top Left, No Container */}
-              <Link href="#inicio" className="absolute left-4 sm:left-6 flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
-                <div className="flex items-center relative tracking-[-0.04em]">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
-                </div>
-              </Link>
-
-              {/* Centered Navigation Pill */}
-              <nav className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 items-center shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300" aria-label="Navegación principal">
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center">
-                  <Link
-                    href="#proceso"
-                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-                  >
-                    Proceso
-                  </Link>
-                  <Link
-                    href="#casos-exito"
-                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-                  >
-                    Casos
-                  </Link>
-                  <Link
-                    href="#calculadora"
-                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-                  >
-                    Calculadora
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-                  >
-                    Blog
-                  </Link>
-                  <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                  <Link
-                    href="#contacto"
-                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 px-6 py-2"
-                  >
-                    Diagnóstico Gratuito
-                  </Link>
-                </div>
-
-                <div className="flex md:hidden items-center">
-                  {/* Mobile Menu Button - Same as before but part of centered pill */}
-                  <button
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
-                    aria-label="Abrir menú"
-                  >
-                    {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                  </button>
-                </div>
-              </nav>
-
-              {/* Mobile Menu */}
-              {mobileMenuOpen && (
-                <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center">
-                  <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
-                     <X className="w-6 h-6" />
-                  </button>
-                  <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
-                  <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
-                  <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
-                  <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
-                  <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
-                    Diagnóstico Gratuito
-                  </Link>
-                </div>
-              )}
-            </header>
-
             {/* Hero Content */}
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
