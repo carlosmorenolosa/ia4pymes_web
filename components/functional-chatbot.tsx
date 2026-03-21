@@ -21,7 +21,7 @@ const sampleMessages: Message[] = [
   },
 ]
 
-export function FunctionalChatbot() {
+export function FunctionalChatbot({ is3D = false }: { is3D?: boolean }) {
   const [messages, setMessages] = useState<Message[]>(sampleMessages)
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -119,7 +119,9 @@ export function FunctionalChatbot() {
 
   return (
     <div
-      className="w-full h-full flex flex-col justify-center p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl"
+      className={`w-full h-full flex flex-col justify-center p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-white/50 shadow-2xl ${
+        is3D ? "bg-white" : "bg-white/80 backdrop-blur-xl"
+      }`}
       role="complementary"
       aria-label="Ejemplo de conversación con asistente IA"
     >

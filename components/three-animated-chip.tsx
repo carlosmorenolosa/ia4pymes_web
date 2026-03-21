@@ -46,29 +46,19 @@ function InteractiveChip() {
           />
         </RoundedBox>
 
-        {/* Backplate to ensure the chat is opaque from behind if it rotates too much */}
-        <RoundedBox args={[3.3, 4.3, 0.05]} position={[0, 0, -0.05]} radius={0.1} smoothness={4}>
-          <meshStandardMaterial color="#0f172a" metalness={0.5} roughness={0.8} />
-        </RoundedBox>
-
         {/* The 3D Projected Chatbot */}
-        {/* We use scale={0.01} so a 330x430 px div exactly fits a 3.3x4.3 3D unit space */}
+        {/* We use scale={0.01} so a 340x440 px div fits the frame */}
         <Html 
           transform 
-          position={[0, 0, 0.06]} 
+          position={[0, 0, 0.08]} 
           scale={0.01}
           className="pointer-events-auto"
         >
-          {/* Prevent standard 3D gestures from capturing clicks on the HTML */}
           <div 
-            className="w-[330px] h-[430px] bg-transparent"
+            className="w-[340px] h-[440px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200"
             onPointerDown={(e) => e.stopPropagation()}
-            onPointerOver={(e) => e.stopPropagation()}
           >
-            {/* Remove the white background from FunctionalChatbot wrapper by forcing it to fill this container */}
-            <div className="w-full h-full scale-100 origin-center">
-              <FunctionalChatbot />
-            </div>
+            <FunctionalChatbot is3D={true} />
           </div>
         </Html>
       </Float>
