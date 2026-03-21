@@ -61,6 +61,16 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
   const [splashFinished, setSplashFinished] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // Control del scroll para el header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Reusable scroll reveal wrapper
   const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -91,98 +101,105 @@ export default function Home() {
 
         {/* Navigation - Moved outside of section to remain globally fixed */}
         <header 
-          className="fixed top-6 md:top-10 px-4 sm:px-6 z-[9999] w-full max-w-7xl mx-auto left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none"
+          className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
+            isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent"
+          }`}
         >
-          {/* Logo Section - Top Left, No Container */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="absolute left-4 sm:left-6 pointer-events-auto"
-          >
-            <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
-              <div className="flex items-center relative tracking-[-0.04em]">
-                <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
-                <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
-              </div>
-            </Link>
-          </motion.div>
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center relative">
+            {/* Logo Section - Top Left, No Container */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className="absolute left-4 sm:left-6 pointer-events-auto"
+            >
+              <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
+                <div className="flex items-center relative tracking-[-0.04em]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
+                </div>
+              </Link>
+            </motion.div>
 
-          {/* Centered Navigation Pill */}
-          <motion.nav 
-            initial={{ opacity: 0, y: -20 }}
-            animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal"
-          >
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center">
-              <Link
-                href="#proceso"
-                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-              >
-                Proceso
-              </Link>
-              <Link
-                href="#casos-exito"
-                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-              >
-                Casos
-              </Link>
-              <Link
-                href="#calculadora"
-                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-              >
-                Calculadora
-              </Link>
-              <Link
-                href="/blog"
-                className="text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/80 whitespace-nowrap"
-              >
-                Blog
-              </Link>
-              <div className="w-px h-6 bg-slate-200 mx-2"></div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
+            {/* Centered Navigation Pill */}
+            <motion.nav 
+              initial={{ opacity: 0, y: -20 }}
+              animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal"
+            >
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center">
                 <Link
-                  href="#contacto"
-                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  href="#proceso"
+                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
                 >
+                  Proceso
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                </Link>
+                <Link
+                  href="#casos-exito"
+                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                >
+                  Casos
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                </Link>
+                <Link
+                  href="#calculadora"
+                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                >
+                  Calculadora
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                </Link>
+                <Link
+                  href="/blog"
+                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                >
+                  Blog
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                </Link>
+                <div className="w-px h-6 bg-slate-200 mx-2"></div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <Link
+                    href="#contacto"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  >
+                    Diagnóstico Gratuito
+                  </Link>
+                </motion.div>
+              </div>
+
+              <div className="flex md:hidden items-center">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
+                  aria-label="Abrir menú"
+                >
+                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+              </div>
+            </motion.nav>
+
+            {/* Mobile Menu Overlay */}
+            {mobileMenuOpen && (
+              <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
+                <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
+                   <X className="w-6 h-6" />
+                </button>
+                <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
+                <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
+                <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
+                <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
+                <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
                   Diagnóstico Gratuito
                 </Link>
-              </motion.div>
-            </div>
-
-            <div className="flex md:hidden items-center">
-              {/* Mobile Menu Button - Same as before but part of centered pill */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
-                aria-label="Abrir menú"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </motion.nav>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
-              <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
-                 <X className="w-6 h-6" />
-              </button>
-              <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
-              <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
-              <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
-              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
-              <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
-                Diagnóstico Gratuito
-              </Link>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </header>
 
         {/* Hero Section */}
@@ -432,7 +449,7 @@ export default function Home() {
                       <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                         {/* Step Indicator & Icon */}
                         <div className="flex flex-col items-center md:items-start shrink-0">
-                          <span className="text-6xl sm:text-7xl font-black text-slate-100 mb-2 leading-none">
+                          <span className="text-6xl sm:text-7xl font-black text-blue-600/20 mb-2 leading-none group-hover:text-blue-600/40 transition-colors duration-500">
                             {process.step}
                           </span>
                           <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
