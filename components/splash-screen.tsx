@@ -10,16 +10,16 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
     // Lock scroll while splash is visible
     document.body.style.overflow = "hidden";
     
-    // The fill animation takes 1.5s, let's wait 1.8s then start exit
+    // The fill animation takes 2.2s, let's wait 2.6s then start exit
     const exitTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 1800);
+    }, 2600);
 
     // Call onComplete after the exit animation finishes (~0.8s)
     const completeTimer = setTimeout(() => {
       document.body.style.overflow = "";
       onComplete();
-    }, 2600);
+    }, 3400);
 
     return () => {
       clearTimeout(exitTimer);
@@ -38,12 +38,12 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[999999] bg-white flex flex-col items-center justify-center"
         >
-          <div className="relative text-6xl md:text-8xl lg:text-[9rem] font-black tracking-tighter flex items-center justify-center">
+          <div className="relative text-[7rem] sm:text-[9rem] md:text-[12rem] lg:text-[16rem] font-black tracking-tighter flex items-center justify-center">
             {/* Outline Text Layer */}
             <div 
               className="flex" 
               style={{ 
-                WebkitTextStroke: "2px #e2e8f0", 
+                WebkitTextStroke: "3px #e2e8f0", 
                 color: "transparent" 
               }}
             >
@@ -57,7 +57,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
               className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap text-slate-900"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+              transition={{ duration: 2.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             >
               <span>I</span>
               <span>A</span>
