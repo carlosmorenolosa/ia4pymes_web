@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-slate-950 selection:bg-blue-600/30">
+        <main className="min-h-screen bg-slate-950/95 selection:bg-blue-600/30">
             {/* Article JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -132,7 +132,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-white">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-white drop-shadow-sm">
                         {post.title}
                     </h1>
 

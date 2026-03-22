@@ -26,7 +26,7 @@ export default function BlogPage() {
     const posts = getAllPosts()
 
     return (
-        <main className="min-h-screen bg-slate-950 text-slate-300 selection:bg-blue-600/30">
+        <main className="min-h-screen bg-slate-950/95 text-slate-300 selection:bg-blue-600/30">
             {/* Elegant Header (Dark Theme) */}
             <header className="relative pt-32 pb-20 overflow-hidden border-b border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
@@ -44,7 +44,7 @@ export default function BlogPage() {
                             <span>/blog-ia4pymes</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tighter drop-shadow-sm">
                             Blog de <span className="text-blue-500">IA4PYMES</span>
                         </h1>
 
@@ -143,13 +143,13 @@ export default function BlogPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 relative overflow-hidden bg-slate-950 border-t border-white/5">
+            <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-[2.5rem] bg-blue-900/20 border border-blue-800/30 mb-10 shadow-xl shadow-blue-500/10">
                         <Sparkles className="w-10 h-10 text-blue-400" />
                     </div>
 
-                    <h2 className="text-4xl sm:text-5xl font-black text-white mb-8 tracking-tighter">
+                    <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tighter drop-shadow-sm">
                         Eleva tu infraestructura <span className="text-blue-500">operativa</span>
                     </h2>
 

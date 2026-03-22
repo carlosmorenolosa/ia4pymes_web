@@ -100,7 +100,7 @@ export default function Home() {
         Saltar al contenido principal
       </a>
 
-      <main id="main-content" className="bg-white">
+      <main id="main-content" className="bg-transparent">
 
         {/* Navigation - Moved outside of section to remain globally fixed */}
         <header 
@@ -208,7 +208,7 @@ export default function Home() {
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
           {/* Aesthetic Background removed for pure white theme */}
-          <div className="absolute inset-0 bg-white pointer-events-none z-0"></div>
+          <div className="absolute inset-0 bg-transparent pointer-events-none z-0"></div>
           
           <div className="relative z-10 flex-col flex h-full">
             {/* Hero Content */}
@@ -301,11 +301,11 @@ export default function Home() {
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="py-20 sm:py-32 relative overflow-hidden bg-white"
+          className="py-20 sm:py-32 relative overflow-hidden bg-transparent"
           aria-labelledby="newsletter-heading"
         >
           {/* Aesthetic Background removed for pure white theme */}
-          <div className="absolute inset-0 bg-white pointer-events-none"></div>
+          <div className="absolute inset-0 bg-transparent pointer-events-none"></div>
 
           <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
@@ -314,7 +314,7 @@ export default function Home() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
+                    className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.1] drop-shadow-sm"
                   >
                     La <span className="text-blue-600">ventaja competitiva</span> que llega a tu correo
                   </h2>
@@ -393,7 +393,7 @@ export default function Home() {
                 <header className="text-center mb-16 sm:mb-20">
                   <h2
                     id="process-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                   >
                     La Metodología <span className="text-blue-600">IA4PYMES</span>
                   </h2>
@@ -510,7 +510,7 @@ export default function Home() {
         {/* Success Cases Section */}
         <section
           id="casos-exito"
-          className="py-16 sm:py-24 bg-white relative"
+          className="py-16 sm:py-24 bg-transparent relative"
           style={{ zIndex: 1 }}
           aria-labelledby="success-cases-heading"
         >
@@ -519,7 +519,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="success-cases-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Casos de Éxito <span className="text-blue-600">Destacados</span>
                 </h2>
@@ -580,9 +580,9 @@ export default function Home() {
         <FaqSection />
 
         {/* Contact Section */}
-        <section id="contacto" className="py-20 sm:py-32 relative bg-white overflow-hidden">
+        <section id="contacto" className="py-20 sm:py-32 relative bg-transparent overflow-hidden">
           {/* Aesthetic Background removed for pure white theme */}
-          <div className="absolute inset-0 bg-white pointer-events-none" aria-hidden="true"></div>
+          <div className="absolute inset-0 bg-transparent pointer-events-none" aria-hidden="true"></div>
           <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
               <header className="text-center mb-16 sm:mb-20">

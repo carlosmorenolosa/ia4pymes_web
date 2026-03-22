@@ -305,7 +305,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans bg-white text-slate-900`}>
+      <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
         <ParticlesBackground />
         <CustomCursor />
         {children}
