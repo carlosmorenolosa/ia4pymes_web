@@ -118,7 +118,7 @@ export default function Home() {
             >
               <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
                 <div className="flex items-center relative tracking-[-0.04em]">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-blue-600">IA</span>
                   <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
@@ -233,7 +233,7 @@ export default function Home() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-500/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
+                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
                   </motion.p>
 
                   <motion.div
@@ -316,7 +316,7 @@ export default function Home() {
                     id="newsletter-heading"
                     className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 leading-[1.1]"
                   >
-                    La <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-indigo-600">ventaja competitiva</span> que llega a tu correo
+                    La <span className="text-blue-600">ventaja competitiva</span> que llega a tu correo
                   </h2>
                   
                   <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
@@ -359,12 +359,12 @@ export default function Home() {
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       className="relative group/btn w-full mt-8"
                     >
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                      <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-blue-500 transition-all duration-300 text-lg sm:text-xl"
+                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
                       >
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -649,7 +649,7 @@ export default function Home() {
               >
                 <Link href="/" className="inline-flex items-center group">
                   <div className="flex items-center relative tracking-tighter">
-                    <span className="text-2xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                    <span className="text-2xl font-extrabold text-blue-600">IA</span>
                     <span className="text-2xl font-black text-slate-900">4</span>
                     <span className="ml-1 text-2xl font-bold text-slate-900 uppercase tracking-tight">PYMES</span>
                   </div>
@@ -658,7 +658,7 @@ export default function Home() {
                   Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
                 </p>
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
               </motion.div>

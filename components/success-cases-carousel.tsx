@@ -143,7 +143,7 @@ export const SuccessCasesCarousel = () => {
                       {/* Glow effect */}
                       <div
                         className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none ${case_.color === "blue"
-                          ? "shadow-[0_0_60px_rgba(59,130,246,0.3)] border-2 border-blue-400/50"
+                          ? "shadow-[0_0_60px_rgba(37,99,235,0.3)] border-2 border-blue-600/50"
                           : case_.color === "orange"
                             ? "shadow-[0_0_60px_rgba(249,115,22,0.3)] border-2 border-orange-400/50"
                             : case_.color === "green"
@@ -175,7 +175,7 @@ export const SuccessCasesCarousel = () => {
                         </div>
                         <div
                           className={`w-14 h-14 sm:w-16 sm:h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center shrink-0 shadow-lg transition-all duration-500 group-hover:scale-125 ${case_.color === "blue"
-                            ? "text-blue-600 bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20 group-hover:border-blue-500/40"
+                            ? "text-blue-600 bg-blue-600/10 border-blue-600/20 group-hover:bg-blue-600/20 group-hover:border-blue-600/40"
                             : case_.color === "orange"
                               ? "text-orange-600 bg-orange-500/10 border-orange-500/20 group-hover:bg-orange-500/20 group-hover:border-orange-500/40"
                               : case_.color === "green"
@@ -249,7 +249,7 @@ export const SuccessCasesCarousel = () => {
       {/* Progress Bar */}
       <div className="mt-6 w-full bg-gray-200 rounded-full h-1 overflow-hidden" style={{ zIndex: 1001 }}>
         <div
-          className="bg-gradient-to-r from-blue-500 to-blue-600 h-1 rounded-full transition-all duration-500 ease-out"
+          className="bg-blue-600 h-1 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${((currentSlide + 1) / successCases.length) * 100}%` }}
         >
         </div>

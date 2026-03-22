@@ -33,7 +33,7 @@ export function LatestArticles() {
                 >
                     <div>
                         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
-                            Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">IA4PYMES</span>
+                            Blog de <span className="text-blue-600">IA4PYMES</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl text-lg font-light">
                             Perspectivas técnicas y análisis estratégico sobre cómo la Inteligencia Artificial redefine el tejido empresarial.
@@ -78,7 +78,7 @@ export function LatestArticles() {
 
                                         <div className="absolute top-4 left-4 flex gap-2">
                                             {index === 0 && (
-                                                <span className="px-2.5 py-1 bg-blue-600 text-white border border-blue-500/30 text-xs font-mono rounded-md shadow-sm">
+                                                <span className="px-2.5 py-1 bg-blue-600 text-white border border-blue-600/20 text-xs font-mono rounded-md shadow-sm">
                                                     LATEST
                                                 </span>
                                             )}

@@ -7,9 +7,9 @@ export function BlockNotFound() {
       <div className="text-center space-y-6 max-w-md">
         <div className="flex justify-center mb-8">
           <div className="flex space-x-1">
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse [animation-delay:0.2s]"></div>
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse [animation-delay:0.4s]"></div>
+            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse [animation-delay:0.2s]"></div>
+            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse [animation-delay:0.4s]"></div>
           </div>
         </div>
         <div className="space-y-4">

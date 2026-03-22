@@ -82,10 +82,10 @@ export function CostCalculator() {
                     >
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600"><Users className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
                                 Trabajadores afectados
                             </span>
-                            <span className="text-2xl font-black text-indigo-600">{employees}</span>
+                            <span className="text-2xl font-black text-blue-600">{employees}</span>
                         </label>
                         <div className="relative">
                             <input
@@ -94,7 +94,7 @@ export function CostCalculator() {
                                 max="50"
                                 value={employees}
                                 onChange={(e) => setEmployees(Number(e.target.value))}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 hover:accent-indigo-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
                     </motion.div>
@@ -143,10 +143,10 @@ export function CostCalculator() {
                     <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-[2.5rem] p-8 sm:p-12 text-white shadow-2xl overflow-hidden relative group border border-white/10">
                         {/* Decorative background grid/lines */}
                         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay"></div>
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full blur-[80px] opacity-20 -translate-y-1/2 translate-x-1/2 pointer-events-none transition-transform group-hover:scale-110 duration-1000"></div>
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[80px] opacity-20 -translate-y-1/2 translate-x-1/2 pointer-events-none transition-transform group-hover:scale-110 duration-1000"></div>
 
                         <div className="relative z-10 flex flex-col h-full justify-center">
-                            <h4 className="text-xl font-bold text-blue-300 mb-8 uppercase tracking-widest text-center">
+                            <h4 className="text-xl font-bold text-blue-100 mb-8 uppercase tracking-widest text-center">
                                 Gasto Estimado
                             </h4>
 
@@ -179,7 +179,7 @@ export function CostCalculator() {
                                 >
                                     <Link
                                         href="#contacto"
-                                        className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)]"
+                                        className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)]"
                                     >
                                         Frenar estas pérdidas
                                         <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />

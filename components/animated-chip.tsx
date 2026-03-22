@@ -52,7 +52,7 @@ export function AnimatedChip() {
         className="relative w-full h-full rounded-3xl bg-white/40 border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden cursor-pointer group"
       >
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-purple-400/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-purple-400/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
         
         {/* Inner circuit lines (decorative) */}
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,1)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
@@ -77,7 +77,7 @@ export function AnimatedChip() {
             <div className="w-16 h-16 rounded-xl bg-slate-800 shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)] flex items-center justify-center relative overflow-hidden">
                {/* Microchip internal lines */}
                <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] bg-[size:4px_4px]"></div>
-               <div className="w-8 h-8 bg-blue-500 rounded-md shadow-[0_0_15px_rgba(59,130,246,0.5)] z-10"></div>
+               <div className="w-8 h-8 bg-blue-600 rounded-md shadow-[0_0_15px_rgba(37,99,235,0.5)] z-10"></div>
             </div>
           </div>
           

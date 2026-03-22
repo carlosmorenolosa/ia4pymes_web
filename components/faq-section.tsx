@@ -69,15 +69,15 @@ export function FaqSection() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-400 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
+                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
                                     }`}
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
-                                    className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-inset"
+                                    className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset"
                                     aria-expanded={isOpen}
                                 >
-                                    <span className={`font-semibold text-lg sm:text-xl pr-8 ${isOpen ? "text-blue-700" : "text-slate-800"}`}>
+                                    <span className={`font-semibold text-lg sm:text-xl pr-8 ${isOpen ? "text-blue-600" : "text-slate-800"}`}>
                                         {faq.question}
                                     </span>
                                     <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-blue-100 text-blue-600" : "bg-slate-100 text-slate-500"
@@ -112,7 +112,7 @@ export function FaqSection() {
                     <p className="text-slate-600 mb-6 font-medium">¿Tienes alguna otra duda?</p>
                     <Link
                         href="#contacto"
-                        className="inline-flex items-center bg-blue-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         Agendar Consulta Gratuita
                         <ArrowRight className="ml-2 w-5 h-5" />

@@ -84,7 +84,7 @@ export function CalendlyWidget() {
     >
       <div className="bg-white p-3 sm:p-4 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
         <div
-          className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600"
+          className="absolute top-0 left-0 w-full h-2 bg-blue-600"
           aria-hidden="true"
         ></div>
         <div
@@ -96,7 +96,7 @@ export function CalendlyWidget() {
           {(isLoading || !isVisible) && (
             <div
               id="calendly-loading"
-              className="flex items-center justify-center h-[600px] bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl border border-gray-100"
+              className="flex items-center justify-center h-[600px] bg-gradient-to-br from-white to-blue-50/20 rounded-xl border border-gray-100"
             >
               <div className="text-center">
                 <div className="relative mb-6">

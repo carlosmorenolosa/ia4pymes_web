@@ -68,13 +68,13 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
               {/* Filled Text Layer (Animates from left to right) */}
               <motion.div 
-                className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap tracking-[-0.04em] drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+                className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap tracking-[-0.04em] drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 2.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
               >
                 <span className="text-white">IA</span>
-                <span className="text-blue-500">4</span>
+                <span className="text-blue-600">4</span>
               </motion.div>
             </div>
             
@@ -87,17 +87,17 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
             >
               <div className="flex gap-1.5">
                 <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 1, repeat: Infinity, delay: 0 }}
                 />
                 <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
                 />
                 <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
                 />

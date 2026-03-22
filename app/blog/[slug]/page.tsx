@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-slate-950 selection:bg-blue-500/30">
+        <main className="min-h-screen bg-white selection:bg-blue-600/10">
             {/* Article JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -91,19 +91,19 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <ReadingProgressBar />
 
-            {/* Hero Header Inmersivo (Dark & Elegant) */}
-            <header className="relative bg-slate-950 min-h-[50vh] flex flex-col justify-end pb-16 pt-32 overflow-hidden border-b border-white/5">
-                {/* Background Image with overlay */}
+            {/* Hero Header (White & Elegant) */}
+            <header className="relative bg-slate-50 min-h-[50vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-slate-100">
+                {/* Background Image with subtle overlay */}
                 {post.image && (
                     <div className="absolute inset-0 z-0">
                         <Image
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover opacity-20 mix-blend-luminosity"
+                            className="object-cover opacity-[0.07] mix-blend-multiply"
                             priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent" />
                     </div>
                 )}
 
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <nav className="mb-12">
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/60 border border-white/10 text-slate-400 hover:text-white hover:bg-slate-800/80 backdrop-blur-md transition-all cursor-pointer group text-sm font-medium"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 shadow-sm transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Retornar al sistema
@@ -120,36 +120,36 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </nav>
 
                     {/* Meta badges */}
-                    <div className="flex flex-wrap items-center gap-3 mb-6">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono rounded-md">
+                    <div className="flex flex-wrap items-center gap-4 mb-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
                             <Terminal className="w-3.5 h-3.5" />
                             {post.category}
                         </div>
-                        <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
-                            <Clock className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-2 text-slate-400 text-xs font-black uppercase tracking-widest">
+                            <Clock className="w-4 h-4 text-blue-600" />
                             {post.readingTime} ETA
                         </div>
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-slate-900">
                         {post.title}
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex items-center gap-6 p-4 rounded-xl bg-slate-900/40 border border-white/10 backdrop-blur-md">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center">
-                                <span className="font-bold text-blue-400 text-lg leading-none">I4</span>
+                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/40">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
+                                <span className="font-black text-white text-xl leading-none">I4</span>
                             </div>
                             <div>
-                                <p className="font-semibold text-slate-300 text-sm">{post.author}</p>
-                                <p className="text-xs text-slate-500 font-mono">Research Team</p>
+                                <p className="font-black text-slate-900 text-sm uppercase tracking-tight">{post.author}</p>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
                             </div>
                         </div>
-                        <div className="h-8 w-px bg-white/10" />
-                        <div className="flex items-center gap-2 text-slate-400 text-sm font-mono">
-                            <Calendar className="w-4 h-4 text-slate-500" />
+                        <div className="hidden sm:block h-10 w-px bg-slate-100" />
+                        <div className="flex items-center gap-3 text-slate-500 text-sm font-bold uppercase tracking-widest">
+                            <Calendar className="w-5 h-5 text-blue-600" />
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString("es-ES", {
                                     day: "2-digit",
@@ -162,40 +162,49 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
             </header>
 
-            {/* Reading Area - Dark and elegant */}
-            <article className="py-16 sm:py-24 bg-slate-950 relative">
-                <div className="container mx-auto px-4 sm:px-6 max-w-[800px]">
-                    {/* Contenedor principal con estilos de lectura para dark mode */}
-                    <div className="blog-article-content prose prose-invert prose-lg md:prose-xl prose-slate max-w-none">
+            {/* Reading Area - Clean and Premium */}
+            <article className="py-20 sm:py-32 bg-white relative">
+                <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
+                    {/* Contenedor principal con estilos de lectura refinados */}
+                    <div className="blog-article-content prose prose-lg md:prose-xl prose-slate max-w-none 
+                        prose-headings:text-slate-900 prose-headings:font-black prose-headings:tracking-tighter
+                        prose-p:text-slate-600 prose-p:leading-relaxed prose-p:font-medium
+                        prose-strong:text-slate-900 prose-strong:font-black
+                        prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 transition-colors">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             components={{
                                 table: ({ children }) => (
-                                    <div className="my-10 overflow-x-auto rounded-xl border border-white/10 bg-slate-900/50 backdrop-blur-sm">
+                                    <div className="my-12 overflow-x-auto rounded-3xl border border-slate-100 bg-slate-50/50 p-1">
                                         <table className="w-full text-left border-collapse text-base">
                                             {children}
                                         </table>
                                     </div>
                                 ),
                                 thead: ({ children }) => (
-                                    <thead className="bg-slate-800/50 border-b border-white/10">
+                                    <thead className="bg-white border-b border-slate-100">
                                         {children}
                                     </thead>
                                 ),
                                 th: ({ children }) => (
-                                    <th className="px-6 py-4 font-semibold text-sm text-slate-300 uppercase tracking-wider">
+                                    <th className="px-8 py-5 font-black text-xs text-slate-900 uppercase tracking-widest">
                                         {children}
                                     </th>
                                 ),
                                 td: ({ children }) => (
-                                    <td className="px-6 py-4 border-b border-white/5 text-slate-400">
+                                    <td className="px-8 py-5 border-b border-slate-50 text-slate-600 font-medium">
                                         {children}
                                     </td>
                                 ),
                                 tr: ({ children }) => (
-                                    <tr className="hover:bg-slate-800/30 transition-colors">
+                                    <tr className="hover:bg-white transition-colors">
                                         {children}
                                     </tr>
+                                ),
+                                blockquote: ({ children }) => (
+                                    <blockquote className="border-l-4 border-blue-600 bg-blue-50/50 rounded-r-3xl p-8 my-12 not-italic">
+                                        {children}
+                                    </blockquote>
                                 ),
                             }}
                         >
@@ -205,47 +214,44 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
             </article>
 
-            {/* Tech CTA Section - Dark & Premium */}
-            <section className="py-24 bg-slate-950 text-white relative overflow-hidden border-t border-white/5">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-
-                <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-md text-xs font-mono text-blue-400 mb-8 mx-auto">
-                        <Terminal className="w-3.5 h-3.5" />
+            {/* CTA Section (Pure White) */}
+            <section className="py-32 bg-slate-50 text-slate-900 relative overflow-hidden border-t border-slate-100">
+                <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
+                        <Terminal className="w-4 h-4" />
                         initiating_deployment...
                     </div>
 
-                    <h2 className="text-3xl sm:text-5xl font-bold mb-6 tracking-tight">
-                        Pasa de la teoría a la <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">ejecución</span>
+                    <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
+                        Pasa de la teoría a la <span className="text-blue-600">ejecución</span>
                     </h2>
 
-                    <p className="text-lg text-slate-400 mb-10 leading-relaxed font-light">
+                    <p className="text-xl text-slate-600 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
                         El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
                     </p>
 
                     <Link
                         href="/#contacto"
-                        className="inline-flex items-center gap-3 bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 hover:scale-[1.02] transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer"
+                        className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
                     >
                         Agendar Despliegue Técnico
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-6 h-6" />
                     </Link>
                 </div>
             </section>
 
             {/* Premium Footer */}
-            <footer className="py-8 bg-slate-950 border-t border-white/5">
-                <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2 text-slate-500 font-mono text-xs">
-                        <Terminal className="w-4 h-4" />
+            <footer className="py-12 bg-white border-t border-slate-100">
+                <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
+                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-black uppercase tracking-widest">
+                        <Terminal className="w-5 h-5" />
                         <span>I4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
-                    <div className="flex items-center gap-6">
-                        <Link href="/blog" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
-                            Más documentación
+                    <div className="flex items-center gap-10">
+                        <Link href="/blog" className="text-sm font-black text-slate-400 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
+                            Documentación
                         </Link>
-                        <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
+                        <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
                             Retornar al sistema
                         </Link>
                     </div>

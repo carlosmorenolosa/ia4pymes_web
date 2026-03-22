@@ -92,7 +92,7 @@ export function ContactForm() {
                             href="https://calendly.com/ia4pymes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
                         >
                             Agendar Llamada en Calendly
                             <ArrowRight className="w-5 h-5" />
@@ -135,7 +135,7 @@ export function ContactForm() {
                                 id="name"
                                 type="text"
                                 placeholder="Tu nombre"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("name")}
                             />
                             {form.formState.errors.name && (
@@ -153,7 +153,7 @@ export function ContactForm() {
                                 id="company"
                                 type="text"
                                 placeholder="Nombre de tu empresa o proyecto"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("company")}
                             />
                             {form.formState.errors.company && (
@@ -179,7 +179,7 @@ export function ContactForm() {
                                 id="email"
                                 type="email"
                                 placeholder="Tu correo electrónico de contacto"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("email")}
                             />
                             {form.formState.errors.email && (
@@ -197,7 +197,7 @@ export function ContactForm() {
                                 id="phone"
                                 type="tel"
                                 placeholder="Tu número de teléfono"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("phone")}
                             />
                             {form.formState.errors.phone && (
@@ -221,7 +221,7 @@ export function ContactForm() {
                         <div className="relative">
                             <select
                                 id="budget"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
                                 {...form.register("budget")}
                             >
                                 <option value="" disabled className="text-slate-400">Elige tu rango de inversión...</option>
@@ -255,7 +255,7 @@ export function ContactForm() {
                             id="message"
                             placeholder="Comparte algunos detalles sobre lo que necesitas. Cuanto más sepamos, mejor podremos ayudarte."
                             rows={4}
-                            className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-400 focus:ring-blue-100'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400 resize-none`}
+                            className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400 resize-none`}
                             {...form.register("message")}
                         ></textarea>
                         {form.formState.errors.message && (
@@ -293,7 +293,7 @@ export function ContactForm() {
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-100"
+                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-600/10"
                         >
                             <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
                             {isSubmitting ? (

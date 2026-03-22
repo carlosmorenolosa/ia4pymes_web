@@ -26,32 +26,29 @@ export default function BlogPage() {
     const posts = getAllPosts()
 
     return (
-        <main className="min-h-screen bg-slate-950 text-slate-300 selection:bg-blue-500/30">
-            {/* Elegant Tech Header (Dark Theme) */}
-            <header className="relative pt-32 pb-20 overflow-hidden border-b border-white/5">
-                {/* Clean soft gradient background */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950" />
-
+        <main className="min-h-screen bg-white text-slate-600 selection:bg-blue-600/10">
+            {/* Elegant Header (White Theme) */}
+            <header className="relative pt-32 pb-20 overflow-hidden border-b border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors cursor-pointer group text-sm font-medium"
+                        className="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 mb-8 transition-colors cursor-pointer group text-sm font-semibold"
                     >
                         <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
                         Volver al sistema principal
                     </Link>
 
                     <div className="flex flex-col gap-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 w-fit text-sm font-mono">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-100 text-blue-600 w-fit text-sm font-mono font-bold">
                             <Terminal className="w-4 h-4" />
                             <span>/blog-ia4pymes</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tight">
-                            Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">IA4PYMES</span>
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 tracking-tight">
+                            Blog de <span className="text-blue-600">IA4PYMES</span>
                         </h1>
 
-                        <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl leading-relaxed font-light">
+                        <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl leading-relaxed font-medium">
                             Perspectivas técnicas, investigación operativa y análisis estratégico sobre cómo la Inteligencia Artificial está redefiniendo el tejido empresarial.
                         </p>
                     </div>
@@ -59,12 +56,12 @@ export default function BlogPage() {
             </header>
 
             {/* Posts Grid */}
-            <section className="py-20 relative z-10">
+            <section className="py-20 relative z-10 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
                     {posts.length === 0 ? (
-                        <div className="text-center py-24 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-sm">
-                            <Terminal className="w-12 h-12 text-slate-500 mx-auto mb-4" />
-                            <p className="text-slate-400 font-mono text-sm">
+                        <div className="text-center py-24 border border-slate-100 rounded-3xl bg-slate-50/50">
+                            <Terminal className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+                            <p className="text-slate-400 font-mono text-sm font-bold">
                                 [Sistema vacío] Esperando la inicialización de los primeros protocolos de datos.
                             </p>
                         </div>
@@ -72,37 +69,35 @@ export default function BlogPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {posts.map((post, index) => (
                                 <Link key={post.slug} href={`/blog/${post.slug}`} className="cursor-pointer block group">
-                                    <article className="h-full flex flex-col bg-slate-900/40 rounded-2xl border border-white/5 overflow-hidden backdrop-blur-md hover:bg-slate-800/60 hover:border-white/10 transition-all duration-300">
+                                    <article className="h-full flex flex-col bg-white rounded-3xl border border-slate-100 overflow-hidden hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-950/5 transition-all duration-500 ease-out">
                                         {/* Image */}
-                                        <div className="relative h-56 overflow-hidden bg-slate-800">
+                                        <div className="relative h-56 overflow-hidden bg-slate-50">
                                             {post.image && (
                                                 <Image
                                                     src={post.image}
                                                     alt={post.title}
                                                     fill
-                                                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                                                 />
                                             )}
-                                            {/* Subjet gradient overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90" />
-
+                                            
                                             <div className="absolute top-4 left-4 flex gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-mono rounded-md backdrop-blur-md">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 bg-slate-950/60 text-slate-300 border border-white/10 text-xs font-medium rounded-md backdrop-blur-md">
+                                                <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-full border border-slate-200">
                                                     {post.category}
                                                 </span>
                                             </div>
                                         </div>
 
                                         {/* Content */}
-                                        <div className="p-6 flex flex-col flex-grow">
+                                        <div className="p-8 flex flex-col flex-grow">
                                             {/* Meta */}
-                                            <div className="flex items-center gap-4 text-xs font-mono text-slate-500 mb-4">
-                                                <span className="flex items-center gap-1.5">
+                                            <div className="flex items-center gap-4 text-xs font-bold text-slate-400 mb-5">
+                                                <span className="flex items-center gap-1.5 uppercase tracking-widest">
                                                     <Calendar className="w-3.5 h-3.5" />
                                                     {new Date(post.date).toLocaleDateString("es-ES", {
                                                         day: "2-digit",
@@ -110,29 +105,29 @@ export default function BlogPage() {
                                                         year: "numeric",
                                                     })}
                                                 </span>
-                                                <span className="flex items-center gap-1.5">
+                                                <span className="flex items-center gap-1.5 uppercase tracking-widest">
                                                     <Clock className="w-3.5 h-3.5" />
                                                     {post.readingTime}
                                                 </span>
                                             </div>
 
                                             {/* Title */}
-                                            <h2 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-blue-400 transition-colors leading-snug line-clamp-3">
+                                            <h2 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors leading-tight line-clamp-3 tracking-tight">
                                                 {post.title}
                                             </h2>
 
                                             {/* Description */}
-                                            <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow font-light">
+                                            <p className="text-slate-500 text-sm leading-relaxed mb-8 line-clamp-3 flex-grow font-medium">
                                                 {post.description}
                                             </p>
 
                                             {/* CTA */}
-                                            <div className="flex items-center justify-between border-t border-white/5 pt-4 mt-auto">
-                                                <span className="text-xs font-mono text-slate-500 uppercase tracking-wider group-hover:text-slate-400 transition-colors">
+                                            <div className="flex items-center justify-between pt-6 border-t border-slate-50 mt-auto">
+                                                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
                                                     Leer Documento
                                                 </span>
-                                                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-blue-400 text-slate-500 transition-colors">
-                                                    <ArrowRight className="w-4 h-4" />
+                                                <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                    <ArrowRight className="w-5 h-5" />
                                                 </div>
                                             </div>
                                         </div>
@@ -144,42 +139,39 @@ export default function BlogPage() {
                 </div>
             </section>
 
-            {/* Newsletter / CTA Section (Elegant Dark Tech) */}
-            <section className="py-24 relative overflow-hidden border-t border-white/5">
-                <div className="absolute inset-0 bg-slate-900/30" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[400px] bg-blue-600/5 rounded-full blur-[120px]" />
-
+            {/* CTA Section (Pure White) */}
+            <section className="py-24 relative overflow-hidden bg-white border-t border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 mb-8 shadow-2xl">
-                        <Sparkles className="w-8 h-8 text-blue-400" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-[2.5rem] bg-blue-50 border border-blue-100 mb-10 shadow-xl shadow-blue-600/5">
+                        <Sparkles className="w-10 h-10 text-blue-600" />
                     </div>
 
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-                        Eleva tu infraestructura operativa
+                    <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-8 tracking-tighter">
+                        Eleva tu infraestructura <span className="text-blue-600">operativa</span>
                     </h2>
 
-                    <p className="text-lg text-slate-400 mb-10 leading-relaxed font-light">
+                    <p className="text-xl text-slate-600 mb-12 leading-relaxed font-medium">
                         Implementamos ecosistemas de IA a medida que devuelven a tu equipo el activo más valioso: el tiempo. Agenda una exploración técnica sin compromiso.
                     </p>
 
                     <Link
                         href="/#contacto"
-                        className="inline-flex items-center gap-3 bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] cursor-pointer"
+                        className="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-full font-bold hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-blue-600/20 cursor-pointer text-lg"
                     >
                         Iniciar Despliegue
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-6 h-6" />
                     </Link>
                 </div>
             </section>
 
             {/* Footer */}
-            <footer className="py-8 bg-slate-950 border-t border-white/5">
-                <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2 text-slate-500 font-mono text-xs">
+            <footer className="py-12 bg-white border-t border-slate-100">
+                <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-8">
+                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <Terminal className="w-4 h-4" />
                         <span>I4PYMES // BLOG_IA4PYMES_2026</span>
                     </div>
-                    <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer">
+                    <Link href="/" className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
                         Retornar al Core
                     </Link>
                 </div>
