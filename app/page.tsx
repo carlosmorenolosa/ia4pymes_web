@@ -395,10 +395,10 @@ export default function Home() {
                     id="process-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4"
                   >
-                    Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
+                    La Metodología <span className="text-blue-600">IA4PYMES</span>
                   </h2>
                   <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                    Desarrollo colaborativo donde tú decides cada detalle de tu herramienta
+                    Un proceso transparente diseñado para maximizar tu retorno de inversión.
                   </p>
                 </header>
               </FadeIn>
