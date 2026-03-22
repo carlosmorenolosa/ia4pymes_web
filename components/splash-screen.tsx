@@ -103,7 +103,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
                 />
               </div>
               <span className="text-xs md:text-sm font-bold text-slate-400 tracking-[0.3em] uppercase">
-                Iniciando Entorno
+                Optimizando Procesos...
               </span>
             </motion.div>
           </motion.div>
