@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import {
   BarChart2,
@@ -59,6 +59,28 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
 
 import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useInView, useSpring, useTransform } from "framer-motion"
+
+function StatCounter({ value, suffixContent = "", prefixContent = "", duration = 2 }: { value: number, suffixContent?: string, prefixContent?: string, duration?: number }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const spring = useSpring(0, { mass: 1, stiffness: 100, damping: 30 })
+  const displayValue = useTransform(spring, (current) => Math.floor(current).toLocaleString('es-ES'))
+
+  useEffect(() => {
+    if (isInView) {
+      spring.set(value)
+    }
+  }, [isInView, value, spring])
+
+  return (
+    <span ref={ref}>
+      {prefixContent}
+      <motion.span>{displayValue}</motion.span>
+      {suffixContent}
+    </span>
+  )
+}
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -526,33 +548,37 @@ export default function Home() {
                 </p>
               </header>
 
-              {/* Stats Section */}
+              {/* Stats Section - Premium Redesigned Cards */}
               <div
-                className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-4xl mx-auto"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 mb-16 sm:mb-24 max-w-5xl mx-auto px-4"
                 itemScope
                 itemType="https://schema.org/ItemList"
               >
-                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600 mb-1" itemProp="name">
-                    +360%
-                  </div>
-                  <div className="text-slate-600 text-base sm:text-lg">Media del ROI</div>
-                  <meta itemProp="position" content="1" />
-                </div>
-                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-green-600 mb-1" itemProp="name">
-                    +1.000h
-                  </div>
-                  <div className="text-slate-600 text-base sm:text-lg">Horas ahorradas al mes</div>
-                  <meta itemProp="position" content="2" />
-                </div>
-                <div className="text-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-600 mb-1" itemProp="name">
-                    100%
-                  </div>
-                  <div className="text-slate-600 text-base sm:text-lg">Tasa de éxito</div>
-                  <meta itemProp="position" content="3" />
-                </div>
+                {[
+                  { value: 360, prefix: "+", suffix: "%", label: "Media del ROI", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
+                  { value: 1000, prefix: "+", suffix: "h", label: "Horas ahorradas al mes", color: "text-green-600", bg: "hover:shadow-green-500/10" },
+                  { value: 100, prefix: "", suffix: "%", label: "Tasa de éxito", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
+                ].map((stat, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: idx * 0.1 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl transition-all duration-500 ${stat.bg}`}
+                    itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
+                  >
+                    <div className={`text-5xl sm:text-6xl font-black tracking-tighter mb-3 ${stat.color} drop-shadow-sm`} itemProp="name">
+                      <StatCounter value={stat.value} prefixContent={stat.prefix} suffixContent={stat.suffix} />
+                    </div>
+                    <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
+                    <meta itemProp="position" content={(idx + 1).toString()} />
+                    
+                    {/* Subtle Glow Effect on Hover */}
+                    <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  </motion.div>
+                ))}
               </div>
               <SuccessCasesCarousel />
 

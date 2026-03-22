@@ -190,7 +190,7 @@
   }
 }
 
-/* Removed Montserrat overrides to favor Satoshi and Inter */
+/* Removed Montserrat and Satoshi overrides to favor Inter */
 /*
 body {
   font-family: var(--font-montserrat);
