@@ -51,7 +51,7 @@ export function FaqSection() {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="text-center mb-12 sm:mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-slate-900 mb-4">
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                         Dudas Frecuentes sobre <span className="text-blue-600">IA en PYMES</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">

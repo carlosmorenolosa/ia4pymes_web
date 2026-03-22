@@ -15,7 +15,7 @@ export default function NotFound() {
                     transition={{ duration: 0.5, type: "spring" }}
                     className="mb-8"
                 >
-                    <h1 className="text-[150px] sm:text-[200px] font-bold leading-none">
+                    <h1 className="text-[150px] sm:text-[200px] font-black leading-none">
                         <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                             404
                         </span>
@@ -28,7 +28,7 @@ export default function NotFound() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+                    <h2 className="text-2xl sm:text-3xl font-black text-slate-800 mb-4">
                         ¡Ups! Página no encontrada
                     </h2>
                     <p className="text-slate-600 text-lg mb-8 max-w-md mx-auto">

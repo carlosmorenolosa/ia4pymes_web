@@ -32,7 +32,7 @@ export function LatestArticles() {
                     className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
                 >
                     <div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                             Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">IA4PYMES</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl text-lg font-light">

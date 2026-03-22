@@ -32,7 +32,7 @@ export function CostCalculator() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-center md:text-left mb-12 sm:mb-16"
             >
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6 relative z-10">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
                     ¿Cuánto <span className="text-blue-600">dinero pierdes</span><br className="hidden lg:block"/> por no automatizar?
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">

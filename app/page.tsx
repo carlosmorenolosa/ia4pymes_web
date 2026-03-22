@@ -18,6 +18,9 @@ import {
   Calendar,
   Menu,
   X,
+  Instagram,
+  Linkedin,
+  Youtube,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -390,7 +393,7 @@ export default function Home() {
                 <header className="text-center mb-16 sm:mb-20">
                   <h2
                     id="process-heading"
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4"
                   >
                     Cómo trabajamos en <span className="text-blue-600">IA4PYMES</span>
                   </h2>
@@ -516,7 +519,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="success-cases-heading"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-slate-900 mb-4"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4"
                 >
                   Casos de Éxito <span className="text-blue-600">Destacados</span>
                 </h2>
@@ -585,7 +588,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="contact-heading"
-                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Hablemos de Tu <span className="text-blue-600">Proyecto</span>
                 </h2>
@@ -632,49 +635,127 @@ export default function Home() {
         <LatestArticles />
 
         {/* Footer */}
-        <footer className="bg-white py-12 sm:py-16 relative overflow-hidden">
-          <FadeIn delay={0.1}>
-            <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-              <div className="text-center">
-                {/* Brand */}
-                <div className="flex items-center justify-center mb-6 sm:mb-8 group">
-                  <Link href="/" className="z-50 relative group">
-                    <div className="text-slate-900 border border-slate-200/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-white/60 shadow-sm hover:shadow-md hover:bg-white/80">
-                      <span className="font-extrabold flex items-center gap-1">
-                        <span className="text-blue-600">I</span>A<span className="text-slate-500">4</span>
-                      </span>
-                      <span className="ml-1 font-semibold text-slate-600">PYMES</span>
-                    </div>
-                  </Link>
+        <footer className="bg-white pt-20 pb-12 relative overflow-hidden border-t border-slate-100">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+              
+              {/* Column 1: Brand */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-6"
+              >
+                <Link href="/" className="inline-flex items-center group">
+                  <div className="flex items-center relative tracking-tighter">
+                    <span className="text-2xl font-extrabold bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent">IA</span>
+                    <span className="text-2xl font-black text-slate-900">4</span>
+                    <span className="ml-1 text-2xl font-bold text-slate-900 uppercase tracking-tight">PYMES</span>
+                  </div>
+                </Link>
+                <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                  Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
+                </p>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                  Made with ❤️ in Spain
                 </div>
+              </motion.div>
 
-                {/* Contact */}
-                <div className="mb-6 sm:mb-8">
-                  <a
-                    href="mailto:contacto@ia4pymes.tech"
-                    className="inline-flex items-center gap-2 sm:gap-3 text-slate-700 hover:text-blue-600 transition-all duration-300 text-base sm:text-lg group"
-                    aria-label="Enviar email a contacto@ia4pymes.tech"
-                  >
-                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300 group-hover:scale-110">
-                      <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600" aria-hidden="true" />
+              {/* Column 2: Soluciones */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="space-y-6"
+              >
+                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Nuestro Proceso</Link>
+                  </li>
+                  <li>
+                    <Link href="#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Casos de Éxito</Link>
+                  </li>
+                  <li>
+                    <Link href="#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Calculadora ROI</Link>
+                  </li>
+                  <li>
+                    <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Blog de Noticias</Link>
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Column 3: Explorar */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="space-y-6"
+              >
+                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="#inicio" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
+                  </li>
+                  <li>
+                    <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
+                  </li>
+                  <li>
+                    <Link href="#contacto" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Solicitar Diagnóstico</Link>
+                  </li>
+                  <li>
+                    <Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Newsletter Semanal</Link>
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Column 4: Conecta */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="space-y-6"
+              >
+                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
+                <div className="space-y-4">
+                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
+                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                      <Mail className="w-4 h-4" />
                     </div>
-                    <div className="text-left">
-                      <div className="font-semibold text-sm sm:text-base">Contáctanos</div>
-                      <div className="text-xs sm:text-sm text-slate-500">contacto@ia4pymes.tech</div>
-                    </div>
+                    <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
                   </a>
+                  <div className="flex items-center gap-4 pt-2">
+                    <a href="https://www.linkedin.com/in/alejandro-picallo-galante-543557324/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                    <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                    <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
+                      <Youtube className="w-5 h-5" />
+                    </a>
+                  </div>
                 </div>
+              </motion.div>
+            </div>
 
-                {/* Copyright */}
-                <div className="border-t border-slate-200 pt-6 sm:pt-8">
-                  <p className="text-slate-600 text-base sm:text-lg">© 2026 I4PYMES. Todos los derechos reservados.</p>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-2">
-                    Herramientas de IA hechas a medida para tu PYME
-                  </p>
-                </div>
+            {/* Bottom Bar */}
+            <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-slate-400 text-[13px] font-medium">
+                © 2026 IA4PYMES. Todos los derechos reservados.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link href="#inicio" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Inicio</Link>
+                <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contratar</Link>
+                <Link href="https://calendly.com/ia4pymes" target="_blank" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Agendar Llamada</Link>
               </div>
             </div>
-          </FadeIn>
+          </div>
         </footer>
       </main>
     </>

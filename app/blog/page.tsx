@@ -47,7 +47,7 @@ export default function BlogPage() {
                             <span>/blog-ia4pymes</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tight">
                             Blog de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">IA4PYMES</span>
                         </h1>
 
