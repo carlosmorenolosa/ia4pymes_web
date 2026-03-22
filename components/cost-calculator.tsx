@@ -186,18 +186,18 @@ export function CostCalculator() {
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
                                             <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Semanal</span>
-                                            <span className="text-2xl font-black text-slate-900 tracking-tight">{results.week.toLocaleString('es-ES')} €</span>
+                                            <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString('es-ES')} €</span>
                                         </div>
 
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
                                             <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Mensual</span>
-                                            <span className="text-3xl font-black text-slate-900 tracking-tight">{results.month.toLocaleString('es-ES')} €</span>
+                                            <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString('es-ES')} €</span>
                                         </div>
 
                                         <div className="pt-2 flex flex-col items-center">
                                             <span className="text-slate-400 font-bold text-xs uppercase tracking-[0.15em] mb-3">Pérdida Anual Total</span>
                                             <div className="relative">
-                                                <span className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tighter drop-shadow-sm">
+                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
                                                     {results.year.toLocaleString('es-ES')} €
                                                 </span>
                                                 {/* Underline accent */}

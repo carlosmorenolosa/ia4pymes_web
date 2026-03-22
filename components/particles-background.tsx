@@ -1,111 +1,102 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useEffect, useState, useRef } from "react"
 
 export const ParticlesBackground = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
+    const [mounted, setMounted] = useState(false)
+    const containerRef = useRef<HTMLDivElement>(null)
+    const { scrollYProgress } = useScroll()
 
-  useEffect(() => {
-    // Check if mobile
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+    // Parallax values for depth
+    const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"])
+    const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
+    const blob2Y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
-  useEffect(() => {
-    // Skip animation on mobile for performance
-    if (isMobile) return
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
-    const canvas = canvasRef.current
-    if (!canvas) return
+    if (!mounted) return null
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    let animationId: number
-
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      opacity: number
-      size: number
-    }> = []
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      // Reduced particles for better performance (30 instead of 50)
-      const particleCount = 30
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5, // Slower movement
-          vy: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.3 + 0.1,
-          size: Math.random() * 2 + 1,
-        })
-      }
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      particles.forEach((particle, i) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity * 0.7})`
-        ctx.fill()
-
-        // Draw connections - reduced range for performance (80 instead of 100)
-        particles.slice(i + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-          if (distance < 80) {
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.12 * (1 - distance / 80)})`
-            ctx.lineWidth = 0.6
-            ctx.stroke()
-          }
-        })
-      })
-      animationId = requestAnimationFrame(animate)
-    }
-
-    resizeCanvas()
-    createParticles()
-    animate()
-
-    window.addEventListener("resize", resizeCanvas)
-    return () => {
-      window.removeEventListener("resize", resizeCanvas)
-      cancelAnimationFrame(animationId)
-    }
-  }, [isMobile])
-
-  // Return static gradient on mobile instead of canvas animation
-  if (isMobile) {
     return (
-      <div
-        className="absolute inset-0 w-full h-full pointer-events-none bg-gradient-to-br from-blue-50/50 via-transparent to-indigo-50/30"
-        style={{ zIndex: 0 }}
-      />
-    )
-  }
+        <div ref={containerRef} className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-white">
+            {/* 3D Infinity Grids */}
+            <motion.div 
+                style={{ y: gridY }}
+                className="absolute inset-0 opacity-[0.03]"
+            >
+                {/* Floor Grid */}
+                <div 
+                    className="absolute bottom-0 w-full h-[150vh] origin-bottom"
+                    style={{
+                        backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+                        backgroundSize: "60px 60px",
+                        transform: "rotateX(75deg) translateZ(-50px)",
+                    }}
+                ></div>
+                
+                {/* Ceiling Grid */}
+                <div 
+                    className="absolute top-0 w-full h-[150vh] origin-top"
+                    style={{
+                        backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+                        backgroundSize: "60px 60px",
+                        transform: "rotateX(-75deg) translateZ(-50px)",
+                    }}
+                ></div>
+            </motion.div>
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />
+            {/* Immersive Glassmorphism Blobs */}
+            <div className="absolute inset-0">
+                {/* Main Large Blob */}
+                <motion.div
+                    animate={{
+                        x: [0, 100, 0],
+                        y: [0, -50, 0],
+                        scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                    }}
+                    style={{ y: blob1Y }}
+                    className="absolute top-[-10%] left-[-10%] w-[60%] aspect-square rounded-full bg-blue-600/5 blur-[120px]"
+                />
+
+                {/* Accent Blob */}
+                <motion.div
+                    animate={{
+                        x: [0, -80, 0],
+                        y: [0, 120, 0],
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "linear",
+                    }}
+                    style={{ y: blob2Y }}
+                    className="absolute bottom-[-20%] right-[-10%] w-[50%] aspect-square rounded-full bg-blue-400/5 blur-[100px]"
+                />
+
+                {/* Subtle Floating Center Blob */}
+                <motion.div
+                    animate={{
+                        opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] aspect-square rounded-full bg-blue-50/40 blur-[80px]"
+                />
+            </div>
+
+            {/* Vignette effect for immersion focus */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.4)_100%)] shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]"></div>
+        </div>
+    )
 }
