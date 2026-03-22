@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Outfit, Geist_Mono } from "next/font/google"
+import { Inter, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
@@ -10,12 +10,6 @@ import Script from "next/script"
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
   display: "swap",
 })
 
@@ -116,6 +110,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* Favicon optimizado */}
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -309,7 +304,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${outfit.variable} ${geistMono.variable} font-sans bg-white text-slate-900`}>
+      <body className={`${inter.variable} ${geistMono.variable} font-sans bg-white text-slate-900`}>
         <CustomCursor />
         {children}
         <Analytics />

@@ -3,7 +3,7 @@
 
 :root {
   --font-inter: var(--font-inter);
-  --font-outfit: var(--font-outfit);
+  --font-satoshi: 'Satoshi', sans-serif;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -76,7 +76,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
-  --font-display: var(--font-outfit);
+  --font-display: var(--font-satoshi);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

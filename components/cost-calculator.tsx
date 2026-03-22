@@ -135,60 +135,109 @@ export function CostCalculator() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="lg:col-span-5 relative"
+                    className="lg:col-span-5 relative flex items-center justify-center p-4 lg:p-8"
                 >
-                    {/* Glow effect behind the results card */}
-                    <div className="absolute inset-0 bg-blue-600/10 blur-[60px] rounded-[3rem] -z-10 transform scale-105"></div>
-                    
-                    <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-[2.5rem] p-8 sm:p-12 text-white shadow-2xl overflow-hidden relative group border border-white/10">
-                        {/* Decorative background grid/lines */}
-                        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay"></div>
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[80px] opacity-20 -translate-y-1/2 translate-x-1/2 pointer-events-none transition-transform group-hover:scale-110 duration-1000"></div>
+                    {/* 3D Perspective Wrapper */}
+                    <div 
+                        className="relative w-full max-w-[420px] aspect-[4/5] sm:aspect-[3/4]"
+                        style={{ perspective: "2000px" }}
+                    >
+                        {/* 3D Object Container */}
+                        <div 
+                            className="w-full h-full relative transition-transform duration-1000 ease-out"
+                            style={{
+                                transformStyle: "preserve-3d",
+                                transform: "rotateY(-12deg) rotateX(6deg) rotateZ(-1deg)",
+                            }}
+                        >
+                            {/* Floor Shadow */}
+                            <div 
+                                className="absolute inset-0 bg-blue-900/10 blur-[40px] rounded-[40px] pointer-events-none"
+                                style={{ transform: "translateZ(-50px) translateY(30px) translateX(-15px)" }}
+                            ></div>
 
-                        <div className="relative z-10 flex flex-col h-full justify-center">
-                            <h4 className="text-xl font-bold text-blue-100 mb-8 uppercase tracking-widest text-center">
-                                Gasto Estimado
-                            </h4>
+                            {/* 3D Extrusion Layers */}
+                            {Array.from({ length: 10 }).map((_, i) => (
+                                <div
+                                    key={i}
+                                    className={`absolute inset-0 rounded-[40px] pointer-events-none ${
+                                        i === 0 ? "bg-slate-200" : "bg-white/80 border border-slate-200/30"
+                                    }`}
+                                    style={{ transform: `translateZ(${-i * 2}px)` }}
+                                ></div>
+                            ))}
 
-                            <div className="space-y-8 mb-10">
-                                <div className="flex justify-between items-end border-b border-white/10 pb-4">
-                                    <span className="text-slate-400 font-medium text-lg">Por semana</span>
-                                    <span className="text-3xl font-bold text-white tracking-tight">{results.week.toLocaleString('es-ES')} €</span>
-                                </div>
+                            {/* Main Display Face */}
+                            <div 
+                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] shadow-sm flex flex-col overflow-hidden border border-white p-8 sm:p-10"
+                                style={{ transform: "translateZ(1px)" }}
+                            >
+                                {/* Decorative internal glow */}
+                                <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+                                
+                                <div className="relative z-10 flex flex-col h-full justify-between">
+                                    <div className="text-center mb-6">
+                                        <h4 className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
+                                            Gasto Estimado
+                                        </h4>
+                                        <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
+                                    </div>
 
-                                <div className="flex justify-between items-end border-b border-white/10 pb-4">
-                                    <span className="text-slate-400 font-medium text-lg">Por mes</span>
-                                    <span className="text-4xl font-extrabold text-white tracking-tight">{results.month.toLocaleString('es-ES')} €</span>
-                                </div>
+                                    <div className="space-y-6">
+                                        <div className="flex justify-between items-center border-b border-slate-100 pb-4">
+                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Semanal</span>
+                                            <span className="text-2xl font-black text-slate-900 tracking-tight">{results.week.toLocaleString('es-ES')} €</span>
+                                        </div>
 
-                                <div className="pt-4 flex flex-col items-center">
-                                    <span className="text-slate-400 font-medium text-lg mb-2">Pérdida Anual Total</span>
-                                    <span className="text-6xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-red-400 to-rose-600 tracking-tighter drop-shadow-lg">
-                                        {results.year.toLocaleString('es-ES')} €
-                                    </span>
+                                        <div className="flex justify-between items-center border-b border-slate-100 pb-4">
+                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Mensual</span>
+                                            <span className="text-3xl font-black text-slate-900 tracking-tight">{results.month.toLocaleString('es-ES')} €</span>
+                                        </div>
+
+                                        <div className="pt-2 flex flex-col items-center">
+                                            <span className="text-slate-400 font-bold text-xs uppercase tracking-[0.15em] mb-3">Pérdida Anual Total</span>
+                                            <div className="relative">
+                                                <span className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tighter drop-shadow-sm">
+                                                    {results.year.toLocaleString('es-ES')} €
+                                                </span>
+                                                {/* Underline accent */}
+                                                <motion.div 
+                                                    className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-full blur-[1px]"
+                                                    initial={{ width: 0 }}
+                                                    whileInView={{ width: "100%" }}
+                                                    transition={{ duration: 1, delay: 0.8 }}
+                                                ></motion.div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Action Area */}
+                                    <div className="mt-8">
+                                        <motion.div
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            className="w-full"
+                                        >
+                                            <Link
+                                                href="#contacto"
+                                                className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)]"
+                                            >
+                                                Frenar Pérdidas
+                                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                            </Link>
+                                        </motion.div>
+                                        <p className="text-[10px] text-slate-400 mt-4 text-center font-bold uppercase tracking-widest">
+                                            Diagnóstico 100% gratuito
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-
-                            {/* CTA */}
-                            <div className="mt-auto text-center">
-                                <motion.div
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                                    className="w-full"
-                                >
-                                    <Link
-                                        href="#contacto"
-                                        className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 group shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)]"
-                                    >
-                                        Frenar estas pérdidas
-                                        <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                </motion.div>
-                                <p className="text-xs text-slate-400 mt-4 text-center">
-                                    Diagnóstico 100% gratuito para analizar tu caso.
-                                </p>
-                            </div>
+                            
+                            {/* Reflection layer */}
+                            <div 
+                                className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rounded-[40px] pointer-events-none"
+                                style={{ transform: "translateZ(2px)" }}
+                            ></div>
                         </div>
                     </div>
                 </motion.div>
