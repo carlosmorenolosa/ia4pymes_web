@@ -111,7 +111,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* Favicon optimizado */}
-        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />

@@ -26,36 +26,36 @@ export default function BlogPage() {
     const posts = getAllPosts()
 
     return (
-        <main className="min-h-screen bg-slate-950/95 text-slate-300 selection:bg-blue-600/30">
+        <main className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
             {/* Elegant Header (Dark Theme) */}
-            <header className="relative pt-32 pb-20 overflow-hidden border-b border-white/5">
+            <header className="relative pt-32 pb-20 overflow-hidden border-b border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-slate-400 hover:text-blue-400 mb-8 transition-colors cursor-pointer group text-sm font-semibold"
+                        className="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 mb-8 transition-colors cursor-pointer group text-sm font-semibold"
                     >
                         <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
                         Volver al sistema principal
                     </Link>
 
                     <div className="flex flex-col gap-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-900/30 border border-blue-800/50 text-blue-400 w-fit text-sm font-mono font-bold uppercase tracking-wider">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-100 text-blue-600 w-fit text-sm font-mono font-bold uppercase tracking-wider">
                             <Terminal className="w-4 h-4" />
                             <span>/blog-ia4pymes</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tighter drop-shadow-sm">
-                            Blog de <span className="text-blue-500">IA4PYMES</span>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter drop-shadow-sm">
+                            Blog de <span className="text-blue-600">IA4PYMES</span>
                         </h1>
 
-                        <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl leading-relaxed font-medium">
+                        <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl leading-relaxed font-medium">
                             Perspectivas técnicas, investigación operativa y análisis estratégico sobre cómo la Inteligencia Artificial está redefiniendo el tejido empresarial.
                         </p>
                     </div>
                 </div>
                 
                 {/* Background Glow */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
             </header>
 
             {/* Posts Grid */}
@@ -72,9 +72,9 @@ export default function BlogPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {posts.map((post, index) => (
                                 <Link key={post.slug} href={`/blog/${post.slug}`} className="cursor-pointer block group">
-                                    <article className="h-full flex flex-col bg-slate-900/50 rounded-3xl border border-white/5 overflow-hidden hover:border-blue-500/30 hover:bg-slate-900 transition-all duration-500 ease-out">
+                                    <article className="h-full flex flex-col bg-white rounded-3xl border border-slate-200 overflow-hidden hover:border-blue-600/30 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 ease-out">
                                         {/* Image */}
-                                        <div className="relative h-56 overflow-hidden bg-slate-800">
+                                        <div className="relative h-56 overflow-hidden bg-slate-100">
                                             {post.image && (
                                                 <Image
                                                     src={post.image}
@@ -115,21 +115,21 @@ export default function BlogPage() {
                                             </div>
 
                                             {/* Title */}
-                                            <h2 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors leading-tight line-clamp-3 tracking-tight">
+                                            <h2 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors leading-tight line-clamp-3 tracking-tight">
                                                 {post.title}
                                             </h2>
-
+                                            
                                             {/* Description */}
-                                            <p className="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3 flex-grow font-medium">
+                                            <p className="text-slate-600 text-sm leading-relaxed mb-8 line-clamp-3 flex-grow font-medium">
                                                 {post.description}
                                             </p>
 
                                             {/* CTA */}
-                                            <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
-                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">
+                                            <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
+                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
                                                     Leer Documento
                                                 </span>
-                                                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                                                     <ArrowRight className="w-5 h-5" />
                                                 </div>
                                             </div>
@@ -143,17 +143,17 @@ export default function BlogPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5">
+            <section className="py-24 relative overflow-hidden bg-transparent border-t border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-[2.5rem] bg-blue-900/20 border border-blue-800/30 mb-10 shadow-xl shadow-blue-500/10">
-                        <Sparkles className="w-10 h-10 text-blue-400" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-[2.5rem] bg-blue-50 border border-blue-100 mb-10 shadow-xl shadow-blue-500/10">
+                        <Sparkles className="w-10 h-10 text-blue-600" />
                     </div>
 
-                    <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tighter drop-shadow-sm">
-                        Eleva tu infraestructura <span className="text-blue-500">operativa</span>
+                    <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tighter drop-shadow-sm">
+                        Eleva tu infraestructura <span className="text-blue-600">operativa</span>
                     </h2>
 
-                    <p className="text-xl text-slate-400 mb-12 leading-relaxed font-medium">
+                    <p className="text-xl text-slate-600 mb-12 leading-relaxed font-medium">
                         Implementamos ecosistemas de IA a medida que devuelven a tu equipo el activo más valioso: el tiempo. Agenda una exploración técnica sin compromiso.
                     </p>
 
@@ -168,13 +168,13 @@ export default function BlogPage() {
             </section>
 
             {/* Footer */}
-            <footer className="py-12 bg-slate-950 border-t border-white/5">
+            <footer className="py-12 bg-white border-t border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-8">
-                    <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <Terminal className="w-4 h-4" />
                         <span>I4PYMES // BLOG_IA4PYMES_2026</span>
                     </div>
-                    <Link href="/" className="text-sm font-bold text-slate-400 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
+                    <Link href="/" className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
                         Retornar al Core
                     </Link>
                 </div>

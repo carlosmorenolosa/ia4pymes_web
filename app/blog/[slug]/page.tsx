@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-slate-950/95 selection:bg-blue-600/30">
+        <main className="min-h-screen bg-white text-slate-900 selection:bg-blue-600/10">
             {/* Article JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -91,19 +91,18 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <ReadingProgressBar />
 
-            {/* Hero Header (Dark & Professional) */}
-            <header className="relative bg-slate-900/50 min-h-[50vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-white/5">
+            {/* Hero Header (Light & Professional) */}
+            <header className="relative bg-white min-h-[40vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-slate-100">
                 {/* Background Image with subtle overlay */}
                 {post.image && (
-                    <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 z-0 opacity-[0.05]">
                         <Image
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover opacity-[0.1] mix-blend-overlay grayscale"
+                            className="object-cover grayscale"
                             priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
                     </div>
                 )}
 
@@ -112,7 +111,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <nav className="mb-12">
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-blue-500/50 backdrop-blur-md transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-600/30 transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Retornar al sistema
@@ -132,24 +131,24 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-white drop-shadow-sm">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter drop-shadow-sm mb-6">
                         {post.title}
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-slate-900 border border-white/10 shadow-2xl">
+                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/50">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
                                 <span className="font-black text-white text-xl leading-none">I4</span>
                             </div>
                             <div>
-                                <p className="font-black text-white text-sm uppercase tracking-tight">{post.author}</p>
+                                <p className="font-black text-slate-900 text-sm uppercase tracking-tight">{post.author}</p>
                                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Research Team</p>
                             </div>
                         </div>
-                        <div className="hidden sm:block h-10 w-px bg-white/10" />
-                        <div className="flex items-center gap-3 text-slate-400 text-sm font-bold uppercase tracking-widest">
-                            <Calendar className="w-5 h-5 text-blue-500" />
+                        <div className="hidden sm:block h-10 w-px bg-slate-100" />
+                        <div className="flex items-center gap-3 text-slate-500 text-sm font-bold uppercase tracking-widest">
+                            <Calendar className="w-5 h-5 text-blue-600" />
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString("es-ES", {
                                     day: "2-digit",
@@ -165,15 +164,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </header>
 
-            {/* Reading Area - Dark & High Readability */}
-            <article className="py-20 sm:py-32 bg-slate-950 relative">
+            {/* Reading Area - Clean & High Readability */}
+            <article className="py-20 sm:py-32 bg-white relative border-t border-slate-100">
                 <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
-                    {/* Contenedor principal con estilos de lectura refinados para fondo oscuro */}
-                    <div className="blog-article-content prose prose-lg md:prose-xl prose-invert max-w-none 
-                        prose-headings:text-white prose-headings:font-black prose-headings:tracking-tighter
-                        prose-p:text-slate-300 prose-p:leading-relaxed prose-p:font-medium
-                        prose-strong:text-white prose-strong:font-black
-                        prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 transition-colors">
+                    {/* Contenedor principal con estilos de lectura refinados */}
+                    <div className="blog-article-content prose prose-lg md:prose-xl max-w-none 
+                        prose-headings:text-slate-900 prose-headings:font-black prose-headings:tracking-tighter
+                        prose-p:text-slate-600 prose-p:leading-relaxed prose-p:font-medium
+                        prose-strong:text-slate-900 prose-strong:font-black
+                        prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 transition-colors">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             components={{

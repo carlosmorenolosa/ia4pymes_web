@@ -1,102 +1,101 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
 
 export const ParticlesBackground = () => {
+    const canvasRef = useRef<HTMLCanvasElement>(null)
     const [mounted, setMounted] = useState(false)
-    const containerRef = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll()
-
-    // Parallax values for depth
-    const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"])
-    const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
-    const blob2Y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
 
     useEffect(() => {
         setMounted(true)
+        if (typeof window === "undefined") return
+
+        const canvas = canvasRef.current
+        if (!canvas) return
+        const ctx = canvas.getContext("2d")
+        if (!ctx) return
+
+        let animationFrameId: number
+        let particles: Particle[] = []
+
+        class Particle {
+            x: number
+            y: number
+            size: number
+            speedX: number
+            speedY: number
+            opacity: number
+
+            constructor() {
+                this.x = Math.random() * canvas!.width
+                this.y = Math.random() * canvas!.height
+                this.size = Math.random() * 2 + 0.5
+                this.speedX = Math.random() * 0.5 - 0.25
+                this.speedY = Math.random() * -0.5 - 0.1
+                this.opacity = Math.random() * 0.5 + 0.1
+            }
+
+            update() {
+                this.x += this.speedX
+                this.y += this.speedY
+                if (this.y < 0) {
+                    this.y = canvas!.height
+                    this.x = Math.random() * canvas!.width
+                }
+                if (this.x < 0 || this.x > canvas!.width) {
+                    this.speedX *= -1
+                }
+            }
+
+            draw() {
+                if (!ctx) return
+                ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})` // blue-600 color
+                ctx.beginPath()
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+                ctx.fill()
+            }
+        }
+
+        const handleResize = () => {
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+            init()
+        }
+
+        const init = () => {
+            particles = []
+            for (let i = 0; i < 60; i++) {
+                particles.push(new Particle())
+            }
+        }
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update()
+                particles[i].draw()
+            }
+            animationFrameId = requestAnimationFrame(animate)
+        }
+
+        window.addEventListener("resize", handleResize)
+        handleResize()
+        animate()
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+            cancelAnimationFrame(animationFrameId)
+        }
     }, [])
 
     if (!mounted) return null
 
     return (
-        <div ref={containerRef} className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-white">
-            {/* 3D Infinity Grids */}
-            <motion.div 
-                style={{ y: gridY }}
-                className="absolute inset-0 opacity-[0.04] will-change-transform"
-            >
-                {/* Floor Grid */}
-                <div 
-                    className="absolute bottom-0 w-full h-[150vh] origin-bottom"
-                    style={{
-                        backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
-                        backgroundSize: "80px 80px",
-                        transform: "rotateX(75deg) translateZ(-50px)",
-                    }}
-                ></div>
-                
-                {/* Ceiling Grid */}
-                <div 
-                    className="absolute top-0 w-full h-[150vh] origin-top"
-                    style={{
-                        backgroundImage: "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
-                        backgroundSize: "80px 80px",
-                        transform: "rotateX(-75deg) translateZ(-50px)",
-                    }}
-                ></div>
-            </motion.div>
-
-            {/* Immersive Glassmorphism Blobs */}
-            <div className="absolute inset-0">
-                {/* Main Large Blob */}
-                <motion.div
-                    animate={{
-                        x: [0, 60, 0],
-                        y: [0, -30, 0],
-                        scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                        duration: 25,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                    style={{ y: blob1Y }}
-                    className="absolute top-[-10%] left-[-10%] w-[50%] aspect-square rounded-full bg-blue-600/5 blur-[60px] will-change-transform"
-                />
-
-                {/* Accent Blob */}
-                <motion.div
-                    animate={{
-                        x: [0, -50, 0],
-                        y: [0, 80, 0],
-                        scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
-                    style={{ y: blob2Y }}
-                    className="absolute bottom-[-20%] right-[-10%] w-[40%] aspect-square rounded-full bg-blue-400/5 blur-[50px] will-change-transform"
-                />
-
-                {/* Subtle Floating Center Blob */}
-                <motion.div
-                    animate={{
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square rounded-full bg-blue-100/30 blur-[40px]"
-                />
-            </div>
-
-            {/* Vignette effect for immersion focus */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.2)_100%)]"></div>
-        </div>
+        <canvas
+            ref={canvasRef}
+            className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-white"
+            style={{ filter: "blur(0.5px)" }}
+        />
     )
 }
+

@@ -220,7 +220,7 @@ export default function Home() {
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                     id="hero-heading"
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter leading-[1] mb-6 text-slate-900"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
                   >
                     Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                     Aumenta tus <br className="hidden md:block" />
@@ -314,7 +314,7 @@ export default function Home() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.1] drop-shadow-sm"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
                   >
                     La <span className="text-blue-600">ventaja competitiva</span> que llega a tu correo
                   </h2>
@@ -517,7 +517,7 @@ export default function Home() {
           <FadeIn>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
               <header className="text-center mb-16 sm:mb-20">
-                <h2
+                <h2 
                   id="success-cases-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
