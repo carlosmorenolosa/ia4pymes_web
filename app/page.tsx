@@ -659,7 +659,7 @@ export default function Home() {
                 </p>
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                  Made with ❤️ in Spain
+                  Built with ❤️ in Spain
                 </div>
               </motion.div>
 
