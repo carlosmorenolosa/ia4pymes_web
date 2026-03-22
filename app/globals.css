@@ -2,8 +2,8 @@
 @import "tw-animate-css";
 
 :root {
-  --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -75,6 +75,8 @@
 }
 
 @theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -116,6 +118,10 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tighter;
   }
 
   html,
