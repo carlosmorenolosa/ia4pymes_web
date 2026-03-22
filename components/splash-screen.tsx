@@ -43,8 +43,8 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[999999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden shadow-2xl"
         >
-          {/* Ambient Glowing Orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+          {/* Ambient Glowing Orb removed for pure white theme */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-transparent pointer-events-none" />
 
           {/* Logo Container that shrinks slightly before exiting */}
           <motion.div 

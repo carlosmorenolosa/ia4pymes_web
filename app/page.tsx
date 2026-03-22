@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import {
   BarChart2,
   Code,
@@ -27,9 +28,14 @@ import dynamic from "next/dynamic"
 
 import { ParticlesBackground } from "@/components/particles-background"
 
-// Lazy load components
+// Lazy load heavy components
 const SuccessCasesCarousel = dynamic(() => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel), {
   loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+  ssr: false
+})
+
+const AnimatedChip = dynamic(() => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip), {
+  loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />,
   ssr: false
 })
 
@@ -50,11 +56,14 @@ const CostCalculator = dynamic(() => import("@/components/cost-calculator").then
 const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) => mod.FaqSection), {
   ssr: false
 })
+
+import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
+  const [splashFinished, setSplashFinished] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   // Control del scroll para el header
@@ -66,15 +75,22 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Reusable static wrapper
-  const FadeIn = ({ children }: { children: React.ReactNode }) => (
-    <div className="w-full">
+  // Reusable scroll reveal wrapper
+  const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
+      className="w-full"
+    >
       {children}
-    </div>
+    </motion.div>
   )
 
   return (
     <>
+      <SplashScreen onComplete={() => setSplashFinished(true)} />
       
       {/* Skip to main content para accesibilidad */}
       <a
@@ -94,7 +110,10 @@ export default function Home() {
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center relative">
             {/* Logo Section - Top Left, No Container */}
-            <div 
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               className="absolute left-4 sm:left-6 pointer-events-auto"
             >
               <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
@@ -103,10 +122,13 @@ export default function Home() {
                   <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
-            </div>
+            </motion.div>
 
             {/* Centered Navigation Pill */}
-            <nav 
+            <motion.nav 
+              initial={{ opacity: 0, y: -20 }}
+              animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal"
             >
               {/* Desktop Navigation */}
@@ -140,14 +162,18 @@ export default function Home() {
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                <div className="group relative">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
                   <Link
                     href="#contacto"
                     className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                   >
                     Diagnóstico Gratuito
                   </Link>
-                </div>
+                </motion.div>
               </div>
 
               <div className="flex md:hidden items-center">
@@ -159,7 +185,7 @@ export default function Home() {
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
               </div>
-            </nav>
+            </motion.nav>
 
             {/* Mobile Menu Overlay */}
             {mobileMenuOpen && (
@@ -189,58 +215,74 @@ export default function Home() {
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-                  <h1
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                     id="hero-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
                   >
                     Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                     Aumenta tus <br className="hidden md:block" />
                     <span className="text-blue-600">Márgenes</span> con IA
-                  </h1>
+                  </motion.h1>
                   
-                  <p
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
                     Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
-                  </p>
+                  </motion.p>
 
-                  <div
-                    className="flex flex-col sm:row gap-4 self-center lg:self-start relative z-30"
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+                    className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
                   >
-                    <div
-                      className="group relative"
+                    <motion.div
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <Link
                         href="#contacto"
-                        className="relative flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                       >
                         Solicitar Diagnóstico
                       </Link>
-                    </div>
+                    </motion.div>
                     
-                    <div
-                      className="group relative"
+                    <motion.div
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <Link
                         href="#casos-exito"
-                        className="relative flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-900 border border-slate-200 bg-white hover:bg-slate-50 px-8 py-4"
+                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
                       >
-                        <span className="relative z-10 transition-colors">
+                        <span className="flex items-center justify-center relative overflow-hidden">
                           Explorar casos reales
                         </span>
                         <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 </div>
                 
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                  animate={splashFinished ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
                   className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
                 >
                   <div className="w-full max-w-lg sm:max-w-xl">
-                    
+                    <AnimatedChip />
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -300,10 +342,8 @@ export default function Home() {
                 <div className="lg:col-span-5 relative mt-8 lg:mt-0">
                   {/* Aesthetic Background removed for pure white theme */}
                   
-                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent h-2 -top-10 animate-pulse pointer-events-none mix-blend-overlay"></div>
-                    
-                    <div className="w-20 h-20 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
+                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 shadow-xl relative overflow-hidden group">
+                    <div className="w-20 h-20 bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
                       <Mail className="w-10 h-10 text-blue-600" />
                     </div>
                     
@@ -311,7 +351,10 @@ export default function Home() {
                       Únete a cientos de PYMES
                     </h3>
                     
-                    <div
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       className="relative group/btn w-full mt-8"
                     >
                       <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
@@ -324,7 +367,7 @@ export default function Home() {
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
-                    </div>
+                    </motion.div>
                     
                     <p className="text-slate-500 text-sm mt-6 text-center italic">
                       * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
@@ -340,11 +383,11 @@ export default function Home() {
         {/* Process Section */}
         <section
           id="proceso"
-          className="py-16 sm:py-24 bg-transparent overflow-hidden"
+          className="py-16 sm:py-24 bg-white overflow-hidden"
           aria-labelledby="process-heading"
         >
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-              <FadeIn>
+              <FadeIn delay={0.1}>
                 <header className="text-center mb-16 sm:mb-20">
                   <h2
                     id="process-heading"
@@ -394,7 +437,7 @@ export default function Home() {
                 ].map((process, index, array) => {
                   const IconComponent = process.icon
                   return (
-                    <FadeIn key={index}>
+                    <FadeIn key={index} delay={0.2 + index * 0.15}>
                       <article
                       className="group relative"
                       itemProp="step"
@@ -445,7 +488,7 @@ export default function Home() {
               </div>
 
               {/* Added CTA button here as requested */}
-              <FadeIn>
+              <FadeIn delay={0.6}>
                 <div className="mt-12 sm:mt-16 text-center">
                   <Link
                     href="#contacto"
@@ -595,7 +638,11 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
               
               {/* Column 1: Brand */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 className="space-y-6"
               >
                 <Link href="/" className="inline-flex items-center group">
@@ -612,10 +659,14 @@ export default function Home() {
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
-              </div>
+              </motion.div>
 
               {/* Column 2: Soluciones */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 className="space-y-6"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
@@ -633,10 +684,14 @@ export default function Home() {
                     <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Blog de Noticias</Link>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Column 3: Explorar */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 className="space-y-6"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
@@ -654,10 +709,14 @@ export default function Home() {
                     <Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Newsletter Semanal</Link>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Column 4: Conecta */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 className="space-y-6"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
@@ -680,7 +739,7 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom Bar */}

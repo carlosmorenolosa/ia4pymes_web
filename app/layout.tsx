@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import { Toaster } from "@/components/ui/toaster"
+import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 
 const inter = Inter({
@@ -304,6 +304,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
+        <CustomCursor />
         {children}
         <Analytics />
         <CookieConsent />
