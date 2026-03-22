@@ -29,10 +29,10 @@ export const ParticlesBackground = () => {
             constructor() {
                 this.x = Math.random() * canvas!.width
                 this.y = Math.random() * canvas!.height
-                this.size = Math.random() * 2 + 0.5
-                this.speedX = Math.random() * 0.5 - 0.25
-                this.speedY = Math.random() * -0.5 - 0.1
-                this.opacity = Math.random() * 0.5 + 0.1
+                this.size = Math.random() * 2 + 1.5
+                this.speedX = Math.random() * 0.4 - 0.2
+                this.speedY = Math.random() * -0.4 - 0.2
+                this.opacity = Math.random() * 0.4 + 0.4
             }
 
             update() {
@@ -49,7 +49,7 @@ export const ParticlesBackground = () => {
 
             draw() {
                 if (!ctx) return
-                ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})` // blue-600 color
+                ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})`
                 ctx.beginPath()
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
                 ctx.fill()
@@ -64,7 +64,7 @@ export const ParticlesBackground = () => {
 
         const init = () => {
             particles = []
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 100; i++) {
                 particles.push(new Particle())
             }
         }
@@ -94,7 +94,6 @@ export const ParticlesBackground = () => {
         <canvas
             ref={canvasRef}
             className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-white"
-            style={{ filter: "blur(0.5px)" }}
         />
     )
 }

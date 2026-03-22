@@ -2,11 +2,10 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import { CustomCursor } from "@/components/custom-cursor"
+import { Toaster } from "@/components/ui/toaster"
 import { CookieConsent } from "@/components/cookie-consent"
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script"
-import { ParticlesBackground } from "@/components/particles-background"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -305,8 +304,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
-        <ParticlesBackground />
-        <CustomCursor />
         {children}
         <Analytics />
         <CookieConsent />
