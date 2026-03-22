@@ -20,7 +20,7 @@ export const ParticlesBackground = () => {
     if (!mounted) return null
 
     return (
-        <div ref={containerRef} className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-white">
+        <div ref={containerRef} className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none -z-10">
             {/* 3D Infinity Grids */}
             <motion.div 
                 style={{ y: gridY }}

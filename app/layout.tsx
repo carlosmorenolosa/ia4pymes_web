@@ -6,6 +6,7 @@ import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
+import { ParticlesBackground } from "@/components/particles-background"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -305,6 +306,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans bg-white text-slate-900`}>
+        <ParticlesBackground />
         <CustomCursor />
         {children}
         <Analytics />

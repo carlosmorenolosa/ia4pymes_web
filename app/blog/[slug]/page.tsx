@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-white selection:bg-blue-600/10">
+        <main className="min-h-screen bg-slate-950 selection:bg-blue-600/30">
             {/* Article JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -91,8 +91,8 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <ReadingProgressBar />
 
-            {/* Hero Header (White & Elegant) */}
-            <header className="relative bg-slate-50 min-h-[50vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-slate-100">
+            {/* Hero Header (Dark & Professional) */}
+            <header className="relative bg-slate-900/50 min-h-[50vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-white/5">
                 {/* Background Image with subtle overlay */}
                 {post.image && (
                     <div className="absolute inset-0 z-0">
@@ -100,10 +100,10 @@ export default async function BlogPostPage({ params }: PageProps) {
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover opacity-[0.07] mix-blend-multiply"
+                            className="object-cover opacity-[0.1] mix-blend-overlay grayscale"
                             priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
                     </div>
                 )}
 
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <nav className="mb-12">
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-200 shadow-sm transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-blue-500/50 backdrop-blur-md transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Retornar al sistema
@@ -125,31 +125,31 @@ export default async function BlogPostPage({ params }: PageProps) {
                             <Terminal className="w-3.5 h-3.5" />
                             {post.category}
                         </div>
-                        <div className="flex items-center gap-2 text-slate-400 text-xs font-black uppercase tracking-widest">
-                            <Clock className="w-4 h-4 text-blue-600" />
+                        <div className="flex items-center gap-2 text-slate-500 text-xs font-black uppercase tracking-widest">
+                            <Clock className="w-4 h-4 text-blue-500" />
                             {post.readingTime} ETA
                         </div>
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-slate-900">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[1.05] tracking-tighter text-white">
                         {post.title}
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/40">
+                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-slate-900 border border-white/10 shadow-2xl">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
                                 <span className="font-black text-white text-xl leading-none">I4</span>
                             </div>
                             <div>
-                                <p className="font-black text-slate-900 text-sm uppercase tracking-tight">{post.author}</p>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
+                                <p className="font-black text-white text-sm uppercase tracking-tight">{post.author}</p>
+                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Research Team</p>
                             </div>
                         </div>
-                        <div className="hidden sm:block h-10 w-px bg-slate-100" />
-                        <div className="flex items-center gap-3 text-slate-500 text-sm font-bold uppercase tracking-widest">
-                            <Calendar className="w-5 h-5 text-blue-600" />
+                        <div className="hidden sm:block h-10 w-px bg-white/10" />
+                        <div className="flex items-center gap-3 text-slate-400 text-sm font-bold uppercase tracking-widest">
+                            <Calendar className="w-5 h-5 text-blue-500" />
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString("es-ES", {
                                     day: "2-digit",
@@ -160,49 +160,52 @@ export default async function BlogPostPage({ params }: PageProps) {
                         </div>
                     </div>
                 </div>
+                
+                {/* Accent Glow */}
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </header>
 
-            {/* Reading Area - Clean and Premium */}
-            <article className="py-20 sm:py-32 bg-white relative">
+            {/* Reading Area - Dark & High Readability */}
+            <article className="py-20 sm:py-32 bg-slate-950 relative">
                 <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
-                    {/* Contenedor principal con estilos de lectura refinados */}
-                    <div className="blog-article-content prose prose-lg md:prose-xl prose-slate max-w-none 
-                        prose-headings:text-slate-900 prose-headings:font-black prose-headings:tracking-tighter
-                        prose-p:text-slate-600 prose-p:leading-relaxed prose-p:font-medium
-                        prose-strong:text-slate-900 prose-strong:font-black
-                        prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 transition-colors">
+                    {/* Contenedor principal con estilos de lectura refinados para fondo oscuro */}
+                    <div className="blog-article-content prose prose-lg md:prose-xl prose-invert max-w-none 
+                        prose-headings:text-white prose-headings:font-black prose-headings:tracking-tighter
+                        prose-p:text-slate-300 prose-p:leading-relaxed prose-p:font-medium
+                        prose-strong:text-white prose-strong:font-black
+                        prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 transition-colors">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             components={{
                                 table: ({ children }) => (
-                                    <div className="my-12 overflow-x-auto rounded-3xl border border-slate-100 bg-slate-50/50 p-1">
+                                    <div className="my-12 overflow-x-auto rounded-3xl border border-white/5 bg-white/[0.02] p-1">
                                         <table className="w-full text-left border-collapse text-base">
                                             {children}
                                         </table>
                                     </div>
                                 ),
                                 thead: ({ children }) => (
-                                    <thead className="bg-white border-b border-slate-100">
+                                    <thead className="bg-white/[0.03] border-b border-white/5">
                                         {children}
                                     </thead>
                                 ),
                                 th: ({ children }) => (
-                                    <th className="px-8 py-5 font-black text-xs text-slate-900 uppercase tracking-widest">
+                                    <th className="px-8 py-5 font-black text-xs text-white uppercase tracking-widest">
                                         {children}
                                     </th>
                                 ),
                                 td: ({ children }) => (
-                                    <td className="px-8 py-5 border-b border-slate-50 text-slate-600 font-medium">
+                                    <td className="px-8 py-5 border-b border-white/[0.02] text-slate-400 font-medium">
                                         {children}
                                     </td>
                                 ),
                                 tr: ({ children }) => (
-                                    <tr className="hover:bg-white transition-colors">
+                                    <tr className="hover:bg-white/[0.01] transition-colors">
                                         {children}
                                     </tr>
                                 ),
                                 blockquote: ({ children }) => (
-                                    <blockquote className="border-l-4 border-blue-600 bg-blue-50/50 rounded-r-3xl p-8 my-12 not-italic">
+                                    <blockquote className="border-l-4 border-blue-600 bg-blue-900/10 rounded-r-3xl p-8 my-12 not-italic text-slate-200 font-medium">
                                         {children}
                                     </blockquote>
                                 ),
@@ -214,8 +217,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
             </article>
 
-            {/* CTA Section (Pure White) */}
-            <section className="py-32 bg-slate-50 text-slate-900 relative overflow-hidden border-t border-slate-100">
+            {/* CTA Section */}
+            <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
                         <Terminal className="w-4 h-4" />
@@ -223,10 +226,10 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
-                        Pasa de la teoría a la <span className="text-blue-600">ejecución</span>
+                        Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
                     </h2>
 
-                    <p className="text-xl text-slate-600 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
+                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
                         El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
                     </p>
 
@@ -241,17 +244,17 @@ export default async function BlogPostPage({ params }: PageProps) {
             </section>
 
             {/* Premium Footer */}
-            <footer className="py-12 bg-white border-t border-slate-100">
+            <footer className="py-12 bg-slate-950 border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
-                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-black uppercase tracking-widest">
+                    <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
                         <Terminal className="w-5 h-5" />
                         <span>I4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
                     <div className="flex items-center gap-10">
-                        <Link href="/blog" className="text-sm font-black text-slate-400 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
                             Documentación
                         </Link>
-                        <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-600 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
                             Retornar al sistema
                         </Link>
                     </div>
