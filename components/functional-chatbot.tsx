@@ -28,6 +28,16 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
   const [isFocused, setIsFocused] = useState(false)
+  const [showGreeting, setShowGreeting] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (messages.length === 1) { // Only show if user hasn't started talking
+        setShowGreeting(true)
+      }
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [messages.length])
 
   useEffect(() => {
     // Determine active interaction: input is focused AND we aren't waiting for a response.
@@ -134,21 +144,43 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
 
   return (
     <div
-      className={`w-full h-full flex flex-col border border-white/50 shadow-2xl ${
-        is3D ? "bg-white p-3" : "bg-white/80 backdrop-blur-xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl"
+      className={`w-full h-full flex flex-col border border-white/40 shadow-2xl relative ${
+        is3D ? "bg-white/95 backdrop-blur-md p-3" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl"
       } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
       aria-label="Ejemplo de conversación con asistente IA"
     >
-      <div className={`flex items-center ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
-        <div
-          className={`${is3D ? "w-8 h-8" : "w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14"} bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 shrink-0`}
-          aria-hidden="true"
+      {/* Proactive Greeting CTA */}
+      {showGreeting && messages.length === 1 && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="absolute -top-12 left-1/2 -translate-x-1/2 w-full max-w-[200px] z-50 pointer-events-none"
         >
-          <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
-        </div>
-        <div>
-          <h3 className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-bold text-slate-800`}>PymerIA</h3>
+          <div className="bg-blue-600 text-white text-[10px] sm:text-xs font-bold py-2 px-3 rounded-2xl shadow-lg relative after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-t-blue-600">
+            ¿Cómo puedo optimizar tus procesos hoy? 🚀
+          </div>
+        </motion.div>
+      )}
+
+      <div className={`flex items-center justify-between ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
+        <div className="flex items-center">
+          <div
+            className={`${is3D ? "w-8 h-8" : "w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14"} bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mr-3 shrink-0 shadow-lg shadow-blue-500/20`}
+            aria-hidden="true"
+          >
+            <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
+          </div>
+          <div>
+            <h3 className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</h3>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">En línea</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -170,10 +202,10 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
             className={`${msg.sender === "User" ? "text-right" : "text-left"}`}
           >
             <div
-              className={`inline-block p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm max-w-xs sm:max-w-sm break-words ${msg.sender === "User"
-                ? "bg-white ml-auto border border-gray-200"
-                : "bg-gradient-to-r from-blue-100 to-blue-50"
-                } ${msg.sender === "User" ? "rounded-br-sm" : "rounded-bl-sm"}`}
+              className={`inline-block p-3 sm:p-4 rounded-[1.25rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${msg.sender === "User"
+                ? "bg-white ml-auto border border-slate-100 text-slate-600"
+                : "bg-gradient-to-br from-blue-50 to-white border border-blue-50"
+                } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
             >
               <div className={`prose prose-sm max-w-none ${msg.sender === "User"
                 ? "text-slate-600 prose-strong:text-slate-700"
@@ -230,15 +262,18 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
         )}
       </div>
 
-      <div className="mt-3 sm:mt-4 flex items-center space-x-2">
+      <div className="mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl focus-within:ring-2 focus-within:ring-blue-500/20 transition-all">
         <Input
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
-          onFocus={() => setIsFocused(true)}
+          onFocus={() => {
+            setIsFocused(true)
+            setShowGreeting(false)
+          }}
           onBlur={() => setIsFocused(false)}
-          className="flex-1"
+          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm h-10"
           disabled={isLoading}
           name="message"
           autoComplete="off"
@@ -247,11 +282,11 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
         <Button
           onClick={handleSendMessage}
           size="icon"
-          className="bg-blue-800 hover:bg-blue-900"
+          className="h-10 w-10 bg-blue-600 hover:bg-blue-700 rounded-xl shrink-0 shadow-lg shadow-blue-600/20"
           disabled={isLoading}
           aria-label="Enviar mensaje"
         >
-          <Send className="w-4 sm:w-5 h-4 sm:h-5" />
+          <Send className="w-4 h-4" />
         </Button>
       </div>
     </div>
