@@ -14,16 +14,31 @@ interface Message {
   content: string
 }
 
-export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?: boolean, onInteractionChange?: (active: boolean) => void }) {
+export function FunctionalChatbot({ 
+  is3D = false, 
+  onInteractionChange,
+  visible = true 
+}: { 
+  is3D?: boolean, 
+  onInteractionChange?: (active: boolean) => void,
+  visible?: boolean
+}) {
   const [messages, setMessages] = useState<Message[]>([])
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [isInitialTyping, setIsInitialTyping] = useState(true)
+  const [isInitialTyping, setIsInitialTyping] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!visible) {
+      setIsInitialTyping(false);
+      return;
+    }
+
+    setIsInitialTyping(true);
+
     // Stage 1: First high-impact CTA after a longer typing period (4s)
     const t1 = setTimeout(() => {
       setIsInitialTyping(false);
@@ -35,7 +50,10 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
 
     // Stage 2: Second typing block starts shortly after first message (5.5s total)
     const t2 = setTimeout(() => {
-      if (messages.length <= 1) setIsInitialTyping(true)
+      setMessages(prev => {
+        if (prev.length === 1) setIsInitialTyping(true)
+        return prev
+      })
     }, 5500)
 
     // Stage 3: Second direct CTA after more typing (9s total)
@@ -57,7 +75,7 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
       clearTimeout(t2)
       clearTimeout(t3)
     }
-  }, [])
+  }, [visible])
 
   useEffect(() => {
     // Determine active interaction: input is focused AND we aren't waiting for a response.

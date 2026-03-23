@@ -2,7 +2,7 @@
 
 import { FunctionalChatbot } from "./functional-chatbot"
 
-export function ThreeAnimatedChip() {
+export function ThreeAnimatedChip({ visible = true }: { visible?: boolean }) {
   return (
     <div className="w-full flex items-center justify-center p-4 lg:p-8 pointer-events-auto">
       {/* 3D Perspective Wrapper */}
@@ -50,7 +50,7 @@ export function ThreeAnimatedChip() {
             className="absolute inset-0 bg-white rounded-[40px] shadow-sm flex flex-col overflow-hidden border border-slate-100"
             style={{ transform: "translateZ(1px)" }}
           >
-            <FunctionalChatbot />
+            <FunctionalChatbot visible={visible} />
           </div>
           
           {/* Subtle screen glare/reflection effect over the chatbot */}

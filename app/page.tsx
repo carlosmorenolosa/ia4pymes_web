@@ -288,14 +288,12 @@ export default function Home() {
                 </div>
                 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-                  animate={splashFinished ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-                  className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
+                  initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+                  animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.9, rotate: 5 }}
+                  transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
+                  className="relative w-full h-full flex items-center justify-center p-4 lg:p-0"
                 >
-                  <div className="w-full max-w-lg sm:max-w-xl">
-                    <AnimatedChip />
-                  </div>
+                  <AnimatedChip visible={splashFinished} />
                 </motion.div>
               </div>
             </div>
