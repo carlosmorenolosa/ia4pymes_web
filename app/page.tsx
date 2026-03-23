@@ -203,7 +203,7 @@ export default function Home() {
 
             {/* Mobile Menu Overlay */}
             {mobileMenuOpen && (
-              <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
+              <div className="md:hidden fixed inset-0 bg-white z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
                 <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
                    <X className="w-6 h-6" />
                 </button>
