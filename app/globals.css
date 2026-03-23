@@ -213,7 +213,9 @@ h6 {
 }
 
 /* Custom Cursor - Solo se activa cuando el componente CustomCursor está presente */
-.has-custom-cursor * {
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor * {
   cursor: none !important;
 }
 
@@ -234,9 +236,9 @@ h6 {
   border: 2px solid white;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
   box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
 }
 

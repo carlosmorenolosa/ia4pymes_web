@@ -16,52 +16,36 @@ export const CustomCursor = () => {
     // Add class to body to hide default cursor only when custom cursor is active
     document.body.classList.add("has-custom-cursor")
 
-
     const moveCursor = (e: MouseEvent) => {
       if (cursor) {
-        cursor.style.left = e.clientX + "px"
-        cursor.style.top = e.clientY + "px"
+        cursor.style.left = `${e.clientX}px`
+        cursor.style.top = `${e.clientY}px`
       }
     }
 
-    const handleMouseEnter = () => {
-      if (cursor) cursor.classList.add("hover")
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (target.closest("button, a, input, textarea, [role='button']")) {
+        cursor?.classList.add("hover")
+      } else {
+        cursor?.classList.remove("hover")
+      }
     }
 
-    const handleMouseLeave = () => {
-      if (cursor) cursor.classList.remove("hover")
-    }
+    const handleMouseDown = () => cursor?.classList.add("click")
+    const handleMouseUp = () => cursor?.classList.remove("click")
 
-    const handleMouseDown = () => {
-      if (cursor) cursor.classList.add("click")
-    }
-
-    const handleMouseUp = () => {
-      if (cursor) cursor.classList.remove("click")
-    }
-
-    // Event listeners básicos
     document.addEventListener("mousemove", moveCursor)
+    document.addEventListener("mouseover", handleMouseOver)
     document.addEventListener("mousedown", handleMouseDown)
     document.addEventListener("mouseup", handleMouseUp)
 
-    // Hover effects para elementos interactivos
-    const interactiveElements = document.querySelectorAll("button, a")
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter)
-      el.addEventListener("mouseleave", handleMouseLeave)
-    })
-
-    // Cleanup
     return () => {
       document.body.classList.remove("has-custom-cursor")
       document.removeEventListener("mousemove", moveCursor)
+      document.removeEventListener("mouseover", handleMouseOver)
       document.removeEventListener("mousedown", handleMouseDown)
       document.removeEventListener("mouseup", handleMouseUp)
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter)
-        el.removeEventListener("mouseleave", handleMouseLeave)
-      })
     }
   }, [isMobile])
 

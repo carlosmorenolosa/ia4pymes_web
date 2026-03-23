@@ -304,10 +304,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
-        <CustomCursor />
         {children}
         <Analytics />
         <CookieConsent />
+        <CustomCursor />
         <Script
           id="vtag-ai-js"
           async
