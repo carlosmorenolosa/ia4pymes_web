@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "I4PYMES - Automatización con IA para PYMES",
+  title: "IA4PYMES - Automatización con IA para PYMES",
   description:
     "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
   keywords: [
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     "software personalizado IA",
     "automatización tareas repetitivas",
   ],
-  authors: [{ name: "I4PYMES" }],
-  creator: "I4PYMES",
-  publisher: "I4PYMES",
+  authors: [{ name: "IA4PYMES" }],
+  creator: "IA4PYMES",
+  publisher: "IA4PYMES",
   formatDetection: {
     email: false,
     address: false,
@@ -51,17 +51,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "I4PYMES - Automatización con IA para PYMES",
+    title: "IA4PYMES - Automatización con IA para PYMES",
     description:
       "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
     url: "https://ia4pymes.tech",
-    siteName: "I4PYMES",
+    siteName: "IA4PYMES",
     images: [
       {
         url: "/logo-ia4pymes.jpeg",
         width: 1200,
         height: 630,
-        alt: "I4PYMES - Automatización con IA para PYMES",
+        alt: "IA4PYMES - Automatización con IA para PYMES",
       },
     ],
     locale: "es_ES",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "I4PYMES - Automatización con IA para PYMES",
+    title: "IA4PYMES - Automatización con IA para PYMES",
     description:
       "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
     images: ["/logo-ia4pymes.jpeg"],
@@ -121,7 +121,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "I4PYMES",
+              name: "IA4PYMES",
               description: "Soluciones de Inteligencia Artificial personalizadas para PYMES",
               url: "https://ia4pymes.tech",
               logo: "/LOGO.png",
@@ -154,7 +154,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "I4PYMES",
+              name: "IA4PYMES",
               description: "Automatización con IA para PYMES - Soluciones personalizadas",
               url: "https://ia4pymes.tech",
               email: "contacto@ia4pymes.tech",
@@ -184,7 +184,7 @@ export default function RootLayout({
                 "Desarrollo de herramientas de inteligencia artificial personalizadas para pequeñas y medianas empresas",
               provider: {
                 "@type": "Organization",
-                name: "I4PYMES",
+                name: "IA4PYMES",
                 url: "https://ia4pymes.tech",
               },
               serviceType: "Automatización empresarial",
@@ -225,10 +225,10 @@ export default function RootLayout({
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "¿Qué es I4PYMES?",
+                  name: "¿Qué es IA4PYMES?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "I4PYMES es una empresa especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas personalizadas para cada negocio.",
+                    text: "IA4PYMES es una empresa especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas personalizadas para cada negocio.",
                   },
                 },
                 {
@@ -320,3 +320,4 @@ export default function RootLayout({
     </html>
   )
 }
+

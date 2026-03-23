@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
         title: "Llega la Certificación Oficial de Anthropic: ¿Está tu equipo preparado para el examen de arquitectura de Claude más exigente?",
         description: "Anthropic ha lanzado su primera credencial técnica: Claude Certified Architect, Foundations. Un examen de 60 preguntas y 2 horas con proctirizado por cámara que separa a los aficionados de los verdaderos expertos en arquitectura IA.",
         date: "2026-03-23",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Noticias IA",
         image: "/blog/anthropic-certificacion-claude.png",
@@ -62,7 +62,7 @@ Para cualquier PYME que quiera profesionalizar su departamento técnico, estos r
 
 ## ¿Por qué esto es vital para una PYME en 2026?
 
-En **I4PYMES** celebramos esta noticia porque ayuda a limpiar el mercado de "falsos expertos". Para un dueño de negocio, contratar a alguien o a una consultora que cuente con profesionales certificados por Anthropic significa:
+En **IA4PYMES** celebramos esta noticia porque ayuda a limpiar el mercado de "falsos expertos". Para un dueño de negocio, contratar a alguien o a una consultora que cuente con profesionales certificados por Anthropic significa:
 
 - **Eficiencia en costes:** Saber usar el modelo exacto y el contexto adecuado puede reducir la factura de la API en hasta un 40%.
 - **Seguridad real:** Minimizar el riesgo de alucinaciones y asegurar que los datos de la empresa están protegidos bajo arquitecturas validadas.
@@ -74,7 +74,7 @@ En **I4PYMES** celebramos esta noticia porque ayuda a limpiar el mercado de "fal
 
 La llegada de certificaciones proctorizadas y exigentes marca el inicio de una nueva era. La IA ya no es una curiosidad tecnológica dentro de la empresa; es una **infraestructura crítica**. 
 
-Si tu empresa está planeando integrar IA en sus procesos core, asegúrate de que quien esté al mando entienda la arquitectura que hay detrás. En **I4PYMES**, ya hemos iniciado el despliegue de estos protocolos oficiales de Anthropic para asegurar que cada automatización que entregamos sea de nivel "Certified Architect".
+Si tu empresa está planeando integrar IA en sus procesos core, asegúrate de que quien esté al mando entienda la arquitectura que hay detrás. En **IA4PYMES**, ya hemos iniciado el despliegue de estos protocolos oficiales de Anthropic para asegurar que cada automatización que entregamos sea de nivel "Certified Architect".
 
 El futuro de la IA empresarial no se escribe con prompts, se diseña con arquitectura.
 `
@@ -84,7 +84,7 @@ El futuro de la IA empresarial no se escribe con prompts, se diseña con arquite
         title: "Qué es Ollama y por qué es el mayor aliado de las PYMES que quieren usar IA sin pagar suscripciones",
         description: "Ollama permite a cualquier empresa ejecutar modelos de Inteligencia Artificial de alto nivel directamente en su propio ordenador, sin enviar ninguno de sus datos a la nube. Descubre por qué es la herramienta de IA más importante para PYMES en 2026.",
         date: "2026-03-20",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Herramientas IA",
         image: "/blog/ollama-ia-local-pymes.png",
@@ -154,7 +154,7 @@ Cada modelo ocupa entre 4 GB y 70 GB de disco según su tamaño. Para la mayorí
 
 Ollama democratiza algo que hasta hace poco era exclusivo de empresas con departamentos de IT potentes: tener una IA propia, privada y sin coste recurrente.
 
-No es el futuro. Es el presente. Y en **I4PYMES** llevamos meses ayudando a empresas a desplegar Ollama con los modelos más adecuados para su sector, configurando interfaces visuales sencillas para que cualquier empleado pueda usarlo sin conocimientos técnicos.
+No es el futuro. Es el presente. Y en **IA4PYMES** llevamos meses ayudando a empresas a desplegar Ollama con los modelos más adecuados para su sector, configurando interfaces visuales sencillas para que cualquier empleado pueda usarlo sin conocimientos técnicos.
 
 Si tu empresa maneja datos confidenciales, tiene un uso intensivo de IA o simplemente quiere dejar de depender de suscripciones externas, hablemos.
 `
@@ -164,7 +164,7 @@ Si tu empresa maneja datos confidenciales, tiene un uso intensivo de IA o simple
         title: "Ya no necesitas analista: ChatGPT analiza tu Excel de ventas y te dice qué clientes van a crecer",
         description: "GPT-5.4 ya vive dentro de Microsoft Excel. Descubre cómo una PYME puede analizar su cartera de clientes, detectar oportunidades ocultas y tomar decisiones de ventas basadas en datos, sin saber programar ni contratar a nadie.",
         date: "2026-03-20",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Herramientas IA",
         image: "/blog/chatgpt-excel-pymes-ventas.png",
@@ -232,7 +232,7 @@ Cuando hablamos con dueños de negocio, la excusa más común es: *“Sé que te
 
 Ahora los datos que ya tienes —los que llevas meses acumulando en tus hojas de cálculo— pueden hablar solos y decirte exactamente dónde están las oportunidades de crecimiento y los riesgos que no ves.
 
-En **I4PYMES** ayudamos a las empresas a configurar este tipo de herramientas de forma correcta, estructurando los datos para que la IA pueda analizarlos con máxima precisión desde el primer día. Si quieres que te ayudemos a convertir tu Excel en un analista de negocio, hablemos.
+En **IA4PYMES** ayudamos a las empresas a configurar este tipo de herramientas de forma correcta, estructurando los datos para que la IA pueda analizarlos con máxima precisión desde el primer día. Si quieres que te ayudemos a convertir tu Excel en un analista de negocio, hablemos.
 `
     },
     {
@@ -240,7 +240,7 @@ En **I4PYMES** ayudamos a las empresas a configurar este tipo de herramientas de
         title: "GPT-5.4 ya maneja el ordenador mejor que un humano: El informe que cambia el trabajo administrativo para siempre",
         description: "OpenAI ha lanzado GPT-5.4 'Operativa'. Ha superado la capacidad humana en navegación de escritorio y ejecución de tareas complejas. Ya no es un chat; es un empleado digital que sabe usar tu ratón y tu teclado.",
         date: "2026-03-18",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "5 min",
         category: "Noticias IA",
         image: "/blog/gpt-5-4-ia-operativa.png",
@@ -276,7 +276,7 @@ El modelo toma capturas de pantalla constantes de lo que está ocurriendo en el 
 
 ## El impacto en las PYMES españolas: La "Era Agéntica"
 
-En **I4PYMES** llevamos meses preparando a nuestros clientes para esta transición. Hasta ahora, la IA era una herramienta de apoyo (Copiloto). Con GPT-5.4, pasamos a la era del **Agente Autónomo**.
+En **IA4PYMES** llevamos meses preparando a nuestros clientes para esta transición. Hasta ahora, la IA era una herramienta de apoyo (Copiloto). Con GPT-5.4, pasamos a la era del **Agente Autónomo**.
 
 Para un dueño de negocio, esto supone la posibilidad de automatizar el 80% de las tareas administrativas "aburridas" (gestión de facturas, atención de incidencias básicas, conciliación bancaria) no mediante integraciones técnicas complejas, sino simplemente dándole a la IA un usuario y una contraseña de los programas que ya usa la empresa.
 
@@ -288,7 +288,7 @@ Para un dueño de negocio, esto supone la posibilidad de automatizar el 80% de l
 
 La llegada de GPT-5.4 es una liberación. Tus empleados ya no tienen que pasar 4 horas al día picando datos o moviendo excels de una carpeta a otra. Su nuevo trabajo es **supervisar a los agentes** y centrarse en la estrategia, el trato humano con el cliente y el crecimiento real del negocio.
 
-La "Inteligencia Operativa" no viene a quitar el trabajo; viene a devolverle el sentido. En I4PYMES estamos listos para ayudarte a implementar esta nueva potencia antes de que tu competencia lo haga.
+La "Inteligencia Operativa" no viene a quitar el trabajo; viene a devolverle el sentido. En IA4PYMES estamos listos para ayudarte a implementar esta nueva potencia antes de que tu competencia lo haga.
 `
     },
     {
@@ -296,7 +296,7 @@ La "Inteligencia Operativa" no viene a quitar el trabajo; viene a devolverle el 
         title: "El fin de los gráficos 'de videojuego': Cómo el DLSS 5 de NVIDIA cruza el valle inquietante",
         description: "NVIDIA ha presentado DLSS 5, el 'momento GPT de los gráficos'. Ya no se trata de frames por segundo, sino de inyectar fotorealismo neuronal en tiempo real. Descubre cómo la IA está borrando la frontera entre realidad y renderizado.",
         date: "2026-03-17",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Tecnología",
         image: "/blog/nvidia-dlss-5-graficos-ia.png",
@@ -339,7 +339,7 @@ Títulos como *Assassin's Creed Shadows*, *Hogwarts Legacy* (con su parche de ac
 
 ## Conclusión: La IA como el pincel definitivo
 
-En **I4PYMES** seguimos de cerca estas tecnologías porque demuestran una tendencia imparable: la IA generativa no solo sirve para escribir textos o crear logos. Está a punto de convertirse en el "motor de renderizado" de nuestra realidad digital.
+En **IA4PYMES** seguimos de cerca estas tecnologías porque demuestran una tendencia imparable: la IA generativa no solo sirve para escribir textos o crear logos. Está a punto de convertirse en el "motor de renderizado" de nuestra realidad digital.
 
 Si la IA puede generar fotorealismo en un videojuego a 60 fotogramas por segundo, imagina lo que podrá hacer en aplicaciones industriales, diseño de interiores o simulaciones de arquitectura en los próximos 24 meses.
 
@@ -351,7 +351,7 @@ NVIDIA ha dejado claro que el futuro de la imagen ya no pertenece al cálculo br
         title: "La IA no despide, la IA contrata: El sorprendente informe del BCE sobre el empleo en Europa",
         description: "Existía el miedo a que la Inteligencia Artificial vaciara las oficinas. Sin embargo, los datos del Banco Central Europeo de marzo de 2026 muestran lo contrario: las empresas que más invierten en IA están contratando a más gente. Análisis del cambio de paradigma.",
         date: "2026-03-16",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Noticias IA",
         image: "/blog/ia-empleo-bce-europa.png",
@@ -383,7 +383,7 @@ Para el dueño de una PYME, ahorrar un 30% en gestión de facturas significa, po
 
 ## La trampa de las habilidades: Un cambio de "quién", no de "cuántos"
 
-Si bien el volumen de empleo total sube, el informe del BCE lanza una advertencia que en **I4PYMES** llevamos meses resaltando a nuestros clientes: **el tipo de perfil que se busca ha cambiado de forma radical.**
+Si bien el volumen de empleo total sube, el informe del BCE lanza una advertencia que en **IA4PYMES** llevamos meses resaltando a nuestros clientes: **el tipo de perfil que se busca ha cambiado de forma radical.**
 
 Las empresas ya no contratan a "alguien que sepa usar el Excel para meter datos". Contratan a "alguien que sepa automatizar el Excel con agentes y sepa analizar los resultados". No hay destrucción de empleo, hay una **obsolescencia de las tareas mecánicas**. El trabajador que se queda atrás es el que se niega a usar la herramienta, no el que es reemplazado por ella.
 
@@ -395,7 +395,7 @@ Si estabas esperando a que la IA "se calmara" por miedo a las consecuencias soci
 
 La IA no es una guadaña para recortar personal; es un **fertilizante para hacer crecer tu empresa**. Las empresas europeas que están liderando el mercado hoy son aquellas que han entendido que la IA libera a sus mejores empleados del trabajo basura para que puedan hacer el trabajo extraordinario que justifica nuevas contrataciones.
 
-En **I4PYMES**, ayudamos a las empresas a realizar esta transición hacia un modelo de crecimiento, asegurando que la tecnología sea el motor de la expansión, no el origen del miedo.
+En **IA4PYMES**, ayudamos a las empresas a realizar esta transición hacia un modelo de crecimiento, asegurando que la tecnología sea el motor de la expansión, no el origen del miedo.
 
 **¿Estás listo para dejar de preocuparte por los despidos y empezar a planificar tu crecimiento con IA?** Hablemos hoy mismo.
 `
@@ -405,7 +405,7 @@ En **I4PYMES**, ayudamos a las empresas a realizar esta transición hacia un mod
         title: "La revolución OpenClaw: Por qué la IA libre ya supera a Linux en GitHub",
         description: "Un agente autónomo de código abierto llamado OpenClaw está rompiendo récords. Descubre por qué el software libre es la clave para que tu PYME no dependa de suscripciones caras y recupere su soberanía digital.",
         date: "2026-03-15",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "5 min",
         category: "Tecnología",
         image: "/blog/openclaw-ia-opensource.png",
@@ -434,7 +434,7 @@ Es el sueño de la automatización total, pero con una diferencia fundamental: *
 
 ## ¿Por qué esto es vital para una PYME en 2026?
 
-En **I4PYMES** recibimos muchas consultas de gerentes preocupados por dos cosas: el coste acumulado de las licencias de IA y la privacidad de sus datos. OpenClaw responde a ambos miedos de raíz.
+En **IA4PYMES** recibimos muchas consultas de gerentes preocupados por dos cosas: el coste acumulado de las licencias de IA y la privacidad de sus datos. OpenClaw responde a ambos miedos de raíz.
 
 ### 1. Independencia Tecnológica
 Si usas herramientas cerradas, estás a merced de que OpenAI suba los precios, cambie las condiciones o decida que tu sector ya no le interesa. Con OpenClaw, tu PYME posee la tecnología. Nadie te la puede apagar.
@@ -443,7 +443,7 @@ Si usas herramientas cerradas, estás a merced de que OpenAI suba los precios, c
 Al ser código abierto, OpenClaw se puede configurar para correr en "modo local". Esto significa que tus datos comerciales nunca salen de tu oficina. La IA procesa la información en tu hardware, eliminando el riesgo de filtraciones en la nube de terceros.
 
 ### 3. Personalización Extrema
-No tienes que adaptarte tú a la IA de una gran multinacional. Al ser software libre, en I4PYMES podemos "ajustar las piezas" de OpenClaw para que se adapte exactamente a tu flujo de trabajo específico, por raro que sea.
+No tienes que adaptarte tú a la IA de una gran multinacional. Al ser software libre, en IA4PYMES podemos "ajustar las piezas" de OpenClaw para que se adapte exactamente a tu flujo de trabajo específico, por raro que sea.
 
 ---
 
@@ -459,7 +459,7 @@ En el mundo empresarial, no se trata solo de tener la herramienta más potente, 
 
 La era de depender únicamente de Silicon Valley para innovar está llegando a su fin. OpenClaw es la prueba de que las mejores herramientas para optimizar tu PYME pueden ser libres, transparentes y tuyas.
 
-En **I4PYMES**, nuestra misión no es venderte una suscripción, sino ayudarte a implementar estas tecnologías de vanguardia para que tu negocio sea más eficiente y más libre.
+En **IA4PYMES**, nuestra misión no es venderte una suscripción, sino ayudarte a implementar estas tecnologías de vanguardia para que tu negocio sea más eficiente y más libre.
 
 **¿Quieres recuperar el control de tu tecnología y ahorrar costes con herramientas Open Source?** Analicemos cómo integrar la potencia de agentes como OpenClaw en tu empresa de forma segura.
 `
@@ -469,7 +469,7 @@ En **I4PYMES**, nuestra misión no es venderte una suscripción, sino ayudarte a
         title: "El 'Efecto Rubin' de NVIDIA: Por qué la IA será 10 veces más barata para tu negocio",
         description: "NVIDIA acaba de presentar su nueva plataforma Rubin. No es solo hardware más potente; es la promesa de desplomar los costes de uso de la IA en un 1.000%. Descubre qué significa esto para el margen de beneficio de tu PYME.",
         date: "2026-03-14",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Noticias IA",
         image: "/blog/nvidia-rubin-ia-pymes.png",
@@ -503,7 +503,7 @@ La plataforma **Rubin** está diseñada desde cero para la inferencia masiva:
 Hoy en día, tener un agente de IA revisando el 100% de tus correos y clasificándolos puede tener un coste marginal que te hace pensarlo dos veces. Con Rubin, el coste de computación cae tanto que tener "trabajadores digitales" funcionando sin descanso analizando datos de tu negocio costará literalmente céntimos al día.
 
 ### 2. Mayor margen de beneficio
-En I4PYMES siempre decimos que la IA es la mejor vía para aumentar márgenes. Si el coste de la tecnología baja un 90%, pero el valor que aporta (ahorro de horas humanas) se mantiene o sube, **el beneficio neto de tu implementación de IA se dispara.**
+En IA4PYMES siempre decimos que la IA es la mejor vía para aumentar márgenes. Si el coste de la tecnología baja un 90%, pero el valor que aporta (ahorro de horas humanas) se mantiene o sube, **el beneficio neto de tu implementación de IA se dispara.**
 
 ### 3. IA local más potente
 Rubin también llegará a versiones de hardware más pequeñas. Esto significa que pronto podrás tener servidores locales en tu oficina capaces de correr modelos de primer nivel (como los de Mistral o Llama) con una fluidez pasmosa, sin depender de la nube y con privacidad total.
@@ -516,7 +516,7 @@ La barrera para que una PYME use IA ha pasado de ser **tecnológica** (hace 3 a�
 
 Estamos entrando en la era de la "IA como servicio público": barata, ubicua y extremadamente potente. 
 
-En **I4PYMES** ya estamos preparando nuestras arquitecturas para aprovechar el desplome de costes que Rubin traerá al mercado a finales de este año. La pregunta ya no es si puedes permitirte la IA, sino si puedes permitirte quedarte fuera mientras tus competidores reducen sus costes operativos un 1.000%.
+En **IA4PYMES** ya estamos preparando nuestras arquitecturas para aprovechar el desplome de costes que Rubin traerá al mercado a finales de este año. La pregunta ya no es si puedes permitirte la IA, sino si puedes permitirte quedarte fuera mientras tus competidores reducen sus costes operativos un 1.000%.
 
 **¿Estás listo para escalar tus márgenes con hardware de próxima generación?** Analicemos cómo preparar tu infraestructura hoy para la revolución que llega mañana.
 `
@@ -526,7 +526,7 @@ En **I4PYMES** ya estamos preparando nuestras arquitecturas para aprovechar el d
         title: "La IA Europea que no pierde datos con EE.UU.: Cómo Mistral conquista los ejércitos de Europa",
         description: "Francia ha firmado con Mistral AI un contrato de defensa hasta 2030, y Alemania le sigue. El movimiento de soberanía tecnológica europea en IA ha comenzado. Análisis completo de por qué Mistral es la apuesta estratégica del viejo continente.",
         date: "2026-03-13",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Noticias IA",
         image: "/blog/mistral-defensa-europea.png",
@@ -595,7 +595,7 @@ Europa lleva años siendo consumidora de tecnología americana. Con Mistral en e
         title: "El 40% de ahorro está aquí: Dónde están recortando costes operativos las empresas con IA este mes",
         description: "Los últimos datos de adopción revelan que las PYMES que integran Inteligencia Artificial no están despidiendo gente, están eliminando el trabajo invisible. Estos son los 3 procesos donde se concentra el ahorro real.",
         date: "2026-03-12",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "5 min",
         category: "Casos de Uso",
         image: "/blog/ahorro-costes-ia-pymes.png",
@@ -626,7 +626,7 @@ Tener a personal cualificado contestando una y otra vez "¿a qué hora abrís lo
 
 Las PYMES que están liderando el ahorro han pasado de los chatbots tontos (los de "pulsa 1 para ventas") a **Asistentes Cognitivos conectados a su base de datos**.
 
-Estos sistemas con IA (como los que desarrollamos en I4PYMES):
+Estos sistemas con IA (como los que desarrollamos en IA4PYMES):
 - Resuelven el 70% de las consultas comunes sin escalar a un humano.
 - Atienden a nivel experto 24 horas al día, 7 días a la semana.
 - Si no saben la respuesta, le pasan al trabajador de la PYME un resumen perfecto del problema junto con el cliente.
@@ -654,7 +654,7 @@ Si quitas 15 horas a la semana de mover excels, 10 horas de contestar dudas bás
 
 Ese es el verdadero poder de la IA en 2026. No se trata de crear imágenes bonitas, sino de **devolverle el tiempo a los humanos para que hagan el trabajo estratégico que hace crecer a tu empresa**.
 
-¿En cuál de estas 3 áreas estás perdiendo más dinero ahora mismo? En **I4PYMES** hacemos la auditoría y montamos la solución. Hablemos.
+¿En cuál de estas 3 áreas estás perdiendo más dinero ahora mismo? En **IA4PYMES** hacemos la auditoría y montamos la solución. Hablemos.
 `
     },
     {
@@ -662,7 +662,7 @@ Ese es el verdadero poder de la IA en 2026. No se trata de crear imágenes bonit
         title: "El fin del cuello de botella técnico: Anthropic lanza 'Code Review' para automatizar GitHub",
         description: "Revisar código generado por IA se había convertido en una pesadilla para los ingenieros Senior. Anthropic ha respondido con un 'equipo' de agentes autónomos que revisan Pull Requests en 20 minutos.",
         date: "2026-03-11",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Noticias IA",
         image: "/blog/anthropic-code-review-github.png",
@@ -722,7 +722,7 @@ La IA ya no solo escribe código. Ahora también lo audita.
         title: "El 'Impuesto de Fricción': Por qué tu equipo pierde tiempo usando IA (y cómo evitarlo)",
         description: "Muchos estudios revelan que implementar Inteligencia Artificial inicialmente genera MÁS trabajo. Descubre qué es el 'impuesto de fricción' de la IA y la única estrategia real para que tu PYME ahorre horas desde el día uno.",
         date: "2026-03-10",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Noticias IA",
         image: "/blog/impuesto-friccion-ia-pymes.png",
@@ -760,7 +760,7 @@ Esa estrategia funcionaba en 2023 cuando todos estábamos jugando. En 2026, si l
 
 ## Cómo evadir legalmente el "Impuesto de Fricción"
 
-La solución no es cancelar la suscripción, sino cambiar el enfoque de implementación. Aquí está la hoja de ruta que aplicamos en I4PYMES para garantizar retorno inmediato:
+La solución no es cancelar la suscripción, sino cambiar el enfoque de implementación. Aquí está la hoja de ruta que aplicamos en IA4PYMES para garantizar retorno inmediato:
 
 ### 1. Integración Nativa Total (Cero nuevas apps)
 La IA no debe ser un destino al que ir, sino una capa invisible debajo de donde tu equipo ya está.
@@ -772,7 +772,7 @@ En lugar de pedirle a la IA: *"Redacta un email cobrando esta factura"* (que req
 Un **Agente Autónomo** bien programado detecta automáticamente cuando una factura vence en tu ERP, redacta el email personalizado según el tono de confianza con ese cliente, te lo deja en bandeja de salida como "Borrador" para que solo tengas que darle a "Enviar", y actualiza el estado en el CRM.
 
 ### 3. Eliminar el miedo a la hoja en blanco (Plantillas de Contexto)
-Tu equipo no debería estar redactando *prompts* largos todos los días. En I4PYMES, estandarizamos las peticiones más comunes detrás de flujos pre-configurados. El empleado solo tiene que rellenar variables sencillas ("Nombre Cliente", "Producto") y la plataforma inyecta por detrás páginas enteras del conocimiento institucional de tu empresa para que la IA escupa el resultado perfecto a la primera.
+Tu equipo no debería estar redactando *prompts* largos todos los días. En IA4PYMES, estandarizamos las peticiones más comunes detrás de flujos pre-configurados. El empleado solo tiene que rellenar variables sencillas ("Nombre Cliente", "Producto") y la plataforma inyecta por detrás páginas enteras del conocimiento institucional de tu empresa para que la IA escupa el resultado perfecto a la primera.
 
 ---
 
@@ -782,7 +782,7 @@ El "Impuesto de Fricción" no es un castigo inevitable; es simplemente el precio
 
 La Inteligencia Artificial no es una varita mágica, es un motor brutalmente potente. Pero si lo montas en un chasis que no está preparado... lo vas a destrozar.
 
-¿Quieres integrar la IA en los procesos de tu empresa de forma invisible, ganando decenas de horas semanales sin fricción? Hablemos de cómo I4PYMES puede **integrar agentes inteligentes directamente en tus flujos de trabajo actuales**.
+¿Quieres integrar la IA en los procesos de tu empresa de forma invisible, ganando decenas de horas semanales sin fricción? Hablemos de cómo IA4PYMES puede **integrar agentes inteligentes directamente en tus flujos de trabajo actuales**.
 `
     },
     {
@@ -790,7 +790,7 @@ La Inteligencia Artificial no es una varita mágica, es un motor brutalmente pot
         title: "El cisma de OpenAI: Sam Altman y el trato con el Pentágono que dividió a la empresa",
         description: "El acuerdo de OpenAI con el Departamento de Defensa de EE.UU. provocó una revuelta interna, la dimisión de directivos, el movimiento #QuitGPT y un discurso en el que Altman adimitó que el sue fue 'oportunista y descuidado'.",
         date: "2026-03-09",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Noticias IA",
         image: "/blog/openai-pentagono-etica-ia.png",
@@ -851,7 +851,7 @@ Este episodio revela algo fundamental que va mucho más allá de la política em
 
 **Los empleados de IA tienen más palanca que nunca.** El talento en inteligencia artificial es un bien escíasímo. En este clima, los mejores ingenieros votan con sus pies. Las empresas que no cuiden la coherencia entre sus valores públicos y sus decisiones privadas se arriesgan a perder a las mentes que las hacen relevantes.
 
-**Los guardrails importan, y mucho.** En úshima instancia, este conflicto es un debate sobre quién controla los límites de uso de la IA. En I4PYMES, trabajamos siempre con las API de los modelos que garantizan las protecciones de uso más robustas para nuestros clientes (actualmente Claude de Anthropic), precisamente por razones como esta.
+**Los guardrails importan, y mucho.** En úshima instancia, este conflicto es un debate sobre quién controla los límites de uso de la IA. En IA4PYMES, trabajamos siempre con las API de los modelos que garantizan las protecciones de uso más robustas para nuestros clientes (actualmente Claude de Anthropic), precisamente por razones como esta.
 
 La guerra por el alma de la IA no ha hecho más que empezar.
 `
@@ -861,7 +861,7 @@ La guerra por el alma de la IA no ha hecho más que empezar.
         title: "Claude Opus 4.6 descubrió 22 fallos de seguridad en Firefox que los humanos no había visto",
         description: "Anthropic y Mozilla se aliaron para una prueba de 2 semanas: el resultado fue devastador. La IA encontró 22 vulnerabilidades nuevas en Firefox, 14 de alta gravedad. El futuro de la ciberseguridad ha llegado.",
         date: "2026-03-09",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Noticias IA",
         image: "/blog/claude-opus-firefox-seguridad.png",
@@ -916,7 +916,7 @@ Los tiempos de "mi empresa es pequeña, a mí no me van a atacar" han terminado.
 
 Lo que Mozilla y Anthropic han demostrado es que la IA no es solo una herramienta de productividad para generar correos o resumir documentos. Es una herramienta de **anlisis técnico de un nivel que compite con los mejores especialistas humanos del mundo**, y que puede trabajar 24 horas al día, 7 días a la semana, sin fatiga y a una fracción del coste.
 
-En **I4PYMES**, estamos siguiendo muy de cerca estos avances para incorporarlos a los flujos de trabajo de nuestros clientes. ¿Te preocupa la seguridad del software de tu empresa? Es el momento de hablar.
+En **IA4PYMES**, estamos siguiendo muy de cerca estos avances para incorporarlos a los flujos de trabajo de nuestros clientes. ¿Te preocupa la seguridad del software de tu empresa? Es el momento de hablar.
 `
     },
     {
@@ -924,7 +924,7 @@ En **I4PYMES**, estamos siguiendo muy de cerca estos avances para incorporarlos 
         title: "Cómo implantar IA en tu empresa sin perderte: La Auditoría Técnica que lo cambia todo",
         description: "La mayoría de PYMES quieren IA pero no saben por dónde empezar. Descubre por qué una Auditoría Técnica profesional es el primer paso que tu empresa necesita antes de invertir un euro en automatización.",
         date: "2026-03-06",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Servicios",
         image: "/blog/auditoria-tecnica-ia-pymes.png",
@@ -953,7 +953,7 @@ No es que la IA no funcione. Es que la pusieron donde no correspondía.
 
 ## ¿Qué es una Auditoría Técnica de IA?
 
-En **I4PYMES** hemos diseñado un nuevo servicio específicamente para resolver este problema: la **Auditoría Técnica de IA**.
+En **IA4PYMES** hemos diseñado un nuevo servicio específicamente para resolver este problema: la **Auditoría Técnica de IA**.
 
 Consiste en que nuestro equipo analiza en profundidad tu empresa. No hacemos suposiciones ni vendemos soluciones genéricas. Estudiamos:
 
@@ -1020,7 +1020,7 @@ Reserva tu Auditoría Técnica hoy y empieza a trabajar con un plan de verdad.
         title: "GPT-5.4 ya está aquí: Las 5 novedades que van a cambiar cómo usas la IA",
         description: "OpenAI lanza GPT-5.4, su modelo más avanzado. Una ventana de contexto de 1 millón de tokens, control real del ordenador, modo de pensamiento extremo y un 18% menos de errores. Análisis completo.",
         date: "2026-03-06",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Noticias IA",
         image: "/blog/gpt-5-4-openai.png",
@@ -1080,7 +1080,7 @@ OpenAI afirma que GPT-5.4 es el más factual de su historia. Las respuestas tien
 
 ## ¿Y esto qué le importa a tu PYME?
 
-La carrera armamentística de la IA beneficia directamente a las empresas. Cada avance en los modelos base significa que las herramientas de automatización que construimos en **I4PYMES** para nuestros clientes se vuelven más potentes, más baratas de ejecutar y más confiables.
+La carrera armamentística de la IA beneficia directamente a las empresas. Cada avance en los modelos base significa que las herramientas de automatización que construimos en **IA4PYMES** para nuestros clientes se vuelven más potentes, más baratas de ejecutar y más confiables.
 
 Imagina un agente de IA que coge una orden de compra de tu email, entra en tu plataforma de gestión, actualiza el pedido, genera la factura, la envía al cliente y registra el pago. Sin tocar el teclado. Sin pagar a nadie. Con GPT-5.4, ese flujo ya es posible.
 
@@ -1092,7 +1092,7 @@ Imagina un agente de IA que coge una orden de compra de tu email, entra en tu pl
         title: "La primera 'Guerra IA': Cómo EE.UU. e Israel están usando Claude contra Irán",
         description: "El campo de batalla ha cambiado para siempre. Descubre cómo el ejército estadounidense está integrando a Claude (Anthropic) en operaciones reales y el debate ético que ha desatado.",
         date: "2026-03-05",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Noticias IA",
         image: "/blog/guerra-ia-claude-usa.png",
@@ -1101,7 +1101,7 @@ La ciencia ficción acaba de estrellarse contra la geopolítica real. Lo que dur
 
 En un movimiento sin precedentes que ha sacudido la industria tecnológica y militar, se ha confirmado que las fuerzas de **Estados Unidos y sus aliados (principalmente Israel)** están utilizando modelos de lenguaje avanzado —con **Claude de Anthropic** en el centro del huracán— en el reciente conflicto contra Irán.
 
-En **I4PYMES** analizamos esta escalada tecnológica, qué significa "usar IA en la guerra" y cómo el Pentágono está cambiando las reglas del juego.
+En **IA4PYMES** analizamos esta escalada tecnológica, qué significa "usar IA en la guerra" y cómo el Pentágono está cambiando las reglas del juego.
 
 ---
 
@@ -1153,14 +1153,14 @@ Nos enfrentamos a una nueva era. La carrera armamentística ya no trata solo sob
         title: "GPT-5.3 Instant: El nuevo as de OpenAI que elimina las alucinaciones",
         description: "OpenAI acaba de lanzar GPT-5.3 Instant. Descubre por qué esta actualización es revolucionaria: cero rodeos, 27% menos de alucinaciones y búsquedas web perfectas. Guía para PYMES y programadores.",
         date: "2026-03-04",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Noticias IA",
         image: "/blog/gpt-5-3-instant-openai.png",
         content: `
 El mercado de la Inteligencia Artificial se mueve tan rápido que parpadear significa quedarse atrás. Hace solo unos meses hablábamos de que Claude estaba ganándole terreno a ChatGPT, pero OpenAI ha respondido con un golpe sobre la mesa: el nuevo modelo **GPT-5.3 Instant**.
 
-No es solo un pequeño parche; es una de las actualizaciones más solicitadas por la comunidad y las empresas. Desde I4PYMES hemos destripado este nuevo modelo y te contamos exactamente qué trae y por qué deberías empezar a usarlo hoy mismo en tu negocio.
+No es solo un pequeño parche; es una de las actualizaciones más solicitadas por la comunidad y las empresas. Desde IA4PYMES hemos destripado este nuevo modelo y te contamos exactamente qué trae y por qué deberías empezar a usarlo hoy mismo en tu negocio.
 
 ---
 
@@ -1201,7 +1201,7 @@ OpenAI ha escuchado a los usuarios. Nos ha quitado de encima la lentitud excesiv
 
 **GPT-5.3 Instant** (\`gpt-5.3-chat-latest\` si eres programador y usas la API) ya está disponible de forma general, obligando a sus competidores en Anthropic (Claude) y Google a volver a la mesa de dibujo si quieren mantener el ritmo en esta salvaje guerra por controlar la Inteligencia Artificial.
 
-En **I4PYMES** seguimos implementando siempre el motor más potente para el caso de uso exacto de nuestros clientes. ¿Quieres que automaticemos partes de tu empresa usando lo mejor que ChatGPT 5.3 puede ofrecer? Hablemos.
+En **IA4PYMES** seguimos implementando siempre el motor más potente para el caso de uso exacto de nuestros clientes. ¿Quieres que automaticemos partes de tu empresa usando lo mejor que ChatGPT 5.3 puede ofrecer? Hablemos.
 `
     },
     {
@@ -1209,7 +1209,7 @@ En **I4PYMES** seguimos implementando siempre el motor más potente para el caso
         title: "Qué son las 'Skills' en la programación con IA y cómo usarlas en Cursor o Claude Code",
         description: "Descubre qué son las Agent Skills (el 'NPM de la IA'), para qué sirven y cómo instalar habilidades de la plataforma skills.sh en tus editores de código IA para desarrollar apps como un profesional.",
         date: "2026-03-03",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Formación IA",
         image: "/blog/skills-programacion-ia.jpeg",
@@ -1220,7 +1220,7 @@ Si estás usando herramientas como Cursor, Claude Code, GitHub Copilot o Windsur
 
 Hasta ahora. Ha nacido un nuevo concepto que va a cambiar radicalmente cómo trabajamos con agentes de código: **las "Skills"** (o Habilidades). Y herramientas como **[skills.sh](https://skills.sh)** se están convirtiendo en la pieza central de esta revolución.
 
-En I4PYMES te explicamos qué son, por qué todo el mundo habla del "NPM de las IA" y cómo puedes usarlas hoy mismo.
+En IA4PYMES te explicamos qué son, por qué todo el mundo habla del "NPM de las IA" y cómo puedes usarlas hoy mismo.
 
 ---
 
@@ -1281,7 +1281,7 @@ Entra hoy en *skills.sh*, rebusca entre las más populares y descubre de lo que 
         title: "Nano Banana 2: El nuevo modelo de Google que cambiará el marketing de tu PYME",
         description: "Google lanza Nano Banana 2 (Gemini 3.1 Flash Image), una bestia en generación y edición de imágenes con IA. Descubre cómo revolucionará tus campañas de marketing, catálogos y redes sociales.",
         date: "2026-03-02",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "6 min",
         category: "Tecnología",
         image: "/blog/nano-banana-2-ia.png",
@@ -1292,7 +1292,7 @@ Pero Google acaba de lanzar algo que va a hacer que te olvides de todo eso: **Na
 
 No te dejes engañar por el nombre tan peculiar. Detrás de "Nano Banana v2" se esconde la arquitectura **Gemini 3.1 Flash Image**, el modelo de generación y edición de imágenes por Inteligencia Artificial más rápido, potente y sorprendente que hemos visto hasta la fecha.
 
-En I4PYMES hemos analizado a fondo este nuevo gigante y te explicamos por qué tu empresa debería empezar a usarlo hoy mismo.
+En IA4PYMES hemos analizado a fondo este nuevo gigante y te explicamos por qué tu empresa debería empezar a usarlo hoy mismo.
 
 ---
 
@@ -1336,7 +1336,7 @@ Google también ha pensado en la confianza. Todas las imágenes generadas o edit
 
 Nano Banana 2 no es solo una "actualización", es un antes y un después en cómo las empresas van a crear contenido visual. Si el coste y el tiempo de diseño gráfico era un cuello de botella para tu PYME, Google acaba de darte la llave para liberar todo ese potencial.
 
-En **I4PYMES**, ya estamos integrando soluciones de generación automática de contenido visual en los sistemas de nuestros clientes usando estas potentes API. Si quieres que la Inteligencia Artificial se encargue no solo de texto, sino de crear el aspecto visual perfecto para tu negocio, contáctanos y hablemos de tu caso.
+En **IA4PYMES**, ya estamos integrando soluciones de generación automática de contenido visual en los sistemas de nuestros clientes usando estas potentes API. Si quieres que la Inteligencia Artificial se encargue no solo de texto, sino de crear el aspecto visual perfecto para tu negocio, contáctanos y hablemos de tu caso.
 `
     },
     {
@@ -1344,7 +1344,7 @@ En **I4PYMES**, ya estamos integrando soluciones de generación automática de c
         title: "Claude ahora permite importar tu memoria desde ChatGPT: Cómo hacerlo paso a paso",
         description: "Anthropic lanza 'Import Memory'. Ahora puedes migrar todo tu contexto, preferencias y proyectos de otras IAs a Claude en un minuto sin empezar desde cero.",
         date: "2026-03-01",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "5 min",
         category: "Noticias IA",
         image: "/blog/claude-import-memory.png",
@@ -1355,7 +1355,7 @@ Si llevabas meses "entrenando" a ChatGPT para que entendiera cómo hablas, cómo
 
 Pero eso se ha acabado. Anthropic acaba de dinamitar esa barrera con su nueva función: **Import Memory** (Importar Memoria).
 
-En I4PYMES te contamos qué es esto, por qué es un movimiento maestro contra OpenAI y cómo puedes usarlo tú mismo en menos de un minuto.
+En IA4PYMES te contamos qué es esto, por qué es un movimiento maestro contra OpenAI y cómo puedes usarlo tú mismo en menos de un minuto.
 
 ---
 
@@ -1398,7 +1398,7 @@ En el sector empresarial, el tiempo es dinero. Si eres dueño de una PYME y usas
 
 Una IA que no sabe nada de tu empresa te escribirá un correo muy frío y robótico. Una IA que ya tiene tu "memoria" escribirá el correo exactamente como lo harías tú.
 
-Con esta función, si tu empresa ya usaba ChatGPT y os sentíais "atrapados" ahí porque la IA ya os conocía, ahora podéis migrar a **Claude (considerado por muchos analistas, incluyendo nuestro equipo en I4PYMES, como el mejor modelo actual para tareas complejas y programación)** en literalmente sesenta segundos.
+Con esta función, si tu empresa ya usaba ChatGPT y os sentíais "atrapados" ahí porque la IA ya os conocía, ahora podéis migrar a **Claude (considerado por muchos analistas, incluyendo nuestro equipo en IA4PYMES, como el mejor modelo actual para tareas complejas y programación)** en literalmente sesenta segundos.
 
 ### La privacidad, el escudo de Anthropic
 Además, Anthropic hace hincapié en algo vital: el control granulado. En la sección de memoria de Claude puedes ver, editar o borrar cualquier recuerdo en cualquier momento. Si importas algo que no quieres que sepa, lo borras con un clic. Además, los proyectos están aislados: la memoria de tu proyecto de "Marketing" no contamina tu proyecto de "Recursos Humanos".
@@ -1411,7 +1411,7 @@ Esta jugada de Anthropic es brillante. Mientras todos los competidores están lu
 
 Al facilitar la importación de memoria, han bajado el puente levadizo para que los millones de usuarios frustrados de otras plataformas puedan probar la potencia de Claude sin perder semanas re-educando al asistente.
 
-Si todavía no has probado Claude en tu negocio, ya no hay excusa para no hacer el salto. Y recuerda, si necesitas llevar esta inteligencia al siguiente nivel e integrarla directamente en tu web, WhatsApp o software interno de empresa, en **I4PYMES** creamos las autopistas para que la IA trabaje para ti de forma automática.
+Si todavía no has probado Claude en tu negocio, ya no hay excusa para no hacer el salto. Y recuerda, si necesitas llevar esta inteligencia al siguiente nivel e integrarla directamente en tu web, WhatsApp o software interno de empresa, en **IA4PYMES** creamos las autopistas para que la IA trabaje para ti de forma automática.
 `
     },
     {
@@ -1419,7 +1419,7 @@ Si todavía no has probado Claude en tu negocio, ya no hay excusa para no hacer 
         title: "Por qué tu PYME necesita un chatbot en 2026",
         description: "Descubre cómo un chatbot puede transformar la atención al cliente de tu negocio, reducir costes y aumentar las ventas. Guía completa para PYMES.",
         date: "2026-01-10",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Automatización",
         image: "/blog/chatbot-pyme.png",
@@ -1515,7 +1515,7 @@ Si quieres ver cómo funcionaría esto en tu negocio específico, escríbenos. N
         title: "Automatizar tareas repetitivas: guía práctica para PYMES",
         description: "Descubre qué tareas de tu negocio puedes automatizar hoy mismo, cuánto tiempo puedes ahorrar y por dónde empezar sin liarte.",
         date: "2026-01-10",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Automatización",
         image: "/blog/automatizacion-tareas.png",
@@ -1617,7 +1617,7 @@ Si quieres que echemos un vistazo a tu caso concreto y te digamos qué podrías 
         title: "Cuánto cuesta automatizar un negocio pequeño (con ejemplos reales)",
         description: "Te cuento sin rodeos qué precios maneja el mercado para automatizar tareas en una PYME, qué factores influyen y cómo saber si te merece la pena.",
         date: "2026-01-12",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Inversión",
         image: "/blog/coste-automatizacion.png",
@@ -1748,7 +1748,7 @@ Si al final decides no hacer nada, perfecto. Al menos tendrás la información p
         title: "WhatsApp Business + IA: guía para vender más sin estar pegado al móvil",
         description: "Aprende a automatizar WhatsApp Business con inteligencia artificial para responder clientes 24/7, cerrar más ventas y recuperar tu tiempo.",
         date: "2026-01-14",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Ventas",
         image: "/blog/whatsapp-business-ia.png",
@@ -1902,7 +1902,7 @@ Te mostramos:
         title: "IA vs contratar empleado: ¿qué sale más rentable para tu PYME?",
         description: "Comparamos números reales entre automatizar con IA y contratar a alguien. Te ayudamos a decidir qué tiene más sentido para tu negocio.",
         date: "2026-01-16",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Estrategia",
         image: "/blog/ia-vs-empleado.png",
@@ -2081,7 +2081,7 @@ Sin compromiso. Si la respuesta es "contrata a alguien", te lo diremos.
         title: "5 errores que matan tu proyecto de IA (y cómo evitarlos)",
         description: "Te contamos los errores más comunes que vemos en empresas que intentan implementar IA. Y cómo asegurarte de no cometerlos.",
         date: "2026-01-17",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Estrategia",
         image: "/blog/errores-ia.png",
@@ -2241,7 +2241,7 @@ Si estás valorando automatizar algo en tu negocio, te ofrecemos una consulta gr
         title: "Cómo usar IA para cualificar leads mientras duermes",
         description: "Aprende a automatizar la cualificación de leads con inteligencia artificial. Tu negocio captará clientes potenciales 24/7 sin que tengas que mover un dedo.",
         date: "2026-01-19",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Automatización",
         image: "/blog/cualificar-leads.png",
@@ -2446,7 +2446,7 @@ Y si quieres que te ayudemos a montarlo, [agenda una llamada](https://calendly.c
         title: "ChatGPT para tu negocio: 15 usos prácticos que no conocías",
         description: "Descubre 15 formas concretas de usar ChatGPT en tu empresa para ahorrar tiempo, mejorar ventas y automatizar tareas. Guía práctica con ejemplos reales.",
         date: "2026-01-21",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "12 min",
         category: "Herramientas IA",
         image: "/blog/chatgpt-negocios.png",
@@ -2650,7 +2650,7 @@ Empieza con uno de estos 15 usos hoy. Mañana habrás ahorrado tiempo. En un mes
         title: "Caso real: Cómo automatizamos la atención de la Asociación de Hostelería de Navarra con IA",
         description: "Descubre cómo implementamos dos chatbots con IA para la Asociación de Hostelería y Turismo de Navarra. 270+ consultas mensuales, disponibilidad 24/7 y un dashboard de analytics completo.",
         date: "2026-01-22",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Casos Reales",
         image: "/blog/caso-hosteleria-navarra.png",
@@ -2807,7 +2807,7 @@ Te enseñamos más ejemplos, respondemos dudas y vemos si tiene sentido avanzar.
         title: "IA para Inmobiliarias: Cómo vender más casas en piloto automático",
         description: "Automatiza tu inmobiliaria con IA: cualifica leads de Idealista/Fotocasa 24/7, agenda visitas automáticamente y deja de perder el tiempo con curiosos.",
         date: "2026-01-24",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "10 min",
         category: "Sector Inmobiliario",
         image: "/blog/ia-inmobiliaria.png",
@@ -2932,7 +2932,7 @@ Si estás cansado de ser secretario/a y quieres volver a ser vendedor/a, hablemo
         title: "IA para Clínicas: Cómo llenar tu agenda y reducir el 'no-show' de pacientes",
         description: "Automatiza tu clínica dental, de fisioterapia o estética. Reduce el ausentismo, gestiona citas 24/7 y reactiva pacientes antiguos con IA.",
         date: "2026-01-26",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Sector Salud",
         image: "/blog/ia-clinicas.png",
@@ -3046,7 +3046,7 @@ Te enseñamos ejemplos de clínicas que ya lo usan y cómo cambia su día a día
         title: "IA para Abogados: Automatiza la captación y el triaje de clientes",
         description: "Descubre cómo los despachos de abogados usan IA para filtrar 'curiosos', responder consultas iniciales 24/7 y centrarse solo en casos rentables.",
         date: "2026-01-29",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "11 min",
         category: "Sector Legal",
         image: "/blog/ia-abogados.png",
@@ -3147,7 +3147,7 @@ Deja que la IA sea tu barrera de entrada y tu secretaria 24h.
         title: "Marca Blanca de Chatbots con IA: La nueva mina de oro para Agencias de Marketing en 2026",
         description: "Descubre cómo las agencias de marketing están facturando +5.000€/mes extra ofreciendo chatbots de IA bajo su propia marca, sin programar y sin costes fijos.",
         date: "2026-02-01",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Negocio para Agencias",
         image: "/blog/marca-blanca-chatbots.png",
@@ -3166,7 +3166,7 @@ Bienvenido al mundo de la **IA de Marca Blanca**.
 
 ## ¿Qué narices es un Chatbot de Marca Blanca?
 Es muy simple:
-1.  **Nosotros (I4PYMES) creamos la tecnología.** Ponemos los servidores, la IA, el entrenamiento y el soporte técnico.
+1.  **Nosotros (IA4PYMES) creamos la tecnología.** Ponemos los servidores, la IA, el entrenamiento y el soporte técnico.
 2.  **Tú (La Agencia) le pones tu logo y tu precio.** Se lo vendes a tu cliente como un producto propio: "El Chatbot Inteligente de [Tu Agencia]".
 3.  **Tu cliente flipa.** Ve que su agencia le ha montado una tecnología puntera en días.
 4.  **Tú ganas dinero.** Cobras un setup inicial + una mensualidad recurrente, pagándonos a nosotros una fracción de eso.
@@ -3267,7 +3267,7 @@ No dejes que el tren pase. Súbete ahora que todavía hay hueco para ser el prim
         title: "Google Reviews en Piloto Automático: Mejora tu SEO Local y Reputación con IA",
         description: "¿Te cuesta responder a todas las reseñas de Google? Descubre cómo la IA puede gestionar tu reputación online, mejorar tu SEO local y convertir comentarios negativos en oportunidades.",
         date: "2026-02-06",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "7 min",
         category: "Automatización",
         image: "/blog/google-reviews-ia.png",
@@ -3372,7 +3372,7 @@ Automatizar esto es una de las inversiones más rentables y sencillas que puedes
         title: "Casas Rurales y Apartamentos: El conserje virtual que atiende a tus huéspedes 24/7",
         description: "Gestionar un alojamiento turístico es agotador. Descubre cómo la IA puede responder dudas, gestionar el check-in y mejorar la experiencia de tus huéspedes sin que tú muevas un dedo.",
         date: "2026-02-16",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Sector Turístico",
         image: "/blog/ia-casas-rurales.png",
@@ -3453,7 +3453,7 @@ El turismo ya no busca solo un sitio donde dormir, busca **facilidad y experienc
         title: "La Gestoría 24/7: Cómo la IA libera de carga administrativa a asesores y contables",
         description: "¿Tu gestoría está saturada de llamadas por el Modelo 111 o pedidos de certificados? Descubre cómo un asistente de IA puede gestionar el 80% de tus consultas administrativas.",
         date: "2026-02-16",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Sector Fiscal",
         image: "/blog/ia-gestorias.png",
@@ -3531,7 +3531,7 @@ El sector de la asesoría es uno de los que más va a cambiar con la IA. La preg
         title: "El fin del 'Pulse 1': Cómo los Agentes de Voz con IA están revolucionando las centralitas",
         description: "¿Cansado de los menús telefónicos infinitos? Descubre cómo los agentes de voz inteligentes pueden mantener conversaciones humanas, agendar citas y atender a tus clientes 24/7.",
         date: "2026-02-17",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "10 min",
         category: "Tecnología",
         image: "/blog/ia-voz.png",
@@ -3611,7 +3611,7 @@ El teléfono sigue siendo el canal más directo y personal de venta. No permitas
         title: "De Chatbots a Agentes Autónomos: El 'Empleado Digital' que ejecuta tareas por ti",
         description: "¿Y si tu IA no solo respondiera preguntas, sino que hiciera el trabajo? Descubre la revolución de los agentes autónomos y cómo cambiarán tu PYME en 2026.",
         date: "2026-02-18",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Automatización",
         image: "/blog/agentes-autonomos.png",
@@ -3674,7 +3674,7 @@ La tecnología ya está aquí. En IA4PYMES no creamos chats, creamos infraestruc
         title: "IA para Academias y Centros de Formación: El Tutor 24/7 que revoluciona la enseñanza",
         description: "Descubre cómo la IA puede automatizar matriculaciones, resolver dudas de alumnos y gestionar calendarios de clases de forma eficiente.",
         date: "2026-02-19",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "10 min",
         category: "Sector Formación",
         image: "/blog/ia-academias.png",
@@ -3748,7 +3748,7 @@ Delegar la gestión rutinaria en la IA no te aleja de tus alumnos; te permite es
         title: "E-commerce & Retail: El fin de los carritos abandonados con IA",
         description: "Descubre cómo los agentes de IA pueden recuperar ventas perdidas en tiempo real y recomendar productos de forma inteligente.",
         date: "2026-02-19",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "E-commerce",
         image: "/blog/ia-ecommerce.png",
@@ -3818,7 +3818,7 @@ El e-commerce de 2026 ya no se trata solo de tener un buen producto y publicidad
         title: "IA en Logística y Transporte: Adiós al picado manual de albaranes",
         description: "Descubre cómo la IA y el OCR están eliminando el trabajo manual en las oficinas de transporte, automatizando la entrada de datos y mejorando la trazabilidad.",
         date: "2026-02-20",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Logística",
         image: "/blog/ia-logistica.png",
@@ -3885,7 +3885,7 @@ La tecnología para digitalizar tu operativa sin complicaciones ya está aquí. 
         title: "Escudo contra Fraude de IA: Cómo proteger tu PYME de los Deepfakes en 2026",
         description: "El fraude por voz y vídeo será la mayor amenaza empresarial en 2026. Aprende a detectar engaños generados por IA y a blindar tus finanzas.",
         date: "2026-02-23",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "11 min",
         category: "Ciberseguridad",
         image: "/blog/ia-seguridad.png",
@@ -3956,7 +3956,7 @@ No dejes la seguridad de tu empresa al azar o a la "intuición" de tu equipo. Ev
         title: "IA para Reformas y Construcción: Presupuestos que no se enfrían y atención 24/7",
         description: "Descubre cómo los agentes de IA pueden atender a tus clientes, pedirles fotos de sus obras y agendar visitas mientras tú estás a pie de obra.",
         date: "2026-02-24",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "10 min",
         category: "Reformas y Construcción",
         image: "/blog/ia-construccion.png",
@@ -4026,7 +4026,7 @@ No dejes que tu negocio dependa de tu capacidad física para contestar llamadas.
         title: "Talleres Mecánicos: La IA como el Recepcionista 24/7 que tu taller necesita",
         description: "Descubre cómo automatizar la gestión de citas, la cualificación de averías y el seguimiento de reparaciones sin soltar la llave inglesa.",
         date: "2026-02-25",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Automoción",
         image: "/blog/ia-talleres.png",
@@ -4094,7 +4094,7 @@ Tu taller vive de la confianza y de la calidad de tus reparaciones. Delegar la m
         title: "Claude Cowork: De chatear con la IA a tener un empleado digital autónomo",
         description: "Descubre cómo Claude Cowork revoluciona la productividad permitiendo que la IA gestione tus archivos y procesos de forma autónoma.",
         date: "2026-02-25",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "11 min",
         category: "IA Generativa",
         image: "/blog/claude-cowork.jpg",
@@ -4163,7 +4163,7 @@ La automatización agente ha llegado para quedarse y Claude Cowork es la herrami
         title: "Claude vs. ChatGPT vs. Gemini: ¿Cuál es el motor que de verdad hará crecer tu PYME en 2026?",
         description: "No todas las IAs sirven para todo. Analizamos las fortalezas de los tres gigantes en 2026 para que elijas la mejor herramienta para cada área de tu empresa.",
         date: "2026-02-25",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "12 min",
         category: "Estrategia IA",
         image: "/blog/comparativa-ia.png",
@@ -4231,7 +4231,7 @@ No dejes que tus empleados pierdan horas "peleándose" con una IA que no es la a
         title: "La última locura de Anthropic: Qué es Claude Remote y por qué cambia las reglas del teletrabajo en 2026",
         description: "Anthropic acaba de lanzar Claude Remote (Remote Control para Claude Code). Descubre cómo esta nueva función permite trabajar desde cualquier dispositivo controlando tu ordenador local.",
         date: "2026-02-26",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "8 min",
         category: "Noticias IA",
         image: "/blog/claude-remote.png",
@@ -4299,7 +4299,7 @@ En IA4PYMES no solo implementamos chatbots; vivimos en la frontera de la innovac
         title: "Claude Code: La IA que programa por ti (y por qué tu PYME debería estar prestando atención)",
         description: "Claude Code de Anthropic ha pasado de asistente de código a agente autónomo capaz de desarrollar proyectos completos. Descubre qué es, por qué está revolucionando la programación y cómo las PYMES pueden aprovecharlo para competir con los grandes.",
         date: "2026-02-26",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "12 min",
         category: "Herramientas IA",
         image: "/blog/claude-code-revolucion.png",
@@ -4466,7 +4466,7 @@ En IA4PYMES no solo hablamos de estas tecnologías — **las usamos a diario par
         title: "MCP: El 'USB Universal' que conecta la IA con todo tu negocio (y que deberías conocer ya)",
         description: "El Model Context Protocol (MCP) es el estándar abierto que permite a la IA conectarse con cualquier herramienta o base de datos de tu empresa. Te explicamos qué es, por qué importa y cómo puede transformar tu PYME.",
         date: "2026-02-27",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "11 min",
         category: "Herramientas IA",
         image: "/blog/mcp-protocolo-ia.png",
@@ -4703,7 +4703,7 @@ En IA4PYMES diseñamos e implementamos soluciones de IA que se integran con las 
         title: "Anthropic regala un curso completo de Claude Code (y te explicamos por qué deberías hacerlo ahora mismo)",
         description: "Anthropic ha lanzado 'Claude Code in Action', un curso gratuito para aprender a usar su herramienta de programación con IA. Te contamos qué incluye, qué vas a aprender y por qué es una oportunidad que no deberías dejar pasar.",
         date: "2026-02-27",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "9 min",
         category: "Formación IA",
         image: "/blog/curso-claude-code-gratis.png",
@@ -4911,7 +4911,7 @@ En IA4PYMES te ayudamos a pasar de "sé usar Claude Code" a "mi empresa funciona
         title: "Trump vs Anthropic: La guerra por los límites éticos de la Inteligencia Artificial",
         description: "El Pentágono exige eliminar las barreras de seguridad de la IA para uso militar. Anthropic se niega, Trump reacciona prohibiendo su uso en el gobierno y OpenAI entra en escena. Análisis de la crisis que define el futuro de la IA.",
         date: "2026-02-28",
-        author: "I4PYMES",
+        author: "IA4PYMES",
         readingTime: "10 min",
         category: "Noticias IA",
         image: "/blog/trump-anthropic-seguridad-ia.png",
@@ -5018,3 +5018,4 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
 export function getAllPosts(): BlogPost[] {
     return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
+

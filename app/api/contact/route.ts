@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const emailSubject = `Nueva Consulta I4PYMES - ${company}`;
+    const emailSubject = `Nueva Consulta IA4PYMES - ${company}`;
 
     // Configuración del correo usando fetch nativo en lugar del SDK
     const response = await fetch("https://api.resend.com/emails", {
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         // IMPORTANTE: Resend requiere que el From sea de un dominio verificado o onboarding@resend.dev para pruebas
-        from: "I4PYMES Web <onboarding@resend.dev>",
+        from: "IA4PYMES Web <onboarding@resend.dev>",
         to: "alejandro@ia4pymes.tech",
         reply_to: email, // Permite contestar al lead directamente
         subject: emailSubject,

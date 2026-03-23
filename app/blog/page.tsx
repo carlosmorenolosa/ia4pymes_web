@@ -172,7 +172,7 @@ export default function BlogPage() {
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-8">
                     <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-bold tracking-widest uppercase">
                         <Terminal className="w-4 h-4" />
-                        <span>I4PYMES // BLOG_IA4PYMES_2026</span>
+                        <span>IA4PYMES // BLOG_IA4PYMES_2026</span>
                     </div>
                     <Link href="/" className="text-sm font-bold text-slate-400 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
                         Retornar al Core
@@ -182,3 +182,4 @@ export default function BlogPage() {
         </main>
     )
 }
+

@@ -118,7 +118,7 @@ export function CalendlyWidget() {
                 display: isLoading ? "none" : "block",
                 opacity: isLoading ? 0 : 1,
               }}
-              title="Agendar consulta gratuita con I4PYMES"
+              title="Agendar consulta gratuita con IA4PYMES"
             ></div>
           )}
         </div>

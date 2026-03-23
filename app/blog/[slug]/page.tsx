@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!post) {
         return {
-            title: "Post no encontrado | I4PYMES",
+            title: "Post no encontrado | IA4PYMES",
             description: "El artículo que buscas no existe."
         }
     }
 
     return {
-        title: `${post.title} | I4PYMES Blog`,
+        title: `${post.title} | IA4PYMES Blog`,
         description: post.description,
         openGraph: {
             title: post.title,
@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         }],
                         "publisher": {
                             "@type": "Organization",
-                            "name": "I4PYMES",
+                            "name": "IA4PYMES",
                             "logo": {
                                 "@type": "ImageObject",
                                 "url": "https://ia4pymes.tech/LOGO.png"
@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
-                                <span className="font-black text-white text-xl leading-none">I4</span>
+                                <span className="font-black text-white text-xl leading-none">IA4</span>
                             </div>
                             <div>
                                 <p className="font-black text-white text-sm uppercase tracking-tight">{post.author}</p>
@@ -247,7 +247,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
                     <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
                         <Terminal className="w-5 h-5" />
-                        <span>I4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
+                        <span>IA4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
                     <div className="flex items-center gap-10">
                         <Link href="/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
