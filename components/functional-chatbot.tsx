@@ -28,14 +28,18 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
   const [isFocused, setIsFocused] = useState(false)
-  const [showGreeting, setShowGreeting] = useState(false)
 
   useEffect(() => {
+    // Advanced CTA: Second automated message after 6 seconds
     const timer = setTimeout(() => {
-      if (messages.length === 1) { // Only show if user hasn't started talking
-        setShowGreeting(true)
+      if (messages.length === 1) {
+        const welcomeFollowup: Message = {
+          sender: "PymerIA",
+          content: "¿Te gustaría ver cómo podemos **ahorrarte más de 20 horas semanales** con una IA a medida? Pruébame escribiendo tu sector abajo. 👇",
+        }
+        setMessages(prev => [...prev, welcomeFollowup])
       }
-    }, 5000)
+    }, 6000)
     return () => clearTimeout(timer)
   }, [messages.length])
 
@@ -150,18 +154,6 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
       role="complementary"
       aria-label="Ejemplo de conversación con asistente IA"
     >
-      {/* Proactive Greeting CTA */}
-      {showGreeting && messages.length === 1 && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="absolute -top-12 left-1/2 -translate-x-1/2 w-full max-w-[200px] z-50 pointer-events-none"
-        >
-          <div className="bg-blue-600 text-white text-[10px] sm:text-xs font-bold py-2 px-3 rounded-2xl shadow-lg relative after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-8 after:border-transparent after:border-t-blue-600">
-            ¿Cómo puedo optimizar tus procesos hoy? 🚀
-          </div>
-        </motion.div>
-      )}
 
       <div className={`flex items-center justify-between ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
         <div className="flex items-center">
@@ -262,7 +254,9 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
         )}
       </div>
 
-      <div className="mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl focus-within:ring-2 focus-within:ring-blue-500/20 transition-all">
+      <div className={`mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl transition-all ${
+        messages.length === 2 && !isFocused ? "ring-2 ring-blue-500/30 shadow-[0_0_15px_rgba(37,99,235,0.2)] animate-pulse" : "focus-within:ring-2 focus-within:ring-blue-500/20"
+      }`}>
         <Input
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
@@ -270,7 +264,6 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
           onFocus={() => {
             setIsFocused(true)
-            setShowGreeting(false)
           }}
           onBlur={() => setIsFocused(false)}
           className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm h-10"
