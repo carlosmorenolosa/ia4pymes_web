@@ -18,40 +18,44 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
   const [messages, setMessages] = useState<Message[]>([])
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [isInitialTyping, setIsInitialTyping] = useState(false)
+  const [isInitialTyping, setIsInitialTyping] = useState(true)
   const [isFocused, setIsFocused] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    // Stage 1: Start typing after 1s
-    const t1 = setTimeout(() => setIsInitialTyping(true), 800)
-    
-    // Stage 2: First high-impact CTA after 3s
-    const t2 = setTimeout(() => {
+    // Stage 1: First high-impact CTA after a longer typing period (4s)
+    const t1 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages([{ 
         sender: "PymerIA", 
         content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
       }]);
-    }, 2800)
+    }, 4000)
 
-    // Stage 3: Second typing block after 4.5s
-    const t3 = setTimeout(() => setIsInitialTyping(true), 4800)
+    // Stage 2: Second typing block starts shortly after first message (5.5s total)
+    const t2 = setTimeout(() => {
+      if (messages.length <= 1) setIsInitialTyping(true)
+    }, 5500)
 
-    // Stage 4: Second direct CTA after 7s
-    const t4 = setTimeout(() => {
+    // Stage 3: Second direct CTA after more typing (9s total)
+    const t3 = setTimeout(() => {
       setIsInitialTyping(false);
-      setMessages(prev => [...prev, { 
-        sender: "PymerIA", 
-        content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇" 
-      }]);
-    }, 7000)
+      setMessages(prev => {
+        if (prev.length === 1) {
+          return [...prev, { 
+            sender: "PymerIA", 
+            content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇" 
+          }]
+        }
+        return prev
+      });
+    }, 9000)
 
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
-      clearTimeout(t4)
     }
   }, [])
 
