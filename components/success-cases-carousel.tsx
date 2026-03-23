@@ -116,7 +116,7 @@ export const SuccessCasesCarousel = () => {
   }
 
   return (
-    <div className="relative max-w-5xl mx-auto py-16 px-8" style={{ zIndex: 100 }}>
+    <div className="relative max-w-5xl mx-auto py-12 sm:py-16 px-4 sm:px-8" style={{ zIndex: 100 }}>
       <div className="relative" style={{ zIndex: 100 }}>
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -125,7 +125,7 @@ export const SuccessCasesCarousel = () => {
           {successCases.map((case_, index) => {
             const IconComponent = case_.icon
             return (
-              <div key={index} className="w-full flex-shrink-0 px-8 sm:px-12">
+              <div key={index} className="w-full flex-shrink-0 px-4 sm:px-12">
                 <div className="mx-auto max-w-3xl" style={{ zIndex: 1000 }}>
                   <TiltCard className="relative" style={{ zIndex: 1000 }}>
                     <div

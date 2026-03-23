@@ -14,34 +14,46 @@ interface Message {
   content: string
 }
 
-const sampleMessages: Message[] = [
-  {
-    sender: "PymerIA",
-    content: "¡Hola! 👋 ¿Qué tareas repetitivas te quitan más tiempo cada día?",
-  },
-]
-
 export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?: boolean, onInteractionChange?: (active: boolean) => void }) {
-  const [messages, setMessages] = useState<Message[]>(sampleMessages)
+  const [messages, setMessages] = useState<Message[]>([])
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isInitialTyping, setIsInitialTyping] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
-  const [isFocused, setIsFocused] = useState(false)
-
   useEffect(() => {
-    // Advanced CTA: Second automated message after 6 seconds
-    const timer = setTimeout(() => {
-      if (messages.length === 1) {
-        const welcomeFollowup: Message = {
-          sender: "PymerIA",
-          content: "¿Te gustaría ver cómo podemos **ahorrarte más de 20 horas semanales** con una IA a medida? Pruébame escribiendo tu sector abajo. 👇",
-        }
-        setMessages(prev => [...prev, welcomeFollowup])
-      }
-    }, 6000)
-    return () => clearTimeout(timer)
-  }, [messages.length])
+    // Stage 1: Start typing after 1s
+    const t1 = setTimeout(() => setIsInitialTyping(true), 800)
+    
+    // Stage 2: First high-impact CTA after 3s
+    const t2 = setTimeout(() => {
+      setIsInitialTyping(false);
+      setMessages([{ 
+        sender: "PymerIA", 
+        content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
+      }]);
+    }, 2800)
+
+    // Stage 3: Second typing block after 4.5s
+    const t3 = setTimeout(() => setIsInitialTyping(true), 4800)
+
+    // Stage 4: Second direct CTA after 7s
+    const t4 = setTimeout(() => {
+      setIsInitialTyping(false);
+      setMessages(prev => [...prev, { 
+        sender: "PymerIA", 
+        content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇" 
+      }]);
+    }, 7000)
+
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+      clearTimeout(t4)
+    }
+  }, [])
 
   useEffect(() => {
     // Determine active interaction: input is focused AND we aren't waiting for a response.
@@ -227,24 +239,24 @@ export function FunctionalChatbot({ is3D = false, onInteractionChange }: { is3D?
           </motion.div>
         ))}
 
-        {isLoading && (
+        {(isLoading || isInitialTyping) && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             className="text-left"
           >
-            <div className="inline-block p-3 sm:p-4 rounded-xl sm:rounded-2xl rounded-bl-sm shadow-sm max-w-xs sm:max-w-sm bg-gradient-to-r from-blue-100 to-blue-50">
+            <div className="inline-block p-3 sm:p-4 rounded-[1.25rem] rounded-tl-none shadow-sm max-w-xs sm:max-w-sm bg-gradient-to-br from-blue-50 to-white border border-blue-50">
               <div className="flex items-center space-x-2">
-                <span className="text-slate-800 text-xs sm:text-sm">PymerIA está pensando</span>
+                <span className="text-slate-800 text-xs sm:text-sm font-medium">PymerIA está escribiendo</span>
                 <div className="flex space-x-1">
-                  <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-600 rounded-full animate-pulse"></div>
+                  <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
                   <div
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-600 rounded-full animate-pulse"
+                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                   <div
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-600 rounded-full animate-pulse"
+                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"
                     style={{ animationDelay: "0.4s" }}
                   ></div>
                 </div>

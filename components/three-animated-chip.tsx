@@ -7,7 +7,7 @@ export function ThreeAnimatedChip() {
     <div className="w-full flex items-center justify-center p-4 lg:p-8 pointer-events-auto">
       {/* 3D Perspective Wrapper */}
       <div 
-        className="relative w-[340px] h-[480px] sm:w-[380px] sm:h-[540px]"
+        className="relative w-[280px] h-[400px] xs:w-[320px] xs:h-[450px] sm:w-[380px] sm:h-[540px]"
         style={{
           perspective: "2000px", 
         }}
