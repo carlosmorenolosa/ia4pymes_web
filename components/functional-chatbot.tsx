@@ -39,24 +39,24 @@ export function FunctionalChatbot({
 
     setIsInitialTyping(true);
 
-    // Stage 1: First high-impact CTA after a longer typing period (4s)
+    // Stage 1: First high-impact CTA after a longer typing period (3s)
     const t1 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages([{ 
         sender: "PymerIA", 
         content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
       }]);
-    }, 4000)
+    }, 3000)
 
-    // Stage 2: Second typing block starts shortly after first message (5.5s total)
+    // Stage 2: Second typing block starts shortly after first message (4.5s total)
     const t2 = setTimeout(() => {
       setMessages(prev => {
         if (prev.length === 1) setIsInitialTyping(true)
         return prev
       })
-    }, 5500)
+    }, 4500)
 
-    // Stage 3: Second direct CTA after more typing (9s total)
+    // Stage 3: Second direct CTA after more typing (8s total)
     const t3 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages(prev => {
@@ -68,7 +68,7 @@ export function FunctionalChatbot({
         }
         return prev
       });
-    }, 9000)
+    }, 8000)
 
     return () => {
       clearTimeout(t1)
