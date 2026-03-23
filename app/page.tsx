@@ -122,18 +122,18 @@ export default function Home() {
             isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent"
           }`}
         >
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center relative">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
             {/* Logo Section - Top Left, No Container */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="absolute left-4 sm:left-6 pointer-events-auto"
+              className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
             >
               <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
                 <div className="flex items-center relative tracking-[-0.04em]">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-blue-600">IA</span>
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900">4</span>
+                  <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
+                  <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
             </motion.div>
@@ -143,7 +143,7 @@ export default function Home() {
               initial={{ opacity: 0, y: -20 }}
               animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto" aria-label="Navegación principal"
+              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10" aria-label="Navegación principal"
             >
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
@@ -661,7 +661,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="space-y-6"
+                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <Link href="/" className="inline-flex items-center group">
                   <div className="flex items-center relative tracking-tighter">
@@ -685,7 +685,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="space-y-6"
+                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
                 <ul className="space-y-4">
@@ -710,7 +710,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="space-y-6"
+                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
                 <ul className="space-y-4">
@@ -735,17 +735,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="space-y-6"
+                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
                 <div className="space-y-4">
-                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
+                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
                     <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
                       <Mail className="w-4 h-4" />
                     </div>
                     <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
                   </a>
-                  <div className="flex items-center gap-4 pt-2">
+                  <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
                     <a href="https://www.linkedin.com/in/alejandro-picallo-galante-543557324/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
                       <Linkedin className="w-5 h-5" />
                     </a>
