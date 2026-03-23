@@ -201,23 +201,35 @@ export default function Home() {
               </div>
             </motion.nav>
 
-            {/* Mobile Menu Overlay */}
-            {mobileMenuOpen && (
-              <div className="md:hidden fixed inset-0 bg-white z-[9999] animate-in slide-in-from-top duration-300 pt-24 px-6 flex flex-col gap-6 items-center pointer-events-auto">
-                <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 p-2 text-slate-800 bg-slate-100 rounded-full">
-                   <X className="w-6 h-6" />
-                </button>
-                <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Proceso</Link>
-                <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Casos de Éxito</Link>
-                <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Calculadora</Link>
-                <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-800 tracking-tight">Blog</Link>
-                <Link href="#contacto" onClick={() => setMobileMenuOpen(false)} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full text-base font-medium transition-all text-white bg-blue-600 px-6 py-3 w-full max-w-xs shadow-md">
-                  Diagnóstico Gratuito
-                </Link>
-              </div>
-            )}
           </div>
         </header>
+
+        {/* Mobile Menu Overlay - Moved outside header for a completely solid background */}
+        {mobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
+            <button 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
+              aria-label="Cerrar menú"
+            >
+               <X className="w-7 h-7" />
+            </button>
+            <div className="w-full flex flex-col gap-4 items-center">
+              <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Proceso</Link>
+              <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Casos de Éxito</Link>
+              <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Calculadora</Link>
+              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Blog</Link>
+            </div>
+            <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
+            <Link 
+              href="#contacto" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
+            >
+              Diagnóstico Gratuito
+            </Link>
+          </div>
+        )}
 
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
