@@ -114,15 +114,7 @@ export default function Home() {
     <>
       <SplashScreen onComplete={() => setSplashFinished(true)} />
       
-      {/* Skip to main content para accesibilidad */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50"
-      >
-        Saltar al contenido principal
-      </a>
-
-      <main id="main-content" className="bg-transparent">
+      <main className="bg-transparent">
 
         {/* Navigation - Moved outside of section to remain globally fixed */}
         <header 
