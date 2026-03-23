@@ -410,7 +410,7 @@ export default function Home() {
         >
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
               <FadeIn delay={0.1}>
-                <header className="text-center mb-16 sm:mb-20">
+                <header className="text-center mb-10 sm:mb-14">
                   <h2
                     id="process-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
@@ -424,7 +424,7 @@ export default function Home() {
               </FadeIn>
 
               <div
-                className="max-w-4xl mx-auto space-y-16 sm:space-y-24 relative"
+                className="max-w-4xl mx-auto space-y-10 sm:space-y-14 relative"
                 itemScope
                 itemType="https://schema.org/HowTo"
               >
