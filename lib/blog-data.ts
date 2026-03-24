@@ -12,6 +12,69 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "claude-computer-use-cowork-code-macos-autonomia-pymes",
+        title: "Claude ya sabe usar tu ordenador: La nueva era de la autonomía total en macOS",
+        description: "Anthropic ha habilitado la capacidad de que Claude abra aplicaciones, navegue por Chrome y rellene hojas de cálculo por ti. Analizamos qué significa esta revolución para la productividad de las PYMES en 2026.",
+        date: "2026-03-24",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Herramientas IA",
+        image: "/blog/claude-computer-use-macos.png",
+        content: `
+La frontera entre "un chat que te da consejos" y "un empleado que hace el trabajo" se ha vuelto casi invisible. Anthropic acaba de lanzar una de las funcionalidades más esperadas de 2026: **Computer Use** (Uso de Ordenador).
+
+Ya no se trata de que Claude redacte un correo; se trata de que Claude **abra tu aplicación de correo, busque la información necesaria en tu navegador, rellene una tabla de Excel y envíe el reporte**, todo esto navegando por tu sistema operativo como si él mismo estuviera sentado frente al teclado.
+
+---
+
+## ¿Qué es exactamente "Computer Use" en Claude?
+
+Esta nueva funcionalidad, disponible inicialmente como un *research preview* para usuarios de macOS en las plataformas **Claude Cowork** y **Claude Code**, permite al modelo de IA interactuar directamente con la interfaz de tu ordenador.
+
+A diferencia de las integraciones tradicionales que requieren una API para cada programa, Claude ahora puede:
+- **Ver la pantalla:** Entiende visualmente qué botones hay, dónde están los campos de texto y qué aplicaciones están abiertas.
+- **Mover el ratón y teclear:** Ejecuta clics, arrastra archivos y escribe datos directamente en tus apps locales.
+- **Navegar por la red:** Abre Chrome o Safari para buscar datos que no están en su memoria y los integra en tu flujo de trabajo local.
+
+---
+
+## Claude Cowork: Tu nuevo "Co-trabajador" de escritorio
+
+Para las PYMES, la herramienta clave es **Claude Cowork**. Imagina darle acceso a Claude a una carpeta específica de tu negocio y decirle: *"Revisa estas 50 facturas en PDF, busca los datos de los proveedores en nuestra hoja de cálculo de proveedores en Excel, y si falta alguno, búscalo en LinkedIn y actualiza la fila correspondiente"*.
+
+Antes, esto requería un empleado dedicado durante horas o un programador experto en automatizaciones complejas. Hoy, Claude lo hace en minutos viendo tu pantalla.
+
+### Características destacadas para PYMES:
+1. **Dispatch (Control remoto):** Puedes asignar tareas a tu ordenador desde tu móvil mientras estás fuera de la oficina, y Claude las ejecutará en tu equipo de sobremesa.
+2. **Conectores directos:** Claude prioriza usar conexiones seguras con Slack o Google Calendar, pero si no existen, simplemente "usa" la interfaz gráfica como lo harías tú.
+3. **Control local:** El trabajo ocurre en tu entorno, bajo tu supervisión visual.
+
+---
+
+## Claude Code: Automatización para el desarrollo
+
+Si tu empresa desarrolla software o gestiona infraestructura técnica, **Claude Code** lleva esto al siguiente nivel. Con el nuevo modelo **Opus 4.6** y su ventana de contexto de 1 millón de tokens, Claude puede navegar por bases de código enteras, abrir terminales, ejecutar tests y corregir errores de forma autónoma.
+
+---
+
+## ¿Está preparada mi PYME para esto?
+
+Es importante recordar que esta tecnología está en fase de **Research Preview** y, por ahora, solo para **macOS**. Sin embargo, es el indicador más claro de hacia dónde va el mundo:
+
+- **Soberanía operativa:** El hardware de tu oficina vuelve a ser el centro de la acción.
+- **Adiós a las tareas "puente":** Esas tareas aburridas de mover datos de una ventana a otra tienen los días contados.
+- **Productividad masiva:** Una sola persona puede supervisar a varios "Claudes" ejecutando procesos administrativos complejos en paralelo.
+
+---
+
+## Conclusión: El inicio de la IA "de manos libres"
+
+En **IA4PYMES**, ya estamos probando las primeras implementaciones de Claude Cowork para automatizar back-office. La capacidad de que la IA "toque" los programas que ya usas, sin tener que cambiarlos, es el cambio de paradigma que el sector empresarial necesitaba.
+
+¿Tu equipo usa Mac y quieres empezar a delegar tareas al ordenador? Es el momento de configurar tu entorno para la IA de manos libres.
+`
+    },
+    {
         slug: "certificacion-oficial-anthropic-claude-architect-foundations",
         title: "Llega la Certificación Oficial de Anthropic: ¿Está tu equipo preparado para el examen de arquitectura de Claude más exigente?",
         description: "Anthropic ha lanzado su primera credencial técnica: Claude Certified Architect, Foundations. Un examen de 60 preguntas y 2 horas con proctirizado por cámara que separa a los aficionados de los verdaderos expertos en arquitectura IA.",
