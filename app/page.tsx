@@ -259,7 +259,7 @@ export default function Home() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">5 transformaciones exitosas</strong> garantizan nuestro impacto real mediante automatización.
+                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
                   </motion.p>
 
                   <motion.div
