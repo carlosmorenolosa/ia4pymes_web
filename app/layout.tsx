@@ -135,7 +135,11 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressCountry: "ES",
               },
-              sameAs: ["https://linkedin.com/company/ia4pymes", "https://twitter.com/ia4pymes"],
+              sameAs: [
+                "https://linkedin.com/company/ia4pymes", 
+                "https://twitter.com/ia4pymes",
+                "https://www.facebook.com/profile.php?id=61560704600913"
+              ],
               offers: {
                 "@type": "Offer",
                 name: "Consulta Gratuita de IA",

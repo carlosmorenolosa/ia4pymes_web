@@ -21,6 +21,7 @@ import {
   Instagram,
   Linkedin,
   Youtube,
+  Facebook,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -757,17 +758,20 @@ export default function Home() {
                     </div>
                     <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
                   </a>
-                  <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="https://www.linkedin.com/in/alejandro-picallo-galante-543557324/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                  </div>
+                    <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
+                      <a href="https://www.linkedin.com/in/alejandro-picallo-galante-543557324/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                      <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Facebook">
+                        <Facebook className="w-5 h-5" />
+                      </a>
+                      <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                      <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
+                        <Youtube className="w-5 h-5" />
+                      </a>
+                    </div>
                 </div>
               </motion.div>
             </div>
