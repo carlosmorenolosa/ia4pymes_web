@@ -12,6 +12,53 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "openai-cierra-sora-cambio-estrategia-ia-negocios",
+        title: "OpenAI cierra Sora: El fin del 'hype' del vídeo y el giro total hacia la IA de negocios",
+        description: "OpenAI sorprende al mundo cancelando su modelo de vídeo Sora en marzo de 2026. Analizamos por qué esto no es un fracaso, sino un movimiento maestro para centrar todos sus recursos en GPT-5 y la IA que realmente factura.",
+        date: "2026-03-27",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Noticias IA",
+        image: "/blog/openai-sora-shutdown-strategy.png",
+        content: `
+La noticia ha caído como un jarro de agua fría en la industria del contenido digital: **OpenAI ha anunciado el cierre definitivo de Sora**, su revolucionario modelo de generación de vídeo, este marzo de 2026. 
+
+Lo que hace apenas un año parecía el futuro inevitable del cine y la publicidad, hoy se convierte en una nota a pie de página en la historia de la compañía dirigida por Sam Altman. Pero, ¿por qué cerrar la herramienta que dejó a todo el mundo boquiabierto? La respuesta es una lección de estrategia empresarial pura para cualquier PYME.
+
+---
+
+## ¿Por qué ha muerto Sora? Las 4 razones clave
+
+### 1. El coste inasumible del vídeo
+Generar vídeo hiperrealista requiere una cantidad de potencia de computación (GPUs) obscena. OpenAI ha echado cuentas: el coste de mantener Sora activo no se compensaba con los ingresos que generaba. En un mercado que exige rentabilidad, el vídeo era un "quemador de dinero" que no pasaba la prueba del ROI.
+
+### 2. El giro hacia la "IA que trabaja"
+OpenAI está ejecutando un pivot estratégico masivo. Han decidido dejar el entretenimiento y el contenido visual a gigantes como Google (con Veo) o Meta, para centrarse en lo que ellos llaman la **IA de Utilidad**: herramientas de codificación, agentes autónomos y procesos de negocio. Quieren que OpenAI sea el motor de tu oficina, no de tu estudio de cine.
+
+### 3. El muro de la regulación y el copyright
+Sora se enfrentaba a un campo de minas legal. Desde las leyes contra los *deepfakes* hasta las demandas de estudios de Hollywood por el uso de sus datos para entrenamiento, el riesgo legal era simplemente demasiado alto para una empresa que busca una salida a bolsa o una estabilidad corporativa total.
+
+### 4. Concentración total en GPT-5
+Cada GPU que OpenAI usaba para renderizar un vídeo de un gato volando era una GPU menos para entrenar **GPT-5**. La compañía ha decidido apostar todo al "cerebro central". Prefieren tener el modelo lingüístico más inteligente del mundo que el mejor generador de vídeos.
+
+---
+
+## ¿Qué significa esto para tu PYME?
+
+Si estabas esperando a Sora para automatizar tus anuncios de vídeo, no te preocupes. Otros como **Runway, Luma o Google Veo** siguen adelante. Lo que este cierre te enseña es que **el valor real de la IA en 2026 no está en los fuegos artificiales visuales, sino en la eficiencia operativa.**
+
+El hecho de que OpenAI prefiera invertir en agentes que "entienden y hacen" (como hemos visto con sus últimas actualizaciones de código) refuerza nuestra tesis en **IA4PYMES**: la IA ganadora es la que te ahorra tiempo en tareas administrativas, ventas y gestión de datos.
+
+---
+
+## Conclusión: Menos Hollywood, más Productividad
+
+El cierre de Sora marca el final de la era de la "IA como espectáculo" y el inicio de la era de la "IA como infraestructura". Para los dueños de negocio, esto es una buena noticia: significa que los recursos de las grandes tecnológicas se están volcando en hacer que los modelos que usamos a diario (como GPT) sean más rápidos, baratos y fiables.
+
+En **IA4PYMES** seguimos de cerca este cambio de rumbo para asegurar que las herramientas que implementamos en tu empresa no sean solo "bonitas", sino estructuralmente rentables.
+`
+    },
+    {
         slug: "google-turboquant-compresion-ia-extrema-ahorro-costes-pymes",
         title: "Google TurboQuant: La tecnología de compresión extrema que va a desplomar el precio de la IA para tu empresa",
         description: "Google presenta TurboQuant, un sistema que reduce 6 veces el consumo de memoria de la IA y la acelera hasta 8 veces sin perder precisión. Descubre cómo esto permitirá a las PYMES ejecutar modelos gigantes en hardware doméstico.",
