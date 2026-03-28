@@ -12,6 +12,62 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "claude-mythos-capybara-filtracion-modelo-anthropic-superior-opus",
+        title: "Filtración en Anthropic: Todo sobre 'Claude Mythos', el nuevo modelo que superará a Opus",
+        description: "Un descuido técnico en Anthropic ha dejado al descubierto detalles de 'Mythos' (o Capybara), un modelo de IA con capacidades de ciberseguridad y razonamiento que dejarán atrás a Claude 4.6 Opus.",
+        date: "2026-03-28",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Noticias IA",
+        image: "/blog/claude-mythos-leak-anthropic.png",
+        content: `
+El mundo de la Inteligencia Artificial acaba de vivir uno de sus momentos más tensos de 2026. Un error humano en la configuración del sistema de contenidos de **Anthropic** ha expuesto accidentalmente casi 3.000 archivos internos, revelando la existencia de un nuevo "supermodelo" que hasta ahora se mantenía en estricto secreto.
+
+Los documentos filtrados se refieren a este modelo con dos nombres en clave: **"Claude Mythos"** y **"Capybara"**. Todo apunta a que estamos ante un nuevo nivel de inteligencia que se situará por encima de la actual línea "Opus", convirtiéndose en el cerebro más potente jamás creado por la compañía.
+
+---
+
+## ¿Qué es Claude Mythos y por qué debería importarte?
+
+Según los borradores de blog filtrados, Mythos no es una actualización menor. Es un **salto generacional** diseñado para tareas de una complejidad extrema que los modelos actuales apenas pueden rozar.
+
+### 1. Un nuevo escalón en el razonamiento
+Mythos muestra puntuaciones "dramáticamente superiores" en razonamiento académico y resolución de problemas matemáticos complejos. Si Claude Opus 4.6 ya era el estándar de oro en redacción y lógica, Mythos promete ser la herramienta definitiva para la investigación científica y la estrategia empresarial de alto nivel.
+
+### 2. Capacidades de ciberseguridad "preocupantes"
+Este es el punto que más ha hecho saltar las alarmas. Los documentos internos advierten que la capacidad de Mythos para encontrar y explotar vulnerabilidades en software es tan avanzada que Anthropic ha decidido retrasar su lanzamiento público. La empresa teme que el modelo pueda ser utilizado para ataques cibernéticos de una sofisticación nunca vista.
+
+### 3. El modelo más costoso de operar
+La filtración también revela que Mythos es increíblemente intensivo en computación. Esto significa que, inicialmente, será un modelo caro y exclusivo, probablemente reservado para grandes corporaciones y organizaciones de defensa antes de llegar al gran público.
+
+---
+
+## La respuesta de Anthropic: "Error humano y cautela"
+
+Anthropic ha confirmado la veracidad de la filtración, atribuyéndola a una mala configuración técnica que dejó archivos en borrador accesibles públicamente. Sin embargo, su mensaje es de **cautela extrema**. 
+
+Han asegurado que el modelo ya está siendo probado por un grupo muy reducido de clientes de confianza (principalmente en el sector de la ciberdefensa) para ayudar a construir "escudos" antes de que la propia IA pueda ser usada como "espada".
+
+---
+
+## ¿Qué significa esto para tu PYME?
+
+Aunque Claude Mythos parezca algo lejano o exclusivo, su existencia marca el ritmo de lo que vendrá a finales de 2026:
+
+- **Estandarización de la potencia:** Lo que hoy es "Mythos", en 12 meses será la tecnología que mueva los asistentes de tu oficina de forma barata.
+- **Urgencia en seguridad:** Si los modelos de IA ahora pueden detectar fallos de seguridad de forma autónoma, tu PYME necesita revisar sus infraestructuras digitales cuanto antes.
+- **IA como consultor estratégico:** Mythos abre la puerta a que la IA no solo haga tareas, sino que diseñe planes de negocio completos con una lógica infalible.
+
+---
+
+## Conclusión: El futuro se acelera
+
+En **IA4PYMES** estamos monitorizando de cerca cada detalle de esta filtración. La llegada de Mythos confirma que la carrera por la Inteligencia General Artificial (AGI) no se ha frenado, sino que se está moviendo hacia terrenos de una potencia que todavía nos cuesta imaginar.
+
+Si quieres que tu empresa esté preparada para cuando estas "super-inteligencias" aterricen, el momento de sentar las bases es ahora.
+`
+    },
+    {
         slug: "openai-cierra-sora-cambio-estrategia-ia-negocios",
         title: "OpenAI cierra Sora: El fin del 'hype' del vídeo y el giro total hacia la IA de negocios",
         description: "OpenAI sorprende al mundo cancelando su modelo de vídeo Sora en marzo de 2026. Analizamos por qué esto no es un fracaso, sino un movimiento maestro para centrar todos sus recursos en GPT-5 y la IA que realmente factura.",
