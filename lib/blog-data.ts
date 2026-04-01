@@ -12,6 +12,59 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "filtracion-codigo-fuente-claude-code-anthropic-lecciones-pymes",
+        title: "Filtrado el código de Claude Code: Secretos, mascotas virtuales y lo que revela sobre el futuro de la IA",
+        description: "Un error humano en Anthropic ha dejado al descubierto 512.000 líneas de código de su herramienta estrella. Analizamos qué había dentro de 'Claude Code' y qué lecciones de seguridad puede aprender tu PYME de este descuido millonario.",
+        date: "2026-04-01",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Noticias IA",
+        image: "/blog/claude-code-leak-secrets.png",
+        content: `
+Ayer, 31 de marzo de 2026, la comunidad tecnológica se despertó con un "regalo" inesperado: **el código fuente completo de Claude Code**, la potente herramienta de Anthropic para desarrolladores, fue filtrado accidentalmente. 
+
+No fue un hackeo sofisticado ni un ataque de estado; fue un error de empaquetado. Un desarrollador de Anthropic incluyó por error archivos de "mapeo de código" (.map) en una actualización pública, permitiendo a cualquiera reconstruir el código TypeScript original. Medio millón de líneas de código quedaron expuestas.
+
+En **IA4PYMES** hemos analizado el contenido de la filtración para entender qué estaban ocultando y qué significa esto para la industria.
+
+---
+
+## Lo que el código reveló (y que no sabíamos)
+
+La filtración ha sido una "radiografía" fascinante de cómo se construye una IA de élite hoy en día. Estos son los hallazgos más sorprendentes:
+
+### 1. "Kairos": El agente que nunca duerme
+El código contiene referencias a una funcionalidad oculta llamada **Kairos**. Se trata de un agente que funciona en segundo plano, consolidando la memoria de tus proyectos incluso cuando no estás trabajando. Básicamente, una IA que "piensa" en tus problemas mientras tú duermes.
+
+### 2. "Buddy": Mascotas virtuales para programadores
+Sorprendentemente, Anthropic estaba trabajando en un sistema de **mascotas digitales (Buddies)** dentro de la terminal. Diferentes especies, rarezas y personalidades que acompañan al desarrollador. Un toque humano (y algo nostálgico al estilo Tamagotchi) en una herramienta puramente técnica.
+
+### 3. "Undercover Mode": Borrando el rastro de la IA
+Una de las funciones más polémicas descubiertas es el **Undercover Mode**, diseñado para limpiar cualquier metadato que indique que un código ha sido escrito por una IA antes de subirlo a repositorios públicos. Esto plantea dilemas éticos profundos sobre la autoría del software en 2026.
+
+### 4. Guerra de datos: "Poisoning" preventivo
+El código revela que Anthropic inserta datos "envenenados" o marcas de agua invisibles en sus salidas para evitar que otras empresas (como su competencia) usen las respuestas de Claude para entrenar sus propios modelos (destilación).
+
+---
+
+## 3 Lecciones críticas para tu PYME
+
+Si a un gigante como Anthropic, valorado en decenas de miles de millones, le puede pasar esto, a tu empresa también. He aquí las lecciones de este error:
+
+1.  **El error humano es el riesgo #1:** No importa cuántos cortafuegos tengas; un solo clic equivocado en un proceso de publicación puede exponer todo tu valor intelectual. Implementar procesos de revisión cruzada en IT no es burocracia, es supervivencia.
+2.  **La arquitectura modular es el futuro:** Lo más impresionante de Claude Code es su sistema de "coordinadores de agentes". No es una sola IA haciendo todo, sino una orquesta de pequeñas IAs especializadas. Este es el modelo que debemos seguir en los negocios.
+3.  **Tus secretos técnicos son temporales:** Si tu única ventaja competitiva es un algoritmo "secreto", tienes un problema. La ventaja real en 2026 es el **servicio, la marca y el despliegue**, porque el código, tarde o temprano, acaba siendo visible.
+
+---
+
+## Conclusión: Transparencia forzada
+
+La filtración de Claude Code es un recordatorio de que vivimos en una era de cristal. En **IA4PYMES**, nos quedamos con la parte positiva: ver los entresijos de esta herramienta nos confirma que la IA agéntica es mucho más sofisticada de lo que parece en la superficie.
+
+El incidente ya ha sido controlado por Anthropic, pero el conocimiento ya está en la calle. ¿Quieres saber cómo aplicar estas arquitecturas de agentes descubiertas en tu propia infraestructura de forma segura? **Hablemos.**
+`
+    },
+    {
         slug: "privacidad-vs-innovacion-ia-cumbre-iapp-2026",
         title: "Privacidad vs. Innovación: Lo que la PYME debe aprender de la Cumbre Global de IAPP 2026",
         description: "Desde Washington D.C., la cumbre de privacidad más importante del mundo lanza un mensaje claro: en 2026, la transparencia no es una opción legal, es tu mejor ventaja competitiva.",
