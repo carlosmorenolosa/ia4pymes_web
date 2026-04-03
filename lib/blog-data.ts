@@ -12,6 +12,88 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "tutorial-instalar-gemma-4-local-ollama-pymes",
+        title: "Tutorial: Cómo instalar Gemma 4 en tu propio ordenador con Ollama (Paso a Paso)",
+        description: "Aprende a ejecutar el nuevo modelo abierto de Google directamente en tu equipo. Garantiza la privacidad de tus datos, evita costes de suscripción y descubre qué versión necesitas según tu hardware.",
+        date: "2026-04-03",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Tutoriales",
+        image: "/blog/gemma-4-ollama-tutorial.png",
+        content: `
+Tras el impactante lanzamiento de **Gemma 4** por parte de Google bajo licencia *Apache 2.0* (completamente abierto para uso comercial), la gran pregunta es: ¿Cómo puedo poner a trabajar esta IA en mi empresa hoy mismo?
+
+La respuesta es la "IA Local". Al ejecutar el modelo en tu propia máquina usando **Ollama**, consigues tres cosas que la nube no te da: **Privacidad absoluta** (ideal para RGPD), **Latencia cero** y **Ahorro total** en suscripciones.
+
+En este tutorial vamos a explicarte desde cero cómo instalar Gemma 4 en tu ordenador, sea Mac, Windows o Linux.
+
+---
+
+## 1. Requisitos: ¿Qué versión de Gemma 4 debes elegir?
+
+Gemma 4 no es un solo modelo, es una familia. Dependiendo de la memoria RAM de tu equipo y de si tienes una tarjeta gráfica (GPU) dedicada, debes elegir uno u otro:
+
+*   **Gemma 4 (E2B):** Es el modelo "Edge". Optimizadísimo para velocidad. Para ordenadores portátiles normales.
+    *   *Requisito:* 8 GB de Memoria RAM.
+*   **Gemma 4 (E4B):** El modelo equilibrado. Mejor capacidad de razonamiento matemático y lógico.
+    *   *Requisito:* 16 GB de Memoria RAM o Mac con chip M1/M2/M3/M4 (preferible con 16GB de Memoria Unificada).
+*   **Gemma 4 (31B Dense / 26B MoE):** Modelos de grado "Frontera". Destinados a servidores locales o estaciones de trabajo muy potentes.
+    *   *Requisito:* 32 GB o más de VRAM (Tarjetas gráficas dedicadas potentes).
+
+> **Consejo para PYMES:** Si solo quieres probar y tienes un portátil de oficina estándar, empieza imperativamente por la versión **E2B**.
+
+---
+
+## 2. Paso Uno: Instalar Ollama
+
+Ollama es el "motor" que permite ejecutar estos modelos masivos de forma tan sencilla como abrir un programa normal.
+
+1.  Ve a la web oficial: **[ollama.com](https://ollama.com)** y descarga la versión para tu sistema operativo (macOS, Windows o Linux).
+2.  Ejecuta el instalador. Es un proceso de "Siguiente > Siguiente" estándar.
+3.  Una vez instalado, verás el icono de la llama en tu barra de tareas (Windows) o menú superior (Mac). Ollama ya está corriendo en segundo plano.
+
+---
+
+## 3. Paso Dos: Descargar y Ejecutar Gemma 4
+
+Abre la **Terminal** en Mac/Linux o el **Símbolo del sistema (CMD) / PowerShell** en Windows. 
+
+Para descargar y arrancar el modelo, solo necesitas escribir **un** comando. Selecciona el comando según el modelo que tu hardware pueda soportar:
+
+*   Para el modelo rápido (E2B):
+    \`\`\`bash
+    ollama run gemma4:e2b
+    \`\`\`
+*   Para el modelo equilibrado (E4B):
+    \`\`\`bash
+    ollama run gemma4:e4b
+    \`\`\`
+
+La primera vez que ejecutes el comando, Ollama descargará el modelo de internet (pesa un par de gigabytes, ten paciencia). Una vez descargado, verás un símbolo de sistema interactivo (\`>>> \`). **¡Felicidades, la IA ya está corriendo en tu ordenador!**
+
+---
+
+## 4. Casos de Uso Prácticos en Modo Terminal
+
+Ahora que tienes a Gemma 4 esperando tus órdenes, ¿qué puedes pedirle?
+
+1.  **Redacción de emails delicados:**
+    \`>>> Redacta un email formal a un inversor notificando un ligero retraso en la entrega del proyecto X, pero manteniendo un tono optimista debido a una mejor resolución del problema técnico.\`
+    *(Como es local, puedes poner nombres y cifras reales sin riesgo de filtración de datos).*
+2.  **Análisis de datos pequeños:** Puedes copiar y pegar un pequeño extracto de CSV en la terminal y preguntarle patrones.
+3.  **Generación de Código:** Gemma 4 es asombrosa programando. 
+    \`>>> Escribe un script en Python que lea todos los archivos PDF de una carpeta y extraiga la primera página como imagen.\`
+
+---
+
+## Conclusión: El siguiente nivel
+
+Usar la terminal está bien, pero en **IA4PYMES** sabemos que los empleados prefieren interfaces visuales. El siguiente paso evolutivo es conectar Ollama a interfaces gráficas instalables (como *AnythingLLM* o *Chatbox*) y alimentar a Gemma 4 con **los documentos propios de tu empresa** (lo que se conoce como arquitectura RAG).
+
+Si tu PYME necesita dejar de usar ChatGPT para proteger sus datos confidenciales, implementar Gemma 4 de forma local es la solución más rápida y potente que existe en abril de 2026. **Contacta con nosotros si quieres desplegar IA local a nivel corporativo.**
+`
+    },
+    {
         slug: "google-gemma-4-ia-open-source-lider-pymes-latencia-cero",
         title: "Google libera Gemma 4: La IA Open Source que acaba de humillar a los modelos de pago",
         description: "Google sacude el mercado este 2 de abril de 2026 con Gemma 4. Un modelo de código abierto, gratuito para empresas y capaz de superar en razonamiento a Llama 4 y a muchos modelos cerrados de OpenAI.",
