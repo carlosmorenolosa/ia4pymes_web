@@ -12,6 +12,68 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "ia-clinicas-salud-automatizacion-recepcion-agendas",
+        title: "Por qué las clínicas más rentables de 2026 ya no tienen el teléfono comunicando",
+        description: "El 70% de las citas perdidas en clínicas dentales, fisioterapia y estética ocurren porque la línea estaba ocupada. Descubre cómo los asistentes de IA están revolucionando la salud privada.",
+        date: "2026-04-04",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Casos de Uso",
+        image: "/blog/ia-clinicas-salud-recepcion.png",
+        content: `
+Lunes, 10:00 de la mañana. En la recepción de tu clínica hay dos pacientes esperando para pagar, el teléfono fijo lleva sonando sin parar tres minutos y el WhatsApp de empresa acumula 15 mensajes sin leer desde el fin de semana. 
+
+Si tienes una clínica dental, un centro de fisioterapia o de medicina estética, esta escena te resulta dolorosamente familiar. El personal de recepción está desbordado, y lo peor no es el estrés: lo peor es el **dinero invisible que estás perdiendo**.
+
+Una llamada no atendida es un paciente que reserva en la clínica de la calle de al lado.
+
+---
+
+## El "Agujero Negro" de la recepción tradicional
+
+En 2026, los pacientes exigen inmediatez. Ya no quieren llamar dentro del horario comercial; quieren reservar su sesión de fisio a las 23:30 de un domingo mientras ven Netflix. 
+
+Las clínicas que intentan resolver esto contratando más personal administrativo acaban asumiendo unos costes fijos enormes. Sin embargo, las clínicas líderes están apostando por una solución radicalmente distinta: **La Recepción Aumentada por IA**.
+
+---
+
+## ¿Cómo funciona un Agente Telefónico y de WhatsApp con IA?
+
+Olvida los viejos contestadores automáticos de "Pulse 1 para citas". La Inteligencia Artificial actual habla de forma natural, tiene empatía y, lo más importante, está conectada directamente a tu agenda.
+
+### 1. El Teléfono que nunca comunica (y nunca duerme)
+Imagínate un asistente de voz humano, impecablemente educado, que puede atender 50 llamadas a la vez.
+- **Paciente:** *"Hola, me duele muchísimo una muela, ¿tenéis hueco hoy?"*
+- **IA:** *"Vaya, lamento escuchar eso. Sí, siendo una urgencia te puedo hacer un hueco con el Dr. Martín a las 16:30 o a las 18:00. ¿Qué prefieres?"*
+
+La IA cruza la disponibilidad, agenda la cita en tu software médico y envía un SMS de confirmación. Todo en 40 segundos, a cualquier hora del día o de la noche.
+
+### 2. Gestión de Cancelaciones y "Huecos Muertos"
+Cuando un paciente cancela a última hora, ese tiempo es dinero perdido. La IA detecta la cancelación y envía automáticamente un mensaje de WhatsApp a los pacientes que están en lista de espera: *"Hola Ana, se acaba de liberar una cita hoy a las 17:00, ¿te gustaría aprovecharla?"*. **Las agendas se rellenan solas.**
+
+### 3. Triaje y Cualificación Previa
+Antes de que el paciente llegue a la consulta, la IA por WhatsApp puede recoger el motivo de la visita, enviar el documento de protección de datos (RGPD) para que lo firmen digitalmente y dar indicaciones previas (por ejemplo, "recuerde venir en ayunas"). El especialista recibe al paciente con el historial ya preparado.
+
+---
+
+## El Rol de tu Equipo Humano
+
+¿Significa esto despedir al personal de recepción? **Absolutamente no.** 
+
+El objetivo de la IA no es eliminar a los humanos, sino liberarlos de hacer de centralita. Cuando la IA asume el 80% de las consultas rutinarias (citas, horarios, precios), tu equipo de recepción puede dedicarse a lo que realmente fideliza al cliente: la atención presencial, la venta de tratamientos complejos y el trato cálido al paciente que acaba de salir del quirófano.
+
+---
+
+## Da el salto con IA4PYMES
+
+Si en tu clínica el teléfono es una fuente de estrés en lugar de una herramienta de ingresos, estás operando en el pasado. 
+
+En **IA4PYMES** configuramos e instalamos estos agentes inteligentes adaptados a la voz y el tono de tu marca clínica. No necesitas cambiar tu software actual; nosotros hacemos que la IA hable con tu calendario.
+
+**Deja que la IA atienda el teléfono, para que tú puedas dedicarte a cuidar de tus pacientes. Hablemos de cómo modernizar tu clínica hoy.**
+`
+    },
+    {
         slug: "tutorial-instalar-gemma-4-local-ollama-pymes",
         title: "Tutorial: Cómo instalar Gemma 4 en tu propio ordenador con Ollama (Paso a Paso)",
         description: "Aprende a ejecutar el nuevo modelo abierto de Google directamente en tu equipo. Garantiza la privacidad de tus datos, evita costes de suscripción y descubre qué versión necesitas según tu hardware.",
