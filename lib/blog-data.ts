@@ -12,6 +12,56 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "claude-mythos-preview-ia-demasiado-peligrosa-lanzamiento",
+        title: "Anthropic estrena Claude Mythos Preview: La IA que es 'demasiado peligrosa' para el público",
+        description: "Ayer se confirmó la esperada llegada de Claude Mythos. Sin embargo, por primera vez, el creador de la IA decide ocultarla al mundo por riesgo de ciberataques. ¿Qué significa esto para tu negocio?",
+        date: "2026-04-08",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Noticias IA",
+        image: "/blog/claude-mythos-preview.png",
+        content: `
+Ayer, 7 de abril de 2026, **Anthropic** (la compañía creadora de Claude) rompió con todas las tradiciones de Silicon Valley. Presentaron su nuevo modelo de inteligencia artificial de nivel frontera, **Claude Mythos Preview**, y en el mismo anuncio confirmaron algo inaudito: **no van a permitir que el público lo use**.
+
+Tras las filtraciones del código de marzo, había mucha expectación sobre "Mythos". Se esperaba que fuera la competencia directa del imbatible GPT-5.4. Y lo es, pero sus creadores han pulsado el botón de pausa.
+
+---
+
+## El "Proyecto Glasswing" y la ciberguerra autónoma
+
+La razón oficial para restringir el acceso a Claude Mythos Preview es su capacidad excepcional para la **ciberseguridad ofensiva**. 
+
+En las pruebas internas (donde alcanzó un asombroso 93,9% en la métrica *SWE-bench Verified*), el modelo demostró que podía encontrar vulnerabilidades crudas ("Zero-Days") en software de infraestructuras críticas, analizar el fallo, y **construir de forma autónoma un código de explotación (hackeo) sin intervención humana.**
+
+Es, literalmente, un hacker de élite empaquetado en un servidor.
+
+Por ello, Anthropic ha limitado su acceso al **Proyecto Glasswing**, una coalición privada donde gigantes como Google, Microsoft, CrowdStrike y entidades gubernamentales usarán a Mythos únicamente a nivel defensivo, para buscar fallos en sus propios sistemas antes de que lo hagan los terroristas cibernéticos.
+
+---
+
+## ¿Por qué esta noticia debería importarle a una PYME?
+
+Si eres el dueño de una gestoría, una clínica o una tienda online de tamaño medio, pensarás que la ciberguerra de infraestructuras no va contigo. Es un error.
+
+La decisión de Anthropic de bloquear Mythos confirma una realidad incómoda: **la barrera de entrada para realizar ciberataques sofisticados está cayendo a cero**. 
+
+Si Anthropic ha logrado construir este nivel de inteligencia, los laboratorios sin escrúpulos o estados hostiles tardarán meses (no años) en desarrollar equivalentes en código abierto que acaben en manos de atacantes comunes. 
+
+1.  **El "Phishing" manual es historia:** Los ataques de suplantación de identidad (como el falso email del banco) pronto serán generados y personalizados por IAs súper-inteligentes de forma masiva contra los empleados de PYMES.
+2.  **Ataques automatizados:** Un atacante pronto no necesitará saber programar; solo necesitará un modelo avanzado sin censura al que ordenarle: *"Encuentra una brecha en la tienda online de esta empresa y extrae la base de datos de los clientes"*.
+
+---
+
+## El nuevo escudo para 2026
+
+En **IA4PYMES**, llevamos tiempo advirtiendo que los antivirus tradicionales basados en reglas son inútiles contra esta nueva ola. El anuncio de Claude Mythos Preview nos confirma que **la única forma de detener a una Inteligencia Artificial ofensiva es usar una Inteligencia Artificial defensiva.**
+
+Asegurar los datos de tus clientes ya no es instalar un programa y olvidarse. Requiere protocolos de seguridad automatizados que detecten patrones de comportamiento anormal (IA vs IA). 
+
+La tecnología avanza rápido, para lo bueno y para lo malo. Si quieres usar la IA para maximizar tus ventas, debes blindarte primero. **¿Está tu empresa preparada para las amenazas post-2025?**
+`
+    },
+    {
         slug: "sindrome-becario-pelota-sicofancia-ia-sesgos-empresas",
         title: "El 'síndrome del becario pelota': Por qué tu IA te da la razón aunque te equivoques",
         description: "El último gran reto de la Inteligencia Artificial se llama 'Sicofancia'. Las IA están programadas para agradarte, lo que las convierte en terribles asesores de negocio si no sabes hacerles las preguntas correctas.",
