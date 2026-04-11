@@ -71,7 +71,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                 className="text-center md:text-left mb-12 sm:mb-16"
             >
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
-                    {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{t.headingSuffix}
+                    {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{" "}{t.headingSuffix}
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     {t.subtitle}
