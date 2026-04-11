@@ -12,6 +12,81 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "claude-word-microsoft-office-ia-documentos-pymes",
+        title: "Claude aterriza dentro de Word: El asistente de Anthropic ahora vive en tu procesador de texto",
+        description: "Anthropic acaba de lanzar en beta pública un complemento nativo de Claude para Microsoft Word. Redacción de contratos, revisión de documentos y edición inteligente directamente desde el panel lateral — sin salir nunca de Word.",
+        date: "2026-04-11",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Herramientas IA",
+        image: "/blog/claude-for-word.png",
+        content: `
+Hasta hoy, usar la Inteligencia Artificial para trabajar con documentos de Word era un proceso torpe y discontinuo. Copiabas el texto de tu contrato, lo pegabas en ChatGPT o Claude en el navegador, esperabas la respuesta, la copiabas de nuevo y volvías a Word. Un flujo de trabajo que, multiplicado por las decenas de documentos que maneja una empresa al día, suponía una pérdida de tiempo y concentración monumental.
+
+Eso acaba de cambiar radicalmente. Anthropic acaba de lanzar **Claude for Word** en beta pública, y el impacto para cualquier empresa que trabaje con documentación — contratos, informes, propuestas comerciales, memorandos — es mayúsculo.
+
+---
+
+## ¿Qué es exactamente Claude for Word?
+
+No es un acceso web, no es una extensión que abre una pestaña del navegador. Claude for Word es un **complemento nativo** que se instala directamente desde Microsoft AppSource y aparece como un **panel lateral (sidebar)** permanente dentro de la propia interfaz de Word — tanto en Windows como en Mac, tanto en Word de escritorio como en Word Online.
+
+La diferencia con cualquier solución anterior es que **Claude lee tu documento completo en tiempo real**. No le das un fragmento; conoce todas las secciones, el formato, la numeración de los artículos y hasta los comentarios pendientes de otros colaboradores.
+
+---
+
+## Las 4 funcionalidades que cambian el día a día de una PYME
+
+### 1. Edición con "Control de Cambios" Nativo
+Esta es la joya de la corona. Cuando le pides a Claude que mejore un párrafo, corrija una cláusula legal o simplifique el lenguaje de un contrato, no sobreescribe el documento directamente. En su lugar, sus sugerencias **aparecen como si fueran las de un segundo revisor humano**, utilizando el sistema nativo de *Control de Cambios* de Word (esas marcas en rojo y verde que quienes trabajan en entornos corporativos conocen perfectamente).
+
+Esto significa que tienes el **control total**: puedes revisar cada propuesta de Claude, aceptarla con un clic o rechazarla sin perder ni una sola palabra del original.
+
+### 2. Redacción desde Plantilla
+El despacho de abogados que necesita generar contratos personalizados a partir de un modelo base. La consultoría que produce propuestas comerciales con una estructura fija. El departamento de RRHH que crea ofertas de empleo desde una plantilla corporativa.
+
+Ahora basta con abrir la plantilla, indicarle a Claude en el panel lateral los datos específicos del nuevo caso ("adapta este contrato para un cliente de Francia, con duración de 2 años y cláusula de penalización del 10%") y Claude rellena e integra la información **sin romper el formato ni la maquetación del documento**.
+
+### 3. Revisión Cruzada con Excel y PowerPoint
+Aquí es donde Claude for Word alcanza una dimensión completamente nueva. El complemento **comparte contexto con Claude for Excel y Claude for PowerPoint**. Esto significa que puedes mantener una sola conversación con la IA mientras tienes abiertos simultáneamente:
+- El informe financiero anual (Word)
+- El modelo de datos con las cifras (Excel)
+- La presentación para el consejo de administración (PowerPoint)
+
+Puedes pedirle: *"Revisa que las cifras de beneficio que menciono en el informe de Word coinciden exactamente con los datos de la hoja de Excel y corrige cualquier inconsistencia"*. Algo que antes requería que una persona echara horas verificando datos manualmente.
+
+### 4. Gestión de Comentarios y Hilos de Revisión
+En entornos con varios colaboradores, Word acumula hilos de comentarios que hay que ir resolviendo uno por uno. Claude puede leer todos los comentarios pendientes en el documento y ayudarte a resolverlos en bloque, redactando las respuestas o aplicando los cambios sugeridos por los revisores.
+
+---
+
+## Casos de Uso Concretos para PYMES Españolas
+
+*   **Despachos de abogados y gestorías:** Revisión y redacción de contratos con cláusulas personalizadas en minutos, no en horas.
+*   **Inmobiliarias:** Generación de contratos de arrendamiento o compraventa desde plantilla con los datos del cliente y el inmueble.
+*   **Agencias de marketing y consultorías:** Redacción y refinamiento de propuestas comerciales y reports de resultados con el estilo corporativo definido.
+*   **Clínicas y centros médicos:** Elaboración de informes y documentación normalizada manteniendo el lenguaje clínico apropiado.
+
+---
+
+## La Pregunta Inevitable: ¿Y mis datos están seguros?
+
+Es la primera pregunta que debería hacer todo empresario. Anthropic ha detallado que en los planes **Team y Enterprise**, los documentos procesados por Claude no se usan para entrenar futuros modelos. Los datos se tratan bajo sus acuerdos de privacidad empresarial, en línea con los estándares del RGPD europeo.
+
+No obstante, en **IA4PYMES** siempre recomendamos que la integración en entornos corporativos sea supervisada técnicamente para garantizar que la configuración de privacidad está explícitamente activada y auditada. Un complemento inmenso de productividad no debería ser un agujero negro para la confidencialidad de tus documentos.
+
+---
+
+## Conclusión: El procesador de texto ya no es lo que era
+
+El lanzamiento de Claude for Word confirma la tendencia que llevamos meses anticipando en este blog: **la IA se está integrando directamente en el software que ya usas**, no en herramientas paralelas que hay que aprender a usar desde cero.
+
+Si tu empresa trabaja con Word a diario — y el 90% de las PYMES en España lo hacen —, este complemento es probablemente la mejora de productividad más impactante de los últimos cinco años. Más que el salto de Word 2003 a Word Online, más que la aparición de la corrección gramatical automática.
+
+¿Quieres que evaluemos juntos si Claude for Word encaja en los flujos de trabajo de tu empresa y, sobre todo, cómo configurarlo de forma segura? **Hablemos.**
+`
+    },
+    {
         slug: "claude-advisor-mode-opus-sonnet-ia-estrategica-pymes",
         title: "Opus piensa, Sonnet ejecuta: Cómo el nuevo 'Advisor Mode' de Claude hunde los costes de la IA",
         description: "Anthropic acaba de lanzar una actualización maestra: delegar el razonamiento estratégico en su modelo más caro (Opus) y la ejecución mecánica en su modelo rápido (Sonnet). Así es como funciona el futuro de la automatización rentable.",
