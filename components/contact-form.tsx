@@ -8,25 +8,85 @@ import * as z from "zod"
 import { Send, Loader2, CheckCircle2, AlertCircle, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-// Validación del formulario
-const contactFormSchema = z.object({
-    name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-    company: z.string().min(2, { message: "El nombre de la empresa es obligatorio." }),
-    email: z.string().email({ message: "Por favor, introduce un email válido." }),
-    phone: z.string().min(9, { message: "El número de teléfono es obligatorio." }),
-    budget: z.string().min(1, { message: "Por favor, selecciona un rango de presupuesto." }),
-    message: z.string().min(10, { message: "Por favor, cuéntanos un poco más sobre tu idea (mínimo 10 caracteres)." }),
-})
+const i18n = {
+  es: {
+    name: "Nombre", namePlaceholder: "Tu nombre",
+    nameMin: "El nombre debe tener al menos 2 caracteres.",
+    company: "Empresa", companyPlaceholder: "Nombre de tu empresa o proyecto",
+    companyMin: "El nombre de la empresa es obligatorio.",
+    email: "Email", emailPlaceholder: "Tu correo electrónico de contacto",
+    emailInvalid: "Por favor, introduce un email válido.",
+    phone: "Teléfono", phonePlaceholder: "Tu número de teléfono",
+    phoneMin: "El número de teléfono es obligatorio.",
+    budget: "Presupuesto", budgetPlaceholder: "Elige tu rango de inversión...",
+    budgetMin: "Por favor, selecciona un rango de presupuesto.",
+    budgetOptions: ["2.000€-10.000€", "10.000€-30.000€", "30.000€-50.000€", "Más de 50.000€"],
+    message: "Cuéntame más sobre tu idea",
+    messagePlaceholder: "Comparte algunos detalles sobre lo que necesitas. Cuanto más sepamos, mejor podremos ayudarte.",
+    messageMin: "Por favor, cuéntanos un poco más sobre tu idea (mínimo 10 caracteres).",
+    submit: "ENVIAR SOLICITUD", submitting: "Enviando...",
+    successTitle: "¡Solicitud Enviada!",
+    successText: "Gracias por tu propuesta. Nos pondremos en contacto contigo lo antes posible.",
+    calendarCta: "Agendar Llamada en Calendly",
+    anotherReq: "Enviar otra solicitud",
+    errorTitle: "Error al enviar la solicitud:",
+    errorContact: "Por favor, contáctanos directamente a nuestro correo: alejandro@ia4pymes.tech",
+    privacyNote: "Al enviar este formulario, confirmas que has leído y aceptas nuestra política de privacidad.",
+    unknownError: "Error desconocido",
+  },
+  en: {
+    name: "Name", namePlaceholder: "Your name",
+    nameMin: "Name must be at least 2 characters.",
+    company: "Company", companyPlaceholder: "Your company or project name",
+    companyMin: "Company name is required.",
+    email: "Email", emailPlaceholder: "Your contact email address",
+    emailInvalid: "Please enter a valid email address.",
+    phone: "Phone", phonePlaceholder: "Your phone number",
+    phoneMin: "Phone number is required.",
+    budget: "Budget", budgetPlaceholder: "Choose your investment range...",
+    budgetMin: "Please select a budget range.",
+    budgetOptions: ["2,000€-10,000€", "10,000€-30,000€", "30,000€-50,000€", "More than 50,000€"],
+    message: "Tell us more about your idea",
+    messagePlaceholder: "Share some details about what you need. The more we know, the better we can help you.",
+    messageMin: "Please tell us a bit more about your idea (minimum 10 characters).",
+    submit: "SEND REQUEST", submitting: "Sending...",
+    successTitle: "Request Sent!",
+    successText: "Thank you for your proposal. We will get in touch with you as soon as possible.",
+    calendarCta: "Schedule a Call on Calendly",
+    anotherReq: "Send another request",
+    errorTitle: "Error sending the request:",
+    errorContact: "Please contact us directly at: alejandro@ia4pymes.tech",
+    privacyNote: "By submitting this form, you confirm that you have read and accept our privacy policy.",
+    unknownError: "Unknown error",
+  },
+}
 
-type ContactFormValues = z.infer<typeof contactFormSchema>
+type ContactFormValues = {
+    name: string
+    company: string
+    email: string
+    phone: string
+    budget: string
+    message: string
+}
 
-export function ContactForm() {
+export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
+    const t = i18n[lang]
+
+    const schema = z.object({
+        name: z.string().min(2, { message: t.nameMin }),
+        company: z.string().min(2, { message: t.companyMin }),
+        email: z.string().email({ message: t.emailInvalid }),
+        phone: z.string().min(9, { message: t.phoneMin }),
+        budget: z.string().min(1, { message: t.budgetMin }),
+        message: z.string().min(10, { message: t.messageMin }),
+    })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
     const [errorMessage, setErrorMessage] = useState<string>("")
 
     const form = useForm<ContactFormValues>({
-        resolver: zodResolver(contactFormSchema),
+        resolver: zodResolver(schema),
         defaultValues: {
             name: "",
             company: "",
@@ -69,7 +129,7 @@ export function ContactForm() {
         } catch (error) {
             console.error("Error submitting form:", error)
             setSubmitStatus("error")
-            setErrorMessage(error instanceof Error ? error.message : "Error desconocido")
+            setErrorMessage(error instanceof Error ? error.message : t.unknownError)
         } finally {
             setIsSubmitting(false)
         }
@@ -83,9 +143,9 @@ export function ContactForm() {
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">¡Solicitud Enviada!</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{t.successTitle}</h3>
                     <p className="text-slate-600 text-lg mb-8">
-                        Gracias por tu propuesta. Nos pondremos en contacto contigo lo antes posible.
+                        {t.successText}
                     </p>
                     <div className="flex flex-col gap-4 max-w-sm mx-auto">
                         <Link
@@ -94,14 +154,14 @@ export function ContactForm() {
                             rel="noopener noreferrer"
                             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
                         >
-                            Agendar Llamada en Calendly
+                            {t.calendarCta}
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                         <button
                             onClick={() => setSubmitStatus("idle")}
                             className="text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium mt-4"
                         >
-                            Enviar otra solicitud
+                            {t.anotherReq}
                         </button>
                     </div>
                 </div>
@@ -128,13 +188,13 @@ export function ContactForm() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="grid grid-cols-1 md:grid-cols-2 gap-6"
                     >
-                        {/* Nombre */}
+                        {/* Name */}
                         <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-semibold text-slate-700">Nombre</label>
+                            <label htmlFor="name" className="text-sm font-semibold text-slate-700">{t.name}</label>
                             <input
                                 id="name"
                                 type="text"
-                                placeholder="Tu nombre"
+                                placeholder={t.namePlaceholder}
                                 className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("name")}
                             />
@@ -146,13 +206,13 @@ export function ContactForm() {
                             )}
                         </div>
 
-                        {/* Empresa */}
+                        {/* Company */}
                         <div className="space-y-2">
-                            <label htmlFor="company" className="text-sm font-semibold text-slate-700">Empresa</label>
+                            <label htmlFor="company" className="text-sm font-semibold text-slate-700">{t.company}</label>
                             <input
                                 id="company"
                                 type="text"
-                                placeholder="Nombre de tu empresa o proyecto"
+                                placeholder={t.companyPlaceholder}
                                 className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("company")}
                             />
@@ -174,11 +234,11 @@ export function ContactForm() {
                     >
                         {/* Email */}
                         <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-semibold text-slate-700">Email</label>
+                            <label htmlFor="email" className="text-sm font-semibold text-slate-700">{t.email}</label>
                             <input
                                 id="email"
                                 type="email"
-                                placeholder="Tu correo electrónico de contacto"
+                                placeholder={t.emailPlaceholder}
                                 className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("email")}
                             />
@@ -190,13 +250,13 @@ export function ContactForm() {
                             )}
                         </div>
 
-                        {/* Teléfono */}
+                        {/* Phone */}
                         <div className="space-y-2">
-                            <label htmlFor="phone" className="text-sm font-semibold text-slate-700">Teléfono</label>
+                            <label htmlFor="phone" className="text-sm font-semibold text-slate-700">{t.phone}</label>
                             <input
                                 id="phone"
                                 type="tel"
-                                placeholder="Tu número de teléfono"
+                                placeholder={t.phonePlaceholder}
                                 className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
                                 {...form.register("phone")}
                             />
@@ -217,18 +277,17 @@ export function ContactForm() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="space-y-2"
                     >
-                        <label htmlFor="budget" className="text-sm font-semibold text-slate-700">Presupuesto</label>
+                        <label htmlFor="budget" className="text-sm font-semibold text-slate-700">{t.budget}</label>
                         <div className="relative">
                             <select
                                 id="budget"
                                 className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
                                 {...form.register("budget")}
                             >
-                                <option value="" disabled className="text-slate-400">Elige tu rango de inversión...</option>
-                                <option value="2.000€-10.000€">2.000€-10.000€</option>
-                                <option value="10.000€-30.000€">10.000€-30.000€</option>
-                                <option value="30.000€-50.000€">30.000€-50.000€</option>
-                                <option value="Más de 50.000€">Más de 50.000€</option>
+                                <option value="" disabled className="text-slate-400">{t.budgetPlaceholder}</option>
+                                {t.budgetOptions.map((opt) => (
+                                    <option key={opt} value={opt}>{opt}</option>
+                                ))}
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -250,10 +309,10 @@ export function ContactForm() {
                         transition={{ duration: 0.5, delay: 0.5 }}
                         className="space-y-2"
                     >
-                        <label htmlFor="message" className="text-sm font-semibold text-slate-700">Cuéntame más sobre tu idea</label>
+                        <label htmlFor="message" className="text-sm font-semibold text-slate-700">{t.message}</label>
                         <textarea
                             id="message"
-                            placeholder="Comparte algunos detalles sobre lo que necesitas. Cuanto más sepamos, mejor podremos ayudarte."
+                            placeholder={t.messagePlaceholder}
                             rows={4}
                             className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400 resize-none`}
                             {...form.register("message")}
@@ -272,9 +331,9 @@ export function ContactForm() {
                             <div className="flex items-start gap-3">
                                 <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                                 <div>
-                                    <p className="font-bold mb-1">Error al enviar la solicitud:</p>
+                                    <p className="font-bold mb-1">{t.errorTitle}</p>
                                     <p className="font-mono text-xs bg-white/50 p-2 rounded border border-red-100">{errorMessage}</p>
-                                    <p className="mt-2 text-xs">Por favor, contáctanos directamente a nuestro correo: alejandro@ia4pymes.tech</p>
+                                    <p className="mt-2 text-xs">{t.errorContact}</p>
                                 </div>
                             </div>
                         </div>
@@ -299,11 +358,11 @@ export function ContactForm() {
                             {isSubmitting ? (
                                 <>
                                     <Loader2 className="w-5 h-5 animate-spin text-white/80" />
-                                    <span>Enviando...</span>
+                                    <span>{t.submitting}</span>
                                 </>
                             ) : (
                                 <>
-                                    <span>ENVIAR SOLICITUD</span>
+                                    <span>{t.submit}</span>
                                     <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </>
                             )}
@@ -312,7 +371,7 @@ export function ContactForm() {
                     </motion.div>
 
                     <p className="text-center text-xs text-slate-500 mt-4">
-                        Al enviar este formulario, confirmas que has leído y aceptas nuestra política de privacidad.
+                        {t.privacyNote}
                     </p>
                 </form>
             </motion.div>

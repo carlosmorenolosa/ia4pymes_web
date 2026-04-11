@@ -5,34 +5,79 @@ import { Plus, Minus, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
-const faqs = [
-    {
+const i18n = {
+  es: {
+    heading: "Dudas Frecuentes sobre",
+    headingHighlight: "IA en PYMES",
+    subtitle: "Resolvemos las preguntas más comunes sobre la implementación de Inteligencia Artificial en tu negocio.",
+    ctaQuestion: "¿Tienes alguna otra duda?",
+    ctaButton: "Agendar Consulta Gratuita",
+    ctaHref: "#contacto",
+    faqs: [
+      {
         question: "¿Es útil esta solución para mi sector?",
         answer: "La clave no es a qué te dedicas, sino qué procesos lentos o ineficientes tienes. Si hay tareas repetitivas en tu negocio, podemos optimizarlas.",
-    },
-    {
+      },
+      {
         question: "¿Tengo que cambiar los programas que ya utilizo?",
         answer: "Para nada. Adaptamos la IA a tu forma de trabajar actual, integrándola en tus sistemas de siempre sin cortes operativos ni migraciones dolorosas.",
-    },
-    {
+      },
+      {
         question: "¿Mis empleados necesitan entender de Inteligencia Artificial?",
         answer: "Cero. Al ser proyectos a medida, me encargo de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
-    },
-    {
+      },
+      {
         question: "¿Qué pasa si la inversión no sale a cuenta?",
         answer: "Antes de crear nada, trazamos un mapa de ruta para calcular el retorno de inversión esperado. Si vemos que los números no te benefician, simplemente no avanzamos.",
-    },
-    {
+      },
+      {
         question: "¿Están a salvo los datos de mi empresa?",
         answer: "Por supuesto. Cumplimos con el RGPD, firmamos un acuerdo de confidencialidad y tu información jamás se usa para entrenar modelos de IA públicos.",
-    },
-    {
+      },
+      {
         question: "¿Cuáles son los plazos de entrega?",
         answer: "El diagnóstico inicial nos toma unas 2 o 3 semanas. Después, el desarrollo y la puesta en marcha de los sistemas dura entre 1 y 4 meses.",
-    },
-]
+      },
+    ],
+  },
+  en: {
+    heading: "Frequently Asked Questions about",
+    headingHighlight: "AI for SMEs",
+    subtitle: "We answer the most common questions about implementing Artificial Intelligence in your business.",
+    ctaQuestion: "Have any other questions?",
+    ctaButton: "Schedule a Free Consultation",
+    ctaHref: "#contact",
+    faqs: [
+      {
+        question: "Is this solution useful for my industry?",
+        answer: "The key is not what you do, but what slow or inefficient processes you have. If there are repetitive tasks in your business, we can optimize them.",
+      },
+      {
+        question: "Do I have to change the software I already use?",
+        answer: "Not at all. We adapt the AI to your current way of working, integrating it into your existing systems without operational disruptions or painful migrations.",
+      },
+      {
+        question: "Do my employees need to understand Artificial Intelligence?",
+        answer: "Zero. Since these are custom projects, we take care of explaining everything step by step, clearly and in person, so they can handle it without any issues.",
+      },
+      {
+        question: "What if the investment doesn't pay off?",
+        answer: "Before creating anything, we map out a roadmap to calculate the expected return on investment. If we see the numbers don't benefit you, we simply don't proceed.",
+      },
+      {
+        question: "Is my company's data safe?",
+        answer: "Absolutely. We comply with GDPR, sign a confidentiality agreement, and your information is never used to train public AI models.",
+      },
+      {
+        question: "What are the delivery timelines?",
+        answer: "The initial diagnosis takes about 2 to 3 weeks. After that, development and deployment of the systems takes between 1 and 4 months.",
+      },
+    ],
+  },
+}
 
-export function FaqSection() {
+export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
+    const t = i18n[lang]
     const [openIndex, setOpenIndex] = useState<number | null>(0)
 
     const toggleFaq = (index: number) => {
@@ -41,8 +86,6 @@ export function FaqSection() {
 
     return (
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
-            {/* Background decorations removed for pure white theme */}
-
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
@@ -52,15 +95,15 @@ export function FaqSection() {
                     className="text-center mb-12 sm:mb-16"
                 >
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
-                        Dudas Frecuentes sobre <span className="text-blue-600">IA en PYMES</span>
+                        {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        Resolvemos las preguntas más comunes sobre la implementación de Inteligencia Artificial en tu negocio.
+                        {t.subtitle}
                     </p>
                 </motion.div>
 
                 <div className="space-y-4 mb-12">
-                    {faqs.map((faq, index) => {
+                    {t.faqs.map((faq, index) => {
                         const isOpen = openIndex === index
                         return (
                             <motion.div
@@ -109,12 +152,12 @@ export function FaqSection() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="text-center"
                 >
-                    <p className="text-slate-600 mb-6 font-medium">¿Tienes alguna otra duda?</p>
+                    <p className="text-slate-600 mb-6 font-medium">{t.ctaQuestion}</p>
                     <Link
-                        href="#contacto"
+                        href={t.ctaHref}
                         className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
-                        Agendar Consulta Gratuita
+                        {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                 </motion.div>
@@ -122,3 +165,4 @@ export function FaqSection() {
         </section>
     )
 }
+

@@ -5,53 +5,82 @@ import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle } from "lucide-react"
 
-const successCases = [
-  {
-    title: "Asociación de Hostelería y Turismo de Navarra",
-    company: "Chatbot IA 24/7",
-    description:
-      "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.\n\n🎯 ROI Estimado: +240% | ⏱️ Ahorro: 35h semanales | 📅 Tiempo Activo: 5 meses",
-    icon: MessageCircle,
-    color: "green",
-    benefit: "Atención 24/7 y respuestas instantáneas",
-  },
-  {
-    title: "IA Dermatológica",
-    company: "Hospital de Toledo",
-    description:
-      "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.\n\n🎯 ROI Estimado: +380% | ⏱️ Ahorro: 60h semanales | 📅 Tiempo Activo: 1 año",
-    icon: Heart,
-    color: "blue",
-    benefit: "Diagnósticos más rápidos y precisos",
-  },
-  {
-    title: "Automatizador de Presupuestos",
-    company: "Constructora CORSAM",
-    description:
-      "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +285% | ⏱️ Ahorro: 45h semanales | 📅 Tiempo Activo: 6 meses",
-    icon: Sliders,
-    color: "orange",
-    benefit: "Presupuestos en minutos, no horas",
-  },
-  {
-    title: "Chatbot de Atención al Cliente",
-    company: "Viajes Rascado",
-    description:
-      "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.\n\n🎯 ROI Estimado: +420% | ⏱️ Ahorro: 40h semanales | 📅 Tiempo Activo: 2 años",
-    icon: MessageCircle,
-    color: "green",
-    benefit: "Atención 24/7 sin interrupciones",
-  },
-  {
-    title: "Predicción de Daños",
-    company: "Puerto de Alicante",
-    description:
-      "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.\n\n🎯 ROI Estimado: +490% | ⏱️ Ahorro: 90h semanales + reducción siniestros | 📅 Tiempo Activo: 2 años",
-    icon: Shield,
-    color: "purple",
-    benefit: "Prevención proactiva de incidencias",
-  },
-]
+const caseData = {
+  es: [
+    {
+      title: "Asociación de Hostelería y Turismo de Navarra",
+      company: "Chatbot IA 24/7",
+      description: "Chatbot de IA 24/7 que responde a todas las consultas de los asociados y no asociados, mejorando la comunicación y el acceso a la información.\n\n🎯 ROI Estimado: +240% | ⏱️ Ahorro: 35h semanales | 📅 Tiempo Activo: 5 meses",
+      icon: MessageCircle, color: "green",
+      benefit: "Atención 24/7 y respuestas instantáneas",
+    },
+    {
+      title: "IA Dermatológica",
+      company: "Hospital de Toledo",
+      description: "Implementación de visión por computadora para análisis médico, demostrando cómo la IA puede asistir a profesionales de la salud en diagnósticos más precisos y eficientes.\n\n🎯 ROI Estimado: +380% | ⏱️ Ahorro: 60h semanales | 📅 Tiempo Activo: 1 año",
+      icon: Heart, color: "blue",
+      benefit: "Diagnósticos más rápidos y precisos",
+    },
+    {
+      title: "Automatizador de Presupuestos",
+      company: "Constructora CORSAM",
+      description: "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +285% | ⏱️ Ahorro: 45h semanales | 📅 Tiempo Activo: 6 meses",
+      icon: Sliders, color: "orange",
+      benefit: "Presupuestos en minutos, no horas",
+    },
+    {
+      title: "Chatbot de Atención al Cliente",
+      company: "Viajes Rascado",
+      description: "Asistente conversacional avanzado para el sector turismo, capaz de manejar consultas complejas y proporcionar atención personalizada las 24 horas del día.\n\n🎯 ROI Estimado: +420% | ⏱️ Ahorro: 40h semanales | 📅 Tiempo Activo: 2 años",
+      icon: MessageCircle, color: "green",
+      benefit: "Atención 24/7 sin interrupciones",
+    },
+    {
+      title: "Predicción de Daños",
+      company: "Puerto de Alicante",
+      description: "Modelo de machine learning para logística portuaria que anticipa incidencias, optimiza recursos y reduce costes operativos mediante análisis predictivo.\n\n🎯 ROI Estimado: +490% | ⏱️ Ahorro: 90h semanales + reducción siniestros | 📅 Tiempo Activo: 2 años",
+      icon: Shield, color: "purple",
+      benefit: "Prevención proactiva de incidencias",
+    },
+  ],
+  en: [
+    {
+      title: "Navarra Hospitality & Tourism Association",
+      company: "24/7 AI Chatbot",
+      description: "24/7 AI chatbot that answers all queries from members and non-members, improving communication and access to information.\n\n🎯 Estimated ROI: +240% | ⏱️ Savings: 35h/week | 📅 Active: 5 months",
+      icon: MessageCircle, color: "green",
+      benefit: "24/7 support with instant responses",
+    },
+    {
+      title: "Dermatological AI",
+      company: "Hospital de Toledo",
+      description: "Computer vision implementation for medical analysis, demonstrating how AI can assist healthcare professionals in making faster, more accurate diagnoses.\n\n🎯 Estimated ROI: +380% | ⏱️ Savings: 60h/week | 📅 Active: 1 year",
+      icon: Heart, color: "blue",
+      benefit: "Faster, more accurate diagnoses",
+    },
+    {
+      title: "Automated Budget Calculator",
+      company: "CORSAM Construction",
+      description: "Intelligent automatic calculation system for the construction sector, eliminating human errors and significantly accelerating commercial quoting processes.\n\n🎯 Estimated ROI: +285% | ⏱️ Savings: 45h/week | 📅 Active: 6 months",
+      icon: Sliders, color: "orange",
+      benefit: "Quotes in minutes, not hours",
+    },
+    {
+      title: "Customer Service Chatbot",
+      company: "Viajes Rascado",
+      description: "Advanced conversational assistant for the tourism sector, capable of handling complex queries and providing personalized attention 24 hours a day.\n\n🎯 Estimated ROI: +420% | ⏱️ Savings: 40h/week | 📅 Active: 2 years",
+      icon: MessageCircle, color: "green",
+      benefit: "24/7 uninterrupted customer service",
+    },
+    {
+      title: "Damage Prediction System",
+      company: "Port of Alicante",
+      description: "Machine learning model for port logistics that anticipates incidents, optimizes resources and reduces operational costs through predictive analysis.\n\n🎯 Estimated ROI: +490% | ⏱️ Savings: 90h/week + incident reduction | 📅 Active: 2 years",
+      icon: Shield, color: "purple",
+      benefit: "Proactive incident prevention",
+    },
+  ],
+}
 
 // 3D Tilt Card Component
 const TiltCard = ({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) => {
@@ -88,7 +117,10 @@ const TiltCard = ({ children, className = "", style }: { children: React.ReactNo
   )
 }
 
-export const SuccessCasesCarousel = () => {
+export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) => {
+  const successCases = caseData[lang]
+  const counterLabel = lang === "en" ? "of" : "de"
+  const counterSuffix = lang === "en" ? "success cases" : "casos de éxito"
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -252,8 +284,9 @@ export const SuccessCasesCarousel = () => {
       </div>
       {/* Case Counter */}
       <div className="text-center mt-4 text-sm text-gray-600" style={{ zIndex: 1001 }}>
-        <span className="font-semibold text-blue-600">{currentSlide + 1}</span> de{" "}
-        <span className="font-semibold">{successCases.length}</span> casos de éxito
+        <span className="font-semibold text-blue-600">{currentSlide + 1}</span>{" "}
+        {counterLabel}{" "}
+        <span className="font-semibold">{successCases.length}</span> {counterSuffix}
       </div>
     </div>
   )

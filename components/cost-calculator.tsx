@@ -5,7 +5,45 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Calculator, ArrowRight, Euro, Clock, Users } from "lucide-react"
 
-export function CostCalculator() {
+const i18n = {
+  es: {
+    heading: "¿Cuánto",
+    headingHighlight: "dinero pierdes",
+    headingSuffix: "por no automatizar?",
+    subtitle: "Descubre el coste real de los procesos manuales y repetitivos en tu empresa. Cada hora invertida en tareas rutinarias es margen de beneficio que dejas sobre la mesa.",
+    labelHours: "Horas a la semana por empleado",
+    labelEmployees: "Trabajadores afectados",
+    labelWage: "Coste por hora / empleado",
+    cardTitle: "Gasto Estimado",
+    weekly: "Semanal",
+    monthly: "Mensual",
+    yearlyLabel: "Pérdida Anual Total",
+    ctaButton: "Frenar Pérdidas",
+    ctaHref: "#contacto",
+    ctaNote: "Diagnóstico 100% gratuito",
+    locale: "es-ES",
+  },
+  en: {
+    heading: "How much",
+    headingHighlight: "money are you losing",
+    headingSuffix: "by not automating?",
+    subtitle: "Discover the real cost of manual and repetitive processes in your company. Every hour spent on routine tasks is profit margin left on the table.",
+    labelHours: "Hours per week per employee",
+    labelEmployees: "Affected employees",
+    labelWage: "Cost per hour / employee",
+    cardTitle: "Estimated Cost",
+    weekly: "Weekly",
+    monthly: "Monthly",
+    yearlyLabel: "Total Annual Loss",
+    ctaButton: "Stop the Losses",
+    ctaHref: "#contact",
+    ctaNote: "100% free diagnosis",
+    locale: "en-US",
+  },
+}
+
+export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
+    const t = i18n[lang]
     const [hoursPerWeek, setHoursPerWeek] = useState<number>(10)
     const [employees, setEmployees] = useState<number>(1)
     const [hourlyWage, setHourlyWage] = useState<number>(15)
@@ -33,10 +71,10 @@ export function CostCalculator() {
                 className="text-center md:text-left mb-12 sm:mb-16"
             >
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
-                    ¿Cuánto <span className="text-blue-600">dinero pierdes</span><br className="hidden lg:block"/> por no automatizar?
+                    {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{t.headingSuffix}
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
-                    Descubre el coste real de los procesos manuales y repetitivos en tu empresa. Cada hora invertida en tareas rutinarias es margen de beneficio que dejas sobre la mesa.
+                    {t.subtitle}
                 </p>
             </motion.div>
 
@@ -56,7 +94,7 @@ export function CostCalculator() {
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
-                                Horas a la semana por empleado
+                                {t.labelHours}
                             </span>
                             <span className="text-2xl font-black text-blue-600">{hoursPerWeek} h</span>
                         </label>
@@ -83,7 +121,7 @@ export function CostCalculator() {
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
-                                Trabajadores afectados
+                                {t.labelEmployees}
                             </span>
                             <span className="text-2xl font-black text-blue-600">{employees}</span>
                         </label>
@@ -110,7 +148,7 @@ export function CostCalculator() {
                         <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
-                                Coste por hora / empleado
+                                {t.labelWage}
                             </span>
                             <span className="text-2xl font-black text-green-600">{hourlyWage} €</span>
                         </label>
@@ -178,27 +216,27 @@ export function CostCalculator() {
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
                                         <h4 className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
-                                            Gasto Estimado
+                                            {t.cardTitle}
                                         </h4>
                                         <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
                                     </div>
 
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Semanal</span>
-                                            <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString('es-ES')} €</span>
+                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.weekly}</span>
+                                            <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">Mensual</span>
-                                            <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString('es-ES')} €</span>
+                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.monthly}</span>
+                                            <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="pt-2 flex flex-col items-center">
-                                            <span className="text-slate-400 font-bold text-xs uppercase tracking-[0.15em] mb-3">Pérdida Anual Total</span>
+                                            <span className="text-slate-400 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
                                                 <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
-                                                    {results.year.toLocaleString('es-ES')} €
+                                                    {results.year.toLocaleString(t.locale)} €
                                                 </span>
                                                 {/* Underline accent */}
                                                 <motion.div 
@@ -219,15 +257,15 @@ export function CostCalculator() {
                                             className="w-full"
                                         >
                                             <Link
-                                                href="#contacto"
+                                                href={t.ctaHref}
                                                 className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)]"
                                             >
-                                                Frenar Pérdidas
+                                                {t.ctaButton}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </motion.div>
                                         <p className="text-[10px] text-slate-400 mt-4 text-center font-bold uppercase tracking-widest">
-                                            Diagnóstico 100% gratuito
+                                            {t.ctaNote}
                                         </p>
                                     </div>
                                 </div>
