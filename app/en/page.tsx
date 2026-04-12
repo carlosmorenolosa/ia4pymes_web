@@ -657,15 +657,8 @@ export default function HomeEN() {
           </FadeIn>
         </section>
 
-        {/* Latest Articles — blog content is in Spanish */}
-        <section className="py-4 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <p className="text-center text-sm text-slate-400 italic mb-2">
-              📰 Our blog articles are currently published in Spanish.
-            </p>
-          </div>
-        </section>
-        <LatestArticles />
+        {/* Latest Articles EN */}
+        <LatestArticles lang="en" />
 
         {/* Footer */}
         <footer className="bg-white pt-20 pb-12 relative overflow-hidden border-t border-slate-100">
@@ -709,7 +702,7 @@ export default function HomeEN() {
                   <li><Link href="#process" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Our Process</Link></li>
                   <li><Link href="#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Success Cases</Link></li>
                   <li><Link href="#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">ROI Calculator</Link></li>
-                  <li><Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">News Blog</Link></li>
+                  <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">News Blog</Link></li>
                 </ul>
               </motion.div>
 
