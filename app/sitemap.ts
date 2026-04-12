@@ -1,12 +1,20 @@
 import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/blog-data'
+import { getAllPosts, getEnPosts } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://ia4pymes.tech'
     const posts = getAllPosts()
+    const enPosts = getEnPosts()
 
     const blogUrls = posts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
+
+    const enBlogUrls = enPosts.map((post) => ({
+        url: `${baseUrl}/en/blog/${post.slug}`,
         lastModified: new Date(post.date),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
@@ -31,6 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'daily',
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/en/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'daily',
+            priority: 0.85,
+        },
         ...blogUrls,
+        ...enBlogUrls,
     ]
 }

@@ -8,9 +8,207 @@ export interface BlogPost {
     category: string
     image: string
     content: string
+    /** Language of the post. Omit or set "es" for Spanish (default). */
+    lang?: "es" | "en"
+    /** Slug of the same article in the other language, for hreflang cross-linking. */
+    translationSlug?: string
 }
 
 export const blogPosts: BlogPost[] = [
+    // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Anthropic $30B ARR
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "anthropic-30000-millones-ingresos-que-significa-para-tu-pyme",
+        title: "Anthropic supera los 30.000 millones en ingresos: qué significa para tu PYME",
+        description: "La empresa detrás de Claude acaba de superar los 30.000 millones de dólares de facturación anual. Un crecimiento del 233% en solo cuatro meses. Desgranamos por qué este hito cambia el acceso de las pequeñas empresas a la IA de calidad profesional.",
+        date: "2026-04-12",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Estrategia IA",
+        image: "/blog/anthropic-30b-revenue.png",
+        lang: "es",
+        translationSlug: "anthropic-30-billion-revenue-what-it-means-for-your-sme",
+        content: `
+En el mundo de la tecnología, hay hitos que se celebran durante un cuarto de hora y se olvidan al día siguiente. Y luego hay hitos que redefinen la estructura de una industria entera. El que acaba de protagonizar Anthropic cae claramente en la segunda categoría.
+
+La compañía que fundó Dario Amodei tras abandonar OpenAI en 2021 —junto con su hermana Daniela y un puñado de investigadores de seguridad— ha confirmado que su tasa de ingresos anualizados ha superado los **30.000 millones de dólares**. Para entender la magnitud de este número, hay que saber que en diciembre de 2025 esa misma cifra era de 9.000 millones. Es decir: Anthropic ha multiplicado por más de tres sus ingresos en menos de cuatro meses.
+
+---
+
+## El número que nadie esperaba tan pronto
+
+Hace apenas dieciocho meses, el gran debate en la industria era si Anthropic sobreviviría lo suficiente como para competir con OpenAI. La compañía quemaba caja a un ritmo brutal, sus primeros modelos Claude no terminaban de convencer al gran público y la percepción generalizada era que era un laboratorio de investigación de élite, pero no un negocio real.
+
+Hoy esa narrativa ha quedado sepultada bajo una montaña de datos. Los 30.000 millones de dólares anualizados no son proyecciones ni estimaciones optimistas: son la extrapolación directa de los ingresos reales que la empresa está generando trimestre a trimestre.
+
+¿Qué ha cambiado? Tres factores se han alineado de forma casi perfecta:
+
+### 1. La apuesta por las empresas, no por los consumidores
+
+Mientras OpenAI ha construido su estrategia alrededor del consumidor de masas —ChatGPT con cientos de millones de usuarios, planes de suscripción de 20€ al mes—, Anthropic tomó una decisión diferente: concentrarse en clientes empresariales dispuestos a pagar precios mucho más altos por herramientas mucho más precisas.
+
+El resultado está en los números: más de **1.000 empresas** pagan ya más de un millón de dólares al año por acceso a los modelos de Claude. Y esa cifra se ha más que duplicado en los primeros meses de 2026.
+
+### 2. Claude Code: la herramienta que lo ha cambiado todo en el sector tech
+
+Si tuviéramos que señalar el producto que más ha contribuido a este crecimiento explosivo, sería **Claude Code**. Una herramienta pensada para desarrolladores que permite que Claude trabaje directamente en el entorno de programación, entienda proyectos completos de código, sugiera refactorizaciones, detecte errores y hasta genere tests automatizados.
+
+En el sector tecnológico —tanto en grandes consultoras como en startups— Claude Code ha pasado de ser un "complemento interesante" a ser infraestructura crítica de muchos equipos de desarrollo. Cuando una herramienta alcanza ese estatus, la empresa que la usa no la abandona fácilmente.
+
+### 3. La percepción de seguridad y fiabilidad en sectores regulados
+
+Banca, seguros, servicios legales, sanidad. Estos cuatro sectores comparten una característica: la tolerancia al error es prácticamente cero y el cumplimiento regulatorio lo es todo.
+
+Anthropic ha construido una reputación sólida en lo que la industria llama "AI safety" —el diseño de sistemas de IA que no generan contenido dañino, que respetan la confidencialidad de los datos y que pueden auditarse—. Esa reputación la ha convertido en la opción preferida para empresas en sectores regulados que necesitan integrar IA en procesos que manejan datos sensibles.
+
+Según datos de la plataforma financiera Ramp, que analiza el gasto corporativo de miles de empresas, **Anthropic está ganando el 70% de los nuevos contratos empresariales** cuando compite directamente contra OpenAI. No en el mercado de consumo masivo, sino en el B2B: empresas que ya han decidido implementar IA y están eligiendo proveedor.
+
+---
+
+## Qué significa todo esto para una PYME en España
+
+Hasta aquí, los datos. La pregunta real es: ¿por qué debería importarle este hito a una empresa de 10, 50 o 200 empleados en Valladolid, Sevilla o Barcelona?
+
+La respuesta tiene tres partes.
+
+### A) El mercado de IA profesional se consolida — y eso es una buena noticia
+
+Cuando Anthropic genera 30.000 millones en ingresos, ese dinero se reinvierte en tres cosas: más potencia de cómputo, más investigación en modelos mejores, y más infraestructura para hacer los modelos más accesibles y baratos para todos.
+
+La paradoja de la IA es que cuanto mayor es la inversión en la cúspide, más democráticas se vuelven las herramientas en la base. El modelo Claude que hoy usa una consultoría de Madrid para automatizar la generación de informes es técnicamente superior al que existía hace doce meses, pero cuesta significativamente menos.
+
+### B) La competencia entre gigantes te beneficia directamente
+
+Que Anthropic y OpenAI estén en una carrera encarnizada por el mercado empresarial tiene un efecto muy directo sobre los precios y la innovación. En los últimos doce meses, el coste por token de los modelos de IA de frontera ha caído entre un 60% y un 80% según el modelo. Y la tendencia continúa.
+
+Para una PYME, esto significa que **automatizar procesos con IA de calidad profesional cuesta hoy una fracción de lo que costaba hace un año**. Lo que antes era viable solo para grandes corporaciones con presupuestos de transformación digital de seis cifras, hoy se puede implementar en una empresa media con una inversión inicial razonable y un retorno medible en meses, no en años.
+
+### C) La madurez del mercado reduce el riesgo de tu inversión
+
+Este es quizás el argumento más subestimado. Cuando el mercado de la IA empresarial era incipiente y experimental, adoptar estas tecnologías era una apuesta arriesgada: el proveedor podía desaparecer, los modelos podían fallar de formas inesperadas, los contratos no ofrecían garantías reales.
+
+Con Anthropic superando los 30.000 millones de ARR y más de 1.000 clientes pagando más de un millón al año, estamos hablando de infraestructura madura. Igual que nadie pensaría dos veces en migrar su infraestructura de email a Google Workspace o su almacenamiento a AWS, la IA de Anthropic (y sus competidores a ese nivel) está entrando en la categoría de "infraestructura estándar de negocio".
+
+Eso reduce el riesgo percibido de la adopción y facilita la toma de decisión para cualquier gestor o propietario de empresa.
+
+---
+
+## El dato que más nos preocupa: la brecha se ensancha
+
+Seríamos negligentes si solo ofreciéramos el lado positivo de esta noticia. Hay una cara menos amable en este hito.
+
+El crecimiento explosivo de Anthropic confirma que hay dos tipos de empresas en el mercado: las que ya están usando IA de forma estratégica y las que todavía están "evaluando" o "esperando a ver". La brecha entre ambas categorías se ensancha cada trimestre.
+
+Las empresas que llevan 12-18 meses automatizando procesos con IA ya han optimizado sus flujos de trabajo, han formado a sus equipos, han medido el ROI real y están ahora implementando la segunda o tercera generación de sus herramientas. Las que aún no han empezado están corriendo una carrera que cada vez tiene más ventaja acumulada por parte de sus competidores.
+
+---
+
+## Conclusión: el tren no lleva mucho tiempo en el andén
+
+El éxito de Anthropic no debería leerse como una noticia sobre Silicon Valley. Debería leerse como una señal de mercado muy clara: **la IA de nivel profesional se ha convertido en infraestructura de negocio estándar**, y el mercado está premiando con 30.000 millones de dólares anuales a las empresas que la fabrican bien.
+
+La pregunta ya no es si tu empresa "necesita" IA. La pregunta es cuánto tiempo más puede permitirse no tenerla antes de que la diferencia competitiva con quienes sí la usan sea irreversible.
+
+Si quieres entender exactamente en qué procesos podría impactar en tu empresa y con qué retorno esperado, en IA4PYMES hacemos diagnósticos gratuitos. **Sin compromiso, con números reales.**
+        `.trim(),
+    },
+    {
+        slug: "anthropic-30-billion-revenue-what-it-means-for-your-sme",
+        title: "Anthropic Surpasses $30 Billion in Revenue: What It Means for Your SME",
+        description: "The company behind Claude just confirmed it has surpassed a $30 billion annual revenue run rate — a 233% increase in just four months. We break down why this milestone is changing how small businesses access professional-grade AI.",
+        date: "2026-04-12",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "AI Strategy",
+        image: "/blog/anthropic-30b-revenue.png",
+        lang: "en",
+        translationSlug: "anthropic-30000-millones-ingresos-que-significa-para-tu-pyme",
+        content: `
+In the tech world, some milestones are celebrated for fifteen minutes and forgotten the next day. And then there are milestones that redefine the structure of an entire industry. The one Anthropic just achieved falls squarely into the second category.
+
+The company founded by Dario Amodei after leaving OpenAI in 2021 — alongside his sister Daniela and a group of AI safety researchers — has confirmed that its annual revenue run rate has surpassed **$30 billion**. To understand the scale of this figure: just in December 2025, that same number stood at $9 billion. In other words, Anthropic has more than tripled its revenue in under four months.
+
+---
+
+## The Number Nobody Expected This Soon
+
+Just eighteen months ago, the industry's main debate was whether Anthropic would survive long enough to compete with OpenAI. The company was burning cash at a brutal pace, early Claude models weren't quite capturing the mainstream, and the general consensus was that it was an elite research lab — but not a real business.
+
+Today, that narrative has been buried under a mountain of data. The $30 billion annualized figure isn't projections or optimistic estimates: it's the direct extrapolation of real revenues the company is generating quarter after quarter.
+
+What changed? Three factors aligned almost perfectly:
+
+### 1. Betting on Enterprises, Not Consumers
+
+While OpenAI built its strategy around the mass consumer — ChatGPT with hundreds of millions of users, $20/month subscription plans — Anthropic made a different bet: focusing on enterprise clients willing to pay premium prices for premium precision.
+
+The results are in the numbers: more than **1,000 companies** are now paying over $1 million annually for access to Claude models. That figure more than doubled in the first months of 2026.
+
+### 2. Claude Code: The Product That Changed Everything in Tech
+
+If we had to point to one product that contributed most to this explosive growth, it would be **Claude Code**. A developer-focused tool that lets Claude work directly within the programming environment — understanding entire codebases, suggesting refactors, catching bugs, and even generating automated tests.
+
+In the tech sector — from large consultancies to early-stage startups — Claude Code has gone from being "an interesting add-on" to being critical infrastructure for many development teams. Once a tool reaches that status, companies don't switch away easily.
+
+### 3. Safety and Reliability in Regulated Sectors
+
+Banking, insurance, legal services, healthcare. These four sectors share a critical characteristic: tolerance for error is near zero, and regulatory compliance is everything.
+
+Anthropic has built a solid reputation in what the industry calls "AI safety" — designing systems that don't generate harmful content, respect data confidentiality, and can be audited. That reputation has made it the preferred choice for companies in regulated industries that need to integrate AI into processes handling sensitive data.
+
+According to data from corporate finance platform Ramp, which analyzes the spending patterns of thousands of companies, **Anthropic is winning 70% of new enterprise contracts** when competing directly against OpenAI — not in the consumer market, but in B2B: companies that have already decided to implement AI and are choosing a vendor.
+
+---
+
+## What This Means for Your SME
+
+So much for the data. The real question is: why should this milestone matter to a company with 10, 50, or 200 employees?
+
+The answer has three parts.
+
+### A) The Professional AI Market Is Consolidating — and That's Good News
+
+When Anthropic generates $30 billion in revenue, that money gets reinvested into three things: more compute capacity, more research toward better models, and more infrastructure to make models more accessible and cheaper for everyone.
+
+The paradox of AI is that the greater the investment at the top, the more democratic the tools become at the base. The Claude model that a consultancy uses today to automate report generation is technically superior to what existed twelve months ago — but costs significantly less.
+
+### B) Giants Competing Directly Benefits You
+
+The fierce race between Anthropic and OpenAI for the enterprise market has a very direct effect on pricing and innovation. Over the past twelve months, the cost per token for frontier AI models has fallen between 60% and 80%, depending on the model. And the trend continues.
+
+For an SME, this means **automating processes with professional-grade AI costs today a fraction of what it cost a year ago**. What was once only viable for large corporations with six-figure digital transformation budgets can now be implemented at a mid-sized business with a reasonable initial investment and a measurable return in months, not years.
+
+### C) Market Maturity Reduces Your Investment Risk
+
+This is perhaps the most underrated argument. When the enterprise AI market was nascent and experimental, adopting these technologies was a genuine risk: the vendor might disappear, models might fail in unexpected ways, contracts offered no real guarantees.
+
+With Anthropic surpassing $30 billion ARR and more than 1,000 clients paying over $1 million annually, we are talking about mature infrastructure. Just as nobody thinks twice about migrating their email infrastructure to Google Workspace or their storage to AWS, Anthropic's AI (and competitors at that tier) is entering the category of "standard business infrastructure."
+
+That reduces the perceived risk of adoption and makes the decision easier for any business owner or manager.
+
+---
+
+## The Uncomfortable Data Point: The Gap Is Widening
+
+We would be negligent if we only offered the positive side of this news. There is a less comfortable face to this milestone.
+
+Anthropic's explosive growth confirms that there are two types of companies in the market: those already using AI strategically, and those still "evaluating" or "waiting to see." The gap between these two groups widens every quarter.
+
+Companies that have spent 12-18 months automating processes with AI have already optimized their workflows, trained their teams, measured real ROI, and are now deploying second or third-generation tools. Those who haven't started yet are running a race where the competition has accumulated an increasingly large head start.
+
+---
+
+## Conclusion: The Train Hasn't Been at the Platform Forever
+
+Anthropic's success shouldn't be read as a Silicon Valley news story. It should be read as a very clear market signal: **professional-grade AI has become standard business infrastructure**, and the market is rewarding companies that build it well with $30 billion per year.
+
+The question is no longer whether your company "needs" AI. The question is how long it can afford not to have it before the competitive gap with those who already do becomes irreversible.
+
+If you want to understand exactly which processes it could impact in your business — and with what expected ROI — at IA4PYMES we offer free diagnostics. **No commitment, with real numbers.**
+        `.trim(),
+    },
+
     {
         slug: "claude-word-microsoft-office-ia-documentos-pymes",
         title: "Claude aterriza dentro de Word: El asistente de Anthropic ahora vive en tu procesador de texto",
@@ -6143,10 +6341,21 @@ Febrero de 2026 será recordado como el mes en que las "Constitution" de la IA t
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-    return blogPosts.find((post) => post.slug === slug)
+    return blogPosts.find((post) => post.slug === slug && (!post.lang || post.lang === "es"))
+}
+
+export function getPostBySlugEN(slug: string): BlogPost | undefined {
+    return blogPosts.find((post) => post.slug === slug && post.lang === "en")
 }
 
 export function getAllPosts(): BlogPost[] {
-    return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    return blogPosts
+        .filter((p) => !p.lang || p.lang === "es")
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
+export function getEnPosts(): BlogPost[] {
+    return blogPosts
+        .filter((p) => p.lang === "en")
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}

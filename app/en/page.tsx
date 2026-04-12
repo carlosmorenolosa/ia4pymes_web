@@ -176,10 +176,10 @@ export default function HomeEN() {
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
-                  href="/blog"
+                  href="/en/blog"
                   className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
                 >
-                  Blog
+                  Blog EN
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
@@ -232,7 +232,7 @@ export default function HomeEN() {
               <Link href="#process" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Process</Link>
               <Link href="#cases" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Success Cases</Link>
               <Link href="#calculator" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Calculator</Link>
-              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Blog</Link>
+              <Link href="/en/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Blog EN</Link>
             </div>
             <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
             {/* Mobile Language Selector */}

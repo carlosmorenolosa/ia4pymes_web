@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
+import { getPostBySlugEN, getEnPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal, Globe } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -12,20 +12,36 @@ interface PageProps {
     params: Promise<{ slug: string }>
 }
 
+export async function generateStaticParams() {
+    const posts = getEnPosts()
+    return posts.map((post) => ({ slug: post.slug }))
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params
-    const post = getPostBySlug(slug)
+    const post = getPostBySlugEN(slug)
 
     if (!post) {
         return {
-            title: "Post no encontrado | IA4PYMES",
-            description: "El artículo que buscas no existe."
+            title: "Article not found | IA4PYMES",
+            description: "The article you are looking for does not exist.",
         }
     }
 
     return {
         title: `${post.title} | IA4PYMES Blog`,
         description: post.description,
+        alternates: {
+            canonical: `https://ia4pymes.tech/en/blog/${post.slug}`,
+            languages: post.translationSlug
+                ? {
+                    "es-ES": `/blog/${post.translationSlug}`,
+                    "en": `/en/blog/${post.slug}`,
+                }
+                : {
+                    "en": `/en/blog/${post.slug}`,
+                },
+        },
         openGraph: {
             title: post.title,
             description: post.description,
@@ -33,6 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             publishedTime: post.date,
             authors: [post.author],
             images: post.image ? [post.image] : [],
+            locale: "en_US",
         },
         twitter: {
             card: "summary_large_image",
@@ -40,15 +57,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             description: post.description,
             images: post.image ? [post.image] : [],
         },
-        alternates: {
-            canonical: `https://ia4pymes.tech/blog/${post.slug}`
-        }
     }
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function EnBlogPostPage({ params }: PageProps) {
     const { slug } = await params
-    const post = getPostBySlug(slug)
+    const post = getPostBySlugEN(slug)
 
     if (!post) {
         notFound()
@@ -68,6 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
                         "datePublished": new Date(post.date).toISOString(),
                         "dateModified": new Date(post.date).toISOString(),
+                        "inLanguage": "en",
                         "author": [{
                             "@type": "Organization",
                             "name": post.author,
@@ -83,7 +98,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         },
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": `https://ia4pymes.tech/blog/${post.slug}`
+                            "@id": `https://ia4pymes.tech/en/blog/${post.slug}`
                         }
                     })
                 }}
@@ -91,27 +106,26 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <ReadingProgressBar />
 
-            {/* Translation banner */}
+            {/* Translation banner — links back to ES version */}
             {post.translationSlug && (
                 <div className="bg-blue-600/10 border-b border-blue-500/20">
                     <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-3 flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-sm text-blue-300 font-medium">
                             <Globe className="w-4 h-4 shrink-0" />
-                            <span>This article is also available in English.</span>
+                            <span>Este artículo también está disponible en español.</span>
                         </div>
                         <Link
-                            href={`/en/blog/${post.translationSlug}`}
+                            href={`/blog/${post.translationSlug}`}
                             className="shrink-0 text-xs font-black uppercase tracking-widest text-blue-400 hover:text-white border border-blue-500/40 hover:border-blue-400 px-4 py-1.5 rounded-full transition-all"
                         >
-                            Read in EN →
+                            Leer en ES →
                         </Link>
                     </div>
                 </div>
             )}
 
-            {/* Hero Header (Light & Professional) */}
+            {/* Hero Header */}
             <header className="relative bg-[#020617] min-h-[40vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-white/5">
-                {/* Background Image with subtle overlay */}
                 {post.image && (
                     <div className="absolute inset-0 z-0 opacity-[0.05]">
                         <Image
@@ -128,11 +142,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                     {/* Navigation */}
                     <nav className="mb-12">
                         <Link
-                            href="/blog"
+                            href="/en/blog"
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                            Retornar al sistema
+                            Back to blog
                         </Link>
                     </nav>
 
@@ -145,6 +159,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                         <div className="flex items-center gap-2 text-slate-400 text-xs font-black uppercase tracking-widest">
                             <Clock className="w-4 h-4 text-blue-400" />
                             {post.readingTime} ETA
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-300 text-[10px] font-black uppercase tracking-widest rounded-full">
+                            🇬🇧 EN
                         </div>
                     </div>
 
@@ -168,7 +185,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         <div className="flex items-center gap-3 text-slate-400 text-sm font-bold uppercase tracking-widest">
                             <Calendar className="w-5 h-5 text-blue-500" />
                             <time dateTime={post.date}>
-                                {new Date(post.date).toLocaleDateString("es-ES", {
+                                {new Date(post.date).toLocaleDateString("en-US", {
                                     day: "2-digit",
                                     month: "short",
                                     year: "numeric",
@@ -177,15 +194,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                         </div>
                     </div>
                 </div>
-                
+
                 {/* Accent Glow */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </header>
 
-            {/* Reading Area - Clean & High Readability */}
+            {/* Reading Area */}
             <article className="py-20 sm:py-32 bg-[#020617] relative border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
-                    {/* Contenedor principal con estilos de lectura refinados */}
                     <div className="blog-article-content prose prose-lg md:prose-xl max-w-none 
                         prose-headings:text-white prose-headings:font-black prose-headings:tracking-tighter
                         prose-p:text-slate-300 prose-p:leading-relaxed prose-p:font-medium
@@ -243,24 +259,24 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
-                        Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
+                        From theory to <span className="text-blue-500">execution</span>
                     </h2>
 
                     <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
-                        El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
+                        Knowledge without technical implementation is just entertainment. We audit your company&apos;s processes to integrate AI architectures that scale your productivity empirically.
                     </p>
 
                     <Link
-                        href="/#contacto"
+                        href="/en#contact"
                         className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
                     >
-                        Agendar Despliegue Técnico
+                        Schedule Technical Deployment
                         <ArrowRight className="w-6 h-6" />
                     </Link>
                 </div>
             </section>
 
-            {/* Premium Footer */}
+            {/* Footer */}
             <footer className="py-12 bg-slate-950 border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
                     <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
@@ -268,11 +284,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                         <span>IA4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
                     <div className="flex items-center gap-10">
-                        <Link href="/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
-                            Documentación
+                        <Link href="/en/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
+                            EN Blog
                         </Link>
-                        <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
-                            Retornar al sistema
+                        <Link href="/en" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
+                            Back to Home
                         </Link>
                     </div>
                 </div>
