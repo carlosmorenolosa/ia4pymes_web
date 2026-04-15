@@ -16,6 +16,122 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Routines
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "claude-routines-automatizacion-autonoma-en-la-nube-anthropic",
+        title: "Claude Routines: Anthropic lleva la automatización autónoma a la nube para equipos de desarrollo",
+        description: "Anthropic acaba de lanzar 'Claude Routines', una evolución de Claude Code que permite programar flujos de trabajo autónomos en su infraestructura en la nube. Desde tareas programadas hasta eventos de GitHub, analizamos cómo revoluciona la automatización para PYMES.",
+        date: "2026-04-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Herramientas IA",
+        image: "/blog/claude-routines.png",
+        lang: "es",
+        translationSlug: "claude-routines-autonomous-cloud-automation-anthropic",
+        content: `
+El panorama de los agentes de inteligencia artificial acaba de dar un salto de gigante. A mediados de abril de 2026, **Anthropic** ha revelado en fase de *research preview* su última gran innovación: **Claude Routines**.
+
+Si Claude Code ya se había consolidado como un potente asistente local ("sidekick") para programadores, **Routines** transforma la herramienta en una plataforma de orquestación autónoma completa que opera directamente en la infraestructura gestionada de Anthropic en la nube.
+
+---
+
+## ¿Qué es exactamente Claude Routines?
+
+En esencia, Claude Routines permite a los equipos técnicos empaquetar un *prompt* (instrucción), un repositorio de código y diversos conectores en una **"rutina"**. Esta rutina se ejecuta de forma completamente autónoma, sin necesidad de que haya un desarrollador humano aprobando cada paso o validando la ejecución localmente.
+
+Lo más disruptivo es su naturaleza **"Always-On" (Siempre Activo)**: al ejecutarse en los servidores de Anthropic, estas rutinas continúan trabajando aunque cierres tu portátil o no estés en la oficina.
+
+### Tres Formas de Disparar la Automatización
+
+Anthropic ha diseñado un sistema de *triggers* o disparadores extremadamente versátil, ideal para integrarse en flujos de trabajo profesionales ya existentes:
+
+1. **Schedules (Programación Cron):** Puedes configurar tareas recurrentes, tales como "revisar y refactorizar código heredado todos los viernes a las 18:00" o "hacer un resumen del registro de errores del servidor a primera hora de cada mañana".
+2. **Llamadas a la API (HTTP POST):** Permite enganchar Claude Routines con cualquier infraestructura externa, como un CRM, un ERP o flujos creados en Zapier/Make.
+3. **Eventos (Integración con GitHub):** Y esta es la joya de la corona para desarrolladores. Las rutinas pueden activarse automáticamente cuando se abre una *Pull Request*, cuando se sube código (*Push*) o se crea un *Issue*, permitiendo a la IA hacer auditorías de seguridad, revisiones de código profundas o corrección automática de *bugs* antes de que un humano intervenga.
+
+---
+
+## Ejecución Autónoma y Rediseño de la Interfaz
+
+Hasta ahora, usar modelos avanzados en el terminal solía requerir que el usuario estuviera pendiente, aprobando permisos o guiando al modelo. **Routines** elimina eso. Al empaquetarlo como una rutina, aceptas que Claude Code actúe de manera independiente durante ese flujo específico, acelerando drásticamente el ritmo de trabajo.
+
+Simultáneamente a este lanzamiento, Anthropic ha **rediseñado por completo la interfaz de escritorio de Claude Code**. Ahora cuenta con una barra lateral para gestionar múltiples sesiones activas a la vez, una terminal integrada, un editor de archivos nativo, un revisor de diferencias (*diff viewer*) ultrarrápido y vistas previas de HTML y PDF. Todo en un entorno "drag-and-drop" (arrastrar y soltar) totalmente personalizable.
+
+### Límites de Uso según tu Plan
+
+Dado el inmenso consumo computacional que suponen los agentes totalmente autónomos operando en la nube, Anthropic ha establecido límites de uso iniciales:
+* **Plan Pro:** 5 rutinas al día.
+* **Plan Max:** 15 rutinas al día.
+* **Planes Team / Enterprise:** Hasta 25 rutinas diarias.
+
+---
+
+## ¿Por qué es crucial para tu PYME?
+
+Para las pequeñas empresas y agencias de desarrollo, la adopción de **Claude Routines** significa que ya no necesitas destinar a tus ingenieros más talentosos (y caros) a tareas de mantenimiento rutinario, como refactorizaciones menores, revisiones de PRs o respuesta a incidencias conocidas de Nivel 1. 
+
+Estás contratando a un "Ingeniero DevSecOps" infatigable que trabaja 24/7 en la nube, operando directamente sobre tus repositorios y actuando solo cuando se cumplen las condiciones dictadas por la lógica de tu negocio. El futuro del software no está solo en escribir código con IA, está en la **operativa y mantenimiento autónomos**.
+        `.trim(),
+    },
+    {
+        slug: "claude-routines-autonomous-cloud-automation-anthropic",
+        title: "Claude Routines: Anthropic Brings Autonomous Cloud Automation to Dev Teams",
+        description: "Anthropic has just released 'Claude Routines', an evolution of Claude Code that allows scheduling autonomous workflows on their cloud infrastructure. From Cron schedules to GitHub events, we analyze how it revolutionizes automation for SMEs.",
+        date: "2026-04-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "AI Tools",
+        image: "/blog/claude-routines.png",
+        lang: "en",
+        translationSlug: "claude-routines-automatizacion-autonoma-en-la-nube-anthropic",
+        content: `
+The landscape of artificial intelligence agents has just taken a massive leap forward. In mid-April 2026, **Anthropic** unveiled its latest major innovation in a *research preview*: **Claude Routines**.
+
+While Claude Code had already established itself as a powerful local "sidekick" for developers, **Routines** transforms the tool into a full-fledged autonomous orchestration platform operating directly on Anthropic’s managed cloud infrastructure.
+
+---
+
+## What Exactly is Claude Routines?
+
+At its core, Claude Routines enables technical teams to package a prompt, a code repository, and various connectors into a **"routine"**. This routine executes entirely autonomously, without requiring a human developer to approve every step or validate execution locally.
+
+The most disruptive aspect is its **"Always-On"** nature: because it runs on Anthropic’s servers, these routines keep working even if you close your laptop or are away from the office.
+
+### Three Ways to Trigger Automation
+
+Anthropic has designed an extremely versatile trigger system, perfectly suited to integrate with existing professional workflows:
+
+1. **Schedules (Cron):** You can set up recurring tasks, such as "review and refactor legacy code every Friday at 6:00 PM," or "summarize the server error log first thing every morning."
+2. **API Calls (HTTP POST):** This allows hooking Claude Routines into any external infrastructure, such as a CRM, an ERP, or flows built in Zapier/Make.
+3. **Events (GitHub Integration):** This is the crown jewel for development teams. Routines can be triggered automatically when a *Pull Request* is opened, when code is pushed, or when an *Issue* is created. This allows the AI to perform security audits, deep code reviews, or automated bug fixing before a human ever intervenes.
+
+---
+
+## Autonomous Execution and Interface Redesign
+
+Until now, using advanced models in the terminal often required the user to actively monitor operations, approve permissions, or guide the model. **Routines** eliminates this bottleneck. By packaging the workflow as a routine, you grant Claude Code the agency to act independently throughout that specific flow, drastically accelerating the pace of work.
+
+Alongside this release, Anthropic has **completely redesigned the Claude Code desktop interface**. It now features a sidebar to manage multiple active sessions side-by-side, an integrated terminal, a native in-app file editor, a blazingly fast diff viewer, and HTML/PDF preview capabilities. The entire UI is now a fully customizable drag-and-drop workspace.
+
+### Usage Limits by Plan
+
+Given the immense computational resources consumed by fully autonomous cloud agents, Anthropic has established initial usage limits:
+* **Pro Plan:** 5 routines per day.
+* **Max Plan:** 15 routines per day.
+* **Team / Enterprise Plans:** Up to 25 routines per day.
+
+---
+
+## Why is this Crucial for your SME?
+
+For small businesses and development agencies, the adoption of **Claude Routines** means you no longer need to allocate your most talented (and expensive) engineers to routine maintenance tasks, such as minor refactoring, PR reviews, or responding to known Tier 1 incidents.
+
+You are effectively hiring an untiring "DevSecOps Engineer" that works 24/7 in the cloud, operating directly on your repositories and acting only when your business logic dictates. The future of software is not just writing code with AI; it's about **autonomous operations and maintenance**.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: MiniMax M2.7
     // ─────────────────────────────────────────────────────────
     {
