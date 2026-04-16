@@ -16,6 +16,116 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: IA en Logística
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "inteligencia-artificial-logistica-distribucion-fin-atascos-papel",
+        title: "Atascos de papeleo: Cómo la IA está salvando los márgenes del sector logístico en 2026",
+        description: "El sector del transporte y la distribución opera con márgenes estrechísimos. Analizamos cómo la Inteligencia Artificial está eliminando la entrada manual de albaranes y automatizando la atención al cliente para proteger la rentabilidad de las PYMES logísticas.",
+        date: "2026-04-16",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Casos de Uso",
+        image: "/blog/logistics-ai-automation.png",
+        lang: "es",
+        translationSlug: "ai-logistics-distribution-end-of-paperwork-bottlenecks",
+        content: `
+Si lideras una empresa de logística, transporte de mercancías o distribución mayorista, conoces perfectamente la cruda realidad del sector: **se compite a cara de perro por cada céntimo de margen**. 
+
+El combustible sube, las exigencias de tiempos de entrega se acortan y, mientras tanto, tus oficinas corren el riesgo de convertirse en cuellos de botella ahogados por montañas de papel. En pleno 2026, seguir dependiendo de humanos tecleando datos de albaranes arrugados al final del día es una sangría financiera que tu empresa no se puede permitir.
+
+Aquí es exactamente donde la Inteligencia Artificial está interviniendo de urgencia para aplicar un torniquete en la fuga de márgenes.
+
+---
+
+## 1. El fin del "Picado de Datos": Extracción Inteligente (OCR con IA)
+
+Durante décadas, la "digitalización" en logística significaba escanear un papel y hacer que un empleado administrativo mirara ese PDF en una pantalla para introducir manualmente la matrícula, el CIF, el albarán, los kilos entregados y las incidencias en el ERP de la empresa (SAP, Navision, Sage, etc.).
+
+Hoy, los modelos multimodales de IA (Vision) han dejado este proceso obsoleto. Las soluciones actuales de automatización que implementamos en **IA4PYMES** son capaces de:
+
+*   **Leer documentos no estructurados:** Da igual si el chófer presenta un albarán manchado de café, con anotaciones a bolígrafo torcidas o formatos completamente distintos de 50 proveedores diferentes.
+*   **Extracción semántica:** La IA no solo "lee" el texto, sino que entiende qué es un número de lote, una fecha de caducidad o un recargo, y lo empareja al campo exacto de tu base de datos.
+*   **Inyección directa al ERP:** En menos de 5 segundos desde que el conductor sube la foto desde su móvil, los datos ya están registrados en la central, desencadenando la facturación casi en tiempo real.
+
+**El impacto real:** Reducción del 90% en el tiempo de procesamiento administrativo y erradicación casi total de errores de transcripción humanos (que casi siempre acaban en disputas de cobro).
+
+---
+
+## 2. Atención al Cliente 24/7: "¿Dónde demonios está mi conductor?"
+
+El segundo gran agujero de rentabilidad en el transporte son las llamadas de seguimiento. Tu personal de tráfico o atención al cliente pasa la mayor parte del día actuando como meros intermediarios leyendo datos de una pantalla a un cliente ansioso por teléfono o WhatsApp.
+
+Los agentes conversacionales autónomos han llegado al punto en el que pueden conectarse directamente al sistema telefónico (PBX) o al WhatsApp Business de tu empresa. 
+*   Cuando un cliente escribe: *"¿A qué hora llega el pale de azulejos del pedido 4045 a Madrid?"*, el Agente de IA consulta automáticamente el GPS del camión y el TMS (Transport Management System).
+*   En segundos, responde con total naturalidad: *"Hola María, el camión está a 40km de sus instalaciones y no presenta retrasos viales. La hora estimada son las 11:15h. ¿Desea que le envíe el albarán de entrega provisional?"*
+
+Esto no solo libera al departamento de tráfico para que se enfoque en resolver incidencias *reales* (como averías o atascos), sino que mejora radicalmente la percepción de fiabilidad que tiene el cliente sobre tu marca.
+
+---
+
+## El coste de la inacción
+
+La Inteligencia artificial ya no es un "lujo" de Amazon o FedEx. Los costes de despliegue han caído en picado, permitiendo a PYMES regionales implementar motores de IA privados que transforman sus operaciones. En un sector donde el margen neto a menudo se mueve entre el 3% y el 6%, arañar cientos de horas administrativas al mes gracias a la IA puede suponer la diferencia entre el estancamiento y liderar tu zona de influencia.
+
+En IA4PYMES diagnosticamos estos procesos ineficientes y construimos las automatizaciones que los eliminan. **La tecnología está lista para mover tu mercancía; la pregunta es si tu oficina está lista para la tecnología.**
+        `.trim(),
+    },
+    {
+        slug: "ai-logistics-distribution-end-of-paperwork-bottlenecks",
+        title: "Paperwork Bottlenecks: How AI is Saving Logistics Margins in 2026",
+        description: "The transport and distribution sector operates on incredibly tight margins. We analyze how Artificial Intelligence is eliminating manual delivery note entry and automating customer inquiries to protect SME profitability.",
+        date: "2026-04-16",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Use Cases",
+        image: "/blog/logistics-ai-automation.png",
+        lang: "en",
+        translationSlug: "inteligencia-artificial-logistica-distribucion-fin-atascos-papel",
+        content: `
+If you lead a logistics company, freight transport operation, or wholesale distribution firm, you know the harsh reality of the sector all too well: **competition is cutthroat for every single cent of margin.**
+
+Fuel prices fluctuate, delivery time expectations shrink, and meanwhile, your back-offices risk becoming suffocating bottlenecks buried under mountains of paper. In 2026, relying on human employees to manually type data from wrinkled delivery notes at the end of the shift is a financial bleed your company simply cannot afford.
+
+This is exactly where Artificial Intelligence steps in to apply a tourniquet to margin leakage.
+
+---
+
+## 1. The End of Data Entry: Intelligent Extraction (AI-Powered OCR)
+
+For decades, "digitization" in logistics meant scanning a piece of paper so an administrative worker could look at a PDF on screen and manually type the license plate, tax ID, delivery items, weights, and transit remarks into the company ERP (SAP, Navision, Sage, etc.).
+
+Today, multimodal AI (Vision models) has rendered this process entirely obsolete. The current automation solutions we implement at **IA4PYMES** are capable of:
+
+*   **Reading unstructured documents:** It doesn't matter if the driver hands in a coffee-stained delivery note, with crooked handwritten annotations, or if you receive 50 completely different templated formats from 50 different suppliers.
+*   **Semantic extraction:** The AI doesn't just "read" the text; it understands what a batch number is, distinguishes an expiration date from an invoice date, or identifies a fuel surcharge, mapping it to the exact field in your database.
+*   **Direct ERP Injection:** Less than 5 seconds after the driver uploads a photo from their phone, the data is registered at headquarters, triggering the billing process almost in real-time.
+
+**The real impact:** A 90% reduction in administrative processing time and the near total eradication of human transcription errors (which almost invariably end in payment disputes).
+
+---
+
+## 2. 24/7 Customer Support: "Where on earth is my driver?"
+
+The second major profitability sinkhole in transport is tracking inquiries. Your traffic management or customer service staff spend most of their day acting as mere human routers—reading data off a screen to an anxious client over the phone or WhatsApp.
+
+Autonomous conversational agents have now reached the point where they can connect seamlessly to your company's phone system (PBX) or WhatsApp Business API.
+*   When a client types: *"What time is the pallet of tiles for order 4045 arriving in Madrid?"*, the AI Agent automatically queries the truck's GPS data and your Transport Management System (TMS).
+*   In seconds, it replies naturally: *"Hello Maria, the truck is 40km away from your facility and encountering no traffic delays. The estimated arrival time is 11:15 AM. Would you like me to send you the preliminary delivery receipt?"*
+
+This not only frees up the traffic department to focus on resolving *real* incidents (like breakdowns or routing issues) but radically improves the customer's perception of your brand's reliability.
+
+---
+
+## The Cost of Inaction
+
+Artificial Intelligence is no longer an "Amazon or FedEx exclusive" luxury. Deployment costs have plummeted, allowing regional SMEs to implement private AI engines that transform their operations completely. In a sector where net margins often hover dangerously between 3% and 6%, shaving off hundreds of administrative hours per month with AI can mean the difference between stagnation and market leadership.
+
+At IA4PYMES, we diagnose these inefficient processes and build the exact automations that eliminate them. **The technology is ready to move your freight; the question is, is your back-office ready for the technology?**
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Routines
     // ─────────────────────────────────────────────────────────
     {
