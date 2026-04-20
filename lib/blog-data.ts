@@ -16,6 +16,109 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: IA en RRHH (Caso de Uso)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "inteligencia-artificial-recursos-humanos-fin-caos-seleccion-personal",
+        title: "Contrataciones en tiempo récord: Así entrevista la Inteligencia Artificial a tus candidatos",
+        description: "Publicar una oferta de empleo atrae a cientos de candidatos, saturando a los gerentes. Descubre cómo los agentes de IA por voz y WhatsApp están asumiendo las primeras fases de filtrado, ahorrando semanas de trabajo a las PYMES.",
+        date: "2026-04-20",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Casos de Uso",
+        image: "/blog/hr-recruitment-ai.png",
+        lang: "es",
+        translationSlug: "ai-human-resources-recruitment-end-hiring-chaos",
+        content: `
+Cualquier dueño de una PYME o responsable de Recursos Humanos conoce el dolor: publicas una oferta de empleo para un puesto administrativo, comercial o técnico, y a las 48 horas tienes **400 currículums atascando la bandeja de entrada**.
+
+Lo que debería ser un proceso de crecimiento se convierte en un suplicio. Un gerente humano puede tardar una semana entera simplemente en revisar PDFs por encima, descartar los irrelevantes y hacer decenas de "llamadas de filtro" de diez minutos para ver si el candidato encaja mínimamente. Es un despilfarro brutal de tiempo operativo.
+
+Afortunadamente, en 2026, la Inteligencia Artificial ha evolucionado lo suficiente como para asumir este tedio con una precisión asombrosa.
+
+---
+
+## 1. El filtro instantáneo: Del papel a la base de datos
+
+El primer gran avance es la **clasificación inteligente**. Hoy instalamos en las empresas sistemas de IA capaces de ingerir cientos de currículums en segundos, independientemente de su formato. La IA no busca "palabras clave" exactas como los viejos sistemas ATS; la IA *entiende* la trayectoria.
+
+Si pides un profesional con "experiencia en cierre presupuestario", la IA detectará a candidatos que pongan "gestión de auditorías anuales y control P&L", aunque no usen las palabras literales que pusiste en la oferta. Al instante, te clasifica a los candidatos en A, B y C, justificando por qué.
+
+## 2. El Agente Entrevistador: Llamadas y WhatsApp en piloto automático
+
+Aquí es donde está la magia del ahorro operativo. En **IA4PYMES** configuramos agentes conversacionales que interactúan en nombre de tu empresa con los candidatos de la categoría "A".
+
+¿Cómo funciona en la práctica?
+1. La IA envía un mensaje de WhatsApp amigable al candidato: *"Hola Carlos, hemos recibido tu CV para el puesto en CAEYS. ¿Tienes 5 minutos para responder un par de preguntas clave?"*
+2. El agente hace un **screening interactivo**. Pregunta sobre expectativas salariales, disponibilidad para viajar o resuelve dudas sobre herramientas concretas (por ejemplo: *"¿Qué nivel de experiencia tienes manejando PowerBI?"*).
+3. **Por Voz:** Incluso podemos desplegar agentes telefónicos que llamen al candidato, manteniendo una conversación fluida para medir sus habilidades comunicativas o su nivel de inglés real, sin que el gerente mueva un dedo.
+
+## 3. Evaluaciones sin "Sesgos Inconscientes"
+
+Un beneficio colateral masivo es la eliminación de sesgos. El reclutador humano, por cansancio o prisa tras 15 llamadas, acaba tomando decisiones viscerales. 
+
+El agente de IA, sin embargo, trata a todos los candidatos con la misma cortesía, plantea la misma estructura de preguntas, y emite un informe totalmente objetivo basado única y exclusivamente en las competencias profesionales demostradas durante la prueba o el chat.
+
+## Solo te sientas con los 3 mejores
+
+El resultado final de esta automatización es impecable. El director general o el gerente de Recursos Humanos **ya no pierde horas al teléfono con perfiles que no encajan**. En su lugar, el lunes por la mañana recibe un panel de control con los **3 o 4 finalistas definitivos**. 
+
+Viene acompañado de un resumen de sus puntos fuertes, la confirmación de que aceptan el rango salarial y una transcripción (o grabación resumen) de su entrevista con la IA. 
+
+A la hora de contratar, el tiempo es dinero. Dejar que la Inteligencia Artificial maneje la criba inicial te permite enfocarte en lo que de verdad importa: la química personal y la decisión estratégica final cara a cara con el talento.
+        `.trim(),
+    },
+    {
+        slug: "ai-human-resources-recruitment-end-hiring-chaos",
+        title: "Record-Breaking Hires: How Artificial Intelligence is Interviewing Your Candidates",
+        description: "Posting a job offer attracts hundreds of applicants, overwhelming managers. Discover how Voice and WhatsApp AI agents are taking over the initial screening phases, saving SMEs weeks of work.",
+        date: "2026-04-20",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Use Cases",
+        image: "/blog/hr-recruitment-ai.png",
+        lang: "en",
+        translationSlug: "inteligencia-artificial-recursos-humanos-fin-caos-seleccion-personal",
+        content: `
+Every SME owner or Human Resources manager knows the pain: you publish a job offer for an administrative, sales, or technical position, and within 48 hours, you have **400 resumes clogging up your inbox**.
+
+What should be an exciting growth process becomes pure torment. A human manager can spend an entire week just briefly scanning PDFs, discarding irrelevant ones, and making dozens of ten-minute "screening calls" to see if the candidate has a basic fit. It is a brutal waste of operational time.
+
+Fortunately, in 2026, Artificial Intelligence has evolved enough to take over this tedium with astonishing accuracy.
+
+---
+
+## 1. The Instant Filter: From Paper to Database
+
+The first major leap is **intelligent sorting**. Today, we install AI systems in companies capable of ingesting hundreds of resumes in seconds, regardless of their format. The AI doesn't just look for exact "keywords" like archaic ATS systems; the AI actually *understands* the career path.
+
+If you request a professional with "experience in budget closing," the AI will detect a candidate who wrote "annual audit management and P&L control," even if they didn't use the literal words from your job posting. Instantly, it grades candidates into A, B, and C tiers, justifying exactly why.
+
+## 2. The Agent Interviewer: Calls and WhatsApp on Autopilot
+
+Here is where the operational saving magic happens. At **IA4PYMES**, we configure conversational agents that interact on behalf of your company with the "Tier A" candidates.
+
+How does it work in practice?
+1. The AI sends a friendly WhatsApp message to the candidate: *"Hello Carlos, we have received your resume for the position at CAEYS. Do you have 5 minutes to answer a couple of key questions?"*
+2. The agent conducts an **interactive screening**. It asks about salary expectations, willingness to travel, or resolves doubts about specific tools (e.g., *"What is your experience level managing PowerBI?"*).
+3. **Voice Screening:** We can even deploy voice agents that physically call the candidate, maintaining a fluent conversation to measure their communication skills or actual English level—without the manager lifting a finger.
+
+## 3. Evaluations without "Unconscious Bias"
+
+A massive collateral benefit is the elimination of bias. A human recruiter, tired or rushed after 15 phone calls, eventually starts making gut-feeling decisions.
+
+The AI agent, however, treats every candidate with the exact same courtesy, asks the exact same structured questions, and issues a completely objective report based solely on the professional competencies demonstrated during the chat or voice test.
+
+## You Only Meet the Top 3
+
+The final result of this automation is flawless. The CEO or HR Manager **no longer wastes hours on the phone with profiles that don't fit**. Instead, on Monday morning, they receive a clean dashboard featuring the **top 3 or 4 definitive finalists**.
+
+This comes accompanied by a summary of their strengths, confirmation that they accept the salary range, and a transcript (or summary recording) of their initial AI interview.
+
+When it comes to hiring, time is money. Letting Artificial Intelligence handle the initial screening allows you to focus on what truly matters: the personal chemistry and the final strategic decision face-to-face with top talent.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Design
     // ─────────────────────────────────────────────────────────
     {
