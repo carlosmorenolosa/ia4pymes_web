@@ -16,6 +16,177 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Code vs Codex vs Gemini CLI
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "claude-code-vs-codex-vs-gemini-cli-comparativa-agentes-ia-programacion-2026",
+        title: "Claude Code vs. OpenAI Codex vs. Gemini CLI: ¿Cuál es el mejor agente de IA para programar en 2026?",
+        description: "La batalla por el terminal del desarrollador está servida. Comparamos en profundidad los tres grandes agentes de codificación por IA: Claude Code (Anthropic), OpenAI Codex y Gemini CLI (Google). Precios, capacidades, ventanas de contexto y para quién es cada uno.",
+        date: "2026-04-21",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Comparativas",
+        image: "/blog/claude-code-vs-codex-vs-gemini.png",
+        lang: "es",
+        translationSlug: "claude-code-vs-codex-vs-gemini-cli-ai-coding-agents-comparison-2026",
+        content: `
+Si eres desarrollador de software, director técnico o simplemente alguien que supervisa proyectos de programación, el ecosistema de agentes de IA para codificación de 2026 puede resultar abrumador. En cuestión de meses, **Claude Code** (Anthropic), **OpenAI Codex** (en su versión moderna de agente cloud) y **Gemini CLI** (Google) se han convertido en tres herramientas profundamente distintas que compiten por el mismo sitio: tu terminal.
+
+Este artículo las pone frente a frente con datos reales. Sin marketing. Vamos al grano.
+
+---
+
+## Un vistazo rápido: la tabla de comparación
+
+| Característica | Claude Code | OpenAI Codex | Gemini CLI |
+|---|---|---|---|
+| **Empresa** | Anthropic | OpenAI | Google |
+| **Tipo** | Agente nativo de terminal | Agente cloud/sandbox | Agente nativo de terminal |
+| **Ventana de Contexto** | 200K tokens | 128K–200K tokens | **1M tokens** |
+| **Capa Gratuita** | No | Limitada (ChatGPT Plus) | **Sí (1.000 req/día)** |
+| **Código Abierto** | No (propietario) | Sí (Apache 2.0) | Sí (Apache 2.0) |
+| **Lo mejor de** | Razonamiento profundo, multi-archivo | CI/CD y ejecución en sandbox | Contexto masivo y coste cero |
+
+---
+
+## 1. Claude Code: El Inteligente Premium
+
+Claude Code es ampliamente reconocido como el **estándar de la industria en calidad de razonamiento y código**. Su diseño agéntico va mucho más allá de completar líneas: lee tu base de código completa, planifica tareas complejas y las ejecuta a través de múltiples archivos en una sola sesión.
+
+**Sus puntos fuertes son imbatibles en calidad:**
+*   **Memoria persistente entre sesiones:** Mediante un archivo CLAUDE.md en la raíz del proyecto, Claude Code "recuerda" las convenciones de arquitectura que hayas definido. Nunca más tendrás que repetirlas.
+*   **Hooks personalizados:** Puedes engancharlo a cualquier acción de tu flujo de trabajo: antes de ejecutar código, antes de un commit o al finalizar una tarea.
+*   **Precisión en primera pasada:** Requiere muchos menos ciclos de corrección. Su razonamiento en tareas de refactorización compleja es notoriamente superior al de sus competidores.
+
+**El problema:** No tiene capa gratuita. Requiere una suscripción a Anthropic Pro ($20/mes) o Max ($100-200/mes), y no puedes swapear el modelo por otro proveedor al ser propietario.
+
+**¿Para quién es?** Equipos y freelancers que priorizan la calidad sobre el coste y trabajan en proyectos con arquitecturas complejas (microservicios, proyectos heredados grandes).
+
+---
+
+## 2. OpenAI Codex (2026): El Especialista en Seguridad y CI/CD
+
+El Codex moderno no tiene nada que ver con el modelo de 2021. Es un **agente de ingeniería de software en la nube**, diseñado para ejecución paralela y autónoma en entornos controlados.
+
+**Lo que le hace único:**
+*   **Ejecución en Sandbox Aislado:** Ejecuta el código en contenedores con red deshabilitada por defecto. Esto lo convierte en la opción más segura para empresas que no quieren que su agente de IA pueda "salir" accidentalmente a internet durante la ejecución.
+*   **Integración nativa con CI/CD:** Diseñado desde cero para encajar en pipelines de GitHub Actions y similares, ejecutando tareas de revisión de PRs o tests automáticos de forma autónoma.
+*   **Multi-agente:** Soporta orquestación de múltiples agentes en paralelo para tareas muy grandes.
+*   **Open Source:** Su CLI es Apache 2.0. El coste se paga contra tu suscripción a ChatGPT Plus o tu crédito de API.
+
+**¿Para quién es?** Equipos de DevOps o empresas con estrictas políticas de seguridad donde la ejecución del código necesita ocurrir en entornos aislados y auditables.
+
+---
+
+## 3. Gemini CLI: El As de la Accesibilidad
+
+Gemini CLI es el **mayor disruptor en cuanto a accesibilidad**. Google ha tomado una decisión estratégica que ningún competidor ha igualado: ofrecer **1.000 peticiones diarias completamente gratuitas** con modelos Gemini Flash/Pro. Para muchos equipos pequeños, eso es suficiente para su trabajo diario sin pagar ni un euro.
+
+**Lo que le distingue técnicamente:**
+*   **Ventana de contexto de 1 millón de tokens:** Es una ventaja estructural brutal. Mientras Claude Code y Codex se ven forzados a resumir o "chunkar" proyectos grandes, Gemini CLI puede ingerir **monorepos medianos enteros** en un solo contexto, sin perder detalles.
+*   **Google Search grounding nativo:** Puede buscar en internet en tiempo real para consultar documentación actualizada de librerías o frameworks, algo muy útil cuando trabajas con stacks que cambian rápido.
+*   **Totalmente Open Source (Apache 2.0):** Puedes inspeccionarlo, modificarlo e integrarlo sin restricciones de licencia.
+
+**¿Para quién es?** Equipos con presupuesto ajustado, proyectos con bases de código muy grandes que necesiten ser procesadas íntegramente, o desarrolladores que valoran la integración con el ecosistema de Google (Cloud, GCP, Firebase).
+
+---
+
+## El Veredicto: ¿Cuál elegir?
+
+En 2026, **no hay una sola respuesta correcta**. La realidad en el terreno es que muchos equipos combinan herramientas:
+
+*   Usan **Gemini CLI** para tareas rápidas de investigación, debugging de errores sencillos y exploración de codebases nuevos gratuito.
+*   Cambian a **Claude Code** cuando llega la hora de hacer refactorizaciones serias o diseñar arquitecturas limpias donde la calidad de la primera pasada es crítica.
+*   Incorporan **OpenAI Codex** en sus pipelines de CI/CD para automatizar revisiones de PRs y tests en entornos sandbox seguros.
+
+Si tu empresa está empezando a introducir IA en el flujo de desarrollo, **Gemini CLI** es el punto de entrada lógico (gratuito y poderoso). Si ya usáis IA y queréis elevar la calidad, **Claude Code** es la inversión que se paga sola.
+        `.trim(),
+    },
+    {
+        slug: "claude-code-vs-codex-vs-gemini-cli-ai-coding-agents-comparison-2026",
+        title: "Claude Code vs. OpenAI Codex vs. Gemini CLI: Which is the Best AI Coding Agent in 2026?",
+        description: "The battle for the developer's terminal is on. We do a deep-dive comparison of the three major AI coding agents: Claude Code (Anthropic), OpenAI Codex, and Gemini CLI (Google). Pricing, capabilities, context windows, and who each tool is for.",
+        date: "2026-04-21",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Comparisons",
+        image: "/blog/claude-code-vs-codex-vs-gemini.png",
+        lang: "en",
+        translationSlug: "claude-code-vs-codex-vs-gemini-cli-comparativa-agentes-ia-programacion-2026",
+        content: `
+If you're a software developer, CTO, or anyone who oversees programming projects, the 2026 AI coding agent ecosystem can feel overwhelming. In just a few months, **Claude Code** (Anthropic), **OpenAI Codex** (in its modern cloud-agent incarnation), and **Gemini CLI** (Google) have become three profoundly different tools competing for the same real estate: your terminal.
+
+This article puts them head-to-head using real data. No marketing fluff. Let's get straight to it.
+
+---
+
+## A Quick Look: The Comparison Table
+
+| Feature | Claude Code | OpenAI Codex | Gemini CLI |
+|---|---|---|---|
+| **Company** | Anthropic | OpenAI | Google |
+| **Type** | Terminal-native Agent | Cloud/Sandbox Agent | Terminal-native Agent |
+| **Context Window** | 200K tokens | 128K–200K tokens | **1M tokens** |
+| **Free Tier** | No | Limited (ChatGPT Plus) | **Yes (1,000 req/day)** |
+| **Open Source** | No (Proprietary) | Yes (Apache 2.0) | Yes (Apache 2.0) |
+| **Best At** | Deep reasoning, multi-file | CI/CD & sandboxed execution | Massive context & zero cost |
+
+---
+
+## 1. Claude Code: The Premium Thinker
+
+Claude Code is widely recognized as the **industry benchmark for reasoning depth and code quality**. Its agentic design goes far beyond line completion: it reads your entire codebase, plans complex tasks, and executes them across multiple files in a single session.
+
+**Its core strengths are hard to beat on quality:**
+*   **Persistent Memory Across Sessions:** Via a CLAUDE.md file at the project root, Claude Code "remembers" the architectural conventions you've defined. You'll never have to repeat yourself again.
+*   **Custom Hooks:** You can attach it to any action in your workflow: before running code, before a commit, or upon task completion.
+*   **First-Pass Accuracy:** It requires far fewer correction cycles. Its reasoning on complex refactoring tasks is notoriously superior to its competitors.
+
+**The catch:** There is no free tier. It requires an Anthropic Pro ($20/mo) or Max ($100–200/mo) subscription, and you cannot swap the underlying model for another provider since it's proprietary.
+
+**Who is it for?** Teams and freelancers who prioritize quality over cost and work on projects with complex architectures (microservices, large legacy codebases).
+
+---
+
+## 2. OpenAI Codex (2026): The CI/CD and Security Specialist
+
+The modern Codex has nothing in common with the 2021 model. It is a **cloud-based software engineering agent**, designed for parallel and autonomous execution in controlled environments.
+
+**What makes it unique:**
+*   **Isolated Sandbox Execution:** It runs code in containers with the network disabled by default. This makes it the safest option for companies who don't want their AI agent to accidentally "reach out" to the internet during execution.
+*   **Native CI/CD Integration:** Built from the ground up to plug into GitHub Actions and similar pipelines, autonomously executing PR review tasks or running tests.
+*   **Multi-Agent Support:** Supports orchestrating multiple parallel agents for very large tasks.
+*   **Open Source:** Its CLI is Apache 2.0. The cost is charged against your ChatGPT Plus subscription or API credit.
+
+**Who is it for?** DevOps teams or companies with strict security policies where code execution must happen in isolated, auditable sandboxed environments.
+
+---
+
+## 3. Gemini CLI: The Ace of Accessibility
+
+Gemini CLI is the **biggest disruptor in terms of accessibility**. Google has made a strategic decision that no competitor has matched: offering **1,000 free daily requests** with Gemini Flash/Pro models. For many small teams, that's plenty for their daily workload without spending a single dollar.
+
+**What distinguishes it technically:**
+*   **1 Million Token Context Window:** This is a structural advantage of enormous proportions. While Claude Code and Codex are forced to summarize or "chunk" large projects, Gemini CLI can ingest **entire mid-sized monorepos** in a single context, losing zero detail.
+*   **Native Google Search Grounding:** It can search the internet in real-time to consult up-to-date documentation for libraries or frameworks—extremely useful for fast-moving stacks.
+*   **Fully Open Source (Apache 2.0):** You can inspect, modify, and integrate it without any licensing restrictions.
+
+**Who is it for?** Budget-conscious teams, projects with very large codebases that need to be processed whole, or developers who value tight integration with the Google ecosystem (Cloud, GCP, Firebase).
+
+---
+
+## The Verdict: Which Should You Choose?
+
+In 2026, **there is no single right answer.** The reality in the field is that many professional teams combine these tools:
+
+*   They use **Gemini CLI** for quick research tasks, debugging simple errors, and exploring new codebases—for free.
+*   They switch to **Claude Code** when the time comes for serious refactoring or architecting clean systems where first-pass quality is critical.
+*   They incorporate **OpenAI Codex** into their CI/CD pipelines to automate PR reviews and tests in secure, sandboxed environments.
+
+If your company is just starting to bring AI into the development workflow, **Gemini CLI** is the logical free entry point. If you're already using AI and want to elevate the quality bar, **Claude Code** is the investment that pays for itself.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: IA en RRHH (Caso de Uso)
     // ─────────────────────────────────────────────────────────
     {
