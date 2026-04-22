@@ -16,6 +16,141 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Inflación de tokens en Claude
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "inflacion-tokens-claude-incertidumbre-precios-api-anthropic",
+        title: "La 'inflación de tokens' de Claude: El problema silencioso de los costes de IA que nadie te cuenta",
+        description: "Las facturas de la API de Claude están subiendo sin que los precios oficiales hayan cambiado. Analizamos el fenómeno de la 'inflación de tokens': cambios de tokenizador, inyecciones de contexto, bucles agénticos y caducidad de caché. Un debate esencial para cualquier empresa que use IA en 2026.",
+        date: "2026-04-22",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Análisis y Reflexión",
+        image: "/blog/claude-token-inflation.png",
+        lang: "es",
+        translationSlug: "claude-token-inflation-api-pricing-uncertainty-analysis",
+        content: `
+Imagina que has construido con cuidado un flujo de trabajo basado en la API de Claude. Has hecho tus cálculos, estimado el uso mensual y llegas a un precio justo para ofrecerlo a tus clientes. Todo cuadra.
+
+Y entonces, sin que cambie ni un carácter de tu código ni el precio de lista de Anthropic, la factura de fin de mes es un 30% mayor.
+
+Esto no es ciencia ficción. Es una situación a la que se enfrentan en 2026 equipos de desarrollo de todo el mundo. Se llama **inflación de tokens** y es el efecto secundario más turbio de la adopción empresarial a gran escala de modelos de lenguaje avanzados.
+
+---
+
+## ¿Qué es exactamente la "inflación de tokens"?
+
+La tarificación de Anthropic se basa en tokens: unidades de texto que el modelo procesa. El precio oficial es claro (Claude Opus: 5$/MTok entrada, 25$/MTok salida; Sonnet: 3$/15$; Haiku: 1$/5$). Pero el problema surge cuando la **cantidad de tokens consumidos por la misma tarea crece de forma opaca**, sin que el usuario haga nada diferente.
+
+Existen al menos cinco fuentes documentadas de esta inflación silenciosa:
+
+### 1. Cambios de Tokenizador en Actualizaciones de Modelo
+Cada versión de Claude puede incorporar un tokenizador distinto. Un tokenizador menos eficiente para cierto tipo de texto (por ejemplo, código fuente en Python o documentos legales con mucha puntuación) produce más tokens del mismo input. El resultado es un **aumento de precio efectivo encubierto** que no aparece en ningún boletín oficial.
+
+### 2. Inyección de Contexto del Servidor (el caso de Claude Code)
+Investigaciones técnicas de la comunidad de developers han revelado que ciertas actualizaciones de herramienta —especialmente en Claude Code— provocan que el servidor inyecte tokens adicionales de contexto en la ventana sin que el usuario lo solicite. Se han reportado picos de consumo superiores al **40% sobre lo esperado** tras actualizaciones de versión, completamente opacos para el desarrollador.
+
+### 3. Caducidad de la Caché de Prompts
+Anthropic ofrece "Prompt Caching" con descuentos de hasta el 90% en tokens de entrada cacheados. Parece la solución perfecta hasta que te das cuenta de que la caché tiene un TTL (tiempo de vida) muy corto, a menudo de 5 minutos. Si una sesión de agente IA hace una pausa —por una llamada a herramienta externa, una espera de input humano, o simplemente por latencia de red— el contexto cahceado expira. La siguiente llamada recarga el contexto completo a precio estándar. Sin previo aviso.
+
+### 4. Verbosidad Creciente en Modelos Más Inteligentes
+Hay una paradoja cruel en la evolución de la IA: cuanto mejor razona el modelo, más habla. Los modelos más capaces tienden a generar respuestas más largas, más estructuradas y con más contexto, porque han aprendido que esto mejora la calidad percibida. Los tokens de salida son sustancialmente más caros que los de entrada. Un incremento modesto en la verbosidad tiene un impacto desproporcionado en la factura final.
+
+### 5. Bugs de Conteo y Bucles Agénticos
+Se han documentado casos donde SDKs o herramientas contenían bugs (como IDs de mensaje duplicados en outputs de stream-json) que multiplicaban el consumo reportado sin que el consumo real fuera equivalente. En flujos agénticos donde el modelo hace repetidas llamadas a herramientas, un bug de este tipo puede disparar la factura de forma catastrófica en cuestión de horas.
+
+---
+
+## ¿Qué implica esto para el futuro?
+
+Esta opacidad en el coste real es especialmente peligrosa para las empresas que están iniciando su transición hacia la IA. Se presenta una estimación de costes basada en el precio de lista, y la realidad operativa puede ser muy diferente.
+
+De cara al futuro, hay tres tendencias que hacen este problema más urgente:
+- **Modelos más agénticos = contextos más largos = más tokens invisibles.** A medida que los flujos agénticos se vuelven standard, el contexto acumulado por vuelta crece exponencialmente.
+- **La complejidad de las herramientas.** Cada función, cada esquema JSON que defines en un agente añade tokens al contexto del sistema. Las integraciones empresariales complejas pueden doblar el tamaño del contexto sin que nadie lo haya planeado conscientemente.
+- **La presión de los modelos de razonamiento.** Modelos como Opus con "xhigh effort" o los modos de razonamiento extendido generan cadenas de pensamiento masivas antes de responder. Muy valiosas cognitivamente, muy costosas en tokens de salida.
+
+---
+
+## Cómo protegerse ahora mismo
+
+Aunque la incertidumbre estructural seguirá existiendo, hay medidas defensivas concretas que recomendamos desde IA4PYMES:
+
+- **Audita cada turno:** No te fíes de los resúmenes del dashboard. Instrumenta tu código para registrar el token count exacto por petición.
+- **Diseña enrutamiento de modelos:** Usa Haiku 4.5 (1$/5$ por MTok) para clasificaciones simples y extracción de datos, y reserva Opus para las decisiones complejas donde el coste está justificado.
+- **Poda agresiva del contexto:** Los prompts de sistema innecesariamente largos, las definiciones de herramientas verbosas y los historiales de conversación sin limpiar son la fuente más fácilmente controlable de inflación de tokens.
+- **Planifica alrededor de la caché:** Diseña tus flujos para completar sus tareas dentro del TTL de la caché, o acepta que el caching es solo una optimización probabilística, no una garantía.
+
+El coste de la IA en 2026 no es solo el precio de lista. Es el precio de lista multiplicado por una variable opaca que nadie controla del todo. Conocer sus mecanismos es el primer paso para no llevarse sorpresas en la factura.
+        `.trim(),
+    },
+    {
+        slug: "claude-token-inflation-api-pricing-uncertainty-analysis",
+        title: "Claude's 'Token Inflation': The Silent AI Cost Problem Nobody Warned You About",
+        description: "Claude API bills are rising without official prices changing. We analyze the 'token inflation' phenomenon: tokenizer changes, server-side context injections, agentic loops, and cache expiry. An essential discussion for any business using AI in 2026.",
+        date: "2026-04-22",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Analysis & Opinion",
+        image: "/blog/claude-token-inflation.png",
+        lang: "en",
+        translationSlug: "inflacion-tokens-claude-incertidumbre-precios-api-anthropic",
+        content: `
+Imagine you have carefully built a workflow on top of the Claude API. You ran the numbers, estimated monthly usage, and arrived at a fair price to offer your customers. Everything adds up.
+
+And then, without a single character of your code changing or any official Anthropic price adjustment, your end-of-month invoice is 30% higher.
+
+This is not science fiction. This is a situation that development teams around the world are facing in 2026. It's called **token inflation**, and it is the murkiest side effect of large-scale enterprise adoption of advanced language models.
+
+---
+
+## What Exactly is "Token Inflation"?
+
+Anthropic's pricing is based on tokens — units of text the model processes. The official rates are clear (Claude Opus: $5/MTok input, $25/MTok output; Sonnet: $3/$15; Haiku: $1/$5). But the problem arises when the **number of tokens consumed for the same task grows in an opaque way**, without the user doing anything differently.
+
+There are at least five documented sources of this silent inflation:
+
+### 1. Tokenizer Changes in Model Updates
+Each Claude version can incorporate a different tokenizer. A less efficient tokenizer for certain types of text (say, Python source code or legal documents with heavy punctuation) produces more tokens from the same input. The result is a **hidden effective price increase** that appears in no official changelog.
+
+### 2. Server-Side Context Injection (the Claude Code case)
+Technical investigations by the developer community have revealed that certain tool updates — particularly within Claude Code — cause the server to inject additional context tokens into the window without the user requesting it. Consumption spikes of over **40% above expected baseline** have been reported following version updates, completely invisible to the developer.
+
+### 3. Prompt Cache Expiry
+Anthropic offers "Prompt Caching" with discounts of up to 90% on cached input tokens. It sounds like the perfect solution, until you realize the cache has a very short TTL (time-to-live), often just 5 minutes. If an AI agent session pauses — due to an external tool call, a human input wait, or simply network latency — the cached context expires. The next call reloads the full context at standard rates. Without any warning.
+
+### 4. Growing Verbosity in More Intelligent Models
+There is a cruel paradox in the evolution of AI: the better the model reasons, the more it talks. More capable models tend to generate longer, more structured, more context-rich responses, because they have learned that this improves perceived quality. Output tokens are substantially more expensive than input tokens. A modest increase in verbosity has a disproportionate impact on the final bill.
+
+### 5. Counting Bugs and Agentic Loops
+Documented cases exist where SDKs or tools contained bugs (such as duplicate message IDs in stream-json outputs) that multiplied reported consumption without real consumption being equivalent. In agentic flows where the model makes repeated tool calls, a bug of this kind can catastrophically inflate an invoice within hours.
+
+---
+
+## What Does This Mean for the Future?
+
+This opacity in real cost is particularly dangerous for companies just beginning their AI transition. Cost estimates are presented based on the list price, and the operational reality can be very different.
+
+Looking forward, three trends make this problem more urgent:
+- **More agentic models = longer contexts = more invisible tokens.** As agentic flows become standard, the context accumulated per turn grows exponentially.
+- **Tool complexity.** Every function, every JSON schema you define in an agent adds tokens to the system context. Complex enterprise integrations can double context size without anyone consciously planning for it.
+- **Reasoning model pressure.** Models like Opus with "xhigh effort" or extended thinking modes generate massive chains of thought before responding. Highly valuable cognitively; very expensive in output tokens.
+
+---
+
+## How to Protect Yourself Right Now
+
+While structural uncertainty will continue to exist, there are concrete defensive measures we recommend at IA4PYMES:
+
+- **Audit every turn:** Don't trust dashboard summaries. Instrument your code to log the exact token count per request.
+- **Design model routing:** Use Haiku 4.5 ($1/$5 per MTok) for simple classification and data extraction, reserving Opus for complex decisions where the cost is truly justified.
+- **Aggressively prune context:** Unnecessarily long system prompts, verbose tool definitions, and unclean conversation histories are the most easily controllable source of token inflation.
+- **Plan around the cache:** Design your flows to complete their tasks within the cache TTL, or accept that prompt caching is a probabilistic optimization — not a guarantee.
+
+The cost of AI in 2026 is not just the list price. It is the list price multiplied by an opaque variable that nobody fully controls. Understanding its mechanisms is the first step to avoiding unpleasant surprises on your invoice.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Code vs Codex vs Gemini CLI
     // ─────────────────────────────────────────────────────────
     {
