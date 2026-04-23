@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Gemini Embedding 2
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "gemini-embedding-2-google-busqueda-semantica-multimodal-empresas",
+        title: "Gemini Embedding 2: Google unifica texto, imagen, vídeo y audio en un solo espacio vectorial",
+        description: "Google ha lanzado Gemini Embedding 2, el primer modelo de embeddings nativo multimodal capaz de procesar texto, imágenes, vídeo, audio y PDF en una arquitectura única. Analizamos sus implicaciones para los sistemas de búsqueda semántica y RAG en la empresa.",
+        date: "2026-04-23",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Infraestructura y Modelos",
+        image: "/blog/gemini-embedding-2.png",
+        lang: "es",
+        translationSlug: "gemini-embedding-2-google-multimodal-semantic-search-enterprise",
+        content: `
+Para entender por qué el lanzamiento de **Gemini Embedding 2** (en preview pública desde el 10 de marzo de 2026) es importante, primero hay que entender el problema que resuelve.
+
+Los modelos de **embeddings** son la columna vertebral invisible de la mayoría de los sistemas de inteligencia artificial empresarial que usamos a diario. Un embedding es, esencialmente, una representación matemática del "significado" de un fragmento de contenido (texto, imagen, audio...) en forma de vector numérico. Gracias a esta representación, los sistemas de búsqueda no necesitan buscar palabras exactas: buscan por **significado semántico**. Es lo que permite preguntarle a un chatbot "¿cuánto sale enviar un paquete de 5 kilos?" y que encuentre la respuesta aunque el documento interno diga "tarifas para envíos de hasta 10 kg".
+
+El problema hasta ahora era claro: si querías hacer búsqueda semántica sobre texto, necesitabas un modelo. Si querías hacerlo sobre imágenes, necesitabas otro (como CLIP). Si querías procesar audio, necesitabas un tercer pipeline de transcripción previa. Todo eso suma complejidad, latencia y costes de mantenimiento.
+
+**Gemini Embedding 2 elimina esas capas intermedias de un plumazo.**
+
+---
+
+## Un Único Espacio Vectorial para Todo
+
+La innovación fundamental de Gemini Embedding 2 es su arquitectura **nativa multimodal**. El modelo no convierte imágenes en texto para luego procesarlas. No transcribe audio para después analizarlo. Convierte **directamente** cada modalidad a su representación vectorial en un espacio unificado y compartido.
+
+Esto permite búsquedas que antes eran imposibles sin múltiples sistemas:
+*   Buscar **imágenes de productos** usando una descripción de texto en lenguaje natural: "muéstrame zapatillas de deporte azules con suela blanca".
+*   Recuperar **fragmentos de vídeo** mediante una consulta de audio: buscar el momento exacto en un vídeo de formación donde se pronuncia una frase concreta.
+*   Encontrar **documentos PDF** relevantes que mezclen diagramas y texto usando una consulta combinada de imagen y texto.
+
+Los límites de entrada por petición son generosos: hasta 8.192 tokens de texto, 6 imágenes, 120 segundos de vídeo, 80 segundos de audio o 6 páginas de PDF.
+
+---
+
+## Matryoshka: Flexibilidad de Dimensiones
+
+Gemini Embedding 2 implementa una técnica llamada **Matryoshka Representation Learning (MRL)**, como las famosas muñecas rusas encajadas unas en otras. El vector de salida por defecto tiene **3.072 dimensiones**, pero el modelo permite truncarlo a 1.536, 768 o dimensiones aún menores sin pérdida significativa de precisión semántica.
+
+¿Por qué importa esto? Porque el almacenamiento de vectores en bases de datos vectoriales (como Pinecone, Weaviate o pgvector) es directamente proporcional al número de dimensiones. Para una PYME que almacena millones de embeddings de un catálogo de productos, la diferencia entre 3.072 y 768 dimensiones puede suponer una reducción del 75% en el coste de almacenamiento vectorial. Una decisión de arquitectura con impacto financiero directo.
+
+---
+
+## Instrucciones de Tarea Personalizadas
+
+Otro rasgo diferencial es la posibilidad de pasar **instrucciones de tarea** al modelo en el momento de generar el embedding. Puedes decirle explícitamente para qué va a servir el vector resultante:
+
+*   "task:search_query" — optimiza el embedding para búsqueda conversacional.
+*   "task:code_retrieval" — calibra la representación para máxima precisión en recuperación de fragmentos de código.
+*   "task:classification" — ajusta el espacio vectorial para tareas de clustering y etiquetado.
+
+Este nivel de control es especialmente valioso en sistemas RAG (Retrieval-Augmented Generation) empresariales donde diferentes partes del sistema tienen necesidades de recuperación distintas.
+
+---
+
+## Rendimiento y Disponibilidad
+
+En los benchmarks de referencia del sector (MTEB — Massive Text Embedding Benchmark), Gemini Embedding 2 se situó en las posiciones más altas del leaderboard en inglés en su fecha de lanzamiento. Además, la arquitectura unificada redujo de forma medible la latencia en pipelines de recuperación multimodal frente a soluciones que encadenaban varios modelos especializados.
+
+El modelo está disponible hoy mismo a través de la **Gemini API** y de **Vertex AI**, lo que lo hace accesible tanto para startups técnicas que quieran experimentar rápidamente como para grandes corporaciones que buscan una solución enterprise respaldada por la infraestructura de Google Cloud.
+
+---
+
+## La Conclusión para las Empresas
+
+Si tu empresa almacena conocimiento en múltiples formatos —documentos, imágenes de productos, vídeos de formación, grabaciones de llamadas de atención al cliente— y quieres construir un sistema de búsqueda inteligente sobre todo ese corpus, **Gemini Embedding 2** representa el salto de arquitectura más significativo en este campo en los últimos años. Ya no necesitas un pipeline de cinco piezas distintas; necesitas un solo modelo, un solo espacio vectorial y un solo índice de búsqueda. Más simple, más rápido y más barato de mantener.
+        `.trim(),
+    },
+    {
+        slug: "gemini-embedding-2-google-multimodal-semantic-search-enterprise",
+        title: "Gemini Embedding 2: Google Unifies Text, Images, Video and Audio in a Single Vector Space",
+        description: "Google has launched Gemini Embedding 2, the first natively multimodal embedding model capable of processing text, images, video, audio, and PDFs in a single architecture. We analyze its implications for semantic search and RAG systems in the enterprise.",
+        date: "2026-04-23",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Infrastructure & Models",
+        image: "/blog/gemini-embedding-2.png",
+        lang: "en",
+        translationSlug: "gemini-embedding-2-google-busqueda-semantica-multimodal-empresas",
+        content: `
+To understand why the release of **Gemini Embedding 2** (in public preview since March 10, 2026) matters, you first need to understand the problem it solves.
+
+**Embedding models** are the invisible backbone of most enterprise artificial intelligence systems we use daily. An embedding is, essentially, a mathematical representation of the "meaning" of a piece of content (text, image, audio...) as a numerical vector. Thanks to this representation, search systems don't need to look for exact keywords: they search by **semantic meaning**. It's what allows someone to ask a chatbot "how much does it cost to ship a 5-kilogram package?" and get the right answer even when the internal document says "rates for shipments up to 10 kg."
+
+The problem until now was clear: if you wanted to run semantic search over text, you needed one model. For images, you needed another (like CLIP). For audio, you needed a third, with a prior transcription pipeline. All of that adds up in complexity, latency, and maintenance costs.
+
+**Gemini Embedding 2 eliminates those intermediary layers in one stroke.**
+
+---
+
+## A Single Vector Space for Everything
+
+The fundamental innovation of Gemini Embedding 2 is its **natively multimodal architecture**. The model does not convert images to text before processing them. It does not transcribe audio before analyzing it. It converts **each modality directly** into its vector representation within a unified, shared space.
+
+This enables searches that were previously impossible without multiple systems:
+*   Searching for **product images** using a natural language text description: "show me blue sports shoes with a white sole."
+*   Retrieving **video clips** via an audio query: finding the exact moment in a training video where a specific phrase is spoken.
+*   Finding relevant **PDF documents** that mix diagrams and text using a combined image-and-text query.
+
+Input limits per request are generous: up to 8,192 text tokens, 6 images, 120 seconds of video, 80 seconds of audio, or 6 PDF pages.
+
+---
+
+## Matryoshka: Flexible Dimensions
+
+Gemini Embedding 2 implements a technique called **Matryoshka Representation Learning (MRL)**, named after the famous nested Russian dolls. The default output vector has **3,072 dimensions**, but the model allows truncating it to 1,536, 768, or even smaller dimensions without significant loss of semantic precision.
+
+Why does this matter? Because storing vectors in vector databases (like Pinecone, Weaviate, or pgvector) scales directly with the number of dimensions. For an SME storing millions of product catalog embeddings, the difference between 3,072 and 768 dimensions can translate into a **75% reduction in vector storage costs**. An architectural decision with a direct financial impact.
+
+---
+
+## Custom Task Instructions
+
+Another key differentiator is the ability to pass **task instructions** to the model at embedding generation time. You can tell it explicitly what the resulting vector is going to be used for:
+
+*   "task:search_query" — optimizes the embedding for conversational search.
+*   "task:code_retrieval" — calibrates the representation for maximum precision in code snippet retrieval.
+*   "task:classification" — adjusts the vector space for clustering and labeling tasks.
+
+This level of control is especially valuable in enterprise RAG (Retrieval-Augmented Generation) systems where different parts of the system have distinct retrieval needs.
+
+---
+
+## Performance and Availability
+
+On the industry's reference benchmarks (MTEB — Massive Text Embedding Benchmark), Gemini Embedding 2 placed at the very top of the English leaderboard at launch. Furthermore, its unified architecture measurably reduced latency in multimodal retrieval pipelines compared to solutions that chained together several specialized models.
+
+The model is available today via the **Gemini API** and **Vertex AI**, making it accessible both for technical startups looking to experiment quickly and for large enterprises seeking a solution backed by Google Cloud infrastructure.
+
+---
+
+## The Bottom Line for Businesses
+
+If your company stores knowledge in multiple formats — documents, product images, training videos, customer call recordings — and you want to build an intelligent search system over all that corpus, **Gemini Embedding 2** represents the most significant architectural leap in this space in years. You no longer need a five-piece pipeline; you need a single model, a single vector space, and a single search index. Simpler, faster, and cheaper to maintain.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Inflación de tokens en Claude
     // ─────────────────────────────────────────────────────────
     {
