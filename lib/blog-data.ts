@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: GPT-5.5 OpenAI
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "gpt-5-5-openai-lanzamiento-agente-autonomo-codigo-largo-contexto",
+        title: "GPT-5.5: OpenAI presenta su modelo más capaz para tareas agénticas y codificación autónoma",
+        description: "OpenAI acaba de lanzar GPT-5.5, un modelo diseñado desde cero para el trabajo autónomo de largo recorrido. Con un 82,7% en Terminal-Bench 2.0, una ventana de contexto de 1 millón de tokens y mayor eficiencia de tokens que su predecesor, analizamos qué significa para empresas y desarrolladores.",
+        date: "2026-04-24",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Noticias IA",
+        image: "/blog/gpt-5-5-openai.png",
+        lang: "es",
+        translationSlug: "gpt-5-5-openai-release-agentic-coding-long-context",
+        content: `
+El 23 de abril de 2026, OpenAI añadió un nuevo escalón a su vertiginosa cadena de lanzamientos: **GPT-5.5**. Y a diferencia de anteriores incrementos de versión, este no es una mejora incremental de rendimiento general. Es una declaración de intenciones sobre hacia dónde va la IA empresarial: **autonomía, planificación y ejecución de largo recorrido**.
+
+---
+
+## Un Modelo Diseñado para Trabajar, No Solo para Responder
+
+La distinción más importante de GPT-5.5 es su filosofía de diseño. Mientras los modelos anteriores de la serie GPT-5 estaban optimizados para respuestas inteligentes y razonamiento en profundidad, GPT-5.5 ha sido calibrado para **actuar**: planificar tareas complejas, usar herramientas de forma encadenada, verificar su propio trabajo y pivotar cuando los resultados intermedios no son los esperados, todo ello con mínima supervisión humana.
+
+OpenAI lo describe como un modelo de "nueva clase de inteligencia", enfocado en tareas agénticas y "computer use" (uso autónomo del ordenador). En otras palabras, es el asistente que no te pregunta cada dos minutos qué hacer.
+
+---
+
+## Las Métricas que Importan
+
+GPT-5.5 lanza datos de benchmark que merecen atención especial en el mundo del desarrollo de software:
+
+*   **Terminal-Bench 2.0: 82,7% de precisión.** Este benchmark mide la capacidad del modelo para completar tareas reales en terminal de forma autónoma. Un 82,7% es el resultado más alto publicado por un modelo de propósito general a la fecha de su lanzamiento.
+*   **SWE-Bench Pro: 58,6%.** El banco de pruebas de referencia en ingeniería de software real. GPT-5.5 supera a GPT-5.4 en las tareas de codificación de "largo horizonte" que implican navegar y modificar bases de código extensas.
+*   **Eficiencia de tokens:** GPT-5.5 completa tareas equivalentes a su predecesor usando **menos tokens de salida**, lo que se traduce directamente en facturas de API más predecibles y menores.
+
+---
+
+## 1 Millón de Tokens de Contexto con Recuperación Mejorada
+
+GPT-5.5 llega con una ventana de contexto de **1 millón de tokens** a través de la API, con mejoras significativas declaradas en la recuperación de información en contextos largos. En la práctica, esto significa que puede leer bases de código enteras, historial completo de conversaciones con clientes, repositorios de documentación interna o contratos extensos sin necesidad de técnicas complejas de chunking o resumen previo.
+
+Esta mejora en la recuperación en contexto largo es particularmente crítica: ventanas de 1 millón de tokens ya existían, pero muchos usuarios reportaban que el modelo "olvidaba" información del inicio del contexto. GPT-5.5 apunta directamente a cerrar esa brecha.
+
+---
+
+## Áreas de Especialización
+
+OpenAI ha identificado cuatro dominios donde GPT-5.5 brilla de forma especial:
+
+1. **Codificación avanzada:** Depuración de errores complejos, escritura de funciones completas y navegación autónoma por repositorios con miles de archivos.
+2. **Análisis de datos:** Procesamiento de grandes volúmenes de datos tabulares, generación de insights y elaboración de informes automatizados.
+3. **Creación de documentos y hojas de cálculo:** Generación y edición de documentos complejos con estructura, fórmulas y coherencia semántica mantenida.
+4. **Investigación autónoma:** Capacidad para descomponer preguntas complejas en subtareas, investigar cada una de forma independiente y sintetizar conclusiones.
+
+---
+
+## Disponibilidad: ChatGPT Primero, API Después
+
+El lanzamiento tiene un matiz importante que los desarrolladores deben conocer: **GPT-5.5 ya está disponible en ChatGPT** para usuarios de los planes Plus, Pro, Business y Enterprise. Sin embargo, el acceso a la API (gpt-5.5 y gpt-5.5-pro) **aún no está disponible de forma general**.
+
+OpenAI ha justificado este retraso como una medida preventiva de seguridad antes de desplegar el modelo a escala en entornos de producción externos. Dado que el modelo es especialmente potente en "computer use" y tareas agénticas autónomas, la compañía quiere asegurar que las salvaguardas de ciberseguridad y biología estén debidamente validadas. Es, según dicen, "el modelo más seguro que han lanzado hasta la fecha."
+
+---
+
+## ¿Qué Significa para las PYMES?
+
+Para las empresas que ya están explorando el uso de agentes de IA en sus operaciones, GPT-5.5 supone un salto cualitativo en el tipo de tareas que pueden delegarse a la IA con confianza. La mejora en eficiencia de tokens reduce la incertidumbre en los costes (un problema que analizamos en nuestro artículo sobre inflación de tokens). La ventana de 1M con mejor recuperación permite construir asistentes empresariales que "conocen" todo el contexto de la empresa sin los trucos arquitectónicos que antes eran necesarios.
+
+Cuando el acceso API esté disponible de forma general, GPT-5.5 será probablemente el motor detrás de una nueva generación de automatizaciones empresariales más fiables y menos supervisadas.
+        `.trim(),
+    },
+    {
+        slug: "gpt-5-5-openai-release-agentic-coding-long-context",
+        title: "GPT-5.5: OpenAI's Most Capable Model Yet for Agentic Tasks and Autonomous Coding",
+        description: "OpenAI has just launched GPT-5.5, a model built from the ground up for autonomous long-horizon work. With 82.7% on Terminal-Bench 2.0, a 1-million-token context window, and greater token efficiency than its predecessor, we analyze what it means for businesses and developers.",
+        date: "2026-04-24",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "AI News",
+        image: "/blog/gpt-5-5-openai.png",
+        lang: "en",
+        translationSlug: "gpt-5-5-openai-lanzamiento-agente-autonomo-codigo-largo-contexto",
+        content: `
+On April 23, 2026, OpenAI added a new rung to its dizzying chain of releases: **GPT-5.5**. And unlike previous version increments, this is not an incremental improvement in general performance. It is a statement of intent about where enterprise AI is heading: **autonomy, planning, and long-horizon execution**.
+
+---
+
+## A Model Designed to Work, Not Just to Answer
+
+The most important distinction of GPT-5.5 is its design philosophy. While previous models in the GPT-5 series were optimized for intelligent responses and deep reasoning, GPT-5.5 has been calibrated to **act**: plan complex tasks, use tools in chained sequences, verify its own work, and pivot when intermediate results fall short — all with minimal human supervision.
+
+OpenAI describes it as a model of "a new class of intelligence," focused on agentic tasks and computer use. In other words, it's the assistant that doesn't ask you what to do every two minutes.
+
+---
+
+## The Benchmarks That Matter
+
+GPT-5.5 drops benchmark numbers that deserve close attention in the software development world:
+
+*   **Terminal-Bench 2.0: 82.7% accuracy.** This benchmark measures the model's ability to autonomously complete real terminal tasks. An 82.7% score is the highest published result by a general-purpose model at its launch date.
+*   **SWE-Bench Pro: 58.6%.** The gold-standard benchmark for real-world software engineering. GPT-5.5 outperforms GPT-5.4 on "long-horizon" coding tasks that involve navigating and modifying extensive codebases.
+*   **Token efficiency:** GPT-5.5 completes equivalent tasks to its predecessor using **fewer output tokens**, directly translating into more predictable API bills and lower costs.
+
+---
+
+## 1 Million Token Context with Improved Retrieval
+
+GPT-5.5 arrives with a **1-million-token context window** via API, with significant declared improvements in long-context information retrieval. In practice, this means it can read entire codebases, full customer conversation histories, internal documentation repositories, or extensive contracts without requiring complex chunking or pre-summarization techniques.
+
+This improvement in long-context retrieval is particularly critical: 1-million-token windows already existed in previous models, but many users reported the model "forgetting" information from the beginning of the context. GPT-5.5 directly targets that gap.
+
+---
+
+## Areas of Specialization
+
+OpenAI has identified four domains where GPT-5.5 particularly excels:
+
+1. **Advanced coding:** Debugging complex errors, writing complete functions, and autonomously navigating repositories with thousands of files.
+2. **Data analysis:** Processing large volumes of tabular data, generating insights, and producing automated reports.
+3. **Document and spreadsheet creation:** Generating and editing complex documents with maintained structure, formulas, and semantic coherence.
+4. **Autonomous research:** Ability to decompose complex questions into subtasks, independently research each one, and synthesize conclusions.
+
+---
+
+## Availability: ChatGPT First, API Later
+
+The launch has an important nuance that developers should know: **GPT-5.5 is already available in ChatGPT** for Plus, Pro, Business, and Enterprise plan subscribers. However, API access (gpt-5.5 and gpt-5.5-pro) is **not yet generally available**.
+
+OpenAI has justified this delay as a preventive security measure before deploying the model at scale in external production environments. Given that the model is especially powerful in computer use and autonomous agentic tasks, the company wants to ensure that cybersecurity and biology-related safeguards are properly validated first. It is, according to them, "the safest model they have ever released."
+
+---
+
+## What Does This Mean for SMEs?
+
+For businesses already exploring the use of AI agents in their operations, GPT-5.5 represents a qualitative leap in the types of tasks that can be delegated to AI with confidence. The improvement in token efficiency reduces cost uncertainty (a problem we analyzed in our token inflation article). The 1M context window with better retrieval enables building enterprise assistants that truly "know" the full company context without the architectural workarounds that were previously necessary.
+
+When API access becomes generally available, GPT-5.5 will likely become the engine behind a new generation of more reliable, less supervised enterprise automations.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Gemini Embedding 2
     // ─────────────────────────────────────────────────────────
     {
