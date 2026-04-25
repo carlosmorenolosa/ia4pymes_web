@@ -25,6 +25,22 @@ export function Chatbot() {
   const [isLoading, setIsLoading] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const lastMessageRef = useRef<HTMLDivElement>(null)
+  const sessionIdRef = useRef<string>("")
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      setTimeout(() => {
+        inputRef.current?.focus()
+      }, 50)
+    }
+  }, [isLoading])
+
+  useEffect(() => {
+    sessionIdRef.current = typeof crypto !== 'undefined' && crypto.randomUUID 
+      ? crypto.randomUUID() 
+      : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  }, [])
 
   const handleSendMessage = async () => {
     if (!currentInput.trim() || isLoading) return
@@ -45,7 +61,10 @@ export function Chatbot() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ conversation: updatedMessages.slice(-20) }),
+        body: JSON.stringify({ 
+          conversation: updatedMessages.slice(-20),
+          session_id: sessionIdRef.current
+        }),
       })
 
       if (!response.ok) {
@@ -150,6 +169,7 @@ export function Chatbot() {
       <div className="w-full bg-gray-100/50 border-t border-gray-200/80 px-4 pt-3 pb-2 rounded-b-3xl">
         <div className="flex items-center gap-3">
           <input
+            ref={inputRef}
             value={currentInput}
             onChange={(e) => setCurrentInput(e.target.value)}
             onKeyDown={handleKeyDown}

@@ -30,6 +30,22 @@ export function FunctionalChatbot({
   const [isFocused, setIsFocused] = useState(false)
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const pymeriaResponseRef = useRef<HTMLDivElement>(null)
+  const sessionIdRef = useRef<string>("")
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      setTimeout(() => {
+        inputRef.current?.focus()
+      }, 50)
+    }
+  }, [isLoading])
+
+  useEffect(() => {
+    sessionIdRef.current = typeof crypto !== 'undefined' && crypto.randomUUID 
+      ? crypto.randomUUID() 
+      : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  }, [])
 
   useEffect(() => {
     if (!visible) {
@@ -110,7 +126,10 @@ export function FunctionalChatbot({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ conversation: updatedMessages.slice(-20) }),
+        body: JSON.stringify({ 
+          conversation: updatedMessages.slice(-20),
+          session_id: sessionIdRef.current
+        }),
       })
 
       if (!response.ok) {
@@ -292,6 +311,7 @@ export function FunctionalChatbot({
         messages.length === 2 && !isFocused ? "ring-2 ring-blue-500/30 shadow-[0_0_15px_rgba(37,99,235,0.2)] animate-pulse" : "focus-within:ring-2 focus-within:ring-blue-500/20"
       }`}>
         <Input
+          ref={inputRef}
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
           onKeyDown={handleKeyDown}
