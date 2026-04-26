@@ -20,28 +20,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
+    const latestDate = posts.length > 0 
+        ? new Date(posts.reduce((latest, post) => new Date(post.date) > new Date(latest.date) ? post : latest).date) 
+        : new Date()
+
     return [
         {
             url: baseUrl,
-            lastModified: new Date(),
+            lastModified: latestDate,
             changeFrequency: 'weekly',
             priority: 1,
         },
         {
             url: `${baseUrl}/en`,
-            lastModified: new Date(),
+            lastModified: latestDate,
             changeFrequency: 'weekly',
             priority: 0.95,
         },
         {
             url: `${baseUrl}/blog`,
-            lastModified: new Date(),
+            lastModified: latestDate,
             changeFrequency: 'daily',
             priority: 0.9,
         },
         {
             url: `${baseUrl}/en/blog`,
-            lastModified: new Date(),
+            lastModified: latestDate,
             changeFrequency: 'daily',
             priority: 0.85,
         },

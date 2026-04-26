@@ -1,253 +1,48 @@
-"use client"
-
-import { useEffect, useState, useRef } from "react"
-import { motion } from "framer-motion"
 import {
   BarChart2,
   Code,
   Settings,
-  Zap,
-  Target,
-  Wrench,
-  Timer,
-  Users,
-  TrendingUp,
   CheckCircle,
   ArrowRight,
   Mail,
-  Calendar,
-  Menu,
-  X,
   Instagram,
   Linkedin,
   Youtube,
   Facebook,
 } from "lucide-react"
 import Link from "next/link"
-
 import dynamic from "next/dynamic"
+// framer-motion removed from Server Component
+import { HomeHeader } from "@/components/home-header"
+import { FadeIn } from "@/components/fade-in"
+import { Counter } from "@/components/counter"
+import {
+  SuccessCasesCarousel,
+  AnimatedChip,
+  ContactForm,
+  CostCalculator,
+} from "@/components/home-dynamic-imports"
 
-import { ParticlesBackground } from "@/components/particles-background"
+// SSR habilitado — contenido indexable por Google
+const LatestArticles = dynamic(() =>
+  import("@/components/latest-articles").then((mod) => mod.LatestArticles),
+  { loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
+)
 
-// Lazy load heavy components
-const SuccessCasesCarousel = dynamic(() => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel), {
-  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
-  ssr: false
-})
-
-const AnimatedChip = dynamic(() => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip), {
-  loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />,
-  ssr: false
-})
-
-
-const ContactForm = dynamic(() => import("@/components/contact-form").then((mod) => mod.ContactForm), {
-  ssr: false
-})
-
-const LatestArticles = dynamic(() => import("@/components/latest-articles").then((mod) => mod.LatestArticles), {
-  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
-  ssr: false
-})
-
-const CostCalculator = dynamic(() => import("@/components/cost-calculator").then((mod) => mod.CostCalculator), {
-  ssr: false
-})
-
-const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) => mod.FaqSection), {
-  ssr: false
-})
-
-import { SplashScreen } from "@/components/splash-screen"
-import { useIsMobile } from "@/hooks/use-mobile"
-import { useInView, useSpring, useTransform } from "framer-motion"
-
-function StatCounter({ value, suffixContent = "", prefixContent = "", duration = 2 }: { value: number, suffixContent?: string, prefixContent?: string, duration?: number }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const spring = useSpring(0, { mass: 1, stiffness: 100, damping: 30 })
-  const displayValue = useTransform(spring, (current) => Math.floor(current).toLocaleString('es-ES'))
-
-  useEffect(() => {
-    if (isInView) {
-      spring.set(value)
-    }
-  }, [isInView, value, spring])
-
-  return (
-    <span ref={ref}>
-      {prefixContent}
-      <motion.span>{displayValue}</motion.span>
-      {suffixContent}
-    </span>
-  )
-}
+const FaqSection = dynamic(() =>
+  import("@/components/faq-section").then((mod) => mod.FaqSection)
+)
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const isMobile = useIsMobile()
-  const [splashFinished, setSplashFinished] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  // Control del scroll para el header
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Reusable scroll reveal wrapper
-  const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
-      className="w-full"
-    >
-      {children}
-    </motion.div>
-  )
-
   return (
     <>
-      <SplashScreen onComplete={() => setSplashFinished(true)} />
       
+      <HomeHeader />
       <main className="bg-transparent">
-
-        {/* Navigation - Moved outside of section to remain globally fixed */}
-        <header 
-          className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
-            isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent"
-          }`}
-        >
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
-            {/* Logo Section - Top Left, No Container */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
-            >
-              <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
-                <div className="flex items-center relative tracking-[-0.04em]">
-                  <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
-                  <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Centered Navigation Pill */}
-            <motion.nav 
-              initial={{ opacity: 0, y: -20 }}
-              animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10" aria-label="Navegación principal"
-            >
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center">
-                <Link
-                  href="#proceso"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
-                >
-                  Proceso
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-                </Link>
-                <Link
-                  href="#casos-exito"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
-                >
-                  Casos
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-                </Link>
-                <Link
-                  href="#calculadora"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
-                >
-                  Calculadora
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-                </Link>
-                <Link
-                  href="/blog"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
-                >
-                  Blog
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-                </Link>
-                <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                {/* Language Selector */}
-                <div className="flex items-center gap-1 px-2">
-                  <span className="text-sm font-bold text-blue-600 cursor-default">ES</span>
-                  <span className="text-slate-300 text-xs">|</span>
-                  <Link href="/en" className="text-sm font-semibold text-slate-400 hover:text-slate-700 transition-colors">EN</Link>
-                </div>
-                <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Link
-                    href="#contacto"
-                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
-                  >
-                    Diagnóstico Gratuito
-                  </Link>
-                </motion.div>
-              </div>
-
-              <div className="flex md:hidden items-center">
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
-                  aria-label="Abrir menú"
-                >
-                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
-              </div>
-            </motion.nav>
-
-          </div>
-        </header>
-
-        {/* Mobile Menu Overlay - Moved outside header for a completely solid background */}
-        {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
-            <button 
-              onClick={() => setMobileMenuOpen(false)} 
-              className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
-              aria-label="Cerrar menú"
-            >
-               <X className="w-7 h-7" />
-            </button>
-            <div className="w-full flex flex-col gap-4 items-center">
-              <Link href="#proceso" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Proceso</Link>
-              <Link href="#casos-exito" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Casos de Éxito</Link>
-              <Link href="#calculadora" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Calculadora</Link>
-              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Blog</Link>
-            </div>
-            <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
-            {/* Mobile Language Selector */}
-            <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-blue-600">ES</span>
-              <span className="text-slate-300">|</span>
-              <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-400 hover:text-slate-700 transition-colors">EN</Link>
-            </div>
-            <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
-            <Link 
-              href="#contacto" 
-              onClick={() => setMobileMenuOpen(false)} 
-              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
-            >
-              Diagnóstico Gratuito
-            </Link>
-          </div>
-        )}
 
         {/* Hero Section */}
         <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
+
           {/* Aesthetic Background removed for pure white theme */}
           <div className="absolute inset-0 bg-transparent pointer-events-none z-0"></div>
           
@@ -255,75 +50,43 @@ export default function Home() {
             {/* Hero Content */}
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
+                {/* H1 indexable por Google — animación CSS pura, sin dependencia de estado JS */}
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-                  <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+                  <h1
                     id="hero-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
+                    className="hero-animate-1 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
                   >
                     Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                     Aumenta tus <br className="hidden md:block" />
                     <span className="text-blue-600">Márgenes</span> con IA
-                  </motion.h1>
-                  
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-                    className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
-                  >
-                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
-                  </motion.p>
+                  </h1>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
-                    className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  <p className="hero-animate-2 text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty">
+                    Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
+                  </p>
+
+                  <div className="hero-animate-3 flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30">
+                    <Link
+                      href="#contacto"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                     >
-                      <Link
-                        href="#contacto"
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
-                      >
-                        Solicitar Diagnóstico
-                      </Link>
-                    </motion.div>
-                    
-                    <motion.div
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      Solicitar Diagnóstico
+                    </Link>
+                    <Link
+                      href="#casos-exito"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
                     >
-                      <Link
-                        href="#casos-exito"
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
-                      >
-                        <span className="flex items-center justify-center relative overflow-hidden">
-                          Explorar casos reales
-                        </span>
-                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </motion.div>
-                  </motion.div>
-                </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
-                  animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" } : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
-                  className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
-                >
-                  <div className="w-full max-w-lg sm:max-w-xl">
-                    <AnimatedChip visible={splashFinished} />
+                      Explorar casos reales
+                      <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
-                </motion.div>
+                </div>
+
+                <div className="hero-animate-3 flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12">
+                  <div className="w-full max-w-lg sm:max-w-xl">
+                    <AnimatedChip />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -392,12 +155,7 @@ export default function Home() {
                       Únete a cientos de PYMES
                     </h3>
                     
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                      className="relative group/btn w-full mt-8"
-                    >
+                    <div className="relative group/btn w-full mt-8 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
                       <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
@@ -408,7 +166,7 @@ export default function Home() {
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
-                    </motion.div>
+                    </div>
                     
                     <p className="text-slate-500 text-sm mt-6 text-center italic">
                       * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
@@ -578,25 +336,21 @@ export default function Home() {
                   { value: 1000, prefix: "+", suffix: "h", label: "Horas ahorradas al mes", color: "text-green-600", bg: "hover:shadow-green-500/10" },
                   { value: 100, prefix: "", suffix: "%", label: "Tasa de éxito", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
                 ].map((stat, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl transition-all duration-500 ${stat.bg}`}
-                    itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
-                  >
+                  <FadeIn key={idx} delay={idx * 0.1}>
+                    <div 
+                      className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ${stat.bg}`}
+                      itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
+                    >
                     <div className={`text-5xl sm:text-6xl font-black tracking-tighter mb-3 ${stat.color} drop-shadow-sm`} itemProp="name">
-                      <StatCounter value={stat.value} prefixContent={stat.prefix} suffixContent={stat.suffix} />
+                      <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                     </div>
                     <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
                     <meta itemProp="position" content={(idx + 1).toString()} />
                     
                     {/* Subtle Glow Effect on Hover */}
                     <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  </motion.div>
+                    </div>
+                  </FadeIn>
                 ))}
               </div>
               <SuccessCasesCarousel />
@@ -683,14 +437,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
               
               {/* Column 1: Brand */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <Link href="/" className="inline-flex items-center group">
+              <FadeIn delay={0.2}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <Link href="/" className="inline-flex items-center group">
                   <div className="flex items-center relative tracking-tighter">
                     <span className="text-2xl font-extrabold text-blue-600">IA</span>
                     <span className="text-2xl font-black text-slate-900">4</span>
@@ -704,17 +453,13 @@ export default function Home() {
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
-              </motion.div>
+                </div>
+              </FadeIn>
 
               {/* Column 2: Soluciones */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
+              <FadeIn delay={0.3}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
                 <ul className="space-y-4">
                   <li>
                     <Link href="#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Nuestro Proceso</Link>
@@ -729,17 +474,13 @@ export default function Home() {
                     <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Blog de Noticias</Link>
                   </li>
                 </ul>
-              </motion.div>
+                </div>
+              </FadeIn>
 
               {/* Column 3: Explorar */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
+              <FadeIn delay={0.4}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
                     <Link href="#inicio" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
@@ -754,17 +495,13 @@ export default function Home() {
                     <Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Newsletter Semanal</Link>
                   </li>
                 </ul>
-              </motion.div>
+                </div>
+              </FadeIn>
 
               {/* Column 4: Conecta */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
-              >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
+              <FadeIn delay={0.5}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
                 <div className="space-y-4">
                   <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
                     <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
@@ -786,8 +523,9 @@ export default function Home() {
                         <Youtube className="w-5 h-5" />
                       </a>
                     </div>
+                  </div>
                 </div>
-              </motion.div>
+              </FadeIn>
             </div>
 
             {/* Bottom Bar */}

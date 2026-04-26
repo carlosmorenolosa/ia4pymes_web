@@ -157,7 +157,7 @@ export default function RootLayout({
               name: "IA4PYMES",
               description: "Soluciones de Inteligencia Artificial personalizadas para PYMES",
               url: "https://ia4pymes.tech",
-              logo: "/LOGO.png",
+              logo: "https://ia4pymes.tech/LOGO.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",

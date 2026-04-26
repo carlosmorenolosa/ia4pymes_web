@@ -35,8 +35,26 @@ export const metadata: Metadata = {
 export default function EnBlogPage() {
     const posts = getEnPosts()
 
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "IA4PYMES Blog — Artificial Intelligence for Business",
+        "description": "Articles on AI, automation, and digital transformation for SMEs",
+        "url": "https://ia4pymes.tech/en/blog",
+        "itemListElement": posts.map((post, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://ia4pymes.tech/en/blog/${post.slug}`,
+            "name": post.title,
+        })),
+    }
+
     return (
         <main className="min-h-screen bg-[#030712] text-slate-100 selection:bg-blue-500/30">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             {/* Header */}
             <header className="relative pt-32 pb-20 overflow-hidden border-b border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
