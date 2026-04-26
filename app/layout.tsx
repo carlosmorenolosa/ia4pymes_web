@@ -20,20 +20,28 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "IA4PYMES - Automatización con IA para PYMES",
+  title: "IA4PYMES | Automatización con IA para PYMES · ROI +360% Garantizado",
   description:
-    "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
+    "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes, 100% tasa de éxito. Diagnóstico gratuito sin compromiso. Empieza hoy.",
   keywords: [
-    "automatización PYMES",
-    "inteligencia artificial empresas",
-    "chatbots personalizados",
-    "automatización procesos",
-    "IA para pequeñas empresas",
-    "herramientas IA medida",
-    "consultoría IA",
-    "transformación digital PYMES",
-    "software personalizado IA",
-    "automatización tareas repetitivas",
+    // Intención comercial directa
+    "automatización con IA para PYMES",
+    "agencia IA para empresas España",
+    "consultoría inteligencia artificial PYME",
+    "chatbot personalizado para empresa",
+    "automatizar procesos empresa con IA",
+    // Long-tail por sector/caso de uso
+    "automatizar atención al cliente con IA",
+    "chatbot para tienda online",
+    "agente IA para ventas",
+    "automatizar facturación PYME",
+    "reducir costes operativos con inteligencia artificial",
+    // Long-tail informativos de alta conversión
+    "cuánto cuesta implementar IA en una empresa",
+    "herramientas IA para pequeñas empresas España",
+    "transformación digital PYME con inteligencia artificial",
+    "ROI inteligencia artificial PYME",
+    "automatización tareas repetitivas pequeña empresa",
   ],
   authors: [{ name: "IA4PYMES" }],
   creator: "IA4PYMES",
@@ -53,9 +61,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "IA4PYMES - Automatización con IA para PYMES",
+    title: "IA4PYMES | Automatización con IA · ROI +360% para PYMES",
     description:
-      "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
+      "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes. Diagnóstico gratuito sin compromiso.",
     url: "https://ia4pymes.tech",
     siteName: "IA4PYMES",
     images: [
@@ -71,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IA4PYMES - Automatización con IA para PYMES",
+    title: "IA4PYMES | Automatización con IA · ROI +360% para PYMES",
     description:
-      "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
+      "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes. Diagnóstico gratuito sin compromiso.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
@@ -115,6 +123,29 @@ export default function RootLayout({
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/LOGO.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* WebSite Schema — habilita Sitelinks Searchbox en Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "IA4PYMES",
+              url: "https://ia4pymes.tech",
+              description: "Automatización con Inteligencia Artificial para PYMES en España",
+              inLanguage: "es-ES",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://ia4pymes.tech/blog?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
 
         {/* Schema.org JSON-LD */}
         <script
@@ -234,7 +265,7 @@ export default function RootLayout({
                   name: "¿Qué es IA4PYMES?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "IA4PYMES es una empresa especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas personalizadas para cada negocio.",
+                    text: "IA4PYMES es una agencia especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas de IA personalizadas para cada negocio, con un ROI medio del +360%.",
                   },
                 },
                 {
@@ -242,7 +273,7 @@ export default function RootLayout({
                   name: "¿Cuánto cuesta automatizar mi negocio con IA?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "El coste depende del proyecto específico. Ofrecemos una consulta gratuita de 30 minutos para analizar tus necesidades y darte un presupuesto personalizado sin compromiso.",
+                    text: "El coste depende del proyecto específico. Ofrecemos una consulta gratuita de 30 minutos para analizar tus necesidades y darte un presupuesto personalizado sin compromiso. Antes de desarrollar nada, calculamos el ROI esperado: si los números no te benefician, no avanzamos.",
                   },
                 },
                 {
@@ -250,7 +281,7 @@ export default function RootLayout({
                   name: "¿Qué tipo de empresas pueden beneficiarse de vuestros servicios?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Cualquier PYME que quiera reducir tiempo en tareas repetitivas, mejorar la atención al cliente con chatbots, o automatizar procesos internos. Trabajamos con empresas de todos los sectores.",
+                    text: "Cualquier PYME que quiera reducir tiempo en tareas repetitivas, mejorar la atención al cliente con chatbots, o automatizar procesos internos. Trabajamos con empresas de todos los sectores en España: comercio, logística, servicios profesionales, hostelería, inmobiliaria y más.",
                   },
                 },
                 {
@@ -258,7 +289,39 @@ export default function RootLayout({
                   name: "¿Cuánto tiempo tarda en implementarse una solución de IA?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Depende de la complejidad del proyecto. Un chatbot básico puede estar listo en 2-3 semanas, mientras que proyectos más complejos pueden tardar 1-3 meses. Siempre trabajamos de forma colaborativa contigo.",
+                    text: "Un chatbot básico puede estar listo en 2-3 semanas. Los proyectos de automatización de procesos suelen tardar entre 1 y 4 meses. Siempre trabajamos de forma colaborativa y con seguimiento continuo.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Necesito conocimientos técnicos para usar vuestras soluciones de IA?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "No. Nuestras soluciones están diseñadas para que cualquier persona las use sin formación técnica. Nos encargamos de toda la implementación y formamos a tu equipo paso a paso.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Qué diferencia a IA4PYMES de otras agencias de IA?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Nos especializamos exclusivamente en PYMES españolas. No ofrecemos soluciones genéricas: cada proyecto se construye desde cero para tu negocio concreto. Además, solo iniciamos el desarrollo si el ROI calculado es favorable para ti.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Es seguro para mis datos trabajar con IA4PYMES?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Sí. Cumplimos con el RGPD, firmamos un acuerdo de confidencialidad y tus datos jamás se usan para entrenar modelos de IA públicos.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Puéis automatizar la atención al cliente de mi empresa?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Sí, es uno de nuestros casos de uso más frecuentes. Desarrollamos chatbots y agentes de IA que responden a clientes 24/7 por WhatsApp, web o email, reduciendo el tiempo de respuesta y liberando a tu equipo para tareas de mayor valor.",
                   },
                 },
               ],

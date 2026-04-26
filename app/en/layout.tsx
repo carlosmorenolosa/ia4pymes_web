@@ -1,21 +1,28 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "IA4PYMES - AI Automation for SMEs in Spain",
+  title: "IA4PYMES | AI Automation for SMEs in Spain · +360% ROI Guaranteed",
   description:
-    "Automate your SME with custom Artificial Intelligence. Chatbots, sales agents and process optimization. Save time and costs today.",
+    "We cut operational costs for SMEs with custom AI. +360% average ROI, +1,000h saved per month, 100% success rate. Free diagnosis, no commitment. Start today.",
   keywords: [
-    "SME automation",
-    "artificial intelligence for business",
-    "custom chatbots",
-    "process automation",
-    "AI for small businesses",
-    "custom AI tools",
-    "AI consulting",
-    "digital transformation SME",
-    "custom AI software",
-    "repetitive task automation",
-    "Spain AI agency",
+    // Direct commercial intent
+    "AI automation for SMEs Spain",
+    "AI agency for small businesses",
+    "custom AI consulting Spain",
+    "custom chatbot for business",
+    "automate business processes with AI",
+    // Long-tail by use case
+    "automate customer service with AI",
+    "AI chatbot for e-commerce",
+    "AI sales agent for SME",
+    "reduce operational costs with AI",
+    "AI tools for small business Spain",
+    // High-conversion informational
+    "how much does AI implementation cost for a business",
+    "ROI artificial intelligence small business",
+    "digital transformation SME artificial intelligence",
+    "repetitive task automation small company",
+    "AI consulting Spain affordable",
   ],
   authors: [{ name: "IA4PYMES" }],
   creator: "IA4PYMES",
