@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "IA4PYMES",
     images: [
       {
-        url: "/logo-ia4pymes.jpeg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "IA4PYMES - AI Automation for SMEs",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "IA4PYMES - AI Automation for SMEs",
     description:
       "Automate your SME with custom Artificial Intelligence. Chatbots, sales agents and process optimization.",
-    images: ["/logo-ia4pymes.jpeg"],
+    images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
   robots: {

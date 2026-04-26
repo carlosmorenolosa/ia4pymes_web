@@ -41,7 +41,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: post.image ? [post.image] : [],
         },
         alternates: {
-            canonical: `https://ia4pymes.tech/blog/${post.slug}`
+            canonical: `https://ia4pymes.tech/blog/${post.slug}`,
+            ...(post.translationSlug ? {
+                languages: {
+                    "es": `https://ia4pymes.tech/blog/${post.slug}`,
+                    "en": `https://ia4pymes.tech/en/blog/${post.translationSlug}`,
+                    "x-default": `https://ia4pymes.tech/blog/${post.slug}`,
+                }
+            } : {}),
         }
     }
 }
@@ -67,7 +74,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         "description": post.description,
                         "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
                         "datePublished": new Date(post.date).toISOString(),
-                        "dateModified": new Date(post.date).toISOString(),
+                        "dateModified": new Date((post as any).updatedAt ?? post.date).toISOString(),
                         "author": [{
                             "@type": "Organization",
                             "name": post.author,

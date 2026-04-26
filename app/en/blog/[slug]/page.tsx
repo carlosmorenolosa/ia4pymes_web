@@ -33,14 +33,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: post.description,
         alternates: {
             canonical: `https://ia4pymes.tech/en/blog/${post.slug}`,
-            languages: post.translationSlug
-                ? {
-                    "es-ES": `/blog/${post.translationSlug}`,
-                    "en": `/en/blog/${post.slug}`,
+            ...(post.translationSlug ? {
+                languages: {
+                    "es": `https://ia4pymes.tech/blog/${post.translationSlug}`,
+                    "en": `https://ia4pymes.tech/en/blog/${post.slug}`,
+                    "x-default": `https://ia4pymes.tech/blog/${post.translationSlug}`,
                 }
-                : {
-                    "en": `/en/blog/${post.slug}`,
-                },
+            } : {
+                languages: {
+                    "en": `https://ia4pymes.tech/en/blog/${post.slug}`,
+                }
+            }),
         },
         openGraph: {
             title: post.title,
@@ -81,7 +84,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                         "description": post.description,
                         "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
                         "datePublished": new Date(post.date).toISOString(),
-                        "dateModified": new Date(post.date).toISOString(),
+                        "dateModified": new Date((post as any).updatedAt ?? post.date).toISOString(),
                         "inLanguage": "en",
                         "author": [{
                             "@type": "Organization",

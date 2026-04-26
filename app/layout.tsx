@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "IA4PYMES",
     images: [
       {
-        url: "/logo-ia4pymes.jpeg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "IA4PYMES - Automatización con IA para PYMES",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "IA4PYMES - Automatización con IA para PYMES",
     description:
       "Automatiza tu PYME con Inteligencia Artificial a medida. Chatbots, agentes de ventas y optimización de procesos. Ahorra tiempo y costes hoy mismo.",
-    images: ["/logo-ia4pymes.jpeg"],
+    images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
   robots: {
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
   // verification: {
   //   google: "TU-CODIGO-AQUI", // Añade tu código de Google Search Console
   // },
-  generator: 'v0.dev'
+
 }
 
 export default function RootLayout({
