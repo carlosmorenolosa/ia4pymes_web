@@ -42,7 +42,7 @@ export const Counter = ({ target, prefix = "", suffix = "" }: { target: number; 
   const { count, ref } = useCounter(target)
 
   return (
-    <span ref={ref} className="text-3xl font-extrabold">
+    <span ref={ref}>
       {prefix}
       {count}
       {suffix}
