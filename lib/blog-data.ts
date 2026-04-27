@@ -16,6 +16,147 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Base de Conocimiento IA (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "base-de-conocimiento-ia-pymes-rag-documentos",
+        title: "De PDFs Olvidados a Decisiones Inteligentes: Cómo crear la Base de Conocimiento de tu PYME con IA",
+        description: "Tu empresa tiene un tesoro escondido en sus carpetas de archivos. Descubre cómo la tecnología RAG permite convertir miles de documentos en una base de conocimientos inteligente que responde preguntas al instante.",
+        date: "2026-04-27",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Estrategia Digital",
+        image: "/blog/ai-knowledge-base-pyme.png",
+        lang: "es",
+        translationSlug: "ai-knowledge-base-sme-rag-documents",
+        content: `
+En la era de la sobreinformación, la mayoría de las PYMES sufren una paradoja silenciosa: tienen más datos que nunca (contratos, manuales, correos, facturas), pero tardan más que nunca en encontrar lo que necesitan.
+
+Ese manual de procedimientos de 200 páginas que nadie lee, o ese historial de atención al cliente acumulado durante años, no son solo "archivos". Son el **Cerebro de tu empresa**, y hasta ahora, estaba dormido.
+
+Hoy vamos a explicar cómo despertarlo usando una tecnología llamada **RAG (Retrieval-Augmented Generation)** para crear una Base de Conocimiento inteligente.
+
+---
+
+## El problema del "Pajar de Datos"
+
+Para una PYME, el tiempo es el recurso más escaso. Cuando un empleado nuevo necesita saber cómo aplicar una política de devoluciones o un técnico busca la solución a un error específico en un manual antiguo, suele ocurrir lo siguiente:
+1.  Busca en carpetas compartidas con nombres crípticos.
+2.  Pregunta a un compañero (interrumpiendo su flujo de trabajo).
+3.  Si no lo encuentra, improvisa o comete un error.
+
+Este proceso cuesta miles de euros al año en pérdida de productividad. La IA tradicional (como ChatGPT genérico) no ayuda aquí porque **no conoce tus datos internos**.
+
+---
+
+## La Solución: ¿Qué es una Base de Conocimiento con RAG?
+
+RAG es, simplificando mucho, ponerle "gafas de lectura" a una Inteligencia Artificial para que pueda leer tus documentos privados antes de responder. 
+
+A diferencia de entrenar un modelo desde cero (que es carísimo y lento), el RAG funciona así:
+1.  **Conexión:** Conectamos tus fuentes de datos (Google Drive, Dropbox, PDF locales).
+2.  **Indexación:** La IA lee y "entiende" los conceptos, guardándolos en una base de datos vectorial (como un mapa mental gigante).
+3.  **Consulta:** Cuando alguien pregunta "¿Cómo gestionamos un envío a Canarias?", la IA busca el fragmento exacto en tus documentos y redacta una respuesta precisa, citando la fuente.
+
+---
+
+## 3 Beneficios Inmediatos para tu PYME
+
+### 1. Onboarding Instantáneo
+Imagina que un nuevo empleado puede preguntarle a la IA cualquier duda sobre procesos internos y recibir la respuesta oficial de la empresa en 2 segundos. El tiempo de formación se reduce drásticamente.
+
+### 2. Soporte al Cliente de Nivel Experto
+Tus agentes de soporte ya no tienen que memorizar cada detalle técnico. Con una base de conocimiento, pueden dar respuestas complejas y precisas al instante, aumentando la satisfacción del cliente.
+
+### 3. Preservación del Conocimiento
+Cuando un empleado clave se va de la empresa, su conocimiento no se pierde. Si sus procesos y notas están en la base de datos, la IA seguirá sabiendo "cómo se hacen las cosas aquí".
+
+---
+
+## Seguridad y Privacidad: La gran pregunta
+
+Una duda común es: *¿Mis datos van a entrenar a ChatGPT?*
+**La respuesta es NO.** En IA4PYMES implementamos arquitecturas empresariales donde tus datos se procesan de forma privada. La IA usa la información para responderte a ti, pero nunca sale de tu entorno seguro ni se utiliza para mejorar modelos públicos. Tu secreto comercial está a salvo.
+
+---
+
+## Conclusión: El paso de SaaS a "AI Agents"
+
+En 2026, tener una web o un software de gestión (SaaS) ya no es suficiente. Las PYMES competitivas están migrando hacia **Sistemas Operativos de IA**, donde la información no está guardada en cajas cerradas, sino que fluye a través de una base de conocimiento centralizada que ayuda a tomar mejores decisiones, más rápido.
+
+¿Está tu empresa lista para dejar de buscar y empezar a encontrar?
+        `.trim(),
+    },
+    {
+        slug: "ai-knowledge-base-sme-rag-documents",
+        title: "From Forgotten PDFs to Smart Decisions: How to Build Your SME's AI Knowledge Base",
+        description: "Your company has a hidden treasure in its file folders. Discover how RAG technology turns thousands of documents into a smart knowledge base that answers questions instantly.",
+        date: "2026-04-27",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Digital Strategy",
+        image: "/blog/ai-knowledge-base-pyme.png",
+        lang: "en",
+        translationSlug: "base-de-conocimiento-ia-pymes-rag-documentos",
+        content: `
+In the age of information overload, most SMEs suffer from a silent paradox: they have more data than ever (contracts, manuals, emails, invoices), but they take longer than ever to find what they need.
+
+That 200-page procedure manual that no one reads, or that customer support history accumulated over years, are not just "files." They are your **company's Brain**, and until now, it was asleep.
+
+Today we are going to explain how to wake it up using a technology called **RAG (Retrieval-Augmented Generation)** to create a smart Knowledge Base.
+
+---
+
+## The "Data Haystack" Problem
+
+For an SME, time is the scarcest resource. When a new employee needs to know how to apply a return policy, or a technician looks for the solution to a specific error in an old manual, the following usually happens:
+1.  They search in shared folders with cryptic names.
+2.  They ask a colleague (interrupting their workflow).
+3.  If they can't find it, they improvise or make a mistake.
+
+This process costs thousands of dollars a year in lost productivity. Traditional AI (like generic ChatGPT) doesn't help here because **it doesn't know your internal data**.
+
+---
+
+## The Solution: What is an AI Knowledge Base with RAG?
+
+RAG is, put very simply, giving "reading glasses" to an Artificial Intelligence so it can read your private documents before responding.
+
+Unlike training a model from scratch (which is expensive and slow), RAG works like this:
+1.  **Connection:** We connect your data sources (Google Drive, Dropbox, local PDFs).
+2.  **Indexing:** The AI reads and "understands" the concepts, saving them in a vector database (like a giant mind map).
+3.  **Query:** When someone asks "How do we handle a shipment to Hawaii?", the AI finds the exact fragment in your documents and drafts a precise answer, citing the source.
+
+---
+
+## 3 Immediate Benefits for Your SME
+
+### 1. Instant Onboarding
+Imagine a new employee can ask the AI any question about internal processes and receive the official company answer in 2 seconds. Training time is drastically reduced.
+
+### 2. Expert-Level Customer Support
+Your support agents no longer have to memorize every technical detail. With a knowledge base, they can provide complex and accurate answers instantly, increasing customer satisfaction.
+
+### 3. Knowledge Preservation
+When a key employee leaves the company, their knowledge is not lost. If their processes and notes are in the database, the AI will still know "how things are done here."
+
+---
+
+## Security and Privacy: The Big Question
+
+A common question is: *Will my data be used to train ChatGPT?*
+**The answer is NO.** At IA4PYMES, we implement enterprise architectures where your data is processed privately. The AI uses the information to answer you, but it never leaves your secure environment nor is it used to improve public models. Your trade secrets are safe.
+
+---
+
+## Conclusion: The Shift from SaaS to AI Agents
+
+In 2026, having a website or management software (SaaS) is no longer enough. Competitive SMEs are migrating towards **AI Operating Systems**, where information is not stored in closed boxes but flows through a centralized knowledge base that helps make better decisions, faster.
+
+Is your company ready to stop searching and start finding?
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: GPT-5.5 OpenAI
     // ─────────────────────────────────────────────────────────
     {
