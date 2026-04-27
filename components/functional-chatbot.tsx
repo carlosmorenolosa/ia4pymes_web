@@ -33,13 +33,9 @@ export function FunctionalChatbot({
   const sessionIdRef = useRef<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => {
-    if (!isLoading && inputRef.current) {
-      setTimeout(() => {
-        inputRef.current?.focus()
-      }, 50)
-    }
-  }, [isLoading])
+  // Eliminamos el auto-focus automático que causaba saltos de scroll en móviles
+  // El foco ahora se gestionará solo tras una interacción explícita del usuario
+
 
   useEffect(() => {
     sessionIdRef.current = typeof crypto !== 'undefined' && crypto.randomUUID 
