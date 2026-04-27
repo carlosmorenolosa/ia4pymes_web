@@ -10,16 +10,16 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
     // Lock scroll while splash is visible
     document.body.style.overflow = "hidden";
     
-    // The fill animation takes 1.5s, let's wait 1.8s then start exit
+    // The fill animation takes 0.8s, let's wait 1.0s then start exit
     const exitTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 1800);
+    }, 1000);
 
-    // Call onComplete after the exit animation finishes (~0.8s)
+    // Call onComplete after the exit animation finishes (~0.5s)
     const completeTimer = setTimeout(() => {
       document.body.style.overflow = "";
       onComplete();
-    }, 2600);
+    }, 1500);
 
     return () => {
       clearTimeout(exitTimer);
@@ -40,7 +40,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
             borderBottomRightRadius: "50%",
             opacity: 1 // We want to maintain opacity and let it slide out like a solid curtain
           }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[999999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden shadow-2xl"
         >
           {/* Ambient Glowing Orb removed for pure white theme */}
@@ -71,7 +71,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
                 className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap tracking-[-0.04em] drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
               >
                 <span className="text-white">IA</span>
                 <span className="text-blue-600">4</span>

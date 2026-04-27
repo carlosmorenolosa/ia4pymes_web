@@ -175,21 +175,25 @@ export function FunctionalChatbot({
         messages.length > 0 &&
         messages[messages.length - 1].sender === "PymerIA"
       ) {
-        // Cuando PymerIA responde, anclar justo antes de la respuesta
-        const pymeriaResponseElement = pymeriaResponseRef.current
-        const scrollContainer = scrollAreaRef.current
+        // Usamos requestAnimationFrame para evitar Forced Reflow
+        requestAnimationFrame(() => {
+          if (!pymeriaResponseRef.current || !scrollAreaRef.current) return
+          
+          const pymeriaResponseElement = pymeriaResponseRef.current
+          const scrollContainer = scrollAreaRef.current
 
-        // Calcular la posición justo antes de la respuesta de PymerIA
-        const containerRect = scrollContainer.getBoundingClientRect()
-        const messageRect = pymeriaResponseElement.getBoundingClientRect()
-        const relativeTop = messageRect.top - containerRect.top + scrollContainer.scrollTop
+          // Calcular la posición justo antes de la respuesta de PymerIA
+          const containerRect = scrollContainer.getBoundingClientRect()
+          const messageRect = pymeriaResponseElement.getBoundingClientRect()
+          const relativeTop = messageRect.top - containerRect.top + scrollContainer.scrollTop
 
-        // Posicionar justo antes de la respuesta (con un pequeño margen)
-        const adjustedTop = Math.max(0, relativeTop - 20)
+          // Posicionar justo antes de la respuesta (con un pequeño margen)
+          const adjustedTop = Math.max(0, relativeTop - 20)
 
-        scrollContainer.scrollTo({
-          top: adjustedTop,
-          behavior: "smooth",
+          scrollContainer.scrollTo({
+            top: adjustedTop,
+            behavior: "smooth",
+          })
         })
       }
     }

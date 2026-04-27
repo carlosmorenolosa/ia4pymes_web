@@ -110,13 +110,13 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        {/* Preconnect para recursos externos críticos */}
+        {/* Preconnect y DNS prefetch para recursos externos críticos */}
         <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />
-
-        {/* DNS prefetch for lazy-loaded resources */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
 
         {/* Favicon optimizado */}
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
