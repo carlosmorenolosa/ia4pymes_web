@@ -91,7 +91,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="space-y-5"
                     >
-                        <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
                                 {t.labelHours}
@@ -100,11 +100,13 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         </label>
                         <div className="relative">
                             <input
+                                id="hours-range"
                                 type="range"
                                 min="1"
                                 max="40"
                                 value={hoursPerWeek}
                                 onChange={(e) => setHoursPerWeek(Number(e.target.value))}
+                                aria-label={t.labelHours}
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
@@ -118,7 +120,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="space-y-5"
                     >
-                        <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
                                 {t.labelEmployees}
@@ -127,11 +129,13 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         </label>
                         <div className="relative">
                             <input
+                                id="employees-range"
                                 type="range"
                                 min="1"
                                 max="50"
                                 value={employees}
                                 onChange={(e) => setEmployees(Number(e.target.value))}
+                                aria-label={t.labelEmployees}
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
@@ -145,7 +149,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="space-y-5"
                     >
-                        <label className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
                                 {t.labelWage}
@@ -154,12 +158,14 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                         </label>
                         <div className="relative">
                             <input
+                                id="wage-range"
                                 type="range"
                                 min="5"
                                 max="100"
                                 step="1"
                                 value={hourlyWage}
                                 onChange={(e) => setHourlyWage(Number(e.target.value))}
+                                aria-label={t.labelWage}
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
                             />
                         </div>

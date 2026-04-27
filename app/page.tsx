@@ -397,7 +397,7 @@ export default function Home() {
                 <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
                   Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-600 uppercase tracking-widest">
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
@@ -478,7 +478,7 @@ export default function Home() {
 
             {/* Bottom Bar */}
             <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-slate-400 text-[13px] font-medium">
+              <p className="text-slate-600 text-[13px] font-semibold">
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
               <div className="flex items-center gap-6">

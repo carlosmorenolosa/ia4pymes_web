@@ -159,7 +159,8 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         </Link>
                         <button
                             onClick={() => setSubmitStatus("idle")}
-                            className="text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium mt-4"
+                            className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-semibold mt-4"
+                            aria-label={t.anotherReq}
                         >
                             {t.anotherReq}
                         </button>
@@ -281,10 +282,11 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         <div className="relative">
                             <select
                                 id="budget"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
                                 {...form.register("budget")}
+                                aria-label={t.budget}
                             >
-                                <option value="" disabled className="text-slate-400">{t.budgetPlaceholder}</option>
+                                <option value="" disabled className="text-slate-500">{t.budgetPlaceholder}</option>
                                 {t.budgetOptions.map((opt) => (
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
@@ -370,7 +372,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         </motion.button>
                     </motion.div>
 
-                    <p className="text-center text-xs text-slate-500 mt-4">
+                    <p className="text-center text-xs text-slate-600 mt-4 font-medium">
                         {t.privacyNote}
                     </p>
                 </form>

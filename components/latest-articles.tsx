@@ -119,7 +119,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                         {/* Content */}
                                         <div className="p-6 flex flex-col flex-grow">
-                                            <div className="flex items-center gap-4 text-xs font-mono text-slate-500 mb-4">
+                                            <div className="flex items-center gap-4 text-xs font-mono text-slate-600 mb-4">
                                                 <span className="flex items-center gap-1.5">
                                                     <Calendar className="w-3.5 h-3.5" />
                                                     {new Date(post.date).toLocaleDateString(t.locale, {
@@ -142,7 +142,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                             </p>
 
                                             <div className="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
-                                                <span className="text-xs font-mono text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                                                <span className="text-xs font-mono text-slate-600 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
                                                     {t.readLabel}
                                                 </span>
                                                 <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-400 transition-colors border border-slate-100 group-hover:border-blue-100">

@@ -249,6 +249,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         onClick={prevSlide}
         className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
         style={{ zIndex: 1001 }}
+        aria-label={lang === "en" ? "Previous slide" : "Anterior caso de éxito"}
       >
         <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
       </motion.button>
@@ -258,6 +259,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         onClick={nextSlide}
         className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
         style={{ zIndex: 1001 }}
+        aria-label={lang === "en" ? "Next slide" : "Siguiente caso de éxito"}
       >
         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
       </motion.button>

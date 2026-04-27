@@ -72,7 +72,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               <div className="flex items-center gap-1 px-2">
                 <span className="text-sm font-bold text-blue-600 cursor-default">ES</span>
                 <span className="text-slate-300 text-xs">|</span>
-                <Link href="/en" className="text-sm font-semibold text-slate-400 hover:text-slate-700 transition-colors">EN</Link>
+                <Link href="/en" className="text-sm font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
@@ -130,7 +130,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           <div className="flex items-center gap-4">
             <span className="text-2xl font-bold text-blue-600">ES</span>
             <span className="text-slate-300">|</span>
-            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-400 hover:text-slate-700 transition-colors">EN</Link>
+            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <Link
