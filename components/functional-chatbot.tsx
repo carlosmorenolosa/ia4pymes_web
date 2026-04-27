@@ -154,11 +154,6 @@ export function FunctionalChatbot({
     }
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSendMessage()
-    }
-  }
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -307,14 +302,18 @@ export function FunctionalChatbot({
         )}
       </div>
 
-      <div className={`mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl transition-all ${
+      <form 
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSendMessage();
+        }}
+        className={`mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl transition-all ${
         messages.length === 2 && !isFocused ? "ring-2 ring-blue-500/30 shadow-[0_0_15px_rgba(37,99,235,0.2)] animate-pulse" : "focus-within:ring-2 focus-within:ring-blue-500/20"
       }`}>
         <Input
           ref={inputRef}
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
-          onKeyDown={handleKeyDown}
           placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
           onFocus={() => {
             setIsFocused(true)
@@ -327,15 +326,15 @@ export function FunctionalChatbot({
           aria-label="Escribe tu mensaje"
         />
         <Button
-          onClick={handleSendMessage}
+          type="submit"
           size="icon"
           className="h-10 w-10 bg-blue-600 hover:bg-blue-700 rounded-xl shrink-0 shadow-lg shadow-blue-600/20"
-          disabled={isLoading}
+          disabled={isLoading || !currentInput.trim()}
           aria-label="Enviar mensaje"
         >
           <Send className="w-4 h-4" />
         </Button>
-      </div>
+      </form>
     </div>
   )
 }
