@@ -23,7 +23,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
               >
                 Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
@@ -34,7 +34,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <motion.p 
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
                 Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
@@ -43,7 +43,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
               >
                 <Link
@@ -63,9 +63,9 @@ export function HeroES({ splashFinished }: HeroESProps) {
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={splashFinished ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
+              animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" } : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
               className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
             >
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">

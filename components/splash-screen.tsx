@@ -10,15 +10,15 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
     // Lock scroll while splash is visible
     document.body.style.overflow = "hidden";
     
-    // Ultra-fast splash for Lighthouse
+    // Balanced timing: enough to see the animation, fast enough for Google
     const exitTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 300);
+    }, 800);
 
     const completeTimer = setTimeout(() => {
       document.body.style.overflow = "";
       onComplete();
-    }, 600);
+    }, 1200);
 
     return () => {
       clearTimeout(exitTimer);
@@ -39,7 +39,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
             borderBottomRightRadius: "50%",
             opacity: 1 // We want to maintain opacity and let it slide out like a solid curtain
           }}
-          transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[999999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden shadow-2xl"
         >
           {/* Ambient Glowing Orb removed for pure white theme */}
@@ -70,7 +70,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
                 className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap tracking-[-0.04em] drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
               >
                 <span className="text-white">IA</span>
                 <span className="text-blue-600">4</span>
