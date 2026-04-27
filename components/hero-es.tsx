@@ -21,8 +21,8 @@ export function HeroES({ splashFinished }: HeroESProps) {
             <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
               <motion.h1
                 id="hero-heading"
-                initial={{ opacity: 0, y: 20 }}
-                animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                initial={{ opacity: 0 }}
+                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
               >
@@ -32,8 +32,8 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </motion.h1>
 
               <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                initial={{ opacity: 0 }}
+                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.85 }}
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
@@ -41,8 +41,8 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </motion.p>
 
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                initial={{ opacity: 0 }}
+                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
                 className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
               >

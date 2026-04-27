@@ -110,9 +110,8 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        {/* Preconnect para mejorar performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnect para recursos externos críticos */}
+        <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />
 
         {/* DNS prefetch for lazy-loaded resources */}
         <link rel="dns-prefetch" href="https://calendly.com" />
@@ -379,11 +378,10 @@ export default function RootLayout({
         <CustomCursor />
         <Script
           id="vtag-ai-js"
-          async
           src="https://r2.leadsy.ai/tag.js"
           data-pid="1jjnlw4RajY2an8xD"
           data-version="062024"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
