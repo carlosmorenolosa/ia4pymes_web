@@ -77,34 +77,6 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
               </motion.div>
             </div>
             
-            {/* Minimalist Tech Loading Text */}
-            <motion.div 
-              className="mt-6 md:mt-10 flex items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-            >
-              <div className="flex gap-1.5">
-                <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
-                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                />
-                <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
-                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                />
-                <motion.div 
-                  className="w-1.5 h-1.5 bg-blue-600 rounded-full"
-                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                />
-              </div>
-              <span className="text-xs md:text-sm font-bold text-slate-400 tracking-[0.3em] uppercase">
-                Optimizando Procesos...
-              </span>
-            </motion.div>
           </motion.div>
         </motion.div>
       )}
