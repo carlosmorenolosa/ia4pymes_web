@@ -54,8 +54,8 @@ Esto permite que tus comerciales se dediquen solo a enseñar casas a gente que r
 Esto permite a las agencias captar propiedades con precios competitivos desde el primer día, evitando que las casas "se quemen" en los portales por estar fuera de mercado.
 
 ---
-### 💡 ¿Quieres digitalizar tu inmobiliaria?
-En **IA4PYMES** ayudamos a agencias a implementar sistemas de captación y filtrado automático que aumentan el cierre de ventas. [**Solicita tu diagnóstico gratuito aquí**](/#contacto) y descubre cuánto tiempo podrías ahorrar.
+> ### 💡 ¿Quieres digitalizar tu inmobiliaria?
+> En **IA4PYMES** ayudamos a agencias a implementar sistemas de captación y filtrado automático que aumentan el cierre de ventas. [**Reserva tu sesión de consultoría gratuita aquí**](https://calendly.com/ia4pymes) y descubre cuánto tiempo podrías ahorrar.
 ---
 
 ## 3. Marketing Visual: Home Staging Virtual con un clic
@@ -113,8 +113,8 @@ How do you price a home? Traditionally, you looked at the area and "felt" the ma
 This allows agencies to acquire properties at competitive prices from day one, preventing houses from "sitting" on portals due to being overpriced.
 
 ---
-### 💡 Want to digitalize your real estate agency?
-At **IA4PYMES**, we help agencies implement automatic lead acquisition and filtering systems that increase sales closings. [**Request your free diagnosis here**](/en#contact) and discover how much time you could save.
+> ### 💡 Want to digitalize your real estate agency?
+> At **IA4PYMES**, we help agencies implement automatic lead acquisition and filtering systems that increase sales closings. [**Book your free consulting session here**](https://calendly.com/ia4pymes) and discover how much time you could save.
 ---
 
 ## 3. Visual Marketing: Virtual Home Staging in One Click
