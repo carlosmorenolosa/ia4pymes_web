@@ -22,6 +22,13 @@ const caseData = {
       benefit: "Diagnósticos más rápidos y precisos",
     },
     {
+      title: "Consultoría y Auditoría Técnica",
+      company: "Ferrandis Abogados",
+      description: "Auditoría integral de procesos legales para identificar ineficiencias y oportunidades de automatización. Entregamos un informe técnico detallado con el desglose de soluciones de IA, análisis de costes y ROI proyectado para su implementación inmediata.\n\n🎯 Impacto: Roadmap estratégico | ⏱️ Diagnóstico: Fugas de tiempo críticas | 📅 Proyecto: Consultoría Técnica",
+      icon: Scale, color: "blue",
+      benefit: "Roadmap técnico y análisis de ROI entregado",
+    },
+    {
       title: "Automatizador de Presupuestos",
       company: "Constructora CORSAM",
       description: "Sistema inteligente de cálculo automático para el sector construcción, eliminando errores humanos y acelerando significativamente los procesos de cotización comercial.\n\n🎯 ROI Estimado: +285% | ⏱️ Ahorro: 45h semanales | 📅 Tiempo Activo: 6 meses",
@@ -42,13 +49,6 @@ const caseData = {
       icon: Shield, color: "purple",
       benefit: "Prevención proactiva de incidencias",
     },
-    {
-      title: "Consultoría y Auditoría Técnica",
-      company: "Ferrandis Abogados",
-      description: "Auditoría integral de procesos legales para identificar ineficiencias y oportunidades de automatización. Entregamos un informe técnico detallado con el desglose de soluciones de IA, análisis de costes y ROI proyectado para su implementación inmediata.\n\n🎯 Impacto: Roadmap estratégico | ⏱️ Diagnóstico: Fugas de tiempo críticas | 📅 Proyecto: Consultoría Técnica",
-      icon: Scale, color: "blue",
-      benefit: "Roadmap técnico y análisis de ROI entregado",
-    },
   ],
   en: [
     {
@@ -64,6 +64,13 @@ const caseData = {
       description: "Computer vision implementation for medical analysis, demonstrating how AI can assist healthcare professionals in making faster, more accurate diagnoses.\n\n🎯 Estimated ROI: +380% | ⏱️ Savings: 60h/week | 📅 Active: 1 year",
       icon: Heart, color: "blue",
       benefit: "Faster, more accurate diagnoses",
+    },
+    {
+      title: "Technical Consulting & Audit",
+      company: "Ferrandis Abogados",
+      description: "Comprehensive audit of legal processes to identify inefficiencies and automation opportunities. We delivered a detailed technical report with AI solution breakdown, cost analysis, and projected ROI for immediate implementation.\n\n🎯 Impact: Strategic Roadmap | ⏱️ Diagnosis: Critical time leaks | 📅 Project: Technical Consultancy",
+      icon: Scale, color: "blue",
+      benefit: "Technical roadmap and ROI analysis delivered",
     },
     {
       title: "Automated Budget Calculator",
@@ -85,13 +92,6 @@ const caseData = {
       description: "Machine learning model for port logistics that anticipates incidents, optimizes resources and reduces operational costs through predictive analysis.\n\n🎯 Estimated ROI: +490% | ⏱️ Savings: 90h/week + incident reduction | 📅 Active: 2 years",
       icon: Shield, color: "purple",
       benefit: "Proactive incident prevention",
-    },
-    {
-      title: "Technical Consulting & Audit",
-      company: "Ferrandis Abogados",
-      description: "Comprehensive audit of legal processes to identify inefficiencies and automation opportunities. We delivered a detailed technical report with AI solution breakdown, cost analysis, and projected ROI for immediate implementation.\n\n🎯 Impact: Strategic Roadmap | ⏱️ Diagnosis: Critical time leaks | 📅 Project: Technical Consultancy",
-      icon: Scale, color: "blue",
-      benefit: "Technical roadmap and ROI analysis delivered",
     },
   ],
 }
