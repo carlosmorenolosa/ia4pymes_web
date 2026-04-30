@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle } from "lucide-react"
+import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale } from "lucide-react"
 
 const caseData = {
   es: [
@@ -42,6 +42,13 @@ const caseData = {
       icon: Shield, color: "purple",
       benefit: "Prevención proactiva de incidencias",
     },
+    {
+      title: "Consultoría y Auditoría Técnica",
+      company: "Ferrandis Abogados",
+      description: "Auditoría integral de procesos legales para identificar ineficiencias y oportunidades de automatización. Entregamos un informe técnico detallado con el desglose de soluciones de IA, análisis de costes y ROI proyectado para su implementación inmediata.\n\n🎯 Impacto: Roadmap estratégico | ⏱️ Diagnóstico: Fugas de tiempo críticas | 📅 Proyecto: Consultoría Técnica",
+      icon: Scale, color: "blue",
+      benefit: "Roadmap técnico y análisis de ROI entregado",
+    },
   ],
   en: [
     {
@@ -78,6 +85,13 @@ const caseData = {
       description: "Machine learning model for port logistics that anticipates incidents, optimizes resources and reduces operational costs through predictive analysis.\n\n🎯 Estimated ROI: +490% | ⏱️ Savings: 90h/week + incident reduction | 📅 Active: 2 years",
       icon: Shield, color: "purple",
       benefit: "Proactive incident prevention",
+    },
+    {
+      title: "Technical Consulting & Audit",
+      company: "Ferrandis Abogados",
+      description: "Comprehensive audit of legal processes to identify inefficiencies and automation opportunities. We delivered a detailed technical report with AI solution breakdown, cost analysis, and projected ROI for immediate implementation.\n\n🎯 Impact: Strategic Roadmap | ⏱️ Diagnosis: Critical time leaks | 📅 Project: Technical Consultancy",
+      icon: Scale, color: "blue",
+      benefit: "Technical roadmap and ROI analysis delivered",
     },
   ],
 }
