@@ -46,7 +46,18 @@ export function FunctionalChatbot({
   }, [])
 
   useEffect(() => {
-    if (minimal) return  // skip initial messages in minimal/widget mode
+    if (minimal) {
+      // Widget mode: show a single relevant welcome message
+      setIsInitialTyping(true)
+      const t = setTimeout(() => {
+        setIsInitialTyping(false)
+        setMessages([{
+          sender: "PymerIA",
+          content: "¡Hola! 👋 Soy **PymerIA**, el asistente de **IA4PYMES**. Cuéntame en qué sector está tu negocio y te digo cómo la IA puede ayudarte a ahorrar tiempo y dinero."
+        }])
+      }, 1200)
+      return () => clearTimeout(t)
+    }
     if (!visible) {
       setIsInitialTyping(false);
       return;
