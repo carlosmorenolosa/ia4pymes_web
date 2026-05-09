@@ -17,11 +17,13 @@ interface Message {
 export function FunctionalChatbot({ 
   is3D = false, 
   onInteractionChange,
-  visible = true 
+  visible = true,
+  minimal = false
 }: { 
   is3D?: boolean, 
   onInteractionChange?: (active: boolean) => void,
-  visible?: boolean
+  visible?: boolean,
+  minimal?: boolean
 }) {
   const [messages, setMessages] = useState<Message[]>([])
   const [currentInput, setCurrentInput] = useState("")
@@ -44,6 +46,7 @@ export function FunctionalChatbot({
   }, [])
 
   useEffect(() => {
+    if (minimal) return  // skip initial messages in minimal/widget mode
     if (!visible) {
       setIsInitialTyping(false);
       return;
@@ -203,26 +206,28 @@ export function FunctionalChatbot({
       aria-label="Ejemplo de conversación con asistente IA"
     >
 
-      <div className={`flex items-center justify-between ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
-        <div className="flex items-center">
-          <div
-            className={`${is3D ? "w-8 h-8" : "w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14"} bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mr-3 shrink-0 shadow-lg shadow-blue-500/20`}
-            aria-hidden="true"
-          >
-            <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
-          </div>
-          <div>
-            <h3 className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</h3>
-            <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">En línea</span>
+      {!minimal && (
+        <div className={`flex items-center justify-between ${is3D ? "mb-2" : "mb-4 sm:mb-6"}`}>
+          <div className="flex items-center">
+            <div
+              className={`${is3D ? "w-8 h-8" : "w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14"} bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mr-3 shrink-0 shadow-lg shadow-blue-500/20`}
+              aria-hidden="true"
+            >
+              <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
+            </div>
+            <div>
+              <h3 className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</h3>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">En línea</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div
         ref={scrollAreaRef}
@@ -319,7 +324,7 @@ export function FunctionalChatbot({
             setIsFocused(true)
           }}
           onBlur={() => setIsFocused(false)}
-          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm h-10"
+          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-slate-900 placeholder:text-slate-400 h-10"
           disabled={isLoading}
           name="message"
           autoComplete="off"

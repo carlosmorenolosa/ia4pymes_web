@@ -38,7 +38,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(true)}
-              className="cursor-pointer text-[11px] font-semibold text-slate-400 hover:text-slate-200 transition-colors tracking-wide select-none"
+              className="cursor-pointer text-sm font-bold text-white hover:text-blue-300 transition-colors select-none drop-shadow-sm"
             >
               {copy.tooltip}
             </motion.p>
@@ -107,7 +107,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
                 href="https://ia4pymes.tech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[10px] font-semibold text-slate-500 hover:text-blue-400 transition-colors"
+                className="flex items-center gap-1 text-xs font-bold text-white hover:text-blue-300 transition-colors"
               >
                 <ExternalLink className="w-3 h-3" />
                 {copy.linkText}
@@ -117,7 +117,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
             {/* Chatbot body */}
             <div className="h-[400px] bg-white">
               <div className="h-full p-3">
-                <FunctionalChatbot visible={isOpen} />
+                <FunctionalChatbot visible={isOpen} minimal={true} />
               </div>
             </div>
           </motion.div>
