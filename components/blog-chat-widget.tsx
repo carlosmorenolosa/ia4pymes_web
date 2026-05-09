@@ -116,9 +116,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
 
             {/* Chatbot body */}
             <div className="h-[400px] bg-white">
-              <div className="h-full p-3">
-                <FunctionalChatbot visible={isOpen} minimal={true} />
-              </div>
+              <FunctionalChatbot visible={isOpen} minimal={true} />
             </div>
           </motion.div>
         )}

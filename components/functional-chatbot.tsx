@@ -210,9 +210,9 @@ export function FunctionalChatbot({
 
   return (
     <div
-      className={`w-full h-full flex flex-col border border-white/40 shadow-2xl relative ${
+      className={`w-full h-full flex flex-col relative ${
         minimal ? "bg-white p-3" :
-        is3D ? "bg-white/95 backdrop-blur-md p-3" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl"
+        is3D ? "bg-white/95 backdrop-blur-md p-3 border border-white/40 shadow-2xl" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl border border-white/40 shadow-2xl"
       } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
       aria-label="Ejemplo de conversación con asistente IA"
