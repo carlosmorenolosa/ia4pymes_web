@@ -2,17 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import dynamic from "next/dynamic"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal, Globe } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import ReadingProgressBar from "@/components/reading-progress-bar"
-
-const BlogChatWidget = dynamic(
-    () => import("@/components/blog-chat-widget").then((mod) => mod.BlogChatWidget),
-    { ssr: false }
-)
+import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 
 interface PageProps {
     params: Promise<{ slug: string }>
@@ -274,7 +269,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </section>
 
             {/* Blog floating chat widget */}
-            <BlogChatWidget lang="es" />
+            <BlogChatWidgetLoader lang="es" />
 
             {/* Premium Footer */}
             <footer className="py-12 bg-slate-950 border-t border-white/5">
