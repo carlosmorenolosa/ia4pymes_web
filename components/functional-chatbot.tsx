@@ -276,12 +276,12 @@ export function FunctionalChatbot({
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    p: ({ children }) => <p className={`mb-1 last:mb-0 ${minimal ? "text-[11px] leading-relaxed" : "text-xs sm:text-sm mb-2"}`}>{children}</p>,
+                    p: ({ children }) => <p className={`mb-1 last:mb-0 ${minimal ? "text-xs leading-relaxed" : "text-xs sm:text-sm mb-2"}`}>{children}</p>,
                     ul: ({ children }) => (
-                      <ul className={`list-disc list-inside space-y-0.5 ${minimal ? "text-[11px]" : "text-xs sm:text-sm"}`}>{children}</ul>
+                      <ul className={`list-disc list-inside space-y-0.5 ${minimal ? "text-xs" : "text-xs sm:text-sm"}`}>{children}</ul>
                     ),
                     ol: ({ children }) => (
-                      <ol className={`list-decimal list-inside space-y-0.5 ${minimal ? "text-[11px]" : "text-xs sm:text-sm"}`}>{children}</ol>
+                      <ol className={`list-decimal list-inside space-y-0.5 ${minimal ? "text-xs" : "text-xs sm:text-sm"}`}>{children}</ol>
                     ),
                     strong: ({ children }) => (
                       <strong className={msg.sender === "User" ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
@@ -304,17 +304,17 @@ export function FunctionalChatbot({
             exit={{ opacity: 0, y: -10 }}
             className="text-left"
           >
-            <div className="inline-block p-3 sm:p-4 rounded-[1.25rem] rounded-tl-none shadow-sm max-w-xs sm:max-w-sm bg-gradient-to-br from-blue-50 to-white border border-blue-50">
+            <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-blue-50 border border-blue-200`}>
               <div className="flex items-center space-x-2">
-                <span className="text-slate-800 text-xs sm:text-sm font-medium">PymerIA está escribiendo</span>
+                <span className="text-slate-700 text-xs font-medium">PymerIA está escribiendo</span>
                 <div className="flex space-x-1">
-                  <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
+                  <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"></div>
                   <div
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                   <div
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
                     style={{ animationDelay: "0.4s" }}
                   ></div>
                 </div>
