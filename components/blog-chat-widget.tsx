@@ -14,117 +14,91 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
 
   const copy = {
     es: {
-      ctaLabel: "¿Quieres hacer tu proyecto de IA?",
-      ctaBubble: "Habla con PymerIA",
-      headerTitle: "PymerIA · IA4PYMES",
-      headerSub: "Asistente de IA para PYMEs",
-      linkText: "Visita ia4pymes.tech",
+      tooltip: "¿Arrancamos tu proyecto de IA?",
+      linkText: "ia4pymes.tech",
     },
     en: {
-      ctaLabel: "Want to start your AI project?",
-      ctaBubble: "Talk to PymerIA",
-      headerTitle: "PymerIA · IA4PYMES",
-      headerSub: "AI Assistant for SMEs",
-      linkText: "Visit ia4pymes.tech",
+      tooltip: "Ready to start your AI project?",
+      linkText: "ia4pymes.tech",
     },
   }[lang]
 
   return (
     <>
-      {/* Floating trigger — bottom right */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      {/* ── Floating trigger ── */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
 
-        {/* CTA label above the bubble (only when closed) */}
+        {/* Tooltip — visible only when closed */}
         <AnimatePresence>
           {!isOpen && (
-            <motion.div
-              key="cta-label"
-              initial={{ opacity: 0, y: 8, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.95 }}
-              transition={{ duration: 0.25 }}
-              className="bg-white text-slate-800 text-xs font-bold px-4 py-2 rounded-2xl shadow-xl border border-slate-100 whitespace-nowrap max-w-[200px] text-right leading-snug cursor-pointer"
+            <motion.p
+              key="tooltip"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(true)}
+              className="cursor-pointer text-[11px] font-semibold text-slate-400 hover:text-slate-200 transition-colors tracking-wide select-none"
             >
-              {copy.ctaLabel}
-              {/* Small arrow pointing down-right */}
-              <span className="block text-blue-600 text-[10px] font-black mt-0.5 uppercase tracking-wider">
-                {copy.ctaBubble} →
-              </span>
-            </motion.div>
+              {copy.tooltip}
+            </motion.p>
           )}
         </AnimatePresence>
 
-        {/* Bubble button */}
+        {/* Bubble */}
         <motion.button
-          onClick={() => setIsOpen((prev) => !prev)}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          className="relative w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl shadow-blue-600/40 flex items-center justify-center transition-colors"
+          onClick={() => setIsOpen((v) => !v)}
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.94 }}
+          className="relative w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 flex items-center justify-center transition-colors"
           aria-label={isOpen ? "Cerrar chat" : "Abrir chat"}
         >
-          {/* Notification pulse — only when closed */}
+          {/* Online dot */}
           {!isOpen && (
-            <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500" />
+            <span className="absolute top-0 right-0 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500 border-2 border-[#020617]" />
             </span>
           )}
 
           <AnimatePresence mode="wait" initial={false}>
             {isOpen ? (
-              <motion.span
-                key="close"
-                initial={{ opacity: 0, rotate: -90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: 90 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X className="w-6 h-6" />
+              <motion.span key="x" initial={{ opacity: 0, rotate: -90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+                <X className="w-5 h-5" />
               </motion.span>
             ) : (
-              <motion.span
-                key="open"
-                initial={{ opacity: 0, rotate: 90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: -90 }}
-                transition={{ duration: 0.2 }}
-              >
-                <MessageCircle className="w-6 h-6" />
+              <motion.span key="msg" initial={{ opacity: 0, rotate: 90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+                <MessageCircle className="w-5 h-5" />
               </motion.span>
             )}
           </AnimatePresence>
         </motion.button>
       </div>
 
-      {/* Chat panel */}
+      {/* ── Chat panel ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            key="chat-panel"
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            key="panel"
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 320, damping: 28 }}
-            className={`
-              fixed z-40 shadow-2xl
-              /* Mobile: full screen minus space for header + bubble */
-              bottom-24 right-0 left-0 mx-3 rounded-3xl
-              /* Desktop: fixed size bottom-right panel */
-              sm:left-auto sm:right-6 sm:bottom-24 sm:w-[380px] sm:mx-0
-            `}
+            exit={{ opacity: 0, y: 20, scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 380, damping: 32 }}
+            className="fixed z-40 bottom-24 right-3 left-3 sm:left-auto sm:right-6 sm:w-[360px] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10"
           >
-            {/* Panel header with link to ia4pymes.tech */}
-            <div className="flex items-center justify-between bg-blue-600 px-5 py-4 rounded-t-3xl">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-5 h-5 text-white" />
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-[#0f172a] border-b border-white/[0.06]">
+              <div className="flex items-center gap-2.5">
+                {/* Avatar */}
+                <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-black text-sm leading-none">{copy.headerTitle}</p>
-                  <p className="text-blue-200 text-[10px] font-bold uppercase tracking-wider mt-0.5">
-                    {copy.headerSub}
-                  </p>
+                  <p className="text-white text-sm font-bold leading-none">PymerIA</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
+                    <span className="text-[10px] text-slate-500 font-medium">En línea</span>
+                  </div>
                 </div>
               </div>
 
@@ -133,7 +107,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
                 href="https://ia4pymes.tech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-blue-200 hover:text-white border border-white/20 hover:border-white/50 px-3 py-1.5 rounded-full transition-all"
+                className="flex items-center gap-1 text-[10px] font-semibold text-slate-500 hover:text-blue-400 transition-colors"
               >
                 <ExternalLink className="w-3 h-3" />
                 {copy.linkText}
@@ -141,7 +115,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
             </div>
 
             {/* Chatbot body */}
-            <div className="h-[400px] sm:h-[440px] bg-white rounded-b-3xl overflow-hidden">
+            <div className="h-[400px] bg-white">
               <div className="h-full p-3">
                 <FunctionalChatbot visible={isOpen} />
               </div>
