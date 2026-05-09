@@ -211,6 +211,7 @@ export function FunctionalChatbot({
   return (
     <div
       className={`w-full h-full flex flex-col border border-white/40 shadow-2xl relative ${
+        minimal ? "bg-white p-3" :
         is3D ? "bg-white/95 backdrop-blur-md p-3" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl"
       } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
@@ -242,7 +243,7 @@ export function FunctionalChatbot({
 
       <div
         ref={scrollAreaRef}
-        className={`space-y-3 flex-1 overflow-y-auto ${is3D ? "max-h-full" : "max-h-60 sm:max-h-72 lg:max-h-80"}`}
+        className={`space-y-2 flex-1 overflow-y-auto ${minimal ? "max-h-full" : is3D ? "max-h-full" : "max-h-60 sm:max-h-72 lg:max-h-80"}`}
         style={{
           scrollbarWidth: "thin",
           scrollbarColor: "#2563eb #dbeafe",
@@ -258,10 +259,15 @@ export function FunctionalChatbot({
             className={`${msg.sender === "User" ? "text-right" : "text-left"}`}
           >
             <div
-              className={`inline-block p-3 sm:p-4 rounded-[1.25rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${msg.sender === "User"
-                ? "bg-white ml-auto border border-slate-100 text-slate-600"
-                : "bg-gradient-to-br from-blue-50 to-white border border-blue-50"
-                } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
+              className={`inline-block p-2.5 rounded-[1rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${
+                msg.sender === "User"
+                  ? minimal
+                    ? "bg-slate-100 ml-auto border border-slate-200 text-slate-700"
+                    : "bg-white ml-auto border border-slate-100 text-slate-600"
+                  : minimal
+                    ? "bg-blue-50 border border-blue-200"
+                    : "bg-gradient-to-br from-blue-50 to-white border border-blue-50"
+              } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
             >
               <div className={`prose prose-sm max-w-none ${msg.sender === "User"
                 ? "text-slate-600 prose-strong:text-slate-700"
@@ -270,12 +276,12 @@ export function FunctionalChatbot({
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    p: ({ children }) => <p className="mb-1 sm:mb-2 last:mb-0 text-xs sm:text-sm">{children}</p>,
+                    p: ({ children }) => <p className={`mb-1 last:mb-0 ${minimal ? "text-[11px] leading-relaxed" : "text-xs sm:text-sm mb-2"}`}>{children}</p>,
                     ul: ({ children }) => (
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">{children}</ul>
+                      <ul className={`list-disc list-inside space-y-0.5 ${minimal ? "text-[11px]" : "text-xs sm:text-sm"}`}>{children}</ul>
                     ),
                     ol: ({ children }) => (
-                      <ol className="list-decimal list-inside space-y-1 text-xs sm:text-sm">{children}</ol>
+                      <ol className={`list-decimal list-inside space-y-0.5 ${minimal ? "text-[11px]" : "text-xs sm:text-sm"}`}>{children}</ol>
                     ),
                     strong: ({ children }) => (
                       <strong className={msg.sender === "User" ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
