@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Ley IA PYMEs (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "ley-ia-pymes-pequenas-empresas-no-se-queden-atras",
+        title: "La ley que quiere que las PYMEs no se queden atrás en la IA: qué significa para tu negocio",
+        description: "EE.UU. acaba de aprobar la 'Small Business AI Advancement Act'. Una ley que reconoce oficialmente que las pequeñas empresas corren el riesgo de quedarse fuera de la revolución de la IA. ¿Está Europa mirando? ¿Y tú?",
+        date: "2026-05-09",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Actualidad",
+        image: "/blog/ley-ia-pymes-igualdad-digital.png",
+        lang: "es",
+        translationSlug: "ai-law-smes-small-businesses-left-behind",
+        content: `
+Por primera vez en la historia, un gobierno ha reconocido oficialmente algo que muchos empresarios ya sienten pero nadie se había atrevido a decir en voz alta: **las pequeñas empresas corren el riesgo de ser los grandes perdedores de la revolución de la Inteligencia Artificial**.
+
+En febrero de 2026, la Cámara de Representantes de Estados Unidos aprobó la **Small Business Artificial Intelligence Advancement Act (H.R. 3679)**, una ley histórica que reconoce la brecha digital que se está abriendo entre las grandes corporaciones y las PYMEs. Actualmente está en el Senado, y su debate está encendiendo el debate a nivel global.
+
+¿Por qué debería importarte esto si tienes un negocio en España o en Europa? Porque lo que ocurre en Washington suele llegar aquí en cuestión de meses.
+
+---
+
+## ¿Qué dice exactamente esta ley?
+
+La ley tiene tres objetivos muy claros:
+
+### 1. Cerrar la brecha de adopción
+El texto reconoce que las PYMEs se enfrentan a **barreras que las grandes empresas no tienen**: falta de experiencia técnica interna, preocupaciones sobre ciberseguridad, dudas sobre privacidad de datos y, sobre todo, no saber por dónde empezar.
+
+Para resolverlo, ordena al Instituto Nacional de Estándares y Tecnología (NIST) crear **guías prácticas, casos de uso reales y marcos de referencia voluntarios** específicamente diseñados para pequeñas empresas.
+
+### 2. Formación accesible y actualizada
+La ley obliga a revisar y actualizar los recursos al menos **cada dos años**, reconociendo que la IA evoluciona demasiado rápido para que las PYMEs lo sigan solas. Se trata de crear un sistema de acompañamiento continuo, no un manual que queda obsoleto al año siguiente.
+
+### 3. Un ecosistema de leyes complementarias
+Esta no es la única iniciativa. Junto a ella avanzan:
+*   **AI for Mainstreet Act**: Centros de desarrollo empresarial que ayudan a las PYMEs a evaluar herramientas de IA.
+*   **Small Business AI Training Act**: Programa de becas para que empleados de pequeñas empresas se formen en IA.
+*   **AI WISE Act**: Módulos educativos específicos para negocios pequeños coordinados por la Administración de Pequeñas Empresas.
+
+---
+
+> ### 💡 ¿Tu negocio tiene estrategia de IA o solo herramientas sueltas?
+> En **IA4PYMES** hacemos exactamente lo que esta ley propone hacer a nivel institucional: un diagnóstico real de tu negocio, una hoja de ruta clara y acompañamiento en la implementación. [**Reserva tu sesión gratuita aquí**](https://calendly.com/ia4pymes) — sin tecnicismos, con resultados medibles.
+
+---
+
+## El mensaje que esconde esta ley
+
+Entre líneas, el mensaje de esta legislación es inquietante: **si los gobiernos sienten que tienen que intervenir para que las PYMEs no queden excluidas, es porque la brecha ya existe y es grande**.
+
+Las grandes empresas llevan años invirtiendo en IA. Tienen equipos de datos, presupuestos millonarios y acceso directo a las últimas tecnologías. Las PYMEs, mientras tanto, van probando herramientas de forma desorganizada, sin estrategia y sin saber si están obteniendo resultados reales.
+
+Esto crea una ventaja competitiva estructural a favor de las grandes que, si no se ataja, se vuelve prácticamente imposible de reducir.
+
+## ¿Qué está haciendo Europa?
+
+La Unión Europea tiene su propio camino. El **AI Act europeo** ya está en vigor, pero su enfoque está más orientado a la regulación y el control de riesgos que al fomento activo de la adopción en PYMEs.
+
+La diferencia es importante: EE.UU. está siendo proactivo (ayuda a las PYMEs a adoptar IA), mientras que Europa está siendo reactivo (controla los riesgos de la IA que ya existe). Las PYMEs españolas quedan en tierra de nadie: sin la ayuda del modelo americano y sujetas a las restricciones del modelo europeo.
+
+## Conclusión: La ventana de oportunidad se está cerrando
+
+Si los gobiernos están aprobando leyes de urgencia para que las PYMEs no queden atrás, la señal es clara: **el momento de actuar ya no es "pronto", es ahora**.
+
+Las empresas que implementen IA estratégicamente en los próximos 12 meses tendrán una ventaja que sus competidores tardarán años en alcanzar. Las que esperen a que "las cosas se aclaren" descubrirán que para cuando se aclaren, ya es demasiado tarde.
+
+¿En qué lado de la brecha quieres estar?
+        `.trim(),
+    },
+    {
+        slug: "ai-law-smes-small-businesses-left-behind",
+        title: "The Law That Wants to Make Sure SMEs Don't Get Left Behind in AI: What It Means for Your Business",
+        description: "The US just passed the 'Small Business AI Advancement Act'. A law that officially acknowledges that small businesses risk being left out of the AI revolution. Is Europe watching? Are you?",
+        date: "2026-05-09",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "News",
+        image: "/blog/ley-ia-pymes-igualdad-digital.png",
+        lang: "en",
+        translationSlug: "ley-ia-pymes-pequenas-empresas-no-se-queden-atras",
+        content: `
+For the first time in history, a government has officially acknowledged something many business owners already feel but no one had dared to say out loud: **small businesses risk being the biggest losers of the Artificial Intelligence revolution**.
+
+In February 2026, the United States House of Representatives passed the **Small Business Artificial Intelligence Advancement Act (H.R. 3679)**, a landmark piece of legislation that acknowledges the digital divide opening up between large corporations and SMEs. It is currently in the Senate, and its debate is igniting discussions globally.
+
+Why should this matter to you if you run a business in Europe? Because what happens in Washington tends to arrive here within months.
+
+---
+
+## What Does This Law Actually Say?
+
+The legislation has three very clear objectives:
+
+### 1. Close the Adoption Gap
+The text explicitly acknowledges that SMEs face **barriers that large companies don't**: lack of internal technical expertise, cybersecurity concerns, data privacy doubts, and — above all — not knowing where to start.
+
+To address this, it directs the National Institute of Standards and Technology (NIST) to create **practical guides, real-world case studies, and voluntary reference frameworks** specifically designed for small businesses.
+
+### 2. Accessible and Updated Training
+The law mandates that resources be reviewed and updated at least **every two years**, acknowledging that AI evolves too fast for SMEs to keep up on their own. The goal is to create a system of continuous support, not a manual that becomes obsolete the following year.
+
+### 3. An Ecosystem of Complementary Laws
+This isn't the only initiative in motion. Alongside it:
+*   **AI for Mainstreet Act**: Business development centers that help SMEs evaluate AI tools.
+*   **Small Business AI Training Act**: A grant program for small business employees to receive AI training.
+*   **AI WISE Act**: Educational modules for small businesses coordinated by the Small Business Administration.
+
+---
+
+> ### 💡 Does your business have an AI strategy or just loose tools?
+> At **IA4PYMES**, we do exactly what this law proposes to do at an institutional level: a real diagnosis of your business, a clear roadmap, and hands-on support during implementation. [**Book your free session here**](https://calendly.com/ia4pymes) — no tech jargon, measurable results.
+
+---
+
+## The Message Hidden Inside This Law
+
+Between the lines, the message of this legislation is unsettling: **if governments feel they need to intervene so that SMEs aren't excluded, it's because the gap already exists and it's large**.
+
+Large companies have been investing in AI for years. They have data teams, million-euro budgets, and direct access to the latest technologies. SMEs, meanwhile, are testing tools in a disorganized way, without a strategy, and without knowing if they're getting real results.
+
+This creates a structural competitive advantage in favor of large companies that, left unchecked, becomes virtually impossible to close.
+
+## What Is Europe Doing?
+
+The European Union has its own path. The **EU AI Act** is already in force, but its focus is more on risk regulation and control than on actively promoting adoption among SMEs.
+
+The difference matters: the US is being proactive (helping SMEs adopt AI), while Europe is being reactive (controlling the risks of AI that already exists). Spanish and European SMEs are caught in no man's land: without the support of the American model and subject to the restrictions of the European model.
+
+## Conclusion: The Window of Opportunity Is Closing
+
+If governments are passing emergency laws to ensure SMEs don't fall behind, the signal is clear: **the time to act is no longer "soon" — it's now**.
+
+Businesses that implement AI strategically in the next 12 months will have an advantage that their competitors will take years to match. Those who wait for "things to become clearer" will find that by the time they do, it's already too late.
+
+Which side of the divide do you want to be on?
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Estrategia IA vs. Herramientas (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
