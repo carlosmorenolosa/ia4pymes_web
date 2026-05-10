@@ -16,6 +16,149 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: El fin del SEO y el inicio del GEO (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "adios-al-seo-bienvenido-al-geo-la-nueva-forma-de-buscar",
+        title: "Adiós al SEO tradicional: Por qué el GEO (Generative Engine Optimization) decidirá si tu PYME existe en 2026",
+        description: "Google ya no es solo una lista de enlaces azules. Tus clientes ahora buscan en ChatGPT, Claude y Gemini. Si tu estrategia digital sigue atascada en el SEO clásico de 2023, estás a punto de volverte invisible. Te explicamos qué es el GEO y cómo adaptarte.",
+        date: "2026-05-10",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Marketing",
+        image: "/blog/ia-geo-evolucion-seo-pymes.png",
+        lang: "es",
+        translationSlug: "goodbye-seo-hello-geo-the-new-way-to-search",
+        content: `
+Durante la última década, las reglas del juego digital para las PYMEs estaban claras: optimiza tu web con palabras clave, consigue enlaces, y cruza los dedos para aparecer en la primera página de Google. Eso era el **SEO (Search Engine Optimization)**.
+
+En mayo de 2026, ese juego ha cambiado de forma radical e irreversible.
+
+Tus clientes (especialmente si vendes a otras empresas o servicios de alto valor) ya no buscan navegando por decenas de enlaces. Hacen preguntas complejas a herramientas de Inteligencia Artificial como ChatGPT, Perplexity, Claude o al propio resumen generado por IA de Google (AI Overviews). Y esperan respuestas directas, elaboradas y razonadas.
+
+Bienvenidos a la era del **GEO: Generative Engine Optimization** (Optimización para Motores Generativos).
+
+---
+
+## ¿Qué es exactamente el GEO y por qué hunde al SEO clásico?
+
+Mientras el SEO tradicional intentaba convencer a un algoritmo matemático (Google) de que tu página era relevante contando palabras clave, **el GEO consiste en convencer a un modelo de lenguaje (IA) de que tu empresa es la mejor respuesta o recomendación para el usuario.**
+
+La diferencia en la experiencia del usuario es abismal:
+
+*   **Búsqueda SEO (El pasado):** El usuario busca *"mejores gestorías en Madrid"*. Google le da 10 enlaces. El usuario tiene que entrar a 4 o 5 webs, leer, comparar y decidir.
+*   **Búsqueda GEO (El presente):** El usuario pide a la IA: *"Tengo una empresa de software de 15 empleados en Madrid y quiero cambiar de gestoría a una que entienda de bonificaciones tecnológicas. Recomiéndame 3 y dime sus pros y contras"*.
+
+Si tu web solo dice "Gestoría en Madrid" llena de palabras clave, la IA te ignorará. Si tu web tiene contenido profundo, estudios de caso y explica *cómo* resuelves problemas tecnológicos, la IA te recomendará como la opción experta.
+
+---
+
+## Las 3 claves para optimizar tu PYME para el GEO
+
+Para que ChatGPT o Claude recomienden tu negocio, tu contenido debe cambiar. Aquí tienes las tres reglas de oro del GEO:
+
+### 1. Pasa de las "Palabras Clave" a la "Densidad de Conceptos"
+A la IA no le importa cuántas veces repites la palabra "fontanero barato". Le importa si explicas el *contexto*. En lugar de textos vacíos, tu web debe responder preguntas reales. Publica guías detalladas, explica tus procesos, da precios transparentes o rangos de coste. La IA busca datos concretos para dar respuestas concretas.
+
+### 2. Cita fuentes, casos de éxito y datos originales
+Los modelos de IA penalizan la información genérica ("somos los mejores del sector"). Premian la información verificable. Si publicas un caso de éxito que dice *"Aumentamos las ventas de nuestro cliente X un 20% implementando este sistema"*, es mucho más probable que la IA lo utilice como argumento al recomendarte.
+
+### 3. La reputación y las menciones valen el triple
+La IA se entrena leyendo todo internet. Si tu marca se menciona en foros (como Reddit o Quora), en artículos de prensa locales, o tiene reseñas detalladas (no solo 5 estrellas, sino reseñas con texto explicando por qué eres bueno), el modelo "aprende" que eres una autoridad en tu nicho.
+
+---
+
+> ### 💡 ¿Tu estrategia digital se ha quedado obsoleta?
+> El cambio del SEO al GEO está dejando a muchas empresas consolidadas fuera del radar de los nuevos clientes. En **IA4PYMES** auditamos tu huella digital y te ayudamos a adaptar tus procesos para ser visible en la era de los agentes autónomos. [**Reserva tu sesión de consultoría estratégica gratuita aquí**](https://calendly.com/ia4pymes).
+
+---
+
+## El peligro de la "invisibilidad generativa"
+
+El mayor riesgo para las PYMEs en este momento es la complacencia. Si tienes una web antigua que te daba leads hace tres años, puedes estar sufriendo una caída de tráfico lenta y silenciosa sin entender por qué. 
+
+La respuesta es que el tráfico no ha desaparecido: **se ha movido a interfaces de chat donde tú no estás optimizado para aparecer**.
+
+A diferencia del buscador tradicional donde podías pagar para salir el primero (SEM), en las respuestas generativas de IA el posicionamiento se gana con **autoridad real y contexto**.
+
+## Conclusión: Actúa antes de que el algoritmo aprenda sin ti
+
+Los modelos de IA están consolidando su "visión del mundo" empresarial ahora mismo. Las empresas que adapten su contenido hoy para ser "legibles y recomendables" por la IA se establecerán como los referentes predeterminados en sus sectores para los próximos años.
+
+El SEO tradicional no ha muerto del todo, pero ha dejado de ser el motor principal de decisiones complejas. El GEO es el nuevo campo de batalla. ¿Está tu empresa preparada para que una IA la recomiende?
+        `.trim(),
+    },
+    {
+        slug: "goodbye-seo-hello-geo-the-new-way-to-search",
+        title: "Goodbye Traditional SEO: Why GEO (Generative Engine Optimization) Will Decide if Your SME Exists in 2026",
+        description: "Google is no longer just a list of blue links. Your clients are now searching on ChatGPT, Claude, and Gemini. If your digital strategy is stuck in classic 2023 SEO, you're about to become invisible. Here is what GEO is and how to adapt.",
+        date: "2026-05-10",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Marketing",
+        image: "/blog/ia-geo-evolucion-seo-pymes.png",
+        lang: "en",
+        translationSlug: "adios-al-seo-bienvenido-al-geo-la-nueva-forma-de-buscar",
+        content: `
+For the last decade, the digital rules of the game for SMEs were clear: optimize your website with keywords, build backlinks, and cross your fingers to appear on the first page of Google. That was **SEO (Search Engine Optimization)**.
+
+In May 2026, that game has fundamentally and irreversibly changed.
+
+Your customers (especially if you sell to other businesses or offer high-value services) are no longer searching by clicking through dozens of links. They ask complex questions to Artificial Intelligence tools like ChatGPT, Perplexity, Claude, or Google's own AI Overviews. And they expect direct, elaborated, and reasoned answers.
+
+Welcome to the era of **GEO: Generative Engine Optimization**.
+
+---
+
+## What Exactly is GEO and Why Is It Sinking Classic SEO?
+
+While traditional SEO tried to convince a mathematical algorithm (Google) that your page was relevant by counting keywords, **GEO is about convincing a large language model (AI) that your company is the best answer or recommendation for the user.**
+
+The difference in user experience is staggering:
+
+*   **SEO Search (The Past):** The user searches *"best accounting firms in London"*. Google gives them 10 links. The user has to enter 4 or 5 websites, read, compare, and decide.
+*   **GEO Search (The Present):** The user asks the AI: *"I have a 15-employee software company in London and I want to switch to an accounting firm that understands tech tax credits. Recommend 3 and tell me their pros and cons"*.
+
+If your website just says "Accounting Firm in London" stuffed with keywords, the AI will ignore you. If your website has deep content, case studies, and explains *how* you solve tech problems, the AI will recommend you as the expert option.
+
+---
+
+## The 3 Keys to Optimizing Your SME for GEO
+
+For ChatGPT or Claude to recommend your business, your content must change. Here are the three golden rules of GEO:
+
+### 1. Move from "Keywords" to "Concept Density"
+The AI doesn't care how many times you repeat the word "cheap plumber." It cares if you explain the *context*. Instead of empty text, your website must answer real questions. Publish detailed guides, explain your processes, give transparent pricing or cost ranges. AI looks for concrete data to give concrete answers.
+
+### 2. Cite Sources, Case Studies, and Original Data
+AI models penalize generic fluff ("we are the best in the industry"). They reward verifiable information. If you publish a case study saying *"We increased client X's sales by 20% by implementing this system"*, it is much more likely that the AI will use it as an argument when recommending you.
+
+### 3. Reputation and Mentions Are Worth Triple
+AI is trained by reading the entire internet. If your brand is mentioned in forums (like Reddit or Quora), in local press articles, or has detailed reviews (not just 5 stars, but reviews with text explaining *why* you are good), the model "learns" that you are an authority in your niche.
+
+---
+
+> ### 💡 Is your digital strategy outdated?
+> The shift from SEO to GEO is leaving many established companies off the radar of new clients. At **IA4PYMES**, we audit your digital footprint and help you adapt your processes to be visible in the era of autonomous agents. [**Book your free strategic consulting session here**](https://calendly.com/ia4pymes).
+
+---
+
+## The Danger of "Generative Invisibility"
+
+The biggest risk for SMEs right now is complacency. If you have an old website that brought you leads three years ago, you may be suffering a slow and silent traffic drop without understanding why.
+
+The answer is that the traffic hasn't disappeared: **it has moved to chat interfaces where you are not optimized to appear**.
+
+Unlike the traditional search engine where you could pay to be first (SEM), in AI generative answers, positioning is earned with **real authority and context**.
+
+## Conclusion: Act Before the Algorithm Learns Without You
+
+AI models are consolidating their "worldview" of businesses right now. The companies that adapt their content today to be "readable and recommendable" by AI will establish themselves as the default references in their sectors for years to come.
+
+Traditional SEO isn't completely dead, but it is no longer the main driver of complex decisions. GEO is the new battlefield. Is your company ready for an AI to recommend it?
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Ley IA PYMEs (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
