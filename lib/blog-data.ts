@@ -16,6 +16,147 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: IA en Constructoras (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "ia-para-constructoras-automatizacion-presupuestos-datos",
+        title: "El Ladrillo Invisible: Por qué las Constructoras están perdiendo dinero al no usar IA en sus presupuestos",
+        description: "El sector de la construcción maneja márgenes muy ajustados, pero sigue presupuestando como hace 20 años. Descubre cómo la Inteligencia Artificial (Embeddings, NLP y Agentes) está limpiando históricos de datos y automatizando la valoración de partidas de obra en segundos.",
+        date: "2026-05-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Sectorial",
+        image: "/blog/ia-constructoras-automatizacion-presupuestos.png",
+        lang: "es",
+        translationSlug: "ai-for-construction-budget-data-automation",
+        content: `
+Si hay un sector donde un error de cálculo del 2% puede convertir una obra rentable en una pesadilla financiera, es el de la construcción. Las promotoras y constructoras manejan presupuestos de millones de euros, desglosados en miles de *partidas* (movimientos de tierra, cimentación, albañilería, instalaciones).
+
+Sin embargo, a pesar del riesgo, el proceso de presupuestación (las "mediciones") en la gran mayoría de las PYMEs constructoras españolas sigue anclado en el pasado: hojas de cálculo inmensas, PDFs opacos y técnicos de estudios perdiendo semanas buscando *cuánto costó exactamente el metro cuadrado de pladur en una obra similar hace dos años*.
+
+La Inteligencia Artificial no viene a poner ladrillos, viene a proteger los márgenes. Y las constructoras que no la están usando ya, se están quedando fuera de las licitaciones.
+
+---
+
+## El Caos de los Datos Históricos
+
+El mayor activo de una constructora no son sus grúas, es su **histórico de precios**. Saber a cuánto cerraste una partida con un subcontratista el año pasado es oro puro para ajustar el próximo presupuesto.
+
+El problema es que esos datos suelen ser "basura" estructurada. Un jefe de obra escribe "Suministro y colocación de tabique seco", otro pone "Montaje pladur 15mm" y otro "Tabiquería cartón-yeso". Para un Excel (o un ERP tradicional), son tres cosas distintas. Para la IA, son exactamente lo mismo.
+
+### Limpieza y Clasificación con Inteligencia Artificial
+En **IA4PYMES** utilizamos modelos de Procesamiento de Lenguaje Natural (NLP) para leer bases de datos caóticas con miles de partidas de los últimos 10 años. La IA las entiende por contexto, las unifica, elimina duplicados y clasifica cada partida en su capítulo correspondiente de forma automática. Pasamos de tener "datos sueltos" a tener un "cerebro" financiero de la empresa, limpio y auditable.
+
+---
+
+## Automatización de Presupuestos mediante "Embeddings"
+
+Aquí es donde ocurre la verdadera magia. Imagina que te llega una memoria de calidades de un arquitecto externo en formato PDF para que des un precio.
+
+El proceso tradicional requiere que un técnico lea el PDF y empiece a teclear y buscar partidas similares en su software de mediciones (como Presto o TCQ). Semanas de trabajo.
+
+Con la tecnología de **Embeddings** (búsqueda semántica híbrida), hemos logrado automatizar esto:
+1.  Subes el PDF o Excel ciego del cliente.
+2.  La IA lee cada partida nueva.
+3.  Compara semánticamente ("por significado", no por palabra exacta) esa partida contra todo el histórico limpio de tu empresa.
+4.  El sistema te devuelve el documento rellenado automáticamente, sugiriendo el precio exacto al que ejecutaste esa misma unidad de obra en el pasado, indicando el nivel de "confianza" de la IA (ej: *98% de coincidencia con la Obra X de 2025*).
+
+Lo que antes tardaba 3 semanas de un equipo técnico, ahora tarda 45 segundos. El técnico solo tiene que revisar y ajustar márgenes.
+
+---
+
+## Chatbots Internos: Tu "Jefe de Estudios" Virtual
+
+Toda esta base de datos limpia no sirve solo para presupuestar. Se convierte en el conocimiento fundacional de la empresa.
+
+Podemos conectar un **Agente Conversacional** (un chatbot privado y seguro) a estos datos. Imagina a un jefe de obra a pie de tajo escribiendo por WhatsApp: 
+*   *"¿A qué precio cerramos el metro cúbico de hormigón HA-25 con el proveedor X en la obra de Madrid el trimestre pasado?"*
+*   Y el Agente de IA responde al instante con el dato exacto, extrayéndolo del histórico sin tener que llamar a la oficina central y esperar horas a que alguien abra el ERP.
+
+---
+
+> ### 💡 Constructoras: Vuestros datos valen oro, no dejéis que se oxiden
+> En un sector con márgenes tan ajustados, ganar eficiencia en los estudios de obra significa ganar más licitaciones. En **IA4PYMES** somos expertos en estructurar históricos de construcción y crear plataformas de presupuestación basadas en IA. [**Agenda una demostración técnica gratuita con nosotros**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusión
+
+El sector de la construcción se está partiendo en dos: las empresas que siguen haciendo "copia y pega" en Excel cruzando los dedos para no dejarse ningún coste oculto, y las que utilizan la IA para predecir, automatizar y asegurar el margen operativo desde la fase de estudio.
+
+Implementar IA para limpiar partidas y automatizar presupuestos ya no es ciencia ficción. Es una tecnología madura, accesible y que se paga sola en la primera obra que ganas gracias a la velocidad y precisión de tu oferta.
+        `.trim(),
+    },
+    {
+        slug: "ai-for-construction-budget-data-automation",
+        title: "The Invisible Brick: Why Construction Companies Are Losing Money by Not Using AI in Estimating",
+        description: "The construction sector operates on tight margins but continues to budget like it's 20 years ago. Discover how Artificial Intelligence (Embeddings, NLP, and Agents) is cleaning historical data and automating construction item pricing in seconds.",
+        date: "2026-05-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Industry Focus",
+        image: "/blog/ia-constructoras-automatizacion-presupuestos.png",
+        lang: "en",
+        translationSlug: "ia-para-constructoras-automatizacion-presupuestos-datos",
+        content: `
+If there is one sector where a 2% miscalculation can turn a profitable project into a financial nightmare, it is construction. Developers and builders manage budgets of millions of euros, broken down into thousands of *items* (earthworks, foundations, masonry, installations).
+
+However, despite the risk, the budgeting process (the "takeoffs" and estimating) in the vast majority of SME construction companies remains anchored in the past: massive spreadsheets, opaque PDFs, and estimating engineers wasting weeks searching for *exactly how much a square meter of drywall cost on a similar project two years ago*.
+
+Artificial Intelligence isn't here to lay bricks; it's here to protect margins. And construction companies that aren't using it yet are getting shut out of bids.
+
+---
+
+## The Chaos of Historical Data
+
+A construction company's greatest asset isn't its cranes; it's its **historical pricing data**. Knowing exactly how much you closed an item for with a subcontractor last year is pure gold for adjusting the next budget.
+
+The problem is that this data is usually structured "garbage". One site manager writes "Supply and installation of dry wall," another puts "15mm plasterboard assembly," and another "Plasterboard partitioning." To an Excel sheet (or a traditional ERP), these are three different things. To AI, they are exactly the same.
+
+### Cleaning and Classification with Artificial Intelligence
+At **IA4PYMES**, we use Natural Language Processing (NLP) models to read chaotic databases containing thousands of items from the last 10 years. The AI understands them by context, unifies them, eliminates duplicates, and automatically classifies each item into its corresponding chapter. We go from having "loose data" to having a clean, auditable financial "brain" for the company.
+
+---
+
+## Budget Automation via "Embeddings"
+
+This is where the real magic happens. Imagine receiving a bill of quantities from an external architect in PDF format for you to price.
+
+The traditional process requires an engineer to read the PDF and start typing and searching for similar items in their estimating software. Weeks of work.
+
+With **Embeddings** technology (hybrid semantic search), we have managed to automate this:
+1.  You upload the client's blind PDF or Excel.
+2.  The AI reads each new item.
+3.  It semantically compares ("by meaning", not by exact keyword) that item against your company's entire clean historical database.
+4.  The system returns the automatically filled document, suggesting the exact price at which you executed that same work unit in the past, indicating the AI's "confidence" level (e.g., *98% match with Project X from 2025*).
+
+What used to take 3 weeks for a technical team now takes 45 seconds. The engineer just has to review and adjust margins.
+
+---
+
+## Internal Chatbots: Your Virtual "Head of Estimating"
+
+All this clean database is not only useful for budgeting. It becomes the foundational knowledge of the company.
+
+We can connect a **Conversational Agent** (a private and secure chatbot) to this data. Imagine a site manager on the ground typing on WhatsApp:
+*   *"At what price did we close the cubic meter of HA-25 concrete with supplier X on the Madrid site last quarter?"*
+*   And the AI Agent instantly replies with the exact figure, pulling it from the history without having to call the head office and wait hours for someone to open the ERP.
+
+---
+
+> ### 💡 Construction Firms: Your data is worth gold, don't let it rust
+> In a sector with such tight margins, gaining efficiency in project studies means winning more bids. At **IA4PYMES**, we are experts in structuring construction histories and creating AI-based estimating platforms. [**Book a free technical demo with us**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusion
+
+The construction sector is splitting in two: the companies that continue to "copy and paste" in Excel crossing their fingers not to miss any hidden costs, and those that use AI to predict, automate, and secure their operating margin right from the study phase.
+
+Implementing AI to clean items and automate budgets is no longer science fiction. It is mature, accessible technology that pays for itself on the first project you win thanks to the speed and accuracy of your bid.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Agentes Autónomos vs SAP (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
