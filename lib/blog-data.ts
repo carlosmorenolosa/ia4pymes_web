@@ -16,6 +16,137 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: FAQ Legalidad y RGPD (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "es-legal-subir-datos-clientes-chatgpt-guia-rgpd-pymes",
+        title: "¿Es legal subir contratos o datos de clientes a ChatGPT? La guía de urgencia sobre RGPD para PYMEs",
+        description: "Respondemos a la duda número uno de despachos, clínicas y gestorías: ¿Qué pasa legalmente cuando copias y pegas datos confidenciales en una Inteligencia Artificial pública? Descubre los riesgos y la única alternativa 100% legal.",
+        date: "2026-05-18",
+        author: "IA4PYMES",
+        readingTime: "5 min",
+        category: "Legal y Seguridad",
+        image: "/blog/ia-legal-rgpd-chatgpt-pymes.png",
+        lang: "es",
+        translationSlug: "is-it-legal-to-upload-client-data-to-chatgpt-gdpr-guide",
+        content: `
+*— "Tengo un contrato de 50 páginas de un cliente. ¿Puedo subirlo a ChatGPT para que me haga un resumen de las cláusulas de penalización?"*
+
+Esta es, de lejos, la pregunta que más nos hacen los gerentes de PYMEs (especialmente en sectores como la abogacía, la salud o la asesoría fiscal) cuando empezamos una consultoría en **IA4PYMES**. 
+
+La respuesta corta es **NO**. Subir datos personales, financieros o confidenciales de tus clientes a la versión gratuita (o incluso Plus) de ChatGPT **es una vulneración grave del Reglamento General de Protección de Datos (RGPD)** europeo.
+
+Pero la respuesta larga es mucho más interesante, porque sí hay una forma de hacerlo legalmente. Vamos a explicarlo sin jerga legal aburrida.
+
+---
+
+## Por qué ChatGPT estándar es una trampa legal
+
+Cuando abres *chatgpt.com* y pegas un texto, estás aceptando unos Términos y Condiciones que dicen claramente que **OpenAI puede usar tus conversaciones para entrenar sus futuros modelos de Inteligencia Artificial**.
+
+Imagina que subes la nómina de un empleado o el historial médico de un paciente para que la IA te redacte un informe. Ese documento viaja a servidores en Estados Unidos y pasa a formar parte de la base de datos de OpenAI. 
+Si mañana otro usuario le pregunta a ChatGPT: *"Oye, dame ejemplos de salarios en la empresa X"*, existe una posibilidad técnica de que el modelo escupa el dato que tú le diste. 
+
+Para la Agencia Española de Protección de Datos (AEPD), esto se considera una cesión de datos a terceros sin el consentimiento del usuario final. Las multas por esto en 2026 pueden ser devastadoras para una PYME.
+
+---
+
+## La Solución Legal: Inferencia Privada y APIs Seguras
+
+Entonces, ¿tienen que renunciar las PYMEs a ahorrarse cientos de horas resumiendo contratos o analizando historiales médicos? Absolutamente no.
+
+El error está en usar la herramienta "de consumo" (la página web de ChatGPT) para un uso "corporativo". La forma legal de procesar datos confidenciales con IA pasa por dos vías:
+
+### 1. El uso de APIs Corporativas (Zero Data Retention)
+Tanto OpenAI como Anthropic (Claude) ofrecen acceso a sus modelos a través de una **API corporativa**. Los contratos de estas APIs (a diferencia de la versión web) estipulan estrictamente la política de *Zero Data Retention* (Cero Retención de Datos). 
+Esto significa que tú envías el contrato, la IA lo lee, te devuelve el resumen, y el documento **se borra inmediatamente de sus servidores sin usarse para entrenamiento**.
+
+### 2. Modelos Open Source en Servidores Europeos (La opción más segura)
+Para sectores hiper-sensibles (como clínicas médicas), la mejor opción es no usar OpenAI en absoluto. 
+En IA4PYMES utilizamos infraestructuras de **Inferencia Privada** (como servidores locales o europeos certificados). Cogemos un modelo de IA potente y de código abierto (como Llama 3 o Qwen) y lo ejecutamos en un servidor cerrado en la Unión Europea.
+*   Tus datos nunca salen de Europa.
+*   Nadie, excepto tu empresa, tiene acceso al servidor.
+*   El cumplimiento del RGPD está garantizado por diseño.
+
+---
+
+> ### 💡 ¿Tus empleados están usando ChatGPT a escondidas?
+> Si no provees a tu equipo de una herramienta de IA segura y privada, acabarán usando sus cuentas personales de ChatGPT para ir más rápido, poniendo en riesgo legal a tu empresa (el llamado *Shadow AI*). En **IA4PYMES** te instalamos un portal de IA privado y seguro para tus empleados. [**Agenda una sesión técnica gratuita aquí**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusión: Controla tus datos
+
+La Inteligencia Artificial es la mayor palanca de productividad de esta década, pero no puedes implementarla a costa de la seguridad jurídica de tu negocio. 
+
+Dejar que tus empleados suban documentos a portales web públicos es el equivalente digital a dejar las carpetas confidenciales de tus clientes tiradas en un banco del parque. La solución no es prohibir la IA, sino **arquitecturarla correctamente**. Invertir en un entorno de IA privado no es un gasto en tecnología; es un seguro contra demandas.
+        `.trim(),
+    },
+    {
+        slug: "is-it-legal-to-upload-client-data-to-chatgpt-gdpr-guide",
+        title: "Is It Legal to Upload Client Contracts to ChatGPT? The Urgent GDPR Guide for SMEs",
+        description: "We answer the number one question from law firms, clinics, and consultancies: What happens legally when you copy and paste confidential data into a public Artificial Intelligence? Discover the risks and the only 100% legal alternative.",
+        date: "2026-05-18",
+        author: "IA4PYMES",
+        readingTime: "5 min",
+        category: "Legal & Security",
+        image: "/blog/ia-legal-rgpd-chatgpt-pymes.png",
+        lang: "en",
+        translationSlug: "es-legal-subir-datos-clientes-chatgpt-guia-rgpd-pymes",
+        content: `
+*— "I have a 50-page client contract. Can I upload it to ChatGPT to get a summary of the penalty clauses?"*
+
+This is, by far, the question SME managers (especially in sectors like law, healthcare, or tax consulting) ask us the most when we start a consulting project at **IA4PYMES**.
+
+The short answer is **NO**. Uploading personal, financial, or confidential data of your clients to the free (or even Plus) version of ChatGPT **is a serious violation of the European General Data Protection Regulation (GDPR)**.
+
+But the long answer is much more interesting because there IS a way to do it legally. Let's explain it without boring legal jargon.
+
+---
+
+## Why Standard ChatGPT is a Legal Trap
+
+When you open *chatgpt.com* and paste a text, you are agreeing to Terms and Conditions that clearly state that **OpenAI can use your conversations to train its future Artificial Intelligence models**.
+
+Imagine uploading an employee's payslip or a patient's medical history for the AI to draft a report. That document travels to servers in the United States and becomes part of OpenAI's database.
+If tomorrow another user asks ChatGPT: *"Hey, give me examples of salaries at company X"*, there is a technical possibility that the model will spit out the data you provided.
+
+For Data Protection Agencies, this is considered a transfer of data to third parties without the end user's consent. The fines for this in 2026 can be devastating for an SME.
+
+---
+
+## The Legal Solution: Private Inference and Secure APIs
+
+So, do SMEs have to give up saving hundreds of hours summarizing contracts or analyzing medical records? Absolutely not.
+
+The mistake is using the "consumer" tool (the ChatGPT website) for "corporate" use. The legal way to process confidential data with AI involves two paths:
+
+### 1. Using Corporate APIs (Zero Data Retention)
+Both OpenAI and Anthropic (Claude) offer access to their models through a **corporate API**. The contracts for these APIs (unlike the web version) strictly stipulate a *Zero Data Retention* policy.
+This means you send the contract, the AI reads it, returns the summary, and the document **is immediately deleted from their servers without being used for training**.
+
+### 2. Open Source Models on European Servers (The Safest Option)
+For hyper-sensitive sectors (like medical clinics), the best option is not to use OpenAI at all.
+At IA4PYMES, we use **Private Inference** infrastructures (like local or certified European servers). We take a powerful open-source AI model (like Llama 3 or Qwen) and run it on a closed server in the European Union.
+*   Your data never leaves Europe.
+*   No one, except your company, has access to the server.
+*   GDPR compliance is guaranteed by design.
+
+---
+
+> ### 💡 Are your employees using ChatGPT behind your back?
+> If you don't provide your team with a secure and private AI tool, they will end up using their personal ChatGPT accounts to work faster, putting your company at legal risk (so-called *Shadow AI*). At **IA4PYMES**, we install a private and secure AI portal for your employees. [**Book a free technical session here**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusion: Control Your Data
+
+Artificial Intelligence is the greatest productivity lever of this decade, but you cannot implement it at the expense of your business's legal security.
+
+Letting your employees upload documents to public web portals is the digital equivalent of leaving your clients' confidential folders lying on a park bench. The solution is not to ban AI, but to **architect it correctly**. Investing in a private AI environment is not a technology expense; it's insurance against lawsuits.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Entrenamiento con Datos Propios (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
