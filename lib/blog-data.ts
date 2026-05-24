@@ -16,6 +16,143 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Kit Consulting 2026 e IA (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "kit-consulting-2026-subvencion-inteligencia-artificial-pymes",
+        title: "¿IA subvencionada al 100%? Qué es el nuevo Kit Consulting 2026 y cómo financiar tu plan estratégico de IA sin coste",
+        description: "El Gobierno de España ha lanzado Kit Consulting: bonos de hasta 24.000€ para consultoría estratégica, con un paquete de 6.000€ exclusivo para Inteligencia Artificial. Descubre cómo usar los fondos públicos para que diseñemos la hoja de ruta de tu PYME (de los papeles se encarga tu gestor; de la tecnología, nosotros).",
+        date: "2026-05-24",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Estrategia",
+        image: "/blog/ia-kit-consulting-subvencion-pymes.png",
+        lang: "es",
+        translationSlug: "kit-consulting-2026-subsidy-artificial-intelligence-smes",
+        content: `
+En el tejido empresarial español de 2026, la inacción tecnológica ya no tiene excusas económicas. Si tienes una pequeña o mediana empresa y todavía no has empezado a implementar Inteligencia Artificial en tus procesos por miedo al coste de la consultoría previa, esto te interesa de forma directa.
+
+El Gobierno de España, a través de Red.es, ha lanzado de forma activa el programa **Kit Consulting**. 
+
+A diferencia del conocido Kit Digital (que financia la compra e implantación de software o licencias), el Kit Consulting está diseñado específicamente para financiar **consultoría e ingeniería estratégica**. Y cuenta con una categoría estrella dotada con **6.000 € exclusivos para el Asesoramiento en Inteligencia Artificial**.
+
+Hoy, en **IA4PYMES**, te explicamos cuánto dinero te corresponde, cómo es el proceso de solicitud, y por qué la separación entre la burocracia y la tecnología es tu mejor aliada para transformar tu negocio gratis.
+
+---
+
+## ¿Cuánto dinero le corresponde a tu PYME?
+
+El bono de asesoramiento digital del Kit Consulting se asigna de forma directa según el tamaño de la plantilla de tu empresa:
+
+*   **Segmento A (Entre 10 y menos de 50 empleados):** Bono total de **12.000 €**
+*   **Segmento B (Entre 50 y menos de 100 empleados):** Bono total de **18.000 €**
+*   **Segmento C (Entre 100 y menos de 250 empleados):** Bono total de **24.000 €**
+
+Independientemente del segmento en el que se encuentre tu empresa, puedes destinar **6.000 € de tu bono a contratar un Plan de Asesoramiento en Inteligencia Artificial**.
+
+---
+
+## De la burocracia se encarga tu gestor; de la tecnología nos encargamos nosotros
+
+Es muy común que los gerentes de PYMEs sientan pereza o miedo ante la idea de solicitar subvenciones públicas. Las solicitudes estatales suelen estar asociadas a un laberinto interminable de firmas digitales, justificaciones de gastos y burocracia pesada.
+
+Pero en **IA4PYMES** queremos ser muy honestos contigo: **nosotros no somos tramitadores burocráticos**. Somos ingenieros y consultores de Inteligencia Artificial. No rellenamos pólizas de Hacienda ni gestionamos expedientes administrativos.
+
+Y esa es, precisamente, la mejor noticia:
+1.  **La solicitud es ultra-sencilla:** El trámite del Kit Consulting se realiza de forma telemática en el portal oficial de Acelera Pyme mediante un sistema automatizado que apenas tarda 15 minutos.
+2.  **Tu gestor habitual puede hacerlo por ti:** Cualquier gestoría o asesoría fiscal de confianza que lleve los papeles de tu PYME puede realizar la solicitud del bono en tu nombre en cuestión de minutos usando un apoderamiento básico de representante voluntario.
+3.  **Nosotros ejecutamos la ingeniería real:** Una vez que tu gestor obtiene la concesión del bono, entramos en escena como tu **Asesor Digital Homologado**. Es ahí donde aplicamos nuestro conocimiento técnico para diseñar el sistema de IA que va a multiplicar la eficiencia de tu empresa.
+
+---
+
+## ¿Qué incluye el Asesoramiento en IA de IA4PYMES?
+
+Nuestra consultoría estratégica no consiste en entregarte un PDF genérico de 50 páginas lleno de palabrería corporativa y conceptos abstractos que nadie en tu empresa va a leer. 
+
+En **IA4PYMES** estructuramos los 6.000 € de la consultoría subvencionada del Kit Consulting en un plan técnico de acción real y tangible:
+
+1.  **Auditoría de Procesos y Software (Prospección):** Analizamos a fondo los cuellos de botella de tu negocio. Estudiamos las herramientas que ya usas (ERP, CRM, bases de datos) y detectamos qué flujos (facturación, atención al cliente, mediciones) pueden automatizarse.
+2.  **Caso de Uso Personalizado (PoC - Prueba de Concepto):** Diseñamos y configuramos un prototipo funcional y real adaptado a tu empresa. No te lo contamos; te enseñamos en vivo cómo respondería un RAG privado con tus documentos o cómo tu propio agente autónomo procesaría una factura.
+3.  **Garantía de Seguridad y Cumplimiento RGPD:** Evaluamos el tratamiento de datos y diseñamos la arquitectura para que el uso de la IA en tu empresa sea 100% privado (evitando filtraciones en modelos públicos y garantizando el cumplimiento de la ley europea).
+4.  **Hoja de Ruta e Implantación:** Te entregamos el diseño de la arquitectura tecnológica definitiva y te explicamos cómo financiar su posterior desarrollo conectando tu proyecto estratégico con las ayudas de implantación del **Kit Digital**.
+
+---
+
+## Conclusión: El momento de mover ficha es ahora
+
+El Kit Consulting es una oportunidad histórica para que el tejido empresarial español acceda a la ingeniería estratégica de primer nivel a coste cero de su bolsillo. 
+
+No dejes que el miedo al papeleo te frene. El camino más inteligente y rápido es sencillo: **llama hoy mismo a tu gestor o asesor de confianza**, pídele que te solicite el Kit Consulting en la sede oficial de Red.es y, una vez concedido tu bono, [**agenda una videollamada de consultoría con IA4PYMES**](https://calendly.com/ia4pymes) para que empecemos a diseñar los cimientos del cerebro digital de tu empresa.
+        `.trim(),
+    },
+    {
+        slug: "kit-consulting-2026-subsidy-artificial-intelligence-smes",
+        title: "100% Subsidized AI? What is the New Kit Consulting 2026 and How to Finance Your Strategic AI Plan at Zero Cost",
+        description: "The Spanish Government has launched Kit Consulting: vouchers of up to €24,000 for strategic advice, with an exclusive €6,000 package for Artificial Intelligence. Discover how to use public funds so we can design your SME's roadmap (your accountant handles the paperwork; we handle the tech).",
+        date: "2026-05-24",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Strategy",
+        image: "/blog/ia-kit-consulting-subvencion-pymes.png",
+        lang: "en",
+        translationSlug: "kit-consulting-2026-subvencion-inteligencia-artificial-pymes",
+        content: `
+In the Spanish business fabric of 2026, technological inaction no longer has economic excuses. If you own a small or medium-sized enterprise and have not yet started implementing Artificial Intelligence in your processes due to the cost of prior consulting, this interests you directly.
+
+The Spanish Government, through Red.es, has actively launched the **Kit Consulting** program.
+
+Unlike the well-known Kit Digital (which finances the purchase and implementation of software or licenses), Kit Consulting is specifically designed to finance **strategic consulting and engineering**. And it features a star category endowed with **an exclusive €6,000 for Artificial Intelligence Advisory**.
+
+Today, at **IA4PYMES**, we explain how much money you are entitled to, how the application process works, and why the separation between bureaucracy and technology is your best ally to transform your business for free.
+
+---
+
+## How Much Money Does Your SME Receive?
+
+The digital advisory voucher of Kit Consulting is directly assigned according to the size of your company's workforce:
+
+*   **Segment A (Between 10 and less than 50 employees):** Total voucher of **€12,000**
+*   **Segment B (Between 50 and less than 100 employees):** Total voucher of **€18,000**
+*   **Segment C (Between 100 and less than 250 employees):** Total voucher of **€24,000**
+
+Regardless of which segment your company falls into, you can allocate **€6,000 of your voucher to hire an Artificial Intelligence Advisory Plan**.
+
+---
+
+## Your Accountant Handles the Bureaucracy; We Handle the Technology
+
+It is very common for SME managers to feel lazy or fearful at the idea of applying for public subsidies. State applications are usually associated with an endless labyrinth of digital signatures, expense justifications, and heavy bureaucracy.
+
+But at **IA4PYMES** we want to be very honest with you: **we are not bureaucratic processors**. We are Artificial Intelligence engineers and consultants. We do not fill out tax forms or manage administrative files.
+
+And that is, precisely, the best news:
+1.  **The application is ultra-simple:** The Kit Consulting application is done online on the official Acelera Pyme portal through an automated system that barely takes 15 minutes.
+2.  **Your usual accountant can do it for you:** Any trusted tax accounting consultancy that handles your SME's paperwork can apply for the voucher in your name in a matter of minutes using basic voluntary representation.
+3.  **We execute the real engineering:** Once your accountant obtains the approval of the voucher, we enter the scene as your **Certified Digital Advisor**. That is where we apply our technical knowledge to design the AI system that will multiply your company's efficiency.
+
+---
+
+## What Does IA4PYMES' AI Advisory Include?
+
+Our strategic consulting does not consist of delivering a generic 50-page PDF full of corporate jargon and abstract concepts that no one in your company will ever read.
+
+At **IA4PYMES**, we structure the €6,000 of the subsidized Kit Consulting advisory into a real and tangible technical action plan:
+
+1.  **Process and Software Audit (Discovery):** We analyze in depth the bottlenecks of your business. We study the tools you already use (ERP, CRM, databases) and detect which workflows (billing, customer service, estimating) can be automated.
+2.  **Custom Use Case (PoC - Proof of Concept):** We design and configure a functional and real prototype adapted to your company. We don't just tell you; we show you in real time how a private RAG engine would respond with your documents or how your own autonomous agent would process an invoice.
+3.  **Security and GDPR Compliance Guarantee:** We evaluate data processing and design the architecture so that the use of AI in your company is 100% private (avoiding leaks in public models and guaranteeing compliance with European law).
+4.  **Roadmap and Implementation:** We deliver the final technological architecture design and explain how to finance its subsequent development by connecting your strategic project with the implementation aids of **Kit Digital**.
+
+---
+
+## Conclusion: The Time to Make a Move is Now
+
+Kit Consulting is a historic opportunity for the Spanish business fabric to access top-tier strategic engineering at zero out-of-pocket cost.
+
+Do not let the fear of paperwork hold you back. The smartest and fastest path is simple: **call your trusted accountant today**, ask them to apply for the Kit Consulting on the official Red.es office, and once your voucher is granted, [**book a consulting video call with IA4PYMES**](https://calendly.com/ia4pymes) so we can start designing the foundations of your company's digital brain.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: IA en Gestorías y Asesorías (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
