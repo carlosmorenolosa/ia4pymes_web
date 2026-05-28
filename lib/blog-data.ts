@@ -16,6 +16,175 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Nueva Ley de IA España (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "nueva-ley-ia-espana-aprobada-pymes-evitar-multas",
+        title: "La Nueva Ley de IA en España aprobada esta semana: Qué cambia para tu PYME y cómo evitar multas millonarias",
+        description: "El Consejo de Ministros aprobó el 26 de mayo el proyecto de Ley que adapta el AI Act de la Unión Europea. La normativa impone obligaciones de transparencia y multas de hasta 35 millones de euros. Descubre qué debes hacer en tu empresa antes del límite del 2 de agosto de 2026.",
+        date: "2026-05-28",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Legal y Seguridad",
+        image: "/blog/ia-nueva-ley-gobierno-espana-pymes.png",
+        lang: "es",
+        translationSlug: "new-ai-law-spain-approved-smes-avoid-fines",
+        content: `
+El pasado martes **26 de mayo de 2026**, el Consejo de Ministros de España dio un paso histórico al aprobar el proyecto de Ley para el buen uso y la gobernanza de la Inteligencia Artificial, adaptando oficialmente la estricta **Ley de IA (AI Act) de la Unión Europea** a nuestra legislación nacional.
+
+Si pensabas que esta normativa era solo una preocupación para gigantes tecnológicos estadounidenses de Silicon Valley o corporaciones multinacionales, estás cometiendo un error estratégico de consecuencias muy graves. La nueva ley afecta de forma directa a cualquier autónomo y pequeña o mediana empresa española que ya esté utilizando sistemas de IA en su negocio.
+
+Y la cuenta atrás es real: la aplicación completa de la normativa europea está fijada para el próximo **2 de agosto de 2026**. 
+
+Hoy, en **IA4PYMES**, te explicamos de forma sencilla y sin jerga jurídica aburrida qué exige la ley, cómo afecta a tus herramientas diarias y qué debes hacer de forma inmediata para blindar a tu PYME ante sanciones que podrían destruir tu negocio.
+
+---
+
+## La Clasificación del Riesgo: ¿Dónde está tu PYME?
+
+Tanto la ley española como el *AI Act* europeo clasifican los sistemas de Inteligencia Artificial en cuatro niveles de riesgo, regulando a cada uno con distinto nivel de exigencia:
+
+### 1. Riesgo Inadmisible (Totalmente Prohibido)
+Sistemas que manipulan el comportamiento humano de forma dañina, sistemas de "puntuación social" (como el de China) o reconocimiento biométrico en tiempo real en espacios públicos. Estos usos están vetados en todo el territorio europeo.
+
+### 2. Riesgo Alto (Altamente Regulado)
+IAs aplicadas en sectores sensibles como la selección y filtrado de candidatos de empleo (lectura y filtrado de CVs con algoritmos), la concesión de créditos bancarios, la educación o la gestión de infraestructuras críticas. 
+> ⚠️ **¡Atención!** Si tu PYME utiliza un software con IA para cribar currículums o para evaluar el rendimiento de tus empleados de forma automática, entras de lleno en esta categoría. Debes cumplir con exigentes auditorías técnicas, registros detallados de actividad (logs) y supervisión humana garantizada.
+
+### 3. Riesgo Limitado (Transparencia Obligatoria)
+Aquí se encuentra la inmensa mayoría de las herramientas que usan las PYMEs: asistentes de atención al cliente en tu página web, agentes de WhatsApp Business, o generadores de contenidos, imágenes y copys comerciales. En este nivel, la ley exige el cumplimiento estricto de la **Regla de Oro de la Transparencia**.
+
+---
+
+## La Regla de Oro de la Transparencia (Evita la multa fácil)
+
+La inmensa mayoría de las pequeñas empresas españolas implementan chatbots en su web o WhatsApp para automatizar la atención al cliente. Con la nueva ley en la mano, hay dos obligaciones ineludibles que debes aplicar:
+
+*   **Identificación Obligatoria de la IA:** Debes informar de forma explícita y clara a cualquier usuario si está interactuando con un sistema de Inteligencia Artificial. No puedes hacer pasar a tu asistente virtual por una persona real llamada "María". Debe haber un aviso visible: *"Estás hablando con nuestro asistente virtual asistido por IA"*.
+*   **Etiquetado de Contenido Sintético:** Si utilizas IA para generar imágenes, audio o textos hiper-realistas que puedan confundirse con la realidad, la ley exige etiquetarlos con metadatos digitales o marcas de agua que indiquen claramente su origen artificial.
+
+---
+
+## Sanciones Colosales: El coste de la inacción
+
+Para asegurar que las empresas no se tomen la gobernanza de la IA a la ligera, el legislador ha fijado unas multas extraordinariamente severas, superiores incluso a las del RGPD clásico:
+
+*   El incumplimiento de los usos prohibidos puede acarrear multas de hasta **35 millones de euros o el 7% de la facturación anual global** de la empresa (la cifra que sea mayor).
+*   La falta de transparencia en chatbots o el incumplimiento de requisitos en IAs de riesgo puede suponer multas de hasta **15 millones de euros o el 3% de la facturación**.
+
+Aunque la Agencia Española de Supervisión de la Inteligencia Artificial (AESIA) priorizará la pedagogía en los primeros meses, las PYMEs que sigan operando sistemas sin control a partir del 2 de agosto de 2026 se enfrentarán a un riesgo legal inasumible.
+
+---
+
+## Plan de Acción de 4 Pasos antes del 2 de agosto de 2026
+
+Para que la nueva ley no sea una pesadilla para tu negocio, te recomendamos seguir esta hoja de ruta básica:
+
+1.  **Inventario de IA:** Haz un listado de todas las herramientas de IA que tu equipo utiliza, desde el ChatGPT gratuito de tus empleados (¡ojo al [Shadow AI](https://ia4pymes.tech/blog/peligro-shadow-ai-empleados-filtrando-secretos-empresa-chatgpt)!) hasta las integraciones de WhatsApp.
+2.  **Clasificación de Riesgos:** Determina si usas IAs de Riesgo Alto (como cribado de CVs) o Limitado (asistentes conversacionales).
+3.  **Avisos de Transparencia:** Configura tus chatbots de WhatsApp y web para que incluyan la advertencia explícita de que son asistentes virtuales automatizados.
+4.  **Exigencia a Proveedores:** Pide a tu partner de desarrollo de IA las certificaciones y garantías contractuales de que los modelos que integras respetan el *AI Act*.
+
+---
+
+> ### 💡 ¿Quieres que auditemos el cumplimiento legal de tu IA gratis?
+> El cumplimiento legal no tiene por qué frenar el crecimiento de tu negocio. En **IA4PYMES** garantizamos que todos los portales privados, agentes de WhatsApp y sistemas de automatización que diseñamos y programamos cumplen al 100% con la nueva Ley nacional de IA y el *AI Act* europeo desde el primer minuto. [**Reserva tu sesión estratégica de auditoría legal y técnica de IA gratuita con nuestro equipo de ingenieros aquí**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusión: El Cumplimiento por Diseño es tu ventaja
+
+La aprobación de la nueva Ley de IA en España marca las reglas del juego definitivo. 
+
+El internet caótico del "todo vale" con la IA se ha terminado. A partir de ahora, la victoria digital pertenecerá a las empresas que adopten la innovación mediante el principio de **Cumplimiento por Diseño (Compliance by Design)**, asegurando que cada proceso de automatización respete la privacidad, la transparencia y la gobernanza de datos. 
+
+La IA es tu mejor palanca para multiplicar la facturación, pero solo si la construyes sobre unos cimientos legales de hormigón armado.
+        `.trim(),
+    },
+    {
+        slug: "new-ai-law-spain-approved-smes-avoid-fines",
+        title: "The New AI Law in Spain Approved This Week: What Changes for Your SME and How to Avoid Million-Dollar Fines",
+        description: "The Council of Ministers approved the draft AI Law adapting the EU AI Act on May 26th. The regulation imposes strict transparency obligations and fines of up to €35 million. Discover what your SME needs to do before the August 2nd, 2026 deadline.",
+        date: "2026-05-28",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Legal & Security",
+        image: "/blog/ia-nueva-ley-gobierno-espana-pymes.png",
+        lang: "en",
+        translationSlug: "nueva-ley-ia-espana-aprobada-pymes-evitar-multas",
+        content: `
+Last Tuesday, **May 26, 2026**, the Spanish Council of Ministers took a historic step by approving the draft Law for the good use and governance of Artificial Intelligence, officially adapting the strict **European AI Act** into our national legislation.
+
+If you thought this regulation was only a concern for US tech giants in Silicon Valley or multinational corporations, you are making a strategic mistake of very serious consequences. The new law directly affects any freelancer and small or medium-sized Spanish company already using AI systems in their business.
+
+And the countdown is real: the full application of the European regulation is set for next **August 2, 2026**.
+
+Today, at **IA4PYMES**, we explain in a simple way and without boring legal jargon what the law demands, how it affects your daily tools, and what you must do immediately to shield your SME against sanctions that could destroy your business.
+
+---
+
+## Risk Classification: Where is Your SME?
+
+Both Spanish law and the European *AI Act* classify Artificial Intelligence systems into four risk levels, regulating each with different requirements:
+
+### 1. Unacceptable Risk (Totally Prohibitive)
+Systems that manipulate human behavior in a harmful way, "social scoring" systems (like China's), or real-time biometric identification in public spaces. These uses are banned throughout European territory.
+
+### 2. High Risk (Highly Regulated)
+AIs applied in sensitive sectors such as the screening and filtering of job candidates (algorithm-based CV parsing and filtering), banking credit scoring, education, or critical infrastructure management.
+> ⚠️ **Attention!** If your SME uses software with AI to screen resumes or to automatically evaluate your employees' performance, you enter fully into this category. You must comply with demanding technical audits, detailed activity logs, and guaranteed human supervision.
+
+### 3. Limited Risk (Mandatory Transparency)
+Here is the vast majority of tools used by SMEs: customer service assistants on your website, WhatsApp Business agents, or copy and image generators. At this level, the law demands strict compliance with the **Golden Rule of Transparency**.
+
+---
+
+## The Golden Rule of Transparency (Avoid Easy Fines)
+
+The vast majority of small Spanish businesses implement chatbots on their website or WhatsApp to automate customer service. Under the new law, there are two inescapable obligations you must apply:
+
+*   **Mandatory AI Identification:** You must explicitly and clearly inform any user if they are interacting with an Artificial Intelligence system. You cannot pass your virtual assistant off as a real person named "Maria". There must be a visible warning: *"You are talking to our virtual assistant assisted by AI"*.
+*   **Synthetic Content Labeling:** If you use AI to generate hyper-realistic images, audio, or text that could be confused with reality, the law requires labeling them with digital metadata or watermarks clearly indicating their artificial origin.
+
+---
+
+## Colossal Sanctions: The Cost of Inaction
+
+To ensure that companies do not take AI governance lightly, the legislator has set extraordinarily severe fines, even higher than those of the classic GDPR:
+
+*   Non-compliance with prohibited uses can lead to fines of up to **€35 million or 7% of the company's global annual turnover** (whichever is higher).
+*   Lack of transparency in chatbots or non-compliance with requirements in high-risk AIs can lead to fines of up to **€15 million or 3% of turnover**.
+
+Although the Spanish Agency for Artificial Intelligence Supervision (AESIA) will prioritize education in the first months, SMEs that continue operating systems without control from August 2, 2026, will face an unacceptable legal risk.
+
+---
+
+## 4-Step Action Plan Before August 2, 2026
+
+To prevent the new law from being a nightmare for your business, we recommend following this basic roadmap:
+
+1.  **AI Inventory:** Make a list of all the AI tools your team uses, from your employees' free ChatGPT (watch out for [Shadow AI](https://ia4pymes.tech/blog/peligro-shadow-ai-empleados-filtrando-secretos-empresa-chatgpt)!) to WhatsApp integrations.
+2.  **Risk Classification:** Determine if you use High-Risk AIs (such as CV screening) or Limited-Risk AIs (conversational assistants).
+3.  **Transparency Notices:** Configure your WhatsApp and web chatbots to include the explicit warning that they are automated virtual assistants.
+4.  **Provider Requirements:** Ask your AI development partner for contractual certifications and guarantees that the models you integrate respect the *AI Act*.
+
+---
+
+> ### 💡 Do you want us to audit your AI's legal compliance for free?
+> Legal compliance does not have to slow down your business growth. At **IA4PYMES**, we guarantee that all secure private portals, WhatsApp agents, and automation systems we design and program comply 100% with the new national AI Law and the European *AI Act* from the very first minute. [**Book your free legal and technical AI audit session with our engineering team here**](https://calendly.com/ia4pymes).
+
+---
+
+## Conclusion: Compliance by Design is Your Advantage
+
+The approval of the new AI Law in Spain marks the definitive rules of the game.
+
+The chaotic "anything goes" internet with AI is over. From now on, digital victory will belong to companies that adopt innovation through the principle of **Compliance by Design**, ensuring that every automation process respects privacy, transparency, and data governance.
+
+AI is your best lever to multiply billing, but only if you build it on reinforced concrete legal foundations.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: El Peligro del Shadow AI (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
