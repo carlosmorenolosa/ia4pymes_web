@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale } from "lucide-react"
+import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale, Archive } from "lucide-react"
 
 const caseData = {
   es: [
@@ -27,6 +27,13 @@ const caseData = {
       description: "Auditoría integral de procesos legales para identificar ineficiencias y oportunidades de automatización. Entregamos un informe técnico detallado con el desglose de soluciones de IA, análisis de costes y ROI proyectado para su implementación inmediata.\n\n🎯 Impacto: Roadmap estratégico | ⏱️ Diagnóstico: Fugas de tiempo críticas | 📅 Proyecto: Consultoría Técnica",
       icon: Scale, color: "blue",
       benefit: "Roadmap técnico y análisis de ROI entregado",
+    },
+    {
+      title: "Automatización de Gestión Documental",
+      company: "Ferrandis Abogados",
+      description: "Sistema automatizado de clasificación para la correspondencia digital entrante. La herramienta organiza el flujo de trabajo archivando la documentación técnica en sus repositorios correspondientes. Dispone de un panel privado de supervisión que garantiza la trazabilidad y la transparencia en el procesado.\n\n🎯 ROI Proyectado: +320% | ⏱️ Ahorro: 50h semanales | 📅 Estado: En Desarrollo",
+      icon: Archive, color: "purple",
+      benefit: "Clasificación automatizada y trazabilidad total",
     },
     {
       title: "Automatizador de Presupuestos",
@@ -71,6 +78,13 @@ const caseData = {
       description: "Comprehensive audit of legal processes to identify inefficiencies and automation opportunities. We delivered a detailed technical report with AI solution breakdown, cost analysis, and projected ROI for immediate implementation.\n\n🎯 Impact: Strategic Roadmap | ⏱️ Diagnosis: Critical time leaks | 📅 Project: Technical Consultancy",
       icon: Scale, color: "blue",
       benefit: "Technical roadmap and ROI analysis delivered",
+    },
+    {
+      title: "Document Management Automation",
+      company: "Ferrandis Abogados",
+      description: "Automated classification system for incoming digital correspondence. The tool organizes the workflow by archiving technical documentation in its corresponding repositories. Features a private monitoring dashboard to ensure traceability and transparency in processing.\n\n🎯 Projected ROI: +320% | ⏱️ Savings: 50h/week | 📅 Status: Under Development",
+      icon: Archive, color: "purple",
+      benefit: "Automated classification and full traceability",
     },
     {
       title: "Automated Budget Calculator",
