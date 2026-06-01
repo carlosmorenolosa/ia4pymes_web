@@ -80,9 +80,9 @@ Para entender cómo se aplican estos números, analicemos un proyecto real que i
 
 ### La Situación Inicial
 El equipo de administración (compuesto por 3 personas) dedicaba una media de **4 horas al día cada uno** (12 horas al día en total) a abrir correos de clientes, descargar PDFs con pedidos de compra, extraer manualmente los códigos de producto e introducirlos en su sistema ERP de gestión.
-*   **Tiempo total al mes:** 12 horas/día $\\times$ 20 días laborales = **240 horas mensuales**.
+*   **Tiempo total al mes:** 12 horas/día × 20 días laborales = **240 horas mensuales**.
 *   **Coste por hora cargado de plantilla (Sueldo + Seg. Social):** 18 €.
-*   **Coste total de la ineficiencia:** 240 horas $\\times$ 18 € = **4.320 € al mes** (51.840 € al año).
+*   **Coste total de la ineficiencia:** 240 horas × 18 € = **4.320 € al mes** (51.840 € al año).
 *   **Inconveniente adicional:** Un 4% de los pedidos contenían errores de digitación de códigos, lo que obligaba a devoluciones y envíos urgentes costosos.
 
 ### La Solución de IA
@@ -91,7 +91,7 @@ Desplegamos un **Agente de IA Autónomo** conectado a la bandeja de entrada y al
 ### Los Números Tras la Integración
 *   **Tiempo humano residual al mes:** 10 horas mensuales.
 *   **Tiempo mensual neto ahorrado:** **230 horas**.
-*   **Ahorro mensual bruto en plantilla:** 230 horas $\\times$ 18 € = **4.140 €/mes** (49.680 €/año).
+*   **Ahorro mensual bruto en plantilla:** 230 horas × 18 € = **4.140 €/mes** (49.680 €/año).
 *   **Coste inicial de desarrollo e integración (One-off):** 6.500 €.
 *   **Coste mensual de API de IA (Qwen 2.5 y OpenAI GPT-4o mini via API corporativa):** 90 €/mes (1.080 €/año).
 *   **Coste de mantenimiento técnico anual:** 1.200 €/año.
@@ -195,9 +195,9 @@ To understand how these numbers apply, let's analyze a real project we recently 
 
 ### The Initial Situation
 The administration team (consisting of 3 people) spent an average of **4 hours a day each** (12 hours a day in total) opening customer emails, downloading PDF purchase orders, manually extracting product codes, and entering them into their ERP management system.
-*   **Total time per month:** 12 hours/day $\\times$ 20 working days = **240 monthly hours**.
+*   **Total time per month:** 12 hours/day × 20 working days = **240 monthly hours**.
 *   **Loaded hourly staff cost (Salary + Social Security):** €18/hour.
-*   **Total cost of inefficiency:** 240 hours $\\times$ €18 = **€4,320 per month** (€51,840 per year).
+*   **Total cost of inefficiency:** 240 hours × €18 = **€4,320 per month** (€51,840 per year).
 *   **Additional drawback:** 4% of the orders contained keying errors, which forced costly returns and urgent shipments.
 
 ### The AI Solution
@@ -206,7 +206,7 @@ We deployed an **Autonomous AI Agent** connected to the inbox and the ERP via AP
 ### The Numbers After Integration
 *   **Residual human time per month:** 10 monthly hours.
 *   **Net monthly time saved:** **230 hours**.
-*   **Gross monthly staff savings:** 230 hours $\\times$ €18 = **€4,140/month** (€49,680/year).
+*   **Gross monthly staff savings:** 230 hours × €18 = **€4,140/month** (€49,680/year).
 *   **Initial development and integration cost (One-off):** €6,500.
 *   **Monthly AI API cost (Qwen 2.5 and OpenAI GPT-4o mini via corporate API):** €90/month (€1,080/year).
 *   **Annual technical maintenance cost:** €1,200/year.
