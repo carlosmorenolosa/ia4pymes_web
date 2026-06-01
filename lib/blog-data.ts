@@ -58,17 +58,17 @@ Para calcular con rigor la rentabilidad de una implementación de IA, debemos co
 
 ### 1. Ahorros Anuales Brutos (AAB)
 Representa la suma de todo el dinero y tiempo que el sistema de IA te ahorra al año.
-$$\\text{AAB} = (\\text{Horas mensuales ahorradas} \\times \\text{Coste medio/hora de plantilla} \\times 12) + (\\text{Coste de software sustituido} \\times 12)$$
+> **AAB** = (Horas mensuales ahorradas × Coste medio/hora de plantilla × 12) + (Coste de software sustituido × 12)
 
 *Nota crítica:* El \"coste medio/hora de plantilla\" debe incluir no solo el sueldo neto, sino también el coste de cotizaciones a la Seguridad Social, seguros y costes indirectos del puesto (aproximadamente un 30%-40% adicional sobre el salario bruto).
 
 ### 2. Coste de Implementación y Mantenimiento (CIM)
 Representa el coste total de poseer y operar la solución de IA durante el primer año.
-$$\\text{CIM} = \\text{Coste desarrollo inicial (agencia/consultora)} + (\\text{Costes de APIs y licencias de IA al mes} \\times 12) + \\text{Coste de soporte/mantenimiento anual}$$
+> **CIM** = Coste desarrollo inicial + (Costes de APIs y licencias de IA al mes × 12) + Coste de soporte y mantenimiento anual
 
 ### 3. Fórmula del ROI Real
 Con estos dos valores listos, aplicamos la fórmula financiera clásica:
-$$\\text{ROI Real (\\%)} = \\frac{\\text{AAB} - \\text{CIM}}{\\text{CIM}} \\times 100$$
+> **ROI Real (%)** = [ (AAB - CIM) ÷ CIM ] × 100
 
 Si el resultado es **positivo y mayor al 100%**, significa que la inversión se amortiza por completo en el primer año y duplica su valor en términos de eficiencia económica.
 
@@ -100,7 +100,7 @@ Desplegamos un **Agente de IA Autónomo** conectado a la bandeja de entrada y al
 *   **Ahorros Anuales Brutos (AAB):** 49.680 €
 *   **Coste de Implementación y Mantenimiento (CIM):** 6.500 € (desarrollo) + 1.080 € (APIs) + 1.200 € (mantenimiento) = **8.780 €**
 *   **ROI de la IA:**
-    $$\\text{ROI} = \\frac{49.680 - 8.780}{8.780} \\times 100 = \\mathbf{465,8\\%}$$
+> **ROI del Primer Año (%)** = [ (49.680 € - 8.780 €) ÷ 8.780 € ] × 100 = **465,8%**
 
 **Conclusión financiera:** El cliente no solo recuperó los 6.500 € de inversión inicial en apenas dos meses de funcionamiento, sino que la empresa obtuvo un retorno neto de **4,6 veces el valor invertido** durante el primer año. Además, la tasa de errores de digitación cayó al **0%**, liberando al personal administrativo para tareas de captación activa que incrementaron las ventas de la empresa un 12%.
 
@@ -173,17 +173,17 @@ To rigorously calculate the profitability of an AI implementation, we must compa
 
 ### 1. Gross Annual Savings (GAS)
 Represents the sum of all the money and time the AI system saves you per year.
-$$\\text{GAS} = (\\text{Monthly hours saved} \\times \\text{Average hourly staff cost} \\times 12) + (\\text{Cost of replaced software} \\times 12)$$
+> **GAS** = (Monthly hours saved × Average hourly staff cost × 12) + (Cost of replaced software × 12)
 
 *Critical note:* The \"average hourly staff cost\" must include not only the net salary, but also social security contributions, insurance, and indirect overhead costs (approximately an additional 30%-40% on top of the gross salary).
 
 ### 2. Implementation and Maintenance Cost (IMC)
 Represents the total cost of owning and operating the AI solution during the first year.
-$$\\text{IMC} = \\text{Initial development cost (agency/consultancy)} + (\\text{Monthly AI API and licensing costs} \\times 12) + \\text{Annual support/maintenance cost}$$
+> **IMC** = Initial development cost + (Monthly AI API and licensing costs × 12) + Annual support and maintenance cost
 
 ### 3. Real ROI Formula
 With these two values ready, we apply the classic financial formula:
-$$\\text{Real ROI (\\%)} = \\frac{\\text{GAS} - \\text{IMC}}{\\text{IMC}} \\times 100$$
+> **Real ROI (%)** = [ (GAS - IMC) ÷ IMC ] × 100
 
 If the result is **positive and greater than 100%**, it means the investment fully pays for itself in the first year and doubles its value in terms of economic efficiency.
 
@@ -215,7 +215,7 @@ We deployed an **Autonomous AI Agent** connected to the inbox and the ERP via AP
 *   **Gross Annual Savings (GAS):** €49,680
 *   **Implementation and Maintenance Cost (IMC):** €6,500 (development) + €1,080 (APIs) + €1,200 (maintenance) = **€8,780**
 *   **AI ROI:**
-    $$\\text{ROI} = \\frac{49,680 - 8,780}{8,780} \\times 100 = \\mathbf{465.8\\%}$$
+    > **AI ROI (%)** = [ (€49,680 - €8,780) ÷ €8,780 ] × 100 = **465.8%**
 
 **Financial Conclusion:** The client not only recovered the €6,500 initial investment in just two months of operation, but the company also obtained a net return of **4.6 times the invested value** during the first year. In addition, the typing error rate dropped to **0%**, freeing administrative staff for active sales acquisition tasks that increased the company's sales by 12%.
 
