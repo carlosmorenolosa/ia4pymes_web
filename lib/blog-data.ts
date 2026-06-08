@@ -16,6 +16,145 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Prevención de fraudes con IA (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "como-proteger-pyme-fraudes-ia-facturas-falsas-pdfs",
+        title: "¿Cómo proteger a tu PYME de la nueva ola de fraudes con IA (facturas falsas y PDFs alterados)?",
+        description: "En 2026, la IA permite a los estafadores falsificar facturas y PDFs de forma casi indetectable, alcanzando cifras récord de fraude. Descubre el protocolo de verificación en 3 pasos para blindar la tesorería de tu administración.",
+        date: "2026-06-08",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Seguridad",
+        image: "/blog/ia-prevencion-fraude-pymes.png",
+        lang: "es",
+        translationSlug: "how-to-protect-sme-ai-frauds-fake-invoices-pdfs",
+        content: `
+La democratización de la Inteligencia Artificial generativa tiene una cara B muy peligrosa: ha abaratado y facilitado los recursos de los cibercriminales para atacar a las empresas. Durante el día de hoy, **8 de junio de 2026**, la gran aseguradora multinacional **Aviva** ha publicado en su informe anual un récord histórico de detección de fraudes de más de 230 millones de libras, alertando de que los estafadores ahora utilizan IA de forma sistemática para alterar facturas, manipular albaranes de proveedores y falsificar justificantes de pago.
+
+Para una pequeña o mediana empresa, recibir un correo que parece provenir de un proveedor habitual adjuntando una factura en PDF idéntica a las anteriores, pero con el número de cuenta bancaria sutilmente modificado con IA, puede suponer un desastre financiero irreversible.
+
+Hoy, en **IA4PYMES**, analizamos técnicamente cómo operan estas nuevas estafas documentales basadas en Inteligencia Artificial y te damos un protocolo de seguridad de 3 pasos para blindar tu departamento de administración.
+
+---
+
+## ¿Cómo falsifican documentos los estafadores con IA?
+
+A diferencia de los burdos fotomontajes del pasado, la IA generativa permite alterar documentos digitales de manera casi indetectable para el ojo humano:
+
+1.  **Edición inteligente de PDFs (OCR e Inpainting):** La IA detecta la tipografía exacta, el tamaño de letra y el color de un PDF original y permite sustituir textos (como el código IBAN o el importe total) de forma que el documento final conserva la misma estructura física sin descuadres.
+2.  **Suplantación de correos (Phishing contextual con IA):** Los atacantes hackean el buzón de correo de un proveedor (o simulan su dominio) y usan modelos de lenguaje para analizar el tono de las conversaciones anteriores. Luego, redactan un email perfectamente adaptado a la jerga de la empresa diciendo: *"Estimados, les adjuntamos la factura mensual con nuestro nuevo IBAN de cobro"*.
+3.  **Metadatos intactos:** Muchos estafadores se aseguran de regenerar el PDF conservando los metadatos de creación del documento original para evitar levantar sospechas en las auditorías informáticas automáticas.
+
+---
+
+## Protocolo de seguridad contra fraude de IA en Contabilidad
+
+Para proteger la tesorería de tu PYME, los departamentos de administración y contabilidad deben abandonar la confianza ciega en los documentos digitales y aplicar un protocolo de verificación estricto:
+
+### Paso 1: La Regla de la Doble Verificación por Canal Alternativo
+Esta es la regla más importante. Queda terminantemente prohibido realizar pagos a una cuenta bancaria nueva sin verificarla antes:
+*   **Procedimiento:** Si recibes un correo o una factura con un cambio en el número de cuenta de un proveedor habitual, debes llamarle por teléfono utilizando un número que ya tuvierais guardado en vuestra agenda (nunca el número que aparezca en el pie del nuevo correo sospechoso) para confirmar verbalmente el cambio.
+
+### Paso 2: Uso de Firmas Digitales Criptográficas (Factura-E y PDF Firmados)
+Exige a tus proveedores principales el uso de firmas criptográficas digitales integradas en el PDF (como la firma Adobe Sign o Autofirma en España).
+*   **Por qué funciona:** Si un estafador intercepta el correo y altera un solo carácter del IBAN en un PDF firmado criptográficamente, la firma se invalida de inmediato de forma visible y el software de lectura del PDF avisará con una alerta roja de que el documento ha sido modificado tras su firma.
+
+### Paso 3: Limitar el acceso y automatizar con IA de verificación
+Igual que los estafadores usan la IA para atacar, las empresas pueden usarla para defenderse. Se pueden programar agentes de IA locales o seguros en tu nube privada que auditen de forma automática los PDFs entrantes:
+*   El agente de IA lee el PDF de la factura, extrae el IBAN y el CIF, y lo contrasta automáticamente con la base de datos histórica de proveedores autorizados en el ERP. Si los datos no coinciden, bloquea el pago en el ERP y envía una alerta de seguridad al responsable de administración.
+
+---
+
+## Lista de verificación rápida para tu departamento de administración
+
+> **Checklist contra Fraude de Facturas con IA:**
+> 1. \`[ ]\` ¿Se ha modificado el IBAN o la entidad bancaria del proveedor respecto al mes pasado?
+> 2. \`[ ]\` Si hay cambio de cuenta: ¿Se ha realizado la llamada de confirmación cruzada telefónica?
+> 3. \`[ ]\` ¿El correo del remitente coincide exactamente con el dominio oficial del proveedor (sin variaciones sutiles como cambiar una 'l' por un '1')?
+> 4. \`[ ]\` ¿Viene el PDF firmado digitalmente con un certificado válido?
+
+---
+
+## Conclusión: El fin de la confianza ciega digital
+
+El informe de Aviva nos deja una lección clara: en **2026**, no podemos creer ciegamente en lo que muestra una pantalla o un documento PDF. La Inteligencia Artificial ha hecho que la falsificación sea barata y masiva. La única defensa efectiva para las PYMEs pasa por rediseñar los flujos de administración interna, implementando dobles firmas, control de seguridad en sus ERPs y, sobre todo, una cultura de la sospecha y confirmación cruzada en su equipo humano ante cualquier cambio imprevisto de información financiera.
+
+---
+
+> ### 💡 ¿Quieres auditar y blindar los procesos de pago de tu empresa con IA?
+> Configurar agentes de IA de defensa que contrasten facturas contra tu ERP de forma automática y asegurar tus comunicaciones requiere conocimientos de integración de datos y ciberseguridad. En **IA4PYMES** te ayudamos a construir barreras de seguridad inteligentes. [**Reserva ahora una sesión de consultoría técnica gratuita con nuestros ingenieros**](https://calendly.com/ia4pymes) y analizamos cómo proteger tus flujos de tesorería frente a los ataques y falsificaciones de IA.
+        `.trim(),
+    },
+    {
+        slug: "how-to-protect-sme-ai-frauds-fake-invoices-pdfs",
+        title: "How to Protect Your SME from the New Wave of AI Fraud (Fake Invoices and Altered PDFs)",
+        description: "In 2026, AI allows scammers to forge invoices and PDFs in an almost undetectable way, reaching record fraud levels. Discover the 3-step verification protocol to shield your administration's cash flow.",
+        date: "2026-06-08",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Security",
+        image: "/blog/ia-prevencion-fraude-pymes.png",
+        lang: "en",
+        translationSlug: "como-proteger-pyme-fraudes-ia-facturas-falsas-pdfs",
+        content: `
+The democratization of generative Artificial Intelligence has a dangerous flip side: it has lowered the cost and barrier of entry for cybercriminals to attack businesses. Today, on **June 8, 2026**, multinational insurance giant **Aviva** published in its annual report a historic record of fraud detection exceeding £230 million, warning that scammers are now systematically using AI to alter invoices, manipulate supplier delivery notes, and forge payment receipts.
+
+For a small or medium-sized enterprise, receiving an email that looks exactly like one from a regular supplier attaching a PDF invoice identical to previous ones, but with the bank account number subtly modified by AI, can lead to an irreversible financial disaster.
+
+Today, at **IA4PYMES**, we technically analyze how these new AI-based document scams operate and give you a 3-step security protocol to shield your administration department.
+
+---
+
+## How Do Scammers Forge Documents with AI?
+
+Unlike the crude photo edits of the past, generative AI allows digital documents to be altered in a way that is almost undetectable to the human eye:
+
+1.  **Smart PDF Editing (OCR and Inpainting):** AI detects the exact font, size, and color of an original PDF and allows texts (such as the IBAN code or the total amount) to be replaced so that the final document retains the same layout without alignment errors.
+2.  **Email Spoofing (Contextual Phishing with AI):** Attackers hack a supplier's inbox (or spoof their domain) and use language models to analyze the tone of past conversations. They then write an email perfectly tailored to the company's jargon saying: *"Dear all, we attach the monthly invoice with our new payment IBAN."*
+3.  **Intact Metadata:** Many scammers make sure to regenerate the PDF while retaining the original document's creation metadata to avoid raising suspicions in automated IT audits.
+
+---
+
+## Security Protocol Against AI Fraud in Accounting
+
+To protect your SME's treasury, administration and accounting departments must abandon blind trust in digital documents and apply a strict verification protocol:
+
+### Step 1: The Alternative Channel Double-Verification Rule
+This is the most important rule. It is strictly forbidden to make payments to a new bank account without verifying it first:
+*   **Procedure:** If you receive an email or invoice indicating a change in a regular supplier's bank account, you must call them using a phone number you already have saved in your contacts (never the number that appears at the bottom of the new suspicious email) to verbally confirm the change.
+
+### Step 2: Use of Cryptographic Digital Signatures (Signed PDFs)
+Require your main suppliers to use integrated cryptographic digital signatures in PDFs (such as Adobe Sign).
+*   **Why it works:** If a scammer intercepts the email and alters a single character of the IBAN in a cryptographically signed PDF, the signature is immediately invalidated in a visible way, and the PDF reader software will display a red alert warning that the document was modified after signing.
+
+### Step 3: Limit Access and Automate with Verification AI
+Just as scammers use AI to attack, businesses can use it to defend themselves. You can program local or private secure AI agents in your cloud that automatically audit incoming PDFs:
+*   The AI agent reads the invoice PDF, extracts the IBAN and tax ID, and automatically cross-checks it against the historical database of authorized suppliers in the ERP. If the data does not match, it blocks the payment in the ERP and sends a security alert to the administration manager.
+
+---
+
+## Quick Verification Checklist for Your Administration Department
+
+> **Checklist Against AI Invoice Fraud:**
+> 1. \`[ ]\` Has the supplier's IBAN or banking entity changed compared to last month?
+> 2. \`[ ]\` If there is an account change: Has the alternative telephone verification call been made?
+> 3. \`[ ]\` Does the sender's email match the supplier's official domain exactly (without subtle changes like a '1' instead of an 'l')?
+> 4. \`[ ]\` Is the PDF digitally signed with a valid certificate?
+
+---
+
+## Conclusion: The End of Blind Digital Trust
+
+The Aviva report leaves us with a clear lesson: in **2026**, we cannot blindly trust what a screen or PDF document shows. Artificial Intelligence has made forgery cheap and widespread. The only effective defense for SMEs is to redesign internal administration workflows, implementing double signatures, security controls in their ERPs, and, above all, a culture of suspicion and cross-checking in their team before any unexpected changes in financial data.
+
+---
+
+> ### 💡 Do you want to audit and shield your business payment processes with AI?
+> Configuring defensive AI agents that automatically cross-check invoices against your ERP and securing your communications requires data integration and cybersecurity knowledge. At **IA4PYMES** we help you build intelligent security barriers. [**Book a free technical consulting session with our engineers now**](https://calendly.com/ia4pymes) and we will analyze how to protect your cash flows against AI attacks and forgeries.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: IA de voz en telefonía (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
