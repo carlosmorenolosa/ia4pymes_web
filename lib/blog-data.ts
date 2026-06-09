@@ -16,6 +16,259 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Tutorial Make.com y Afiliados (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "como-empezar-make-automatizar-negocio-pymes",
+        title: "Cómo empezar con Make.com para automatizar tu negocio paso a paso (Guía 2026)",
+        description: "Descubre cómo iniciarte en Make.com (antiguo Integromat) para automatizar los procesos y tareas repetitivas de tu PYME. Guía paso a paso en español con un flujo práctico de ejemplo y cómo ahorrar costes frente a Zapier.",
+        date: "2026-06-09",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Automatización",
+        image: "/blog/tutorial-make-automatizacion-pymes.png",
+        lang: "es",
+        translationSlug: "how-to-start-make-automate-sme-business",
+        content: `
+¿Sigues perdiendo valiosas horas de tu jornada laboral copiando datos manualmente? ¿Abriendo adjuntos de correos para guardarlos en carpetas del servidor? ¿Transcribiendo leads de tu web a un Excel o CRM? Si la respuesta es sí, bienvenido al club del "trabajo hormiga". La buena noticia es que estamos en 2026, y no hay necesidad de que un humano haga tareas que una máquina puede resolver en segundos.
+
+Aquí es donde entra **Make.com** (anteriormente conocido como Integromat), una de las herramientas de automatización sin código (No-Code) más potentes y visuales del mercado.
+
+En esta guía práctica para PYMEs, te enseñaremos qué es Make.com, por qué es el rey indiscutible frente a alternativas tradicionales como Zapier, y cómo puedes crear tu primer flujo automático en menos de 15 minutos paso a paso.
+
+---
+
+## ¿Qué es Make.com y por qué es el rey de la automatización para PYMEs?
+
+Make es una plataforma de automatización iPaaS (Integration Platform as a Service) que permite conectar miles de aplicaciones de software (Gmail, Google Drive, Slack, Shopify, HubSpot, Notion, ChatGPT, etc.) entre sí sin escribir una sola línea de código. 
+
+A diferencia del trabajo de desarrollo tradicional, en Make las automatizaciones se construyen arrastrando "módulos" y conectándolos visualmente en un lienzo digital interactivo, como si estuvieras dibujando un mapa de procesos.
+
+### Make vs. Zapier: ¿Cuál elegir en tu empresa?
+
+Si has investigado sobre automatización, seguramente habrás oído hablar de **Zapier**. Aunque Zapier es un excelente producto, Make.com cuenta con tres ventajas definitivas para pequeñas y medianas empresas:
+
+1. **La Interfaz Visual:** Mientras que Zapier te obliga a construir flujos de manera lineal, Make te ofrece un lienzo infinito. Puedes bifurcar caminos, crear bucles y visualizar el flujo de la información en tiempo real mediante divertidos flujos de burbujas animadas.
+2. **Costes Radicalmente Menores:** Make ofrece un plan gratuito que incluye **1,000 operaciones al mes**. En Zapier, el plan gratuito es muy limitado y los planes de pago escalan de precio muy rápidamente en cuanto necesitas flujos de varios pasos ("multi-step"). En Make, puedes hacer flujos hipercomplejos en su versión gratuita o por una fracción del precio de Zapier.
+3. **Control Total de Datos:** Con Make puedes gestionar de forma mucho más precisa qué datos pasan por cada nodo, realizar transformaciones complejas de texto, operaciones matemáticas integradas y control de errores avanzado.
+
+---
+
+## Conceptos Básicos que Debes Conocer
+
+Antes de pulsar ningún botón, familiaricémonos con el vocabulario básico de Make:
+
+*   **Escenario (Scenario):** Es el nombre que recibe cada flujo de trabajo automatizado que creas.
+*   **Módulo (Module):** Cada una de las aplicaciones integradas en tu escenario. Por ejemplo, el módulo de Gmail o el módulo de Google Sheets.
+*   **Trigger (Desencadenador):** El evento que despierta al escenario. Suele estar marcado con un icono de un reloj. Por ejemplo: *"Cuando se reciba un nuevo correo"*.
+*   **Action (Acción):** Lo que Make hace después del trigger. Por ejemplo: *"Crea una nueva fila en esta hoja de cálculo"*.
+*   **Operación (Operation):** Cada acción individual realizada por un módulo cuando el escenario se ejecuta. Si tu flujo recibe un correo (1 op) y lo guarda en Drive (1 op), esa ejecución consumirá 2 operaciones en total.
+
+---
+
+## Tutorial Paso a Paso: Tu primera automatización (Gmail -> Google Drive -> Slack)
+
+Vamos a resolver uno de los problemas más típicos de la oficina: guardar automáticamente los presupuestos o facturas adjuntas que llegan al correo de administración en una carpeta compartida y avisar al equipo por Slack para que nadie se pierda nada.
+
+### Paso 1: Crea tu cuenta gratuita en Make.com
+Lo primero es tener acceso a la plataforma. Puedes darte de alta de forma gratuita en menos de un minuto haciendo clic en este enlace:
+👉 [**Registro Gratuito en Make.com**](https://www.make.com/en/register?pc=ia4pymes) *(Enlace de Afiliado Oficial IA4PYMES)*. Con esta cuenta tendrás acceso completo a las herramientas y 1,000 operaciones mensuales gratis para experimentar.
+
+### Paso 2: Crea un nuevo Escenario
+Una vez dentro de tu panel de Make:
+1. Ve a la sección **Scenarios** en la barra lateral izquierda.
+2. Haz clic en el botón **+ Create a new scenario** situado arriba a la derecha.
+3. Se abrirá un lienzo en blanco con un gran círculo con el símbolo "+" en el centro.
+
+### Paso 3: Configura el Trigger (Gmail - Watch Emails)
+1. Haz clic en el gran círculo central y busca **Gmail**.
+2. Selecciona el trigger llamado **Watch Emails** (vigilar correos).
+3. Haz clic en **Add** para conectar tu cuenta de correo. Dale permisos seguros a Make.
+4. En los campos de configuración:
+   *   **Folder:** Selecciona "INBOX" (o la carpeta que prefieras).
+   *   **Filter: Only unread emails:** Selecciona "No" si quieres procesar todos, o "Yes" solo para los no leídos.
+   *   **Search query:** Escribe \`has:attachment\` para asegurarte de que solo procesa correos que contengan archivos adjuntos.
+5. Haz clic en **OK**. Make te preguntará desde cuándo quieres empezar a buscar. Selecciona "From now on" (desde ahora en adelante) para probar.
+
+### Paso 4: Configura la Acción (Google Drive - Upload a File)
+1. Coloca el cursor sobre el módulo de Gmail y haz clic en la opción **Add another module** (el pequeño semicírculo a la derecha).
+2. Busca **Google Drive** y selecciona la acción **Upload a File** (subir un archivo).
+3. Conecta tu cuenta de Google Drive de la misma forma que Gmail.
+4. Configura los campos:
+   *   **Destination:** Elige "My Drive" o "Shared Drive".
+   *   **Folder ID:** Elige la carpeta específica donde se guardarán las facturas o adjuntos.
+   *   **File:** Selecciona la opción **Gmail - Watch Emails** y dentro de ella mapea el campo **Attachments** (los archivos adjuntos recogidos en el paso anterior).
+5. Haz clic en **OK**.
+
+### Paso 5: Configura la Notificación (Slack - Create a Message)
+1. Añade un nuevo módulo conectado al de Google Drive.
+2. Busca **Slack** y elige la acción **Create a Message** (o envíalo por Telegram/WhatsApp si tu equipo usa esas herramientas).
+3. Conecta tu cuenta o espacio de trabajo de Slack.
+4. Configura el mensaje:
+   *   **Channel Type:** Elige "Public Channel" o "Private Channel".
+   *   **Channel Name:** Selecciona el canal (ej: #administracion o #notificaciones).
+   *   **Text:** Escribe algo descriptivo y dinámico como: *"¡Hola equipo! Se ha guardado una nueva factura de {Gmail.sender.name} en Google Drive. Asunto: {Gmail.subject}"*. Los campos dinámicos entre llaves los puedes seleccionar con un clic directamente de la lista flotante que ofrece Make.
+5. Haz clic en **OK**.
+
+### Paso 6: Prueba y Activa
+1. Con los tres módulos conectados, haz clic en el botón **Run once** en la esquina inferior izquierda.
+2. Envía un correo de prueba a tu bandeja de entrada con un archivo adjunto.
+3. Observa cómo giran las burbujas de Make. Si todo está correcto, aparecerá un número "1" verde encima de cada módulo indicando que la información ha fluido correctamente.
+4. Ve a tu carpeta de Google Drive y a tu canal de Slack para comprobar que el archivo se ha subido y que el mensaje se ha publicado.
+5. Si funciona, simplemente activa el interruptor **Scheduling** (abajo a la izquierda) poniéndolo en **ON**. ¡Tu automatización ya está funcionando sola 24/7!
+
+---
+
+## 3 Consejos de Oro para Ahorrar Operaciones en Make
+
+A medida que tu negocio crezca, crearás más automatizaciones. Para evitar que tu cuenta consuma operaciones innecesarias, aplica estas buenas prácticas:
+
+1. **Usa Filtros Nativos:** En Make puedes hacer clic en la línea de conexión (el cable) que une dos módulos y hacer clic en "Set up a filter". Esto te permite detener el flujo antes de que se ejecute el siguiente módulo si no cumple una condición, ahorrándote consumir operaciones en los pasos posteriores.
+2. **Optimiza las Consultas de Búsqueda:** En el trigger de Gmail hemos configurado \`has:attachment\`. Hacer filtros mediante el lenguaje de búsqueda nativo del servicio (Gmail query) es infinitamente más eficiente que dejar que Make procese todos los correos y filtrarlos después.
+3. **Desactiva los Escenarios que no Uses:** Si creas escenarios de prueba o temporales, asegúrate de apagarlos (OFF) para evitar ejecuciones incidentales.
+
+---
+
+## Conclusión: El Primer Paso Hacia una PYME Eficiente
+
+Automatizar el envío de adjuntos a Drive es solo la punta del iceberg. Con Make.com puedes conectar bases de datos SQL, CRM de ventas, herramientas de facturación, pasarelas de pago (Stripe) y añadir módulos de Inteligencia Artificial (ChatGPT, Claude) para analizar el contenido de los documentos y tomar decisiones lógicas autónomas.
+
+La automatización no es una tecnología reservada para multinacionales. Hoy, cualquier pequeña empresa puede tener procesos optimizados y competir al más alto nivel sin incrementar su plantilla administrativa.
+
+---
+
+> ### 🚀 ¿Quieres llevar la automatización de tu negocio al siguiente nivel?
+> En **IA4PYMES** ayudamos a tu empresa a diseñar, implementar y mantener flujos de automatización complejos integrando Inteligencia Artificial avanzada. Te ayudamos a ahorrar cientos de horas mensuales eliminando tareas repetitivas de forma segura y profesional.
+> 
+> [**Reserva una reunión estratégica de 15 minutos 100% gratuita con nuestro equipo**](https://calendly.com/ia4pymes) y analizamos qué procesos de tu negocio se pueden automatizar hoy mismo.
+        `.trim(),
+    },
+    {
+        slug: "how-to-start-make-automate-sme-business",
+        title: "How to Get Started with Make.com to Automate Your SME Business (Step-by-Step Guide)",
+        description: "Learn how to use Make.com (formerly Integromat) to automate repetitive workflows in your SME. Step-by-step tutorial comparing Make vs Zapier, building a Gmail to Google Drive workflow, and key cost-saving tips.",
+        date: "2026-06-09",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Automation",
+        image: "/blog/tutorial-make-automatizacion-pymes.png",
+        lang: "en",
+        translationSlug: "como-empezar-make-automatizar-negocio-pymes",
+        content: `
+Are you still losing valuable hours of your workday manually copying data? Opening email attachments just to save them into server folders? Transcribing web leads into spreadsheets or CRMs? If the answer is yes, welcome to the "grunt work" club. The good news is that we are in 2026, and there is no need for a human to perform tasks that a machine can solve in seconds.
+
+This is where **Make.com** (formerly known as Integromat) comes in—one of the most powerful and visual no-code automation platforms on the market.
+
+In this practical guide for SMEs, we will show you what Make.com is, why it is the undisputed king compared to traditional alternatives like Zapier, and how you can build your first automated workflow in less than 15 minutes step-by-step.
+
+---
+
+## What is Make.com and why is it the King of Automation for SMEs?
+
+Make is an Integration Platform as a Service (iPaaS) that allows you to connect thousands of software applications (Gmail, Google Drive, Slack, Shopify, HubSpot, Notion, ChatGPT, etc.) with each other without writing a single line of code.
+
+Unlike traditional software development, automations in Make are built by dragging "modules" and connecting them visually on an interactive digital canvas, as if you were drawing a flowchart of your business processes.
+
+### Make vs. Zapier: Which one should your business choose?
+
+If you have researched business automation, you have surely heard of **Zapier**. While Zapier is an excellent product, Make.com offers three decisive advantages for small and medium-sized enterprises:
+
+1. **The Visual Interface:** While Zapier forces you to build workflows linearly, Make offers an infinite canvas. You can branch paths, create loops, and watch the flow of information in real-time with animated bubble pathways.
+2. **Radically Lower Costs:** Make offers a free plan that includes **1,000 operations per month**. In Zapier, the free plan is very restricted, and paid plans scale in price quickly once you need multi-step flows. In Make, you can build hyper-complex flows on the free version or for a fraction of Zapier's price.
+3. **Advanced Data Control:** Make gives you much more precise control over what data passes through each node, allowing complex text parsing, built-in math operations, and advanced error handling.
+
+---
+
+## Core Concepts You Need to Understand
+
+Before clicking any buttons, let's get familiar with Make's basic vocabulary:
+
+*   **Scenario:** This is the name given to each automated workflow you create.
+*   **Module:** Each of the integrated apps in your scenario. For example, the Gmail module or the Google Sheets module.
+*   **Trigger:** The event that starts the scenario. It is usually marked with a clock icon. For example: *"When a new email is received"*.
+*   **Action:** What Make does after the trigger. For example: *"Create a new row in this spreadsheet"*.
+*   **Operation:** Each individual action performed by a module when the scenario runs. If your flow watches for an email (1 op) and uploads it to Drive (1 op), that run will consume 2 operations in total.
+
+---
+
+## Step-by-Step Guide: Your First Automation (Gmail -> Google Drive -> Slack)
+
+Let's solve one of the most common office headaches: automatically saving invoice or quote attachments arriving at your admin email into a shared folder and notifying the team on Slack so nothing gets lost.
+
+### Step 1: Sign up for a Free Account on Make.com
+First, you need access to the platform. You can register for free in less than a minute by clicking this link:
+👉 [**Free Registration on Make.com**](https://www.make.com/en/register?pc=ia4pymes) *(Official IA4PYMES Affiliate Link)*. This account will give you full access to the tools and 1,000 free operations per month to experiment.
+
+### Step 2: Create a New Scenario
+Once inside your Make dashboard:
+1. Go to the **Scenarios** section on the left sidebar.
+2. Click the **+ Create a new scenario** button in the top right corner.
+3. A blank canvas will open with a large circle containing a "+" symbol in the middle.
+
+### Step 3: Set up the Trigger (Gmail - Watch Emails)
+1. Click the large central circle and search for **Gmail**.
+2. Select the trigger called **Watch Emails**.
+3. Click **Add** to connect your email account. Grant secure permissions to Make.
+4. In the configuration fields:
+   *   **Folder:** Select "INBOX" (or your preferred folder).
+   *   **Filter: Only unread emails:** Select "No" to process all, or "Yes" for unread only.
+   *   **Search query:** Type \`has:attachment\` to ensure it only processes emails containing attachments.
+5. Click **OK**. Make will ask you from when to start searching. Select "From now on" for testing.
+
+### Step 4: Set up the Action (Google Drive - Upload a File)
+1. Hover over the Gmail module and click the **Add another module** option (the small semi-circle on the right).
+2. Search for **Google Drive** and select the action **Upload a File**.
+3. Connect your Google Drive account in the same way.
+4. Configure the fields:
+   *   **Destination:** Choose "My Drive" or "Shared Drive".
+   *   **Folder ID:** Choose the specific folder where attachments will be saved.
+   *   **File:** Select the **Gmail - Watch Emails** option and map the **Attachments** field (the files collected in the previous step).
+5. Click **OK**.
+
+### Step 5: Set up the Notification (Slack - Create a Message)
+1. Add a new module connected to the Google Drive one.
+2. Search for **Slack** and choose the action **Create a Message** (or send it via Telegram/WhatsApp if your team prefers).
+3. Connect your Slack workspace.
+4. Configure the message:
+   *   **Channel Type:** Choose "Public Channel" or "Private Channel".
+   *   **Channel Name:** Select the channel (e.g., #admin or #notifications).
+   *   **Text:** Write a descriptive and dynamic message like: *"Hey team! A new invoice from {Gmail.sender.name} has been saved to Google Drive. Subject: {Gmail.subject}"*. You can click dynamic fields between braces directly from the floating list provided by Make.
+5. Click **OK**.
+
+### Step 6: Test and Activate
+1. With all three modules connected, click the **Run once** button in the lower-left corner.
+2. Send a test email containing an attachment to your inbox.
+3. Watch the bubbles spin in Make. If everything works, a green "1" will appear above each module indicating that the data flowed successfully.
+4. Check your Google Drive folder and your Slack channel to confirm the file uploaded and the message posted.
+5. If it works, simply toggle the **Scheduling** switch (bottom left) to **ON**. Your automation is now running 24/7!
+
+---
+
+## 3 Golden Rules to Save Operations on Make
+
+As your business grows, you will build more automations. To prevent your account from consuming unnecessary operations, apply these best practices:
+
+1. **Use Native Filters:** In Make, you can click the connection line (the wire) linking two modules and click "Set up a filter". This stops the flow before executing the next module if a condition is not met, saving operations on subsequent steps.
+2. **Optimize Search Queries:** In the Gmail trigger, we configured \`has:attachment\`. Filtering using the service's native search query language is infinitely more efficient than letting Make download all emails and filtering them afterward.
+3. **Turn Off Unused Scenarios:** If you create temporary or test scenarios, make sure to turn them OFF to avoid accidental executions.
+
+---
+
+## Conclusion: The First Step Toward an Efficient SME
+
+Automating email attachments to Drive is just the tip of the iceberg. With Make.com, you can connect SQL databases, sales CRMs, invoicing tools, payment gateways (Stripe), and add Artificial Intelligence modules (ChatGPT, Claude) to analyze document contents and make logical decisions autonomously.
+
+Automation is no longer a luxury reserved for multi-million dollar corporations. Today, any small business can optimize its processes and compete at the highest level without expanding its administrative staff.
+
+---
+
+> ### 🚀 Ready to Take Your Business Automation to the Next Level?
+> At **IA4PYMES**, we help your company design, implement, and maintain complex automation workflows integrating advanced Artificial Intelligence. We help you save hundreds of hours monthly by eliminating repetitive tasks securely and professionally.
+> 
+> [**Book a 100% free 15-minute strategic consultation with our team**](https://calendly.com/ia4pymes) and let's analyze which of your business processes can be automated today.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: IA de Apple y retraso en Europa (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
