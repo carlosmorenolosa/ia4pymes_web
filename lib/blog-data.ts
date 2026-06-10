@@ -16,6 +16,181 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Fable 5 y la era agéntica (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "claude-fable-5-modelo-mythos-ia-agente-pymes",
+        title: "Claude Fable 5: El primer modelo 'Mythos' de Anthropic que redefine la autonomía de la IA para las PYMEs",
+        description: "Analizamos Claude Fable 5 de Anthropic. Descubre qué significa el nivel 'Mythos' de IA agéntica, su capacidad de razonamiento autónomo multitarea y cómo impactará en el desarrollo de software y operaciones de tu PYME.",
+        date: "2026-06-10",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tecnología",
+        image: "/blog/claude-fable-5-mythos-model.png",
+        lang: "es",
+        translationSlug: "claude-fable-5-mythos-model-agent-sme",
+        content: `
+El 9 de junio de 2026, **Anthropic** sacudió el panorama de la Inteligencia Artificial al lanzar de forma oficial **Claude Fable 5**, inaugurando una categoría completamente nueva de modelos de lenguaje: la clase **"Mythos"**. 
+
+Si pensabas que el revuelo del último año con los agentes autónomos de IA era solo expectación exagerada (hype), Fable 5 viene a demostrar que el futuro de la automatización ya está aquí. Diseñado específicamente para tareas de largo horizonte y alta complejidad sin supervisión humana constante, este modelo no solo responde preguntas: **planifica, ejecuta, se autocorrige y valida sus propios resultados**.
+
+Hoy en **IA4PYMES**, desglosamos técnicamente qué significa este salto cuántico en la IA agéntica, cuáles son las especificaciones de Fable 5 y cómo este modelo cambiará las reglas de juego operativas y de desarrollo para las pequeñas y medianas empresas.
+
+---
+
+## ¿Qué es la clase "Mythos" y en qué se diferencia Claude Fable 5 de Claude Mythos 5?
+
+Hasta ahora, la industria clasificaba los modelos según su tamaño y propósito (como la gama Haiku, Sonnet y Opus de Anthropic). La clase **Mythos** nace como una denominación superior: modelos de frontera diseñados para la máxima capacidad cognitiva, razonamiento abstracto profundo y ejecución autónoma prolongada.
+
+En este lanzamiento, Anthropic ha presentado dos variantes:
+
+1.  **Claude Fable 5:** La versión comercial abierta a través de su API, Amazon Bedrock y Microsoft Foundry. Para evitar riesgos de seguridad, incluye clasificadores y salvaguardas estrictas. Si una consulta del usuario entra en una zona de riesgo técnico (como ciberseguridad ofensiva o síntesis química), el sistema deriva la tarea de forma automática a **Claude Opus 4.8** para mitigar posibles usos maliciosos.
+2.  **Claude Mythos 5:** El mismo motor neuronal pero sin los clasificadores de seguridad. Debido a su inmenso poder, esta variante está estrictamente restringida y solo se concede acceso a un grupo selecto de socios estratégicos y de seguridad (bajo iniciativas como el Project Glasswing) para labores defensivas de alto nivel.
+
+---
+
+## Las 4 características agénticas que hacen único a Fable 5
+
+Para una PYME, la diferencia entre Fable 5 y los modelos anteriores de IA radica en su comportamiento de **"operador senior"** en lugar de "asistente junior":
+
+### 1. Autonomía de largo horizonte (Long-Horizon Autonomy)
+Fable 5 no es una herramienta de chat de "pregunta y respuesta". Está diseñado para mantenerse ejecutando de manera productiva flujos de trabajo orientados a un objetivo durante horas o incluso días. Le das una meta compleja (ej: *"analiza esta base de datos de facturación de 2025, encuentra discrepancias de IVA comparándolo con la legislación vigente y genera un informe de corrección"*) y el modelo gestionará las fases del proceso de forma independiente.
+
+### 2. Razonamiento agéntico y autocorrección
+Si Fable 5 toma una dirección errónea en una tarea, cuenta con una capacidad analítica excepcional para detectar que su hipótesis es falsa, dar marcha atrás, reevaluar la situación y corregir su propio plan de acción. Esto reduce casi a cero las alucinaciones en flujos complejos.
+
+### 3. Precisión en el primer intento (First-Shot Accuracy)
+Una de las métricas que más frustra a las empresas al usar IA es tener que refinar los prompts 5 veces para obtener el resultado correcto. Fable 5 muestra una mejora sustancial en la precisión al primer intento. Analiza el contexto de forma exhaustiva antes de emitir la primera respuesta, ahorrando tiempo y coste de computación.
+
+### 4. Excelencia en desarrollo de software
+En los benchmarks técnicos de programación (como SWE-bench Pro), Fable 5 supera de largo a cualquier modelo anterior. Es capaz de realizar migraciones completas de repositorios de código, refactorizaciones multifichero complejas e interpretar esquemas y documentación técnica densa sin equivocarse de contexto.
+
+---
+
+## Especificaciones técnicas y precios de Claude Fable 5
+
+Para los desarrolladores y CTOs de PYMEs, estas son las cartas credenciales de Fable 5:
+
+*   **Ventana de contexto:** 1 millón de tokens (equivalente a unas 750.000 palabras o libros enteros de documentación técnica y código).
+*   **Límite de salida (Max Output):** Hasta 128.000 tokens de salida por petición, ideal para escribir código completo o informes extremadamente detallados de una sola vez.
+*   **Fecha de corte de conocimiento:** Enero de 2026.
+*   **Coste de la API:**
+    *   **Entrada (Input):** $10 por millón de tokens.
+    *   **Salida (Output):** $50 por millón de tokens.
+
+Si bien es un coste superior al de los modelos rápidos como Claude 3.5 Sonnet, su eficiencia resolutiva y la reducción de pasos intermedios compensan con creces el precio para tareas complejas donde la precisión es crítica.
+
+---
+
+## Cómo impacta Claude Fable 5 en el día a día de tu PYME
+
+¿Cómo se traduce esto en el negocio real? Aquí hay tres áreas inmediatas de aplicación:
+
+1.  **Ingeniería de software a bajo coste:** Si tu empresa desarrolla software propio o herramientas internas, Fable 5 puede actuar como un desarrollador senior virtual de apoyo. Puede encargarse de actualizar frameworks obsoletos, resolver bugs complejos en producción de forma autónoma o documentar código antiguo.
+2.  **Análisis financiero y auditorías:** Su gran ventana de contexto de 1 millón de tokens permite cargar los balances y facturas de todo un trimestre. Fable 5 puede analizar los patrones de gasto de tu empresa y sugerir estrategias de optimización fiscal o reducción de costes operativos con total precisión.
+3.  **Operaciones y soporte avanzado:** Conectar Fable 5 a tus sistemas de gestión interna (ERP/CRM) mediante agentes permite resolver reclamaciones complejas de clientes de forma autónoma, analizando el histórico del cliente, la política de la empresa y redactando la solución idónea sin intervención humana directa.
+
+---
+
+## Conclusión: El amanecer de la era agéntica
+
+Claude Fable 5 no es una simple mejora incremental de velocidad o memoria; es un cambio de paradigma. Hemos pasado de la IA que te ayuda a redactar correos a la IA que puede gestionar flujos completos de administración o desarrollo por sí sola. Para las PYMEs, esto representa una democratización tecnológica sin precedentes: la capacidad de multiplicar la productividad operativa sin necesidad de contar con los presupuestos de desarrollo de una multinacional.
+
+---
+
+> ### 🚀 ¿Quieres preparar a tu empresa para la revolución agéntica con Claude Fable 5?
+> En **IA4PYMES** somos especialistas en diseñar e integrar agentes de inteligencia artificial avanzados en las operaciones de pequeñas y medianas empresas. Te ayudamos a conectar modelos de frontera como Fable 5 a tus bases de datos y sistemas locales con total seguridad.
+> 
+> [**Reserva tu sesión estratégica de 15 minutos 100% gratuita con nuestros ingenieros**](https://calendly.com/ia4pymes) y analizamos cómo puedes empezar a ahorrar cientos de horas de trabajo administrativo y técnico hoy mismo.
+        `.trim(),
+    },
+    {
+        slug: "claude-fable-5-mythos-model-agent-sme",
+        title: "Claude Fable 5: Anthropic's First 'Mythos' Model and What It Means for SME Agentic Workflows",
+        description: "An in-depth analysis of Anthropic's new Claude Fable 5 model. Discover the 'Mythos-class' capabilities of agentic AI, self-correcting reasoning, and how it transforms software development and business operations.",
+        date: "2026-06-10",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Technology",
+        image: "/blog/claude-fable-5-mythos-model.png",
+        lang: "en",
+        translationSlug: "claude-fable-5-modelo-mythos-ia-agente-pymes",
+        content: `
+On June 9, 2026, **Anthropic** shook the Artificial Intelligence industry by officially releasing **Claude Fable 5**, introducing a brand new category of large language models: the **"Mythos"** class.
+
+If you thought the talk about autonomous AI agents over the past year was mostly hype, Fable 5 is here to prove that the future of automation is already here. Designed specifically for long-horizon, high-complexity tasks without constant human supervision, this model doesn't just answer questions: **it plans, executes, self-corrects, and validates its own output**.
+
+Today, at **IA4PYMES**, we break down technically what this quantum leap in agentic AI means, detail the technical specifications of Fable 5, and discuss how this model will change the development and operational landscape for small and medium-sized enterprises.
+
+---
+
+## What is the "Mythos" Class, and What's the Difference Between Claude Fable 5 and Claude Mythos 5?
+
+Until now, the industry categorized models based on size and purpose (such as Anthropic's Haiku, Sonnet, and Opus ranges). The **Mythos** class represents a tier above: frontier models architected for maximum cognitive capacity, deep abstract reasoning, and extended autonomous execution.
+
+With this release, Anthropic has introduced two variants:
+
+1.  **Claude Fable 5:** The commercial version available via API, Amazon Bedrock, and Microsoft Foundry. To ensure safety, it includes strict classifiers and guardrails. If a user query enters a high-risk technical domain (such as offensive cybersecurity or chemical synthesis), the system automatically routes the task to **Claude Opus 4.8** to prevent malicious exploitation.
+2.  **Claude Mythos 5:** The same underlying neural engine but without the safety classifiers. Due to its immense power, this variant is strictly restricted, with access granted only to a select group of strategic and security partners (under initiatives like Project Glasswing) for high-stakes defensive operations.
+
+---
+
+## The 4 Agentic Features That Make Fable 5 Unique
+
+For an SME, the difference between Fable 5 and earlier generations of AI lies in its behavior as a **"senior operator"** rather than a "junior assistant":
+
+### 1. Long-Horizon Autonomy
+Fable 5 is not a "question-and-answer" chat tool. It is built to keep running productively on goal-directed workflows for hours or even days. If you give it a complex goal (e.g., *\"analyze this 2025 accounting database, locate VAT discrepancies against current tax laws, and generate a correction report\"*), the model will manage the phases of the process independently.
+
+### 2. Agentic Reasoning and Self-Correction
+If Fable 5 takes a wrong turn during a task, it has the unique analytical capacity to detect that its initial hypothesis is false, back up, re-evaluate the situation, and reformulate its plan of action. This reduces hallucinations to near zero in complex workflows.
+
+### 3. First-Shot Accuracy
+One of the most frustrating aspects of using AI for businesses is having to refine prompts five times to get the right output. Fable 5 shows a substantial improvement in first-shot accuracy. It analyzes context thoroughly before emitting its first output, saving time and computing costs.
+
+### 4. Software Development Excellence
+On technical programming benchmarks (such as SWE-bench Pro), Fable 5 far outperforms any previous model. It can handle full repository migrations, complex multi-file refactors, and interpret dense technical diagrams and documentation without losing context.
+
+---
+
+## Technical Specifications and Pricing of Claude Fable 5
+
+For developers and SME CTOs, these are the credentials of Fable 5:
+
+*   **Context Window:** 1 million tokens (equivalent to about 750,000 words or entire books of technical documentation and code).
+*   **Max Output Limit:** Up to 128,000 tokens of output per request, ideal for writing complete code or highly detailed reports in a single pass.
+*   **Knowledge Cut-off:** January 2026.
+*   **API Cost:**
+    *   **Input:** $10 per million tokens.
+    *   **Output:** $50 per million tokens.
+
+While the price is higher than speed-oriented models like Claude 3.5 Sonnet, its problem-solving efficiency and the reduction of intermediate steps make it highly cost-effective for complex tasks where precision is critical.
+
+---
+
+## How Claude Fable 5 Impacts Your SME's Daily Operations
+
+How does this translate to real-world business? Here are three immediate application areas:
+
+1.  **Low-Cost Software Engineering:** If your company develops proprietary software or internal tools, Fable 5 can act as a virtual senior developer. It can handle outdated framework migrations, resolve production bugs autonomously, or document legacy codebases.
+2.  **Financial Analysis and Auditing:** Its large 1-million-token context window allows you to load spreadsheets and invoices for an entire quarter. Fable 5 can analyze your business's spending patterns and suggest tax optimization or cost-reduction strategies with total precision.
+3.  **Advanced Support and Operations:** Connecting Fable 5 to your internal systems (ERP/CRM) via agents allows it to resolve complex customer complaints autonomously by analyzing the customer history, company policy, and drafting the ideal resolution without direct human intervention.
+
+---
+
+## Conclusion: The Dawn of the Agentic Era
+
+Claude Fable 5 is not just an incremental improvement in speed or memory; it is a paradigm shift. We have moved from AI that helps you draft emails to AI that can manage complete administrative or development workflows on its own. For SMEs, this represents unprecedented technology democratization: the ability to multiply operational productivity without needing a multinational's IT budget.
+
+---
+
+> ### 🚀 Ready to Prepare Your Business for the Agentic Revolution with Claude Fable 5?
+> At **IA4PYMES**, we specialize in designing and integrating advanced AI agents into small and medium-sized business operations. We help you connect frontier models like Fable 5 to your local databases and systems securely and professionally.
+> 
+> [**Book a 100% free 15-minute strategic consultation with our engineers**](https://calendly.com/ia4pymes) and let's analyze how you can start saving hundreds of hours of administrative and technical work today.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Tutorial Make.com y Afiliados (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
