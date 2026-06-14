@@ -9,6 +9,15 @@ const nextConfig = {
   images: {
     // unoptimized: true, // Optimización activada para Vercel
   },
+  async redirects() {
+    return [
+      {
+        source: '/contacto',
+        destination: '/#contacto',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
