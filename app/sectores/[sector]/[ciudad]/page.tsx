@@ -286,7 +286,7 @@ export default async function SectorCityPage({ params }: PageProps) {
             </div>
             <div className="flex items-center gap-2 text-slate-400 text-xs font-black uppercase tracking-widest">
               <Sparkles className="w-4 h-4 text-blue-400" />
-              IA LOCAL · {cityName.toUpperCase()}
+              {cityName.toUpperCase()}
             </div>
           </div>
 
