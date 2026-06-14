@@ -36,20 +36,24 @@ function getCityName(ciudad: string): string {
   return ciudad.charAt(0).toUpperCase() + ciudad.slice(1)
 }
 
-// Mapa de contenidos para cumplir con los requisitos del usuario
+// Mapa de contenidos con los párrafos segmentados en bloques más legibles
 const contentMap: Record<
   string, // sector
   Record<
     string, // ciudad
     {
-      paragraph: string
+      paragraphs: string[]
       benefits: string[]
     }
   >
 > = {
   clinicas: {
     madrid: {
-      paragraph: "La implementación de inteligencia artificial en las clínicas de Madrid está revolucionando la gestión de la salud privada y la atención al paciente. En una urbe con alta competitividad y ritmo de vida acelerado, la integración de agentes conversacionales inteligentes permite automatizar la recepción de llamadas y la reserva de citas de manera ininterrumpida las 24 horas del día. Esto optimiza la productividad del personal administrativo y minimiza drásticamente las horas perdidas por citas no canceladas a tiempo. Los algoritmos predictivos analizan la demanda asistencial para ajustar las agendas médicas en tiempo real, garantizando una atención más rápida y personalizada. Al implementar estas tecnologías, los centros de salud madrileños logran reducir costes de operación, agilizar los flujos de trabajo internos y ofrecer una experiencia digital fluida que fideliza a los pacientes, mejorando la rentabilidad global de la consulta médica mediante una gestión moderna y adaptada al entorno tecnológico actual madrileño.",
+      paragraphs: [
+        "La implementación de inteligencia artificial en las clínicas de Madrid está revolucionando la gestión de la salud privada y la atención al paciente. En una urbe con alta competitividad y ritmo de vida acelerado, la integración de agentes conversacionales inteligentes permite automatizar la recepción de llamadas y la reserva de citas de manera ininterrumpida las 24 horas del día.",
+        "Esto optimiza la productividad del personal administrativo y minimiza drásticamente las horas perdidas por citas no canceladas a tiempo. Los algoritmos predictivos analizan la demanda asistencial para ajustar las agendas médicas en tiempo real, garantizando una atención más rápida y personalizada.",
+        "Al implementar estas tecnologías, los centros de salud madrileños logran reducir costes de operación, agilizar los flujos de trabajo internos y ofrecer una experiencia digital fluida que fideliza a los pacientes, mejorando la rentabilidad global de la consulta médica mediante una gestión moderna y adaptada al entorno tecnológico actual madrileño."
+      ],
       benefits: [
         "Automatización de citas y recordatorios por WhatsApp 24/7 sin intervención manual.",
         "Reducción del absentismo de pacientes en hasta un 45% mediante alertas predictivas.",
@@ -58,7 +62,11 @@ const contentMap: Record<
       ]
     },
     barcelona: {
-      paragraph: "La transformación digital y el uso de inteligencia artificial en las clínicas de Barcelona están redefiniendo el sector sanitario privado catalán. En una ciudad referente en innovación tecnológica, las clínicas implementan asistentes virtuales capaces de gestionar la atención al paciente multilingüe de forma ágil y automatizada. La automatización de citas y el seguimiento posoperatorio mediante IA garantizan una comunicación constante y sin demoras. Estas soluciones inteligentes minimizan las tareas manuales del equipo médico, permitiendo centrar los esfuerzos en el diagnóstico clínico y la atención directa. Además, el análisis de datos masivos ayuda a prever picos de demanda y organizar los recursos de forma óptima. Las clínicas barcelonesas que adoptan IA consiguen diferenciarse en un mercado altamente competitivo, logrando reducir los tiempos de espera y optimizando los costes de administración de forma sustancial, garantizando la máxima calidad en cada servicio de salud.",
+      paragraphs: [
+        "La transformación digital y el uso de inteligencia artificial en las clínicas de Barcelona están redefiniendo el sector sanitario privado catalán. En una ciudad referente en innovación tecnológica, las clínicas implementan asistentes virtuales capaces de gestionar la atención al paciente multilingüe de forma ágil y automatizada.",
+        "La automatización de citas y el seguimiento posoperatorio mediante IA garantizan una comunicación constante y sin demoras. Estas soluciones inteligentes minimizan las tareas manuales del equipo médico, permitiendo centrar los esfuerzos en el diagnóstico clínico y la atención directa.",
+        "Además, el análisis de datos masivos ayuda a prever picos de demanda y organizar los recursos de forma óptma. Las clínicas barcelonesas que adoptan IA consiguen diferenciarse en un mercado altamente competitivo, logrando reducir los tiempos de espera y optimizando los costes de administración de forma sustancial, garantizando la máxima calidad en cada servicio de salud."
+      ],
       benefits: [
         "Atención al paciente multilingüe automatizada para dar soporte inmediato y fluido.",
         "Seguimiento posoperatorio proactivo por canales digitales para mejorar el cuidado.",
@@ -67,7 +75,11 @@ const contentMap: Record<
       ]
     },
     valencia: {
-      paragraph: "Las clínicas de Valencia están adoptando la inteligencia artificial como una herramienta estratégica para optimizar su gestión diaria y mejorar la relación con el paciente. En el dinámico mercado sanitario valenciano, los sistemas inteligentes de automatización permiten coordinar las agendas de los médicos, gestionar los recordatorios de consulta de forma automática y procesar datos administrativos sin errores humanos. Los asistentes de IA responden preguntas frecuentes de manera inmediata por WhatsApp, liberando al personal de recepción para tareas complejas. Esta optimización operativa reduce las cancelaciones de última hora y maximiza el uso de las instalaciones médicas de la clínica. Con la integración de soluciones de IA, las clínicas valencianas logran un retorno de inversión inmediato a través del ahorro de tiempo, posicionándose a la vanguardia de la innovación médica y ofreciendo una atención rápida y de confianza a todos sus pacientes locales.",
+      paragraphs: [
+        "Las clínicas de Valencia están adoptando la inteligencia artificial como una herramienta estratégica para optimizar su gestión diaria y mejorar la relación con el paciente. En el dinámico mercado sanitario valenciano, los sistemas inteligentes de automatización permiten coordinar las agendas de los médicos, gestionar los recordatorios de consulta de forma automática y procesar datos administrativos sin errores humanos.",
+        "Los asistentes de IA responden preguntas frecuentes de manera inmediata por WhatsApp, liberando al personal de recepción para tareas complejas. Esta optimización operativa reduce las cancelaciones de última hora y maximiza el uso de las instalaciones médicas de la clínica.",
+        "Con la integración de soluciones de IA, las clínicas valencianas logran un retorno de inversión inmediato a través del ahorro de tiempo, posicionándose a la vanguardia de la innovación médica y ofreciendo una atención rápida y de confianza a todos sus pacientes locales."
+      ],
       benefits: [
         "Coordinación inteligente de agendas médicas para evitar solapamientos y huecos vacíos.",
         "Resolución instantánea de dudas frecuentes por chat 24 horas al día, 7 días a la semana.",
@@ -78,7 +90,11 @@ const contentMap: Record<
   },
   abogados: {
     madrid: {
-      paragraph: "El sector legal en Madrid está experimentando una profunda evolución gracias a la adopción de la inteligencia artificial en despachos de abogados. En el centro neurálgico administrativo de España, los bufetes madrileños utilizan IA para agilizar el análisis exhaustivo de miles de contratos y jurisprudencia compleja en pocos segundos. Esto optimiza los tiempos de investigación judicial y permite redactar escritos jurídicos de manera más ágil y precisa. Los asistentes virtuales inteligentes atienden las consultas preliminares de los clientes web las 24 horas, filtrando y preclasificando los casos antes de la primera reunión. Con esta automatización de procesos repetitivos, los abogados de Madrid incrementan significativamente su productividad y reducen costes operativos internos. Adoptar tecnologías cognitivas no solo mejora el rendimiento del despacho, sino que garantiza una respuesta más rápida y eficiente a clientes exigentes que valoran la inmediatez y la excelencia jurídica.",
+      paragraphs: [
+        "El sector legal en Madrid está experimentando una profunda evolución gracias a la adopción de la inteligencia artificial en despachos de abogados. En el centro neurálgico administrativo de España, los bufetes madrileños utilizan IA para agilizar el análisis exhaustivo de miles de contratos y jurisprudencia compleja en pocos segundos.",
+        "Esto optimiza los tiempos de investigación judicial y permite redactar escritos jurídicos de manera más ágil y precisa. Los asistentes virtuales inteligentes atienden las consultas preliminares de los clientes web las 24 horas, filtrando y preclasificando los casos antes de la primera reunión.",
+        "Con esta automatización de procesos repetitivos, los abogados de Madrid incrementan significativamente su productividad y reducen costes operativos internos. Adoptar tecnologías cognitivas no solo mejora el rendimiento del despacho, sino que garantiza una respuesta más rápida y eficiente a clientes exigentes que valoran la inmediatez y la excelencia jurídica."
+      ],
       benefits: [
         "Análisis automatizado de miles de páginas de contratos y jurisprudencia en segundos.",
         "Redacción ágil y sin errores de escritos jurídicos y documentos de trámite repetitivos.",
@@ -87,7 +103,11 @@ const contentMap: Record<
       ]
     },
     barcelona: {
-      paragraph: "La inteligencia artificial se ha consolidado como un factor diferencial indispensable para los despachos de abogados en Barcelona que buscan liderar la abogacía moderna. En el dinámico entorno empresarial barcelonés, la automatización legal mediante IA facilita el procesamiento automático de contratos, la revisión ágil de litigios y el análisis predictivo de resoluciones judiciales previas. Los asistentes virtuales automatizados optimizan la relación con los representados, respondiendo consultas básicas de manera inmediata y gestionando la agenda del despacho sin fricciones. Esto ahorra valiosas horas semanales que los letrados pueden destinar a la estrategia de defensa y a la negociación directa. Al integrar sistemas avanzados de IA, los bufetes en Barcelona mejoran su competitividad, reducen drásticamente los gastos generales y ofrecen un servicio jurídico adaptado a la velocidad digital que el tejido empresarial actual requiere para sus gestiones.",
+      paragraphs: [
+        "La inteligencia artificial se ha consolidado como un factor diferencial indispensable para los despachos de abogados en Barcelona que buscan liderar la abogacía moderna. En el dinámico entorno empresarial barcelonés, la automatización legal mediante IA facilita el procesamiento automático de contratos, la revisión ágil de litigios y el análisis predictivo de resoluciones judiciales previas.",
+        "Los asistentes virtuales automatizados optimizan la relación con los representados, respondiendo consultas básicas de manera inmediata y gestionando la agenda del despacho sin fricciones. Esto ahorra valiosas horas semanales que los letrados pueden destinar a la estrategia de defensa y a la negociación directa.",
+        "Al integrar sistemas avanzados de IA, los bufetes en Barcelona mejoran su competitividad, reducen drásticamente los gastos generales y ofrecen un servicio jurídico adaptado a la velocidad digital que el tejido empresarial actual requiere para sus gestiones."
+      ],
       benefits: [
         "Procesamiento ágil y automático de documentos y contratos en entorno corporativo.",
         "Análisis predictivo de sentencias judiciales basadas en históricos de resoluciones.",
@@ -96,7 +116,11 @@ const contentMap: Record<
       ]
     },
     valencia: {
-      paragraph: "Los despachos de abogados en Valencia están incorporando la inteligencia artificial para automatizar procesos administrativos y mejorar la rentabilidad de sus servicios legales. Los bufetes valencianos utilizan soluciones de automatización inteligente para redactar borradores contractuales, clasificar expedientes y analizar jurisprudencia local con una precisión sin precedentes. Los asistentes virtuales con IA atienden a clientes potenciales en la web corporativa, resolviendo dudas iniciales y recopilando información clave de forma segura y automatizada. Esto reduce las horas invertidas en tareas administrativas de bajo valor, permitiendo a los abogados valencianos focalizarse en la resolución de litigios y la asesoría personalizada. El uso estratégico de la IA en el sector legal valenciano no solo incrementa la eficiencia operativa de las firmas, sino que eleva la satisfacción del cliente al ofrecer un soporte legal más rápido, moderno, transparente y de altísima calidad.",
+      paragraphs: [
+        "Los despachos de abogados en Valencia están incorporando la inteligencia artificial para automatizar procesos administrativos y mejorar la rentabilidad de sus servicios legales. Los bufetes valencianos utilizan soluciones de automatización inteligente para redactar borradores contractuales, clasificar expedientes y analizar jurisprudencia local con una precisión sin precedentes.",
+        "Los asistentes virtuales con IA atienden a clientes potenciales en la web corporativa, resolviendo dudas iniciales y recopilando información clave de forma segura y automatizada. Esto reduce las horas invertidas en tareas administrativas de bajo valor, permitiendo a los abogados valencianos focalizarse en la resolución de litigios y la asesoría personalizada.",
+        "El uso estratégico de la IA en el sector legal valenciano no solo incrementa la eficiencia operativa de las firmas, sino que eleva la satisfacción del cliente al ofrecer un soporte legal más rápido, moderno, transparente y de altísima calidad."
+      ],
       benefits: [
         "Reducción del tiempo de investigación legal mediante procesamiento inteligente.",
         "Clasificación automática e inteligente de expedientes y correos del despacho.",
@@ -107,7 +131,11 @@ const contentMap: Record<
   },
   gestorias: {
     madrid: {
-      paragraph: "Las gestorías de Madrid están transformando sus flujos de trabajo tradicionales mediante la implantación de tecnologías de inteligencia artificial. En un entorno regulatorio exigente y con una gran concentración de empresas y autónomos, la automatización inteligente es clave. Los sistemas de IA permiten el procesamiento automático de facturas y la extracción inmediata de datos contables mediante OCR inteligente, eliminando el registro manual propenso a errores. Además, la conciliación bancaria y la preparación de declaraciones fiscales se realizan de manera automática y segura. Los canales de comunicación con los clientes se agilizan gracias a asistentes virtuales de IA que aclaran dudas sobre plazos, normativas y estado de trámites las 24 horas del día. Al adoptar estas herramientas avanzadas, las gestorías madrileñas reducen sus costes de gestión, aumentan su capacidad operativa para captar nuevos clientes y garantizan un servicio de asesoramiento fiscal rápido y eficiente.",
+      paragraphs: [
+        "Las gestorías de Madrid están transformando sus flujos de trabajo tradicionales mediante la implantación de tecnologías de inteligencia artificial. En un entorno regulatorio exigente y con una gran concentración de empresas y autónomos, la automatización inteligente es clave.",
+        "Los sistemas de IA permiten el procesamiento automático de facturas y la extracción inmediata de datos contables mediante OCR inteligente, eliminando el registro manual propenso a errores. Además, la conciliación bancaria y la preparación de declaraciones fiscales se realizan de manera automática y segura.",
+        "Los canales de comunicación con los clientes se agilizan gracias a asistentes virtuales de IA que aclaran dudas sobre plazos, normativas y estado de trámites las 24 horas del día. Al adoptar estas herramientas avanzadas, las gestorías madrileñas reducen sus costes de gestión, aumentan su capacidad operativa para captar nuevos clientes y garantizan un servicio de asesoramiento fiscal rápido y eficiente."
+      ],
       benefits: [
         "Extracción automática y lectura inteligente de facturas (OCR) sin introducción manual.",
         "Conciliación bancaria automatizada con detección inmediata de descuadres contables.",
@@ -116,7 +144,11 @@ const contentMap: Record<
       ]
     },
     barcelona: {
-      paragraph: "La inteligencia artificial se ha convertido en el principal motor de eficiencia para las gestorías en Barcelona que buscan digitalizar sus procesos operativos. Los despachos de asesoría catalanes integran herramientas cognitivas para procesar grandes volúmenes de documentación fiscal, contable y laboral en cuestión de minutos. La extracción de datos inteligente mediante IA automatiza el asiento de facturas y la conciliación de cuentas bancarias sin intervención manual. Esto disminuye drásticamente el margen de error y optimiza el tiempo de entrega en la presentación de impuestos. Además, los asistentes virtuales responden consultas rutinarias de autónomos y pymes de forma instantánea, elevando la calidad de la atención al cliente. Con estas automatizaciones, las gestorías de Barcelona consiguen liberarse del papeleo administrativo pesado, enfocándose en la consultoría estratégica de alto valor y mejorando significativamente su rentabilidad operativa en el mercado local.",
+      paragraphs: [
+        "La inteligencia artificial se ha convertido en el principal motor de eficiencia para las gestorías en Barcelona que buscan digitalizar sus procesos operativos. Los despachos de asesoría catalanes integran herramientas cognitivas para procesar grandes volúmenes de documentación fiscal, contable y laboral en cuestión de minutos.",
+        "La extracción de datos inteligente mediante IA automatiza el asiento de facturas y la conciliación de cuentas bancarias sin intervención manual. Esto disminuye drásticamente el margen de error y optimiza el tiempo de entrega en la presentación de impuestos.",
+        "Además, los asistentes virtuales responden consultas rutinarias de autónomos y pymes de forma instantánea, elevando la calidad de la atención al cliente. Con estas automatizaciones, las gestorías de Barcelona consiguen liberarse del papeleo administrativo pesado, enfocándose en la consultoría estratégica de alto valor y mejorando significativamente su rentabilidad operativa en el mercado local."
+      ],
       benefits: [
         "Procesamiento masivo de documentación contable en minutos y con alta fiabilidad.",
         "Automatización del asiento diario de facturas directamente al software de gestión.",
@@ -125,7 +157,11 @@ const contentMap: Record<
       ]
     },
     valencia: {
-      paragraph: "Las gestorías en Valencia están liderando la adopción de la inteligencia artificial para simplificar la contabilidad y la gestión laboral de sus clientes. Las asesorías valencianas emplean sistemas inteligentes para la lectura automática de facturas y recibos, lo que acelera el cierre contable mensual de forma exponencial. La automatización mediante IA optimiza los trámites administrativos ante la administración pública y facilita la conciliación de múltiples cuentas bancarias de manera simultánea y segura. Asimismo, la integración de agentes conversacionales permite dar respuestas inmediatas a preguntas frecuentes de clientes sobre nóminas o impuestos. El resultado para las gestorías valencianas es un incremento notable en su productividad diaria, logrando una drástica reducción de costes operativos y permitiendo ofrecer una asesoría financiera más ágil, proactiva y orientada a los resultados reales de cada pequeña y mediana empresa.",
+      paragraphs: [
+        "Las gestorías en Valencia están liderando la adopción de la inteligencia artificial para simplificar la contabilidad y la gestión laboral de sus clientes. Las asesorías valencianas emplean sistemas inteligentes para la lectura automática de facturas y recibos, lo que acelera el cierre contable mensual de forma exponencial.",
+        "La automatización mediante IA optimiza los trámites administrativos ante la administración pública y facilita la conciliación de múltiples cuentas bancarias de manera simultánea y segura. Asimismo, la integración de agentes conversacionales permite dar respuestas inmediatas a preguntas frecuentes de clientes sobre nóminas o impuestos.",
+        "El resultado para las gestorías valencianas es un incremento notable en su productividad diaria, logrando una drástica reducción de costes operativos y permitiendo ofrecer una asesoría financiera más ágil, proactiva y orientada a los resultados reales de cada pequeña y mediana empresa."
+      ],
       benefits: [
         "Aceleración exponencial del cierre contable mensual y confección automática de libros.",
         "Automatización en la presentación de trámites ante la Seguridad Social y Hacienda.",
@@ -298,9 +334,14 @@ export default async function SectorCityPage({ params }: PageProps) {
               prose-strong:text-white prose-strong:font-black
               prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 transition-colors">
             
-            <p className="lead text-xl sm:text-2xl text-slate-200 leading-relaxed font-semibold mb-12">
-              {data.paragraph}
-            </p>
+            {data.paragraphs.map((p, idx) => (
+              <p 
+                key={idx} 
+                className={idx === 0 ? "lead text-xl sm:text-2xl text-slate-200 leading-relaxed font-semibold mb-8 text-pretty" : "text-slate-300 leading-relaxed font-medium mb-6 text-pretty"}
+              >
+                {p}
+              </p>
+            ))}
 
             <h2 className="text-3xl font-black text-white mt-16 mb-8 tracking-tighter">
               4 Beneficios clave de la IA para {sectorName.toLowerCase()} en {cityName}
