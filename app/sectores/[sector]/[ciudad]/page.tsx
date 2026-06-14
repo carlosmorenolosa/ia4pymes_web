@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { Terminal, Sparkles, ArrowLeft, ArrowRight, CheckCircle } from "lucide-react"
+import { Terminal, Sparkles, ArrowLeft, ArrowRight, Calendar } from "lucide-react"
 import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
+import ReadingProgressBar from "@/components/reading-progress-bar"
 
 interface PageProps {
   params: Promise<{ sector: string; ciudad: string }>
@@ -35,7 +36,7 @@ function getCityName(ciudad: string): string {
   return ciudad.charAt(0).toUpperCase() + ciudad.slice(1)
 }
 
-// Mapa de contenidos para cumplir estrictamente con los requisitos del usuario
+// Mapa de contenidos para cumplir con los requisitos del usuario
 const contentMap: Record<
   string, // sector
   Record<
@@ -225,24 +226,23 @@ export default async function SectorCityPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
 
-      {/* Cabecera premium con glow y estilo de consola */}
-      <header className="relative bg-[#020617] min-h-[40vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-white/5">
-        {/* Imagen de fondo sutil si es necesario (glowing gradient) */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      <ReadingProgressBar />
 
+      {/* Hero Header (Light & Professional) */}
+      <header className="relative bg-[#020617] min-h-[40vh] flex flex-col justify-end pb-20 pt-32 overflow-hidden border-b border-white/5">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-          {/* Navegación de retorno */}
+          {/* Navigation */}
           <nav className="mb-12">
             <Link
-              href="/"
+              href="/blog"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Retornar al Core
+              Retornar al sistema
             </Link>
           </nav>
 
-          {/* Badges de metadatos */}
+          {/* Meta badges */}
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
               <Terminal className="w-3.5 h-3.5" />
@@ -254,92 +254,117 @@ export default async function SectorCityPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Título Principal (H1) */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter drop-shadow-[0_0_30px_rgba(37,99,235,0.3)] leading-[1.1]">
-            Soluciones de IA para <span className="text-blue-500">{sectorName}</span> en <span className="text-blue-500">{cityName}</span>
+          {/* Title (H1) */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter drop-shadow-[0_0_30px_rgba(37,99,235,0.3)] mb-6">
+            Soluciones de IA para {sectorName} en {cityName}
           </h1>
-        </div>
-      </header>
 
-      {/* Sección de Contenido y Beneficios */}
-      <section className="py-20 sm:py-32 bg-[#020617] relative border-t border-white/5">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-          {/* Párrafo Explicativo (Exactamente 150 palabras) */}
-          <div className="mb-20">
-            <p className="text-xl sm:text-2xl text-slate-300 leading-relaxed font-medium text-pretty">
-              {data.paragraph}
-            </p>
-          </div>
-
-          {/* Lista de 4 Beneficios Concretos */}
-          <div className="mb-24">
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tighter mb-10 flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-blue-500" />
-              Impacto y Beneficios Operativos
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {data.benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 flex gap-4"
-                >
-                  <div className="w-10 h-10 rounded-2xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                    <CheckCircle className="w-5 h-5 text-blue-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white mb-2 text-lg">Métrica / Beneficio 0{index + 1}</h3>
-                    <p className="text-slate-400 text-sm font-medium leading-relaxed">{benefit}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Author & Date Card */}
+          <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
+                <span className="font-black text-white text-xl leading-none">IA4</span>
+              </div>
+              <div>
+                <p className="font-black text-white text-sm uppercase tracking-tight">IA4PYMES</p>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
+              </div>
+            </div>
+            <div className="hidden sm:block h-10 w-px bg-slate-100/10" />
+            <div className="flex items-center gap-3 text-slate-400 text-sm font-bold uppercase tracking-widest">
+              <Calendar className="w-5 h-5 text-blue-500" />
+              <time dateTime={new Date().toISOString().split('T')[0]}>
+                {new Date().toLocaleDateString("es-ES", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </time>
             </div>
           </div>
+        </div>
 
-          {/* Tarjeta de Llamada a la Acción (CTA) */}
-          <div className="p-10 sm:p-14 rounded-[2.5rem] bg-gradient-to-br from-blue-950/20 to-slate-900/50 border border-white/10 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none"></div>
+        {/* Accent Glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      </header>
 
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-6 tracking-tighter">
-              ¿Quieres ver cómo funciona en tu negocio?
-            </h2>
-            <p className="text-slate-400 mb-10 max-w-xl mx-auto font-medium text-base sm:text-lg">
-              Diseñamos e implementamos ecosistemas de IA que reducen tus costes operativos y liberan a tu equipo del trabajo repetitivo en {cityName}.
+      {/* Reading Area - Clean & High Readability */}
+      <article className="py-20 sm:py-32 bg-[#020617] relative border-t border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
+          {/* Contenedor principal con estilos de lectura refinados del blog */}
+          <div className="blog-article-content prose prose-lg md:prose-xl max-w-none 
+              prose-headings:text-white prose-headings:font-black prose-headings:tracking-tighter
+              prose-p:text-slate-300 prose-p:leading-relaxed prose-p:font-medium
+              prose-strong:text-white prose-strong:font-black
+              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 transition-colors">
+            
+            <p className="lead text-xl sm:text-2xl text-slate-200 leading-relaxed font-semibold mb-12">
+              {data.paragraph}
             </p>
 
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-full font-bold hover:bg-blue-700 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-blue-600/20 cursor-pointer text-lg uppercase tracking-wide"
-            >
-              Quiero una demo gratuita
-              <ArrowRight className="w-6 h-6" />
-            </Link>
+            <h2 className="text-3xl font-black text-white mt-16 mb-8 tracking-tighter">
+              4 Beneficios clave de la IA para {sectorName.toLowerCase()} en {cityName}
+            </h2>
+
+            <ul className="space-y-6 list-none pl-0">
+              {data.benefits.map((benefit, index) => (
+                <li 
+                  key={index} 
+                  className="flex gap-5 items-start bg-white/[0.02] border border-white/5 hover:border-blue-500/20 p-6 rounded-3xl transition-all duration-300 shadow-sm"
+                >
+                  <div className="w-8 h-8 rounded-full bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <span className="font-mono text-xs font-black text-blue-400">0{index + 1}</span>
+                  </div>
+                  <span className="text-slate-300 font-medium leading-relaxed">{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+      </article>
+
+      {/* CTA Section */}
+      <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
+            <Terminal className="w-4 h-4" />
+            initiating_deployment...
+          </div>
+
+          <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
+            Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
+          </h2>
+
+          <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
+            El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa en {cityName} para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
+          </p>
+
+          <Link
+            href="/contacto"
+            className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
+          >
+            Quiero una demo gratuita
+            <ArrowRight className="w-6 h-6" />
+          </Link>
         </div>
       </section>
 
-      {/* Widget flotante de chat */}
+      {/* Blog floating chat widget */}
       <BlogChatWidgetLoader lang="es" />
 
-      {/* Footer Premium consistente */}
+      {/* Premium Footer */}
       <footer className="py-12 bg-slate-950 border-t border-white/5">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl flex flex-col sm:flex-row justify-between items-center gap-10">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
             <Terminal className="w-5 h-5" />
             <span>IA4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-10">
-            <Link
-              href="/blog"
-              className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest"
-            >
-              Blog
+            <Link href="/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
+              Documentación
             </Link>
-            <Link
-              href="/"
-              className="text-sm font-black text-slate-500 hover:text-white transition-colors cursor-pointer uppercase tracking-widest"
-            >
-              Retornar al core
+            <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
+              Retornar al sistema
             </Link>
           </div>
         </div>
