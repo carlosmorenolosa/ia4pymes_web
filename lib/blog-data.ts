@@ -16,6 +16,165 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Pi Coding Agent (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "pi-coding-agent-alternativa-open-source-claude-code",
+        title: "Pi Coding Agent: La alternativa open source a Claude Code que da soberanía digital a tu PYME",
+        description: "Analizamos Pi Coding Agent, el asistente de programación en terminal open source. Descubre por qué es compatible con modelos locales y externos y no tiene nada que envidiar a Claude Code.",
+        date: "2026-06-14",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tecnología",
+        image: "/blog/pi-coding-agent-open-source.png",
+        lang: "es",
+        translationSlug: "pi-coding-agent-open-source-alternative-claude-code",
+        content: `
+El ecosistema del desarrollo de software asistido por Inteligencia Artificial ha vivido una explosión de herramientas propietarias como GitHub Copilot, OpenAI Codex y, más recientemente, **Claude Code** (el agente de terminal lanzado por Anthropic). Sin embargo, para muchas empresas y desarrolladores independientes, estas herramientas presentan dos grandes barreras: el **bloqueo de proveedor (vendor lock-in)** (obligándote a usar únicamente sus APIs de pago) y la **falta de soberanía sobre tu propio código**.
+
+Si tu PYME desarrolla software propio, subir tu propiedad intelectual a servidores en la nube de terceros puede ser un riesgo operativo y legal.
+
+Aquí es donde entra **Pi Coding Agent** (también conocido simplemente como **Pi**), una de las mejores alternativas de código abierto (Open Source) del mercado. Este agente de programación en terminal, mantenido por la organización \`@earendil-works\` en GitHub, demuestra que no hace falta depender de licencias corporativas cerradas para tener un asistente de programación extremadamente potente.
+
+En esta reseña y análisis técnico, te explicamos qué hace tan especial a Pi Coding Agent y por qué no tiene nada que envidiar a Claude Code.
+
+---
+
+## Ecosistema y arquitectura minimalista: Las 4 herramientas básicas
+
+A diferencia de otros asistentes cargados de funciones innecesarias que complican el proceso, Pi Coding Agent sigue una **filosofía minimalista y modular**. El agente principal (\`@earendil-works/pi-agent-core\`) solo expone cuatro herramientas básicas a los Modelos de Lenguaje:
+
+1.  **read (leer):** Permite al modelo inspeccionar el código de cualquier fichero del repositorio.
+2.  **write (escribir):** Permite escribir nuevos ficheros de código desde cero.
+3.  **edit (editar):** Permite modificar fragmentos específicos de ficheros existentes de forma precisa.
+4.  **bash (consola):** Permite ejecutar comandos de terminal (como tests, compilaciones o scripts) para comprobar si el código funciona en tiempo real.
+
+Toda funcionalidad adicional (como planificación de tareas, subagentes o modos de auditoría) se puede construir sobre esta base mediante un flexible sistema de extensiones y habilidades. Esta arquitectura hace que Pi sea extremadamente rápido y consuma muchos menos recursos que sus competidores comerciales.
+
+---
+
+## Libertad total de modelos: Conexión local y externa
+
+La mayor ventaja competitiva de Pi Coding Agent frente a Claude Code o Codex es que es **100% agnóstico respecto al modelo de Inteligencia Artificial**. No estás atado a una sola API:
+
+*   **Modelos externos comerciales:** Pi se conecta de forma nativa a APIs de primer nivel como Anthropic (Claude 3.5 Sonnet o Claude Fable 5), OpenAI (GPT-4o), Google Gemini y proveedores de alta velocidad como Groq u OpenRouter.
+*   **Modelos locales privados:** Si deseas soberanía digital absoluta y que tu código no salga de la oficina, puedes conectar Pi a modelos locales a través de **Ollama** o **Llama.cpp**. Puedes utilizar modelos de código abierto especializados en programación (como Llama 3 8B, Qwen 2.5 Coder o DeepSeek Coder) ejecutándose directamente en la tarjeta gráfica de tu ordenador o en un servidor local de la empresa de forma 100% gratuita y privada.
+
+---
+
+## Comparativa: Pi Coding Agent vs. Claude Code vs. OpenAI Codex
+
+¿Cómo se posiciona Pi frente a los gigantes comerciales de la programación?
+
+| Característica | Pi Coding Agent | Claude Code | OpenAI Codex (Legacy) |
+| :--- | :--- | :--- | :--- |
+| **Licencia** | Código Abierto (MIT) | Propietario (Cerrado) | Propietario (Cerrado) |
+| **Enfoque de interfaz** | Terminal interactivo (CLI/TUI) | Terminal interactivo (CLI) | Integrado en IDE (Copilot) |
+| **Modelos locales** | Sí (vía Ollama/Llama.cpp) | No (requiere API de Anthropic) | No (requiere nube de OpenAI) |
+| **Modularidad** | Alta (4 herramientas nativas + skills) | Media (herramientas integradas) | Baja (extensión de IDE) |
+| **Privacidad de datos** | Máxima (inmune a fugas locales) | Media (pasa por servidores de EE. UU.) | Baja (datos procesados en nube) |
+
+Pi Coding Agent no solo iguala la capacidad operativa de Claude Code al ejecutar tests y refactorizar código multifichero mediante su herramienta de \`bash\` y su bucle agéntico de autocorrección, sino que lo supera en versatilidad gracias a su compatibilidad multimodelo y su independencia geopolítica.
+
+---
+
+## Conclusión: Por qué tu PYME debería elegir Pi Coding Agent
+
+Para una pequeña o mediana empresa que gestiona su propio equipo de desarrollo de software, Pi Coding Agent representa la **combinación perfecta de potencia, ahorro de costes y seguridad de datos**:
+
+*   **Evitas el Vendor Lock-in:** Si mañana un proveedor de API sube sus precios o restringe el servicio en Europa por motivos regulatorios, solo tienes que cambiar una línea de configuración en Pi para conectarlo a otro proveedor o a un modelo local.
+*   **Seguridad del código:** Tu propiedad intelectual, secretos de API y lógica de negocio sensible no se envían a servidores externos si configuras Pi para que funcione sobre un modelo de código abierto local.
+*   **Costes reducidos:** El uso de modelos locales a través de Ollama elimina el gasto mensual en facturas de API externas, permitiendo a tus desarrolladores experimentar y generar código sin preocuparse de los costes por token.
+
+Pi Coding Agent demuestra que la comunidad de código abierto es capaz de competir de tú a tú con las grandes multinacionales de la tecnología, proporcionando a las PYMEs las herramientas necesarias para innovar con total libertad y seguridad.
+
+---
+
+> ### 💻 ¿Quieres desplegar agentes de programación locales y seguros en tu equipo de desarrollo?
+> En **IA4PYMES** ayudamos a tu empresa a configurar entornos de desarrollo asistidos por IA eficientes, soberanos y conformes con el RGPD. Te ayudamos a integrar herramientas como Pi Coding Agent con servidores de IA locales de código abierto adaptados a tus repositorios.
+> 
+> [**Reserva ahora una reunión estratégica de 15 minutos 100% gratuita con nosotros**](https://calendly.com/ia4pymes) y analizamos cómo acelerar la productividad de tus programadores de forma segura.
+        `.trim(),
+    },
+    {
+        slug: "pi-coding-agent-open-source-alternative-claude-code",
+        title: "Pi Coding Agent: The Open Source Alternative to Claude Code That SME Developers Need",
+        description: "Discover Pi Coding Agent, the open-source terminal-based coding assistant. Learn why its model-agnostic and local compatibility makes it a strong competitor to Claude Code.",
+        date: "2026-06-14",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Technology",
+        image: "/blog/pi-coding-agent-open-source.png",
+        lang: "en",
+        translationSlug: "pi-coding-agent-alternativa-open-source-claude-code",
+        content: `
+The AI-assisted software development landscape has seen an explosion of proprietary tools like GitHub Copilot, OpenAI Codex, and, more recently, **Claude Code** (Anthropic's terminal-based agent). However, for many businesses and independent developers, these tools present two major barriers: **vendor lock-in** (forcing you to use only their paid APIs) and a **lack of sovereignty over your own codebase**.
+
+If your SME develops proprietary software, uploading your intellectual property to third-party cloud servers can be an operational and legal risk.
+
+This is where **Pi Coding Agent** (also known simply as **Pi**) comes in—one of the best open-source alternatives on the market. This terminal-based programming agent, maintained by the \`@earendil-works\` organization on GitHub, proves that you do not need to rely on closed corporate licenses to have an extremely powerful programming assistant.
+
+In this technical analysis and review, we explain what makes Pi Coding Agent so special and why it holds its own against Claude Code.
+
+---
+
+## Minimalist Ecosystem & Architecture: The 4 Core Tools
+
+Unlike other assistants bloated with unnecessary features that complicate the workflow, Pi Coding Agent follows a **minimalist and modular philosophy**. The core runtime (\`@earendil-works/pi-agent-core\`) only exposes four basic tools to Large Language Models:
+
+1.  **read:** Allows the model to inspect code from any file in the repository.
+2.  **write:** Allows writing new code files from scratch.
+3.  **edit:** Allows modifying specific sections of existing files precisely.
+4.  **bash:** Allows running terminal commands (such as tests, builds, or scripts) to verify code execution in real-time.
+
+All additional functionality (such as task planning, sub-agents, or codebase auditing modes) can be built on top of this foundation through a flexible system of extensions and skills. This architecture makes Pi extremely fast and consumes far fewer resources than its commercial competitors.
+
+---
+
+## Complete Model Freedom: Local and External Connectivity
+
+The biggest competitive advantage of Pi Coding Agent over Claude Code or Codex is that it is **100% model-agnostic**. You are not locked into a single API provider:
+
+*   **Commercial External Models:** Pi connects natively to top-tier APIs including Anthropic (Claude 3.5 Sonnet or Claude Fable 5), OpenAI (GPT-4o), Google Gemini, and high-speed providers like Groq or OpenRouter.
+*   **Private Local Models:** If you want absolute digital sovereignty and want to ensure your code never leaves your office, you can connect Pi to local models via **Ollama** or **Llama.cpp**. You can run open-source models optimized for coding (such as Llama 3 8B, Qwen 2.5 Coder, or DeepSeek Coder) directly on your machine's graphics card or a local company server, 100% free and offline.
+
+---
+
+## Comparison: Pi Coding Agent vs. Claude Code vs. OpenAI Codex
+
+How does Pi stand against the commercial coding giants?
+
+| Feature | Pi Coding Agent | Claude Code | OpenAI Codex (Legacy) |
+| :--- | :--- | :--- | :--- |
+| **License** | Open Source (MIT) | Proprietary (Closed) | Proprietary (Closed) |
+| **UI Approach** | Interactive CLI/TUI | Interactive CLI | IDE Integration (Copilot) |
+| **Local Models** | Yes (via Ollama/Llama.cpp) | No (requires Anthropic API) | No (requires OpenAI cloud) |
+| **Modularity** | High (4 native tools + skills) | Medium (built-in features) | Low (IDE extension) |
+| **Data Privacy** | Maximum (fully local offline) | Medium (sent to US servers) | Low (processed in cloud) |
+
+Pi Coding Agent not only matches the operational capacity of Claude Code in running tests and refactoring multi-file codebases using its \`bash\` tool and self-correcting agent loop, but it also surpasses it in versatility due to its multi-model compatibility and geopolitical independence.
+
+---
+
+## Conclusion: Why Your SME Should Choose Pi Coding Agent
+
+For any small or medium-sized enterprise managing its own software development team, Pi Coding Agent represents the **perfect blend of power, cost efficiency, and data security**:
+
+*   **Avoid Vendor Lock-in:** If an API provider raises its prices or suspends access tomorrow, you only need to change a single line of configuration in Pi to connect to another API or a local model.
+*   **Code Security:** Your intellectual property, API keys, and sensitive business logic are not sent to external servers when you configure Pi to run on a local open-source model.
+*   **Zero Token Costs:** Running local models through Ollama eliminates monthly external API bills, allowing your developers to experiment and generate code without worrying about token-based pricing.
+
+Pi Coding Agent proves that the open-source community can compete head-to-head with large tech corporations, providing SMEs with the tools they need to innovate freely and securely.
+
+---
+
+> ### 💻 Ready to Deploy Secure, Local Coding Agents in Your Development Team?
+> At **IA4PYMES**, we help your company set up AI-assisted development environments that are efficient, sovereign, and GDPR-compliant. We help you integrate tools like Pi Coding Agent with local open-source AI servers tailored to your code repositories.
+> 
+> [**Book a 100% free 15-minute strategic consultation with us**](https://calendly.com/ia4pymes) and let's analyze how to accelerate your programmers' productivity securely.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Veto EE.UU. a Claude Fable 5 (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
