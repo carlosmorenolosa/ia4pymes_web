@@ -16,6 +16,177 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Comparativa Asistentes Open Source (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "comparativa-pi-coding-agent-opencode-aider",
+        title: "Soberanía en tu terminal: Comparativa definitiva entre Pi Coding Agent, OpenCode y Aider para tu PYME",
+        description: "Comparamos técnicamente los tres asistentes de programación de código abierto líderes para terminal. Descubre cuál elegir para blindar el desarrollo de software de tu empresa.",
+        date: "2026-06-18",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/blog/ia-comparativa-pi-opencode-aider.png",
+        lang: "es",
+        translationSlug: "pi-coding-agent-vs-opencode-vs-aider",
+        content: `
+La reciente adquisición de herramientas propietarias como Cursor por parte de grandes corporaciones ha encendido las alarmas de muchos departamentos de desarrollo. Para las pequeñas y medianas empresas tecnológicas, la dependencia de suscripciones cerradas y de nubes de terceros no solo eleva los costes, sino que expone su código propietario y secretos de API a posibles cambios de términos y condiciones.
+
+En este contexto, la **soberanía digital** se ha convertido en una prioridad estratégica. Los asistentes de programación agénticos y de código abierto (Open Source) ejecutados localmente o en APIs controladas se posicionan como la única alternativa real para mantener la seguridad y el control.
+
+En esta comparativa técnica detallada, analizamos los tres gigantes de código abierto para la terminal: **Pi Coding Agent**, **OpenCode** y **Aider**. Descubre cuál se adapta mejor a las necesidades de tu PYME.
+
+---
+
+## 1. Pi Coding Agent: La opción minimalista y ultrarrápida
+
+Desarrollado y mantenido bajo la filosofía de la modularidad y velocidad, **Pi Coding Agent** destaca por su arquitectura extremadamente ligera.
+
+*   **Filosofía:** En lugar de saturar al LLM con decenas de herramientas preconfiguradas que confunden al modelo y consumen tokens innecesarios, Pi expone únicamente cuatro funciones core: \`read\` (leer), \`write\` (escribir), \`edit\` (editar líneas específicas de código) y \`bash\` (ejecutar comandos de consola).
+*   **Gestión de Contexto:** Al ser minimalista, consume pocos recursos y se adapta a la perfección a portátiles y servidores modestos. Las capacidades extendidas se añaden bajo demanda mediante "skills".
+*   **Conectividad:** Totalmente agnóstico. Funciona de manera nativa con modelos de pago (Anthropic, OpenAI, Gemini) y con modelos locales 100% privados mediante **Ollama** o **Llama.cpp**.
+*   **Ideal para:** PYMEs que valoran la velocidad de ejecución, quieren un control total sobre las herramientas que el agente puede usar y prefieren una base de código limpia y fácil de auditar.
+
+---
+
+## 2. OpenCode: La potencia de la interactividad y LSP
+
+**OpenCode** es uno de los proyectos open-source de mayor crecimiento de 2026, destacando por su rica interfaz de usuario basada en consola (TUI).
+
+*   **Filosofía:** Diseñado en Go, OpenCode ofrece una experiencia interactiva muy visual directamente en el terminal. Su mayor fuerte es la integración nativa con el **Language Server Protocol (LSP)**, lo que permite al agente leer en tiempo real las advertencias del compilador y errores de sintaxis, corrigiéndolos antes de dar el trabajo por terminado.
+*   **Modos de flujo de trabajo:** Cuenta con el modo "Plan" (donde el agente diseña el plan técnico y lo presenta para su aprobación) y el modo "Build" (donde el archivo se modifica). Es compatible de forma nativa con el **Model Context Protocol (MCP)** para añadir herramientas externas complejas.
+*   **Gestión de Seguridad:** Realiza instantáneas locales de tu repositorio en una base de datos SQLite para permitir volver atrás de forma inmediata ante cualquier cambio no deseado.
+*   **Ideal para:** Desarrolladores que buscan una experiencia de terminal enriquecida (TUI) y valoran que el agente valide activamente su código mediante el compilador antes de guardarlo.
+
+---
+
+## 3. Aider: El rey de la integración Git-Nativa
+
+**Aider** es el asistente agéntico CLI de código abierto más veterano y maduro del ecosistema. Su robustez le ha convertido en el estándar de la industria.
+
+*   **Filosofía:** Aider trata a **Git como un ciudadano de primera clase**. Cada cambio exitoso realizado por la IA se convierte automáticamente en un commit de Git con un mensaje descriptivo redactado por la propia herramienta. Si el cambio no te gusta, basta con ejecutar el comando \`/undo\` para restaurar el estado anterior inmediatamente.
+*   **Gestión de Contexto (Repo Map):** Aider sobresale en repositorios grandes. Utiliza un "mapa de repositorio" dinámico (generado mediante *tree-sitter*) que le permite comprender la estructura global y las relaciones entre ficheros de todo el proyecto sin necesidad de saturar la ventana de contexto del LLM con código irrelevante.
+*   **Interacciones Externas:** Permite pasar URLs de problemas de GitHub (GitHub Issues) en el chat para que el agente los lea y desarrolle la solución directamente en el código local.
+*   **Ideal para:** PYMEs con repositorios medianos y grandes que requieren una integración rigurosa con Git y buscan una herramienta madura, con años de desarrollo y una enorme comunidad de soporte detrás.
+
+---
+
+## Comparativa Técnica Directa
+
+| Característica | Pi Coding Agent | OpenCode | Aider |
+| :--- | :--- | :--- | :--- |
+| **Lenguaje Base** | TypeScript / Node.js | Go | Python |
+| **Interfaz (UI/UX)** | CLI lineal interactivo | TUI enriquecida en terminal | CLI interactivo de consola |
+| **Flujo de Git** | Manual (el desarrollador comitea) | Instantáneas SQLite / Undo | Commit automático por cada cambio |
+| **Comprensión Global** | Estructurada por skills | Soporte LSP nativo | Mapa de repositorio (tree-sitter) |
+| **Modularidad** | Alta (4 herramientas core) | Media (orientado a LSP/MCP) | Media (basado en chat/git) |
+| **Modelos Locales** | Excelente (vía Ollama) | Excelente (vía Ollama/LM Studio) | Excelente (vía Ollama) |
+
+---
+
+## Conclusión: ¿Cuál debería elegir tu PYME?
+
+No existe una solución única, sino la herramienta adecuada para cada caso de uso:
+
+1.  Elige **Pi Coding Agent** si tu equipo de desarrollo busca una herramienta ligera y rápida que no interfiera en sus flujos de Git establecidos y si deseas conectar modelos de forma sencilla y sin sobrecargar la memoria de tus máquinas locales.
+2.  Elige **OpenCode** si tus programadores trabajan en lenguajes que dependen fuertemente de diagnósticos en tiempo real y tipado estático (como Go, Rust, Java o C#) y valoran tener un diálogo estructurado en modo "Plan/Build".
+3.  Elige **Aider** si gestionas repositorios de código complejos con múltiples interconexiones y tu equipo exige un control absoluto del histórico de cambios mediante commits automatizados e integración de tareas externas.
+
+Sea cual sea tu elección, la adopción de agentes de desarrollo open-source es un paso decisivo hacia la soberanía digital de tu empresa, garantizando que tu propiedad intelectual siga perteneciendo únicamente a tu PYME.
+
+---
+
+> ### 💻 ¿Quieres desplegar agentes de código abiertos, seguros y adaptados a tus repositorios locales?
+> En **IA4PYMES** ayudamos a tu departamento técnico a seleccionar, configurar e integrar los mejores asistentes de desarrollo de código abierto (como Pi, OpenCode o Aider) con LLMs locales que protegen la privacidad de tu código.
+> 
+> [**Reserva tu sesión estratégica gratuita de 15 minutos con nuestro equipo técnico**](https://calendly.com/ia4pymes) y diseñamos el entorno de desarrollo del futuro para tus programadores.
+`.trim(),
+    },
+    {
+        slug: "pi-coding-agent-vs-opencode-vs-aider",
+        title: "Sovereignty in Your Terminal: The Ultimate Comparison Between Pi Coding Agent, OpenCode, and Aider for Your SME",
+        description: "We technically compare the three leading open-source AI coding agents for terminal. Discover which one to choose to protect your company's software development.",
+        date: "2026-06-18",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/blog/ia-comparativa-pi-opencode-aider.png",
+        lang: "en",
+        translationSlug: "comparativa-pi-coding-agent-opencode-aider",
+        content: `
+The recent acquisition of proprietary tools like Cursor by large tech conglomerates has raised alarms in many development departments. For small and medium-sized technology companies, relying on closed subscriptions and third-party clouds not only increases operational costs but also exposes proprietary code and API secrets to sudden shifts in terms and conditions.
+
+In this context, **digital sovereignty** has become a strategic priority. Open-Source AI agentic coding assistants run locally or via controlled APIs have emerged as the only real alternative for maintaining security and control.
+
+In this detailed technical comparison, we analyze the three leading open-source giants for the terminal: **Pi Coding Agent**, **OpenCode**, and **Aider**. Discover which one best fits your SME's needs.
+
+---
+
+## 1. Pi Coding Agent: The Minimalist and Ultra-Fast Option
+
+Built and maintained under a philosophy of modularity and speed, **Pi Coding Agent** stands out for its extremely lightweight architecture.
+
+*   **Philosophy:** Instead of overwhelming the LLM with dozens of pre-configured tools that confuse the model and consume unnecessary tokens, Pi exposes only four core functions: \`read\`, \`write\`, \`edit\` (editing specific lines), and \`bash\` (running console commands).
+*   **Context Management:** Its minimalist footprint uses few resources and adapts perfectly to modest laptops and servers. Extended capabilities are added on-demand using "skills."
+*   **Connectivity:** Fully model-agnostic. It works natively with paid APIs (Anthropic, OpenAI, Gemini) and 100% private local models via **Ollama or Llama.cpp**.
+*   **Best for:** SMEs that value execution speed, want absolute control over the tools the agent can access, and prefer a clean, easily auditable codebase.
+
+---
+
+## 2. OpenCode: The Power of Interactivity and LSP
+
+**OpenCode** is one of the fastest-growing open-source projects of 2026, distinguished by its rich Console User Interface (TUI).
+
+*   **Philosophy:** Built in Go, OpenCode provides an interactive, highly visual experience directly in the terminal. Its greatest strength is its native integration with the **Language Server Protocol (LSP)**, allowing the agent to read compiler warnings and syntax errors in real-time, correcting them before finalizing edits.
+*   **Workflow Modes:** It features a "Plan" mode (where the agent drafts the technical approach for user approval) and a "Build" mode (where it applies the edits). It natively supports the **Model Context Protocol (MCP)** for adding complex external tools.
+*   **Safety & Backups:** It snapshots your local repository into a SQLite database, allowing you to instantly revert any unwanted changes.
+*   **Best for:** Developers who prefer an enriched terminal experience (TUI) and want the agent to actively validate code using the compiler before saving.
+
+---
+
+## 3. Aider: The King of Git-Native Integration
+
+**Aider** is the most veteran and mature open-source CLI agentic assistant in the ecosystem. Its robustness has made it the industry standard.
+
+*   **Philosophy:** Aider treats **Git as a first-class citizen**. Every successful change made by the AI is automatically committed to Git with a descriptive message written by the tool itself. If you dislike a change, simply run \`/undo\` to instantly restore the previous state.
+*   **Context Management (Repo Map):** Aider excels in large repositories. It uses a dynamic "repository map" (generated via *tree-sitter*) that allows it to understand the global structure and file relationships of the entire project without bloating the LLM's context window.
+*   **External Integration:** You can pass URLs of GitHub Issues in the chat, allowing the agent to read the issue and write the fix directly in your local code.
+*   **Best for:** SMEs with medium to large codebases that require rigorous Git history tracking and seek a data-rich tool with a large supporting community.
+
+---
+
+## Technical Feature Matrix
+
+| Feature | Pi Coding Agent | OpenCode | Aider |
+| :--- | :--- | :--- | :--- |
+| **Base Language** | TypeScript / Node.js | Go | Python |
+| **User Interface** | Linear interactive CLI | Rich terminal TUI | Interactive console CLI |
+| **Git Workflow** | Manual (developer commits) | SQLite Snapshots / Undo | Auto-commit for every change |
+| **Global Context** | Structured via skills | Native LSP support | Repository map (tree-sitter) |
+| **Modularity** | High (4 core tools) | Medium (LSP/MCP focus) | Medium (chat/git focus) |
+| **Local Models** | Excellent (via Ollama) | Excellent (via Ollama/LM Studio) | Excellent (via Ollama) |
+
+---
+
+## Conclusion: Which One Should Your SME Choose?
+
+There is no single best tool, only the right tool for your specific workflow:
+
+1.  Choose **Pi Coding Agent** if your team wants a lightweight, fast tool that doesn't interfere with their established Git flows and if you want to connect models easily without overloading local hardware.
+2.  Choose **OpenCode** if your developers work in languages heavily dependent on compiler diagnostics and static typing (such as Go, Rust, Java, or C#) and value a structured "Plan/Build" workflow.
+3.  Choose **Aider** if you manage complex repositories with multiple dependencies and your team demands strict version control history with automated commits and external task integration.
+
+Regardless of your choice, adopting open-source development agents is a decisive step toward your company's digital sovereignty, ensuring your intellectual property remains solely under your control.
+
+---
+
+> ### 💻 Want to deploy secure, private, and sovereign open-source coding agents in your local environments?
+> At **IA4PYMES**, we help your technical department select, configure, and integrate the best open-source development assistants (like Pi, OpenCode, or Aider) with local LLMs that guarantee code privacy.
+> 
+> [**Book a free 15-minute strategic consultation with our technical team today**](https://calendly.com/ia4pymes) and let's analyze how to protect your software's intellectual property.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Compra de Cursor (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
