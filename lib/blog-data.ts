@@ -16,6 +16,335 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Codex-shim Desacoplar OpenAI (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "codex-shim-desacoplar-openai-modelos-locales",
+        title: "Soberanía y Ahorro en Desarrollo Agéntico: Cómo usar Codex Desktop con Modelos Locales y APIs Alternativas mediante codex-shim",
+        description: "Aprende a romper el monopolio de OpenAI en Codex Desktop. Te guiamos paso a paso para configurar codex-shim y conectar tus agentes a DeepSeek, Claude o tu propio servidor local de Ollama.",
+        date: "2026-06-21",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/blog/codex-shim-agentic-privacy.png",
+        lang: "es",
+        translationSlug: "codex-shim-decouple-openai-local-models",
+        content: `
+La programación agéntica ha dejado de ser una promesa de laboratorio para convertirse en el motor de productividad de los equipos de desarrollo modernos. Herramientas como **Codex Desktop** —el entorno oficial de OpenAI diseñado para ejecutar agentes de codificación en paralelo, gestionar ramas de código con soporte de worktree y automatizar pruebas— representan la vanguardia en este campo.
+
+Sin embargo, para las PYMEs tecnológicas y las consultoras de software, la adopción de estas herramientas introduce tres desafíos críticos:
+1. **Costes de API desorbitados:** Los agentes autónomos operan en bucle (planifican, escriben, compilan, prueban y corrigen). Este flujo de trabajo consume millones de tokens en cuestión de horas. Usar modelos premium como GPT-4o a través de la API oficial puede inflar la factura mensual a miles de dólares.
+2. **Dependencia tecnológica (Vendor Lock-in):** Quedar atado exclusivamente a los modelos y disponibilidad de OpenAI limita la flexibilidad para aprovechar innovaciones externas.
+3. **Fugas de Privacidad y Cumplimiento Legal (RGPD):** Enviar el código fuente propietario de tu empresa o la base de código confidencial de tus clientes a servidores externos en Estados Unidos puede violar acuerdos de confidencialidad (NDA) y regulaciones europeas.
+
+Para solucionar estos problemas y recuperar la soberanía sobre tu entorno agéntico, la comunidad de código abierto ha desarrollado **codex-shim** (creado por Sybil Solutions / 0xSero). En este artículo, analizamos qué es esta herramienta, cómo implementarla paso a paso y cómo puede reducir tus costes de desarrollo en un 95% al tiempo que protege tu propiedad intelectual.
+
+---
+
+## ¿Qué es codex-shim y cómo funciona?
+
+**codex-shim** es un proxy o middleware local ligero programado en Python (\`aiohttp\`) que actúa como una capa de traducción compatible con la API de OpenAI. 
+
+En lugar de que Codex Desktop envíe peticiones directamente a los servidores de OpenAI, el sistema se configura para que apunte a un servidor local de \`codex-shim\` (por ejemplo, \`http://127.0.0.1:38440/v1\`). 
+
+Cuando el agente de Codex Desktop realiza una consulta o ejecuta un comando, el flujo es el siguiente:
+1. **Intercepción:** El shim intercepta la llamada del cliente de Codex Desktop.
+2. **Traducción y Mapeo:** El shim traduce el formato del prompt, los esquemas de llamadas a funciones (tool calls) y las instrucciones específicas del cliente de Codex al formato esperado por el proveedor de backend seleccionado (como la API de Anthropic, DeepSeek, OpenRouter o servidores de inferencia locales).
+3. **Petición Upstream:** Se realiza la llamada al modelo configurado.
+4. **Traducción de Respuesta:** El shim recibe la respuesta (incluyendo flujos de streaming) y la traduce de vuelta al formato exacto que Codex Desktop espera, asegurando que herramientas como el uso de terminal, búsqueda web o edición de archivos no sufran interrupciones.
+
+Este proceso ocurre en milisegundos a nivel local, permitiendo que Codex Desktop funcione con cualquier modelo compatible con la especificación de OpenAI sin necesidad de modificar el código ejecutable de la aplicación de OpenAI.
+
+---
+
+## Guía de Instalación Paso a Paso
+
+A continuación, se detalla el proceso para instalar y desplegar \`codex-shim\` en entornos locales de desarrollo.
+
+### 1. Clonar el repositorio e instalar dependencias
+Asegúrate de contar con **Python 3.11+** en tu sistema.
+
+**En macOS / Linux / WSL / Git Bash:**
+\`\`\`bash
+git clone https://github.com/0xSero/codex-shim ~/codex-shim
+cd ~/codex-shim
+python3 -m pip install --user -e .
+\`\`\`
+
+**En Windows Nativo (PowerShell):**
+\`\`\`powershell
+git clone https://github.com/0xSero/codex-shim $HOME\\codex-shim
+cd $HOME\\codex-shim
+py -3.11 -m pip install --user -e .
+\`\`\`
+
+Este comando instalará \`codex-shim\` como una herramienta CLI ejecutable en tu entorno de usuario local.
+
+### 2. Configurar el catálogo de modelos
+El comportamiento del proxy y las API keys de los proveedores se definen en un archivo de configuración en formato JSON denominado \`models.json\`.
+
+El shim busca este archivo por defecto en las siguientes rutas según tu sistema:
+- **macOS / Linux / WSL:** \`~/.codex-shim/models.json\`
+- **Windows Nativo:** \`C:\\Users\\<TuUsuario>\\.codex-shim\\models.json\`
+
+Crea el directorio y el archivo con la siguiente estructura básica. En este ejemplo, configuramos una API comercial económica (DeepSeek) y un backend de inferencia 100% local (Ollama):
+
+\`\`\`json
+{
+  "models": [
+    {
+      "slug": "deepseek-coder",
+      "provider": "openai",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key": "sk-tu-api-key-de-deepseek"
+    },
+    {
+      "slug": "local-llama3",
+      "provider": "openai",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "api_key": "ollama"
+    },
+    {
+      "slug": "claude-sonnet",
+      "provider": "anthropic",
+      "base_url": "https://api.anthropic.com/v1",
+      "api_key": "sk-ant-tu-key-de-anthropic"
+    }
+  ],
+  "router": {
+    "enabled": true,
+    "fallback_model": "deepseek-coder"
+  }
+}
+\`\`\`
+
+### 3. Vincular el cliente de Codex con el Shim
+Para que Codex Desktop envíe las peticiones al proxy local, debemos actualizar su archivo de configuración global, típicamente ubicado en \`~/.codex/config.toml\`.
+
+El shim proporciona comandos integrados para facilitar esto. En tu terminal, ejecuta:
+\`\`\`bash
+# Genera el catálogo compatible con Codex a partir de tu models.json
+codex-shim generate
+
+# Selecciona el modelo que deseas activar como predeterminado
+codex-shim model use deepseek-coder
+\`\`\`
+
+Este comando actualizará automáticamente el archivo \`config.toml\` de tu instalación de Codex, definiendo el \`base_url\` para apuntar a \`http://127.0.0.1:38440/v1\` y configurando el nombre del modelo correspondiente.
+
+### 4. Iniciar el servidor local
+Una vez configurado, inicia el servidor en segundo plano:
+\`\`\`bash
+codex-shim start
+\`\`\`
+
+Puedes comprobar que el servicio está respondiendo correctamente listando los modelos activos:
+\`\`\`bash
+codex-shim list
+\`\`\`
+
+Ahora, al abrir tu aplicación **Codex Desktop**, el entorno agéntico ejecutará todas sus tareas de codificación, terminal y búsqueda a través del modelo y proveedor que hayas seleccionado en el shim, de forma transparente.
+
+---
+
+## Ventajas Competitivas para PYMEs y Consultoras
+
+Implementar una arquitectura de desarrollo agéntica independiente mediante \`codex-shim\` aporta ventajas estratégicas sustanciales para cualquier negocio de desarrollo de software B2B:
+
+### Ahorro del 95% en costes de API de producción
+El modelo GPT-4o de OpenAI tiene un coste aproximado de $5.00 por millón de tokens de entrada y $15.00 por millón de tokens de salida. En tareas agénticas complejas (donde el agente lee múltiples archivos del repositorio y los procesa repetidamente), los costes crecen exponencialmente.
+Al conectar el harness de Codex a **DeepSeek-Coder-V2** mediante el shim, el coste desciende a $0.14 por millón de tokens de entrada y $0.28 por millón de tokens de salida. Esto representa una **reducción de costes de más del 95%**, haciendo económicamente viable que los programadores utilicen asistentes agénticos durante toda la jornada laboral.
+
+### Soberanía absoluta de datos (RGPD & NDAs)
+Al mapear el shim a un servidor de inferencia local como **Ollama** o un clúster privado con **vLLM** ejecutando modelos de código abierto (como Llama 3 70B o DeepSeek Coder local), **ninguna línea de código sale de la infraestructura privada de la PYME**. Esto elimina por completo los riesgos de cumplimiento del Reglamento General de Protección de Datos (RGPD) en la UE y garantiza el cumplimiento estricto de los contratos de confidencialidad con clientes corporativos exigentes.
+
+### Flexibilidad técnica y libre elección de LLM
+Los equipos de desarrollo ya no están atados a las decisiones de producto de OpenAI. Pueden utilizar **Claude 3.5 Sonnet** (considerado el mejor modelo de codificación y razonamiento lógico) para tareas complejas de refactorización de código, y cambiar instantáneamente a modelos locales y rápidos para tareas de documentación o pruebas unitarias simples.
+
+### Auto-Router Inteligente para Control de Gasto
+El shim incluye una funcionalidad de enrutamiento automático (\`codex-auto\`). Mediante un clasificador local ligero, analiza la complejidad del prompt enviado por el desarrollador:
+* Si el prompt solicita una tarea sencilla (como "agrega un comentario explicativo a esta función"), la redirige al modelo local gratuito o al más económico.
+* Si el prompt requiere un razonamiento complejo o modificaciones en múltiples archivos, escala automáticamente la petición a Claude 3.5 Sonnet o GPT-4o.
+Esto optimiza el presupuesto de manera dinámica sin requerir intervención manual del desarrollador.
+
+---
+
+## Conclusión
+
+El harness de Codex Desktop es una de las interfaces agénticas de desarrollo más completas del mercado, pero restringirse a las APIs comerciales de OpenAI limita su viabilidad económica y legal en el ámbito empresarial. La adopción de proxies inteligentes como \`codex-shim\` permite a las PYMEs combinar lo mejor de ambos mundos: la potencia de la interfaz de desarrollo de OpenAI y la soberanía, ahorro y flexibilidad de los modelos de código abierto y locales.
+
+---
+
+> ### 🛠️ ¿Quieres desplegar un entorno de desarrollo agéntico privado y seguro en tu PYME?
+> En **IA4PYMES** ayudamos a tu empresa a configurar la infraestructura de servidores locales de inteligencia artificial, configurar proxies de desarrollo como \`codex-shim\` y establecer políticas de gobernanza de código que garantizan el cumplimiento normativo (RGPD) y maximizan la productividad de tus ingenieros.
+> 
+> [**Reserva una sesión de consultoría técnica de 15 minutos 100% gratuita con nuestros especialistas**](https://calendly.com/ia4pymes) y diseñamos la arquitectura ideal para tu equipo.
+`.trim(),
+    },
+    {
+        slug: "codex-shim-decouple-openai-local-models",
+        title: "Sovereignty and Cost Control in Agentic Development: How to Run Codex Desktop with Local and Alternative Models using codex-shim",
+        description: "Break OpenAI's monopoly on Codex Desktop. Learn how to install and configure codex-shim to route your coding agents to DeepSeek, Anthropic Claude, or a local Ollama server.",
+        date: "2026-06-21",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/blog/codex-shim-agentic-privacy.png",
+        lang: "en",
+        translationSlug: "codex-shim-desacoplar-openai-modelos-locales",
+        content: `
+Agentic programming is no longer a laboratory experiment; it has become the productivity engine of modern software development teams. Tools like **Codex Desktop** — OpenAI's official application designed to run coding agents in parallel, manage code branches via worktree support, and automate testing — represent the state of the art in this field.
+
+However, for tech SMEs and software consultancies, adopting these tools introduces three critical challenges:
+1. **Skyrocketing API Costs:** Autonomous agents operate in a loop (planning, writing, compiling, testing, and debugging). This workflow consumes millions of tokens in a matter of hours. Running premium models like GPT-4o through the official API can inflate monthly bills to thousands of dollars.
+2. **Vendor Lock-in:** Remaining tied exclusively to OpenAI's models and uptime limits your flexibility to exploit external innovations.
+3. **Data Privacy and GDPR Compliance Risks:** Sending proprietary source code or confidential client repositories to external servers in the US can violate non-disclosure agreements (NDAs) and European data sovereignty regulations.
+
+To address these challenges and reclaim control of your agentic workspace, the open-source community developed **codex-shim** (created by Sybil Solutions / 0xSero). In this guide, we analyze what this tool is, how to set it up step-by-step, and how it can slash your development costs by 95% while keeping your intellectual property safe.
+
+---
+
+## What is codex-shim and How Does It Work?
+
+**codex-shim** is a lightweight, local Python (\`aiohttp\`) proxy server that acts as a translation layer compatible with the OpenAI API.
+
+Instead of Codex Desktop sending requests directly to OpenAI's cloud servers, you configure the application to point to your local \`codex-shim\` server (e.g., \`http://127.0.0.1:38440/v1\`).
+
+When Codex Desktop makes an agentic query or executes a file modification, the traffic flows as follows:
+1. **Interception:** The shim intercepts the incoming HTTP requests from the Codex Desktop client.
+2. **Translation & Mapping:** The shim translates the prompt structure, system messages, and tool call schemas (which Codex uses to interact with the shell or run web searches) into the exact formats expected by your chosen upstream provider (such as Anthropic, DeepSeek, OpenRouter, or local backends).
+3. **Upstream Request:** The translated request is forwarded to the configured AI backend.
+4. **Response Translation:** The shim receives the response (including streaming tokens and tool calls) and translates it back into the exact schema Codex Desktop expects, preventing tool execution from failing.
+
+This translation happens locally in milliseconds, allowing Codex Desktop to work seamlessly with alternative models without requiring any modification of the compiled OpenAI application.
+
+---
+
+## Step-by-Step Installation & Setup
+
+Here is the technical guide to deploy \`codex-shim\` on your local development environments.
+
+### 1. Clone the Repository and Install Dependencies
+Ensure you have **Python 3.11+** installed on your machine.
+
+**For macOS / Linux / WSL / Git Bash:**
+\`\`\`bash
+git clone https://github.com/0xSero/codex-shim ~/codex-shim
+cd ~/codex-shim
+python3 -m pip install --user -e .
+\`\`\`
+
+**For Native Windows (PowerShell):**
+\`\`\`powershell
+git clone https://github.com/0xSero/codex-shim $HOME\\codex-shim
+cd $HOME\\codex-shim
+py -3.11 -m pip install --user -e .
+\`\`\`
+
+This installs \`codex-shim\` as an executable CLI utility in your local user path.
+
+### 2. Configure Your Upstream Models
+The routing logic and API keys are defined in a JSON file called \`models.json\`.
+
+The CLI tool looks for this file at:
+- **macOS / Linux / WSL:** \`~/.codex-shim/models.json\`
+- **Native Windows:** \`C:\\Users\\<YourUsername>\\.codex-shim\\models.json\`
+
+Create the directory and the file. In this example, we configure a cheap cloud API (DeepSeek), a local open-source backend (Ollama), and a premium model (Anthropic):
+
+\`\`\`json
+{
+  "models": [
+    {
+      "slug": "deepseek-coder",
+      "provider": "openai",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key": "sk-your-deepseek-api-key"
+    },
+    {
+      "slug": "local-llama3",
+      "provider": "openai",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "api_key": "ollama"
+    },
+    {
+      "slug": "claude-sonnet",
+      "provider": "anthropic",
+      "base_url": "https://api.anthropic.com/v1",
+      "api_key": "sk-ant-your-anthropic-key"
+    }
+  ],
+  "router": {
+    "enabled": true,
+    "fallback_model": "deepseek-coder"
+  }
+}
+\`\`\`
+
+### 3. Connect Codex Desktop to the Shim
+To redirect Codex Desktop requests to the local proxy, we need to update the application's global settings in \`~/.codex/config.toml\`.
+
+The CLI makes this simple. In your terminal, run:
+\`\`\`bash
+# Generate the Codex-compatible model catalog from your models.json
+codex-shim generate
+
+# Set your active default model
+codex-shim model use deepseek-coder
+\`\`\`
+
+This automatically updates your \`config.toml\` file, routing the Codex base URL to \`http://127.0.0.1:38440/v1\` and configuring the matching model identifiers.
+
+### 4. Launch the Local Proxy Daemon
+Start the background proxy server:
+\`\`\`bash
+codex-shim start
+\`\`\`
+
+Verify that the proxy is active and listing your models:
+\`\`\`bash
+codex-shim list
+\`\`\`
+
+Now, when you open **Codex Desktop**, the agentic harness will execute code modifications, terminal tasks, and searches using your chosen backend dynamically and transparently.
+
+---
+
+## Competitive Advantages for Tech SMEs
+
+Integrating an independent agentic development layer using \`codex-shim\` provides massive strategic value for B2B software engineering teams:
+
+### 95% API Cost Reduction
+OpenAI's GPT-4o costs roughly $5.00 per million input tokens and $15.00 per million output tokens. For autonomous agents that continually read, write, and debug code, token usage adds up fast.
+By routing Codex Desktop to **DeepSeek-Coder-V2** via the shim, the cost drops to $0.14 per million input tokens and $0.28 per million output tokens. This represents a **cost reduction of over 95%**, making it economically feasible to equip your entire development team with active agentic coding workspaces.
+
+### Absolute Data Sovereignty (GDPR & NDA Compliance)
+By routing the proxy to a local **Ollama** server or a private **vLLM** cluster running open-source models (such as Llama 3 70B or a local DeepSeek instance), **no source code leaves your corporate network**. This guarantees absolute compliance with European GDPR regulations and satisfies the strict intellectual property requirements of corporate clients.
+
+### Model Flexibility & Best-of-Breed Tooling
+Development teams are no longer locked into a single provider. You can leverage **Claude 3.5 Sonnet** (widely considered the industry benchmark for complex refactoring and logical coding tasks) and switch instantly to low-cost or local models for simple unit testing or boilerplate generation.
+
+### Smart Auto-Router for Cost Control
+The shim's built-in router (\`codex-auto\`) uses a local classifier model to evaluate prompt complexity:
+* Simple requests (e.g., "add code comments to this file") are routed to your free local LLM or the cheapest provider.
+* Complex tasks requiring multi-file context and logical reasoning are automatically escalated to Claude 3.5 Sonnet or GPT-4o.
+This ensures optimal resource allocation without requiring developers to change settings manually.
+
+---
+
+## Conclusion
+
+The Codex Desktop application is one of the most powerful agentic development tools available, but relying solely on OpenAI's APIs limits its cost-effectiveness and compliance in enterprise environments. Deploying a smart proxy like \`codex-shim\` allows SMEs to merge the best of both worlds: a world-class agentic user interface and the cost savings, sovereignty, and choice of open-source and alternative AI models.
+
+---
+
+> ### 🛠️ Ready to deploy a secure, private agentic development workspace in your company?
+> At **IA4PYMES**, we help software companies and IT departments set up private LLM servers, configure developer proxies like \`codex-shim\`, and define code governance guidelines that ensure GDPR compliance and maximize developer output.
+> 
+> [**Book a free 15-minute technical consultation with our engineering team today**](https://calendly.com/ia4pymes) and let's build your custom private AI development stack.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: IA de Ejecución (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
