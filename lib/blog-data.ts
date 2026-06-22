@@ -16,6 +16,257 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Orca ADE Desarrollo Paralelo (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "orca-ide-desarrollo-agentico-paralelo-pymes",
+        title: "La Flota de Agentes: Cómo escalar la ingeniería de tu PYME con Orca, el IDE de desarrollo agéntico paralelo",
+        description: "Analizamos Orca ADE, el nuevo entorno de desarrollo que permite orquestar múltiples agentes de IA (Claude Code, Codex, Gemini) en paralelo mediante Git Worktrees, multiplicando el rendimiento sin colisionar código.",
+        date: "2026-06-22",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/blog/orca-ide-parallel-agents.png",
+        lang: "es",
+        translationSlug: "orca-ide-parallel-agentic-development-smes",
+        content: `
+El desarrollo de software corporativo está experimentando una transición acelerada. Hemos pasado de la "IA asistida" (donde el desarrollador copia y pega código desde la web de ChatGPT) al "desarrollo agéntico", donde agentes autónomos de línea de comandos (como Claude Code, Codex, Aider o OpenCode) leen repositorios completos, toman decisiones de arquitectura, editan código y ejecutan pruebas locales de forma autónoma.
+
+Sin embargo, a medida que los equipos técnicos de las PYMEs intentan integrar esta tecnología en su flujo diario, se topan con un nuevo cuello de botella: **la ejecución secuencial y la congestión de recursos**. Si un desarrollador quiere usar un agente para refactorizar una base de datos y otro para escribir pruebas, debe esperar a que el primero termine, o lidiar con múltiples ventanas de terminal caóticas y colisiones de archivos en su directorio de trabajo local.
+
+Para resolver esto, StablyAI ha lanzado **Orca**, una herramienta de código abierto pionera en una nueva categoría de software: el **Agent Development Environment (ADE)** o Entorno de Desarrollo de Agentes. En este artículo explicamos qué es Orca, cómo funciona bajo el capó y cómo las PYMEs tecnológicas pueden aprovecharlo para multiplicar por cinco la capacidad de su equipo de ingeniería.
+
+---
+
+## ¿Qué es Orca y cómo cambia el paradigma del IDE?
+
+Los IDEs tradicionales (como VS Code o JetBrains) se diseñaron bajo una premisa fundamental: un único programador humano interactuando con una sola pantalla y un único sistema de archivos.
+
+**Orca** rediseña esta premisa por completo. No es solo un editor de texto con IA integrada; es un **plano de control y orquestación para agentes de inteligencia artificial**. Su objetivo no es escribir el código por ti, sino permitirte dirigir, supervisar y sincronizar una flotilla de agentes autónomos que trabajan simultáneamente en distintas partes de tu base de código.
+
+La interfaz de Orca integra en un solo escritorio:
+- Un panel lateral de tareas con los estados en tiempo real de cada agente (Trabajando, Inactivo, Esperando Aprobación).
+- Múltiples terminales aisladas donde se ejecuta la CLI de cada agente (como la consola interactiva de Claude Code).
+- Un visor de Diff interactivo centralizado que te permite auditar los cambios generados por la IA antes de aceptarlos.
+- Un navegador de archivos que se actualiza en tiempo real con las modificaciones que realiza cada agente.
+
+---
+
+## La Magia Técnica: Aislamiento por Git Worktrees
+
+El principal reto de ejecutar agentes de IA en paralelo es la consistencia del sistema de archivos. Un agente autónomo no solo edita líneas de código; a menudo instala dependencias (ej. \`npm install\`), arranca bases de datos locales o ejecuta herramientas de formateo y testing. Si dos agentes intentan hacer esto en el mismo directorio al mismo tiempo, las colisiones y la corrupción de archivos están garantizadas.
+
+Orca resuelve este desafío de raíz utilizando **Git Worktrees** (árboles de trabajo de Git).
+
+### ¿Cómo funciona la arquitectura de Worktrees en Orca?
+Cuando creas una nueva tarea en Orca (por ejemplo, "Crear endpoint de autenticación" y "Configurar tests de integración"), el IDE no trabaja en la carpeta raíz del proyecto. En su lugar:
+1. **Árboles de trabajo aislados:** Orca crea automáticamente un \`git worktree\` independiente para cada tarea en directorios temporales vinculados al mismo repositorio.
+2. **Entornos limpios y paralelos:** Cada tarea cuenta con su propia copia de los archivos activos, su propia terminal interactiva y su propio pipeline de ejecución.
+3. **Cero colisiones:** Un agente puede estar modificando archivos y ejecutando compilaciones en el Worktree A sin que el agente del Worktree B se entere ni interfiera en sus archivos.
+4. **Integración nativa:** Cuando un agente completa con éxito su tarea y pasa los tests locales, los cambios se confirman en una rama específica y el desarrollador humano los revisa en una pantalla de Diff unificada antes de mezclarlos (\`git merge\`) con la rama principal.
+
+---
+
+## SSH Remote Workspaces: Liberando los Recursos Locales
+
+Ejecutar múltiples agentes de IA de forma simultánea es una tarea extremadamente pesada. Los agentes ejecutan compilaciones de código en bucle, levantan contenedores de Docker para pruebas y realizan análisis estáticos del código. Si realizas esto de manera local, la CPU y memoria de la laptop del desarrollador se saturarán rápidamente.
+
+Orca introduce una solución empresarial clave: **SSH Remote Workspaces** (Espacios de Trabajo Remotos).
+
+A través de la sección de configuración de SSH, puedes conectar Orca a un servidor en la nube o una máquina virtual privada de la PYME (por ejemplo, un servidor VPS en Hetzner o AWS con 32 núcleos de CPU y 64 GB de RAM). 
+
+Al crear una nueva tarea, seleccionas la máquina remota como destino. Orca se encargará de:
+1. Crear el Git Worktree en el servidor remoto por SSH.
+2. Lanzar el agente de codificación seleccionado (como Claude Code o Codex) en ese servidor.
+3. Transmitir el estado del editor, los logs de la terminal y los cambios de archivos a tu aplicación de escritorio local en tiempo real.
+
+De este modo, tu laptop local permanece fría, con la memoria libre y la batería intacta, mientras un cluster de servidores en la nube realiza todo el trabajo pesado de compilación e inferencia de los agentes de IA.
+
+---
+
+## Guía Rápida de Implementación
+
+Desplegar Orca en el equipo de desarrollo de tu PYME es sumamente sencillo.
+
+### 1. Instalación del Cliente de Escritorio
+Orca es multiplataforma y está disponible para macOS, Windows y Linux.
+
+**En macOS (vía Homebrew):**
+\`\`\`bash
+brew install --cask stablyai/orca/orca
+\`\`\`
+
+**En Windows y Linux:**
+Puedes descargar el instalador ejecutable (\`.exe\` para Windows o \`.AppImage\` para Linux) directamente desde la sección de descargas del repositorio oficial de StablyAI (\`stablyai/orca\`).
+
+### 2. Configurar los Agentes de IA
+Al abrir Orca por primera vez, añade tus credenciales y rutas de las herramientas CLI que deseas orquestar en la pestaña de Ajustes de Agentes:
+- **Claude Code:** Configura la ruta de tu comando \`claude\` (requiere la suscripción oficial de Anthropic Console API).
+- **Codex Desktop / CLI:** Configura tus claves de API correspondientes.
+- **OpenCode / Aider:** Configura la ruta de los ejecutables locales en tu sistema.
+
+### 3. Crear una Tarea y Lanzar el Agente
+1. Abre tu repositorio de código en Orca.
+2. Haz clic en **"New Task"** en la barra lateral.
+3. Asigna un nombre a la tarea (ej. \`feature/dashboard-metrics\`) y escribe la instrucción en lenguaje natural (ej. *"Crea un componente React que muestre un gráfico de barras utilizando Tailwind y añade sus tests unitarios"*).
+4. Elige el agente (ej. Claude Code) y haz clic en **"Start Agent"**.
+5. Orca creará el worktree de forma transparente y verás la terminal del agente ejecutándose de inmediato. Puedes repetir este proceso para crear tantas tareas en paralelo como requiera tu sprint de desarrollo.
+
+---
+
+## Ventajas Competitivas para las PYMEs Tecnológicas
+
+Para las pequeñas y medianas empresas de desarrollo, la adopción de un ADE como Orca proporciona tres ventajas competitivas inmediatas:
+
+### Multiplicación de la productividad del programador (3x a 5x)
+En una PYME, los recursos humanos son limitados. Un único desarrollador senior o el propio CTO a menudo deben lidiar con el desarrollo de características, la corrección de bugs de producción y la escritura de tests al mismo tiempo. 
+Con Orca, el desarrollador pasa de escribir líneas de código manualmente a actuar como **arquitecto y supervisor técnico**. Puede definir tres tareas distintas en paralelo, dejar que los agentes de Orca generen los borradores de código y pasen las pruebas en sus respectivos worktrees, y posteriormente dedicar su tiempo únicamente a revisar y fusionar los Pull Requests.
+
+### Eliminación del desgaste del hardware local
+No es necesario equipar a todos los ingenieros de la plantilla con laptops de última generación de 4.000 euros para que puedan correr procesos pesados de IA. Al utilizar la arquitectura SSH remota de Orca, todo el procesamiento pesado de compilación, ejecución de Docker y tests unitarios se realiza en infraestructuras cloud económicas de pago por uso.
+
+### Control y Sincronización en Movilidad
+Orca incluye una app companion para smartphones. Esto permite a los gerentes de tecnología y desarrolladores de la PYME monitorear el progreso de los agentes que realizan tareas largas de refactorización mientras están fuera de la oficina, pudiendo intervenir, pausar o aprobar cambios directamente desde el móvil.
+
+---
+
+## Conclusión
+
+El futuro del desarrollo de software no consiste en reemplazar a los programadores por inteligencia artificial, sino en dotar a los ingenieros de las herramientas necesarias para gestionar flotas de agentes autónomos de forma segura y coordinada. Entornos de desarrollo como **Orca ADE** marcan el camino a seguir, permitiendo que las PYMEs tecnológicas compitan en velocidad y volumen de entrega con corporaciones que multiplican por diez su presupuesto de ingeniería.
+
+---
+
+> ### 🚀 ¿Quieres implementar flujos de desarrollo agéntico paralelo y seguro en tu PYME?
+> En **IA4PYMES** ayudamos a tu empresa a configurar la infraestructura de servidores cloud para agentes, desplegar ADEs como Orca en tu equipo técnico y capacitar a tus desarrolladores para orquestar flujos de trabajo paralelos bajo estrictas políticas de gobernanza de código.
+> 
+> [**Reserva tu sesión estratégica de 15 minutos 100% gratuita con nuestro equipo**](https://calendly.com/ia4pymes) y analizamos el impacto y retorno de inversión de la IA de desarrollo en tu negocio.
+`.trim(),
+    },
+    {
+        slug: "orca-ide-parallel-agentic-development-smes",
+        title: "The Agentic Fleet: How to Scale Your SME's Engineering Output with Orca, the Parallel Agentic IDE",
+        description: "Discover Orca ADE, the development environment designed to orchestrate multiple AI agents (Claude Code, Codex, Gemini) in parallel via Git Worktrees, boosting developer throughput without code conflicts.",
+        date: "2026-06-22",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/blog/orca-ide-parallel-agents.png",
+        lang: "en",
+        translationSlug: "orca-ide-desarrollo-agentico-paralelo-pymes",
+        content: `
+Enterprise software development is undergoing an accelerated transition. We have moved from "assisted AI" (where the developer manually copies and pastes code snippets from ChatGPT web portals) to "agentic development," where autonomous command-line agents (such as Claude Code, Codex, Aider, or OpenCode) read entire codebases, make architectural decisions, edit files, and run local test suites independently.
+
+However, as software engineering teams in tech SMEs try to integrate this technology into their daily sprint cycles, they run into a new bottleneck: **sequential execution and resource congestion**. If a developer wants to use an agent to refactor a database schema and another to write unit tests, they must wait for the first to finish, or wrestle with chaotic terminal windows and file collisions in their local directory.
+
+To solve this, StablyAI has launched **Orca**, an open-source tool pioneering a new software category: the **Agent Development Environment (ADE)**. In this article, we explain what Orca is, how it works under the hood, and how tech SMEs can leverage it to multiply their engineering capacity by 5x.
+
+---
+
+## What is Orca and How Does It Redefine the IDE?
+
+Traditional IDEs (such as VS Code or JetBrains) were built on a core assumption: a single human developer interacting with one screen and a single working file system.
+
+**Orca** redesigns this layout entirely. It is not just a text editor with AI autocompletion; it is a **control plane and orchestration cockpit for AI agents**. Its purpose is not to write code for you, but to allow you to command, monitor, and synchronize a fleet of autonomous agents working on different parts of your codebase simultaneously.
+
+The Orca interface integrates into a single workspace:
+- A tasks sidebar displaying the real-time status of each agent (Working, Idle, Blocked/Awaiting Review).
+- Split terminals executing the CLI of each agent (such as the interactive Claude Code console).
+- An interactive, centralized Diff viewer that lets you audit AI-generated code changes before accepting them.
+- A file tree that updates in real time as files are modified by different agents.
+
+---
+
+## Under the Hood: Git Worktree Isolation
+
+The biggest challenge in running multiple AI agents in parallel is file system consistency. An autonomous coding agent does not just edit lines of text; it frequently runs commands like \`npm install\`, spins up test databases, or runs code linters and formatters. If two agents attempt to execute these processes in the same directory at the same time, file collisions and environment corruption are guaranteed.
+
+Orca resolves this by utilizing **Git Worktrees**.
+
+### How Git Worktree Isolation Works in Orca
+When you create a new task in Orca (for example, "Create authentication endpoint" and "Set up integration tests"), the IDE does not work in the project's root folder. Instead:
+1. **Isolated Working Trees:** Orca automatically creates an independent \`git worktree\` for each task in separate temporary folders linked to the same local git repository.
+2. **Clean Parallel Environments:** Each task has its own file environment, its own interactive terminal, and its own execution pipeline.
+3. **Zero Conflicts:** An agent can install npm packages and run compilations in Worktree A without affecting the files or execution paths of the agent running in Worktree B.
+4. **Native Pull Request Flow:** Once an agent passes all local tests and completes its prompt, the changes are committed to a specific git branch. The human developer reviews the diff in a unified screen before merging (\`git merge\`) it into the main development branch.
+
+---
+
+## SSH Remote Workspaces: Offloading Heavy Local Computation
+
+Running multiple coding agents simultaneously is extremely resource-intensive. Agents run infinite compilation loops, spin up Docker containers for end-to-end tests, and execute static analysis tools. Running these locally will quickly max out a developer's CPU and memory.
+
+Orca addresses this with **SSH Remote Workspaces**.
+
+Through the SSH connection panel, you can link Orca to a remote cloud server or a private VM (e.g., an inexpensive Hetzner or AWS virtual machine with 32 CPU cores and 64 GB of RAM).
+
+When creating a task, you simply choose the remote SSH host. Orca then:
+1. Initializes the Git Worktree on the remote server via SSH.
+2. Executes the selected CLI agent (Claude Code, Codex, etc.) on that remote server.
+3. Streams the editor state, terminal stdout/stderr, and file diffs to your local desktop application in real time.
+
+This keeps the developer's laptop cool, quiet, and fast, with its memory free for regular work, while a powerful cloud cluster handles the heavy lifting of code compilation and AI inference.
+
+---
+
+## Quick Setup & Getting Started
+
+Deploying Orca across your SME's technical team is simple.
+
+### 1. Download the Desktop Client
+Orca is cross-platform and available for macOS, Windows, and Linux.
+
+**On macOS (via Homebrew):**
+\`\`\`bash
+brew install --cask stablyai/orca/orca
+\`\`\`
+
+**On Windows and Linux:**
+You can download the executable installers (\`.exe\` for Windows, \`.AppImage\` for Linux) directly from StablyAI's official release page on GitHub (\`stablyai/orca\`).
+
+### 2. Configure Your Coding Agents
+When opening Orca for the first time, navigate to the Agent Settings tab to link your API keys and CLI binary paths:
+- **Claude Code:** Configure the path to your local \`claude\` executable (requires an Anthropic Console API key).
+- **Codex Desktop / CLI:** Set up your OpenAI API credentials.
+- **Aider / OpenCode:** Specify the terminal startup commands for your system.
+
+### 3. Create a Task and Steer Your Agents
+1. Load your local repository into Orca.
+2. Click **"New Task"** in the sidebar.
+3. Give it a name (e.g., \`feature/dashboard-metrics\`) and write the prompt (e.g., *"Create a React component showing a bar chart using Tailwind, and add its unit tests"*).
+4. Select your preferred agent (e.g., Claude Code) and click **"Start Agent"**.
+5. Orca creates the git worktree and begins running the agent. You can repeat this process to spin up multiple parallel tasks simultaneously.
+
+---
+
+## Competitive Value for Software SMEs
+
+For small-to-medium software consultancies and product teams, adopting an ADE like Orca delivers clear strategic advantages:
+
+### 3x to 5x Developer Output Amplification
+In small teams, developers are often stretched thin. A single senior engineer or CTO must handle feature engineering, production hotfixes, and writing tests.
+With Orca, the developer transitions from writing code line-by-line to acting as a **technical architect and code reviewer**. They can delegate 3 parallel tasks to agents in Orca, let them generate the draft branches and run tests, and spend their time reviewing the outputs and merging PRs.
+
+### Offloaded Hardware Costs
+SMEs do not need to buy expensive, high-spec developer laptops for every new hire just to run resource-heavy local AI workflows. By utilizing Orca's SSH remote workspace integration, all heavy computing, Docker testing, and compilations are offloaded to inexpensive, pay-as-you-go cloud virtual machines.
+
+### Mobile Monitoring and Control
+Orca comes with a mobile companion app. This lets tech leads and developers check in on the progress of long-running refactoring agents from their phones, giving them the ability to pause, redirect, or approve changes on the go.
+
+---
+
+## Conclusion
+
+The future of software engineering is not about replacing developers with AI; it is about equipping developers to manage a fleet of autonomous AI agents safely and efficiently. Systems like **Orca ADE** lead this shift, enabling tech SMEs to deliver software at the speed and volume of teams with ten times their budget.
+
+---
+
+> ### 🚀 Ready to implement parallel, secure agentic development in your SME?
+> At **IA4PYMES**, we help software companies configure remote cloud infrastructures for AI agents, deploy tools like Orca ADE, and train developers to manage parallel agentic workflows under strict code quality and data security guidelines.
+> 
+> [**Book a free 15-minute consultation with our engineering team today**](https://calendly.com/ia4pymes) and let's design your custom agentic development stack.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Codex-shim Desacoplar OpenAI (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
