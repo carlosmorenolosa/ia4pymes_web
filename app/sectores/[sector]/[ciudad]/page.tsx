@@ -174,7 +174,7 @@ const contentMap: Record<
 
 // Generación estática de parámetros para Next.js 15
 export function generateStaticParams() {
-  const sectors = ["clinicas", "abogados", "gestorias", "gestorías"]
+  const sectors = ["clinicas", "abogados", "gestorias"]
   const cities = ["madrid", "barcelona", "valencia"]
 
   const paths: { sector: string; ciudad: string }[] = []
