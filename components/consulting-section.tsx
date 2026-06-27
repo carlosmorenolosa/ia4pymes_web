@@ -210,7 +210,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center gap-6 pt-2"
+              className="flex lg:hidden items-center gap-6 pt-2"
             >
               <div>
                 <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
@@ -248,6 +248,24 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   className="w-full h-full"
                   title={t.titleIframe}
                 />
+              </div>
+            </motion.div>
+
+            {/* Price Tag Details (Desktop Only, Centered) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="hidden lg:flex flex-col items-center text-center mt-6"
+            >
+              <div>
+                <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
+                <div className="flex items-baseline justify-center gap-2">
+                  <span className="text-4xl sm:text-5xl font-black text-slate-900">{t.price}</span>
+                  <span className="text-lg font-bold text-slate-500">{t.plusVat}</span>
+                </div>
+                <span className="text-xs text-slate-400 block mt-1">{t.totalVat}</span>
               </div>
             </motion.div>
           </div>
