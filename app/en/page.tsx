@@ -56,6 +56,11 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
   ssr: false,
 })
 
+const ConsultingSection = dynamic(() => import("@/components/consulting-section").then((mod) => mod.ConsultingSection), {
+  ssr: false,
+  loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" />
+})
+
 import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { useInView, useSpring, useTransform } from "framer-motion"
@@ -349,6 +354,10 @@ export default function HomeEN() {
             </div>
           </FadeIn>
         </section>
+
+        {/* Consulting Section */}
+        <ConsultingSection lang="en" />
+
 
         {/* Newsletter Section */}
         <section

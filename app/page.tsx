@@ -20,6 +20,7 @@ import {
   SuccessCasesCarousel,
   ContactForm,
   CostCalculator,
+  ConsultingSection,
 } from "@/components/home-dynamic-imports"
 
 // SSR habilitado — contenido indexable por Google
@@ -48,6 +49,10 @@ export default function Home() {
             </div>
           </FadeIn>
         </section>
+
+        {/* Consulting Section */}
+        <ConsultingSection />
+
 
 
         {/* Newsletter Section */}

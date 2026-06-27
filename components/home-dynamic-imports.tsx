@@ -23,3 +23,9 @@ export const CostCalculator = dynamic(
   () => import("@/components/cost-calculator").then((mod) => mod.CostCalculator),
   { ssr: false }
 )
+
+export const ConsultingSection = dynamic(
+  () => import("@/components/consulting-section").then((mod) => mod.ConsultingSection),
+  { ssr: false, loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
+)
+
