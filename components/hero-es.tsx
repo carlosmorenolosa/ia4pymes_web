@@ -47,10 +47,10 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
               >
                 <Link
-                  href="#contacto"
+                  href="/#consultoria"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                 >
-                  Solicitar Diagnóstico
+                  Diseñar Hoja de Ruta
                 </Link>
                 <Link
                   href="#casos-exito"
