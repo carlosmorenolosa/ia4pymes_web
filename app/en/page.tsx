@@ -302,10 +302,10 @@ export default function HomeEN() {
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <Link
-                        href="#contact"
+                        href="/en#consultoria"
                         className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                       >
-                        Request Free Diagnosis
+                        Book Consultation
                       </Link>
                     </motion.div>
 
@@ -536,10 +536,10 @@ export default function HomeEN() {
             <FadeIn delay={0.6}>
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
-                  href="#contact"
+                  href="/en#consultoria"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                 >
-                  <span>Request Free Diagnosis</span>
+                  <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
               </div>
@@ -604,11 +604,11 @@ export default function HomeEN() {
 
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
-                  href="#contact"
+                  href="/en#consultoria"
                   className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                  aria-label="Request free diagnosis"
+                  aria-label="Book Consultation"
                 >
-                  <span>Request Free Diagnosis</span>
+                  <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
               </div>
@@ -727,7 +727,7 @@ export default function HomeEN() {
                 <ul className="space-y-4">
                   <li><Link href="#inicio" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
                   <li><Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
-                  <li><Link href="#contact" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Request Diagnosis</Link></li>
+                  <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
                   <li><Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
               </motion.div>
@@ -772,9 +772,8 @@ export default function HomeEN() {
                 © 2026 IA4PYMES. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <Link href="/en" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Home</Link>
-                <Link href="#contact" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Hire Us</Link>
-                <Link href="https://calendly.com/ia4pymes" target="_blank" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Schedule a Call</Link>
+                <Link href="#contact" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Free Contact</Link>
+                <Link href="/en#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Book Consultation</Link>
               </div>
             </div>
           </div>

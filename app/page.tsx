@@ -243,10 +243,10 @@ export default function Home() {
               <FadeIn delay={0.6}>
                 <div className="mt-12 sm:mt-16 text-center">
                   <Link
-                    href="#contacto"
+                    href="/#consultoria"
                     className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                   >
-                    <span>Solicitar diagnóstico gratuito</span>
+                    <span>Reservar Consultoría</span>
                     <ArrowRight
                       className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden="true"
@@ -311,11 +311,11 @@ export default function Home() {
               {/* CTA Button for Success Cases */}
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
-                  href="#contacto"
+                  href="/#consultoria"
                   className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                  aria-label="Solicitar diagnóstico gratuito"
+                  aria-label="Reservar Consultoría"
                 >
-                  <span>Solicitar diagnóstico gratuito</span>
+                  <span>Reservar Consultoría</span>
                   <ArrowRight
                     className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
                     aria-hidden="true"
@@ -442,7 +442,7 @@ export default function Home() {
                     <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
                   </li>
                   <li>
-                    <Link href="#contacto" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Solicitar Diagnóstico</Link>
+                    <Link href="/#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Reservar Consultoría</Link>
                   </li>
                   <li>
                     <Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Newsletter Semanal</Link>
@@ -488,8 +488,8 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-6">
                 <Link href="#inicio" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Inicio</Link>
-                <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contratar</Link>
-                <Link href="https://calendly.com/ia4pymes" target="_blank" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Agendar Llamada</Link>
+                <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contacto Gratis</Link>
+                <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Reservar Consultoría</Link>
               </div>
             </div>
           </div>
