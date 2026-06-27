@@ -11,8 +11,8 @@ const i18n = {
     headingHighlight: "IA en PYMES",
     subtitle: "Resolvemos las preguntas más comunes sobre la implementación de Inteligencia Artificial en tu negocio.",
     ctaQuestion: "¿Tienes alguna otra duda?",
-    ctaButton: "Agendar Consulta Gratuita",
-    ctaHref: "#contacto",
+    ctaButton: "Reservar Consultoría",
+    ctaHref: "/#consultoria",
     faqs: [
       {
         question: "¿Es útil esta solución para mi sector?",
@@ -45,8 +45,8 @@ const i18n = {
     headingHighlight: "AI for SMEs",
     subtitle: "We answer the most common questions about implementing Artificial Intelligence in your business.",
     ctaQuestion: "Have any other questions?",
-    ctaButton: "Schedule a Free Consultation",
-    ctaHref: "#contact",
+    ctaButton: "Book Consultation",
+    ctaHref: "/en#consultoria",
     faqs: [
       {
         question: "Is this solution useful for my industry?",

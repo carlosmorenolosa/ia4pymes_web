@@ -488,7 +488,7 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-6">
                 <Link href="#inicio" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Inicio</Link>
-                <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contacto Gratis</Link>
+                <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contacto</Link>
                 <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Reservar Consultoría</Link>
               </div>
             </div>

@@ -772,7 +772,7 @@ export default function HomeEN() {
                 © 2026 IA4PYMES. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <Link href="#contact" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Free Contact</Link>
+                <Link href="#contact" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contact</Link>
                 <Link href="/en#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Book Consultation</Link>
               </div>
             </div>
