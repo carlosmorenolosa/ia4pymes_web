@@ -5,7 +5,6 @@ import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucid
 
 const i18n = {
   es: {
-    badge: "Nuevo Servicio",
     heading: "Diseña tu ",
     headingHighlight: "Hoja de Ruta",
     headingSuffix: " con IA",
@@ -18,7 +17,11 @@ const i18n = {
     included3Title: "3. Siguientes Pasos",
     included3Desc: "Tú decides si quieres intentar implementarlo por tu cuenta o si prefieres que te preparemos un presupuesto a medida para que lo hagamos nosotros.",
     guarantee1Title: "Garantía de Reembolso en Proyecto",
-    guarantee1Desc: "Si decides contratar el desarrollo e implementación del proyecto de IA con nosotros, **te descontamos el 100% de la consultoría (180,29€)** del presupuesto final. La sesión te saldrá completamente gratis.",
+    guarantee1Desc: (
+      <span>
+        Si decides contratar el desarrollo e implementación del proyecto de IA con nosotros, <strong className="font-bold text-slate-900">te descontamos el 100% de la consultoría (180,29€)</strong> del presupuesto final. La sesión te saldrá completamente gratis.
+      </span>
+    ),
     guarantee2Title: "Garantía de Viabilidad de 15 Minutos",
     guarantee2Desc: "Si en los primeros 15 minutos de la videollamada vemos que tu negocio no se puede beneficiar directamente de la IA, cancelamos la sesión y te reembolsamos el 100% del importe de inmediato. Sin explicaciones.",
     priceTitle: "Precio de la Sesión",
@@ -26,11 +29,10 @@ const i18n = {
     plusVat: "+ IVA",
     totalVat: "(Total: 180,29 € IVA incluido)",
     titleIframe: "Reserva tu Consultoría con IA4PYMES",
-    calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?locale=es",
+    calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?embed=true&locale=es",
     secureText: "Pasarela de pago y reserva segura",
   },
   en: {
-    badge: "New Service",
     heading: "Design Your ",
     headingHighlight: "AI Roadmap",
     headingSuffix: "",
@@ -43,7 +45,11 @@ const i18n = {
     included3Title: "3. Next Steps",
     included3Desc: "You decide if you want to try it on your own or if you prefer us to prepare a custom quote to do it for you.",
     guarantee1Title: "Project Refund Guarantee",
-    guarantee1Desc: "If you decide to hire the development and implementation of the AI project with us, **we deduct 100% of the consultancy cost (180.29€)** from the final budget. The session is completely free.",
+    guarantee1Desc: (
+      <span>
+        If you decide to hire the development and implementation of the AI project with us, <strong className="font-bold text-slate-900">we deduct 100% of the consultancy cost (180.29€)</strong> from the final budget. The session is completely free.
+      </span>
+    ),
     guarantee2Title: "15-Minute Viability Guarantee",
     guarantee2Desc: "If in the first 15 minutes of the video call we see that your business cannot benefit from AI, we cancel the session and refund 100% of the cost immediately. No questions asked.",
     priceTitle: "Session Price",
@@ -51,7 +57,7 @@ const i18n = {
     plusVat: "+ VAT",
     totalVat: "(Total: 180.29 € VAT included)",
     titleIframe: "Book your Consultation with IA4PYMES",
-    calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?locale=en",
+    calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?embed=true&locale=en",
     secureText: "Secure checkout and booking",
   }
 }
@@ -76,10 +82,6 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               transition={{ duration: 0.6 }}
               className="space-y-4"
             >
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-100">
-                <Sparkles className="w-3.5 h-3.5" />
-                {t.badge}
-              </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
@@ -198,10 +200,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               </div>
               
               {/* Iframe embedding the booking calendar */}
-              <div className="w-full bg-white" style={{ minHeight: "680px" }}>
+              <div className="w-full bg-white" style={{ height: "720px" }}>
                 <iframe
                   src={t.calUrl}
-                  style={{ width: "100%", height: "100%", minHeight: "680px", border: "none" }}
+                  style={{ width: "100%", height: "100%", border: "none" }}
                   className="w-full h-full"
                   title={t.titleIframe}
                 />
