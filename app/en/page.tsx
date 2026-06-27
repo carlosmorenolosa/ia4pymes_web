@@ -201,10 +201,10 @@ export default function HomeEN() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Link
-                    href="#contact"
+                    href="/en#consultoria"
                     className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                   >
-                    Free Diagnosis
+                    Book Consultation
                   </Link>
                 </motion.div>
               </div>
@@ -248,11 +248,11 @@ export default function HomeEN() {
             </div>
             <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
             <Link
-              href="#contact"
+              href="/en#consultoria"
               onClick={() => setMobileMenuOpen(false)}
               className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
             >
-              Free Diagnosis
+              Book Consultation
             </Link>
           </div>
         )}
