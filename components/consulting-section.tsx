@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucide-react"
 
@@ -64,6 +65,46 @@ const i18n = {
 
 export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
   const t = i18n[lang]
+
+  useEffect(() => {
+    let originalScrollY = window.scrollY;
+    let isUserScrolling = false;
+    let userScrollTimeout: any = null;
+
+    const handleUserInput = () => {
+      isUserScrolling = true;
+      if (userScrollTimeout) clearTimeout(userScrollTimeout);
+      userScrollTimeout = setTimeout(() => {
+        isUserScrolling = false;
+      }, 150);
+    };
+
+    const handleScroll = () => {
+      const activeEl = document.activeElement;
+      const isIframeFocused = activeEl && activeEl.tagName === "IFRAME" && activeEl.getAttribute("title") === t.titleIframe;
+
+      if (isIframeFocused && !isUserScrolling) {
+        if (window.scrollY !== originalScrollY) {
+          window.scrollTo(0, originalScrollY);
+        }
+      } else {
+        originalScrollY = window.scrollY;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleUserInput, { passive: true });
+    window.addEventListener("touchmove", handleUserInput, { passive: true });
+    window.addEventListener("keydown", handleUserInput, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleUserInput);
+      window.removeEventListener("touchmove", handleUserInput);
+      window.removeEventListener("keydown", handleUserInput);
+      if (userScrollTimeout) clearTimeout(userScrollTimeout);
+    };
+  }, [t.titleIframe]);
 
   return (
     <section id="consultoria" className="py-16 sm:py-24 bg-white relative overflow-hidden">
