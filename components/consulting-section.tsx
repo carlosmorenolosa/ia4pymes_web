@@ -257,7 +257,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:flex flex-col items-center text-center mt-6"
+              className="hidden lg:flex flex-col items-center text-center mt-12"
             >
               <div>
                 <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
