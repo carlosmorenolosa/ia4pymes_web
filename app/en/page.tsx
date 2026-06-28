@@ -56,10 +56,7 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
   ssr: false,
 })
 
-const ConsultingSection = dynamic(() => import("@/components/consulting-section").then((mod) => mod.ConsultingSection), {
-  ssr: false,
-  loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" />
-})
+import { ConsultingSection } from "@/components/consulting-section"
 
 import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
