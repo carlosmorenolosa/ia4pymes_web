@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale, Archive } from "lucide-react"
+import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale, Archive, ShoppingBag } from "lucide-react"
 
 const caseData = {
   es: [
@@ -56,6 +56,13 @@ const caseData = {
       icon: Shield, color: "purple",
       benefit: "Prevención proactiva de incidencias",
     },
+    {
+      title: "Desarrollo E-Commerce Impulsado por IA",
+      company: "Vandalverse",
+      description: "Desarrollo y lanzamiento de su plataforma web y tienda online a medida. Al optimizar nuestro flujo de trabajo con IA de última generación para la generación de código y diseño, eliminamos las ineficiencias de las agencias convencionales. Esto nos permite entregar una web profesional en la mitad de tiempo y a una fracción del precio de las agencias de marketing tradicionales.\n\n🎯 Coste de Desarrollo: -50% | ⏱️ Time-to-Market: Reducido a la mitad | 📅 Estado: En Desarrollo",
+      icon: ShoppingBag, color: "blue",
+      benefit: "Web premium a una fracción del coste de agencias tradicionales",
+    },
   ],
   en: [
     {
@@ -106,6 +113,13 @@ const caseData = {
       description: "Machine learning model for port logistics that anticipates incidents, optimizes resources and reduces operational costs through predictive analysis.\n\n🎯 Estimated ROI: +490% | ⏱️ Savings: 90h/week + incident reduction | 📅 Active: 2 years",
       icon: Shield, color: "purple",
       benefit: "Proactive incident prevention",
+    },
+    {
+      title: "AI-Powered E-Commerce Development",
+      company: "Vandalverse",
+      description: "Development and launch of their custom web platform and online store. By optimizing our workflow with next-gen AI for coding and design, we eliminate the inefficiencies of conventional agencies. This allows us to deliver a professional website in half the time and at a fraction of the cost of traditional marketing or web design agencies.\n\n🎯 Development Cost: -50% | ⏱️ Time-to-Market: Reduced by half | 📅 Status: Under Development",
+      icon: ShoppingBag, color: "blue",
+      benefit: "Premium website at a fraction of traditional agency costs",
     },
   ],
 }
