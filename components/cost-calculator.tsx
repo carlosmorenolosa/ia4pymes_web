@@ -19,8 +19,7 @@ const i18n = {
     monthly: "Mensual",
     yearlyLabel: "Pérdida Anual Total",
     ctaButton: "Frenar Pérdidas",
-    ctaHref: "#contacto",
-    ctaNote: "Diagnóstico 100% gratuito",
+    ctaHref: "/#consultoria",
     locale: "es-ES",
   },
   en: {
@@ -36,8 +35,7 @@ const i18n = {
     monthly: "Monthly",
     yearlyLabel: "Total Annual Loss",
     ctaButton: "Stop the Losses",
-    ctaHref: "#contact",
-    ctaNote: "100% free diagnosis",
+    ctaHref: "/en#consultoria",
     locale: "en-US",
   },
 }
@@ -270,9 +268,6 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </motion.div>
-                                        <p className="text-[10px] text-slate-400 mt-4 text-center font-bold uppercase tracking-widest">
-                                            {t.ctaNote}
-                                        </p>
                                     </div>
                                 </div>
                             </div>
