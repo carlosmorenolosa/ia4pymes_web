@@ -7,7 +7,7 @@ import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucid
 const i18n = {
   es: {
     heading: "Diseña tu ",
-    headingHighlight: "Roadmap Técnico",
+    headingHighlight: "Hoja de Ruta",
     headingSuffix: " con IA",
     subtitle: "Reserva una sesión estratégica de 60 minutos. Analizamos la viabilidad técnica de tu proyecto y trazamos un plano arquitectónico de desarrollo con las tecnologías idóneas.",
     includedHeading: "¿Qué definimos en la sesión?",
@@ -35,8 +35,8 @@ const i18n = {
   },
   en: {
     heading: "Design Your ",
-    headingHighlight: "Technical Roadmap",
-    headingSuffix: " with AI",
+    headingHighlight: "AI Roadmap",
+    headingSuffix: "",
     subtitle: "Book a 60-minute strategic session. We analyze your project's technical feasibility and map out a development architecture with the ideal technologies.",
     includedHeading: "What do we define in the session?",
     included1Title: "1. Architecture & Feasibility",
