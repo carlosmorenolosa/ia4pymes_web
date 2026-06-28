@@ -68,6 +68,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
   useEffect(() => {
     let originalScrollY = window.scrollY;
+    let isIframeFocused = false;
     let isUserScrolling = false;
     let userScrollTimeout: any = null;
 
@@ -80,9 +81,6 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
     };
 
     const handleScroll = () => {
-      const activeEl = document.activeElement;
-      const isIframeFocused = activeEl && activeEl.tagName === "IFRAME" && activeEl.getAttribute("title") === t.titleIframe;
-
       if (isIframeFocused && !isUserScrolling) {
         if (window.scrollY !== originalScrollY) {
           window.scrollTo(0, originalScrollY);
@@ -92,16 +90,30 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleFocusChange = () => {
+      setTimeout(() => {
+        const activeEl = document.activeElement;
+        isIframeFocused = !!(activeEl && activeEl.tagName === "IFRAME" && activeEl.getAttribute("title") === t.titleIframe);
+        if (isIframeFocused) {
+          originalScrollY = window.scrollY;
+        }
+      }, 50);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("wheel", handleUserInput, { passive: true });
     window.addEventListener("touchmove", handleUserInput, { passive: true });
     window.addEventListener("keydown", handleUserInput, { passive: true });
+    window.addEventListener("blur", handleFocusChange);
+    window.addEventListener("focus", handleFocusChange);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("wheel", handleUserInput);
       window.removeEventListener("touchmove", handleUserInput);
       window.removeEventListener("keydown", handleUserInput);
+      window.removeEventListener("blur", handleFocusChange);
+      window.removeEventListener("focus", handleFocusChange);
       if (userScrollTimeout) clearTimeout(userScrollTimeout);
     };
   }, [t.titleIframe]);
