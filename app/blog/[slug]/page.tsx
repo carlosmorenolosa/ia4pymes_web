@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPosts } from "@/lib/blog-data"
-import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal, Globe, Sparkles } from "lucide-react"
+import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal, Globe } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import ReadingProgressBar from "@/components/reading-progress-bar"
@@ -239,36 +239,6 @@ export default async function BlogPostPage({ params }: PageProps) {
                             {post.content}
                         </ReactMarkdown>
                     </div>
-
-                    {/* Consulting CTA Banner */}
-                    <div className="mt-16 p-8 rounded-[2.5rem] bg-gradient-to-br from-blue-950/40 to-slate-950/40 border border-blue-500/20 backdrop-blur-xl relative overflow-hidden shadow-2xl">
-                        {/* Decorative subtle ambient light */}
-                        <div className="absolute -top-12 -right-12 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-                        
-                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                            <div className="space-y-3 max-w-xl">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-400">
-                                    <Sparkles className="w-3.5 h-3.5" />
-                                    Consultoría Estratégica
-                                </div>
-                                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                                    Diseña tu Hoja de Ruta con IA
-                                </h3>
-                                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
-                                    Agenda una sesión de 60 minutos con nuestros ingenieros. Analizamos la viabilidad de la IA en tu negocio y te damos un roadmap técnico claro. <strong className="text-white font-bold">100% reembolsable</strong> si contratas el desarrollo.
-                                </p>
-                            </div>
-                            <div className="shrink-0 w-full md:w-auto text-center">
-                                <Link
-                                    href="/#consultoria"
-                                    className="inline-flex items-center justify-center gap-3 w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-black px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/30 hover:scale-[1.03] active:scale-[0.98] uppercase tracking-wider text-sm"
-                                >
-                                    Reservar (149€ + IVA)
-                                    <ArrowRight className="w-4 h-4" />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </article>
 
@@ -284,15 +254,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                         Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
                     </h2>
 
-                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-2xl mx-auto text-pretty">
-                        El conocimiento sin implementación técnica es solo entretenimiento. Auditamos los procesos de tu empresa para integrar arquitecturas de IA que escalan tu productividad de forma empírica.
+                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-pretty">
+                        El conocimiento sin implementación técnica es solo entretenimiento. Agenda tu consultoría de 60 minutos: te devolvemos el 100% del importe si en los primeros 15 minutos vemos que la IA no es viable para tu caso, y si decides contratar el proyecto con nosotros, te descontamos el coste total de la sesión del presupuesto final.
                     </p>
 
                     <Link
-                        href="/#contacto"
+                        href="/#consultoria"
                         className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
                     >
-                        Agendar Despliegue Técnico
+                        Reservar Consultoría
                         <ArrowRight className="w-6 h-6" />
                     </Link>
                 </div>
