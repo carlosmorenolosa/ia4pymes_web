@@ -80,7 +80,7 @@ A diferencia de vLLM, que requiere GPUs con gran cantidad de VRAM para cargar mo
 > ### 🔍 ¿Necesitas estructurar la infraestructura de IA para tu empresa?
 > Dimensionar servidores y elegir el motor de inferencia correcto (vLLM vs. llama.cpp) es crucial para evitar cuellos de botella y costes innecesarios. En **IA4PYMES** te ayudamos a auditar tu arquitectura y a diseñar tu roadmap técnico de IA.
 > 
-> [**Agenda tu consultoría de 60 minutos aquí**](https://ia4pymes.tech/#consultoria) (100% reembolsable si contratas el proyecto con nosotros, y con garantía de viabilidad de 15 minutos).
+> [**Agenda tu consultoría de 60 minutos aquí**](/#consultoria) (100% reembolsable si contratas el proyecto con nosotros, y con garantía de viabilidad de 15 minutos).
 
 ---
 
@@ -181,7 +181,7 @@ Unlike vLLM, which typically requires enterprise-grade GPUs to load models in un
 > ### 🔍 Need to design your company's AI infrastructure?
 > Sizing servers and choosing the right inference engine (vLLM vs. llama.cpp) is critical to prevent system bottlenecks and unnecessary cloud costs. At **IA4PYMES**, we audit your workflows and design your technical AI roadmap.
 > 
-> [**Book your 60-minute technical consultation here**](https://ia4pymes.tech/en#consultoria) (100% refundable if you hire us for development, with a 15-minute feasibility guarantee).
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if you hire us for development, with a 15-minute feasibility guarantee).
 
 ---
 
