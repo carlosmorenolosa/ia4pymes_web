@@ -254,8 +254,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                         Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
                     </h2>
 
-                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-pretty">
-                        El conocimiento sin implementación técnica es solo entretenimiento. Agenda tu consultoría de 60 minutos: te devolvemos el 100% del importe si en los primeros 15 minutos vemos que la IA no es viable para tu caso, y si decides contratar el proyecto con nosotros, te descontamos el coste total de la sesión del presupuesto final.
+                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-justify text-pretty">
+                        El conocimiento sin implementación técnica es solo entretenimiento. Agenda tu <strong className="font-bold text-white">consultoría de 60 minutos</strong>: te devolvemos el <strong className="font-bold text-white">100% del importe</strong> si en los primeros 15 minutos vemos que la IA no es viable para tu caso, y si decides contratar el proyecto con nosotros, te <strong className="font-bold text-white">descontamos el coste total</strong> de la sesión del presupuesto final.
                     </p>
 
                     <Link

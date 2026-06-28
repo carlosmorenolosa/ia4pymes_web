@@ -266,8 +266,8 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                         From theory to <span className="text-blue-500">execution</span>
                     </h2>
 
-                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-pretty">
-                        Knowledge without technical implementation is just entertainment. Book your 60-minute session: we refund 100% of the cost if within the first 15 minutes we see that AI is not feasible for your business, and if you choose to develop the project with us, we deduct the full session cost from the final budget.
+                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-justify text-pretty">
+                        Knowledge without technical implementation is just entertainment. Book your <strong className="font-bold text-white">60-minute session</strong>: we refund <strong className="font-bold text-white">100% of the cost</strong> if within the first 15 minutes we see that AI is not feasible for your business, and if you choose to develop the project with us, we <strong className="font-bold text-white">deduct the full session cost</strong> from the final budget.
                     </p>
 
                     <Link
