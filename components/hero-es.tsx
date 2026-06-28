@@ -50,7 +50,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                   href="/#consultoria"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
                 >
-                  Diseñar Hoja de Ruta
+                  Diseñar Roadmap Técnico
                 </Link>
                 <Link
                   href="#casos-exito"
