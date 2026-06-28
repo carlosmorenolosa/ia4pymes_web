@@ -138,7 +138,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
+              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">
                 {t.subtitle}
               </p>
             </motion.div>
