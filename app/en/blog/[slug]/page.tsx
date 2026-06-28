@@ -246,6 +246,20 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                                         {children}
                                     </blockquote>
                                 ),
+                                a: ({ href, children }) => {
+                                    if (href && (href.startsWith('/') || href.startsWith('#'))) {
+                                        return (
+                                            <Link href={href}>
+                                                {children}
+                                            </Link>
+                                        );
+                                    }
+                                    return (
+                                        <a href={href} target="_blank" rel="noopener noreferrer">
+                                            {children}
+                                        </a>
+                                    );
+                                },
                             }}
                         >
                             {post.content}
