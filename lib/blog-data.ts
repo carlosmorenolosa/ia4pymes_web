@@ -16,6 +16,181 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Vercel eve (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "vercel-eve-agentes-ia-seguridad-pymes",
+        title: "Vercel eve: El 'Next.js para Agentes' y la Delegación de Credenciales Segura en la PYME",
+        description: "¿Agentes autónomos integrados con tu ERP o CRM sin riesgos de seguridad? Analizamos el nuevo framework eve de Vercel y el protocolo Vercel Connect para PYMEs.",
+        date: "2026-06-29",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tecnología",
+        image: "/blog/vercel-eve-agents.png",
+        lang: "es",
+        translationSlug: "vercel-eve-ai-agents-secure-credentials-smes",
+        content: `
+El lanzamiento de **eve** por parte de Vercel (descrito en el sector como el "Next.js para agentes de IA") marca una frontera definitiva en cómo las empresas diseñan y despliegan automatizaciones. Hasta ahora, el desarrollo de agentes autónomos capaces de ejecutar flujos de trabajo complejos, interactuar con bases de datos y tomar decisiones en tiempo real sufría de dos grandes problemas en la PYME: un ecosistema de desarrollo fragmentado y, sobre todo, graves riesgos de seguridad.
+
+Con el nuevo **Agent Stack** de Vercel (que integra el framework eve y el protocolo Vercel Connect), la arquitectura de agentes pasa de ser un experimento de laboratorio a un componente de software corporativo seguro, predecible y auditable.
+
+Analizamos cómo esta arquitectura resuelve el problema de la delegación de credenciales y cómo las PYMEs pueden aprovecharla para automatizar operaciones de forma segura.
+
+---
+
+## 1. El gran cuello de botella: El problema de seguridad de los agentes
+
+Cuando una empresa decide implementar un agente de IA (por ejemplo, un copilot contable que revisa facturas y concilia saldos en el ERP), el desarrollador suele enfrentarse a una decisión arriesgada: **¿cómo accede el agente a las APIs y bases de datos sensibles?**
+
+Tradicionalmente, las opciones eran pésimas:
+1. **Acceso irrestricto (Hardcoded Keys):** Se provee al agente con claves API maestras o acceso de escritura directo a la base de datos. Si el modelo sufre un ataque de inyección de prompts (un usuario malicioso que manipula la entrada de texto para engañar a la IA), el agente podría verse forzado a borrar tablas completas, extraer datos de otros clientes o abusar de APIs de pago.
+2. **Entornos aislados ineficientes:** Se limita tanto al agente que este pierde su utilidad práctica al no poder interactuar con sistemas reales en tiempo real.
+
+Para las PYMEs que manejan datos sensibles de clientes y deben cumplir con el cumplimiento del RGPD, dar acceso total a un agente autónomo basado en modelos de terceros representaba un riesgo inasumible.
+
+---
+
+## 2. Vercel Connect: Delegación de credenciales de corta duración
+
+La innovación más crítica del Agent Stack de Vercel no es el framework de desarrollo, sino **Vercel Connect**. Este protocolo introduce el concepto de **delegación de credenciales con ámbito limitado y duración corta (scoped, short-lived credentials)** para agentes de IA.
+
+En lugar de que el agente tenga una clave de acceso permanente al ERP de tu empresa, el flujo funciona bajo un modelo de confianza cero (Zero Trust):
+
+* **Solicitud de Token Dinámico:** Cuando el agente determina que necesita realizar una tarea (como consultar la última factura de un cliente específico), solicita permiso a través de Vercel Connect.
+* **Credenciales de Ámbito Único:** Vercel Connect genera un token temporal que solo permite realizar la acción exacta solicitada (por ejemplo, leer únicamente la factura con ID 9485). Este token expira automáticamente a los 5 minutos.
+* **Pistas de Auditoría Completas (Audit Trails):** Cada llamada a herramientas realizada por el agente queda registrada de forma inmutable, permitiendo a los administradores auditar exactamente qué decisiones tomó la IA y qué credenciales temporales utilizó.
+
+Esto neutraliza por completo los riesgos de inyección de prompts: si un atacante convence al agente de "mostrar todas las facturas de la base de datos", Vercel Connect bloqueará la petición porque el token temporal asignado al agente solo le autorizaba a leer una factura específica.
+
+---
+
+> ### 🔍 ¿Necesitas diseñar una arquitectura de agentes de IA segura para tu empresa?
+> Evita los riesgos de seguridad y las filtraciones de datos al integrar agentes autónomos con tu ERP o CRM. En **IA4PYMES** auditamos tus procesos y diseñamos tu roadmap técnico para desplegar IA con el máximo ROI y seguridad.
+> 
+> [**Agenda tu consultoría de 60 minutos aquí**](/#consultoria) (100% reembolsable si contratas el proyecto con nosotros, y con garantía de viabilidad de 15 minutos).
+
+---
+
+## 3. eve: El framework que estandariza la Developer Experience (DX)
+
+Al igual que Next.js estandarizó el desarrollo frontend en React, **eve** pretende unificar el desarrollo de agentes de IA bajo TypeScript de forma altamente estructurada y tipada.
+
+### Características principales de eve:
+* **Herramientas Tipadas de Forma Estricta:** Los agentes en eve interactúan con el mundo exterior a través de "tools" (herramientas). eve utiliza esquemas de TypeScript y Zod para garantizar que el modelo de IA solo pueda pasar parámetros con tipos de datos correctos a tus APIs.
+* **Control de Flujos Deterministas:** A diferencia de otros frameworks de agentes donde la IA puede entrar en bucles infinitos de razonamiento (gastando miles de dólares en llamadas de API), eve permite a los ingenieros definir límites estrictos de bifurcación y estados intermedios.
+* **Integración Nativa con Vercel Sandbox:** Proporciona entornos de ejecución aislados (sandboxes) donde los agentes pueden ejecutar código generado dinámicamente de forma segura sin peligro de comprometer el servidor principal.
+
+---
+
+## 4. Arquitectura recomendada para PYMEs con Vercel eve
+
+Para implementar agentes autónomos de forma segura sin incurrir en costes de desarrollo astronómicos, recomendamos seguir este patrón de arquitectura híbrida:
+
+### Paso A: Definir Tareas y Permisos Estrictos
+Divide tu gran proceso de negocio en micro-agentes especializados en eve (un agente para clasificar correos, otro para extraer datos del PDF y otro para actualizar el CRM). Nunca utilices un único agente "todopoderoso".
+
+### Paso B: Desplegar en Infraestructura Aislada
+Usa Vercel Connect como el guardián (gateway) de tus APIs internas. Tu base de datos contable o CRM nunca debe exponerse directamente al agente; siempre debe haber una API intermedia protegida por tokens temporales de Connect.
+
+### Paso C: Implementar Auditorías Semanales
+Revisa los logs de Connect. Al analizar los tokens dinámicos generados, podrás ajustar los prompts de tus agentes en eve para refinar su precisión y evitar que soliciten permisos innecesarios al sistema.
+
+---
+
+## Conclusión
+
+El lanzamiento de **eve** y **Vercel Connect** soluciona el principal obstáculo para la adopción corporativa de la IA agenticia: la seguridad de la información. Al estandarizar el desarrollo con TypeScript y limitar el acceso mediante tokens dinámicos temporales, las PYMEs ya pueden construir asistentes operativos que leen y escriben en sus bases de datos internas con total confianza y cumplimiento normativo.
+
+Adoptar estas arquitecturas de forma temprana te permitirá automatizar procesos manuales complejos y reducir drásticamente los costes operativos, manteniendo la soberanía y la seguridad de tus datos empresariales intactas.
+`.trim(),
+    },
+    {
+        slug: "vercel-eve-ai-agents-secure-credentials-smes",
+        title: "Vercel eve: The 'Next.js for Agents' and Secure Credential Delegation for SMEs",
+        description: "Autonomous agents integrated with your ERP or CRM without security leaks? We analyze Vercel's new eve framework and Vercel Connect for SMEs.",
+        date: "2026-06-29",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Technology",
+        image: "/blog/vercel-eve-agents.png",
+        lang: "en",
+        translationSlug: "vercel-eve-agentes-ia-seguridad-pymes",
+        content: `
+The launch of **eve** by Vercel (widely described as the "Next.js for AI agents") represents a major milestone in how businesses design and deploy autonomous automation. Until now, developing AI agents capable of executing complex workflows, reading from databases, and making real-time decisions has suffered from two major bottlenecks for SMEs: a fragmented developer ecosystem and, more importantly, severe security risks.
+
+With Vercel's new **Agent Stack** (integrating the eve framework and the Vercel Connect security protocol), agentic architecture transitions from an experimental playground into secure, predictable, and fully auditable enterprise software.
+
+We analyze how this architecture solves the problem of agent credential delegation and how SMEs can leverage it to automate core business operations securely.
+
+---
+
+## 1. The Bottleneck: The Agent Security Dilemma
+
+When an SME decides to deploy an autonomous agent (for example, a finance copilot that reviews invoices and reconciles bank balances in an ERP), developers face a risky decision: **how does the agent securely access sensitive APIs and databases?**
+
+Historically, the options have been poor:
+1. **Unrestricted Access (Hardcoded Keys):** Providing the agent with master API keys or direct write access to database tables. If the model suffers a prompt injection attack (a malicious user manipulating input to trick the model), the agent can be manipulated into deleting database tables, leaking customer records, or abusing paid external APIs.
+2. **Overly Restricted Environments:** Limiting the agent's capabilities so much that it loses all operational utility, failing to interact with real-world business systems.
+
+For SMEs managing sensitive customer data and complying with GDPR regulations, granting broad access to third-party LLM agents represented an unacceptable security risk.
+
+---
+
+## 2. Vercel Connect: Scoped, Short-Lived Credential Delegation
+
+The most critical innovation of Vercel's Agent Stack is not the framework itself, but **Vercel Connect**. This protocol introduces the concept of **scoped, short-lived credentials** for AI agents.
+
+Instead of granting the agent permanent access credentials to your company's systems, the flow operates under a Zero Trust model:
+
+* **Dynamic Token Requests:** When the agent determines it needs to perform a specific action (like fetching a specific customer's invoice), it requests a credential via Vercel Connect.
+* **Single-Scope Credentials:** Vercel Connect generates a temporary token that permits only the exact action requested (e.g., read-only access to invoice ID 9485). This token automatically expires after 5 minutes.
+* **Immutable Audit Trails:** Every tool call executed by the agent is logged, giving administrators complete visibility into what decisions the agent made and which temporary tokens it used.
+
+This completely mitigates prompt injection risks: if a malicious actor instructs the agent to "leak all invoices," Vercel Connect will block the request because the agent's active temporary token only authorizes it to access a single, specific record.
+
+---
+
+> ### 🔍 Need to design a secure AI agent architecture for your business?
+> Avoid security risks and data leaks when connecting autonomous agents to your ERP or CRM. At **IA4PYMES**, we audit your workflows and design your technical AI roadmap to deploy secure, high-ROI AI systems.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if you hire us for development, with a 15-minute feasibility guarantee).
+
+---
+
+## 3. eve: Standardizing the Agentic Developer Experience (DX)
+
+Just as Next.js standardized React development, **eve** aims to unify AI agent engineering under a structured, type-safe TypeScript framework.
+
+### Core Features of eve:
+* **Strictly Typed Tools:** Agents in eve interact with the environment via "tools." eve utilizes TypeScript and Zod schemas to ensure the LLM passes strictly typed arguments to your business APIs.
+* **Deterministic Flow Control:** Unlike other agent frameworks where models can enter infinite loops (wasting API credits), eve allows developers to enforce boundary limits, state transitions, and custom guardrails.
+* **Vercel Sandbox Integration:** Provides isolated execution environments (sandboxes) where agents can run dynamically generated code safely without risking host server security.
+
+---
+
+## 4. Recommended AI Agent Architecture for SMEs
+
+To implement autonomous agents securely without inflating engineering costs, we recommend adopting this hybrid architectural pattern:
+
+### Step A: Specialized Micro-Agents
+Deconstruct your business workflows into small, specialized micro-agents in eve (e.g., one agent for email classification, one for PDF extraction, one for CRM updates). Never build a single "all-powerful" agent.
+
+### Step B: API Gateways Protected by Vercel Connect
+Use Vercel Connect as the secure gateway for all internal APIs. Your internal ERP or client databases must never be directly exposed to the agent; they must always sit behind an API layer protected by Connect's short-lived tokens.
+
+### Step C: Log Auditing
+Regularly analyze Vercel Connect logs. By auditing the dynamic tokens generated, you can refine your eve agent prompts to optimize accuracy and restrict unnecessary permissions.
+
+---
+
+## Conclusion
+
+Vercel's **eve** and **Vercel Connect** directly address the biggest blocker to enterprise AI adoption: information security. By standardizing agent development with TypeScript and restricting resource access through dynamic, short-lived tokens, SMEs can now build powerful automation tools that read and write to internal databases with complete peace of mind.
+
+Adopting these secure patterns early will enable you to automate manual operations and reduce overhead while keeping your business data secure.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: vLLM vs Llama.cpp (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
