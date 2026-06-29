@@ -67,56 +67,67 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
   const t = i18n[lang]
 
   useEffect(() => {
-    let originalScrollY = window.scrollY;
-    let isIframeFocused = false;
-    let isUserScrolling = false;
-    let userScrollTimeout: any = null;
-
-    const handleUserInput = () => {
-      isUserScrolling = true;
-      if (userScrollTimeout) clearTimeout(userScrollTimeout);
-      userScrollTimeout = setTimeout(() => {
-        isUserScrolling = false;
-      }, 150);
-    };
-
-    const handleScroll = () => {
-      if (isIframeFocused && !isUserScrolling) {
-        if (window.scrollY !== originalScrollY) {
-          window.scrollTo(0, originalScrollY);
+    // 1. Initialize Cal queue on window
+    const win = window as any;
+    if (!win.Cal) {
+      const q: any[] = [];
+      win.Cal = Object.assign(
+        function (...args: any[]) {
+          q.push(args);
+        },
+        {
+          q,
+          on: function (...args: any[]) {
+            q.push(["on", args]);
+          },
+          off: function (...args: any[]) {
+            q.push(["off", args]);
+          },
+          get: function (...args: any[]) {
+            q.push(["get", args]);
+          },
         }
-      } else {
-        originalScrollY = window.scrollY;
-      }
-    };
+      );
+    }
 
-    const handleFocusChange = () => {
-      setTimeout(() => {
-        const activeEl = document.activeElement;
-        isIframeFocused = !!(activeEl && activeEl.tagName === "IFRAME" && activeEl.getAttribute("title") === t.titleIframe);
-        if (isIframeFocused) {
-          originalScrollY = window.scrollY;
+    // 2. Load the Cal script from their CDN
+    const script = document.createElement("script");
+    script.src = "https://assets.cal.com/embed/embed.js";
+    script.async = true;
+    
+    script.onload = () => {
+      const Cal = win.Cal;
+      // Initialize with cal.eu origin
+      Cal("init", { origin: "https://cal.eu" });
+      
+      // Render the calendar inline in the div container
+      Cal("inline", {
+        elementOrSelector: "#cal-booking-widget",
+        calLink: "ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia",
+        config: {
+          layout: "month_view",
+          theme: "light",
+          locale: lang,
         }
-      }, 50);
+      });
+      
+      // Set UI properties
+      Cal("ui", {
+        styles: { bodyType: { backgroundColor: "transparent" } },
+        hideEventTypeDetails: false,
+        disableAutoScroll: true, // Native auto-scroll prevention
+      });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("wheel", handleUserInput, { passive: true });
-    window.addEventListener("touchmove", handleUserInput, { passive: true });
-    window.addEventListener("keydown", handleUserInput, { passive: true });
-    window.addEventListener("blur", handleFocusChange);
-    window.addEventListener("focus", handleFocusChange);
+    document.body.appendChild(script);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", handleUserInput);
-      window.removeEventListener("touchmove", handleUserInput);
-      window.removeEventListener("keydown", handleUserInput);
-      window.removeEventListener("blur", handleFocusChange);
-      window.removeEventListener("focus", handleFocusChange);
-      if (userScrollTimeout) clearTimeout(userScrollTimeout);
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
-  }, [t.titleIframe]);
+  }, [lang]);
 
   return (
     <section id="consultoria" className="py-16 sm:py-24 bg-white relative overflow-hidden">
@@ -235,15 +246,12 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <span className="text-xs font-semibold text-slate-400 ml-4 select-none">{t.secureText}</span>
               </div>
               
-              {/* Iframe embedding the booking calendar */}
-              <div className="w-full bg-white" style={{ height: "720px" }}>
-                <iframe
-                  src={t.calUrl}
-                  style={{ width: "100%", height: "100%", border: "none" }}
-                  className="w-full h-full"
-                  title={t.titleIframe}
-                />
-              </div>
+              {/* Container for Cal.com Embed JS */}
+              <div 
+                id="cal-booking-widget" 
+                className="w-full bg-white" 
+                style={{ height: "720px", overflow: "hidden" }} 
+              />
             </motion.div>
 
             {/* Price Tag Details (Centered, below the calendar) */}
