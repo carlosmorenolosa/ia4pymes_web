@@ -67,67 +67,49 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
   const t = i18n[lang]
 
   useEffect(() => {
-    // 1. Initialize Cal queue on window
-    const win = window as any;
-    if (!win.Cal) {
-      const q: any[] = [];
-      win.Cal = Object.assign(
-        function (...args: any[]) {
-          q.push(args);
-        },
-        {
-          q,
-          on: function (...args: any[]) {
-            q.push(["on", args]);
-          },
-          off: function (...args: any[]) {
-            q.push(["off", args]);
-          },
-          get: function (...args: any[]) {
-            q.push(["get", args]);
-          },
-        }
-      );
-    }
+    let originalScrollY = window.scrollY;
+    let shouldLockScroll = false;
+    let lockTimeout: any = null;
 
-    // 2. Load the Cal script from their CDN
-    const script = document.createElement("script");
-    script.src = "https://assets.cal.com/embed/embed.js";
-    script.async = true;
-    
-    script.onload = () => {
-      const Cal = win.Cal;
-      // Initialize with cal.eu origin
-      Cal("init", { origin: "https://cal.eu" });
-      
-      // Render the calendar inline in the div container
-      Cal("inline", {
-        elementOrSelector: "#cal-booking-widget",
-        calLink: "ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia",
-        config: {
-          layout: "month_view",
-          theme: "light",
-          locale: lang,
-        }
-      });
-      
-      // Set UI properties
-      Cal("ui", {
-        styles: { bodyType: { backgroundColor: "transparent" } },
-        hideEventTypeDetails: false,
-        disableAutoScroll: true, // Native auto-scroll prevention
-      });
+    const startScrollLock = () => {
+      originalScrollY = window.scrollY;
+      shouldLockScroll = true;
+      if (lockTimeout) clearTimeout(lockTimeout);
+      lockTimeout = setTimeout(() => {
+        shouldLockScroll = false;
+      }, 800); // Bloquear scroll temporalmente para evitar el salto automático del foco
     };
 
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+    const handleScroll = () => {
+      if (shouldLockScroll) {
+        if (window.scrollY !== originalScrollY) {
+          window.scrollTo(0, originalScrollY);
+        }
       }
     };
-  }, [lang]);
+
+    // Interceptar cuando la ventana pierde el foco hacia el iframe
+    window.addEventListener("blur", startScrollLock);
+
+    // Interceptar al interactuar táctilmente o con ratón sobre el widget
+    const container = document.getElementById("cal-booking-widget-container");
+    if (container) {
+      container.addEventListener("mouseenter", startScrollLock);
+      container.addEventListener("touchstart", startScrollLock, { passive: true });
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("blur", startScrollLock);
+      if (container) {
+        container.removeEventListener("mouseenter", startScrollLock);
+        container.removeEventListener("touchstart", startScrollLock);
+      }
+      window.removeEventListener("scroll", handleScroll);
+      if (lockTimeout) clearTimeout(lockTimeout);
+    };
+  }, []);
 
   return (
     <section id="consultoria" className="py-16 sm:py-24 bg-white relative overflow-hidden">
@@ -229,8 +211,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
           </div>
 
-          {/* Cal.com Embed / Booking Widget Column (Right) */}
-          <div className="lg:col-span-6 w-full relative">
+          <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -246,12 +227,15 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <span className="text-xs font-semibold text-slate-400 ml-4 select-none">{t.secureText}</span>
               </div>
               
-              {/* Container for Cal.com Embed JS */}
-              <div 
-                id="cal-booking-widget" 
-                className="w-full bg-white" 
-                style={{ height: "720px", overflow: "hidden" }} 
-              />
+              {/* Iframe embedding the booking calendar */}
+              <div className="w-full bg-white" style={{ height: "720px" }}>
+                <iframe
+                  src={t.calUrl}
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                  className="w-full h-full"
+                  title={t.titleIframe}
+                />
+              </div>
             </motion.div>
 
             {/* Price Tag Details (Centered, below the calendar) */}
