@@ -44,7 +44,7 @@ Analizamos el potencial de esta arquitectura y cómo configurarla paso a paso en
 
 ## 1. El potencial de reutilizar el "harness" de Claude Code
 
-El verdadero valor de Claude Code no reside únicamente en el modelo Claude 5 Sonnet / Fable 5 que lleva detrás, sino en su **harness** o arnés de ejecución: el conjunto de prompts de sistema altamente refinados, la gestión de herramientas (tool calling) y el bucle de retroalimentación que le permite interactuar de forma segura con tu máquina local.
+El verdadero valor de Claude Code no reside únicamente en el modelo **Claude Fable 5** que lleva detrás, sino en su **harness** o arnés de ejecución: el conjunto de prompts de sistema altamente refinados, la gestión de herramientas (tool calling) y el bucle de retroalimentación que le permite interactuar de forma segura con tu máquina local.
 
 Gracias a Claude Code Router, podemos disociar este arnés del modelo propietario de Anthropic. Esto abre tres grandes oportunidades para las PYMEs:
 * **Reducción de costes drástica (hasta 95%):** Redirigir las consultas de análisis masivo a modelos hiperbaratos como Gemini 1.5/2.0 Flash o DeepSeek-Coder-V4 a través de APIs de bajo coste.
@@ -119,7 +119,7 @@ El agente reconfigurará el enrutador al instante y continuará resolviendo tare
 La adopción de esta estrategia tiene un impacto directo en la cuenta de resultados de tu equipo de desarrollo:
 
 ### Factura de API reducida
-Una sesión intensa de depuración de bugs de 4 horas con Claude 5 Sonnet nativo puede costar fácilmente entre 8 y 12 euros en tokens de entrada y salida debido a la recursión del contexto. Redirigiendo el trabajo a DeepSeek-Coder-V4 a través de SiliconFlow o la API oficial de DeepSeek, el coste de la misma sesión se reduce a menos de 0.40 euros (un ahorro del 95%).
+Una sesión intensa de depuración de bugs de 4 horas con **Claude Fable 5** nativo puede costar fácilmente entre 8 y 12 euros en tokens de entrada y salida debido a la recursión del contexto. Redirigiendo el trabajo a DeepSeek-Coder-V4 a través de SiliconFlow o la API oficial de DeepSeek, el coste de la misma sesión se reduce a menos de 0.40 euros (un ahorro del 95%).
 
 ### Soberanía del código y cumplimiento normativo
 Al utilizar modelos locales como Qwen 3.6 Coder o Mimo 2.5 corriendo en servidores de la propia empresa, se elimina por completo la transferencia de código a servidores de terceros en EE.UU. Esto permite a las PYMEs que desarrollan software para sectores regulados (Fintech, Healthtech, Administraciones Públicas) adoptar asistentes autónomos de terminal garantizando el cumplimiento estricto del RGPD.
@@ -157,7 +157,7 @@ We analyze the potential of this architecture and how to set it up step-by-step 
 
 ## 1. The Potential of Reusing the Claude Code Harness
 
-The true value of Claude Code lies not just in the underlying Claude 5 Sonnet / Fable 5 model, but in its **execution harness**: the highly optimized system prompts, tool-calling structures, and state loop that allow it to safely interact with your local environment.
+The true value of Claude Code lies not just in the underlying **Claude Fable 5** model, but in its **execution harness**: the highly optimized system prompts, tool-calling structures, and state loop that allow it to safely interact with your local environment.
 
 By using Claude Code Router, we decouple this execution framework from Anthropic's proprietary endpoints. This unlocks three major opportunities for SMEs:
 * **Dramatic Cost Savings (Up to 95%):** Route heavy code analysis tasks to cheaper endpoints like Gemini 1.5/2.0 Flash or DeepSeek-Coder-V4 at a fraction of the cost.
@@ -232,7 +232,7 @@ The router reconfigures the proxy instantly, letting the agent continue its work
 Implementing this setup has a direct financial and operational impact on your engineering department:
 
 ### Lower API Expenses
-A 4-hour active debugging session with native Claude 5 Sonnet can cost between $8 and $12 in tokens due to context accumulation. Routing the exact same session to DeepSeek-Coder-V4 reduces the total cost to less than $0.40—an immediate 95% reduction in API bills.
+A 4-hour active debugging session with native **Claude Fable 5** can cost between $8 and $12 in tokens due to context accumulation. Routing the exact same session to DeepSeek-Coder-V4 reduces the total cost to less than $0.40—an immediate 95% reduction in API bills.
 
 ### Code Sovereignty and Compliance
 Running local open-source models like Qwen 3.6 Coder or Mimo 2.5 on on-premise hardware ensures that no proprietary source code is transferred to third-party external servers. This allows SMEs in regulated sectors (such as fintech, healthcare, and public sector software) to leverage advanced terminal agents while complying with strict data privacy laws.
