@@ -47,7 +47,7 @@ Analizamos el potencial de esta arquitectura y cómo configurarla paso a paso en
 El verdadero valor de Claude Code no reside únicamente en el modelo **Claude 4.6 Sonnet** que lleva detrás, sino en su **harness** o arnés de ejecución: el conjunto de prompts de sistema altamente refinados, la gestión de herramientas (tool calling) y el bucle de retroalimentación que le permite interactuar de forma segura con tu máquina local.
 
 Gracias a Claude Code Router, podemos disociar este arnés del modelo propietario de Anthropic. Esto abre tres grandes oportunidades para las PYMEs:
-* **Reducción de costes drástica (hasta 95%):** Redirigir las consultas de análisis masivo a modelos hiperbaratos como Gemini 1.5/2.0 Flash o DeepSeek-Coder-V4 a través de APIs de bajo coste.
+* **Reducción de costes drástica (hasta 95%):** Redirigir las consultas de análisis masivo a modelos hiperbaratos como **Gemini 3.5 Flash** o DeepSeek-Coder-V4 a través de APIs de bajo coste.
 * **Privacidad absoluta (Soberanía Digital):** Enrutar las llamadas a modelos open-source instalados localmente en tu propio hardware. De esta forma, el código de tu empresa nunca abandona tu red interna, cumpliendo estrictamente con el RGPD.
 * **Flexibilidad de desarrollo:** Cambiar de modelo en caliente según la complejidad de la tarea sin tener que cambiar de herramienta de consola.
 
@@ -160,7 +160,7 @@ We analyze the potential of this architecture and how to set it up step-by-step 
 The true value of Claude Code lies not just in the underlying **Claude 4.6 Sonnet** model, but in its **execution harness**: the highly optimized system prompts, tool-calling structures, and state loop that allow it to safely interact with your local environment.
 
 By using Claude Code Router, we decouple this execution framework from Anthropic's proprietary endpoints. This unlocks three major opportunities for SMEs:
-* **Dramatic Cost Savings (Up to 95%):** Route heavy code analysis tasks to cheaper endpoints like Gemini 1.5/2.0 Flash or DeepSeek-Coder-V4 at a fraction of the cost.
+* **Dramatic Cost Savings (Up to 95%):** Route heavy code analysis tasks to cheaper endpoints like **Gemini 3.5 Flash** or DeepSeek-Coder-V4 at a fraction of the cost.
 * **Complete Data Privacy (Sovereignty):** Forward API requests to open-source models hosted locally on your company's hardware. Your code never leaves your network, guaranteeing full compliance with GDPR regulations.
 * **Developer Flexibility:** Swap models dynamically inside the console based on the complexity of the task without changing CLI tools.
 
