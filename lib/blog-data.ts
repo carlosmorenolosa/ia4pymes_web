@@ -16,6 +16,235 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Code Router (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "tutorial-claude-code-router-modelos-locales-open-source",
+        title: "Tutorial: Cómo Usar Claude Code con Modelos Locales y Baratos Usando Claude Code Router",
+        description: "¿Quieres el potencial de Claude Code sin pagar la costosa API de Sonnet o enviando tu código propietario? Aprende a usar Claude Code Router con DeepSeek y Ollama.",
+        date: "2026-06-30",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/blog/claude-code-router.png",
+        lang: "es",
+        translationSlug: "tutorial-claude-code-router-local-open-source-models",
+        content: `
+El lanzamiento de **Claude Code** por parte de Anthropic ha redefinido el desarrollo de software asistido por terminal. A diferencia de las herramientas de chat tradicionales, Claude Code opera como un agente autónomo local: es capaz de leer y editar archivos en tu repositorio, ejecutar comandos bash, correr tests y corregir bugs en un bucle continuo de planificación y ejecución. 
+
+Sin embargo, el despliegue de esta potente herramienta en entornos corporativos choca con dos grandes barreras:
+1. **El coste de los tokens:** Dado que el agente envía grandes bloques de contexto (código fuente, historial y resultados de consola) en cada paso, una sesión de depuración intensa puede consumir millones de tokens de la API de Anthropic, inflando los costes rápidamente.
+2. **Soberanía y privacidad:** Muchas empresas tienen prohibido por normativa enviar su código propietario a servidores y APIs externas de terceros.
+
+Para resolver este cuello de botella, el ecosistema de código abierto ha desarrollado **Claude Code Router** (disponible a través del paquete @musistudio/claude-code-router). Esta herramienta actúa como un middleware local que intercepta las peticiones de Claude Code y las redirige hacia modelos de inferencia mucho más baratos (como DeepSeek) o incluso a modelos locales open-source que se ejecutan completamente offline.
+
+Analizamos el potencial de esta arquitectura y cómo configurarla paso a paso en tu flujo de trabajo.
+
+---
+
+## 1. El potencial de reutilizar el "harness" de Claude Code
+
+El verdadero valor de Claude Code no reside únicamente en el modelo Claude 3.5/3.7 Sonnet que lleva detrás, sino en su **harness** o arnés de ejecución: el conjunto de prompts de sistema altamente refinados, la gestión de herramientas (tool calling) y el bucle de retroalimentación que le permite interactuar de forma segura con tu máquina local.
+
+Gracias a Claude Code Router, podemos disociar este arnés del modelo propietario de Anthropic. Esto abre tres grandes oportunidades para las PYMEs:
+* **Reducción de costes drástica (hasta 95%):** Redirigir las consultas de análisis masivo a modelos hiperbaratos como Gemini 1.5/2.0 Flash o DeepSeek-Coder-V4 a través de APIs de bajo coste.
+* **Privacidad absoluta (Soberanía Digital):** Enrutar las llamadas a modelos open-source instalados localmente en tu propio hardware. De esta forma, el código de tu empresa nunca abandona tu red interna, cumpliendo estrictamente con el RGPD.
+* **Flexibilidad de desarrollo:** Cambiar de modelo en caliente según la complejidad de la tarea sin tener que cambiar de herramienta de consola.
+
+---
+
+## 2. Los modelos Open-Source en 2026: Preparados para mover el arnés
+
+Hace un par de años, usar un modelo open-source para tareas complejas de agentes terminaba en bucles infinitos o fallos en el formato de respuesta. Sin embargo, en 2026, los modelos de pesos abiertos de última generación (como **Qwen 3.6 Coder**, **Mivo 2.5** o **DeepSeek-Coder-V4**) han madurado de forma extraordinaria.
+
+Estos modelos modernos cuentan con:
+* **Habilidades nativas de Tool-Calling:** Saben cuándo y cómo estructurar una llamada a una herramienta (como leer un archivo o ejecutar un test) con una tasa de error inferior a modelos comerciales antiguos.
+* **Capacidad de razonamiento interno (Reasoning Tokens):** Modelos como Mivo 2.5 o DeepSeek-Coder-V4 procesan cadenas de pensamiento lógicas complejas antes de emitir código, lo que los hace ideales para gestionar el bucle de Claude Code.
+* **Ventanas de contexto ampliadas:** Soportan contextos masivos, esenciales para analizar repositorios de código medianos y grandes de forma local.
+
+---
+
+> ### 🔍 ¿Quieres implementar flujos de desarrollo con IA locales y seguros en tu empresa?
+> El uso de asistentes de código y agentes autónomos locales permite ahorrar costes y proteger la propiedad intelectual de tu software. En **IA4PYMES** te ayudamos a auditar tu flujo de ingeniería, desplegar modelos open-source como Qwen 3.6 Coder en local y configurar proxies de inferencia seguros.
+> 
+> [**Agenda tu consultoría de 60 minutos aquí**](/#consultoria) (100% reembolsable si contratas el proyecto con nosotros, y con garantía de viabilidad de 15 minutos).
+
+---
+
+## 3. Guía paso a paso: Instalación y configuración de Claude Code Router
+
+Para poner en marcha esta infraestructura y empezar a usar Claude Code con modelos externos o locales, sigue estos pasos:
+
+### Paso 1: Instalar las dependencias globales
+Primero, instala la herramienta oficial de Claude Code y el router de código abierto desde npm:
+\`\`\`bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @musistudio/claude-code-router
+\`\`\`
+
+### Paso 2: Configurar las conexiones (Ollama y APIs externas)
+Claude Code Router busca la configuración de proveedores en tu carpeta de usuario (habitualmente en ~/.claude-code-router/config.json). Puedes configurar distintos proveedores:
+
+* **Para usar DeepSeek en la nube (Hiperbarato):**
+  Configura la URL de API de DeepSeek y tu clave de API en el archivo para usar el modelo DeepSeek-Coder-V4.
+* **Para usar modelos 100% locales (Ollama):**
+  Asegúrate de tener Ollama corriendo en tu máquina con un modelo potente descargado, como por ejemplo:
+  \`\`\`bash
+  ollama run qwen3.6-coder:32b
+  \`\`\`
+  O alternativamente Mivo 2.5.
+
+### Paso 3: Lanzar el agente
+En lugar de iniciar el agente con el comando estándar (claude), utiliza el comando del router:
+\`\`\`bash
+ccr code
+\`\`\`
+Este comando levantará un proxy local que intercepta las peticiones de Claude Code y las traduce dinámicamente al formato del modelo de destino (Gemini, DeepSeek u Ollama) de manera transparente para el sistema operativo.
+
+### Paso 4: Cambiar de modelo en caliente
+Una vez dentro de la consola del agente, puedes usar el comando interactivo del router:
+\`\`\`bash
+/model deepseek
+\`\`\`
+O bien:
+\`\`\`bash
+/model ollama/qwen3.6-coder
+\`\`\`
+El agente reconfigurará el enrutador al instante y continuará resolviendo tareas en tu repositorio sin interrumpir tu sesión de desarrollo.
+
+---
+
+## 4. Análisis de ROI para PYMEs Tecnológicas
+
+La adopción de esta estrategia tiene un impacto directo en la cuenta de resultados de tu equipo de desarrollo:
+
+### Factura de API reducida
+Una sesión intensa de depuración de bugs de 4 horas con Claude 3.5 Sonnet nativo puede costar fácilmente entre 8 y 12 euros en tokens de entrada y salida debido a la recursión del contexto. Redirigiendo el trabajo a DeepSeek-Coder-V4 a través de SiliconFlow o la API oficial de DeepSeek, el coste de la misma sesión se reduce a menos de 0.40 euros (un ahorro del 95%).
+
+### Soberanía del código y cumplimiento normativo
+Al utilizar modelos locales como Qwen 3.6 Coder o Mivo 2.5 corriendo en servidores de la propia empresa, se elimina por completo la transferencia de código a servidores de terceros en EE.UU. Esto permite a las PYMEs que desarrollan software para sectores regulados (Fintech, Healthtech, Administraciones Públicas) adoptar asistentes autónomos de terminal garantizando el cumplimiento estricto del RGPD.
+
+---
+
+## Conclusión
+
+El potencial de Claude Code es inmenso, pero su coste y la privacidad del código restringían su uso en el sector empresarial. Al integrar **Claude Code Router** con los potentes modelos open-source de 2026 (como Qwen 3.6 Coder y Mivo 2.5), las PYMEs pueden democratizar el acceso a asistentes de programación de última generación en todos sus equipos, manteniendo la confidencialidad de su propiedad intelectual y reduciendo los costes de infraestructura a prácticamente cero.
+`.trim(),
+    },
+    {
+        slug: "tutorial-claude-code-router-local-open-source-models",
+        title: "Tutorial: How to Run Claude Code with Local and Cheap Models Using Claude Code Router",
+        description: "Want the power of Claude Code without paying expensive Sonnet API bills or leaking proprietary code? Learn to run Claude Code Router with DeepSeek and Ollama.",
+        date: "2026-06-30",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/blog/claude-code-router.png",
+        lang: "en",
+        translationSlug: "tutorial-claude-code-router-modelos-locales-open-source",
+        content: `
+The launch of Anthropic's **Claude Code** has redefined command-line interface (CLI) software engineering. Unlike traditional chat assistants, Claude Code operates as a local autonomous agent: it reads and edits files directly within your repository, executes bash commands, runs test suites, and fixes bugs in a continuous loop of planning and execution.
+
+However, deploying this powerful tool in enterprise environments has faced two major barriers:
+1. **Token Cost:** Because the agent sends large chunks of codebase context, terminal history, and shell outputs in every step, active debugging sessions can consume millions of tokens of Anthropic's API, inflating costs quickly.
+2. **Sovereignty and Privacy:** Many companies have strict security guidelines that forbid transmitting proprietary source code to external third-party servers and APIs.
+
+To address this bottleneck, the open-source community developed **Claude Code Router** (available via the npm package @musistudio/claude-code-router). This tool acts as a local middleware proxy that intercepts Claude Code's requests and redirects them to cheaper cloud APIs (like DeepSeek) or local open-source models running completely offline.
+
+We analyze the potential of this architecture and how to set it up step-by-step in your software workflow.
+
+---
+
+## 1. The Potential of Reusing the Claude Code Harness
+
+The true value of Claude Code lies not just in the underlying Claude 3.5/3.7 Sonnet model, but in its **execution harness**: the highly optimized system prompts, tool-calling structures, and state loop that allow it to safely interact with your local environment.
+
+By using Claude Code Router, we decouple this execution framework from Anthropic's proprietary endpoints. This unlocks three major opportunities for SMEs:
+* **Dramatic Cost Savings (Up to 95%):** Route heavy code analysis tasks to cheaper endpoints like Gemini 1.5/2.0 Flash or DeepSeek-Coder-V4 at a fraction of the cost.
+* **Complete Data Privacy (Sovereignty):** Forward API requests to open-source models hosted locally on your company's hardware. Your code never leaves your network, guaranteeing full compliance with GDPR regulations.
+* **Developer Flexibility:** Swap models dynamically inside the console based on the complexity of the task without changing CLI tools.
+
+---
+
+## 2. Open-Source Models in 2026: Built for the Agentic Harness
+
+A couple of years ago, using open-source models to run agentic loops resulted in parsing errors or infinite reasoning loops. In 2026, state-of-the-art open-weights models (such as **Qwen 3.6 Coder**, **Mivo 2.5**, and **DeepSeek-Coder-V4**) have reached complete maturity.
+
+These modern models feature:
+* **Native Tool-Calling Capabilities:** They structure tool-execution calls (like reading a file or running a bash command) with error rates comparable to proprietary models.
+* **Internal Reasoning (Reasoning Tokens):** Models like Mivo 2.5 or DeepSeek-Coder-V4 execute logical thinking steps before outputting code, making them highly effective at running Claude Code's loops.
+* **Massive Context Windows:** They support large context limits, which are necessary to ingest files and terminal logs.
+
+---
+
+> ### 🔍 Want to implement secure, local AI developer workflows in your company?
+> Deploying local coding assistants and autonomous terminal agents reduces cloud billing and protects your software intellectual property. At **IA4PYMES**, we help you audit your development pipeline, deploy SOTA open-source models like Qwen 3.6 Coder on local servers, and configure secure inference proxies.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if you hire us for development, with a 15-minute feasibility guarantee).
+
+---
+
+## 3. Step-by-Step Guide: Setting Up Claude Code Router
+
+To get this infrastructure running and begin routing Claude Code to external or local models, follow these steps:
+
+### Step 1: Install Global Dependencies
+First, install the official Claude Code CLI and the open-source router via npm:
+\`\`\`bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @musistudio/claude-code-router
+\`\`\`
+
+### Step 2: Configure Providers (Ollama and Cloud APIs)
+Claude Code Router reads its provider configuration from your user directory (typically ~/.claude-code-router/config.json). You can set up various providers:
+
+* **For Cloud DeepSeek (Ultra-Low Cost):**
+  Set up the DeepSeek API endpoint and your API key to route requests to the DeepSeek-Coder-V4 model.
+* **For 100% Offline Models (Ollama):**
+  Ensure Ollama is running locally on your hardware with a powerful coding model downloaded, such as:
+  \`\`\`bash
+  ollama run qwen3.6-coder:32b
+  \`\`\`
+  Or alternatively Mivo 2.5.
+
+### Step 3: Run the Agent
+Instead of starting the session with the default command (claude), launch it using the router command:
+\`\`\`bash
+ccr code
+\`\`\`
+This starts the local proxy server, translating Claude Code's requests into the correct API format for your target backend (Gemini, DeepSeek, or Ollama) transparently.
+
+### Step 4: Switch Models Dynamically
+Once inside the agent console, you can change models on-the-fly:
+\`\`\`bash
+/model deepseek
+\`\`\`
+Or:
+\`\`\`bash
+/model ollama/qwen3.6-coder
+\`\`\`
+The router reconfigures the proxy instantly, letting the agent continue its work on your repository using the newly selected backend model.
+
+---
+
+## 4. ROI Analysis for Tech SMEs
+
+Implementing this setup has a direct financial and operational impact on your engineering department:
+
+### Lower API Expenses
+A 4-hour active debugging session with native Claude 3.5 Sonnet can cost between $8 and $12 in tokens due to context accumulation. Routing the exact same session to DeepSeek-Coder-V4 reduces the total cost to less than $0.40—an immediate 95% reduction in API bills.
+
+### Code Sovereignty and Compliance
+Running local open-source models like Qwen 3.6 Coder or Mivo 2.5 on on-premise hardware ensures that no proprietary source code is transferred to third-party external servers. This allows SMEs in regulated sectors (such as fintech, healthcare, and public sector software) to leverage advanced terminal agents while complying with strict data privacy laws.
+
+---
+
+## Conclusion
+
+The potential of Claude Code is immense, but its high cost and code privacy concerns restricted its enterprise adoption. By integrating **Claude Code Router** with 2026's state-of-the-art open-source models (such as Qwen 3.6 Coder and Mivo 2.5), SMEs can democratize advanced terminal coding assistants across their development teams, protecting intellectual property and reducing infrastructure costs to near zero.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Vercel eve (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
