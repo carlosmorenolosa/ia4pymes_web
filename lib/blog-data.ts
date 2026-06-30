@@ -55,11 +55,11 @@ Gracias a Claude Code Router, podemos disociar este arnés del modelo propietari
 
 ## 2. Los modelos Open-Source en 2026: Preparados para mover el arnés
 
-Hace un par de años, usar un modelo open-source para tareas complejas de agentes terminaba en bucles infinitos o fallos en el formato de respuesta. Sin embargo, en 2026, los modelos de pesos abiertos de última generación (como **Qwen 3.6 Coder**, **Mivo 2.5** o **DeepSeek-Coder-V4**) han madurado de forma extraordinaria.
+Hace un par de años, usar un modelo open-source para tareas complejas de agentes terminaba en bucles infinitos o fallos en el formato de respuesta. Sin embargo, en 2026, los modelos de pesos abiertos de última generación (como **Qwen 3.6 Coder**, **Mimo 2.5** o **DeepSeek-Coder-V4**) han madurado de forma extraordinaria.
 
 Estos modelos modernos cuentan con:
 * **Habilidades nativas de Tool-Calling:** Saben cuándo y cómo estructurar una llamada a una herramienta (como leer un archivo o ejecutar un test) con una tasa de error inferior a modelos comerciales antiguos.
-* **Capacidad de razonamiento interno (Reasoning Tokens):** Modelos como Mivo 2.5 o DeepSeek-Coder-V4 procesan cadenas de pensamiento lógicas complejas antes de emitir código, lo que los hace ideales para gestionar el bucle de Claude Code.
+* **Capacidad de razonamiento interno (Reasoning Tokens):** Modelos como Mimo 2.5 o DeepSeek-Coder-V4 procesan cadenas de pensamiento lógicas complejas antes de emitir código, lo que los hace ideales para gestionar el bucle de Claude Code.
 * **Ventanas de contexto ampliadas:** Soportan contextos masivos, esenciales para analizar repositorios de código medianos y grandes de forma local.
 
 ---
@@ -92,7 +92,7 @@ Claude Code Router busca la configuración de proveedores en tu carpeta de usuar
   \`\`\`bash
   ollama run qwen3.6-coder:32b
   \`\`\`
-  O alternativamente Mivo 2.5.
+  O alternativamente Mimo 2.5.
 
 ### Paso 3: Lanzar el agente
 En lugar de iniciar el agente con el comando estándar (claude), utiliza el comando del router:
@@ -122,13 +122,13 @@ La adopción de esta estrategia tiene un impacto directo en la cuenta de resulta
 Una sesión intensa de depuración de bugs de 4 horas con Claude 3.5 Sonnet nativo puede costar fácilmente entre 8 y 12 euros en tokens de entrada y salida debido a la recursión del contexto. Redirigiendo el trabajo a DeepSeek-Coder-V4 a través de SiliconFlow o la API oficial de DeepSeek, el coste de la misma sesión se reduce a menos de 0.40 euros (un ahorro del 95%).
 
 ### Soberanía del código y cumplimiento normativo
-Al utilizar modelos locales como Qwen 3.6 Coder o Mivo 2.5 corriendo en servidores de la propia empresa, se elimina por completo la transferencia de código a servidores de terceros en EE.UU. Esto permite a las PYMEs que desarrollan software para sectores regulados (Fintech, Healthtech, Administraciones Públicas) adoptar asistentes autónomos de terminal garantizando el cumplimiento estricto del RGPD.
+Al utilizar modelos locales como Qwen 3.6 Coder o Mimo 2.5 corriendo en servidores de la propia empresa, se elimina por completo la transferencia de código a servidores de terceros en EE.UU. Esto permite a las PYMEs que desarrollan software para sectores regulados (Fintech, Healthtech, Administraciones Públicas) adoptar asistentes autónomos de terminal garantizando el cumplimiento estricto del RGPD.
 
 ---
 
 ## Conclusión
 
-El potencial de Claude Code es inmenso, pero su coste y la privacidad del código restringían su uso en el sector empresarial. Al integrar **Claude Code Router** con los potentes modelos open-source de 2026 (como Qwen 3.6 Coder y Mivo 2.5), las PYMEs pueden democratizar el acceso a asistentes de programación de última generación en todos sus equipos, manteniendo la confidencialidad de su propiedad intelectual y reduciendo los costes de infraestructura a prácticamente cero.
+El potencial de Claude Code es inmenso, pero su coste y la privacidad del código restringían su uso en el sector empresarial. Al integrar **Claude Code Router** con los potentes modelos open-source de 2026 (como Qwen 3.6 Coder y Mimo 2.5), las PYMEs pueden democratizar el acceso a asistentes de programación de última generación en todos sus equipos, manteniendo la confidencialidad de su propiedad intelectual y reduciendo los costes de infraestructura a prácticamente cero.
 `.trim(),
     },
     {
@@ -168,11 +168,11 @@ By using Claude Code Router, we decouple this execution framework from Anthropic
 
 ## 2. Open-Source Models in 2026: Built for the Agentic Harness
 
-A couple of years ago, using open-source models to run agentic loops resulted in parsing errors or infinite reasoning loops. In 2026, state-of-the-art open-weights models (such as **Qwen 3.6 Coder**, **Mivo 2.5**, and **DeepSeek-Coder-V4**) have reached complete maturity.
+A couple of years ago, using open-source models to run agentic loops resulted in parsing errors or infinite reasoning loops. In 2026, state-of-the-art open-weights models (such as **Qwen 3.6 Coder**, **Mimo 2.5**, and **DeepSeek-Coder-V4**) have reached complete maturity.
 
 These modern models feature:
 * **Native Tool-Calling Capabilities:** They structure tool-execution calls (like reading a file or running a bash command) with error rates comparable to proprietary models.
-* **Internal Reasoning (Reasoning Tokens):** Models like Mivo 2.5 or DeepSeek-Coder-V4 execute logical thinking steps before outputting code, making them highly effective at running Claude Code's loops.
+* **Internal Reasoning (Reasoning Tokens):** Models like Mimo 2.5 or DeepSeek-Coder-V4 execute logical thinking steps before outputting code, making them highly effective at running Claude Code's loops.
 * **Massive Context Windows:** They support large context limits, which are necessary to ingest files and terminal logs.
 
 ---
@@ -205,7 +205,7 @@ Claude Code Router reads its provider configuration from your user directory (ty
   \`\`\`bash
   ollama run qwen3.6-coder:32b
   \`\`\`
-  Or alternatively Mivo 2.5.
+  Or alternatively Mimo 2.5.
 
 ### Step 3: Run the Agent
 Instead of starting the session with the default command (claude), launch it using the router command:
@@ -235,13 +235,13 @@ Implementing this setup has a direct financial and operational impact on your en
 A 4-hour active debugging session with native Claude 3.5 Sonnet can cost between $8 and $12 in tokens due to context accumulation. Routing the exact same session to DeepSeek-Coder-V4 reduces the total cost to less than $0.40—an immediate 95% reduction in API bills.
 
 ### Code Sovereignty and Compliance
-Running local open-source models like Qwen 3.6 Coder or Mivo 2.5 on on-premise hardware ensures that no proprietary source code is transferred to third-party external servers. This allows SMEs in regulated sectors (such as fintech, healthcare, and public sector software) to leverage advanced terminal agents while complying with strict data privacy laws.
+Running local open-source models like Qwen 3.6 Coder or Mimo 2.5 on on-premise hardware ensures that no proprietary source code is transferred to third-party external servers. This allows SMEs in regulated sectors (such as fintech, healthcare, and public sector software) to leverage advanced terminal agents while complying with strict data privacy laws.
 
 ---
 
 ## Conclusion
 
-The potential of Claude Code is immense, but its high cost and code privacy concerns restricted its enterprise adoption. By integrating **Claude Code Router** with 2026's state-of-the-art open-source models (such as Qwen 3.6 Coder and Mivo 2.5), SMEs can democratize advanced terminal coding assistants across their development teams, protecting intellectual property and reducing infrastructure costs to near zero.
+The potential of Claude Code is immense, but its high cost and code privacy concerns restricted its enterprise adoption. By integrating **Claude Code Router** with 2026's state-of-the-art open-source models (such as Qwen 3.6 Coder and Mimo 2.5), SMEs can democratize advanced terminal coding assistants across their development teams, protecting intellectual property and reducing infrastructure costs to near zero.
 `.trim(),
     },
     // ─────────────────────────────────────────────────────────
