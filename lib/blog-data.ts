@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
         lang: "es",
         translationSlug: "claude-fable-5-global-return-fallback-opus-4-8",
         content: `
-El pasado 1 de julio de 2026, Anthropic anunció el restablecimiento del acceso global a **Claude Fable 5**, su modelo estrella de la clase *Mythos* diseñado para razonamiento abstracto y desarrollo autónomo de software. Esta medida se produce tras tres semanas de bloqueo absoluto, originado por un veto preventivo del gobierno de los Estados Unidos el 12 de junio de 2026 por motivos de seguridad nacional.
+Hoy, 1 de julio de 2026, Anthropic ha anunciado el restablecimiento del acceso global a **Claude Fable 5**, su modelo estrella de la clase *Mythos* diseñado para razonamiento abstracto y desarrollo autónomo de software. Esta medida se produce tras tres semanas de bloqueo absoluto, originado por un veto preventivo del gobierno de los Estados Unidos el 12 de junio de 2026 por motivos de seguridad nacional.
 
 Aunque la noticia ha sido recibida con entusiasmo por los departamentos de ingeniería de software a nivel mundial, el regreso del modelo viene acompañado de una letra pequeña técnica y operativa crítica: la integración de clasificadores de seguridad proactivos que derivan de forma automática determinadas tareas de programación y depuración hacia **Claude Opus 4.8**.
 
@@ -107,7 +107,7 @@ El retorno de Claude Fable 5 es un recordatorio de que la potencia de los modelo
         lang: "en",
         translationSlug: "claude-fable-5-global-restablecimiento-fallback-opus-4-8",
         content: `
-On July 1, 2026, Anthropic announced the global redeployment of **Claude Fable 5**, its premier *Mythos*-class model optimized for abstract reasoning and autonomous software development. This move follows a three-week complete outage triggered by a preventive U.S. government export control suspension on June 12, 2026, citing national security concerns.
+Today, July 1, 2026, Anthropic announced the global redeployment of **Claude Fable 5**, its premier *Mythos*-class model optimized for abstract reasoning and autonomous software development. This move follows a three-week complete outage triggered by a preventive U.S. government export control suspension on June 12, 2026, citing national security concerns.
 
 While the engineering community has welcomed the return of this advanced model, the restoration comes with a critical operational catch: the integration of strict, real-time safety classifiers that automatically fallback routine coding and debugging tasks to **Claude Opus 4.8**.
 
