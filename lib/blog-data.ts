@@ -16,6 +16,167 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Corredor de IA Ibérico (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "corredor-ia-iberico-microsoft-sines-modelo-soberano-amalia",
+        title: "El Corredor de IA Ibérico: Megaproyecto de Microsoft en Sines y el Modelo Soberano Amália",
+        description: "Analizamos el nuevo Corredor de IA Ibérico. Descubre qué significa para tu PYME la gigafactoría de Microsoft en Sines de 10.000M$ y el LLM soberano Amália.",
+        date: "2026-07-03",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tecnología",
+        image: "/blog/iberian-ai-corridor.png",
+        lang: "es",
+        translationSlug: "iberian-ai-corridor-microsoft-sines-sovereign-llm-amalia",
+        content: `
+El inicio de julio de 2026 marca un punto de inflexión estratégico para el ecosistema tecnológico de la península ibérica. En apenas 48 horas, se han solapado dos anuncios de enorme trascendencia: la confirmación por parte de Microsoft de una inversión de **10.000 millones de dólares para crear un campus de supercomputación y centros de datos de IA en Sines, Portugal**, y el lanzamiento oficial de **"Amália"**, el primer modelo de lenguaje de código abierto desarrollado específicamente para las variantes lingüísticas y el contexto regulatorio ibérico.
+
+La confluencia de estas dos iniciativas da forma a lo que ya se denomina el **"Corredor de IA Ibérico"**. Para las PYMEs españolas, esta infraestructura representa una oportunidad sin precedentes para resolver tres de las mayores barreras de adopción de la inteligencia artificial corporativa: la latencia, el cumplimiento estricto del RGPD y la dependencia tecnológica de corporaciones externas.
+
+Analizamos las especificaciones técnicas de esta nueva infraestructura, los detalles del modelo Amália y cómo las empresas locales pueden posicionarse para exprimir esta ventaja regional.
+
+---
+
+## 1. La Gigafactoría de Sines: Supercomputación al lado de casa
+
+El proyecto de Microsoft en Sines no es un centro de datos convencional para almacenamiento web. Está diseñado específicamente como una **"gigafactoría de computación para IA"** enfocada a dar soporte a la próxima ola de agentes inteligentes y modelos de razonamiento abstracto.
+
+### Capacidad física y hardware
+El complejo, desarrollado junto a Start Campus y Nscale, aspira a alcanzar una potencia computacional de **1.2 Gigavatios (GW) para 2030**. En su primera fase, el centro integrará 12.600 GPUs NVIDIA Blackwell Ultra, a las que se sumarán en una segunda fase más de 66.000 GPUs NVIDIA Rubin (la arquitectura más avanzada del mercado).
+
+### Sostenibilidad y refrigeración
+Aprovechando su ubicación costera, el campus emplea sistemas de refrigeración basados en agua marina y se nutre en un 100% de energías renovables locales. Esto permite ofrecer costes de inferencia y procesamiento energético mucho más eficientes y estables en comparación con los centros de datos tradicionales ubicados en el norte de Europa o EE. UU.
+
+---
+
+## 2. "Amália": El modelo fundacional open-source de soberanía ibérica
+
+Paralelamente al despliegue físico de Microsoft, el consorcio de investigación pública de Portugal (con una financiación de 5,5 millones de euros del Plan de Recuperación y Resiliencia) ha lanzado **Amália** (Automatic Multimodal Language Assistant with Artificial Intelligence).
+
+Se trata del primer modelo de lenguaje de gran tamaño (LLM) de código abierto diseñado desde cero para ajustarse a las particularidades lingüísticas, culturales y, sobre todo, legislativas de la península ibérica.
+
+* **Alineación legal nativa:** A diferencia de los modelos estadounidenses, entrenados bajo criterios de *fair use* y leyes de propiedad intelectual anglosajonas, Amália ha sido entrenado respetando escrupulosamente los derechos de autor de la Unión Europea y el marco regulatorio del **Digital Omnibus on AI** simplificado por el Parlamento Europeo.
+* **Integración institucional y corporativa:** Está concebido como una plataforma base para que las empresas y administraciones públicas locales desplieguen soluciones agénticas internas de forma segura, garantizando que el modelo comprende la terminología administrativa, fiscal y jurídica específica de nuestra región.
+
+---
+
+> ### 🔒 ¿Te preocupa la privacidad de tus datos corporativos al enviarlos a APIs extranjeras?
+> La puesta en marcha del centro de Sines y el nacimiento de modelos soberanos como Amália demuestran que es posible implementar IA avanzada garantizando el 100% de la soberanía digital de tu empresa. En **IA4PYMES** auditamos tu infraestructura, diseñamos integraciones locales que cumplen con el RGPD y configuramos tus servidores para conectar con el nuevo corredor ibérico de baja latencia.
+> 
+> [**Agenda tu consultoría técnica de 60 minutos aquí**](/#consultoria) (Garantía de reembolso del 100% si no validamos la viabilidad del proyecto en 15 minutos, o deducible del coste final de desarrollo si nos contratas).
+
+---
+
+## 3. ¿Por qué es una ventaja competitiva para las PYMEs españolas?
+
+La puesta en marcha de este corredor ibérico altera positivamente la viabilidad operativa y financiera de la IA en la empresa:
+
+### Eliminación del riesgo de transferencia internacional de datos
+Con la normativa europea vigente, enviar datos médicos, historiales crediticios o identidades de clientes a APIs con servidores distribuidos en EE. UU. representa un riesgo de cumplimiento legal (RGPD) constante. Ejecutar los flujos agénticos en el nodo de Sines garantiza que el tráfico de datos confidenciales no abandone la frontera comunitaria, blindando a la PYME ante auditorías legales.
+
+### Latencia ultrabaja para agentes agénticos en tiempo real
+Los asistentes de voz automatizados y los agentes que toman decisiones en caliente en sistemas industriales o de soporte requieren tiempos de respuesta inmediatos. La cercanía física del nodo de Sines reduce el retardo de la red a niveles mínimos en la península, permitiendo una interacción fluida que antes era inviable debido a los tiempos de tránsito intercontinentales de las APIs tradicionales.
+
+---
+
+## 4. Hoja de ruta estratégica: Cómo prepararse para la IA local
+
+Las empresas que deseen tomar la delantera en este nuevo escenario deben estructurar sus sistemas de inmediato:
+
+### Diseñar arquitecturas de nube híbridas e ibéricas
+Si utilizas Microsoft Azure para tus procesos, configura tus grupos de recursos y endpoints de servicios cognitivos para apuntar prioritariamente a los nodos de la península ibérica en cuanto estén disponibles para consumo público. Esto asegura ventajas inmediatas de rendimiento y cumplimiento sin coste adicional de desarrollo.
+
+### Evaluar modelos de pesos abiertos regionales
+Empieza a realizar pruebas de rendimiento internas con modelos de código abierto como Amália o Qwen 3.6 Coder para tareas de procesamiento de documentación local. La capacidad de ajustar (*fine-tuning*) estos modelos con los datos propios de tu empresa, corriendo en servidores locales, ofrece una independencia y seguridad de negocio imposible de conseguir con APIs cerradas comerciales.
+
+---
+
+## Conclusión
+
+El Corredor de IA Ibérico es la respuesta de la península a la dependencia tecnológica global. Al combinar la escala de supercomputación masiva de Microsoft en Sines con el desarrollo de modelos de lenguaje soberanos y de código abierto como Amália, nuestra región se posiciona como un entorno ideal para la adopción de IA empresarial segura, barata y de alto rendimiento. Las PYMEs que adapten sus infraestructuras hoy para aprovechar este nodo de baja latencia y alta seguridad regulatoria obtendrán una ventaja competitiva directa en sus costes operativos y cumplimiento normativo.
+`.trim(),
+    },
+    {
+        slug: "iberian-ai-corridor-microsoft-sines-sovereign-llm-amalia",
+        title: "The Iberian AI Corridor: Microsoft's $10B Sines Gigafactory and the Sovereign Amália LLM",
+        description: "An in-depth analysis of the new Iberian AI Corridor. Discover what Microsoft's $10B Sines AI gigafactory and the sovereign open-source LLM Amália mean for tech SMEs.",
+        date: "2026-07-03",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Technology",
+        image: "/blog/iberian-ai-corridor.png",
+        lang: "en",
+        translationSlug: "corredor-ia-iberico-microsoft-sines-modelo-soberano-amalia",
+        content: `
+The beginning of July 2026 marks a major strategic shift for the technological ecosystem of the Iberian Peninsula. Within a 48-hour span, two groundbreaking announcements have emerged: Microsoft’s confirmation of a **$10 billion investment to establish a large-scale AI and cloud data center campus in Sines, Portugal**, and the official launch of **"Amália"**, the region's first open-source large language model tailored specifically for Iberian linguistic contexts and European regulatory frameworks.
+
+The convergence of these two projects forms what is now known as the **"Iberian AI Corridor."** For European SMEs, this infrastructure offers an unprecedented opportunity to address three of the biggest roadblocks to corporate AI adoption: latency, strict GDPR compliance, and reliance on foreign technology providers.
+
+We analyze the technical specifications of this new infrastructure, the capabilities of the Amália model, and how local businesses can position themselves to leverage this regional advantage.
+
+---
+
+## 1. The Sines Gigafactory: Localized Supercomputing for AI
+
+Microsoft's campus in Sines is not a conventional web hosting facility. It is engineered specifically as an **"AI computing gigafactory"** built to support the next wave of intelligent agents and abstract reasoning models.
+
+### Capacity and Hardware
+The facility, developed in collaboration with Start Campus and Nscale, aims to reach a computing capacity of **1.2 Gigawatts (GW) by 2030**. In its initial phase, the center will house 12,600 NVIDIA Blackwell Ultra GPUs, with plans to expand the second building to include over 66,000 NVIDIA Rubin GPUs—representing the most advanced hardware architecture available.
+
+### Sustainability and Seawater Cooling
+Leveraging its coastal location, the campus utilizes seawater cooling systems and runs entirely on local renewable energy. This enables Sines to offer highly stable, energy-efficient inference and processing costs compared to traditional data centers located in Northern Europe or the US.
+
+---
+
+## 2. "Amália": The Open-Source Foundation for Iberian Digital Sovereignty
+
+Concurrently with Microsoft's physical infrastructure deployment, Portugal’s public research consortium (backed by €5.5 million from the country's Recovery and Resilience Plan) has officially launched **Amália** (Automatic Multimodal Language Assistant with Artificial Intelligence).
+
+This is the first large language model (LLM) designed from scratch to align with the linguistic, cultural, and regulatory realities of the Iberian Peninsula.
+
+* **Native Legal Compliance:** Unlike US models trained under Anglo-American fair use doctrines, Amália has been trained in strict compliance with European copyright laws and the simplified **Digital Omnibus on AI** regulatory framework enacted by the European Parliament.
+* **Institutional and Corporate Integration:** Developed as a foundation platform, it allows local businesses and public administrations to deploy internal agentic solutions safely, ensuring the model understands the specific administrative, tax, and legal frameworks of our region.
+
+---
+
+> ### 🔒 Worried about data privacy when routing corporate assets to foreign APIs?
+> The deployment of the Sines data center and the launch of sovereign models like Amália prove that you can integrate advanced AI while maintaining 100% digital sovereignty. At **IA4PYMES**, we audit your architecture, build GDPR-compliant integrations, and configure your systems to connect with the new low-latency Iberian corridor.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if we don't validate project feasibility in 15 minutes, or fully credited against final development costs on hire).
+
+---
+
+## 3. Key Competitive Advantages for Tech SMEs
+
+The launch of the Iberian AI Corridor improves both the operational and financial viability of AI integrations:
+
+### Mitigating International Data Transfer Risks
+Under current EU regulations, sending medical records, financial histories, or customer databases to APIs with US-based servers presents a continuous GDPR compliance risk. Running agentic workflows on the Sines node guarantees that sensitive data never leaves the European Union, protecting SMEs from legal audits and potential compliance penalties.
+
+### Ultra-Low Latency for Real-Time Agents
+Automated voice systems and real-time agents operating in industrial or customer support settings require immediate response times. The physical proximity of the Sines data center reduces network transit times to minimal levels, enabling fluid, real-time interactions that were previously hindered by transatlantic routing latency.
+
+---
+
+## 4. Strategic Roadmap: Preparing for Localized AI
+
+Businesses looking to lead in this new environment must adapt their technical architectures immediately:
+
+### Design Iberian and Hybrid Cloud Architectures
+If you leverage Microsoft Azure for your AI pipelines, configure your resource groups and cognitive endpoints to route requests to Iberian nodes as soon as they become commercially available. This ensures immediate performance and latency improvements without additional development costs.
+
+### Evaluate Regional Open-Source Models
+Begin testing open-source regional models like Amália or Qwen 3.6 Coder for local document processing and business intelligence. The ability to fine-tune these models on-premise using proprietary corporate data offers a level of security and business continuity that closed commercial APIs cannot match.
+
+---
+
+## Conclusion
+
+The Iberian AI Corridor represents our region's response to global technological dependence. By combining Microsoft's massive supercomputing scale in Sines with the development of sovereign open-source models like Amália, the Iberian Peninsula is establishing itself as an ideal environment for secure, cost-effective, and high-performance business AI. SMEs that adapt their infrastructures today to leverage this low-latency node will gain a direct competitive advantage in operational cost and regulatory compliance.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Sonnet 5 (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
