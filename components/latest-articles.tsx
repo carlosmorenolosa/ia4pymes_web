@@ -30,6 +30,26 @@ const i18n = {
     },
 }
 
+const monthsES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+const monthsEN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function formatDeterministicDate(dateStr: string, lang: "es" | "en") {
+    try {
+        const parts = dateStr.split("-");
+        if (parts.length !== 3) return dateStr;
+        const [_, month, day] = parts;
+        const monthIdx = parseInt(month, 10) - 1;
+        if (monthIdx < 0 || monthIdx > 11) return dateStr;
+        if (lang === "es") {
+            return `${day} ${monthsES[monthIdx]}`;
+        } else {
+            return `${monthsEN[monthIdx]} ${day}`;
+        }
+    } catch (e) {
+        return dateStr;
+    }
+}
+
 export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
     const t = i18n[lang]
 
@@ -122,10 +142,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                             <div className="flex items-center gap-4 text-xs font-mono text-slate-600 mb-4">
                                                 <span className="flex items-center gap-1.5">
                                                     <Calendar className="w-3.5 h-3.5" />
-                                                    {new Date(post.date).toLocaleDateString(t.locale, {
-                                                        day: "2-digit",
-                                                        month: "short",
-                                                    })}
+                                                    {formatDeterministicDate(post.date, lang)}
                                                 </span>
                                                 <span className="flex items-center gap-1.5">
                                                     <Clock className="w-3.5 h-3.5" />

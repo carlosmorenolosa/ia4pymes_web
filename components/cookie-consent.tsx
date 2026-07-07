@@ -10,29 +10,41 @@ export function CookieConsent() {
     const [consentGiven, setConsentGiven] = useState(false)
 
     useEffect(() => {
-        // Check if user has already made a choice
-        const consent = localStorage.getItem("cookie-consent")
-        if (consent === null) {
-            // Delay showing banner for better UX
-            const timer = setTimeout(() => {
-                setShowBanner(true)
-                setTimeout(() => setIsVisible(true), 100)
-            }, 1500)
-            return () => clearTimeout(timer)
-        } else if (consent === "accepted") {
-            setConsentGiven(true)
+        try {
+            // Check if user has already made a choice
+            const consent = localStorage.getItem("cookie-consent")
+            if (consent === null) {
+                // Delay showing banner for better UX
+                const timer = setTimeout(() => {
+                    setShowBanner(true)
+                    setTimeout(() => setIsVisible(true), 100)
+                }, 1500)
+                return () => clearTimeout(timer)
+            } else if (consent === "accepted") {
+                setConsentGiven(true)
+            }
+        } catch (e) {
+            console.warn("localStorage is not accessible:", e)
         }
     }, [])
 
     const handleAccept = () => {
-        localStorage.setItem("cookie-consent", "accepted")
+        try {
+            localStorage.setItem("cookie-consent", "accepted")
+        } catch (e) {
+            console.warn("localStorage write blocked:", e)
+        }
         setConsentGiven(true)
         setIsVisible(false)
         setTimeout(() => setShowBanner(false), 300)
     }
 
     const handleReject = () => {
-        localStorage.setItem("cookie-consent", "rejected")
+        try {
+            localStorage.setItem("cookie-consent", "rejected")
+        } catch (e) {
+            console.warn("localStorage write blocked:", e)
+        }
         setConsentGiven(false)
         setIsVisible(false)
         setTimeout(() => setShowBanner(false), 300)
