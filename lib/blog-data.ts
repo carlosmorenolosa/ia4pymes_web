@@ -16,6 +16,157 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Together AI (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "together-ai-recaudacion-open-source-estandar-empresarial",
+        title: "Together AI recauda 800M$: Por qué Nvidia y Salesforce apuestan por el Open-Source como estándar empresarial",
+        description: "Analizamos la ronda de 800M$ de Together AI. Descubre cómo los modelos open-source (código abierto) y las nubes de GPU dedicadas ofrecen mayor seguridad, control y menor coste a las PYMEs.",
+        date: "2026-07-07",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Negocio",
+        image: "/blog/together-ai-open-source.png",
+        lang: "es",
+        translationSlug: "together-ai-raises-800m-open-source-enterprise-standard",
+        content: `
+El cierre de la ronda de financiación Series C de **Together AI por un valor de 800 millones de dólares**, alcanzando una valoración de **8.300 millones de dólares**, representa un hito fundamental para la consolidación de la inteligencia artificial corporativa. Que esta operación haya contado con el respaldo directo de corporaciones de primer nivel como **Nvidia, Salesforce Ventures y Aramco Ventures** no es casualidad: es la confirmación oficial de que el futuro de la IA empresarial pertenece a los modelos de código abierto (*Open-Source*).
+
+Durante los últimos años, las grandes APIs cerradas de pago por token (OpenAI, Anthropic) han dominado el mercado experimental. Sin embargo, a medida que las empresas demandan mayor control de costes, privacidad garantizada y capacidad de personalización, las plataformas de computación dedicadas para modelos de código abierto se han convertido en la única alternativa viable a escala.
+
+Analizamos los detalles de este hito de financiación, las razones técnicas detrás del auge de la IA *open-source* en entornos corporativos y cómo las PYMEs pueden explotar esta infraestructura de computación en su beneficio.
+
+---
+
+## 1. ¿Por qué Nvidia y Salesforce apuestan por Together AI?
+
+Together AI se ha posicionado como el proveedor de referencia de infraestructura en la nube para ejecutar, ajustar (*fine-tuning*) y entrenar modelos de pesos abiertos (como Llama 3, Qwen o Mistral). La inversión masiva de Nvidia y Salesforce responde a necesidades estratégicas muy claras de sus respectivos modelos de negocio:
+
+### Nvidia: Consolidación del ecosistema de computación
+Nvidia necesita asegurar que su hardware especializado (GPUs H100, B200) sea accesible para todo tipo de desarrolladores y empresas a través de nubes flexibles, evitando que el acceso al cómputo quede monopolizado por las tres grandes nubes públicas (AWS, Azure, GCP). Apoyar a nubes de IA especializadas como Together AI garantiza un mercado abierto y dinámico para sus procesadores.
+
+### Salesforce: La infraestructura para agentes autónomos
+Con el despliegue de sus propios agentes autónomos en Slack y sistemas CRM, Salesforce requiere una infraestructura de inferencia que ofrezca latencias mínimas y costes predecibles. La dependencia exclusiva de APIs cerradas de terceros representa un riesgo operativo enorme; el uso de modelos open-source optimizados en la nube de Together AI les permite controlar la pila completa de ejecución.
+
+---
+
+## 2. Los tres pilares del éxito de la IA Open-Source en la empresa
+
+Para una pequeña y mediana empresa, migrar de modelos cerrados comerciales a arquitecturas basadas en código abierto ofrece tres ventajas competitivas inmediatas:
+
+### Control total y predictibilidad de costes
+En las APIs cerradas tradicionales, pagas por cada palabra (token) que entra y sale del sistema. Si tu aplicación analiza bases de datos masivas o atiende a miles de clientes en chats corporativos, el coste mensual se vuelve insostenible y variable. Con la infraestructura de Together AI o servidores privados dedicados, puedes alojar un modelo de código abierto y pagar por horas de cómputo de GPU dedicada, haciendo que los costes de inferencia sean fijos, predecibles y hasta un 85% más económicos a gran escala.
+
+### Soberanía y aislamiento absoluto de datos
+El Reglamento General de Protección de Datos (RGPD) en Europa prohíbe que los datos de carácter confidencial de tus clientes se utilicen para entrenar modelos públicos externos. Al ejecutar un modelo de pesos abiertos en un nodo de servidor dedicado de Together AI, tienes la garantía absoluta de que tu información empresarial queda aislada en tu entorno privado, sin riesgo de fugas de datos.
+
+### Flexibilidad para ajustar el modelo (*Fine-Tuning*)
+Los modelos generales de IA no conocen las reglas internas, catálogos específicos o normativas fiscales de tu empresa. El código abierto te permite realizar un ajuste fino (*fine-tuning*) del modelo utilizando tus propios conjuntos de datos históricos, creando una IA altamente especializada que funciona con la misma precisión que un modelo insignia, pero a una fracción de su tamaño y coste.
+
+---
+
+> ### 🔒 ¿Quieres independizarte de las costosas tarifas de APIs extranjeras?
+> La ronda de 800M$ de Together AI confirma que la IA open-source es el nuevo estándar para las empresas que buscan un ROI real y seguridad jurídica. En **IA4PYMES** te ayudamos a migrar tus flujos de trabajo a infraestructuras de código abierto dedicadas, garantizando el control de tus datos y costes.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (Garantía de reembolso del 100% si no validamos la viabilidad en los primeros 15 minutos, o deducible del coste final de desarrollo si nos contratas).
+
+---
+
+## 3. Hoja de ruta técnica para PYMEs: Cómo adoptar la IA Open-Source hoy
+
+Las empresas que deseen construir una infraestructura robusta e independiente deben estructurar sus pasos:
+
+### Evaluar modelos intermedios especializados
+Modelos de código abierto de tamaño intermedio (como Llama 3 8B o Qwen 3.6 14B) ofrecen hoy rendimientos equivalentes a los modelos insignia de hace un año para tareas de procesamiento de texto, extracción de datos y desarrollo de código, consumiendo muy pocos recursos de computación.
+
+### Utilizar nubes de GPU sin servidor (Serverless Inference)
+Para proyectos en fase inicial con tráfico variable, utiliza las APIs *serverless* de Together AI o servicios similares. Te permiten consumir modelos open-source populares pagando únicamente por el tiempo exacto de procesamiento de GPU utilizado, sin necesidad de alquilar un servidor dedicado las 24 horas del día.
+
+### Desarrollar en base a APIs estándar (OpenAI-compatible)
+La gran ventaja de las plataformas modernas de código abierto es que sus APIs son totalmente compatibles con la estructura estándar de OpenAI. Esto significa que puedes cambiar el proveedor de tu sistema (de una API cerrada a un modelo open-source local) modificando apenas una línea de código en tus endpoints de conexión.
+
+---
+
+## Conclusión
+
+La inyección de 800 millones de dólares en Together AI es la prueba de que el código abierto ha ganado la batalla por la infraestructura empresarial. Las PYMEs que sigan atadas a contratos exclusivos de APIs cerradas verán cómo sus costes escalan sin control, limitando su capacidad de crecimiento. La adopción de arquitecturas de pesos abiertos, combinada con nubes dedicadas de alto rendimiento, es el único camino viable para construir soluciones de inteligencia artificial corporativa seguras, soberanas y con un retorno de inversión real y sostenible a largo plazo.
+`.trim(),
+    },
+    {
+        slug: "together-ai-raises-800m-open-source-enterprise-standard",
+        title: "Together AI Raises $800M: Why Nvidia and Salesforce Are Backing Open-Source as the New Enterprise Standard",
+        description: "We analyze Together AI's $800M Series C round. Discover how open-weight models and dedicated GPU clouds offer better security, data control, and lower costs for SMEs.",
+        date: "2026-07-07",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Business",
+        image: "/blog/together-ai-open-source.png",
+        lang: "en",
+        translationSlug: "together-ai-recaudacion-open-source-estandar-empresarial",
+        content: `
+The closing of **Together AI’s $800 million Series C funding round**, valuing the company at **$8.3 billion**, represents a major milestone for the consolidation of enterprise artificial intelligence. That this investment was backed by industry giants like **Nvidia, Salesforce Ventures, and Aramco Ventures** is no coincidence: it is official confirmation that the future of business AI belongs to open-source and open-weight models.
+
+For years, closed-source APIs with pay-per-token pricing (such as OpenAI and Anthropic) have dominated the experimental AI market. However, as enterprises demand better cost control, guaranteed privacy, and custom tailoring capabilities, dedicated computing clouds for open-source models have become the only viable option at scale.
+
+We analyze the details of this funding milestone, the technical factors driving open-source AI adoption in enterprise environments, and how SMEs can leverage this infrastructure.
+
+---
+
+## 1. Why Nvidia and Salesforce Are Backing Together AI
+
+Together AI has established itself as the leading cloud infrastructure provider for running, fine-tuning, and training open-weight models (such as Llama 3, Qwen, and Mistral). The investment from Nvidia and Salesforce addresses distinct strategic needs in their respective business models:
+
+### Nvidia: Securing the Compute Ecosystem
+Nvidia must ensure that its specialized hardware (H100, B200 GPUs) remains accessible to developers and businesses through flexible, specialized clouds, preventing the compute market from being monopolized by the three major public clouds (AWS, Azure, GCP). Backing specialized AI clouds like Together AI ensures a competitive and dynamic market for its silicon.
+
+### Salesforce: The Engine for Autonomous Agents
+With the rollout of autonomous agents across Slack and its CRM ecosystem, Salesforce requires an inference infrastructure that offers minimal latency and predictable costs. Relying exclusively on closed third-party APIs presents a significant operational risk; running optimized open-source models on Together AI’s cloud allows them to control the entire execution stack.
+
+---
+
+## 2. The Three Pillars of Enterprise Open-Source AI
+
+For small and medium-sized enterprises, migrating from closed commercial models to open-source architectures provides three immediate competitive advantages:
+
+### Predictable Costs and Scalability
+With traditional closed APIs, companies pay per token processed. If your application analyzes massive datasets or handles thousands of customer support queries, monthly costs can become unsustainable and volatile. Hosting open-weight models on Together AI or dedicated private GPU servers allows you to pay for dedicated GPU compute time, keeping costs predictable, stable, and up to 85% cheaper at scale.
+
+### Absolute Data Sovereignty and Privacy
+Under European GDPR rules, sensitive customer data cannot be used to train public third-party models. Running open-weight models on dedicated Together AI server nodes ensures that your corporate data remains isolated within your private environment, eliminating the risk of data leaks.
+
+### Customization Through Fine-Tuning
+General-purpose AI models lack knowledge of your company's internal rules, specific product catalogs, or local tax laws. Open-source models allow you to perform fine-tuning using your own historical datasets, creating a highly specialized AI that performs with the same precision as a frontier model but at a fraction of the size and cost.
+
+---
+
+> ### 🔒 Looking to break free from costly foreign API fees?
+> Together AI's $800M funding round proves that open-source AI is the new standard for businesses seeking real ROI and legal compliance. At **IA4PYMES**, we help you migrate your workflows to dedicated open-source infrastructures, guaranteeing control over your data and costs.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if we don't validate project feasibility in the first 15 minutes, or fully credited against final development costs on hire).
+
+---
+
+## 3. Technical Roadmap: Adopting Open-Source AI Today
+
+SMEs looking to build a robust, independent AI infrastructure should follow these steps:
+
+### Evaluate Specialized Mid-Sized Models
+Mid-sized open-source models (such as Llama 3 8B or Qwen 3.6 14B) now deliver performance levels comparable to closed frontier models from a year ago for text processing, data extraction, and coding tasks, while requiring significantly fewer computing resources.
+
+### Utilize Serverless GPU Inference
+For early-stage projects with variable traffic, utilize Together AI’s serverless APIs. They allow you to run popular open-source models while paying only for the exact GPU processing time used, avoiding the cost of renting a dedicated server 24/7.
+
+### Build on OpenAI-Compatible APIs
+The primary advantage of modern open-source platforms is that their APIs are fully compatible with OpenAI’s standard structures. This means you can switch your backend provider from a closed API to a local open-source model by changing just a few lines of code in your connection endpoints.
+
+---
+
+## Conclusion
+
+The $800 million injection into Together AI is clear evidence that open-source has won the enterprise infrastructure battle. SMEs that remain tied to exclusive closed-API contracts will see their operating costs scale without control, limiting their capacity for growth. Adopting open-weight architectures, combined with high-performance dedicated clouds, is the only viable path to building secure, sovereign, and financially sustainable business AI systems.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Microsoft Frontier Company (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
