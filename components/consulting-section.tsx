@@ -91,21 +91,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
     // Interceptar cuando la ventana pierde el foco hacia el iframe
     window.addEventListener("blur", startScrollLock);
 
-    // Interceptar al interactuar táctilmente o con ratón sobre el widget
-    const container = document.getElementById("cal-booking-widget-container");
-    if (container) {
-      container.addEventListener("mouseenter", startScrollLock);
-      container.addEventListener("touchstart", startScrollLock, { passive: true });
-    }
-
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("blur", startScrollLock);
-      if (container) {
-        container.removeEventListener("mouseenter", startScrollLock);
-        container.removeEventListener("touchstart", startScrollLock);
-      }
       window.removeEventListener("scroll", handleScroll);
       if (lockTimeout) clearTimeout(lockTimeout);
     };
