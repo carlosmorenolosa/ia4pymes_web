@@ -16,6 +16,263 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: n8n B2B AI Agent (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "tutorial-agente-ia-n8n-prospeccion-b2b",
+        title: "Cómo automatizar tu prospección y cualificación B2B con un agente de IA en n8n: Guía paso a paso",
+        description: "Tutorial extenso y práctico en n8n. Aprende a diseñar un agente de IA autónomo conectado a tu CRM que analiza webs, cualifica prospectos y redacta propuestas de valor.",
+        date: "2026-07-10",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Automatización",
+        image: "/blog/n8n-b2b-ai-agent-tutorial.png",
+        lang: "es",
+        translationSlug: "n8n-b2b-ai-agent-prospecting-tutorial",
+        content: `
+En el sector de servicios B2B, la prospección y cualificación de clientes potenciales es una de las tareas más críticas, pero también la que más tiempo y recursos consume. Los equipos comerciales pasan horas navegando por directorios, visitando sitios web, intentando clasificar si una empresa encaja con su Perfil de Cliente Ideal (ICP - *Ideal Customer Profile*) y redactando correos fríos personalizados que raramente reciben respuesta debido a su falta de relevancia.
+
+Para superar este cuello de botella sin inflar los costes ni caer en el desorden de un [Frankenstack de automatizaciones frágiles](/blog/tasa-integracion-ia-coste-oculto-pymes) (el fenómeno que analizamos en nuestro artículo sobre la *Tasa de Integración*), la solución pasa por diseñar un **Agente de IA autónomo integrado en n8n**.
+
+n8n se ha consolidado como la plataforma líder de orquestación de flujos de trabajo debido a su capacidad de autoalojarse localmente (garantizando el cumplimiento estricto del RGPD) y a su soporte nativo avanzado para agentes de LangChain.
+
+En esta guía extensa y práctica, aprenderás a construir paso a paso un pipeline agéntico en producción para **extraer, analizar, cualificar y redactar propuestas de contacto personalizadas** de forma autónoma.
+
+---
+
+## Arquitectura del Flujo de Trabajo (Workflow)
+
+El pipeline que vamos a construir consta de cuatro fases lógicas estructuradas en el lienzo (*canvas*) de n8n:
+
+\`\`\`mermaid
+graph TD
+    A[Disparador: Lead entrante] --> B[Extracción: Web Scraper Node]
+    B --> C[Cualificación: AI Agent Node]
+    C -->|No Cualificado| D[Marcar como Rechazado en CRM]
+    C -->|Cualificado| E[Redacción: Prompt Personalizado]
+    E --> F[Salida: Guardar borrador en CRM / Email]
+\`\`\`
+
+---
+
+## Paso 1: Configurar el Disparador (Trigger) y la Entrada de Datos
+
+Para que el flujo se ejecute, necesitamos una entrada de leads. En n8n, podemos configurar esto de varias formas según el origen de tus datos:
+1. **Webhook Node:** Recibe datos de forma síncrona en tiempo real cuando un usuario rellena un formulario en tu web.
+2. **Google Sheets / Airtable Node:** Se activa de forma periódica (por ejemplo, cada mañana) leyendo nuevas filas de una lista de prospección.
+
+Para este tutorial, utilizaremos un nodo de **Google Sheets** que lee las columnas \`Nombre Empresa\`, \`Sitio Web\` y \`Sector\`.
+
+---
+
+## Paso 2: Extracción de Información en Tiempo Real (Web Scraping)
+
+Para que el agente de IA pueda evaluar si la empresa encaja con tu ICP, necesita información actualizada. No podemos fiarnos solo de la base de datos de origen; debemos analizar su sitio web en directo.
+
+1. Añade el nodo **HTTP Request** en n8n.
+2. Configura el método como \`GET\` y mapea dinámicamente la URL del sitio web obtenida en el paso anterior: \`{{ $json.SitioWeb }}\`.
+3. *Tip Técnico:* Dado que muchas webs bloquean peticiones automatizadas sencillas, asegúrate de activar la opción de redirecciones automáticas y configura un encabezado \`User-Agent\` de navegador común en los ajustes del nodo.
+4. Conecta la salida a un nodo **HTML** configurado en modo *"Extract"* para quedarte únicamente con los textos principales de la página de inicio (etiquetas \`<main>\`, \`<body>\` o los encabezados \`<h1>\`, \`<h2>\` y párrafos \`<p>\`), evitando así enviar código HTML basura al modelo, lo que aumentaría el consumo de tokens.
+
+---
+
+> ### 🔒 ¿Quieres automatizar tu captación B2B sin lidiar con la complejidad técnica?
+> Construir agentes autónomos en n8n requiere configurar conexiones estables, gestionar excepciones y evitar la deuda técnica del Frankenstack. En **IA4PYMES** diseñamos y desplegamos tu infraestructura de datos agéntica a medida, conectada a tu ERP y CRM corporativo.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (Garantía de reembolso del 100% si no validamos la viabilidad en los primeros 15 minutos, o deducible del coste final de desarrollo si nos contratas).
+
+---
+
+## Paso 3: Crear el Agente de Cualificación con IA (AI Agent Node)
+
+Aquí reside el núcleo de la automatización. En lugar de utilizar un nodo LLM básico que solo responde preguntas, n8n ofrece el nodo **AI Agent** que permite al modelo utilizar herramientas (*tools*) y estructurar salidas mediante esquemas.
+
+### 1. Selección del Modelo
+Conecta un subnodo de proveedor (ej. **Declarative Copilot/OpenAI Chat Model** o **Anthropic Chat Model**). Recomendamos utilizar modelos con alta capacidad de razonamiento y coste ajustado, como \`gpt-4o-mini\` o \`claude-3-5-sonnet\`.
+
+### 2. Definición del System Prompt (Las instrucciones del Agente)
+Copia y adapta el siguiente prompt en el cuadro de texto del nodo:
+
+\`\`\`text
+Eres un analista de desarrollo de negocio especializado en cualificación de leads B2B para una empresa de servicios de tecnología.
+Tu objetivo es analizar el contenido textual extraído de la web de la empresa candidata y determinar si cumple con el Perfil de Cliente Ideal (ICP).
+
+NUESTRO ICP:
+- Empresas B2B que ofrecen servicios o productos de alto valor.
+- Sectores preferentes: Logística, Finanzas, Legal, Consultoría, E-commerce, Sanidad Privada.
+- Deben mostrar evidencias de que manejan datos manuales o flujos complejos que se pueden automatizar.
+
+INSTRUCCIONES DE SALIDA:
+Debes devolver una respuesta estrictamente en formato JSON con la siguiente estructura:
+{
+  "qualified": true/false,
+  "reason": "Explicación detallada de por qué cumple o no con el ICP, citando elementos específicos encontrados en su web.",
+  "pain_points": ["Punto de dolor 1", "Punto de dolor 2"],
+  "value_proposition_pitch": "Una propuesta de valor de un párrafo explicando cómo podemos ayudarles específicamente basándonos en sus servicios."
+}
+\`\`\`
+
+### 3. Configurar la Salida Estructurada (Structured Output Node)
+Para asegurar que la IA siempre devuelva el JSON limpio y que n8n pueda procesar los siguientes pasos sin que el flujo falle por problemas de formato, conecta un nodo **Structured Output** al agente de IA y define las variables (\`qualified\` como booleano, \`reason\` y \`value_proposition_pitch\` como textos, y \`pain_points\` como array).
+
+---
+
+## Paso 4: Bifurcación del Flujo y Almacenamiento en el CRM
+
+Una vez que el agente de IA emite su veredicto en formato JSON, utilizamos el nodo **If** en n8n para dividir el camino:
+
+\`\`\`text
+Condición: {{ $json.qualified }} es igual a true
+\`\`\`
+
+### Si la respuesta es FALSE (No Cualificado)
+El flujo conecta con tu CRM (ej. HubSpot o Zoho CRM) mediante sus nodos nativos de n8n para actualizar el estado del prospecto a "Descartado - No cumple ICP" y archivar la ficha, evitando que tu equipo comercial pierda tiempo llamándoles.
+
+### Si la respuesta es TRUE (Cualificado)
+El flujo avanza hacia la preparación de la propuesta de contacto.
+
+1. **Añade un nodo LLM adicional** enfocado a redacción creativa (por ejemplo, con \`claude-3-5-sonnet\` para una mayor calidad de escritura).
+2. Pásale los datos obtenidos de la web de la empresa, los puntos de dolor detectados por el agente (\`pain_points\`) y la propuesta de valor personalizada (\`value_proposition_pitch\`).
+3. Pídele que redacte un email de contacto frío, con un tono profesional, sin sonar a plantilla masiva, enfocándose en la solución a uno de sus problemas específicos.
+4. **Nodo de CRM (HubSpot/Holded):** Crea una tarea o un borrador de correo dentro del registro del cliente potencial en el CRM con el texto redactado por la IA. Así, el comercial humano solo tiene que revisar la propuesta, darle el visto bueno y pulsar enviar (estrategia *Human-in-the-loop* para máxima seguridad y calidad).
+
+---
+
+## Conclusión y Próximos Pasos
+
+Al finalizar la configuración, habrás creado una máquina de prospección que trabaja 24/7 sin descanso, analizando cientos de webs al día, descartando el ruido y entregando borradores de email listos para enviar a clientes altamente cualificados. 
+
+Lo mejor de este diseño es su **soberanía y escalabilidad**: al funcionar en n8n, evitas la dispersión de herramientas propietarias y mantienes el control total sobre tus APIs y tus bases de datos, blindándote contra la obsolescencia y optimizando tus costes operativos a largo plazo.
+`.trim(),
+    },
+    {
+        slug: "n8n-b2b-ai-agent-prospecting-tutorial",
+        title: "How to Automate Your B2B Prospecting and Lead Qualification with an AI Agent in n8n: A Step-by-Step Guide",
+        description: "A comprehensive n8n tutorial. Learn to build an autonomous AI agent connected to your CRM that crawls websites, qualifies leads, and drafts customized pitches.",
+        date: "2026-07-10",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Automation",
+        image: "/blog/n8n-b2b-ai-agent-tutorial.png",
+        lang: "en",
+        translationSlug: "tutorial-agente-ia-n8n-prospeccion-b2b",
+        content: `
+In the B2B services sector, prospecting and qualifying leads is one of the most critical tasks, yet it is also the most time-consuming and resource-intensive. Sales teams spend hours browsing directories, visiting websites, trying to classify whether a company fits their Ideal Customer Profile (ICP), and drafting cold emails that rarely receive a reply due to a lack of personalization.
+
+To overcome this bottleneck without inflating costs or falling into the trap of a [fragile Frankenstack of disjointed automations](/en/blog/integration-tax-ai-hidden-cost-sme-budgets) (the phenomenon we analyzed in our article on the *Integration Tax*), the solution lies in building an **autonomous AI Agent integrated into n8n**.
+
+n8n has established itself as the leading workflow orchestration platform due to its self-hosting capabilities (ensuring strict GDPR compliance) and its advanced native support for LangChain-style agents.
+
+In this comprehensive, step-by-step guide, you will learn how to build a production-ready agentic pipeline to **extract, analyze, qualify, and draft personalized outreach copy** autonomously.
+
+---
+
+## Workflow Architecture
+
+The pipeline we are building consists of four logical phases structured on the n8n canvas:
+
+\`\`\`mermaid
+graph TD
+    A[Trigger: Incoming Lead] --> B[Extraction: Web Scraper Node]
+    B --> C[Qualification: AI Agent Node]
+    C -->|Not Qualified| D[Mark as Discarded in CRM]
+    C -->|Qualified| E[Drafting: Custom Prompt]
+    E --> F[Output: Save Draft in CRM / Email]
+\`\`\`
+
+---
+
+## Step 1: Set Up the Trigger and Data Input
+
+For the workflow to execute, we need a lead source. In n8n, this can be configured in a few ways depending on your data origin:
+1. **Webhook Node:** Receives data synchronously in real-time when a user fills out a form on your website.
+2. **Google Sheets / Airtable Node:** Triggers periodically (e.g., every morning) reading new rows from a prospecting list.
+
+For this tutorial, we will use a **Google Sheets** node that reads the columns \`Company Name\`, \`Website\`, and \`Industry\`.
+
+---
+
+## Step 2: Real-Time Information Extraction (Web Scraping)
+
+For the AI agent to evaluate if the company fits your ICP, it needs up-to-date information. We cannot rely solely on the source database; we must analyze their website live.
+
+1. Add the **HTTP Request** node in n8n.
+2. Set the method to \`GET\` and dynamically map the website URL obtained in the previous step: \`{{ $json.Website }}\`.
+3. *Technical Tip:* Since many websites block simple automated requests, enable the follow-redirects option and set a standard browser \`User-Agent\` header in the node's settings.
+4. Connect the output to an **HTML** node configured in \`Extract\` mode to capture only the main text elements of the homepage (tags like \`<main>\`, \`<body>\`, or headings \`<h1>\`, \`<h2>\` and paragraphs \`<p>\`). This avoids sending raw HTML noise to the model, reducing token consumption.
+
+---
+
+> ### 🔒 Looking to automate your B2B lead generation without the technical complexity?
+> Building autonomous agents in n8n requires configuring stable connections, managing edge cases, and avoiding the technical debt of a Frankenstack. At **IA4PYMES**, we design and deploy your custom agentic data infrastructure connected to your corporate CRM and ERP.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if we don't validate project feasibility in the first 15 minutes, or fully credited against final development costs on hire).
+
+---
+
+## Step 3: Create the AI Qualification Agent (AI Agent Node)
+
+This is the core of the automation. Instead of using a basic LLM node that only answers questions, n8n's **AI Agent** node allows the model to utilize tools and structure outputs using schemas.
+
+### 1. Model Selection
+Connect a provider subnode (e.g., **Declarative Copilot/OpenAI Chat Model** or **Anthropic Chat Model**). We recommend using models with high reasoning capability and balanced costs, such as \`gpt-4o-mini\` or \`claude-3-5-sonnet\`.
+
+### 2. Defining the System Prompt (Agent Instructions)
+Copy and adapt the following prompt in the node's system message field:
+
+\`\`\`text
+You are a business development analyst specializing in qualifying B2B leads for a technology services firm.
+Your goal is to analyze the text content extracted from the candidate company's website and determine if they meet our Ideal Customer Profile (ICP).
+
+OUR ICP:
+- B2B companies offering high-value services or products.
+- Target industries: Logistics, Finance, Legal, Consulting, E-commerce, Private Healthcare.
+- They must show evidence of handling manual data or complex workflows that can be automated.
+
+OUTPUT INSTRUCTIONS:
+You must return a response strictly in JSON format matching this schema:
+{
+  "qualified": true/false,
+  "reason": "Detailed explanation of why they fit or do not fit the ICP, citing specific elements found on their website.",
+  "pain_points": ["Pain point 1", "Pain point 2"],
+  "value_proposition_pitch": "A one-paragraph value proposition explaining how we can help them specifically based on their services."
+}
+\`\`\`
+
+### 3. Configure Structured Output (Structured Output Node)
+To ensure the LLM always returns clean JSON and that n8n can process subsequent steps without formatting errors, connect a **Structured Output** node to the AI agent and define the variables (\`qualified\` as boolean, \`reason\` and \`value_proposition_pitch\` as text strings, and \`pain_points\` as an array).
+
+---
+
+## Step 4: Branching the Workflow and CRM Storage
+
+Once the AI agent outputs its JSON verdict, we use an n8n **If** node to branch the path:
+
+\`\`\`text
+Condition: {{ $json.qualified }} equals true
+\`\`\`
+
+### If FALSE (Not Qualified)
+Connect the workflow to your CRM (e.g., HubSpot or Zoho CRM) using its native n8n nodes to update the prospect status to "Discarded - Does not fit ICP" and archive the lead, preventing your sales team from wasting time.
+
+### If TRUE (Qualified)
+The workflow moves forward to draft the personalized outreach copy.
+
+1. **Add an additional LLM node** optimized for creative writing (such as \`claude-3-5-sonnet\` for superior copy quality).
+2. Pass the data gathered from the website, the detected \`pain_points\`, and the customized \`value_proposition_pitch\`.
+3. Ask it to draft a professional, non-generic cold email focusing on solving one of their specific problems.
+4. **CRM Node (HubSpot/Holded):** Create a task or a draft email inside the lead's record in your CRM with the text written by the AI. This implements a *Human-in-the-loop* safety strategy, where a human rep reviews and approves the draft before sending.
+
+---
+
+## Conclusion and Next Steps
+
+By finalizing this setup, you will have built a 24/7 prospecting engine that reads website content, qualifies leads, discards the noise, and delivers ready-to-send draft emails to highly qualified B2B targets.
+
+The main benefit of this setup is **sovereignty and scalability**: by running on n8n, you avoid fragmented software platforms, keep full control over your APIs and customer data, and eliminate recurring subscription fees while optimizing your sales cycle.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Grok 4.5 (NUEVO)
     // ─────────────────────────────────────────────────────────
     {

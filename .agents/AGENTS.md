@@ -12,3 +12,11 @@ Based on Google Search Console performance data (7.5K impressions, 68 clicks, 0.
 - **Impressions Momentum**: The site is gaining quick indexing traction, indicating Google trust in our niche topics (AI + SMEs). Maintain a steady publishing cadence to preserve this positive slope.
 - **Click-Through-Rate (CTR) Optimization**: Prioritize writing highly click-enticing titles and meta-descriptions over dry, purely academic ones to capture clicks while ranking in positions 5-10.
 - **Deep Interlinking**: Proactively link new technical guides (e.g., Local LLM deployment, Digital Twins, CRM integration) with older posts to distribute authority and help rank higher.
+
+## CTR & Impressions Conversion Strategy (July 2026)
+To systematically convert high Google search impressions into actual website visits (clicks), follow these rules:
+- **Enticing Title & Meta Hooks**: Never write dry, purely descriptive titles (e.g., "Explanation of Grok 4.5 features"). Instead, frame the titles to target high-ticket B2B pain points, financial ROI, and strategic opportunities (e.g., "Presentamos Grok 4.5: La era de la verdadera autonomía operativa para las PYMEs").
+- **Intent-Driven Meta Descriptions**: Craft meta descriptions that clearly state what the reader will save, earn, or automate by clicking. Focus on the value proposition.
+- **Link Juice Distribution (Internal Linking)**: For every new article published, identify at least 2-3 existing posts in `lib/blog-data.ts` and add internal links within the text. This helps push those posts from positions 5-10 into the top 3 spots, where click conversion rates increase exponentially.
+- **Visual Call-to-Actions (CTAs)**: Always include contextually integrated CTA boxes pointing to `/#consultoria` or `/en#consultoria` to capture high-intent leads visiting the blog.
+
