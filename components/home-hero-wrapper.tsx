@@ -6,7 +6,7 @@ import { HeroES } from "./hero-es"
 export function HomeHeroWrapper() {
   return (
     <>
-      <HomeHeader splashFinished={true} />
+      <HomeHeader />
       <HeroES splashFinished={true} />
     </>
   )

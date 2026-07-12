@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { SplashScreen } from "./splash-screen"
 
-export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
+export function HomeHeader() {
+  const [splashDone, setSplashDone] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -16,7 +18,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
 
   return (
     <>
-
+      {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
 
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
