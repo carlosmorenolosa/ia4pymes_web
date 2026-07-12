@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { Home, Search, ArrowLeft, Sparkles } from "lucide-react"
 
 export function NotFoundClient() {
@@ -8,16 +9,25 @@ export function NotFoundClient() {
         <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white flex items-center justify-center px-4">
             <div className="text-center max-w-2xl mx-auto">
                 {/* Animated 404 */}
-                <div className="mb-8 animate-bounce-in">
+                <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, type: "spring" }}
+                    className="mb-8"
+                >
                     <h1 className="text-[150px] sm:text-[200px] font-black leading-none">
                         <span className="text-blue-600">
                              404
                          </span>
                     </h1>
-                </div>
+                </motion.div>
 
                 {/* Message */}
-                <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                >
                     <h2 className="text-2xl sm:text-3xl font-black text-slate-800 mb-4">
                         ¡Ups! Página no encontrada
                     </h2>
@@ -25,10 +35,15 @@ export function NotFoundClient() {
                         Parece que esta página se ha perdido en el ciberespacio.
                         Pero no te preocupes, podemos ayudarte a encontrar lo que buscas.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                >
                     <Link
                         href="/"
                         className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-xl hover:scale-105 transition-all duration-300"
@@ -44,10 +59,15 @@ export function NotFoundClient() {
                         <Sparkles className="w-5 h-5" />
                         Contactar con IA
                     </Link>
-                </div>
+                </motion.div>
 
                 {/* Helpful links */}
-                <div className="mt-12 pt-8 border-t border-slate-200 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="mt-12 pt-8 border-t border-slate-200"
+                >
                     <p className="text-slate-500 mb-4">Enlaces útiles:</p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm">
                         <Link href="/#proceso" className="text-blue-600 hover:underline">
@@ -63,7 +83,7 @@ export function NotFoundClient() {
                             Contacto
                         </Link>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </main>
     )

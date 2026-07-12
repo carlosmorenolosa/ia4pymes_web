@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -35,15 +36,18 @@ export function FunctionalChatbot({
   const sessionIdRef = useRef<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
 
+  // Eliminamos el auto-focus automático que causaba saltos de scroll en móviles
+  // El foco ahora se gestionará solo tras una interacción explícita del usuario
+
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      sessionIdRef.current = crypto.randomUUID()
-    }, 100)
-    return () => clearTimeout(timer)
+    // crypto.randomUUID() is supported in all modern browsers
+    sessionIdRef.current = crypto.randomUUID()
   }, [])
 
   useEffect(() => {
     if (minimal) {
+      // Widget mode: show a single relevant welcome message
       setIsInitialTyping(true)
       const t = setTimeout(() => {
         setIsInitialTyping(false)
@@ -59,25 +63,26 @@ export function FunctionalChatbot({
       return;
     }
 
-    const initTimer = setTimeout(() => {
-      setIsInitialTyping(true);
-    }, 500)
+    setIsInitialTyping(true);
 
+    // Stage 1: First high-impact CTA after a longer typing period (3s)
     const t1 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages([{ 
         sender: "PymerIA", 
         content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
       }]);
-    }, 4000)
+    }, 3000)
 
+    // Stage 2: Second typing block starts shortly after first message (4.5s total)
     const t2 = setTimeout(() => {
       setMessages(prev => {
         if (prev.length === 1) setIsInitialTyping(true)
         return prev
       })
-    }, 5500)
+    }, 4500)
 
+    // Stage 3: Second direct CTA after more typing (8s total)
     const t3 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages(prev => {
@@ -92,7 +97,6 @@ export function FunctionalChatbot({
     }, 8000)
 
     return () => {
-      clearTimeout(initTimer)
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
@@ -100,6 +104,8 @@ export function FunctionalChatbot({
   }, [visible])
 
   useEffect(() => {
+    // Determine active interaction: input is focused AND we aren't waiting for a response.
+    // This allows the chatbot to rotate while PymerIA is "thinking".
     if (onInteractionChange) {
       onInteractionChange(isFocused && !isLoading)
     }
@@ -119,6 +125,7 @@ export function FunctionalChatbot({
     setIsLoading(true)
     setIsFocused(false)
     
+    // Force the browser to drop focus from the input so it doesn't get stuck later
     if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
       document.activeElement.blur()
     }
@@ -167,6 +174,7 @@ export function FunctionalChatbot({
       const scrollContainer = scrollAreaRef.current
 
       if (isLoading) {
+        // Scroll automático cuando el usuario envía un mensaje
         scrollContainer.scrollTo({
           top: scrollContainer.scrollHeight,
           behavior: "smooth",
@@ -176,16 +184,19 @@ export function FunctionalChatbot({
         messages.length > 0 &&
         messages[messages.length - 1].sender === "PymerIA"
       ) {
+        // Usamos requestAnimationFrame para evitar Forced Reflow
         requestAnimationFrame(() => {
           if (!pymeriaResponseRef.current || !scrollAreaRef.current) return
           
           const pymeriaResponseElement = pymeriaResponseRef.current
           const scrollContainer = scrollAreaRef.current
 
+          // Calcular la posición justo antes de la respuesta de PymerIA
           const containerRect = scrollContainer.getBoundingClientRect()
           const messageRect = pymeriaResponseElement.getBoundingClientRect()
           const relativeTop = messageRect.top - containerRect.top + scrollContainer.scrollTop
 
+          // Posicionar justo antes de la respuesta (con un pequeño margen)
           const adjustedTop = Math.max(0, relativeTop - 20)
 
           scrollContainer.scrollTo({
@@ -239,10 +250,13 @@ export function FunctionalChatbot({
         }}
       >
         {messages.map((msg, index) => (
-          <div
+          <motion.div
             key={index}
             ref={msg.sender === "PymerIA" && index === messages.length - 1 ? pymeriaResponseRef : null}
-            className={`${msg.sender === "User" ? "text-right" : "text-left"} transition-opacity duration-300`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className={`${msg.sender === "User" ? "text-right" : "text-left"}`}
           >
             <div
               className={`inline-block p-2.5 rounded-[1rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${
@@ -281,11 +295,16 @@ export function FunctionalChatbot({
                 </ReactMarkdown>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
 
         {(isLoading || isInitialTyping) && (
-          <div className="text-left animate-pulse">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="text-left"
+          >
             <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-blue-50 border border-blue-200`}>
               <div className="flex items-center space-x-2">
                 <span className="text-slate-700 text-xs font-medium">PymerIA está escribiendo</span>
@@ -302,7 +321,7 @@ export function FunctionalChatbot({
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
 
