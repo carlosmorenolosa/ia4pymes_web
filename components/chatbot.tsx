@@ -2,7 +2,6 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -38,7 +37,6 @@ export function Chatbot() {
   }, [isLoading])
 
   useEffect(() => {
-    // crypto.randomUUID() is supported in all modern browsers
     sessionIdRef.current = crypto.randomUUID()
   }, [])
 
@@ -104,7 +102,6 @@ export function Chatbot() {
       const scrollContainer = scrollAreaRef.current
       const lastMessageElement = lastMessageRef.current
 
-      // Ajusta la posición del scroll para que el inicio del mensaje sea visible, subiendo 50px.
       scrollContainer.scrollTo({
         top: Math.max(0, lastMessageElement.offsetTop - 50),
         behavior: "smooth",
@@ -124,13 +121,10 @@ export function Chatbot() {
       </div>
       <div ref={scrollAreaRef} className="flex-1 p-4 flex flex-col space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-[#f0f4ff]">
         {messages.map((msg, index) => (
-          <motion.div
+          <div
             key={index}
             ref={index === messages.length - 1 ? lastMessageRef : null}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className={`my-2 px-4 py-3 rounded-2xl break-words shadow-md w-fit max-w-[90%] ${msg.sender === "User"
+            className={`my-2 px-4 py-3 rounded-2xl break-words shadow-md w-fit max-w-[90%] transition-opacity duration-300 ${msg.sender === "User"
                 ? "bg-blue-800 self-end ml-auto text-right text-white rounded-br-sm"
                 : "bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
               }`}
@@ -148,15 +142,12 @@ export function Chatbot() {
                 {msg.content}
               </ReactMarkdown>
             </div>
-          </motion.div>
+          </div>
         ))}
         {isLoading && (
-          <motion.div
+          <div
             ref={lastMessageRef}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="my-2 px-4 py-3 rounded-2xl shadow-md w-fit max-w-[90%] bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
+            className="my-2 px-4 py-3 rounded-2xl shadow-md w-fit max-w-[90%] bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm animate-pulse"
           >
             <div className="flex items-center justify-center space-x-2">
               <span className="text-sm font-medium text-slate-700">PymerIA está pensando</span>
@@ -164,7 +155,7 @@ export function Chatbot() {
               <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
               <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
       <div className="w-full bg-gray-100/50 border-t border-gray-200/80 px-4 pt-3 pb-2 rounded-b-3xl">

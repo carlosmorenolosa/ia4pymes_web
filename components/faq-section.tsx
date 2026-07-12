@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Plus, Minus, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 
 const i18n = {
   es: {
@@ -87,31 +86,21 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-center mb-12 sm:mb-16"
-                >
+                <div className="text-center mb-12 sm:mb-16">
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                         {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         {t.subtitle}
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="space-y-4 mb-12">
                     {t.faqs.map((faq, index) => {
                         const isOpen = openIndex === index
                         return (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                                 className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
                                     }`}
                             >
@@ -139,19 +128,13 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                         </p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         )
                     })}
                 </div>
 
                 {/* CTA */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="text-center"
-                >
+                <div className="text-center">
                     <p className="text-slate-600 mb-6 font-medium">{t.ctaQuestion}</p>
                     <Link
                         href={t.ctaHref}
@@ -160,9 +143,8 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                         {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     )
 }
-

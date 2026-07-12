@@ -1,16 +1,10 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export function AnimatedChip() {
   const ref = useRef<HTMLDivElement>(null);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseX = useSpring(x, { stiffness: 50, damping: 20 });
-  const mouseY = useSpring(y, { stiffness: 50, damping: 20 });
+  const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
   function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
     const { left, top, width, height } = currentTarget.getBoundingClientRect();
@@ -18,38 +12,25 @@ export function AnimatedChip() {
     const xPos = (clientX - left - width / 2) / 10;
     const yPos = -(clientY - top - height / 2) / 10;
     
-    x.set(xPos);
-    y.set(yPos);
+    setTransform(`rotateX(${yPos}deg) rotateY(${xPos}deg)`);
   }
 
   function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
+    setTransform("rotateX(0deg) rotateY(0deg)");
   }
-
-  const rotateX = useMotionTemplate`${mouseY}deg`;
-  const rotateY = useMotionTemplate`${mouseX}deg`;
 
   return (
     <div className="relative w-full max-w-sm aspect-square mx-auto" style={{ perspective: "1000px" }}>
-      <motion.div
+      <div
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          rotateX,
-          rotateY,
+          transform,
           transformStyle: "preserve-3d",
+          animation: "float 6s ease-in-out infinite",
         }}
-        animate={{
-          y: [0, -10, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 6,
-          ease: "easeInOut",
-        }}
-        className="relative w-full h-full rounded-3xl bg-white/40 border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden cursor-pointer group"
+        className="relative w-full h-full rounded-3xl bg-white/40 border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden cursor-pointer group transition-transform duration-100"
       >
         {/* Glow effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-purple-400/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -89,7 +70,15 @@ export function AnimatedChip() {
             Inteligencia Activa
           </p>
         </div>
-      </motion.div>
+      </div>
+      
+      {/* CSS for float animation */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+      `}} />
     </div>
   );
 }

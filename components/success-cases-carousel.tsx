@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale, Archive, ShoppingBag } from "lucide-react"
 
 const caseData = {
@@ -136,9 +135,9 @@ const TiltCard = ({ children, className = "", style }: { children: React.ReactNo
     const y = e.clientY - rect.top
     const centerX = rect.width / 2
     const centerY = rect.height / 2
-    const rotateX = (y - centerY) / 20 // Reducido de /10 a /20 para ser más sutil
-    const rotateY = (centerX - x) / 20 // Reducido de /10 a /20 para ser más sutil
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)` // Reducido translateZ de 20px a 10px
+    const rotateX = (y - centerY) / 20
+    const rotateY = (centerX - x) / 20
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`
   }
 
   const handleMouseLeave = () => {
@@ -149,7 +148,7 @@ const TiltCard = ({ children, className = "", style }: { children: React.ReactNo
   return (
     <div
       ref={cardRef}
-      className={`transition-transform duration-500 ease-out ${className}`} // Cambiado de duration-300 a duration-500
+      className={`transition-transform duration-500 ease-out ${className}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ transformStyle: "preserve-3d" }}
@@ -285,35 +284,29 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         </div>
       </div>
       {/* Navigation Arrows */}
-      <motion.button
-        whileHover={{ scale: 1.15 }}
-        whileTap={{ scale: 0.9 }}
+      <button
         onClick={prevSlide}
-        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
+        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-all duration-300 border border-gray-200/50 hover:scale-110 active:scale-95"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Previous slide" : "Anterior caso de éxito"}
       >
         <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-      </motion.button>
-      <motion.button
-        whileHover={{ scale: 1.15 }}
-        whileTap={{ scale: 0.9 }}
+      </button>
+      <button
         onClick={nextSlide}
-        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
+        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-all duration-300 border border-gray-200/50 hover:scale-110 active:scale-95"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Next slide" : "Siguiente caso de éxito"}
       >
         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-      </motion.button>
+      </button>
       {/* Dot Navigation */}
       <div className="flex justify-center mt-8 gap-3" style={{ zIndex: 1001 }}>
         {successCases.map((_, index) => (
-          <motion.button
+          <button
             key={index}
-            whileHover={{ scale: 1.3 }}
-            whileTap={{ scale: 0.8 }}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
+            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-130 active:scale-90 ${index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
               }`}
           />
         ))}
