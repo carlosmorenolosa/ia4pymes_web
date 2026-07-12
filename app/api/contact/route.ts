@@ -1,6 +1,38 @@
 import { NextResponse } from "next/server";
 
+// Simple in-memory store for rate limiting
+// Tracks IP -> { count: number, resetTime: number }
+const rateLimit = new Map<string, { count: number; resetTime: number }>();
+
+const MAX_REQUESTS = 3; // Max 3 form submissions per window (forms are heavier than chat)
+const WINDOW_MS = 60 * 1000; // 1 minute window
+
 export async function POST(request: Request) {
+  // Get IP for rate limiting
+  const ip = request.headers.get("x-forwarded-for") || "unknown_ip";
+
+  // Check rate limit
+  const now = Date.now();
+  const limitInfo = rateLimit.get(ip);
+
+  if (limitInfo) {
+    if (now < limitInfo.resetTime) {
+      limitInfo.count++;
+      if (limitInfo.count > MAX_REQUESTS) {
+        return NextResponse.json(
+          { error: "Demasiadas peticiones. Por favor, espera un momento antes de enviar otra solicitud." },
+          { status: 429 }
+        );
+      }
+    } else {
+      // Reset window if time has passed
+      rateLimit.set(ip, { count: 1, resetTime: now + WINDOW_MS });
+    }
+  } else {
+    // First request from this IP
+    rateLimit.set(ip, { count: 1, resetTime: now + WINDOW_MS });
+  }
+
   // Evaluamos en runtime para asegurar que Vercel inyecte la variable
   const apiKey = process.env.RESEND_API_KEY;
 
@@ -12,6 +44,14 @@ export async function POST(request: Request) {
     if (!name || !company || !email || !phone || !budget || !message) {
       return NextResponse.json(
         { error: "Faltan campos obligatorios" },
+        { status: 400 }
+      );
+    }
+
+    // Sanitización básica: limitar longitudes para prevenir abuso
+    if (name.length > 100 || company.length > 100 || email.length > 254 || phone.length > 20 || message.length > 5000) {
+      return NextResponse.json(
+        { error: "Algunos campos exceden la longitud máxima permitida" },
         { status: 400 }
       );
     }
@@ -75,4 +115,3 @@ export async function POST(request: Request) {
     );
   }
 }
-

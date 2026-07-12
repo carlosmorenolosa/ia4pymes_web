@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import rehypeSanitize from "rehype-sanitize"
 
 interface Message {
   sender: string
@@ -37,9 +38,8 @@ export function Chatbot() {
   }, [isLoading])
 
   useEffect(() => {
-    sessionIdRef.current = typeof crypto !== 'undefined' && crypto.randomUUID 
-      ? crypto.randomUUID() 
-      : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+    // crypto.randomUUID() is supported in all modern browsers
+    sessionIdRef.current = crypto.randomUUID()
   }, [])
 
   const handleSendMessage = async () => {
@@ -143,6 +143,7 @@ export function Chatbot() {
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeSanitize]}
               >
                 {msg.content}
               </ReactMarkdown>

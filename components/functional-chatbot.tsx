@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import rehypeSanitize from "rehype-sanitize"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -40,9 +41,8 @@ export function FunctionalChatbot({
 
 
   useEffect(() => {
-    sessionIdRef.current = typeof crypto !== 'undefined' && crypto.randomUUID 
-      ? crypto.randomUUID() 
-      : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+    // crypto.randomUUID() is supported in all modern browsers
+    sessionIdRef.current = crypto.randomUUID()
   }, [])
 
   useEffect(() => {
@@ -275,6 +275,7 @@ export function FunctionalChatbot({
                 }`}>
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeSanitize]}
                   components={{
                     p: ({ children }) => <p className={`mb-1 last:mb-0 ${minimal ? "text-xs leading-relaxed" : "text-xs sm:text-sm mb-2"}`}>{children}</p>,
                     ul: ({ children }) => (
