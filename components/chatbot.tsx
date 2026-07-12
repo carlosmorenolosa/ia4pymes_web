@@ -2,7 +2,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -124,7 +124,7 @@ export function Chatbot() {
       </div>
       <div ref={scrollAreaRef} className="flex-1 p-4 flex flex-col space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-[#f0f4ff]">
         {messages.map((msg, index) => (
-          <motion.div
+          <m.div
             key={index}
             ref={index === messages.length - 1 ? lastMessageRef : null}
             initial={{ opacity: 0, y: 20 }}
@@ -148,10 +148,10 @@ export function Chatbot() {
                 {msg.content}
               </ReactMarkdown>
             </div>
-          </motion.div>
+          </m.div>
         ))}
         {isLoading && (
-          <motion.div
+          <m.div
             ref={lastMessageRef}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -164,7 +164,7 @@ export function Chatbot() {
               <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
               <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
       <div className="w-full bg-gray-100/50 border-t border-gray-200/80 px-4 pt-3 pb-2 rounded-b-3xl">

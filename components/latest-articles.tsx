@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Calendar, Clock } from "lucide-react"
@@ -68,7 +68,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <section className="py-20 relative bg-white overflow-hidden text-slate-600">
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -84,7 +84,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                         </p>
                     </div>
 
-                    <motion.div
+                    <m.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -96,8 +96,8 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                             {t.cta}
                             <ArrowRight className="w-4 h-4" />
                         </Link>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
 
                 {latestPosts.length === 0 ? (
                     <div className="text-center py-16 text-slate-400 text-sm font-medium">
@@ -106,7 +106,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {latestPosts.map((post, index) => (
-                            <motion.div
+                            <m.div
                                 key={post.slug}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                         </div>
                                     </article>
                                 </Link>
-                            </motion.div>
+                            </m.div>
                         ))}
                     </div>
                 )}

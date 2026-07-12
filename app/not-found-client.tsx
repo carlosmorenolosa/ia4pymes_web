@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Home, Search, ArrowLeft, Sparkles } from "lucide-react"
 
 export function NotFoundClient() {
@@ -9,7 +9,7 @@ export function NotFoundClient() {
         <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white flex items-center justify-center px-4">
             <div className="text-center max-w-2xl mx-auto">
                 {/* Animated 404 */}
-                <motion.div
+                <m.div
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, type: "spring" }}
@@ -20,10 +20,10 @@ export function NotFoundClient() {
                              404
                          </span>
                     </h1>
-                </motion.div>
+                </m.div>
 
                 {/* Message */}
-                <motion.div
+                <m.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
@@ -35,10 +35,10 @@ export function NotFoundClient() {
                         Parece que esta página se ha perdido en el ciberespacio.
                         Pero no te preocupes, podemos ayudarte a encontrar lo que buscas.
                     </p>
-                </motion.div>
+                </m.div>
 
                 {/* Actions */}
-                <motion.div
+                <m.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
@@ -59,10 +59,10 @@ export function NotFoundClient() {
                         <Sparkles className="w-5 h-5" />
                         Contactar con IA
                     </Link>
-                </motion.div>
+                </m.div>
 
                 {/* Helpful links */}
-                <motion.div
+                <m.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
@@ -83,7 +83,7 @@ export function NotFoundClient() {
                             Contacto
                         </Link>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
         </main>
     )

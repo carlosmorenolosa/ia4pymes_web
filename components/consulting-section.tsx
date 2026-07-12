@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucide-react"
 
 const i18n = {
@@ -110,7 +110,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           
           {/* Text and Copywriting Column (Left) */}
           <div className="lg:col-span-6 space-y-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -123,10 +123,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">
                 {t.subtitle}
               </p>
-            </motion.div>
+            </m.div>
 
             {/* What's included checklist */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -167,10 +167,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </div>
                 </li>
               </ul>
-            </motion.div>
+            </m.div>
 
             {/* Strategic Guarantees */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -196,12 +196,12 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
 
           <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -225,10 +225,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   title={t.titleIframe}
                 />
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Price Tag Details (Centered, below the calendar) */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -243,7 +243,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
                 <span className="text-xs text-slate-400 block mt-1">{t.totalVat}</span>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
         </div>

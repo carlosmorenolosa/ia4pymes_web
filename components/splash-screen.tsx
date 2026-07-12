@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export function SplashScreen({ onComplete }: { onComplete: () => void }) {
@@ -30,7 +30,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           key="splash"
           initial={{ y: 0, borderBottomLeftRadius: "0%", borderBottomRightRadius: "0%" }}
           exit={{ 
@@ -46,7 +46,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-transparent pointer-events-none" />
 
           {/* Logo Container that shrinks slightly before exiting */}
-          <motion.div 
+          <m.div 
             className="relative flex items-center justify-center flex-col z-10"
             exit={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -66,7 +66,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
               </div>
 
               {/* Filled Text Layer (Animates from left to right) */}
-              <motion.div 
+              <m.div 
                 className="absolute top-0 left-0 flex overflow-hidden whitespace-nowrap tracking-[-0.04em] drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
@@ -74,11 +74,11 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
               >
                 <span className="text-white">IA</span>
                 <span className="text-blue-600">4</span>
-              </motion.div>
+              </m.div>
             </div>
             
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

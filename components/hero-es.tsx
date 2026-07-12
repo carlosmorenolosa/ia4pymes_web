@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AnimatedChip } from "./home-dynamic-imports"
@@ -19,7 +19,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
             
             <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-              <motion.h1
+              <m.h1
                 id="hero-heading"
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
@@ -29,18 +29,18 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
                 Aumenta tus <br className="hidden md:block" />
                 <span className="text-blue-600">Márgenes</span> con IA
-              </motion.h1>
+              </m.h1>
 
-              <motion.p 
+              <m.p 
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
                 Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
-              </motion.p>
+              </m.p>
 
-              <motion.div 
+              <m.div 
                 initial={{ opacity: 0 }}
                 animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
@@ -59,10 +59,10 @@ export function HeroES({ splashFinished }: HeroESProps) {
                   Explorar casos reales
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </motion.div>
+              </m.div>
             </div>
 
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
               animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" } : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
@@ -71,7 +71,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">
                 {splashFinished && <AnimatedChip visible={splashFinished} />}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Plus, Minus, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 const i18n = {
   es: {
@@ -87,7 +87,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <motion.div 
+                <m.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -100,13 +100,13 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         {t.subtitle}
                     </p>
-                </motion.div>
+                </m.div>
 
                 <div className="space-y-4 mb-12">
                     {t.faqs.map((faq, index) => {
                         const isOpen = openIndex === index
                         return (
-                            <motion.div
+                            <m.div
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -139,13 +139,13 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                         </p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         )
                     })}
                 </div>
 
                 {/* CTA */}
-                <motion.div 
+                <m.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
@@ -160,7 +160,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                         {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
-                </motion.div>
+                </m.div>
             </div>
         </section>
     )

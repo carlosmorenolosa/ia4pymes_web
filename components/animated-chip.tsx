@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export function AnimatedChip() {
@@ -32,7 +32,7 @@ export function AnimatedChip() {
 
   return (
     <div className="relative w-full max-w-sm aspect-square mx-auto" style={{ perspective: "1000px" }}>
-      <motion.div
+      <m.div
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -89,7 +89,7 @@ export function AnimatedChip() {
             Inteligencia Activa
           </p>
         </div>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
