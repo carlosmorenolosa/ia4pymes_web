@@ -357,12 +357,6 @@ export default function RootLayout({
                 {
                   "@type": "ListItem",
                   position: 4,
-                  name: "Beneficios",
-                  item: "https://ia4pymes.tech/#beneficios",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 5,
                   name: "Contacto",
                   item: "https://ia4pymes.tech/#contacto",
                 },
