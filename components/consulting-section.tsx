@@ -223,6 +223,8 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   style={{ width: "100%", height: "100%", border: "none" }}
                   className="w-full h-full"
                   title={t.titleIframe}
+                  loading="lazy"
+                  allow="payment"
                 />
               </div>
             </motion.div>

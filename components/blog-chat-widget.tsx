@@ -22,10 +22,11 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
   }[lang]
 
   useEffect(() => {
-    // Show the tooltip after 2 seconds for a nice micro-animation entrance
+    // Delay tooltip display to reduce initial JS execution time
+    // Show after 4 seconds instead of 2 to prioritize above-the-fold content
     const timer = setTimeout(() => {
       setShowTooltip(true)
-    }, 2000)
+    }, 4000)
     return () => clearTimeout(timer)
   }, [])
 

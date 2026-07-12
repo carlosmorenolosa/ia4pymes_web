@@ -42,7 +42,11 @@ export function FunctionalChatbot({
 
   useEffect(() => {
     // crypto.randomUUID() is supported in all modern browsers
-    sessionIdRef.current = crypto.randomUUID()
+    // Delay session ID generation to reduce initial JS execution time
+    const timer = setTimeout(() => {
+      sessionIdRef.current = crypto.randomUUID()
+    }, 100)
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
@@ -63,26 +67,29 @@ export function FunctionalChatbot({
       return;
     }
 
-    setIsInitialTyping(true);
+    // Delay initial typing to reduce initial JS execution time
+    const initTimer = setTimeout(() => {
+      setIsInitialTyping(true);
+    }, 500)
 
-    // Stage 1: First high-impact CTA after a longer typing period (3s)
+    // Stage 1: First high-impact CTA after a longer typing period (4s)
     const t1 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages([{ 
         sender: "PymerIA", 
         content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
       }]);
-    }, 3000)
+    }, 4000)
 
-    // Stage 2: Second typing block starts shortly after first message (4.5s total)
+    // Stage 2: Second typing block starts shortly after first message (5.5s total)
     const t2 = setTimeout(() => {
       setMessages(prev => {
         if (prev.length === 1) setIsInitialTyping(true)
         return prev
       })
-    }, 4500)
+    }, 5500)
 
-    // Stage 3: Second direct CTA after more typing (8s total)
+    // Stage 3: Second direct CTA after more typing (9s total)
     const t3 = setTimeout(() => {
       setIsInitialTyping(false);
       setMessages(prev => {
@@ -97,6 +104,7 @@ export function FunctionalChatbot({
     }, 8000)
 
     return () => {
+      clearTimeout(initTimer)
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)

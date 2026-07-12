@@ -10,15 +10,15 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
     // Lock scroll while splash is visible
     document.body.style.overflow = "hidden";
     
-    // Balanced timing: enough to see the animation, fast enough for Google
+    // Faster timing to reduce initial blocking time
     const exitTimer = setTimeout(() => {
       setIsVisible(false);
-    }, 800);
+    }, 500);
 
     const completeTimer = setTimeout(() => {
       document.body.style.overflow = "";
       onComplete();
-    }, 1200);
+    }, 800);
 
     return () => {
       clearTimeout(exitTimer);
