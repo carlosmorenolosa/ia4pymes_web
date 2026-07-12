@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Heart, Sliders, MessageCircle, Shield, CheckCircle, Scale, Archive, ShoppingBag } from "lucide-react"
 
 const caseData = {
@@ -285,7 +285,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         </div>
       </div>
       {/* Navigation Arrows */}
-      <m.button
+      <motion.button
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
@@ -294,8 +294,8 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         aria-label={lang === "en" ? "Previous slide" : "Anterior caso de éxito"}
       >
         <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-      </m.button>
-      <m.button
+      </motion.button>
+      <motion.button
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
@@ -304,11 +304,11 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         aria-label={lang === "en" ? "Next slide" : "Siguiente caso de éxito"}
       >
         <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-      </m.button>
+      </motion.button>
       {/* Dot Navigation */}
       <div className="flex justify-center mt-8 gap-3" style={{ zIndex: 1001 }}>
         {successCases.map((_, index) => (
-          <m.button
+          <motion.button
             key={index}
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.8 }}

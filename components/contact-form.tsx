@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -172,7 +172,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
     return (
         <div className="w-full max-w-3xl mx-auto mb-16 px-4">
-            <m.div 
+            <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -182,7 +182,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                 {/* Decorative elements removed for pure white theme */}
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -224,9 +224,9 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </p>
                             )}
                         </div>
-                    </m.div>
+                    </motion.div>
 
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -268,10 +268,10 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </p>
                             )}
                         </div>
-                    </m.div>
+                    </motion.div>
 
                     {/* Presupuesto */}
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -301,10 +301,10 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 {form.formState.errors.budget.message}
                             </p>
                         )}
-                    </m.div>
+                    </motion.div>
 
                     {/* Mensaje */}
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -325,7 +325,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 {form.formState.errors.message.message}
                             </p>
                         )}
-                    </m.div>
+                    </motion.div>
 
                     {/* Error general */}
                     {submitStatus === "error" && (
@@ -342,13 +342,13 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     )}
 
                     {/* Botón enviar */}
-                    <m.div
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.6 }}
                     >
-                        <m.button
+                        <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -369,14 +369,14 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </>
                             )}
                             <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none"></div>
-                        </m.button>
-                    </m.div>
+                        </motion.button>
+                    </motion.div>
 
                     <p className="text-center text-xs text-slate-600 mt-4 font-medium">
                         {t.privacyNote}
                     </p>
                 </form>
-            </m.div>
+            </motion.div>
         </div>
     )
 }

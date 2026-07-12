@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { Calculator, ArrowRight, Euro, Clock, Users } from "lucide-react"
 
@@ -61,7 +61,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
     return (
         <div className="w-full relative">
-            <m.div 
+            <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -74,7 +74,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     {t.subtitle}
                 </p>
-            </m.div>
+            </motion.div>
 
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 
@@ -82,7 +82,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                 <div className="lg:col-span-7 space-y-10 lg:pr-8">
                     
                     {/* Input: Horas a la semana */}
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -108,10 +108,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
-                    </m.div>
+                    </motion.div>
 
                     {/* Input: Número de empleados */}
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -137,10 +137,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
-                    </m.div>
+                    </motion.div>
 
                     {/* Input: Salario por hora */}
-                    <m.div 
+                    <motion.div 
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -167,12 +167,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
                             />
                         </div>
-                    </m.div>
+                    </motion.div>
 
                 </div>
 
                 {/* Results Section (Right / Bottom) */}
-                <m.div 
+                <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -243,19 +243,19 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                                     {results.year.toLocaleString(t.locale)} €
                                                 </span>
                                                 {/* Underline accent */}
-                                                <m.div 
+                                                <motion.div 
                                                     className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-full blur-[1px]"
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: "100%" }}
                                                     transition={{ duration: 1, delay: 0.8 }}
-                                                ></m.div>
+                                                ></motion.div>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Action Area */}
                                     <div className="mt-8">
-                                        <m.div
+                                        <motion.div
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                             className="w-full"
@@ -267,7 +267,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 {t.ctaButton}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
-                                        </m.div>
+                                        </motion.div>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                             ></div>
                         </div>
                     </div>
-                </m.div>
+                </motion.div>
             </div>
         </div>
     )

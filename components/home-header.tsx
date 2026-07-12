@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { SplashScreen } from "@/components/splash-screen"
@@ -29,7 +29,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
           {/* Logo */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -41,10 +41,10 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
               </div>
             </Link>
-          </m.div>
+          </motion.div>
 
           {/* Centered Navigation Pill */}
-          <m.nav
+          <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
@@ -75,14 +75,14 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <Link href="/en" className="text-sm font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
-              <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                 <Link
                   href="/#consultoria"
                   className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
-              </m.div>
+              </motion.div>
             </div>
 
             {/* Mobile burger */}
@@ -95,7 +95,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
-          </m.nav>
+          </motion.nav>
         </div>
       </header>
 

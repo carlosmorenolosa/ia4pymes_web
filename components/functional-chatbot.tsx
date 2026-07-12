@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 import { Send, MessageCircle } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -250,7 +250,7 @@ export function FunctionalChatbot({
         }}
       >
         {messages.map((msg, index) => (
-          <m.div
+          <motion.div
             key={index}
             ref={msg.sender === "PymerIA" && index === messages.length - 1 ? pymeriaResponseRef : null}
             initial={{ opacity: 0, y: 20 }}
@@ -295,11 +295,11 @@ export function FunctionalChatbot({
                 </ReactMarkdown>
               </div>
             </div>
-          </m.div>
+          </motion.div>
         ))}
 
         {(isLoading || isInitialTyping) && (
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -321,7 +321,7 @@ export function FunctionalChatbot({
                 </div>
               </div>
             </div>
-          </m.div>
+          </motion.div>
         )}
       </div>
 

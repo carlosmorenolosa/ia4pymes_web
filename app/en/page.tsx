@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { m, useInView, useSpring, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import {
   BarChart2,
   Code,
@@ -61,7 +61,7 @@ import { ConsultingSection } from "@/components/consulting-section"
 
 import { SplashScreen } from "@/components/splash-screen"
 import { useIsMobile } from "@/hooks/use-mobile"
-
+import { useInView, useSpring, useTransform } from "framer-motion"
 
 function StatCounter({
   value,
@@ -88,7 +88,7 @@ function StatCounter({
   return (
     <span ref={ref}>
       {prefixContent}
-      <m.span>{displayValue}</m.span>
+      <motion.span>{displayValue}</motion.span>
       {suffixContent}
     </span>
   )
@@ -109,7 +109,7 @@ export default function HomeEN() {
   }, [])
 
   const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
-    <m.div
+    <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -117,7 +117,7 @@ export default function HomeEN() {
       className="w-full"
     >
       {children}
-    </m.div>
+    </motion.div>
   )
 
   return (
@@ -133,7 +133,7 @@ export default function HomeEN() {
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
             {/* Logo */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -145,10 +145,10 @@ export default function HomeEN() {
                   <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
-            </m.div>
+            </motion.div>
 
             {/* Centered Navigation Pill */}
-            <m.nav
+            <motion.nav
               initial={{ opacity: 0, y: -20 }}
               animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
@@ -193,7 +193,7 @@ export default function HomeEN() {
                   <span className="text-sm font-bold text-blue-600 cursor-default">EN</span>
                 </div>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                <m.div
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -204,7 +204,7 @@ export default function HomeEN() {
                   >
                     Book Consultation
                   </Link>
-                </m.div>
+                </motion.div>
               </div>
 
               {/* Mobile hamburger */}
@@ -217,7 +217,7 @@ export default function HomeEN() {
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
               </div>
-            </m.nav>
+            </motion.nav>
           </div>
         </header>
 
@@ -262,7 +262,7 @@ export default function HomeEN() {
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
-                  <m.h1
+                  <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
@@ -273,9 +273,9 @@ export default function HomeEN() {
                     <br className="hidden md:block" />
                     Grow Your <br className="hidden md:block" />
                     <span className="text-blue-600">Margins</span> with AI
-                  </m.h1>
+                  </motion.h1>
 
-                  <m.p
+                  <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
@@ -286,15 +286,15 @@ export default function HomeEN() {
                       Tangible results and guaranteed ROI
                     </strong>{" "}
                     prove our real impact through automation.
-                  </m.p>
+                  </motion.p>
 
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
                     className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
                   >
-                    <m.div
+                    <motion.div
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -305,9 +305,9 @@ export default function HomeEN() {
                       >
                         Design AI Roadmap
                       </Link>
-                    </m.div>
+                    </motion.div>
 
-                    <m.div
+                    <motion.div
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -321,11 +321,11 @@ export default function HomeEN() {
                         </span>
                         <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
-                    </m.div>
-                  </m.div>
+                    </motion.div>
+                  </motion.div>
                 </div>
 
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
                   animate={
                     splashFinished
@@ -338,7 +338,7 @@ export default function HomeEN() {
                   <div className="w-full max-w-lg sm:max-w-xl">
                     <AnimatedChip visible={splashFinished} />
                   </div>
-                </m.div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@ export default function HomeEN() {
                     <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
                       Join hundreds of SMEs
                     </h3>
-                    <m.div
+                    <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -417,7 +417,7 @@ export default function HomeEN() {
                         Subscribe Now
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
-                    </m.div>
+                    </motion.div>
                     <p className="text-slate-500 text-sm mt-6 text-center italic">
                       * No spam, only high-value technical<br className="hidden sm:block" /> and strategic content.
                     </p>
@@ -577,7 +577,7 @@ export default function HomeEN() {
                   { value: 1000, prefix: "+", suffix: "h", label: "Hours saved per month", color: "text-green-600", bg: "hover:shadow-green-500/10" },
                   { value: 100, prefix: "", suffix: "%", label: "Success rate", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
                 ].map((stat, idx) => (
-                  <m.div
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -595,7 +595,7 @@ export default function HomeEN() {
                     <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
                     <meta itemProp="position" content={(idx + 1).toString()} />
                     <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
               <SuccessCasesCarousel lang="en" />
@@ -673,7 +673,7 @@ export default function HomeEN() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
               {/* Column 1: Brand */}
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -694,10 +694,10 @@ export default function HomeEN() {
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
-              </m.div>
+              </motion.div>
 
               {/* Column 2: Solutions */}
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -711,10 +711,10 @@ export default function HomeEN() {
                   <li><Link href="#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">ROI Calculator</Link></li>
                   <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">News Blog</Link></li>
                 </ul>
-              </m.div>
+              </motion.div>
 
               {/* Column 3: Explore */}
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -728,10 +728,10 @@ export default function HomeEN() {
                   <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
                   <li><Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
-              </m.div>
+              </motion.div>
 
               {/* Column 4: Connect */}
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -766,7 +766,7 @@ export default function HomeEN() {
                     </a>
                   </div>
                 </div>
-              </m.div>
+              </motion.div>
             </div>
 
             {/* Bottom Bar */}
