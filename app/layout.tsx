@@ -108,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es">
       <head>
         {/* Preconnect y DNS prefetch para recursos externos críticos */}
         <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />

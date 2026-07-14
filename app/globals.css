@@ -379,3 +379,11 @@ body.calendly-hover .custom-cursor {
   height: 1px !important;
   background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
 }
+
+/* Smooth scroll behavior only when clicking anchor/hash links to prevent Next.js router scroll glitch */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(a[href^="#"]:active),
+  html:has(a[href*="#"]:active) {
+    scroll-behavior: smooth;
+  }
+}
