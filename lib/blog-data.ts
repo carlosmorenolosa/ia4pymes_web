@@ -16,6 +16,183 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: HeyGen HyperFrames (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "heygen-hyperframes-video-programatico-html-css-javascript",
+        title: "El fin del montaje tradicional: Cómo programar tus vídeos con HTML, CSS y JS usando HyperFrames",
+        description: "HeyGen ha lanzado HyperFrames, un framework open-source nativo para agentes de IA que permite compilar y renderizar vídeos deterministas utilizando tecnologías web estándar.",
+        date: "2026-07-15",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Automatización",
+        image: "/blog/heygen-hyperframes-programmatic-video.png",
+        lang: "es",
+        translationSlug: "heygen-hyperframes-programmatic-video-html-css-javascript",
+        content: `
+La creación de contenido audiovisual para empresas ha seguido históricamente un proceso artesanal. Un diseñador o editor abre un software con interfaz visual (como Adobe Premiere o After Effects), importa recursos, los arrastra a una línea de tiempo manual, configura fotogramas clave (*keyframes*) con el ratón y exporta el archivo MP4.
+
+Este flujo de trabajo es lento, caro y totalmente incompatible con la automatización a gran escala.
+
+En 2026, la industria de la generación de vídeo está dando un giro radical hacia la programación. El lanzamiento de **HyperFrames** (\`heygen-com/hyperframes\`), un framework de código abierto desarrollado por HeyGen, permite a programadores y agentes de IA **escribir HTML, CSS y JavaScript para generar vídeos profesionales deterministas**.
+
+Olvídate de las líneas de tiempo visuales. Si sabes maquetar una página web, ahora sabes editar y programar un vídeo.
+
+Analizamos cómo funciona técnicamente HyperFrames, cómo los agentes de IA lo utilizan de forma nativa y por qué es un cambio de juego para la automatización B2B.
+
+---
+
+## El Concepto Core: Escribir Código, Renderizar Vídeo
+
+HyperFrames parte de una premisa sencilla: la web moderna ya cuenta con motores de renderizado y animación extremadamente maduros (como el motor de render de Chromium, animaciones CSS, GSAP o Lottie). ¿Por qué no utilizarlos directamente para estructurar un vídeo?
+
+En HyperFrames, un vídeo es un proyecto web estándar con un archivo \`index.html\`. La línea de tiempo y las pistas de edición se definen directamente en el marcado HTML mediante atributos \`data-*\` personalizados:
+
+\`\`\`html
+<div data-track-index="1">
+  <!-- Un clip de vídeo de fondo -->
+  <video src="background.mp4" data-start="0" data-duration="10"></video>
+</div>
+
+<div data-track-index="2">
+  <!-- Un título animado superpuesto -->
+  <h1 class="fade-in" data-start="2" data-duration="5">Lanzamiento de Producto</h1>
+</div>
+\`\`\`
+
+Cuando ejecutas el proceso de renderizado, el framework abre una instancia invisible de Chromium, reproduce la composición y captura cada fotograma de manera **estrictamente determinista**. No es una grabación de pantalla en tiempo real; el renderizador avanza fotograma a fotograma capturando los gráficos, lo que garantiza que la salida MP4 final sea exactamente idéntica sin importar la potencia del hardware que ejecuta el render.
+
+---
+
+> ### 🔒 ¿Quieres automatizar la producción de vídeo personalizado en tu PYME?
+> La generación de vídeo por código permite crear anuncios personalizados, informes dinámicos para clientes y onboarding automatizado a escala. En **IA4PYMES** integramos HyperFrames en tus flujos de trabajo (como tus [agentes automatizados de n8n](/blog/tutorial-agente-ia-n8n-prospeccion-b2b)) para producir vídeos profesionales en piloto automático.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (Garantía de reembolso del 100% si no validamos la viabilidad en los primeros 15 minutos, o deducible del coste final de desarrollo si nos contratas).
+
+---
+
+## El Workflow del Desarrollador: Comandos Clave
+
+HyperFrames está diseñado para ser extremadamente ligero y amigable con el terminal de comandos. Para empezar a usarlo, solo necesitas **Node.js (v22+)** y **FFmpeg** instalados en tu sistema.
+
+El flujo de trabajo local se compone de tres comandos de CLI:
+
+1.  **Vista Previa (\`npx hyperframes preview\`):** Levanta un servidor local y abre un estudio de edición en tu navegador. Cuenta con recarga en caliente (*hot-reloading*); cualquier cambio en tu HTML, JS o CSS se actualiza instantáneamente en el reproductor de vídeo del navegador.
+2.  **Renderizado (\`npx hyperframes render\`):** Utiliza Chromium y FFmpeg en segundo plano para procesar la página web y compilarla en un archivo \`output.mp4\` de alta calidad a 30 o 60 fps.
+3.  **Linter (\`npx hyperframes lint\`):** Examina tu marcado HTML y tu código para verificar que no haya solapamientos de pistas inconsistentes o recursos multimedia corruptos.
+
+Además, el ecosistema incluye el repositorio \`heygen-com/hyperframes-launches\`, que contiene ejemplos y plantillas de nivel de producción (explicadores, presentaciones de producto, infografías animadas) listos para clonar y adaptar.
+
+---
+
+## ¿Por qué es "Agent-Native"? La Ventaja para la IA
+
+Los editores de vídeo tradicionales utilizan archivos binarios propietarios o complejas estructuras XML que son sumamente difíciles de interpretar y editar para un modelo de lenguaje (LLM).
+
+Aquí es donde HyperFrames brilla. Al basarse en HTML y CSS, es **nativo para los agentes de IA**.
+*   **Generación instantánea:** Puedes pedirle a tu agente de codificación (como Claude Code o Cursor): *«Crea un vídeo de 5 segundos con un fondo oscuro, un logo centrado que rote con GSAP en el segundo 2, y un fade-out al final»*.
+*   **Edición precisa:** El agente entiende perfectamente la estructura de etiquetas HTML y reglas CSS. Puede ajustar tiempos, curvas de aceleración (*easing*) o colores simplemente modificando el código fuente.
+*   **Integración de Skills:** Puedes instalar las capacidades de HyperFrames directamente en tu flujo de trabajo agéntico ejecutando \`npx skills add heygen-com/hyperframes\`, permitiendo al agente compilar y verificar los vídeos de forma autónoma.
+
+## Ventajas Clave para PYMEs y Startups
+
+*   **Costes fijos frente a variables:** Al ser de código abierto y poder renderizarse localmente, eliminas los intermediarios SaaS y el [Integration Tax](/blog/tasa-integracion-ia-coste-oculto-pymes) comercial. Solo pagas por la computación utilizada.
+*   **Hiper-personalización:** Imagina generar un vídeo de agradecimiento personalizado de 15 segundos para cada cliente que compra en tu e-commerce, incluyendo su nombre, el producto adquirido y un cupón animado dinámicamente mediante código.
+*   **Consistencia de Marca:** Las fuentes, colores y layouts se definen mediante CSS. No hay riesgo de que un diseñador use un tono de color incorrecto; la hoja de estilos de marca (*stylesheet*) garantiza la consistencia exacta en el 100% de los vídeos.
+
+## Conclusión
+
+HyperFrames de HeyGen representa la fusión definitiva entre el desarrollo web y la postproducción de vídeo. Al trasladar la edición al terreno del código abierto y los estándares web, abre la puerta para que los sistemas y agentes de IA automaticen por completo la creación de contenido dinámico. El vídeo ha dejado de ser un archivo estático y pesado para convertirse en una página web viva que se renderiza bajo demanda.
+`.trim(),
+    },
+    {
+        slug: "heygen-hyperframes-programmatic-video-html-css-javascript",
+        title: "The Death of Timeline Editors: Programming Your Videos with HTML, CSS and JS Using HyperFrames",
+        description: "HeyGen has launched HyperFrames, an open-source, agent-native framework that compiles and renders deterministic videos using standard web technologies.",
+        date: "2026-07-15",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Automation",
+        image: "/blog/heygen-hyperframes-programmatic-video.png",
+        lang: "en",
+        translationSlug: "heygen-hyperframes-video-programatico-html-css-javascript",
+        content: `
+Audiovisual content creation for businesses has historically been a manual, craft-like process. A designer or editor opens visual timeline software (like Adobe Premiere or After Effects), imports assets, drags them onto a timeline, configures keyframes with a mouse, and exports the final MP4.
+
+This workflow is slow, expensive, and completely incompatible with automated pipelines.
+
+In 2026, the video generation industry is taking a major turn toward programmatic creation. The release of **HyperFrames** (\`heygen-com/hyperframes\`), an open-source, agent-native framework developed by HeyGen, allows developers and AI coding agents to **write HTML, CSS, and JavaScript to render professional deterministic videos**.
+
+Forget visual timelines. If you know how to build a web page, you now know how to edit and program a video.
+
+We analyze how HyperFrames works technically, how AI agents leverage it natively, and why it is a game-changer for B2B automation.
+
+---
+
+## The Core Concept: Write HTML, Render Video
+
+HyperFrames builds on a simple premise: the modern web already possesses highly mature rendering and animation engines (such as Chromium's layout engine, CSS animations, GSAP, or Lottie). Why not use them directly to structure a video?
+
+In HyperFrames, a video is a standard web project featuring an \`index.html\` file. The timeline and editing tracks are defined directly in the HTML markup using custom \`data-*\` attributes:
+
+\`\`\`html
+<div data-track-index="1">
+  <!-- A background video clip -->
+  <video src="background.mp4" data-start="0" data-duration="10"></video>
+</div>
+
+<div data-track-index="2">
+  <!-- An overlaid animated title -->
+  <h1 class="fade-in" data-start="2" data-duration="5">Product Launch</h1>
+</div>
+\`\`\`
+
+When you trigger the rendering process, the framework spins up a headless Chromium instance, plays the composition, and captures every frame in a **strictly deterministic** manner. This is not real-time screen recording; the renderer advances frame-by-frame capturing the graphics, ensuring the output MP4 file is identical regardless of the hardware power executing the render.
+
+---
+
+> ### 🔒 Want to automate personalized video production for your business?
+> Programmatic video generation enables the creation of personalized ads, dynamic client reports, and automated onboarding at scale. At **IA4PYMES**, we integrate HyperFrames into your workflows (such as your [autonomous n8n agents](/en/blog/n8n-b2b-ai-agent-prospecting-tutorial)) to produce professional videos on autopilot.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if we don't validate project feasibility in the first 15 minutes, or fully credited against final development costs on hire).
+
+---
+
+## The Developer Workflow: Key CLI Commands
+
+HyperFrames is designed to be lightweight and command-line friendly. To get started, you only need **Node.js (v22+)** and **FFmpeg** installed on your system.
+
+The local workflow consists of three CLI commands:
+
+1.  **Preview (\`npx hyperframes preview\`):** Spins up a local server and opens an editor studio in your browser. It features hot-reloading; any modification in your HTML, JS, or CSS instantly updates the video preview.
+2.  **Render (\`npx hyperframes render\`):** Utilizes Chromium and FFmpeg in the background to render the web page and compile it into a high-quality \`output.mp4\` file at 30 or 60 fps.
+3.  **Lint (\`npx hyperframes lint\`):** Inspects your HTML markup and code to verify there are no overlapping timeline conflicts or missing media assets.
+
+Additionally, the ecosystem includes the \`heygen-com/hyperframes-launches\` repository, which contains production-grade templates (explainers, product presentations, animated infographics) ready to clone and customize.
+
+---
+
+## Why is it "Agent-Native"? The AI Advantage
+
+Traditional video editors use proprietary binary files or complex XML structures that are extremely difficult for Large Language Models (LLMs) to interpret and manipulate.
+
+This is where HyperFrames shines. Because it is built on HTML and CSS, it is **native for AI agents**:
+*   **Instant Generation:** You can ask your coding agent (such as Claude Code or Cursor): *“Create a 5-second video with a dark background, a centered logo that rotates using GSAP at second 2, and a fade-out at the end.”*
+*   **Precise Editing:** The agent understands HTML tags and CSS properties perfectly. It can adjust timings, easing curves, or colors simply by editing the source code.
+*   **Skills Integration:** You can install HyperFrames skills directly into your agent workflow using \`npx skills add heygen-com/hyperframes\`, enabling the agent to compile and verify video compositions autonomously.
+
+## Key Benefits for SMEs and Startups
+
+*   **Fixed vs. Variable Costs:** Since it is open-source and renders locally, you bypass SaaS middleman markups and commercial [Integration Taxes](/en/blog/integration-tax-ai-hidden-cost-sme-budgets). You only pay for the compute power you use.
+*   **Hyper-Personalization:** Imagine generating a personalized 15-second thank-you video for every customer who buys from your e-commerce store, dynamically inserting their name, product image, and a custom discount code via code.
+*   **Brand Consistency:** Fonts, colors, and layouts are defined through CSS. There is no risk of a designer using the wrong color code; your brand stylesheet guarantees absolute consistency across 100% of generated videos.
+
+## Conclusion
+
+HeyGen HyperFrames represents the ultimate fusion of web development and video post-production. By moving video editing into the realm of open-source and web standards, it opens the door for AI systems and agents to fully automate dynamic content creation. Video has stopped being a heavy, static file and has become a living web page rendered on demand.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: La Muerte del SaaS por Asiento (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
