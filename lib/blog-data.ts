@@ -16,6 +16,159 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: NVIDIA NVFP4 Quantization (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "nvidia-nvfp4-cuantizacion-4bit-punto-flotante-blackwell",
+        title: "Cuantización sin pérdidas: Cómo NVFP4 democratiza el uso de modelos locales en la empresa",
+        description: "Analizamos NVFP4, el nuevo formato de cuantización de 4 bits de punto flotante de NVIDIA para la arquitectura Blackwell, y sus ventajas frente a INT4 para servir LLMs open-source.",
+        date: "2026-07-16",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tecnología",
+        image: "/blog/nvidia-nvfp4-quantization-blackwell.png",
+        lang: "es",
+        translationSlug: "nvidia-nvfp4-quantization-4bit-floating-point-blackwell",
+        content: `
+Hasta hace muy poco, los desarrolladores de Inteligencia Artificial que querían servir modelos de lenguaje (LLMs) en local se enfrentaban a una dolorosa elección: precisión o infraestructura. Si querías la máxima calidad de razonamiento del modelo, necesitabas pesos en precisión de punto flotante de 16 bits (FP16 o BF16), lo que obligaba a alquilar clústeres de servidores en la nube o comprar hardware empresarial prohibitivo.
+
+Para abaratar los costes de computación, la solución tradicional consistía en recurrir a la cuantización de enteros de 4 bits (INT4). Sin embargo, reducir a números enteros una red neuronal compleja destruye gran parte de sus capacidades lógicas fina, haciendo que el modelo empiece a delirar (*hallucination*) y pierda matices de razonamiento crítico.
+
+En 2026, la llegada de la arquitectura de GPUs **Blackwell** de NVIDIA y su soporte nativo para el formato de cuantización **NVFP4** cambia las reglas del juego. Por primera vez, es posible ejecutar modelos en 4 bits de precisión de punto flotante (*Floating Point*) con pérdidas de precisión prácticamente imperceptibles frente a las versiones completas.
+
+Analizamos en profundidad la matemática de NVFP4, su soporte en frameworks de código abierto y lo que supone para las PYMEs que apuestan por servir modelos locales en su propia infraestructura.
+
+---
+
+## La Física de NVFP4: Cuantización con Microescalado
+
+La cuantización tradicional (como INT4 u otras de 8 bits) aplica un factor de escala estático a todo un tensor o a canales completos de la red neuronal. Esto crea un gran problema: si un tensor tiene algunos valores extremadamente altos (llamados *outliers* o valores atípicos) y muchos valores pequeños, la escala se estira demasiado, haciendo que los valores pequeños pierdan su resolución y se redondeen a cero.
+
+NVFP4 resuelve esto mediante una técnica llamada **microescalado por bloques (block-wise microscaling)**.
+* **Agrupamiento:** El formato divide los tensores en bloques pequeños de 16 elementos.
+* **Factor de escala compartido:** Cada bloque de 16 números comparte un factor de escala de alta precisión (usualmente en formato de 8 bits).
+* **Representación de 4 bits flotantes:** Los números individuales dentro del bloque se codifican en un formato de punto flotante de 4 bits (FP4) que distribuye los bits de manera más inteligente que los enteros puros: un bit de signo, dos bits para el exponente y un bit para la mantisa.
+
+Este formato híbrido preserva el rango dinámico de los pesos y las activaciones. Los *outliers* se capturan perfectamente en su respectivo bloque de 16 elementos sin distorsionar la resolución de los valores más pequeños del resto del tensor. El resultado es un modelo cuantizado con un tamaño de memoria **3.5 veces menor que FP16** y **1.8 veces menor que FP8**, pero que mantiene una exactitud de respuestas casi idéntica a la del modelo original sin cuantizar.
+
+---
+
+> ### 🔒 Optimiza tu infraestructura de Inteligencia Artificial
+> ¿Quieres reducir drásticamente el coste mensual de computación en la nube para tus aplicaciones de IA? En **IA4PYMES** te ayudamos a diseñar, cuantizar y desplegar modelos de lenguaje de código abierto de manera ultra-eficiente en tu propio hardware local (revisa nuestra [Guía de Infraestructura de LLM Local](/blog/guia-infraestructura-local-llm-pymes)).
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable si no es viable el proyecto, o deducible del coste final de integración).
+
+---
+
+## Requisito de Hardware: El Silicio de Blackwell
+
+Es crucial entender que NVFP4 no es una optimización basada únicamente en software. Requiere soporte del silicio. 
+
+Este formato está diseñado para ser acelerado nativamente por los **Tensor Cores de 5ª generación** presentes en la arquitectura Blackwell de NVIDIA (desde las GPUs empresariales B200 y B300 hasta las GPUs de consumo de la serie RTX 50). 
+
+* **¿Por qué Blackwell?** Blackwell introduce unidades aritméticas dedicadas en su hardware diseñadas para sumar y multiplicar números en formato FP4 en un solo ciclo de reloj.
+* **El Impacto en el Rendimiento:** Servir un modelo cuantizado en NVFP4 en una GPU Blackwell ofrece un rendimiento de inferencia (throughput) **hasta 2 veces más rápido que FP8** y un ahorro de ancho de banda de memoria descomunal.
+* **Retrocompatibilidad:** Si intentas ejecutar un modelo NVFP4 en arquitecturas anteriores (como Hopper H100 o Ada Lovelace RTX 40-series), no obtendrás los beneficios de aceleración de hardware. El modelo se tendrá que des-cuantizar en memoria antes del procesamiento, perdiendo las ventajas de velocidad.
+
+---
+
+## El Ecosistema de Código Abierto: Servir Modelos Hoy
+
+Aunque el formato de hardware es específico de NVIDIA, las herramientas para empaquetar y servir los modelos son de código abierto y ya están plenamente integradas en el ecosistema actual de desarrollo:
+
+1. **vLLM & SGLang:** Los dos motores de inferencia open-source líderes del mercado ya tienen soporte nativo para NVFP4. Permiten levantar un servidor de inferencia de producción con una sola línea de comandos y cargar modelos cuantizados listos para su uso.
+2. **LLM Compressor:** Integrado estrechamente con vLLM, es la librería predilecta para realizar Post-Training Quantization (PTQ). Te permite tomar cualquier checkpoint original de Hugging Face (por ejemplo, Llama 3 70B o Gemma 2) y exportarlo al formato NVFP4 de forma automatizada.
+3. **NVIDIA ModelOpt (Model Optimizer):** La herramienta oficial de NVIDIA para optimizar modelos de deep learning que permite aplicar cuantización avanzada y destilación de conocimiento antes del despliegue.
+
+---
+
+## Ventajas Clave para PYMEs y Startups
+
+* **Adiós a los intermediarios SaaS:** Poder ejecutar localmente un Llama 3 de 70B con la precisión casi nativa de FP16 te permite construir tus propios pipelines de generación (como flujos dinámicos de vídeo usando [HyperFrames](/blog/heygen-hyperframes-video-programatico-html-css-javascript)) sin pagar costosas suscripciones de API externas y protegiendo la privacidad de los datos de tus clientes.
+* **Densidad de modelos en un solo nodo:** En lugar de requerir un servidor con 4 o 8 GPUs para servir un modelo grande, la cuantización NVFP4 permite embutir modelos de nivel empresarial en configuraciones de un solo nodo de computación.
+* **Ahorro de consumo energético:** Al usar menos bits para transferir datos entre la memoria VRAM y los Tensor Cores, las GPUs consumen menos energía eléctrica por token generado, reduciendo el coste operativo diario de tu servidor físico.
+
+## Conclusión
+
+El formato NVFP4 representa un hito en la maduración de la IA para empresas. Al resolver la degradación de lógica que solía acompañar a la cuantización de 4 bits clásica mediante la matemática del microescalado, NVIDIA nos ofrece una autopista directa para llevar modelos open-source masivos a entornos de computación mucho más económicos. El futuro de la IA empresarial privada ya no requiere presupuestos millonarios en la nube, sino una arquitectura de hardware local bien diseñada y optimizada a nivel de compilación.
+`.trim(),
+    },
+    {
+        slug: "nvidia-nvfp4-quantization-4bit-floating-point-blackwell",
+        title: "Lossless Compression: How NVFP4 Democratizes Private LLM Deployment for Enterprises",
+        description: "We analyze NVFP4, NVIDIA's new 4-bit floating-point quantization format for the Blackwell architecture, and its benefits over INT4 for serving open-source LLMs.",
+        date: "2026-07-16",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Technology",
+        image: "/blog/nvidia-nvfp4-quantization-blackwell.png",
+        lang: "en",
+        translationSlug: "nvidia-nvfp4-cuantizacion-4bit-punto-flotante-blackwell",
+        content: `
+Until very recently, artificial intelligence developers looking to serve large language models (LLMs) locally faced a painful choice: precision or infrastructure. If you wanted the highest quality of reasoning from your model, you needed weights in 16-bit floating-point precision (FP16 or BF16), forcing you to rent massive cloud GPU clusters or purchase prohibitive enterprise hardware.
+
+To cut compute costs, the traditional alternative was to fall back on 4-bit integer quantization (INT4). However, stripping a complex neural network down to simple integers destroys much of its fine-grained logic, increasing hallucinations and causing the model to lose subtle reasoning capabilities.
+
+In 2026, the arrival of NVIDIA's **Blackwell** GPU architecture and its native support for the **NVFP4** quantization format changes the game. For the first time, it is possible to run models in 4-bit floating-point precision with virtually imperceptible degradation in accuracy compared to full-precision baselines.
+
+We dive deep into the mathematics of NVFP4, its open-source framework support, and what it means for SMEs hosting private LLMs on their own infrastructure.
+
+---
+
+## The Physics of NVFP4: Block-Wise Microscaling Quantization
+
+Traditional quantization (like INT4 or standard 8-bit formats) applies a static scaling factor across an entire tensor or neural network channel. This introduces a major limitation: if a tensor contains a few extremely high values (known as outliers) and many small values, the scale is stretched too wide, causing smaller values to lose resolution and round down to zero.
+
+NVFP4 solves this using a technique called **block-wise microscaling**.
+* **Grouping:** The format partitions tensors into small, independent blocks of 16 elements.
+* **Shared Scale Factor:** Each 16-element block shares a high-precision scale factor (typically in an 8-bit format).
+* **4-Bit Floating-Point Representation:** Individual values within the block are encoded using a 4-bit floating-point (FP4) format. This format allocates bits more intelligently than integers: one sign bit, two exponent bits, and one mantissa bit.
+
+This hybrid structure preserves the dynamic range of both weights and activations. Outliers are captured perfectly within their respective 16-element block without distorting the resolution of smaller values in the rest of the tensor. The result is a quantized model with a memory footprint **3.5 times smaller than FP16** and **1.8 times smaller than FP8**, while maintaining accuracy levels nearly identical to the unquantized baseline.
+
+---
+
+> ### 🔒 Optimize Your Artificial Intelligence Infrastructure
+> Looking to drastically reduce monthly cloud computing costs for your AI applications? At **IA4PYMES**, we help you design, quantize, and deploy open-source language models efficiently on your own local hardware (check out our [Local LLM Infrastructure Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if the project is not feasible, or fully credited against final development costs on hire).
+
+---
+
+## Hardware Requirement: Blackwell Silicon Acceleration
+
+It is crucial to understand that NVFP4 is not a software-only optimization. It requires hardware-level silicon support.
+
+The format is engineered to be accelerated natively by the **5th-generation Tensor Cores** present in NVIDIA's Blackwell architecture (ranging from enterprise B200 and B300 GPUs to consumer RTX 50-series GPUs).
+
+* **Why Blackwell?** Blackwell introduces dedicated execution units designed to multiply and accumulate FP4 values in a single clock cycle.
+* **Performance Impact:** Serving an NVFP4-quantized model on a Blackwell GPU delivers an inference throughput **up to 2 times faster than FP8** and massive savings in memory bandwidth.
+* **Backward Compatibility:** If you attempt to run an NVFP4 model on older architectures (such as Hopper H100 or Ada Lovelace RTX 40-series), you will not get hardware acceleration. The model must be de-quantized in memory prior to computation, losing speed benefits.
+
+---
+
+## The Open-Source Ecosystem: Serving Models Today
+
+While the underlying hardware is proprietary to NVIDIA, the software stack to package and serve these models is completely open-source and already integrated into current development workflows:
+
+1. **vLLM & SGLang:** Both leading open-source inference engines support NVFP4 natively. They allow developers to spin up production-ready serving endpoints with a single command line and load pre-quantized models out-of-the-box.
+2. **LLM Compressor:** Tightly integrated with vLLM, this is the go-to library for Post-Training Quantization (PTQ). It allows you to take any baseline Hugging Face checkpoint (such as Llama 3 70B or Gemma 2) and export it to the NVFP4 format automatically.
+3. **NVIDIA ModelOpt (Model Optimizer):** NVIDIA's official toolkit for deep learning optimization, used to apply advanced quantization, pruning, and knowledge distillation before deployment.
+
+---
+
+## Key Benefits for SMEs and Startups
+
+* **Bye-Bye SaaS Middlemen:** Hosting a Llama 3 70B locally with near-FP16 accuracy allows you to build private, high-fidelity media pipelines (like generating videos programmatically with [HyperFrames](/en/blog/heygen-hyperframes-video-programatico-html-css-javascript)) without paying high monthly API subscription fees or risking customer data privacy.
+* **Single-Node Model Density:** Instead of needing 4 to 8 GPUs to serve large models, NVFP4 compression allows you to fit enterprise-grade intelligence into compact, single-node workstation setups.
+* **Lower Energy Costs:** By moving fewer bits between VRAM and Tensor Cores, the GPUs consume less electricity per generated token, significantly lowering the daily operational costs of your physical servers.
+
+## Conclusion
+
+NVIDIA's NVFP4 represents a milestone in the maturation of enterprise AI. By solving the logical degradation associated with classical 4-bit integer quantization through block-wise microscaling mathematics, it provides a direct path to hosting massive open-source models at a fraction of the cost. The future of private, enterprise-grade AI no longer requires million-dollar cloud budgets, but a well-designed local hardware architecture optimized at the compilation layer.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: HeyGen HyperFrames (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
