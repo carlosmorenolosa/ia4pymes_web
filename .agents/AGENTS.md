@@ -20,3 +20,11 @@ To systematically convert high Google search impressions into actual website vis
 - **Link Juice Distribution (Internal Linking)**: For every new article published, identify at least 2-3 existing posts in `lib/blog-data.ts` and add internal links within the text. This helps push those posts from positions 5-10 into the top 3 spots, where click conversion rates increase exponentially.
 - **Visual Call-to-Actions (CTAs)**: Always include contextually integrated CTA boxes pointing to `/#consultoria` or `/en#consultoria` to capture high-intent leads visiting the blog.
 
+## Video Script & Programmatic Shorts Strategy (July 2026)
+Whenever a new blog article is published, the user will request an advanced, production-grade prompt/script to generate a corresponding YouTube Short / TikTok video using HeyGen HyperFrames. Always follow these rules:
+- **Narrative Storytelling Hook**: Avoid boring "problem-solution" formats. Start the script in-media-res with an engaging hook or visual interruption (glitch/flash) that speaks directly to B2B pains (e.g., money wasted, memory issues, SaaS traps).
+- **Tone**: Professional yet accessible to non-technical business owners, utilizing engaging metaphors (e.g., slicing cakes or comparing items).
+- **High-Quality Visual Layering**: Design the prompt for the AI agent to compose multiple layers (moving grid/particles, display text, data charts/KPI count-ups, animations with GSAP/Lottie, shader transitions) rather than static screens.
+- **Audio & SFX Integration**: Synchronize narrator voiceover (via Nan Builders Kokoro API `em_alex`/`ef_dora` or ElevenLabs `Alvaro`), background music (usually `bg-tech.mp3` at a soft `0.08` or `0.1` volume), and timed sound effects (glitches, whooshes).
+- **Outro Consistency**: Always end the video with the corporate identity: `logo.png` centered and the `banner.png` asset right below it (e.g., seconds 52–60 for a 1-minute video), prompting the viewer to visit `ia4pymes.tech`.
+
