@@ -98,8 +98,8 @@ export default function HomeEN() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
   const [splashFinished, setSplashFinished] = useState(() => {
-    if (typeof navigator === "undefined") return false
-    return /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(navigator.userAgent)
+    if (typeof window === "undefined") return false
+    return !!(window as any).__IS_BOT
   })
   const [isScrolled, setIsScrolled] = useState(false)
 

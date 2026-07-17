@@ -5,13 +5,13 @@ import { SplashScreen } from "./splash-screen"
 import { HomeHeader } from "./home-header"
 import { HeroES } from "./hero-es"
 
-function isBotUA() {
-  if (typeof navigator === "undefined") return false
-  return /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(navigator.userAgent)
+function checkIsBot() {
+  if (typeof window === "undefined") return false
+  return !!(window as any).__IS_BOT
 }
 
 export function HomeHeroWrapper() {
-  const [splashFinished, setSplashFinished] = useState(isBotUA)
+  const [splashFinished, setSplashFinished] = useState(checkIsBot)
 
   return (
     <>

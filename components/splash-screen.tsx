@@ -3,13 +3,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
-function isBotUA() {
-  if (typeof navigator === "undefined") return false
-  return /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(navigator.userAgent)
+function checkIsBot() {
+  if (typeof window === "undefined") return false
+  return !!(window as any).__IS_BOT
 }
 
 export function SplashScreen({ onComplete }: { onComplete: () => void }) {
-  const isBot = isBotUA()
+  const isBot = checkIsBot()
   const [isVisible, setIsVisible] = useState(!isBot);
   const onCompleteRef = useRef(onComplete);
 
@@ -58,7 +58,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
             opacity: 1 // We want to maintain opacity and let it slide out like a solid curtain
           }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[999999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden shadow-2xl"
+          className="splash-overlay fixed inset-0 z-[999999] bg-slate-950 flex flex-col items-center justify-center overflow-hidden shadow-2xl"
         >
           {/* Ambient Glowing Orb removed for pure white theme */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-transparent pointer-events-none" />

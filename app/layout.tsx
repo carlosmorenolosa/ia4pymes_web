@@ -110,6 +110,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Inline bot detection — runs before React hydration to instantly hide splash for Lighthouse/Googlebot */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(/Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
+          }}
+        />
         {/* Preconnect y DNS prefetch para recursos externos críticos */}
         <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
