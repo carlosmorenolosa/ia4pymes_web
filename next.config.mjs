@@ -38,11 +38,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu https://tracker.metricool.com https://analytics.metricool.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://r2.leadsy.ai https://calendly.com https://cal.eu https://www.cal.eu https://api.resend.com",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://r2.leadsy.ai https://calendly.com https://cal.eu https://www.cal.eu https://api.resend.com https://tracker.metricool.com https://analytics.metricool.com",
               "frame-src https://www.youtube.com https://calendly.com https://assets.calendly.com https://cal.eu https://www.cal.eu",
               "frame-ancestors 'none'",
               "base-uri 'self'",
