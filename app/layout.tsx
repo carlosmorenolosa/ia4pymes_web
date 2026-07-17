@@ -117,6 +117,18 @@ export default function RootLayout({
             __html: `(function(){try{if(navigator.webdriver || /Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
           }}
         />
+        {/* Metricool Tracking Script (Static in Head for verification crawlers) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function loadScript(a){
+                var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+                c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
+              }
+              loadScript(function(){beTracker.t({hash:"4253871a5c415109a5c5da86c9e16002"})});
+            `,
+          }}
+        />
         {/* Preconnect y DNS prefetch para recursos externos críticos */}
         <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
@@ -384,19 +396,6 @@ export default function RootLayout({
         <CookieConsent />
         <CustomCursor />
         <LeadsyScript />
-        <Script
-          id="metricool-analytics"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              function loadScript(a){
-                var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
-                c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
-              }
-              loadScript(function(){beTracker.t({hash:"4253871a5c415109a5c5da86c9e16002"})});
-            `,
-          }}
-        />
       </body>
     </html>
   )
