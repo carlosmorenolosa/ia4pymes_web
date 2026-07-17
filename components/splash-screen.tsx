@@ -1,10 +1,16 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
+  const onCompleteRef = useRef(onComplete);
+
+  // Keep callback ref updated
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  });
 
   useEffect(() => {
     // Detect bots/Lighthouse to skip splash delay and prevent LCP drop
@@ -13,7 +19,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
     if (isBot) {
       setIsVisible(false)
-      onComplete()
+      onCompleteRef.current()
       return
     }
 
@@ -27,7 +33,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
 
     const completeTimer = setTimeout(() => {
       document.body.style.overflow = "";
-      onComplete();
+      onCompleteRef.current();
     }, 1200);
 
     return () => {
@@ -35,7 +41,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
       clearTimeout(completeTimer);
       document.body.style.overflow = "";
     };
-  }, [onComplete]);
+  }, []);
 
   return (
     <AnimatePresence>
