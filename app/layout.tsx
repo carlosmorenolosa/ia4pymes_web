@@ -6,6 +6,7 @@ import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
 import { LeadsyScript } from "@/components/leadsy-script"
+import Script from "next/script"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -383,6 +384,19 @@ export default function RootLayout({
         <CookieConsent />
         <CustomCursor />
         <LeadsyScript />
+        <Script
+          id="metricool-analytics"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function loadScript(a){
+                var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+                c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
+              }
+              loadScript(function(){beTracker.t({hash:"4253871a5c415109a5c5da86c9e16002"})});
+            `,
+          }}
+        />
       </body>
     </html>
   )
