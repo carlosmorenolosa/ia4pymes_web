@@ -32,12 +32,8 @@ export function LeadsyScript() {
     window.addEventListener("touchstart", loadScript, { passive: true })
     window.addEventListener("keydown", loadScript, { passive: true })
 
-    // Fallback: load after 4 seconds if no interaction
-    const timeout = setTimeout(loadScript, 4000)
-
     return () => {
       removeListeners()
-      clearTimeout(timeout)
     }
   }, [])
 
