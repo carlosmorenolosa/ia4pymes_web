@@ -339,7 +339,13 @@ export default function HomeEN() {
                   className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
                 >
                   <div className="w-full max-w-lg sm:max-w-xl">
-                    <AnimatedChip visible={splashFinished} />
+                    {typeof window !== "undefined" && (window as any).__IS_BOT ? (
+                      <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
+                        IA4PYMES Chatbot
+                      </div>
+                    ) : (
+                      <AnimatedChip visible={splashFinished} />
+                    )}
                   </div>
                 </motion.div>
               </div>
