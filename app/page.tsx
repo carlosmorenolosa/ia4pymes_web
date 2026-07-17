@@ -437,7 +437,7 @@ export default function Home() {
                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="#inicio" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
+                    <Link href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
                   </li>
                   <li>
                     <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
@@ -493,7 +493,7 @@ export default function Home() {
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
               <div className="flex items-center gap-6">
-                <Link href="#inicio" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Inicio</Link>
+                <Link href="/" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Inicio</Link>
                 <Link href="#contacto" className="text-slate-400 hover:text-slate-600 text-[13px] font-medium transition-colors">Contacto</Link>
                 <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Reservar Consultoría</Link>
               </div>

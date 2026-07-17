@@ -142,7 +142,7 @@ export default function HomeEN() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
             >
-              <Link href="#inicio" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
+              <Link href="/en" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
                 <div className="flex items-center relative tracking-[-0.04em]">
                   <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
                   <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
@@ -655,7 +655,7 @@ export default function HomeEN() {
                   </li>
                 </ul>
                 <Link
-                  href="#inicio"
+                  href="/en"
                   className="mt-6 sm:mt-8 text-blue-600 hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
                   aria-label="Back to top"
                 >
@@ -726,7 +726,7 @@ export default function HomeEN() {
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
-                  <li><Link href="#inicio" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
+                  <li><Link href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
                   <li><Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
                   <li><Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
