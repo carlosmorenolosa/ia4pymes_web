@@ -264,7 +264,7 @@ export default function HomeEN() {
           <div className="relative z-10 flex-col flex h-full">
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
-                <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
+                <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -336,7 +336,7 @@ export default function HomeEN() {
                       : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }
                   }
                   transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
-                  className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
+                  className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
                 >
                   <div className="w-full max-w-lg sm:max-w-xl">
                     <AnimatedChip visible={splashFinished} />

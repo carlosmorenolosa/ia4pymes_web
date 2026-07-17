@@ -18,7 +18,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
         <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
             
-            <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 relative z-10">
+            <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
               <motion.h1
                 id="hero-heading"
                 initial={{ opacity: 0 }}
@@ -66,7 +66,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
               animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" } : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-              className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
+              className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
             >
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">
                 {splashFinished && <AnimatedChip visible={splashFinished} />}
