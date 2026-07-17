@@ -11,7 +11,7 @@ export const SuccessCasesCarousel = dynamic(
 
 export const AnimatedChip = dynamic(
   () => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip),
-  { loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />, ssr: false }
+  { loading: () => <div className="w-full max-w-sm aspect-[380/540] bg-slate-100 rounded-[40px] animate-pulse mx-auto" />, ssr: false }
 )
 
 export const ContactForm = dynamic(
