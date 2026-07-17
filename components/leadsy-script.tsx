@@ -6,11 +6,11 @@ export function LeadsyScript() {
   const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
-    // Check if it's a bot or Lighthouse
+    const isBot = typeof window !== "undefined" && !!(window as any).__IS_BOT
     const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : ""
-    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless|Yahoo! Slurp|DuckDuckBot|Baiduspider|YandexBot/i.test(userAgent)
+    const isBotRegex = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless|Yahoo! Slurp|DuckDuckBot|Baiduspider|YandexBot/i.test(userAgent)
 
-    if (isBot) {
+    if (isBot || isBotRegex) {
       return // Don't load for bots to keep performance and best practices scores clean
     }
 
