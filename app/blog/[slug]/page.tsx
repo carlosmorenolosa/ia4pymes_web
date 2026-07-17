@@ -126,6 +126,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                             src={post.image}
                             alt={post.title}
                             fill
+                            sizes="100vw"
                             className="object-cover grayscale"
                             priority
                         />

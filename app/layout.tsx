@@ -5,7 +5,7 @@ import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
-import Script from "next/script"
+import { LeadsyScript } from "@/components/leadsy-script"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -376,13 +376,7 @@ export default function RootLayout({
         <Analytics />
         <CookieConsent />
         <CustomCursor />
-        <Script
-          id="vtag-ai-js"
-          src="https://r2.leadsy.ai/tag.js"
-          data-pid="1jjnlw4RajY2an8xD"
-          data-version="062024"
-          strategy="lazyOnload"
-        />
+        <LeadsyScript />
       </body>
     </html>
   )

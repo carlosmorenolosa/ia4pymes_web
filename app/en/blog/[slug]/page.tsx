@@ -136,6 +136,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                             src={post.image}
                             alt={post.title}
                             fill
+                            sizes="100vw"
                             className="object-cover grayscale"
                             priority
                         />

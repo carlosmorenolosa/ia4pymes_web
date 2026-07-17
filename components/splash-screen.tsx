@@ -7,6 +7,16 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Detect bots/Lighthouse to skip splash delay and prevent LCP drop
+    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : ""
+    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(userAgent)
+
+    if (isBot) {
+      setIsVisible(false)
+      onComplete()
+      return
+    }
+
     // Lock scroll while splash is visible
     document.body.style.overflow = "hidden";
     

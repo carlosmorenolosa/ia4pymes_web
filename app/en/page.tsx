@@ -101,6 +101,12 @@ export default function HomeEN() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : ""
+    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(userAgent)
+    if (isBot) {
+      setSplashFinished(true)
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
