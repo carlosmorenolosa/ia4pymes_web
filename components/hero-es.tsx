@@ -69,7 +69,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               className="flex items-center justify-center p-2 sm:p-4 order-1 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
             >
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">
-                <AnimatedChip visible={splashFinished} />
+                {splashFinished && <AnimatedChip visible={splashFinished} />}
               </div>
             </motion.div>
           </div>

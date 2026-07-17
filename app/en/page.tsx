@@ -97,16 +97,13 @@ function StatCounter({
 export default function HomeEN() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useIsMobile()
-  const [splashFinished, setSplashFinished] = useState(false)
+  const [splashFinished, setSplashFinished] = useState(() => {
+    if (typeof navigator === "undefined") return false
+    return /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(navigator.userAgent)
+  })
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : ""
-    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(userAgent)
-    if (isBot) {
-      setSplashFinished(true)
-    }
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }

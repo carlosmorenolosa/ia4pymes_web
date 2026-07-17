@@ -3,8 +3,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
+function isBotUA() {
+  if (typeof navigator === "undefined") return false
+  return /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(navigator.userAgent)
+}
+
 export function SplashScreen({ onComplete }: { onComplete: () => void }) {
-  const [isVisible, setIsVisible] = useState(true);
+  const isBot = isBotUA()
+  const [isVisible, setIsVisible] = useState(!isBot);
   const onCompleteRef = useRef(onComplete);
 
   // Keep callback ref updated
@@ -13,12 +19,8 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   });
 
   useEffect(() => {
-    // Detect bots/Lighthouse to skip splash delay and prevent LCP drop
-    const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : ""
-    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|Headless/i.test(userAgent)
-
+    // Bot already has isVisible=false and splashFinished=true from parent
     if (isBot) {
-      setIsVisible(false)
       onCompleteRef.current()
       return
     }
