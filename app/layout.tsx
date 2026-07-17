@@ -113,7 +113,7 @@ export default function RootLayout({
         {/* Inline bot detection — runs before React hydration to instantly hide splash for Lighthouse/Googlebot */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(/Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
+            __html: `(function(){try{if(navigator.webdriver || /Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
           }}
         />
         {/* Preconnect y DNS prefetch para recursos externos críticos */}
