@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
         lang: "es",
         translationSlug: "adopting-claude-ecosystem-enterprise-maturity-model",
         content: `
-Es uno de los fenómenos más curiosos de la revolución de la IA: contratas a un desarrollador, le das acceso a **Claude 3.5 Sonnet**, a herramientas como Cursor o al CLI **Claude Code**, y de la noche a la mañana su productividad individual se multiplica por diez. Escribe código más rápido, depura errores en segundos y lanza prototipos a una velocidad vertiginosa.
+Es uno de los fenómenos más curiosos de la revolución de la IA: contratas a un desarrollador, le das acceso a **Claude 4.6 Sonnet**, a herramientas como Cursor o al CLI **Claude Code**, y de la noche a la mañana su productividad individual se multiplica por diez. Escribe código más rápido, depura errores en segundos y lanza prototipos a una velocidad vertiginosa.
 
 Pero cuando miras la productividad **global** de la empresa, el impacto apenas se nota. 
 
@@ -124,7 +124,7 @@ Al codificar tus reglas en archivos de configuración como \`CLAUDE.md\`, aislar
         lang: "en",
         translationSlug: "adoptar-ecosistema-claude-code-modelos-madurez-empresarial",
         content: `
-It is one of the most curious phenomena of the AI revolution: you hire a developer, give them access to **Claude 3.5 Sonnet**, tools like Cursor, or the **Claude Code** CLI, and overnight their individual productivity multiplies tenfold. They write code faster, debug errors in seconds, and launch prototypes at breakneck speed.
+It is one of the most curious phenomena of the AI revolution: you hire a developer, give them access to **Claude 4.6 Sonnet**, tools like Cursor, or the **Claude Code** CLI, and overnight their individual productivity multiplies tenfold. They write code faster, debug errors in seconds, and launch prototypes at breakneck speed.
 
 Yet, when you look at the **overall** productivity of the enterprise, the impact is barely noticeable.
 
