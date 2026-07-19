@@ -16,6 +16,219 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Grok Build Tutorial (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "grok-build-xai-alternativa-open-source-claude-code-tutorial",
+        title: "Soberanía en tu código: Guía completa de Grok Build y la polémica de xAI",
+        description: "Analizamos el lanzamiento de Grok Build, la alternativa open-source de xAI a Claude Code, cómo instalarlo y configurarlo, y por qué su polémica de telemetría refuerza la seguridad en PYMEs.",
+        date: "2026-07-19",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tutoriales",
+        image: "/blog/grok-build-xai-coding-agent-tui.png",
+        lang: "es",
+        translationSlug: "grok-build-xai-open-source-coding-agent-tui-tutorial",
+        content: `
+El ecosistema de los asistentes de programación basados en consola está viviendo su edad de oro. Herramientas como Claude Code, Aider u OpenCode han demostrado que la terminal es el espacio natural donde la Inteligencia Artificial despliega su verdadero potencial agéntico. 
+
+Ahora, xAI (la compañía de Elon Musk) entra con fuerza en este terreno con el lanzamiento y posterior liberación en código abierto de **Grok Build** (\`grok-build\`), su propio arnés de programación y TUI (Terminal User Interface) interactivo.
+
+Grok Build se presenta como un rival directo para Claude Code: un asistente escrito en **Rust** que reside en la consola y es capaz de editar archivos, planificar tareas complejas en paralelo y auto-corregir código mediante la ejecución de comandos. Sin embargo, su lanzamiento no ha estado exento de polémica y debates sobre privacidad.
+
+En esta guía te explicamos qué es exactamente Grok Build, cómo instalarlo paso a paso, cómo configurarlo localmente y por qué su reciente polémica sobre el manejo de datos de código propietario es una lección vital de seguridad para cualquier PYME.
+
+---
+
+## La polémica de la telemetría y el viraje al Open Source
+
+Poco después de su lanzamiento inicial, la comunidad de desarrolladores descubrió una sorpresa desagradable en el comportamiento por defecto de Grok Build: la herramienta estaba subiendo repositorios Git completos (incluyendo historial de commits, ramas y, potencialmente, claves SSH o variables de entorno en archivos \`.env\` no filtrados) a buckets de almacenamiento en la nube de xAI de forma silenciosa.
+
+Para las empresas medianas y tecnológicas (SMEs), este comportamiento representa un riesgo inaceptable de seguridad y cumplimiento normativo (RGPD). La reacción de la comunidad fue fulminante.
+
+Como respuesta de emergencia para mitigar el daño y restaurar la confianza, xAI tomó tres medidas clave:
+1. **Deshabilitó la subida de telemetría por defecto**, dejando la herramienta en modo \"local-first\".
+2. **Se comprometió a eliminar permanentemente** los datos de código propietario recolectados anteriormente en sus servidores.
+3. **Liberó la totalidad del código fuente** de Grok Build en GitHub bajo la licencia **Apache 2.0**.
+
+Esta polémica demuestra por qué la soberanía tecnológica es indispensable. Gracias a que el código ahora es público, los desarrolladores de tu PYME pueden inspeccionar exactamente qué datos envía el CLI fuera de la red local, configurándolo para trabajar de manera totalmente privada.
+
+---
+
+> ### 🔒 Protege el código propietario de tu empresa frente a telemetrías invasivas
+> Muchas herramientas de IA en la nube filtran datos sensibles de tu negocio sin que te des cuenta. En **IA4PYMES** te ayudamos a auditar tus flujos de trabajo e integrar asistentes locales (como [OpenCode o Pi Agent](/blog/adoptar-ecosistema-claude-code-modelos-madurez-empresarial)) configurados con LLMs privados que nunca salen de tus servidores.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (Totalmente reembolsable o deducible del coste final de desarrollo).
+
+---
+
+## Tutorial: Cómo instalar y configurar Grok Build
+
+Al estar escrito en Rust, Grok Build destaca por ser extremadamente rápido y eficiente en consumo de recursos. Sigue estos pasos para instalarlo:
+
+### Paso 1: Instalación del CLI
+Puedes instalar el binario oficial compilado usando los instaladores automáticos provistos por xAI:
+
+*   **En Linux, macOS o WSL (Windows Subsystem for Linux):**
+    \`\`\`bash
+    curl -fsSL https://x.ai/cli/install.sh | bash
+    \`\`\`
+*   **En Windows (PowerShell):**
+    \`\`\`powershell
+    irm https://x.ai/cli/install.ps1 | iex
+    \`\`\`
+
+Tras completar la instalación, abre un nuevo terminal y verifica que responde correctamente ejecutando:
+\`\`\`bash
+grok --version
+\`\`\`
+
+### Paso 2: Configurar tu Endpoint y API local (\`config.toml\`)
+Para asegurarte de que tu código no es enviado a la nube de xAI de forma innecesaria y poder experimentar con modelos locales o APIs privadas controladas, puedes redirigir a Grok Build editando su archivo de configuración.
+
+Grok Build busca su configuración en un archivo \`config.toml\` ubicado en las siguientes rutas según tu sistema operativo:
+*   **Linux/macOS:** \`~/.grok/config.toml\`
+*   **Windows:** \`%USERPROFILE%\\.grok\\config.toml\`
+
+Abre o crea este archivo y configúralo de la siguiente manera para apuntar a un modelo personalizado o servidor local (como Ollama):
+
+\`\`\`toml
+[model.local-model]
+model = "deepseek-coder"
+base_url = "http://localhost:11434/v1"
+name = "Local DeepSeek"
+env_key = "LOCAL_API_KEY"
+
+[models]
+default = "local-model"
+\`\`\`
+
+Una vez guardado, ejecuta en tu terminal para validar que la configuración ha sido descubierta y procesada de manera exitosa:
+\`\`\`bash
+grok inspect
+\`\`\`
+
+Este comando te mostrará los plugins, modelos por defecto y las herramientas que el arnés tiene disponibles en tu sistema.
+
+---
+
+## Grok Build vs. Claude Code: ¿Qué cambia?
+
+A diferencia de **Claude Code** —que se centra en un flujo de diálogo conversacional en terminal impulsado por el modelo Sonnet—, Grok Build apuesta por una interfaz visual a pantalla completa (TUI) con soporte nativo de ratón. 
+*   **TUI (Interface de Consola Completa):** Grok Build divide la terminal en paneles interactivos donde puedes ver el mapa de tu repositorio, la planificación de la tarea y el progreso del código en paralelo de forma mucho más gráfica, similar al entorno de desarrollo clásico de consola.
+*   **Ecosistema de Plugins:** Está diseñado con un patrón de adaptadores que facilita conectar herramientas externas mediante el protocolo MCP (Model Context Protocol).
+
+## Conclusión
+
+El lanzamiento de Grok Build consolida la tendencia del software libre en la automatización del desarrollo de software. Aunque la polémica inicial de la telemetría dañó la imagen de xAI, su rápida reacción al liberar el código bajo Apache 2.0 y deshabilitar los envíos masivos representa una excelente victoria para el ecosistema. Si buscas un asistente de terminal con una interfaz enriquecida (TUI) y la velocidad nativa que ofrece Rust, Grok Build es una opción sumamente potente a considerar, siempre y cuando se configure de forma segura y local-first.
+`.trim(),
+    },
+    {
+        slug: "grok-build-xai-open-source-coding-agent-tui-tutorial",
+        title: "Sovereignty in Your Code: The Ultimate Guide to Grok Build and the xAI Telemetry Controversy",
+        description: "We analyze xAI's Grok Build, the open-source CLI/TUI alternative to Claude Code. Learn how to install, configure config.toml, and why its telemetry controversy highlights B2B security needs.",
+        date: "2026-07-19",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tutorials",
+        image: "/blog/grok-build-xai-coding-agent-tui.png",
+        lang: "en",
+        translationSlug: "grok-build-xai-alternativa-open-source-claude-code-tutorial",
+        content: `
+The ecosystem of terminal-based development assistants is experiencing its golden age. Tools like Claude Code, Aider, and OpenCode have demonstrated that the command line is the natural space where Artificial Intelligence deploys its true agentic potential.
+
+Now, xAI (Elon Musk's AI company) enters this domain with the launch and subsequent open-source release of **Grok Build** (\`grok-build\`), its own coding agent harness and interactive TUI (Terminal User Interface).
+
+Grok Build stands as a direct rival to Claude Code: a CLI assistant written in **Rust** that resides in the console and is capable of editing files, planning complex parallel tasks, and self-correcting code through command execution. However, its release has not been without controversy and debates regarding data privacy.
+
+In this guide, we explain exactly what Grok Build is, how to install it step-by-step, how to configure it locally, and why its recent telemetry controversy over proprietary codebase handling is a vital security lesson for any SME.
+
+---
+
+## The Telemetry Controversy and the Pivot to Open Source
+
+Shortly after its initial release, the developer community discovered a concerning default behavior in Grok Build: the tool was silently uploading entire Git repositories (including commit history, branches, and potentially sensitive SSH keys or environment variables in unignored \`.env\` files) to xAI's cloud storage buckets.
+
+For medium-sized and technology enterprises (SMEs), this behavior represents an unacceptable security and compliance (GDPR) risk. The community's response was swift.
+
+In an emergency response to mitigate the backlash and restore trust, xAI took three key measures:
+1. **Disabled default telemetry upload**, turning the tool into a \"local-first\" utility.
+2. **Committed to permanently deleting** the proprietary code data previously gathered on their servers.
+3. **Released the entire source code** of Grok Build on GitHub under the **Apache 2.0 license**.
+
+This controversy demonstrates why technological sovereignty is indispensable. Because the codebase is now public, your SME's developers can inspect exactly what data the CLI transmits outside the local network, configuring it to operate in a completely private environment.
+
+---
+
+> ### 🔒 Protect Your Proprietary Code from Invasive Telemetry
+> Many cloud-native AI tools quietly leak sensitive business data. At **IA4PYMES**, we help you audit your workflows and integrate secure local assistants (such as [OpenCode or Pi Agent](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)) configured with private LLMs that never leave your servers.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs on hire).
+
+---
+
+## Tutorial: How to Install and Configure Grok Build
+
+Written in Rust, Grok Build stands out for being extremely fast and lightweight. Follow these steps to set it up:
+
+### Step 1: Install the CLI
+You can install the official compiled binary using the installer scripts provided by xAI:
+
+*   **On Linux, macOS, or WSL (Windows Subsystem for Linux):**
+    \`\`\`bash
+    curl -fsSL https://x.ai/cli/install.sh | bash
+    \`\`\`
+*   **On Windows (PowerShell):**
+    \`\`\`powershell
+    irm https://x.ai/cli/install.ps1 | iex
+    \`\`\`
+
+After installation completes, open a new terminal window and verify it runs successfully:
+\`\`\`bash
+grok --version
+\`\`\`
+
+### Step 2: Configure Custom Endpoints and Local LLMs (\`config.toml\`)
+To ensure your proprietary code is not sent to xAI's cloud unnecessarily, and to experiment with local models or private controlled APIs, you can redirect Grok Build by editing its configuration file.
+
+Grok Build loads configuration from a \`config.toml\` file located in the following paths depending on your operating system:
+*   **Linux/macOS:** \`~/.grok/config.toml\`
+*   **Windows:** \`%USERPROFILE%\\.grok\\config.toml\`
+
+Open or create this file and structure it as follows to point to a custom API or local model server (such as Ollama):
+
+\`\`\`toml
+[model.local-model]
+model = "deepseek-coder"
+base_url = "http://localhost:11434/v1"
+name = "Local DeepSeek"
+env_key = "LOCAL_API_KEY"
+
+[models]
+default = "local-model"
+\`\`\`
+
+Once saved, run the following in your terminal to validate that the configuration was discovered and parsed successfully:
+\`\`\`bash
+grok inspect
+\`\`\`
+
+This command will output the plugins, default models, and tools available to the harness on your machine.
+
+---
+
+## Grok Build vs. Claude Code: What is the Difference?
+
+Unlike **Claude Code** — which focuses on a chat-based console dialogue powered by the Sonnet model —, Grok Build focuses on a fullscreen, mouse-interactive Terminal User Interface (TUI).
+*   **TUI (Fullscreen Console Interface):** Grok Build splits the terminal into interactive panes where you can view your repository map, task plans, and parallel code execution progress in a highly graphical console environment.
+*   **Plugin Ecosystem:** It is designed with an adapter pattern that makes it easy to connect external tools via the MCP (Model Context Protocol).
+
+## Conclusion
+
+The release of Grok Build solidifies the trend of open-source coding assistants. Although the initial telemetry controversy damaged xAI's public image, their swift reaction in open-sourcing the CLI under Apache 2.0 and disabling default uploads is a great victory for the ecosystem. If you are looking for a terminal assistant with a rich interactive TUI and the native speed of Rust, Grok Build is a highly capable option to consider—provided it is configured securely in a local-first manner.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Adoption Tutorial (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
