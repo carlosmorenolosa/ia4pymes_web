@@ -16,6 +16,155 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: EU AI Act Compliance (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026",
+        title: "Cuenta atrás de la Ley de IA de la UE: Obligaciones críticas para PYMEs antes del 2 de agosto de 2026",
+        description: "Explicamos los requisitos del nuevo Reglamento de IA de la Unión Europea que empieza a aplicar de forma vinculante este 2 de agosto de 2026. Evita multas y blinda tus sistemas de IA.",
+        date: "2026-07-20",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tutoriales",
+        image: "/blog/eu-ai-act-compliance-smes-2026.png",
+        lang: "es",
+        translationSlug: "eu-ai-act-compliance-smes-2026-obligations",
+        content: `
+El reloj corre. El próximo **2 de agosto de 2026** marca un hito histórico en la gobernanza tecnológica: la **Ley de Inteligencia Artificial de la Unión Europea (EU AI Act)** comienza su aplicación vinculante y obligatoria. A partir de esa fecha, cualquier empresa —incluyendo pequeñas y medianas empresas (PYMEs)— que desarrolle, distribuya o utilice sistemas de IA en territorio europeo deberá cumplir con una de las normativas más estrictas del planeta.
+
+Muchos directivos asumen erróneamente que esta ley solo afecta a gigantes tecnológicos como Google, Microsoft o Anthropic. La realidad es radicalmente distinta: **si tu PYME utiliza IA para automatizar la selección de personal, monitorizar la productividad de los empleados o interactuar con clientes, ya estás bajo el radar regulatorio**.
+
+Analizamos las obligaciones críticas del Reglamento y los pasos que debes dar inmediatamente para blindar tu negocio ante sanciones que pueden alcanzar los 35 millones de euros o el 7% de la facturación global de la empresa.
+
+---
+
+## Clasificación de Riesgo: ¿Dónde está tu PYME?
+
+La Ley de IA clasifica los sistemas en cuatro niveles de riesgo. Identificar en qué categoría entran tus herramientas es el primer paso indispensable:
+
+### 1. Riesgo Inaceptable (Sistemas Prohibidos)
+Están prohibidos en la UE. Incluye sistemas de puntuación social (social scoring), manipulación del comportamiento humano mediante técnicas subliminales o biometría de categorización por características sensibles.
+
+### 2. Alto Riesgo (El gran peligro para las PYMEs)
+Son herramientas que, aunque permitidas, están sujetas a estrictos requisitos de gobernanza, documentación, trazabilidad y supervisión humana. **Aquí es donde caen la mayoría de las empresas medianas de forma inconsciente:**
+*   **Recursos Humanos:** Sistemas de IA utilizados para filtrar currículums automáticamente, evaluar candidatos en entrevistas o monitorizar el comportamiento y la productividad de los trabajadores.
+*   **Servicios Esenciales:** IA aplicada para evaluar la solvencia de clientes (scoring de crédito) o fijar precios de seguros.
+*   **Educación y Formación:** Sistemas de evaluación de exámenes o acceso a instituciones.
+
+*Si usas IA en estos procesos, debes realizar una auditoría de conformidad obligatoria.*
+
+### 3. Riesgo Limitado (Obligación de Transparencia)
+Incluye los chatbots de atención al cliente y generadores de contenido (como herramientas de marketing). 
+*   **La regla:** Debes informar de manera clara e inequívoca al usuario de que está interactuando con un sistema de IA (ej. avisar en la ventana del chat).
+
+### 4. Riesgo Mínimo
+Herramientas como traductores, filtros de spam o correctores ortográficos. No tienen obligaciones específicas bajo la ley.
+
+---
+
+> ### 🔒 Asegura el cumplimiento de la Ley de IA y el RGPD en tu empresa
+> Evita sanciones y fugas de datos sensibles de clientes. En **IA4PYMES** te ayudamos a auditar tus sistemas, erradicar el uso descontrolado de IAs externas por parte de tus empleados (Shadow AI) e integrar modelos locales privados.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (Totalmente reembolsable o deducible del coste final de desarrollo).
+
+---
+
+## Plan de Acción de 3 Pasos para PYMEs antes del 2 de agosto de 2026
+
+Para evitar sanciones y operar con total seguridad jurídica, tu departamento técnico y de operaciones debe ejecutar estas tres medidas antes de la fecha límite:
+
+### Paso 1: Hacer un inventario de IA empresarial (Erradicar la 'Shadow AI')
+El mayor peligro de una empresa mediana es no saber qué herramientas usan sus empleados. Muchos trabajadores copian datos financieros de clientes, contratos y contabilidad en plataformas en la nube como ChatGPT o Claude de forma ingenua (como detallamos en nuestro tutorial sobre el [ecosistema de Claude](/blog/adoptar-ecosistema-claude-code-modelos-madurez-empresarial)).
+*   **Acción:** Realiza una auditoría interna, bloquea el uso de endpoints de IA no autorizados en la red corporativa y centraliza el acceso mediante APIs controladas.
+
+### Paso 2: Migrar hacia la IA Soberana (Modelos Locales y Privados)
+Enviar datos de clientes a servidores fuera de la Unión Europea para que sean analizados por IAs comerciales es una pesadilla de cumplimiento bajo el RGPD y la Ley de IA.
+*   **Acción:** La forma más robusta y económica de cumplir con la ley es desplegar **modelos de lenguaje locales (Local LLMs)** dentro de servidores propios o nubes privadas controladas (ej. usando Ollama e integrando CLIs seguros como [Grok Build](/blog/grok-build-xai-alternativa-open-source-claude-code-tutorial) u [OpenCode](/blog/adoptar-ecosistema-claude-code-modelos-madurez-empresarial)). Al no salir los datos de tu red local, eliminas los riesgos de transferencia internacional de datos.
+
+### Paso 3: Documentar y nombrar un Supervisor Humano
+Para cualquier sistema que clasifique como "Alto Riesgo" o incluso "Riesgo Limitado", debes tener:
+*   Documentación técnica que explique cómo funciona el modelo y con qué datos se ha entrenado o alimentado (mediante pipelines RAG locales, explicados en nuestra [Guía de LLM Local](/blog/guia-infraestructura-local-llm-pymes)).
+*   Un responsable humano designado dentro de la empresa con la capacidad de anular las decisiones tomadas por el agente de IA.
+
+## Conclusión
+
+El 2 de agosto de 2026 marca el fin del "Salvaje Oeste" en la implementación de la Inteligencia Artificial. Las PYMEs ya no pueden excusarse en el desconocimiento tecnológico para eludir la ley. Preparar un inventario de tus flujos de trabajo con IA, asegurar la transparencia de tus chatbots de cara al usuario e invertir en infraestructura local y soberana para tus datos no es solo un blindaje legal ante multas millonarias; es una ventaja competitiva que transmite confianza y profesionalidad a tus clientes e inversores.
+`.trim(),
+    },
+    {
+        slug: "eu-ai-act-compliance-smes-2026-obligations",
+        title: "EU AI Act Countdown: Critical Compliance Duties for SMEs Before August 2, 2026",
+        description: "We explain the requirements of the new European AI Act starting August 2, 2026. Avoid massive fines and secure your business's AI integrations today.",
+        date: "2026-07-20",
+        author: "IA4PYMES",
+        readingTime: "8 min",
+        category: "Tutoriales",
+        image: "/blog/eu-ai-act-compliance-smes-2026.png",
+        lang: "en",
+        translationSlug: "ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026",
+        content: `
+The clock is ticking. **August 2, 2026** marks a historic milestone in technological governance: the **European Union Artificial Intelligence Act (EU AI Act)** begins its binding and mandatory application. From this date, any business — including small and medium-sized enterprises (SMEs) — developing, importing, or deploying AI systems in European territory must comply with one of the most stringent regulations on earth.
+
+Many executives mistakenly assume this law only impacts tech giants like Google, Microsoft, or Anthropic. The reality is radically different: **if your SME uses AI to automate recruitment, monitor employee productivity, or interact with customers, you are already under the regulatory spotlight**.
+
+We analyze the critical duties under the Regulation and the steps you must take immediately to secure your business against penalties that can reach up to €35 million or 7% of your company's global turnover.
+
+---
+
+## Risk Classification: Where Does Your SME Stand?
+
+The AI Act classifies systems into four risk levels. Identifying which category your tools fall under is the first indispensable step:
+
+### 1. Unacceptable Risk (Prohibited Systems)
+These systems are banned in the EU. This includes social scoring, cognitive behavioral manipulation, or real-time remote biometric identification in publicly accessible spaces.
+
+### 2. High Risk (The Big Risk for SMEs)
+These tools are permitted but subject to strict requirements regarding data governance, technical documentation, transparency, and human oversight. **This is where most medium-sized businesses fall without realizing it:**
+*   **Human Resources:** AI systems used for automated CV screening, evaluating candidates in interviews, or monitoring employee performance and productivity.
+*   **Essential Services:** AI used to evaluate creditworthiness (credit scoring) or set insurance premiums.
+*   **Education:** Systems used to grade exams or evaluate admission to institutions.
+
+*If you use AI in these processes, you must perform a mandatory conformity assessment.*
+
+### 3. Limited Risk (Transparency Obligations)
+This includes customer support chatbots and general AI content generators (like marketing tools).
+*   **The rule:** You must clearly and unequivocally inform users that they are interacting with an AI system (e.g., placing a notice in the chat window).
+
+### 4. Minimal Risk
+Tools such as translation utilities, spam filters, or spell-checkers. They carry no specific obligations under the law.
+
+---
+
+> ### 🔒 Ensure EU AI Act and GDPR Compliance in Your Business
+> Avoid massive fines and leaks of sensitive customer data. At **IA4PYMES**, we help you audit your systems, eradicate unauthorized AI use by employees (Shadow AI), and integrate secure local models.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs on hire).
+
+---
+
+## 3-Step Action Plan for SMEs Before August 2, 2026
+
+To avoid sanctions and operate with complete legal safety, your technical and operations departments must implement these three measures before the deadline:
+
+### Step 1: Inventory Your Enterprise AI (Eradicate 'Shadow AI')
+The greatest risk for a medium-sized company is not knowing what tools employees are using. Many workers copy sensitive customer financial records, contracts, and accounting files into cloud-native platforms like ChatGPT or Claude out of convenience (as detailed in our [Claude Adoption tutorial](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)).
+*   **Action:** Conduct an internal audit, block unauthorized AI endpoints on the corporate network, and centralize access through secure, audited APIs.
+
+### Step 2: Migrate to Sovereign AI (Local & Private Models)
+Sending customer data to third-party cloud servers outside the European Union to be processed by commercial LLMs is a GDPR and AI Act compliance nightmare.
+*   **Action:** The most robust and cost-effective way to comply is to deploy **local large language models (Local LLMs)** within your own hardware or private cloud nodes (e.g., using Ollama and integrating secure CLIs like [Grok Build](/en/blog/grok-build-xai-open-source-coding-agent-tui-tutorial) or [OpenCode](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)). Since the data never leaves your local network, you eliminate the risk of international data transfers.
+
+### Step 3: Document and Assign a Human Supervisor
+For any system classified as "High Risk" or "Limited Risk," you must maintain:
+*   Detailed technical documentation explaining how the model works and what data it accesses (via local RAG pipelines, detailed in our [Local LLM Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+*   A designated human supervisor inside the company with the authority to override decisions made by the AI agent.
+
+## Conclusion
+
+August 2, 2026, marks the end of the "Wild West" in Artificial Intelligence implementation. SMEs can no longer claim lack of technical knowledge to evade the law. Preparing a clear inventory of your AI workflows, ensuring chatbot transparency, and investing in local, sovereign data infrastructure is not just a shield against millions in fines—it is a competitive advantage that builds trust with your clients and investors.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Grok Build Tutorial (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
