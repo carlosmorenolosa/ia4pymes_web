@@ -50,6 +50,8 @@ export function CookieConsent() {
         setTimeout(() => setShowBanner(false), 300)
     }
 
+    const isEnglish = typeof window !== "undefined" && window.location.pathname.startsWith("/en")
+
     return (
         <>
             {consentGiven && (
@@ -85,13 +87,14 @@ export function CookieConsent() {
                             {/* Text */}
                             <div className="flex-grow">
                                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                    Utilizamos cookies para analizar el tráfico y mejorar tu experiencia.
-                                    Al aceptar, nos ayudas a entender cómo usas la web.{" "}
+                                    {isEnglish 
+                                        ? "We use cookies to analyze traffic and improve your experience. By accepting, you help us understand how you use the web. " 
+                                        : "Utilizamos cookies para analizar el tráfico y mejorar tu experiencia. Al aceptar, nos ayudas a entender cómo usas la web. "}
                                     <button
                                         className="text-blue-600 hover:underline font-medium"
-                                        onClick={() => window.open("/politica-privacidad", "_blank")}
+                                        onClick={() => window.open(isEnglish ? "/en/privacy-policy" : "/politica-privacidad", "_blank")}
                                     >
-                                        Más información
+                                        {isEnglish ? "More information" : "Más información"}
                                     </button>
                                 </p>
                             </div>
@@ -102,13 +105,13 @@ export function CookieConsent() {
                                     onClick={handleReject}
                                     className="flex-1 sm:flex-none px-4 py-2.5 text-gray-600 hover:text-gray-800 font-medium text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                                 >
-                                    Rechazar
+                                    {isEnglish ? "Reject" : "Rechazar"}
                                 </button>
                                 <button
                                     onClick={handleAccept}
                                     className="flex-1 sm:flex-none px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg transition-colors shadow-sm"
                                 >
-                                    Aceptar
+                                    {isEnglish ? "Accept" : "Aceptar"}
                                 </button>
                             </div>
 
