@@ -5898,7 +5898,7 @@ Built and maintained under a philosophy of modularity and speed, **Pi Coding Age
 
 *   **Philosophy:** Instead of overwhelming the LLM with dozens of pre-configured tools that confuse the model and consume unnecessary tokens, Pi exposes only four core functions: \`read\`, \`write\`, \`edit\` (editing specific lines), and \`bash\` (running console commands).
 *   **Context Management:** Its minimalist footprint uses few resources and adapts perfectly to modest laptops and servers. Extended capabilities are added on-demand using "skills."
-*   **Connectivity:** Fully model-agnostic. It works natively with paid APIs (Anthropic, OpenAI, Gemini) and 100% private local models via **Ollama or Llama.cpp**.
+*   **Connectivity:** Fully model-agnostic. It works natively with paid APIs (Anthropic, OpenAI, Gemini) and 100% private local models via **Ollama or Llama.cpp** (see our complete [Guide to Private Local LLM Infrastructure](/en/blog/local-llm-private-infrastructure-smes)).
 *   **Best for:** SMEs that value execution speed, want absolute control over the tools the agent can access, and prefer a clean, easily auditable codebase.
 
 ---
@@ -5908,7 +5908,7 @@ Built and maintained under a philosophy of modularity and speed, **Pi Coding Age
 **OpenCode** is one of the fastest-growing open-source projects of 2026, distinguished by its rich Console User Interface (TUI).
 
 *   **Philosophy:** Built in Go, OpenCode provides an interactive, highly visual experience directly in the terminal. Its greatest strength is its native integration with the **Language Server Protocol (LSP)**, allowing the agent to read compiler warnings and syntax errors in real-time, correcting them before finalizing edits.
-*   **Workflow Modes:** It features a "Plan" mode (where the agent drafts the technical approach for user approval) and a "Build" mode (where it applies the edits). It natively supports the **Model Context Protocol (MCP)** for adding complex external tools.
+*   **Workflow Modes:** It features a "Plan" mode (where the agent drafts the technical approach for user approval) and a "Build" mode (where it applies the edits, as outlined in Step 2 of the [Enterprise AI Adoption Maturity Model](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)). It natively supports the **Model Context Protocol (MCP)** for adding complex external tools.
 *   **Safety & Backups:** It snapshots your local repository into a SQLite database, allowing you to instantly revert any unwanted changes.
 *   **Best for:** Developers who prefer an enriched terminal experience (TUI) and want the agent to actively validate code using the compiler before saving.
 
@@ -5950,10 +5950,10 @@ Regardless of your choice, adopting open-source development agents is a decisive
 
 ---
 
-> ### 💻 Want to deploy secure, private, and sovereign open-source coding agents in your local environments?
+> ### 🔒 Want to deploy secure, private, and sovereign open-source coding agents in your local environments?
 > At **IA4PYMES**, we help your technical department select, configure, and integrate the best open-source development assistants (like Pi, OpenCode, or Aider) with local LLMs that guarantee code privacy.
 > 
-> [**Book a free 15-minute strategic consultation with our technical team today**](https://calendly.com/ia4pymes) and let's analyze how to protect your software's intellectual property.
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs on hire).
 `.trim(),
     },
     // ─────────────────────────────────────────────────────────
@@ -6536,7 +6536,7 @@ All additional functionality (such as task planning, sub-agents, or codebase aud
 The biggest competitive advantage of Pi Coding Agent over Claude Code or Codex is that it is **100% model-agnostic**. You are not locked into a single API provider:
 
 *   **Commercial External Models:** Pi connects natively to top-tier APIs including Anthropic (Claude 3.5 Sonnet or Claude Fable 5), OpenAI (GPT-4o), Google Gemini, and high-speed providers like Groq or OpenRouter.
-*   **Private Local Models:** If you want absolute digital sovereignty and want to ensure your code never leaves your office, you can connect Pi to local models via **Ollama** or **Llama.cpp**. You can run open-source models optimized for coding (such as Llama 3 8B, Qwen 2.5 Coder, or DeepSeek Coder) directly on your machine's graphics card or a local company server, 100% free and offline.
+*   **Private Local Models:** If you want absolute digital sovereignty and want to ensure your code never leaves your office, you can connect Pi to local models via **Ollama** or **Llama.cpp**. You can run open-source models optimized for coding (such as Llama 3 8B, Qwen 2.5 Coder, or DeepSeek Coder) directly on your machine's graphics card or a local company server, 100% free and offline (detailed in our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)).
 
 ---
 
@@ -6552,7 +6552,7 @@ How does Pi stand against the commercial coding giants?
 | **Modularity** | High (4 native tools + skills) | Medium (built-in features) | Low (IDE extension) |
 | **Data Privacy** | Maximum (fully local offline) | Medium (sent to US servers) | Low (processed in cloud) |
 
-Pi Coding Agent not only matches the operational capacity of Claude Code in running tests and refactoring multi-file codebases using its \`bash\` tool and self-correcting agent loop, but it also surpasses it in versatility due to its multi-model compatibility and geopolitical independence.
+Pi Coding Agent not only matches the operational capacity of Claude Code in running tests and refactoring multi-file codebases using its \`bash\` tool and self-correcting agent loop (implementing parallel workflows similar to the [Enterprise AI Adoption Maturity Model](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)), but it also surpasses it in versatility due to its multi-model compatibility and geopolitical independence.
 
 ---
 
@@ -6568,10 +6568,10 @@ Pi Coding Agent proves that the open-source community can compete head-to-head w
 
 ---
 
-> ### 💻 Ready to Deploy Secure, Local Coding Agents in Your Development Team?
+> ### 🔒 Ready to Deploy Secure, Local Coding Agents in Your Development Team?
 > At **IA4PYMES**, we help your company set up AI-assisted development environments that are efficient, sovereign, and GDPR-compliant. We help you integrate tools like Pi Coding Agent with local open-source AI servers tailored to your code repositories.
 > 
-> [**Book a 100% free 15-minute strategic consultation with us**](https://calendly.com/ia4pymes) and let's analyze how to accelerate your programmers' productivity securely.
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs on hire).
         `.trim(),
     },
     // ─────────────────────────────────────────────────────────
