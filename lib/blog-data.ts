@@ -13904,6 +13904,135 @@ Those who were already familiar with Claude's *Artifacts* framework will feel ri
         `.trim(),
     },
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Routines
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "claude-routines-automatizacion-autonoma-en-la-nube-anthropic",
+        title: "Claude Routines de Anthropic: Cómo Automatizar Tareas de Desarrollo 24/7 en la Nube",
+        description: "Guía completa sobre Claude Routines: automatiza la revisión de PRs, tests y refactorización en la nube 24/7 con los nuevos agentes autónomos de Anthropic.",
+        date: "2026-04-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "Herramientas IA",
+        image: "/blog/claude-routines.png",
+        lang: "es",
+        translationSlug: "claude-routines-autonomous-cloud-automation-anthropic",
+        content: `
+El panorama de los agentes de inteligencia artificial acaba de dar un salto de gigante. A mediados de abril de 2026, **Anthropic** ha revelado en fase de *research preview* su última gran innovación: **Claude Routines**.
+
+Si Claude Code ya se había consolidado como un potente asistente local ("sidekick") para programadores, **Routines** transforma la herramienta en una plataforma de orquestación autónoma completa que opera directamente en la infraestructura gestionada de Anthropic en la nube.
+
+---
+
+## ¿Qué es exactamente Claude Routines?
+
+En esencia, Claude Routines permite a los equipos técnicos empaquetar un prompt, un repositorio de código y varios conectores en una **"rutina"**. Esta rutina se ejecuta de forma completamente autónoma, sin necesidad de que un desarrollador humano apruebe cada paso ni valide la ejecución localmente.
+
+Lo más disruptivo es su naturaleza **"Always-On"** (siempre activa): al ejecutarse en los servidores de Anthropic, estas rutinas siguen trabajando aunque cierres el portátil o estés fuera de la oficina.
+
+### Tres Formas de Desencadenar la Automatización
+
+Anthropic ha diseñado un sistema de disparadores (*triggers*) sumamente versátil, ideal para integrarse en los flujos de trabajo profesionales existentes:
+
+1. **Programadas (Cron):** Puedes configurar tareas recurrentes, como "revisar y refactorizar código legacy cada viernes a las 18:00", o "resumir el log de errores del servidor a primera hora de la mañana".
+2. **Llamadas a API (HTTP POST):** Permite enganchar Claude Routines a cualquier infraestructura externa, como un CRM, un ERP o flujos construidos en Zapier/Make.
+3. **Eventos (Integración con GitHub):** Esta es la joya de la corona para equipos de desarrollo. Las rutinas pueden dispararse automáticamente cuando se abre una *Pull Request*, se hace *push* de código o se crea un *Issue*. Esto permite que la IA ejecute auditorías de seguridad, revisiones profundas de código o correcciones de bugs automatizadas antes de que intervenga un humano.
+
+---
+
+## Ejecución Autónoma y Rediseño de la Interfaz
+
+Al empaquetar una tarea como una rutina, aceptas que Claude Code actúe de manera independiente durante ese flujo específico, acelerando drásticamente el ritmo de trabajo.
+
+Simultáneamente a este lanzamiento, Anthropic ha **rediseñado por completo la interfaz de escritorio de Claude Code**. Ahora cuenta con una barra lateral para gestionar múltiples sesiones activas a la vez, una terminal integrada, un editor de archivos nativo, un revisor de diferencias (*diff viewer*) ultrarrápido y vistas previas de HTML y PDF. Todo en un entorno "drag-and-drop" (arrastrar y soltar) totalmente personalizable.
+
+### Límites de Uso según tu Plan
+
+Dado el inmenso consumo computacional que suponen los agentes totalmente autónomos operando en la nube, Anthropic ha establecido límites de uso iniciales:
+* **Plan Pro:** 5 rutinas al día.
+* **Plan Max:** 15 rutinas al día.
+* **Planes Team / Enterprise:** Hasta 25 rutinas diarias.
+
+---
+
+> ### 🔒 Implementa agentes de automatización autónoma en tu empresa
+> ¿Quieres configurar flujos de CI/CD autónomos y rutinas de IA en la nube con garantías de privacidad y sin interrupción? En **IA4PYMES** te ayudamos a orquestar el ecosistema de Anthropic en tu arquitectura.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable o deducible del coste final de desarrollo).
+
+---
+
+## ¿Por qué es crucial para tu PYME?
+
+Para las pequeñas empresas y agencias de desarrollo, la adopción de **Claude Routines** significa que ya no necesitas destinar a tus ingenieros más talentosos (y caros) a tareas de mantenimiento rutinario, como refactorizaciones menores, revisiones de PRs o respuesta a incidencias conocidas de Nivel 1. 
+
+Estás contratando a un "Ingeniero DevSecOps" infatigable que trabaja 24/7 en la nube, operando directamente sobre tus repositorios y actuando solo cuando se cumplen las condiciones dictadas por la lógica de tu negocio. El futuro del software no está solo en escribir código con IA, está en la **operativa y mantenimiento autónomos**.
+        `.trim(),
+    },
+    {
+        slug: "claude-routines-autonomous-cloud-automation-anthropic",
+        title: "Claude Routines: How to Automate 24/7 Cloud Dev Tasks with Autonomous AI",
+        description: "Complete guide to Claude Routines: automate PR reviews, testing, and cloud refactoring 24/7 using Anthropic's new autonomous cloud agents.",
+        date: "2026-04-15",
+        author: "IA4PYMES",
+        readingTime: "7 min",
+        category: "AI Tools",
+        image: "/blog/claude-routines.png",
+        lang: "en",
+        translationSlug: "claude-routines-automatizacion-autonoma-en-la-nube-anthropic",
+        content: `
+The landscape of artificial intelligence agents has just taken a massive leap forward. In mid-April 2026, **Anthropic** unveiled its latest major innovation in a *research preview*: **Claude Routines**.
+
+While Claude Code had already established itself as a powerful local "sidekick" for developers, **Routines** transforms the tool into a full-fledged autonomous orchestration platform operating directly on Anthropic’s managed cloud infrastructure.
+
+---
+
+## What Exactly is Claude Routines?
+
+At its core, Claude Routines enables technical teams to package a prompt, a code repository, and various connectors into a **"routine"**. This routine executes entirely autonomously, without requiring a human developer to approve every step or validate execution locally.
+
+The most disruptive aspect is its **"Always-On"** nature: because it runs on Anthropic’s servers, these routines keep working even if you close your laptop or are away from the office.
+
+### Three Ways to Trigger Automation
+
+Anthropic has designed an extremely versatile trigger system, perfectly suited to integrate with existing professional workflows:
+
+1. **Schedules (Cron):** You can set up recurring tasks, such as "review and refactor legacy code every Friday at 6:00 PM," or "summarize the server error log first thing every morning."
+2. **API Calls (HTTP POST):** This allows hooking Claude Routines into any external infrastructure, such as a CRM, an ERP, or flows built in Zapier/Make.
+3. **Events (GitHub Integration):** This is the crown jewel for development teams. Routines can be triggered automatically when a *Pull Request* is opened, when code is pushed, or when an *Issue* is created. This allows the AI to perform security audits, deep code reviews, or automated bug fixing before a human ever intervenes.
+
+---
+
+## Autonomous Execution and Interface Redesign
+
+By packaging the workflow as a routine, you grant Claude Code the agency to act independently throughout that specific flow, drastically accelerating the pace of work.
+
+Alongside this release, Anthropic has **completely redesigned the Claude Code desktop interface**. It now features a sidebar to manage multiple active sessions side-by-side, an integrated terminal, a native in-app file editor, a blazingly fast diff viewer, and HTML/PDF preview capabilities. The entire UI is now a fully customizable drag-and-drop workspace.
+
+### Usage Limits by Plan
+
+Given the immense computational resources consumed by fully autonomous cloud agents, Anthropic has established initial usage limits:
+* **Pro Plan:** 5 routines per day.
+* **Max Plan:** 15 routines per day.
+* **Team / Enterprise Plans:** Up to 25 routines per day.
+
+---
+
+> ### 🔒 Implement Autonomous Automation Cloud Agents in Your Enterprise
+> Want to configure autonomous CI/CD pipelines and cloud AI routines with privacy and reliability guarantees? At **IA4PYMES**, we help technical teams orchestrate Anthropic's enterprise ecosystem.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs on hire).
+
+---
+
+## Why is this Crucial for your SME?
+
+For small businesses and development agencies, the adoption of **Claude Routines** means you no longer need to allocate your most talented (and expensive) engineers to routine maintenance tasks, such as minor refactoring, PR reviews, or responding to known Tier 1 incidents.
+
+You are effectively hiring an untiring "DevSecOps Engineer" that works 24/7 in the cloud, operating directly on your repositories and acting only when your business logic dictates. The future of software is not just writing code with AI; it's about **autonomous operations and maintenance**.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Qwen3.6-35B-A3B
     // ─────────────────────────────────────────────────────────
     {
@@ -13933,51 +14062,6 @@ El nombre del modelo puede parecer un trabalenguas, pero revela su mayor virtud:
 **¿Qué significa esto para tu PYME?** Básicamente, estás obteniendo las capacidades cognitivas de un gigante de la IA, pero lo puedes ejecutar en servidores modestos o incluso en ordenadores portátiles de gama alta (usando formatos optimizados como GGUF/llama.cpp). Es la democratización absoluta del procesamiento complejo.
 
 ## Innovación Estrella: Conservación de Pensamiento (Thinking Preservation)
-
-Si usamos a la IA para tareas progresivas (por ejemplo: "escribe esta función", luego "ahora encuéntrale los errores", luego "ahora intégrala con esta base de datos"), los modelos tradicionales suelen tener que regenerar o reconsiderar el contexto desde cero en cada interacción. 
-
-Qwen3.6 introduce la **Conservación de Pensamiento**. Esta arquitectura (que mezcla *Gated DeltaNet* y *Gated Attention*) permite al modelo retener el raciocinio estructural en su memoria a lo largo del historial de la conversación. Esto acelera brutalmente el desarrollo de código guiado por agentes (Agentic Coding) y evita las famosas "pérdidas de contexto" en hilos muy largos.
-
-Hablando de hilos largos: su ventana de contexto nativa procesa más de un cuarto de millón de tokens (**262.144** concretamente), pudiendo ampliarse hasta el millón. Suficiente para embeber carpetas de proyectos de software enteros.
-
-## Nativamente Multimodal y Agéntico
-
-Qwen3.6-35B-A3B no solo come texto. Viene equipado de serie con un potente codificador de visión, rivalizando en capacidad de percepción visual con modelos diez veces más difíciles de alojar. 
-
-El modelo ha sido entrenado de forma salvaje en la **creación y orquestación de código**, especialmente en procesos Frontend y razonamiento a nivel de repositorio. Se engancha de manera nativa con herramientas de terceros y *frameworks* de automatización, sirviendo perfectamente como el "cerebro" detrás de los agentes autónomos de tu empresa.
-
-## Conclusión
-
-El **Qwen3.6-35B-A3B** (ya disponible gratuitamente en Hugging Face) es la demostración perfecta de que el futuro de la IA empresarial privada no pasa por modelos monolíticos inabarcables, sino por sistemas "inteligentes y frugales". Si estabas esperando el momento idóneo para integrar un agente de alta capacidad en los servidores privados de tu empresa para proteger tus datos sensibles, este modelo es el billete de entrada ideal.
-        `.trim(),
-    },
-    {
-        slug: "qwen-3-6-35b-a3b-efficient-open-model-alibaba",
-        title: "Alibaba Qwen 3.6 35B: The Best Open Source MoE Model?",
-        description: "Alibaba's new Qwen3.6-35B-A3B Mixture-of-Experts model provides high intelligence with the computational cost of a tiny 3B model. We analyze its specs and benchmarks.",
-        date: "2026-04-17",
-        author: "IA4PYMES",
-        readingTime: "6 min",
-        category: "Models & Infrastructure",
-        image: "/blog/qwen-3-6-model.png",
-        lang: "en",
-        translationSlug: "qwen-3-6-35b-a3b-modelo-abierto-eficiente-alibaba",
-        content: `
-In mid-April 2026, the **Qwen team (part of Alibaba Group)** once again shook the open-source community with a release that redefines artificial intelligence efficiency: the **Qwen3.6-35B-A3B** model.
-
-This release is not a minor update; it's a paradigm shift for businesses and developers looking to deploy advanced AI on their own servers (on-premise) without having to spend tens of thousands of dollars on massive GPU farms.
-
----
-
-## The Magic of "MoE": 35B the Size, 3B the Compute
-
-The model's name might seem like a mouthful, but it reveals its greatest virtue:
-*   **35B:** The model has 35 billion total parameters, grating it "world knowledge" and robust reasoning capabilities on par with much heavier dense models.
-*   **A3B (Active 3B):** Thanks to its *Sparse Mixture-of-Experts (MoE)* architecture, to generate any single token, the neural network only activates **3 billion parameters**.
-
-**What does this mean for your SME?** Basically, you are getting the cognitive capabilities of an AI titan, but you can run it on modest servers or even high-end local laptops (using optimized formats like GGUF/llama.cpp). It is the absolute democratization of complex processing.
-
-## Flagship Innovation: Thinking Preservation
 
 When we use AI for iterative tasks (for example: "write this function," then "now find the bugs," then "now integrate it with this database"), traditional models typically have to regenerate or reconsider the context from scratch during every single interaction.
 
