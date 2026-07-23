@@ -29,7 +29,7 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
     return () => clearTimeout(timer)
   }, [])
 
-  const whatsappUrl = `https://wa.me/34629146707?text=${encodeURIComponent(copy.text)}`
+  const whatsappUrl = `https://wa.me/34680538801?text=${encodeURIComponent(copy.text)}`
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5 pointer-events-none">
