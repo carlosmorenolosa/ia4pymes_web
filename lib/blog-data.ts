@@ -83,7 +83,7 @@ La reciente fuga de datos y el [escape del sandbox de OpenAI en Hugging Face](/b
 Gracias a la arquitectura MoE que mantiene solo 8B de parámetros activos durante la inferencia, la exigencia de hardware para servir el modelo se reduce drásticamente mediante cuantizaciones:
 
 1. **Servidores dedicados con vLLM o SGLang:** En formatos FP8 o INT4, el modelo puede alojarse en nodos dedicados con GPUs comerciales, ofreciendo latencias por debajo de los 20 milisegundos por token.
-2. **Estaciones de trabajo locales (GGUF / NVFP4):** Para tareas de desarrollo interno, soporte técnico local o integración en ERPs, es posible ejecutar cuantizaciones GGUF mediante llama.cpp o Ollama en hardware corporativo de gama alta sin salir de la red local (siguiendo los principios de nuestra [guía de infraestructura local de LLM](/blog/guia-infraestructura-local-llm-pymes)).
+2. **Estaciones de trabajo locales (GGUF / NVFP4):** Para tareas de desarrollo interno, soporte técnico local o integración en ERPs, es posible ejecutar cuantizaciones GGUF mediante llama.cpp o Ollama en hardware corporativo de gama alta sin salir de la red local (siguiendo los principios de nuestra [guía de infraestructura local de LLM](/blog/llm-locales-infraestructura-privada-pymes)).
 3. **Integración con Agentes:** Su alta puntuación en *Terminal-Bench* (70.2%) lo convierte en un motor ideal para automatizar flujos complejos como la [gestión automática de presupuestos](/blog/razones-integrar-inteligencia-artificial-procesos-pymes-2026).
 
 ---
@@ -160,7 +160,7 @@ Recent incidents such as the [OpenAI sandbox escape and Hugging Face breach](/en
 Because its MoE architecture activates only 8B parameters per token, hardware requirements for serving the model drop significantly through quantization:
 
 1. **Dedicated Servers with vLLM or SGLang:** In FP8 or INT4 formats, the model can be hosted on dedicated GPU nodes, delivering sub-20ms per-token latency.
-2. **Local Workstations (GGUF / NVFP4):** For internal software engineering, local tech support, or ERP integrations, GGUF quantizations can run via llama.cpp or Ollama on high-end desktop hardware without leaving your local network (following our [Local LLM Infrastructure Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+2. **Local Workstations (GGUF / NVFP4):** For internal software engineering, local tech support, or ERP integrations, GGUF quantizations can run via llama.cpp or Ollama on high-end desktop hardware without leaving your local network (following our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)).
 3. **Agentic Workflows:** Its 70.2% score on *Terminal-Bench* makes it an ideal engine for automating complex operations like [SME AI process integration](/en/blog/why-smes-must-integrate-ai-operational-processes-2026).
 
 ---
@@ -240,7 +240,7 @@ Los empleados pierden una media de 4 horas a la semana buscando manuales, tarifa
 No. Las soluciones modernas se entregan como agentes integrados en las herramientas que tu equipo ya usa (WhatsApp, correo electrónico, CRM o software contable). La interfaz para el empleado es escribir o hablar en castellano plano.
 
 ### "¿Qué ocurre con la seguridad de mis datos?"
-Las empresas no deben enviar bases de datos de clientes a chats públicos en la nube. La arquitectura correcta utiliza APIs cerradas sin retención de datos o el despliegue de modelos locales en servidores propios, siguiendo nuestra [guía de infraestructura local de LLM](/blog/guia-infraestructura-local-llm-pymes). Esto asegura además el cumplimiento estricto de la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
+Las empresas no deben enviar bases de datos de clientes a chats públicos en la nube. La arquitectura correcta utiliza APIs cerradas sin retención de datos o el despliegue de modelos locales en servidores propios, siguiendo nuestra [guía de infraestructura local de LLM](/blog/llm-locales-infraestructura-privada-pymes). Esto asegura además el cumplimiento estricto de la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
 
 ---
 
@@ -317,7 +317,7 @@ Employees spend an average of 4 hours per week searching for SOPs, vendor price 
 No. Production-grade solutions run as background agents integrated directly into the tools your team already uses (WhatsApp, email, CRM, or accounting software). Staff interact via plain natural language.
 
 ### "What about data security?"
-Businesses should never upload proprietary client databases to public cloud chats. The proper architecture uses private APIs with zero data retention or deploys local models on private servers, following our [Local LLM Infrastructure Guide](/en/blog/guide-local-llm-infrastructure-smes). This also ensures compliance with the [EU AI Act by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
+Businesses should never upload proprietary client databases to public cloud chats. The proper architecture uses private APIs with zero data retention or deploys local models on private servers, following our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes). This also ensures compliance with the [EU AI Act by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
 
 ---
 
@@ -404,7 +404,7 @@ Para mitigar este vector de ataque sin renunciar a las inmensas ventajas competi
 Un agente de IA nunca debe tener acceso directo a la consola del sistema o a credenciales maestras. Cualquier base de datos con la que interactúe debe estar securizada con permisos de solo lectura o APIs intermedias limitadas que validen los esquemas de entrada.
 
 ### 2. Despliegue de LLMs Locales en Entornos Estancos (Air-Gapped)
-La forma más robusta de evitar fugas de información o intrusiones de red es no enviar datos confidenciales a servidores externos. Utilizar modelos locales optimizados como Gemma 2 o Llama 3 (siguiendo nuestra [Guía de Infraestructura Local de LLM](/blog/guia-infraestructura-local-llm-pymes)) corriendo en servidores propios dentro de la red local, y sin acceso directo a internet, neutraliza el riesgo de que el modelo pueda comunicarse con el exterior si es compromised.
+La forma más robusta de evitar fugas de información o intrusiones de red es no enviar datos confidenciales a servidores externos. Utilizar modelos locales optimizados como Gemma 2 o Llama 3 (siguiendo nuestra [Guía de Infraestructura Local de LLM](/blog/llm-locales-infraestructura-privada-pymes)) corriendo en servidores propios dentro de la red local, y sin acceso directo a internet, neutraliza el riesgo de que el modelo pueda comunicarse con el exterior si es compromised.
 
 Esto no solo protege la propiedad intelectual de tu negocio, sino que garantiza que cumples con los estrictos estándares regulados en la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
 
@@ -485,7 +485,7 @@ To mitigate this attack vector while leveraging the benefits of agentic AI, ente
 An AI agent should never have direct root access to system consoles or master credentials. Databases accessed by the agent must use read-only privileges or intermediating APIs that validate input schemas.
 
 ### 2. Air-Gapped Local LLM Deployment
-The most robust way to prevent data leaks or unauthorized network connections is to avoid sending sensitive data to external servers altogether. Running local, audited models like Gemma 2 or Llama 3 (following our [Local LLM Infrastructure Guide](/en/blog/guide-local-llm-infrastructure-smes)) on your own servers within the local network—isolated from the internet—neutralizes the risk of the model communicating with external nodes.
+The most robust way to prevent data leaks or unauthorized network connections is to avoid sending sensitive data to external servers altogether. Running local, audited models like Gemma 2 or Llama 3 (following our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)) on your own servers within the local network—isolated from the internet—neutralizes the risk of the model communicating with external nodes.
 
 This secures your proprietary business data and ensures compliance with the strict obligations defined in the [EU AI Act by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
 
@@ -580,7 +580,7 @@ graph TD
 
 Este flujo de enrutamiento inteligente (similar al que explicamos en el [tutorial de automatización de presupuestos](/blog/automatizacion-presupuestos-email-roi-pymes)) garantiza que tu personal cualificado solo atienda llamadas de alto valor comercial, delegando los robos de tiempo rutinarios (¿dónde está mi pedido?, agendar una cita, horarios de apertura) en la IA.
 
-Además, con la inminente entrada en vigor de la [Ley de IA de la UE](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026), es obligatorio informar al usuario de que está hablando con una máquina y registrar los logs de voz en un almacenamiento que cumpla con el RGPD. Desplegar este flujo mediante APIs seguras o infraestructuras híbridas (como detallamos en la [Guía de LLM Local](/blog/guia-infraestructura-local-llm-pymes)) es la única forma de garantizar el cumplimiento normativo.
+Además, con la inminente entrada en vigor de la [Ley de IA de la UE](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026), es obligatorio informar al usuario de que está hablando con una máquina y registrar los logs de voz en un almacenamiento que cumpla con el RGPD. Desplegar este flujo mediante APIs seguras o infraestructuras híbridas (como detallamos en la [Guía de LLM Local](/blog/llm-locales-infraestructura-privada-pymes)) es la única forma de garantizar el cumplimiento normativo.
 
 ## Conclusión
 
@@ -670,7 +670,7 @@ graph TD
 
 This intelligent routing workflow (similar to the one we explained in our [quote automation tutorial](/en/blog/email-quote-automation-smes-roi-calculator)) ensures that your qualified staff only handles high-value commercial calls, delegating routine time sinks (order status, booking appointments, opening hours) to the AI.
 
-Furthermore, with the binding application of the [EU AI Act](/en/blog/eu-ai-act-compliance-smes-2026-obligations), it is mandatory to inform users that they are talking to a machine and store voice logs in GDPR-compliant storage. Deploying this workflow using secure APIs or hybrid setups (as detailed in our [Local LLM Guide](/en/blog/guide-local-llm-infrastructure-smes)) is the only way to guarantee regulatory compliance.
+Furthermore, with the binding application of the [EU AI Act](/en/blog/eu-ai-act-compliance-smes-2026-obligations), it is mandatory to inform users that they are talking to a machine and store voice logs in GDPR-compliant storage. Deploying this workflow using secure APIs or hybrid setups (as detailed in our [Local LLM Guide](/en/blog/local-llm-private-infrastructure-smes)) is the only way to guarantee regulatory compliance.
 
 ## Conclusion
 
@@ -758,7 +758,7 @@ Un agente de IA (como [Grok Build](/blog/grok-build-xai-alternativa-open-source-
 
 ### Capa 2: Conexión con Base de Datos e Inferencia (Local & Secure)
 Para proteger tus datos comerciales y el histórico de clientes, el sistema realiza la consulta a tus bases de datos internas (como Odoo, SAP o Postgres local) usando protocolos de API seguros.
-*   El agente consulta la ficha del cliente en la DB local (detallada en nuestra [Guía de LLM Local](/blog/guia-infraestructura-local-llm-pymes)).
+*   El agente consulta la ficha del cliente en la DB local (detallada en nuestra [Guía de LLM Local](/blog/llm-locales-infraestructura-privada-pymes)).
 *   Aplica las reglas de descuento asignadas a ese cliente en el ERP.
 *   Consulta el stock en tiempo real en los almacenes.
 
@@ -855,7 +855,7 @@ An AI agent (such as [Grok Build](/en/blog/grok-build-xai-open-source-coding-age
 
 ### Layer 2: Database Connection and Inference (Local & Secure)
 To protect your commercial data and customer history, the system queries your internal databases (such as Odoo, SAP, or local Postgres) using secure API protocols.
-*   The agent queries the customer file in the local DB (detailed in our [Local LLM Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+*   The agent queries the customer file in the local DB (detailed in our [Local LLM Guide](/en/blog/local-llm-private-infrastructure-smes)).
 *   It applies the discount rules assigned to that customer in the ERP.
 *   It checks real-time stock levels across warehouses.
 
@@ -940,7 +940,7 @@ Enviar datos de clientes a servidores fuera de la Unión Europea para que sean a
 
 ### Paso 3: Documentar y nombrar un Supervisor Humano
 Para cualquier sistema que clasifique como "Alto Riesgo" o incluso "Riesgo Limitado", debes tener:
-*   Documentación técnica que explique cómo funciona el modelo y con qué datos se ha entrenado o alimentado (mediante pipelines RAG locales, explicados en nuestra [Guía de LLM Local](/blog/guia-infraestructura-local-llm-pymes)).
+*   Documentación técnica que explique cómo funciona el modelo y con qué datos se ha entrenado o alimentado (mediante pipelines RAG locales, explicados en nuestra [Guía de LLM Local](/blog/llm-locales-infraestructura-privada-pymes)).
 *   Un responsable humano designado dentro de la empresa con la capacidad de anular las decisiones tomadas por el agente de IA.
 
 ## Conclusión
@@ -1013,7 +1013,7 @@ Sending customer data to third-party cloud servers outside the European Union to
 
 ### Step 3: Document and Assign a Human Supervisor
 For any system classified as "High Risk" or "Limited Risk," you must maintain:
-*   Detailed technical documentation explaining how the model works and what data it accesses (via local RAG pipelines, detailed in our [Local LLM Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+*   Detailed technical documentation explaining how the model works and what data it accesses (via local RAG pipelines, detailed in our [Local LLM Guide](/en/blog/local-llm-private-infrastructure-smes)).
 *   A designated human supervisor inside the company with the authority to override decisions made by the AI agent.
 
 ## Conclusion
@@ -1488,7 +1488,7 @@ Que un modelo sea "open-source" no significa que sea "gratuito" de ejecutar. Los
 
 Ejecutar un modelo de 2.8T de parámetros es un desafío monumental para cualquier PYME:
 * **Necesidad de VRAM:** Incluso aplicando técnicas de compresión avanzadas de 4 bits (como el nuevo formato [NVIDIA NVFP4](/blog/nvidia-nvfp4-cuantizacion-4bit-punto-flotante-blackwell)), un modelo de este tamaño requiere cientos de gigabytes de memoria gráfica activa.
-* **El coste de los nodos:** A diferencia de modelos pequeños que caben en una sola tarjeta de consumo (como explicamos en nuestra [Guía de LLM Local](/blog/guia-infraestructura-local-llm-pymes)), Kimi K3 en producción requiere clústeres multi-GPU empresariales interconectados por redes de alta velocidad como InfiniBand.
+* **El coste de los nodos:** A diferencia de modelos pequeños que caben en una sola tarjeta de consumo (como explicamos en nuestra [Guía de LLM Local](/blog/llm-locales-infraestructura-privada-pymes)), Kimi K3 en producción requiere clústeres multi-GPU empresariales interconectados por redes de alta velocidad como InfiniBand.
 
 Para la mayoría de las empresas medianas, el camino viable para aprovechar Kimi K3 a corto plazo pasa por consumirlo a través de APIs especializadas o esperar a que la comunidad libere **versiones destiladas y optimizadas de menor tamaño (Mini/Medium)** basadas en su conocimiento de frontera.
 
@@ -1557,7 +1557,7 @@ An open-source release does not mean it is free to execute. The full weights of 
 
 Serving a 2.8T parameter model is a monumental challenge for any SME:
 * **VRAM Requirements:** Even when applying advanced 4-bit compression formats (like the new [NVIDIA NVFP4](/en/blog/nvidia-nvfp4-quantization-4bit-floating-point-blackwell)), a model of this magnitude requires hundreds of gigabytes of active graphics memory.
-* **Node Costs:** Unlike smaller models that fit on a single consumer GPU (as detailed in our [Local LLM Guide](/en/blog/guide-local-llm-infrastructure-smes)), running Kimi K3 in production requires multi-GPU enterprise clusters interconnected by high-speed networks like InfiniBand.
+* **Node Costs:** Unlike smaller models that fit on a single consumer GPU (as detailed in our [Local LLM Guide](/en/blog/local-llm-private-infrastructure-smes)), running Kimi K3 in production requires multi-GPU enterprise clusters interconnected by high-speed networks like InfiniBand.
 
 For most medium-sized businesses, the viable path to leverage Kimi K3 in the short term lies in consuming it via specialized APIs or waiting for the community to release **smaller distilled and optimized versions (Mini/Medium)** based on its frontier knowledge.
 
@@ -1614,7 +1614,7 @@ Este formato híbrido preserva el rango dinámico de los pesos y las activacione
 ---
 
 > ### 🔒 Optimiza tu infraestructura de Inteligencia Artificial
-> ¿Quieres reducir drásticamente el coste mensual de computación en la nube para tus aplicaciones de IA? En **IA4PYMES** te ayudamos a diseñar, cuantizar y desplegar modelos de lenguaje de código abierto de manera ultra-eficiente en tu propio hardware local (revisa nuestra [Guía de Infraestructura de LLM Local](/blog/guia-infraestructura-local-llm-pymes)).
+> ¿Quieres reducir drásticamente el coste mensual de computación en la nube para tus aplicaciones de IA? En **IA4PYMES** te ayudamos a diseñar, cuantizar y desplegar modelos de lenguaje de código abierto de manera ultra-eficiente en tu propio hardware local (revisa nuestra [Guía de Infraestructura de LLM Local](/blog/llm-locales-infraestructura-privada-pymes)).
 > 
 > [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable si no es viable el proyecto, o deducible del coste final de integración).
 
@@ -1689,7 +1689,7 @@ This hybrid structure preserves the dynamic range of both weights and activation
 ---
 
 > ### 🔒 Optimize Your Artificial Intelligence Infrastructure
-> Looking to drastically reduce monthly cloud computing costs for your AI applications? At **IA4PYMES**, we help you design, quantize, and deploy open-source language models efficiently on your own local hardware (check out our [Local LLM Infrastructure Guide](/en/blog/guide-local-llm-infrastructure-smes)).
+> Looking to drastically reduce monthly cloud computing costs for your AI applications? At **IA4PYMES**, we help you design, quantize, and deploy open-source language models efficiently on your own local hardware (check out our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)).
 > 
 > [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if the project is not feasible, or fully credited against final development costs on hire).
 
