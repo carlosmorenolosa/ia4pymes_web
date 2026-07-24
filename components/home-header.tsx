@@ -35,7 +35,17 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
           >
-            <Link href="/" className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault()
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
+              }}
+              className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95"
+              aria-label="Ir al inicio de IA4PYMES"
+            >
               <div className="flex items-center relative tracking-[-0.04em]">
                 <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
                 <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
