@@ -381,7 +381,7 @@ export default async function SectorCityPage({ params }: PageProps) {
           </p>
 
           <Link
-            href="/contacto"
+            href="/#contacto"
             className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
           >
             Quiero una demo gratuita

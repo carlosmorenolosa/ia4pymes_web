@@ -28,23 +28,23 @@ export function HeroES({ splashFinished }: HeroESProps) {
             <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
               <motion.h1
                 id="hero-heading"
-                initial={{ opacity: 0 }}
-                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.05] mb-6 text-slate-900 drop-shadow-sm"
               >
-                Reduce <span className="text-blue-600">Costes</span> y <br className="hidden md:block" />
-                Aumenta tus <br className="hidden md:block" />
-                <span className="text-blue-600">Márgenes</span> con IA
+                Soluciones de <span className="text-blue-600">IA para PYMES</span> <br className="hidden md:block" />
+                que reducen costes y <br className="hidden md:block" />
+                multiplican tus <span className="text-blue-600">márgenes</span>
               </motion.h1>
 
               <motion.p 
-                initial={{ opacity: 0 }}
-                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
-                Somos una agencia especializada en reducir costes operativos y aumentar márgenes de PYMES en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante automatización.
+                Somos una agencia especializada en automatización e <strong className="font-bold text-slate-900">Inteligencia Artificial para PYMES</strong> en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante soluciones a medida.
               </motion.p>
 
               <motion.div 

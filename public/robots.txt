@@ -1,10 +1,33 @@
-# Allow all crawlers
+# Allow search engine crawlers
 User-agent: *
 Allow: /
 
-# Block technical/admin areas
+# Explicit AI Search Engine Crawlers (Generative Engine Optimization - GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Block administrative and internal API routes
 Disallow: /admin/
 Disallow: /api/
 
-# Sitemap location
+# Sitemap and LLM documentation locations
 Sitemap: https://ia4pymes.tech/sitemap.xml
+llmstxt: https://ia4pymes.tech/llms.txt

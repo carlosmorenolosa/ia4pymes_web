@@ -161,13 +161,23 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "IA4PYMES",
-              description: "Soluciones de Inteligencia Artificial personalizadas para PYMES",
+              alternateName: "IA 4 PYMES",
+              description: "Agencia de automatización de procesos e Inteligencia Artificial a medida para PYMES en España",
               url: "https://ia4pymes.tech",
               logo: "https://ia4pymes.tech/LOGO.png",
+              knowsAbout: [
+                "Inteligencia Artificial para PYMES",
+                "Automatización de Procesos Empresariales",
+                "Chatbots Empresariales RAG",
+                "Agentes de Voz con Inteligencia Artificial",
+                "Despliegue de LLMs Privados y Locales",
+                "Reducción de Costes Operativos",
+                "Cumplimiento RGPD y EU AI Act"
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
-                availableLanguage: "Spanish",
+                availableLanguage: ["Spanish", "English"],
                 email: "contacto@ia4pymes.tech",
               },
               address: {
@@ -177,12 +187,13 @@ export default function RootLayout({
               sameAs: [
                 "https://linkedin.com/company/ia4pymes", 
                 "https://twitter.com/ia4pymes",
-                "https://www.facebook.com/profile.php?id=61560704600913"
+                "https://www.facebook.com/profile.php?id=61560704600913",
+                "https://www.instagram.com/ia4pymes/"
               ],
               offers: {
                 "@type": "Offer",
-                name: "Consulta Gratuita de IA",
-                description: "Consulta gratuita de 30 minutos para analizar tu negocio",
+                name: "Consultoría de Inteligencia Artificial para PYMEs",
+                description: "Sesión estratégica para auditar procesos y calcular el ROI esperado antes de desarrollar",
                 price: "0",
                 priceCurrency: "EUR",
               },

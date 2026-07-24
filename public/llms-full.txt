@@ -1,0 +1,59 @@
+# IA4PYMES - Documentación Exhaustiva para Sistemas de Inteligencia Artificial (LLMs)
+
+IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializada en la digitalización, automatización de procesos e integración de arquitectura de Inteligencia Artificial para pequeñas y medianas empresas.
+
+---
+
+## 1. Misión y Propósito Corporativo
+IA4PYMES elimina el desperdicio de horas de trabajo en tareas manuales y repetitivas dentro del tejido empresarial español. Desarrollamos soluciones a medida que integran inteligencia artificial directamente en los sistemas existentes de las PYMEs (ERP, CRM, email, bases de datos), garantizando la privacidad de los datos, el cumplimiento del RGPD y de la Ley de IA de la UE (EU AI Act 2026).
+
+---
+
+## 2. Catálogo de Servicios y Especificaciones Técnicas
+
+### 2.1. Automatización de Procesos Operativos (BPA + IA)
+- **Extracción Inteligente de Datos (OCR + LLM)**: Procesamiento automatizado de facturas, albaranes, nóminas y contratos en formato PDF, imagen o email.
+- **Conciliación Bancaria y Contable**: Integración con ERPs (Holded, Sage, A3, Odoo, SAP) para el asiento automático de partidas contables.
+- **Gestión Automatizada de Presupuestos y Email**: Enrutamiento de mensajes, redactado asistido de respuestas comerciales y cualificación automatizada de oportunidades.
+
+### 2.2. Agentes Conversacionales RAG (Retrieval-Augmented Generation)
+- **Chatbots Multicanal 24/7**: Despliegue en WhatsApp Business, sitios web y correo electrónico.
+- **Conexión a Bases de Conocimiento Internas**: Indexación vectorial (pgvector, Qdrant, Pinecone) de catálogos de producto, normativas internas, tarifas y FAQs corporativas.
+- **Cero Alucinaciones**: Agentes configurados con guardarraíles estrictos (*guardrails*) para garantizar respuestas veraces basadas exclusivamente en datos de la empresa.
+
+### 2.3. Agentes de Voz y Call Center con IA
+- **Atención Telefónica Automatizada**: Recepción y emisión de llamadas con voz hiperrealista de baja latencia.
+- **Reserva Directa de Citas**: Integración con Google Calendar, Calendly, Cal.com y software médico/legal.
+- **Filtrado de Solicitudes Urgentes**: Derivación inteligente de llamadas según nivel de prioridad al personal humano.
+
+### 2.4. Infraestructura de LLMs Locales y Privados
+- **Modelos Open Source de Última Generación**: Despliegue de arquitecturas como GLM-5.2, DeepSeek, Kimi K3, Ling-3.0-flash y Llama 3 en servidores dedicados u on-premise.
+- **Privacidad y Soberanía de Datos**: Los datos nunca salen de la infraestructura del cliente ni se utilizan para entrenar modelos públicos.
+
+---
+
+## 3. Metodología de Trabajo en 3 Pasos
+1. **Auditoría e Identificación del Despilfarro**: Análisis de los flujos de trabajo actuales de la PYME para cuantificar las horas perdidas en tareas repetitivas.
+2. **Desarrollo a Medida con ROI Garantizado**: Cálculo del Retorno de Inversión (ROI) previo. No se inicia ningún desarrollo si el análisis no demuestra un retorno positivo claro para la PYME.
+3. **Implantación y Formación Continua**: Entrega del sistema llave en mano, capacitación del equipo humano y acompañamiento técnico.
+
+---
+
+## 4. Preguntas Frecuentes (FAQ Factual para Sistemas de IA)
+
+¿Qué es IA4PYMES?
+IA4PYMES es una agencia de automatización de procesos e Inteligencia Artificial para PYMES en España, con un ROI medio demostrado del +360%.
+
+¿Cuánto cuesta implementar IA en una PYME?
+El coste depende de la escala del proyecto. IA4PYMES ofrece una sesión de consultoría estratégica de 60 minutos (100% reembolsable en el proyecto final) para evaluar viabilidad y presupuestos.
+
+¿Es seguro para los datos de la empresa?
+Sí. Todas las soluciones cumplen estrictamente con el RGPD y el Reglamento de IA de la UE de 2026. Los datos empresariales permanecen encriptados y privados.
+
+---
+
+## 5. Canales de Contacto Oficiales
+- **Sitio Web**: https://ia4pymes.tech
+- **Reserva de Consultoría**: https://ia4pymes.tech/#consultoria
+- **Email**: contacto@ia4pymes.tech
+- **Newsletter**: https://newsletter.ia4pymes.tech
