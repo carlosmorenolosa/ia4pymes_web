@@ -54,6 +54,43 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 }
 
+function extractFaqsFromMarkdown(content: string): Array<{ question: string; answer: string }> {
+    const faqs: Array<{ question: string; answer: string }> = []
+    const lines = content.split('\n')
+    let currentQuestion = ''
+    let currentAnswerLines: string[] = []
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim()
+        const isHeaderQuestion = /^#{1,4}\s+(¿.+\?|\?.+|.*\?)/i.test(line) || /^#{1,4}\s+.*(FAQ|Preguntas Frecuentes|Questions)/i.test(line)
+        const isQuestionPattern = line.startsWith('**¿') || line.startsWith('¿')
+
+        if (isHeaderQuestion || isQuestionPattern) {
+            if (currentQuestion && currentAnswerLines.length > 0) {
+                const cleanQuestion = currentQuestion.replace(/^#{1,4}\s+/, '').replace(/^\*\*/, '').replace(/\*\*$/, '').trim()
+                const cleanAnswer = currentAnswerLines.join(' ').replace(/[*_#`]/g, '').trim()
+                if (cleanQuestion.length > 5 && cleanAnswer.length > 10) {
+                    faqs.push({ question: cleanQuestion, answer: cleanAnswer })
+                }
+                currentAnswerLines = []
+            }
+            currentQuestion = line
+        } else if (currentQuestion && line.length > 0 && !line.startsWith('#') && !line.startsWith('---')) {
+            currentAnswerLines.push(line)
+        }
+    }
+
+    if (currentQuestion && currentAnswerLines.length > 0) {
+        const cleanQuestion = currentQuestion.replace(/^#{1,4}\s+/, '').replace(/^\*\*/, '').replace(/\*\*$/, '').trim()
+        const cleanAnswer = currentAnswerLines.join(' ').replace(/[*_#`]/g, '').trim()
+        if (cleanQuestion.length > 5 && cleanAnswer.length > 10) {
+            faqs.push({ question: cleanQuestion, answer: cleanAnswer })
+        }
+    }
+
+    return faqs.slice(0, 6)
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params
     const post = getPostBySlug(slug)
@@ -61,6 +98,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     if (!post) {
         notFound()
     }
+
+    const faqs = extractFaqsFromMarkdown(post.content)
 
     return (
         <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30">
@@ -96,6 +135,63 @@ export default async function BlogPostPage({ params }: PageProps) {
                     })
                 }}
             />
+
+            {/* TechArticle JSON-LD Schema (GEO Optimization) */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "TechArticle",
+                        "headline": post.title,
+                        "description": post.description,
+                        "proficiencyLevel": "Intermediate",
+                        "articleSection": post.category,
+                        "inLanguage": "es-ES",
+                        "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
+                        "datePublished": new Date(post.date).toISOString(),
+                        "dateModified": new Date((post as any).updatedAt ?? post.date).toISOString(),
+                        "author": [{
+                            "@type": "Organization",
+                            "name": post.author,
+                            "url": "https://ia4pymes.tech"
+                        }],
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "IA4PYMES",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://ia4pymes.tech/LOGO.png"
+                            }
+                        },
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": `https://ia4pymes.tech/blog/${post.slug}`
+                        }
+                    })
+                }}
+            />
+
+            {/* FAQPage JSON-LD Schema (GEO & Rich Snippets) */}
+            {faqs.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": faqs.map((faq) => ({
+                                "@type": "Question",
+                                "name": faq.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.answer,
+                                },
+                            })),
+                        }),
+                    }}
+                />
+            )}
 
             {/* BreadcrumbList JSON-LD Schema */}
             <script
