@@ -16,6 +16,207 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: GLM-5.2 vs Kimi K3 vs Qwen 3.8 (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes",
+        title: "GLM-5.2 vs. Kimi K3 vs. Qwen 3.8-Max: Comparativa de los Gigantes Open-Source de la IA en 2026",
+        description: "Comparativa técnica de los mayores modelos abiertos de 2026: analizados parámetros MoE (753B vs 2.8T vs 2.4T), precios de API, licencias comerciales y guías de elección para PYMEs.",
+        date: "2026-07-24",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/blog/glm5-vs-kimi-k3-vs-qwen38-comparativa-2026.png",
+        lang: "es",
+        translationSlug: "glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes",
+        content: `
+A finales de **julio de 2026**, la competencia en el ecosistema de inteligencia artificial abierta alcanza su nivel más alto. Tres arquitecturas de parámetros masivos lideran las evaluaciones de razonamiento y desarrollo técnico: **GLM-5.2** (de Z.ai), **Kimi K3** (de Moonshot AI) y **Qwen 3.8-Max** (de Alibaba Cloud).
+
+Para las pequeñas y medianas empresas, evaluar estos tres gigantes no es un ejercicio teórico. Determina el coste de API por millón de tokens, la viabilidad de autoalojar el modelo en servidores privados y la inmunidad ante cambios arbitrarios de condiciones de los grandes proveedores en la nube.
+
+Analizamos la arquitectura interna, los precios de API verificados, el rendimiento en pruebas de programación y el marco de decisión para elegir el modelo adecuado según las necesidades de tu negocio.
+
+---
+
+## Tabla Comparativa de Especificaciones Técnicas
+
+| Parámetro / Métrica | GLM-5.2 (Z.ai) | Kimi K3 (Moonshot AI) | Qwen 3.8-Max (Alibaba) |
+| :--- | :--- | :--- | :--- |
+| **Parámetros Totales** | ~753 Billones (MoE) | 2,8 Trillones (MoE) | ~2,4 Trillones (MoE) |
+| **Parámetros Activos por Token** | **~40 Billones** | **~16 Activos** (de 896 expertos) | No desvelado |
+| **Ventana de Contexto** | 1.000.000 tokens | 1.000.000 tokens | 1.000.000 tokens |
+| **Licencia de Pesos** | **MIT (100% Libre Comercial)** | Pesos abiertos (27 de julio de 2026) | Preview (\`qwen3.8-max-preview\`) |
+| **Precio Entrada (API / 1M tokens)** | **1,40 $** | 3,00 $ (0,30 $ en caché) | Planes de suscripción (6$-68$/mes) |
+| **Precio Salida (API / 1M tokens)** | **4,40 $** | 15,00 $ | Incluido en cuota mensual |
+| **Modalidad Principal** | Texto y Razonamiento Agéntico | Multimodal Nativo (Texto, Imagen, Vídeo) | Multimodal Nativo y Suite Qoder |
+
+---
+
+## Análisis Técnico por Modelo: Puntos Fuertes y Débiles
+
+### 1. GLM-5.2: El Estándar de Producción para Autoalojamiento
+Desarrollado por Z.ai, GLM-5.2 se ha consolidado en julio de 2026 como el modelo abierto de referencia para entornos corporativos reales.
+
+*   **Puntos Fuertes:**
+    *   **Licencia MIT sin restricciones:** Es el único de los tres con pesos 100% abiertos disponibles de forma inmediata sin royalties.
+    *   **Inferencia Rápida con 40B Activos:** Su enrutador MoE permite ejecutarlo en clústeres GPU dedicados con latencias muy bajas.
+    *   **Precios de API agresivos:** A 1,40$ la entrada y 4,40$ la salida por millón de tokens, es la opción más económica para automatización de alto volumen.
+*   **Puntos Débiles:**
+    *   Su foco es puramente textual y de código; carece de procesamiento multimodal de vídeo nativo en comparación con Kimi K3.
+
+### 2. Kimi K3: El Gigante Multimodal de Razonamiento Profundo
+Moonshot AI ha diseñado Kimi K3 como una arquitectura masiva de 2,8 trillones de parámetros orientada a resolver tareas complejas de múltiples pasos.
+
+*   **Puntos Fuertes:**
+    *   **Razonamiento Multimodal Nativo:** Capaz de analizar simultáneamente documentación técnica, planos arquitectónicos, tablas financieras y archivos de vídeo sin herramientas intermedias.
+    *   **Descuentos de Caché Masivos:** Su tarifa de entrada cae a **0,30$ por millón de tokens** cuando se reutilizan contextos largos (Prompt Caching).
+*   **Puntos Débiles:**
+    *   **Verbosidad y Latencia:** Tiende a generar respuestas excesivamente extensas en tareas sencillas, aumentando el coste de salida (15,00$/1M tokens).
+    *   **Requisitos de Infraestructura:** Servir los pesos de 2,8T en local exige clústeres multi-GPU de alta gama interconectados por InfiniBand.
+
+### 3. Qwen 3.8-Max: El Motor Integrado de Alibaba Cloud
+Alibaba posiciona Qwen 3.8-Max como su modelo insignia para entornos de desarrollo y ecosistemas asiáticos.
+
+*   **Puntos Fuertes:**
+    *   **Integración en herramientas de código (QoderWork):** Excelente integración para desarrolladores que trabajan dentro del entorno de desarrollo de Alibaba.
+    *   **Modelo de Suscripción:** Acceso empaquetado en cuotas mensuales fijas, lo que ayuda a predecir costes en equipos de ingeniería pequeños.
+*   **Puntos Débiles:**
+    *   **Fase de Preview Cerrada:** En julio de 2026 no existen pesos descargables ni auditorías independientes de benchmarks de terceros.
+
+---
+
+> ### 🔒 Implementa el Modelo Adecuado en la Infraestructura de tu PYME
+> No todas las empresas necesitan un modelo de 2,8 trillones de parámetros. En **IA4PYMES** analizamos tu volumen de datos, presupuestos de API y requisitos de privacidad para desplegar la arquitectura óptima en tus servidores locales o nube privada.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Cuándo Elegir Cada Modelo en tu Empresa
+
+Para evitar la "Tasa de Integración" y garantizar la rentabilidad operativa, sigue estas pautas según tu caso de uso:
+
+1. **Elige GLM-5.2 si:**
+   * Quieres alojar el modelo en tus propios servidores locales (siguiendo nuestra [guía de infraestructura local de LLM](/blog/llm-locales-infraestructura-privada-pymes)) bajo **licencia MIT**.
+   * Buscas el menor coste de API por token para automatizar tareas contables o agentes de atención al cliente.
+   * Necesitas un motor de razonamiento técnico ligero compatible con la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
+
+2. **Elige Kimi K3 si:**
+   * Tu empresa analiza expedientes complejos con PDFs masivos, contratos con imágenes y diagramas técnicos.
+   * Puedes aprovechar el caché de prompts para reducir el coste de entrada a 0,30$/1M tokens.
+
+3. **Elige Qwen 3.8-Max si:**
+   * Ya utilizas el ecosistema de desarrollo de Alibaba Cloud o buscas un paquete de tarifa plana mensual para tu equipo técnico.
+
+---
+
+## Hoja de Ruta para la Adopción
+
+*   **Paso 1:** Evalúa si tus datos requieren aislamiento local por motivos de privacidad (evitando riesgos como el [escape del sandbox de OpenAI en Hugging Face](/blog/escape-sandbox-openai-ataque-autonomo-hugging-face)).
+*   **Paso 2:** Implementa trazabilidad de llamadas API utilizando frameworks de observabilidad para medir el rendimiento en trayectorias reales (como explicamos en nuestro análisis del [Evaluation Gap en Agentes de IA](/blog/evaluation-gap-agentes-ia-observabilidad-produccion-pymes)).
+*   **Paso 3:** Realiza pruebas A/B con GLM-5.2 e integra la opción con mejor ratio entre precisión y latencia.
+`.trim(),
+    },
+    {
+        slug: "glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes",
+        title: "GLM-5.2 vs. Kimi K3 vs. Qwen 3.8-Max: Comparing 2026's Open-Source AI Giants for Enterprise SMEs",
+        description: "In-depth technical comparison of 2026's top open-source models: analyzing MoE parameters (753B vs 2.8T vs 2.4T), API pricing, commercial licensing, and SME selection frameworks.",
+        date: "2026-07-24",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/blog/glm5-vs-kimi-k3-vs-qwen38-comparativa-2026.png",
+        lang: "en",
+        translationSlug: "glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes",
+        content: `
+By late **July 2026**, competition in the open artificial intelligence ecosystem reaches an all-time high. Three massive Mixture-of-Experts architectures lead technical reasoning and software engineering benchmarks: **GLM-5.2** (by Z.ai), **Kimi K3** (by Moonshot AI), and **Qwen 3.8-Max** (by Alibaba Cloud).
+
+For small and medium-sized enterprises, evaluating these three giants is not an academic exercise. It dictates per-token API expenditure, self-hosting feasibility on private GPU infrastructure, and immunity against cloud vendor lock-in.
+
+We analyze internal model architectures, verified API pricing, coding benchmarks, and strategic decision frameworks to help your business select the right engine.
+
+---
+
+## Technical Specifications Comparison Matrix
+
+| Parameter / Metric | GLM-5.2 (Z.ai) | Kimi K3 (Moonshot AI) | Qwen 3.8-Max (Alibaba) |
+| :--- | :--- | :--- | :--- |
+| **Total Parameters** | ~753 Billion (MoE) | 2.8 Trillion (MoE) | ~2.4 Trillion (MoE) |
+| **Active Params per Token** | **~40 Billion** | **~16 Active** (out of 896 experts) | Undisclosed |
+| **Context Window** | 1,000,000 tokens | 1,000,000 tokens | 1,000,000 tokens |
+| **Weight Licensing** | **MIT (100% Commercial Open)** | Open Weights (July 27, 2026) | Preview (\`qwen3.8-max-preview\`) |
+| **Input Price (API / 1M tokens)** | **$1.40** | $3.00 ($0.30 cached) | Subscription Bundles ($6-$68/mo) |
+| **Output Price (API / 1M tokens)** | **$4.40** | $15.00 | Bundled in monthly fee |
+| **Primary Modality** | Text & Agentic Reasoning | Native Multimodal (Text, Image, Video) | Native Multimodal & Qoder Suite |
+
+---
+
+## Model Breakdown: Strengths and Weaknesses
+
+### 1. GLM-5.2: The Production Standard for Self-Hosting
+Developed by Z.ai, GLM-5.2 has emerged in July 2026 as the benchmark open model for real-world enterprise deployments.
+
+*   **Strengths:**
+    *   **Unrestricted MIT License:** The only model among the three with fully open, royalty-free weights available immediately.
+    *   **Fast Inference via 40B Active:** Its MoE router enables execution on dedicated GPU clusters with sub-20ms per-token latencies.
+    *   **Aggressive API Pricing:** At $1.40 input and $4.40 output per million tokens, it is the most cost-effective choice for high-volume automation.
+*   **Weaknesses:**
+    *   Focuses purely on text and technical code; lacks native video multimodal processing compared to Kimi K3.
+
+### 2. Kimi K3: The Multimodal Deep Reasoning Giant
+Moonshot AI engineered Kimi K3 as a 2.8 trillion parameter architecture designed to solve multi-step complex workflows.
+
+*   **Strengths:**
+    *   **Native Multimodal Reasoning:** Analyzes technical documentation, CAD schematics, financial spreadsheets, and video files simultaneously without external tools.
+    *   **Deep Prompt Caching Discounts:** Input rates drop to **$0.30 per million tokens** when reusing long context windows.
+*   **Weaknesses:**
+    *   **Verbosity & Output Latency:** Tends to produce verbose responses on simple queries, increasing output costs ($15.00/1M tokens).
+    *   **Infrastructure Footprint:** Self-hosting 2.8T parameters locally requires high-end multi-GPU clusters backed by InfiniBand networking.
+
+### 3. Qwen 3.8-Max: Alibaba Cloud's Integrated Engine
+Alibaba positions Qwen 3.8-Max as its flagship engine for enterprise software engineering ecosystems.
+
+*   **Strengths:**
+    *   **Developer Tool Integration (QoderWork):** Native integration for engineering teams working within Alibaba's developer stack.
+    *   **Flat Monthly Tiers:** Bundled subscription pricing helps small engineering teams maintain predictable monthly budgets.
+*   **Weaknesses:**
+    *   **Closed Preview Phase:** As of July 2026, downloadable weights and independent third-party benchmark evaluations remain unavailable.
+
+---
+
+> ### 🔒 Deploy the Right Open Model on Your SME's Infrastructure
+> Not every company requires a 2.8 trillion parameter model. At **IA4PYMES**, we analyze your data volumes, API budgets, and data privacy requirements to deploy the optimal architecture on local servers or private cloud nodes.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Strategic Selection Framework for SMEs
+
+To prevent integration friction and guarantee operational ROI, follow these selection rules:
+
+1. **Select GLM-5.2 IF:**
+   * You plan to self-host on private servers (following our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)) under an **MIT license**.
+   * You require the lowest per-token API cost for customer service agents or accounting automation.
+   * You need an auditable reasoning engine compliant with the [EU AI Act by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
+
+2. **Select Kimi K3 IF:**
+   * Your business processes complex multi-page PDFs, schematics, and financial audit files.
+   * You leverage prompt caching to drop input token costs to $0.30/1M.
+
+3. **Select Qwen 3.8-Max IF:**
+   * You operate within Alibaba Cloud's ecosystem or want a flat-rate monthly developer subscription.
+
+---
+
+## Adoption Roadmap
+
+*   **Step 1:** Audit whether your corporate data requires air-gapped local isolation to mitigate security vulnerabilities like the [OpenAI sandbox escape](/en/blog/openai-sandbox-escape-hugging-face-autonomous-attack-smes).
+*   **Step 2:** Instrument API trajectory tracing to monitor real-world accuracy (aligned with our [AI Agent Evaluation Gap Guide](/en/blog/ai-agent-evaluation-gap-observability-production-smes)).
+*   **Step 3:** Conduct A/B performance testing with GLM-5.2 to select the optimal precision-to-latency ratio.
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: El Evaluation Gap en Agentes de IA (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
