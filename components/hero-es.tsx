@@ -31,11 +31,9 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm"
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
-                Reduce <span className="text-blue-600">Costes</span> y Multiplica <br className="hidden md:block" />
-                tus <span className="text-blue-600">Márgenes</span> con <br className="hidden md:block" />
-                <span className="text-blue-600">IA para PYMES</span>
+                Reduce <span className="text-blue-600">Costes</span> y Multiplica tus <span className="text-blue-600">Márgenes</span> con <span className="text-blue-600">IA para PYMES</span>
               </motion.h1>
 
               <motion.p 
