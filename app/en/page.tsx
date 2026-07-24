@@ -276,29 +276,26 @@ export default function HomeEN() {
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
                   <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
                     id="hero-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1] mb-6 text-slate-900 drop-shadow-sm"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
-                    Cut <span className="text-blue-600">Costs</span> &{" "}
-                    <br className="hidden md:block" />
-                    Grow Your <br className="hidden md:block" />
-                    <span className="text-blue-600">Margins</span> with AI
+                    Cut Costs & Boost Your Margins with <span className="text-blue-600">AI for SMEs</span>
                   </motion.h1>
 
                   <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    We are an agency specialized in reducing operational costs and increasing margins for SMEs.{" "}
+                    We are an agency specialized in automation and <strong className="font-bold text-slate-900">Artificial Intelligence for SMEs</strong>.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
                       Tangible results and guaranteed ROI
                     </strong>{" "}
-                    prove our real impact through automation.
+                    back our real impact through tailored solutions.
                   </motion.p>
 
                   <motion.div
