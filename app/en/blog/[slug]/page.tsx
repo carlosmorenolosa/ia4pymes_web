@@ -108,6 +108,37 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                 }}
             />
 
+            {/* BreadcrumbList JSON-LD Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://ia4pymes.tech/en"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://ia4pymes.tech/en/blog"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": post.title,
+                                "item": `https://ia4pymes.tech/en/blog/${post.slug}`
+                            }
+                        ]
+                    })
+                }}
+            />
+
             <ReadingProgressBar />
 
             {/* Translation banner — links back to ES version */}
