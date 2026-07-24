@@ -16,6 +16,151 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: El Evaluation Gap en Agentes de IA (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "evaluation-gap-agentes-ia-observabilidad-produccion-pymes",
+        title: "El 'Evaluation Gap' en Agentes de IA: Por qué el 70% de las PYMEs fracasa al escalar automatizaciones a producción",
+        description: "Analizamos la brecha entre prototipos y producción en 2026: bucles infinitos de tokens, corrupción silenciosa de datos y cómo implementar trazabilidad con Langfuse, Arize Phoenix y OpenTelemetry.",
+        date: "2026-07-24",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Automatización",
+        image: "/blog/evaluation-gap-agentes-ia-observabilidad-pymes-2026.png",
+        lang: "es",
+        translationSlug: "ai-agent-evaluation-gap-observability-production-smes",
+        content: `
+A mediados de **2026**, más del **70% de los despliegues de agentes autónomos de IA en PYMEs fracasan o sufren interrupciones graves** durante sus primeros tres meses en producción. Aunque las demostraciones internas en herramientas como n8n, LangGraph o CrewAI funcionan con éxito sobre datos de prueba, la realidad operativa destruye la fiabilidad cuando clientes reales o documentos heterogéneos entran en el sistema.
+
+Esta desconexión entre la demostración en laboratorio y la operativa real se conoce como el **"Evaluation Gap" (Brecha de Evaluación)**.
+
+A diferencia del software tradicional, donde una entrada produce una salida determinista, los agentes de IA ejecutan trayectorias no deterministas: secuencias compuestas por razonamiento, llamadas a herramientas externas (*tool calls*), consultas a bases de datos y cambios de estado. Un fallo en el paso 2 de la cadena puede no manifestarse hasta el paso 9, corrompiendo datos o inflando la factura de API sin generar un error 500 explícito.
+
+---
+
+## Los 3 Modos de Fallo Silenciosos en Producción
+
+Las PYMEs que despliegan agentes sin herramientas de supervisión activa suelen descubrir las fallas cuando el problema ya ha generado pérdidas económicas o de reputación:
+
+### 1. Bucles Infinitos de Tokens (Token Loops)
+Cuando un agente encuentra una respuesta ambigua o una API que devuelve una estructura no esperada, el modelo puede entrar en un bucle repetitivo intentando corregirse. Sin un interruptor de emergencia (*circuit breaker*), una sola petición puede consumir cientos de miles de tokens en minutos, aumentando la factura mensual de la API en más de un 800%.
+
+### 2. Corrupción Silenciosa de Datos en ERP y CRM
+Un agente encargado de procesar pedidos o facturas en PDF puede extraer incorrectamente el CIF de un cliente o el importe del IVA y enviarlo directamente a la API de Odoo, SAP o HubSpot. Como el formato JSON es matemáticamente válido, el sistema no lanza ninguna alerta técnica, pero la contabilidad queda desajustada.
+
+### 3. Saturación de Ventana de Contexto y Deriva de Estado
+A medida que la conversación o la tarea se alarga, el agente acumula historial irrelevante. Esto degrada la precisión de razonamiento del modelo hasta en un 45%, provocando que olvide instrucciones iniciales de seguridad o políticas de empresa.
+
+> 📊 **Flujo de Ejecución vs. Observabilidad:**  
+> **Petición del Cliente** ➔ **Razonamiento (Paso 1)** ➔ **Llamada a API ERP (Paso 2)** ➔ **Traza Anidada Langfuse** ➔ **Validación JSON Schema** ➔ **Ejecución Segura**
+
+---
+
+> ### 🔒 Auditoría de Agentes de IA y Arquitectura de Observabilidad
+> No permitas que un agente de IA en producción comprometa tus datos o tu presupuesto. En **IA4PYMES** auditamos tus flujos agénticos e implementamos pipelines de trazabilidad en tiempo real con alertas de coste e interrupción automática.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## El Stack de Observabilidad para la PYME: Langfuse, Phoenix y OpenTelemetry
+
+Superar el *Evaluation Gap* exige pasar de los logs de texto tradicionales a la **trazabilidad anidada de trayectorias (Nested Trajectory Tracing)**. Las herramientas estándar de código abierto en 2026 permiten desplegar esta capa en infraestructura propia:
+
+*   **Langfuse (Open-Source / Self-Hosted):** Plataforma integral que captura cada paso del razonamiento, mide latencias por nodo, gestiona versiones de prompts y registra el coste exacto en céntimos por ejecución.
+*   **Arize Phoenix:** Especializado en evaluación continua (*LLM-as-a-Judge*) y trazabilidad basada en el estándar industrial **OpenTelemetry (OTel)**, ideal para auditar agentes que consultan bases de datos vectoriales (RAG).
+*   **Contratos Estrictos de Herramientas (*Tool Contracts*):** Validación mediante JSON Schema de cada parámetro de entrada y salida generado por el modelo antes de tocar la base de datos corporativa.
+
+---
+
+## Cumplimiento Regulatorio y Ley de IA de la UE
+
+El 2 de agosto de 2026 entra en vigor la fase sancionadora de la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026). La normativa exige que cualquier agente que tome decisiones comerciales o interactúe con usuarios disponga de registros de trazabilidad auditables (*audit logs*).
+
+Desplegar observabilidad en servidores propios o nubes privadas (siguiendo nuestra [guía de infraestructura local de LLM](/blog/llm-locales-infraestructura-privada-pymes)) garantiza la auditabilidad exige la ley sin enviar datos sensibles a plataformas externas, eliminando riesgos como el [escape del sandbox de OpenAI en Hugging Face](/blog/escape-sandbox-openai-ataque-autonomo-hugging-face).
+
+---
+
+## Pasos para Securizar tus Agentes en Producción
+
+1. **Instrumenta trazas OpenTelemetry:** Añade decoradores de trazabilidad en cada llamada a API y función del agente.
+2. **Establece límites de presupuesto por sesión:** Define un máximo estricto de 10 ejecuciones de herramientas por tarea para cortar bucles infinitos.
+3. **Crea una suite de pruebas de regresión:** Antes de actualizar un prompt o cambiar de modelo (por ejemplo, al adoptar modelos abiertos como [Laguna S 2.1 de Poolside](/blog/laguna-s-2-1-poolside-modelo-codigo-abierto-pymes)), ejecuta un banco de pruebas de 50 casos reales para verificar que el porcentaje de éxito no cae.
+4. **Mide el ROI real:** Compara el coste de cómputo frente a las horas ahorradas en el negocio (según los parámetros descritos en nuestro [análisis de ROI de IA en PYMEs](/blog/razones-integrar-inteligencia-artificial-procesos-pymes-2026)).
+`.trim(),
+    },
+    {
+        slug: "ai-agent-evaluation-gap-observability-production-smes",
+        title: "The AI Agent Evaluation Gap: Why 70% of SME Agent Deployments Fail in Production Without Observability",
+        description: "We analyze the gap between prototypes and production in 2026: infinite token loops, silent data corruption, and how to deploy tracing with Langfuse, Arize Phoenix, and OpenTelemetry.",
+        date: "2026-07-24",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Automatización",
+        image: "/blog/evaluation-gap-agentes-ia-observabilidad-pymes-2026.png",
+        lang: "en",
+        translationSlug: "evaluation-gap-agentes-ia-observabilidad-produccion-pymes",
+        content: `
+By mid-**2026**, over **70% of autonomous AI agent deployments in SMEs fail or experience critical disruptions** within their first three months in production. While internal demos built in frameworks like n8n, LangGraph, or CrewAI succeed on static test cases, operational reality breaks reliability when real clients or unstructured documents hit the system.
+
+This disconnect between laboratory prototypes and production systems is known as the **"Evaluation Gap"**.
+
+Unlike traditional software where an input produces a deterministic output, AI agents execute non-deterministic trajectories: sequences composed of multi-step reasoning, external tool calls, database queries, and state mutations. A failure at step 2 of the chain may not manifest until step 9, corrupting data or inflating API bills without raising an explicit 500 error code.
+
+---
+
+## 3 Silent Production Failure Modes
+
+SMEs deploying agents without active observability platforms typically discover failures only after financial or reputational damage has occurred:
+
+### 1. Infinite Token Loops
+When an agent encounters ambiguous user input or an API returning unexpected schemas, the model can enter a repetitive self-correction loop. Without an automated circuit breaker, a single request can consume hundreds of thousands of tokens within minutes, driving monthly API bills up by over 800%.
+
+### 2. Silent Data Corruption in ERP and CRM
+An agent processing PDF invoices or orders might extract an incorrect tax ID or currency value and post it directly to your Odoo, SAP, or HubSpot API. Because the JSON schema is syntactically valid, no technical exception is thrown, but your accounting database is corrupted.
+
+### 3. Context Window Saturation & State Drift
+As long-horizon tasks progress, the agent accumulates irrelevant conversation history. This degrades model reasoning accuracy by up to 45%, causing the agent to ignore system prompts, safety guardrails, or corporate policies.
+
+> 📊 **Execution Trajectory vs. Observability:**  
+> **Client Request** ➔ **Reasoning (Step 1)** ➔ **ERP API Call (Step 2)** ➔ **Langfuse Nested Trace** ➔ **JSON Schema Validation** ➔ **Safe Execution**
+
+---
+
+> ### 🔒 AI Agent Audit and Observability Architecture
+> Do not let unmonitored production agents compromise your corporate data or operating budget. At **IA4PYMES**, we audit agentic workflows and deploy real-time tracing pipelines with cost controls and automated circuit breakers.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final project costs).
+
+---
+
+## The SME Observability Stack: Langfuse, Phoenix, and OpenTelemetry
+
+Closing the *Evaluation Gap* requires shifting from simple HTTP logs to **Nested Trajectory Tracing**. Open-source production platforms in 2026 enable self-hosted deployment:
+
+*   **Langfuse (Open-Source / Self-Hosted):** An all-in-one platform capturing multi-step reasoning trajectories, per-node latencies, prompt version control, and exact cost tracking down to the cent.
+*   **Arize Phoenix:** Specialized in continuous evaluation (*LLM-as-a-Judge*) and tracing based on the **OpenTelemetry (OTel)** industry standard, optimal for auditing retrieval-augmented generation (RAG) pipelines.
+*   **Strict Tool Contracts:** Mandatory JSON Schema input/output validation for every model-generated parameter before committing changes to corporate databases.
+
+---
+
+## Regulatory Compliance and the EU AI Act
+
+On August 2, 2026, the enforcement phase of the [EU AI Act compliance obligations](/en/blog/eu-ai-act-compliance-smes-2026-obligations) takes full effect. Regulations require auditable execution logs for any AI agent taking commercial actions or interacting with end-users.
+
+Deploying open observability on private infrastructure (following our [Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes)) guarantees compliance auditability without uploading sensitive corporate data to external platforms, eliminating remote attack vectors like the [OpenAI sandbox escape](/en/blog/openai-sandbox-escape-hugging-face-autonomous-attack-smes).
+
+---
+
+## Action Plan to Secure Production AI Agents
+
+1. **Instrument OpenTelemetry Tracing:** Wrap every tool call and API request in tracing decorators.
+2. **Enforce Budget & Execution Caps:** Set a hard maximum limit of 10 tool calls per task to kill infinite loops automatically.
+3. **Build an Offline Regression Suite:** Before updating prompts or switching models (e.g. adopting open models like [Poolside Laguna S 2.1](/en/blog/laguna-s-2-1-poolside-open-weights-coding-model-smes)), run a test suite of 50 real production cases to verify accuracy.
+4. **Track Real ROI:** Measure computing expenditure against operational hours saved (aligned with our [SME AI ROI Analysis](/en/blog/why-smes-must-integrate-ai-operational-processes-2026)).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Laguna S 2.1 de Poolside (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
