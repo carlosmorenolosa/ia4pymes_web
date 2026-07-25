@@ -16,6 +16,271 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Tutorial Figma-Context-MCP (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "tutorial-figma-context-mcp-convertir-diseno-codigo-agentes-ia",
+        title: "Tutorial Figma-Context-MCP: Cómo convertir diseños de Figma a código listo para producción con agentes de IA (OpenCode, Pi, Claude Code, Codex)",
+        description: "Guía paso a paso para instalar, configurar y conectar GLips/Figma-Context-MCP a agentes de código por CLI para extraer auto-layout, tokens y componentes sin alucinaciones.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Tutoriales",
+        image: "/blog/figma-context-mcp-ai-agents-code-2026.png",
+        lang: "es",
+        translationSlug: "figma-context-mcp-tutorial-convert-design-code-ai-agents",
+        content: `
+Durante años, el traspaso de diseño a desarrollo (*design handoff*) ha sido una fuente constante de fricción en los equipos de software. Los desarrolladores debían inspeccionar manualmente archivos de Figma, interpretar propiedades de CSS y reconstruir interfaces línea por línea.
+
+La llegada del protocolo **Model Context Protocol (MCP)** y herramientas de código abierto como [GLips/Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP) permite a los agentes de IA de código (**OpenCode, Pi, Claude Code, Codex**) leer directamente la estructura interna de Figma (Auto-Layout, Flexbox, variables, tokens de color y tipografía) y generar código React, Tailwind CSS o HTML con precisión de píxel.
+
+A continuación explicamos cómo configurar este servidor MCP e integrarlo en el flujo de trabajo de tu equipo.
+
+---
+
+## Paso 1: Generar el Token de Acceso Personal (PAT) de Figma
+
+Para que el servidor MCP se comunique con la API de Figma de forma segura, necesitas un token de acceso:
+
+1. Inicia sesión en tu cuenta de **Figma** desde el navegador.
+2. Haz clic en la foto de tu perfil (esquina superior izquierda) y selecciona **Settings**.
+3. Desplázate hasta la sección **Personal Access Tokens**.
+4. Haz clic en **Create new token**, asígnale un nombre (ej. \`mcp-developer-token\`) y asegúrate de seleccionar el permiso de lectura (\`file_read\`).
+5. Copia el token generado y guárdalo en un lugar seguro.
+
+---
+
+## Paso 2: Configuración del Servidor MCP en tu Entorno
+
+Existen dos alternativas para ejecutar el servidor MCP de Figma según las necesidades de tu entorno de desarrollo.
+
+### Opción A: Ejecución Rápida mediante \`npx\` (Recomendada)
+Es la opción más directa para agentes en CLI y editores como Cursor, Claude Desktop o Windsurf:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "figma-developer-mcp": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "TU_TOKEN_DE_FIGMA_AQUI"
+      }
+    }
+  }
+}
+\`\`\`
+
+### Opción B: Instalación Local mediante Repositorio Git
+Si prefieres auditar el código fuente o modificar los componentes extraídos:
+
+\`\`\`bash
+git clone https://github.com/GLips/Figma-Context-MCP.git
+cd Figma-Context-MCP
+pnpm install
+cp .env.example .env
+\`\`\`
+
+Edita el archivo \`.env\` e introduce tu token:
+\`\`\`env
+FIGMA_API_TOKEN=tu_token_de_figma_aqui
+\`\`\`
+
+Construye e inicia el servidor:
+\`\`\`bash
+pnpm build
+pnpm start
+\`\`\`
+
+---
+
+## Paso 3: Conectar el Servidor MCP a tu Agente de Código
+
+La ubicación del archivo de configuración varía según el sistema operativo y el cliente utilizado:
+
+*   **macOS (Claude Desktop / Cursor):** \`~/Library/Application Support/Cursor/mcp.json\` o \`~/Library/Application Support/Claude/claude_desktop_config.json\`
+*   **Windows (Claude Desktop / Cursor):** \`%APPDATA%\\Cursor\\mcp.json\` o \`%APPDATA%\\Claude\\claude_desktop_config.json\`
+*   **Claude Code CLI:** Ejecuta \`claude mcp add figma-developer-mcp -- npx -y figma-developer-mcp --stdio\`
+
+| Agente de Código | Perfil y Método de Conexión |
+| :--- | :--- |
+| **Claude Code** | CLI oficial de Anthropic. Lee herramientas MCP agregadas vía config global o banderas CLI. |
+| **OpenCode** | Agente de código abierto multimodelo. Lee herramientas declaradas en \`~/.config/opencode/mcp.json\`. |
+| **Pi** | Motor ligero enfocado en velocidad de ejecución. Soporta MCP mediante transporte stdio. |
+| **Codex** | Entorno de desarrollo agéntico. Conexión directa mediante \`mcpServers\` en workspace. |
+
+---
+
+## Paso 4: El Flujo de Trabajo en la Práctica (Prompting Técnico)
+
+Una vez conectado el servidor, el agente de IA puede invocar herramientas de inspección de Figma de forma autónoma.
+
+1. Abre el diseño en Figma y copia el enlace del frame o componente específico. El enlace tendrá un formato similar a:
+   \`https://www.figma.com/design/FILE_ID/TITULO?node-id=123-456\`
+2. En la consola o chat de tu agente (OpenCode, Pi, Claude Code o Codex), introduce un prompt técnico directo:
+
+> *"Analiza el nodo de Figma https://www.figma.com/design/xyz/app?node-id=102-45 y genera un componente React funcional en TypeScript utilizando Tailwind CSS v4. Respeta exactamente el padding de Auto-Layout, la jerarquía tipográfica y exporta los iconos SVG integrados."*
+
+### Lo que ocurre en segundo plano:
+* The agente invoca la herramienta MCP para solicitar la estructura en árbol del nodo (\`node-id=102-45\`).
+* El MCP devuelve el archivo JSON limpio con propiedades de flexbox (\`layoutMode: HORIZONTAL\`, \`itemSpacing: 16\`, \`paddingLeft: 24\`), colores en formato hex/rgba y nombres de capas.
+* El agente compila la estructura y escribe directamente el componente \`.tsx\` en tu directorio de trabajo.
+
+---
+
+> 📊 **Comparativa de Tiempos de Implementación de UI:**
+> * **Maquetación Manual:** 3 a 4 horas por pantalla ➔ Errores en espaciados ➔ Revisión de diseño constante
+> * **Flujo Figma-Context-MCP + Agente:** **15 a 20 minutos por pantalla** ➔ Fidelidad estructural del 95% ➔ Código limpio
+
+---
+
+> ### 🔒 Optimiza el Flujo de Desarrollo e Integración de IA en tu Equipo
+> La adopción de agentes de código guiados por contexto requiere establecer guías de arquitectura para evitar deuda técnica. En **IA4PYMES** ayudamos a tu equipo a configurar herramientas agénticas, conectar repositorios y automatizar pipelines de maquetación de forma segura.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Recomendaciones para Maximizar la Calidad del Código Generado
+
+1. **Mantén una estructura limpia en Figma:** Utiliza siempre Auto-Layout en Figma. Si los elementos están posicionados de forma absoluta (*Absolute Positioning*), el agente generará estilos inline con coordenadas fijas en lugar de CSS responsivo.
+2. **Nombra las capas de forma semántica:** Capas nombradas como \`Header\`, \`PrimaryButton\` o \`UserCard\` ayudan al agente a deducir el significado semántico de cada componente HTML (\`<header>\`, \`<button>\`, \`<article>\`).
+3. **Combina con el modelo adecuado:** Para maquetación visual compleja, utiliza modelos de alto rendimiento técnico como [Claude Opus 5](/blog/claude-opus-5-anthropic-lanzamiento-rendimiento-pymes) o [GLM-5.2](/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes).
+4. **Supervisión de Observabilidad:** Implementa trazabilidad de llamadas en producción según lo detallado en nuestro análisis sobre el [Evaluation Gap en Agentes de IA](/blog/evaluation-gap-agentes-ia-observabilidad-produccion-pymes).
+`.trim(),
+    },
+    {
+        slug: "figma-context-mcp-tutorial-convert-design-code-ai-agents",
+        title: "Figma-Context-MCP Tutorial: Converting Figma Designs to Production-Ready Code with AI Agents (OpenCode, Pi, Claude Code, Codex)",
+        description: "Step-by-step guide to installing, configuring, and connecting GLips/Figma-Context-MCP to CLI coding agents to extract auto-layout, design tokens, and components without visual hallucinations.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Tutoriales",
+        image: "/blog/figma-context-mcp-ai-agents-code-2026.png",
+        lang: "en",
+        translationSlug: "tutorial-figma-context-mcp-convertir-diseno-codigo-agentes-ia",
+        content: `
+For years, the design handoff process has been a constant source of friction in software development teams. Developers had to manually inspect Figma files, decipher CSS attributes, and rebuild UI layouts line by line.
+
+The advent of the **Model Context Protocol (MCP)** and open-source tools like [GLips/Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP) enables AI coding agents (**OpenCode, Pi, Claude Code, Codex**) to read Figma's internal data tree directly (Auto-Layout, Flexbox rules, color variables, and typography tokens) and generate pixel-perfect React, Tailwind CSS, or HTML components.
+
+Here is a complete step-by-step tutorial for setting up this MCP server and integrating it into your engineering workflow.
+
+---
+
+## Step 1: Generate Your Figma Personal Access Token (PAT)
+
+To allow the MCP server to communicate securely with the Figma REST API, generate an access token:
+
+1. Log in to **Figma** in your web browser.
+2. Click your profile avatar (top-left corner) and select **Settings**.
+3. Scroll down to the **Personal Access Tokens** section.
+4. Click **Create new token**, name it (e.g. \`mcp-developer-token\`), and select the read scope (\`file_read\`).
+5. Copy the generated token string immediately.
+
+---
+
+## Step 2: Configure the MCP Server Environment
+
+Choose one of two installation methods depending on your local development pipeline.
+
+### Option A: Quick Execution via \`npx\` (Recommended)
+This is the fastest approach for CLI agents and editors like Cursor, Claude Desktop, or Windsurf:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "figma-developer-mcp": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "YOUR_FIGMA_PAT_TOKEN"
+      }
+    }
+  }
+}
+\`\`\`
+
+### Option B: Local Setup via Git Repository
+If you prefer auditing the source code or extending token parsing logic:
+
+\`\`\`bash
+git clone https://github.com/GLips/Figma-Context-MCP.git
+cd Figma-Context-MCP
+pnpm install
+cp .env.example .env
+\`\`\`
+
+Add your token to \`.env\`:
+\`\`\`env
+FIGMA_API_TOKEN=your_figma_pat_token
+\`\`\`
+
+Build and launch:
+\`\`\`bash
+pnpm build
+pnpm start
+\`\`\`
+
+---
+
+## Step 3: Connect the MCP Server to Your AI Coding Agent
+
+Configuration file locations vary by operating system and client interface:
+
+*   **macOS (Claude Desktop / Cursor):** \`~/Library/Application Support/Cursor/mcp.json\` or \`~/Library/Application Support/Claude/claude_desktop_config.json\`
+*   **Windows (Claude Desktop / Cursor):** \`%APPDATA%\\Cursor\\mcp.json\` or \`%APPDATA%\\Claude\\claude_desktop_config.json\`
+*   **Claude Code CLI:** Run \`claude mcp add figma-developer-mcp -- npx -y figma-developer-mcp --stdio\`
+
+| AI Coding Agent | Agent Profile & Connection Method |
+| :--- | :--- |
+| **Claude Code** | Official Anthropic terminal agent. Loads tools via global config or CLI flags. |
+| **OpenCode** | Model-agnostic open-source CLI agent. Loads tools from \`~/.config/opencode/mcp.json\`. |
+| **Pi** | Lightweight agent optimized for low latency execution. Connects via stdio transport. |
+| **Codex** | Agentic IDE environment. Direct connection via workspace \`mcpServers\`. |
+
+---
+
+## Step 4: The Design-to-Code Workflow in Practice (Technical Prompting)
+
+Once connected, your AI agent can query Figma node metadata autonomously.
+
+1. Open your Figma design file and copy the URL of the target frame or component:
+   \`https://www.figma.com/design/FILE_ID/TITLE?node-id=123-456\`
+2. In your CLI terminal or agent chat (OpenCode, Pi, Claude Code, Codex), provide a structured prompt:
+
+> *"Inspect the Figma node https://www.figma.com/design/xyz/app?node-id=102-45 and generate a functional React TypeScript component using Tailwind CSS v4. Respect Auto-Layout padding, font weights, and inline embedded SVG icons."*
+
+### Under the hood:
+* The agent invokes the MCP tool to fetch the structured JSON node tree (\`node-id=102-45\`).
+* The MCP server returns clean flexbox layout attributes (\`layoutMode: HORIZONTAL\`, \`itemSpacing: 16\`, \`paddingLeft: 24\`), color hex values, and semantic layer labels.
+* The agent compiles the data and writes a production-ready \`.tsx\` file directly into your workspace.
+
+---
+
+> 📊 **Frontend UI Implementation Benchmark:**
+> * **Manual Coding:** 3 to 4 hours per screen ➔ Spacing discrepancies ➔ Continuous design revisions
+> * **Figma-Context-MCP + AI Agent:** **15 to 20 minutes per screen** ➔ 95% structural fidelity ➔ Clean code
+
+---
+
+> ### 🔒 Optimize Engineering Workflows and AI Tooling in Your Business
+> Adopting context-aware coding agents requires architectural guardrails to prevent technical debt. At **IA4PYMES**, we help engineering teams configure agentic tools, connect repositories, and automate frontend pipelines securely.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Pro-Tips for Production Code Generation
+
+1. **Maintain Auto-Layout Discipline:** Always construct Figma layers using Auto-Layout. Absolute positioning forces the agent to generate fixed inline coordinates rather than responsive CSS.
+2. **Name Layers Semantically:** Naming layers \`Header\`, \`PrimaryButton\`, or \`UserCard\` allows the agent to infer proper semantic HTML elements (\`<header>\`, \`<button>\`, \`<article>\`).
+3. **Pair with Frontier Reasoning Models:** For complex responsive layouts, pair the agent with frontier coding models like [Claude Opus 5](/en/blog/claude-opus-5-anthropic-launch-performance-smes) or [GLM-5.2](/en/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes).
+4. **Implement Observability:** Track agent trajectory execution in production as outlined in our [AI Agent Evaluation Gap Guide](/en/blog/ai-agent-evaluation-gap-observability-production-smes).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Claude Opus 5 de Anthropic (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
