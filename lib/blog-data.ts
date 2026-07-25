@@ -16,6 +16,263 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Executor.sh MCP Gateway (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "executor-sh-gateway-mcp-unificado-agentes-ia",
+        title: "Executor.sh: Por qué necesitas un Gateway MCP unificado para tus agentes de IA (Claude Code, Cursor, Codex, OpenCode)",
+        description: "Análisis técnico y tutorial de executor.sh: el gateway MCP autoalojado que unifica servidores MCP, especificaciones OpenAPI y GraphQL en un único endpoint seguro.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/blog/executor-sh-mcp-gateway-ai-agents-2026.png",
+        lang: "es",
+        translationSlug: "executor-sh-unified-mcp-gateway-ai-agents",
+        content: `
+A medida que las empresas adoptan múltiples agentes de IA de código (**Claude Code, Cursor, Codex, OpenCode, Pi**), la gestión individual del protocolo **Model Context Protocol (MCP)** se convierte en un cuello de botella informático. 
+
+Mantener decenas de servidores MCP locales (PostgreSQL, GitHub, Figma, Slack, Jira) replicados y dispersos en los archivos \`mcp.json\` del portátil de cada desarrollador genera tres problemas graves: **dispersión de credenciales API**, **mantenimiento duplicado** y **falta de auditoría centralizada**.
+
+Aquí es donde entra **Executor.sh** (\`https://executor.sh/\`), un **MCP Gateway autoalojado** que actúa como punto de acceso único. Cualquier agente compatible con MCP se conecta a un solo endpoint y obtiene acceso seguro y controlado a todas las herramientas de la empresa.
+
+---
+
+## Comparativa: Servidores MCP Individuales vs. Executor.sh Gateway
+
+| Característica | MCPs Individuales en Local | Executor.sh MCP Gateway |
+| :--- | :--- | :--- |
+| **Configuración en Agentes** | Copiar N JSONs en cada cliente/IDE | **1 único endpoint HTTP/stdio para todos los agentes** |
+| **Seguridad de Tokens API** | Claves expuestas en carpetas locales | **Credenciales centralizadas en servidor seguro** |
+| **Soporte de Protocolos** | Solo servidores MCP nativos | **MCP + OpenAPI Specs + GraphQL + Scripts personalizados** |
+| **Actualizaciones de Herramientas** | Reiniciar IDEs y actualizar JSONs | **Hot-reloading centralizado sin reiniciar clientes** |
+| **Trazabilidad y Auditoría** | Imposible de auditar globalmente | **Log central de llamadas conforme a Ley de IA UE** |
+
+---
+
+## Las 5 Ventajas Clave de Executor.sh frente a MCPs Dispersos
+
+1. **Unificación de Endpoints (*Single Point of Connection*):** En lugar de declarar 15 servidores distintos en Cursor, Claude Code y OpenCode, los clientes apuntan a \`http://localhost:8080/mcp\` o ejecutan \`npx -y @executor/client\`.
+2. **Armonización de Protocolos Heterogéneos:** Executor.sh no solo conecta servidores MCP nativos. Convierte automáticamente especificaciones **OpenAPI (Swagger)**, **endpoints GraphQL** y scripts en herramientas legibles para el protocolo MCP.
+3. **Bóveda de Credenciales Corporativas:** Las claves privadas de la empresa (PostgreSQL, GitHub PATs, claves de Stripe) residen en las variables de entorno del servidor Gateway. Los ingenieros no necesitan guardar secretos en sus equipos.
+4. **Cumplimiento de la Ley de IA de la UE (Agosto 2026):** Al pasar todas las mutaciones de herramientas por un único proxy, el Gateway registra cada llamada, entrada y salida, garantizando la trazabilidad obligatoria.
+5. **Recarga en Caliente (*Hot-Reloading*):** Si el equipo de IT añade una nueva herramienta en el Gateway, todos los agentes conectados la detectan inmediatamente sin reiniciar los editores de código.
+
+---
+
+## Tutorial Paso a Paso: Despliegue y Configuración de Executor.sh
+
+### Paso 1: Despliegue del Servidor Gateway mediante Docker
+La forma más estable de ejecutar Executor.sh en tu servidor o máquina local es utilizar Docker:
+
+\`\`\`bash
+docker run -d \\
+  --name executor-mcp-gateway \\
+  -p 8080:8080 \\
+  -v $(pwd)/config:/app/config \\
+  -e GATEWAY_SECRET_KEY="tu_clave_secreta_aqui" \\
+  executor-sh/gateway:latest
+\`\`\`
+
+### Paso 2: Definir el Catálogo de Herramientas (\`executor.yaml\`)
+Crea un archivo de configuración central donde declaras los servicios a unificar:
+
+\`\`\`yaml
+version: "1.0"
+server:
+  port: 8080
+
+tools:
+  - name: postgres-db
+    type: mcp
+    transport: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/db"]
+
+  - name: internal-erp-api
+    type: openapi
+    spec: https://api.tuempresa.com/v1/swagger.json
+    headers:
+      Authorization: "Bearer \${ERP_API_KEY}"
+
+  - name: figma-context
+    type: mcp
+    transport: stdio
+    command: npx
+    args: ["-y", "figma-developer-mcp", "--stdio"]
+    env:
+      FIGMA_API_KEY: "\${FIGMA_PAT_TOKEN}"
+\`\`\`
+
+### Paso 3: Conectar tus Agentes de IA a Executor.sh
+
+En lugar de rellenar decenas de entradas, tu archivo \`mcp.json\` en **Cursor, Claude Desktop, OpenCode, Pi o Codex** queda reducido a esto:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "executor-gateway": {
+      "command": "npx",
+      "args": ["-y", "@executor/client", "--url", "http://localhost:8080/mcp"],
+      "env": {
+        "EXECUTOR_AUTH_TOKEN": "tu_token_de_usuario"
+      }
+    }
+  }
+}
+\`\`\`
+
+---
+
+> 📊 **Impacto en Mantenimiento de Infraestructura de IA:**
+> * **Gestión Manual de MCPs:** 15 servidores x 10 desarrolladores = 150 configuraciones a mantener ➔ Riesgo de fugas de API Keys
+> * **Gateway Executor.sh:** **1 servidor centralizado** ➔ 0 secretos en portátiles ➔ Auditoría en tiempo real
+
+---
+
+> ### 🔒 Centraliza y Asegura la Infraestructura de IA de tu Empresa
+> Desplegar agentes de código sin un proxy o gateway unificado expone a tu empresa a pérdidas de secretos y falta de control normativo. En **IA4PYMES** ayudamos a tu equipo a diseñar e instalar gateways MCP corporativos y arquitecturas de observabilidad.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Recomendaciones Técnicas para Ingenieros
+
+1. **Aislación de Red:** Despliega el contenedor de Executor.sh dentro de tu VPC privada para limitar el acceso al puerto 8080 únicamente a la VPN corporativa.
+2. **Límite de Frecuencia (*Rate Limiting*):** Configura reglas de límite de llamadas en \`executor.yaml\` para evitar que agentes en bucles infinitos agoten las cuotas de APIs de pago.
+3. **Monitoreo de Trazas:** Conecta las métricas de Executor.sh con tus dashboards de observabilidad (Langfuse o Arize Phoenix), conforme a nuestro análisis sobre el [Evaluation Gap en Agentes de IA](/blog/evaluation-gap-agentes-ia-observabilidad-produccion-pymes).
+4. **Combina con el modelo adecuado:** Utiliza modelos de frontera para el razonamiento técnico como [Claude Opus 5](/blog/claude-opus-5-anthropic-lanzamiento-rendimiento-pymes) o [Gemini 3.6 Flash](/blog/gemini-3-6-flash-3-5-flash-cyber-google-pymes).
+`.trim(),
+    },
+    {
+        slug: "executor-sh-unified-mcp-gateway-ai-agents",
+        title: "Executor.sh: Why You Need a Unified MCP Gateway for AI Agents (Claude Code, Cursor, Codex, OpenCode)",
+        description: "Technical review and tutorial on executor.sh: the self-hosted MCP gateway that unifies native MCP servers, OpenAPI specs, and GraphQL into a single secure endpoint.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/blog/executor-sh-mcp-gateway-ai-agents-2026.png",
+        lang: "en",
+        translationSlug: "executor-sh-gateway-mcp-unificado-agentes-ia",
+        content: `
+As enterprise engineering teams adopt multiple AI coding agents (**Claude Code, Cursor, Codex, OpenCode, Pi**), managing individual **Model Context Protocol (MCP)** server connections becomes a major operational bottleneck.
+
+Maintaining dozens of standalone local MCP servers (PostgreSQL, GitHub, Figma, Slack, Jira) scattered across developer \`mcp.json\` files introduces three critical risks: **API key sprawl**, **duplicated maintenance**, and **lack of centralized auditing**.
+
+**Executor.sh** (\`https://executor.sh/\`) solves this by acting as an **open-source, self-hosted MCP Gateway**. Any MCP-compliant AI client connects to a single endpoint and accesses all federated enterprise tools securely.
+
+---
+
+## Comparison: Standalone MCP Servers vs. Executor.sh Gateway
+
+| Feature | Standalone Local MCPs | Executor.sh MCP Gateway |
+| :--- | :--- | :--- |
+| **Client Configuration** | Copy N JSON blocks per developer IDE | **1 single HTTP/stdio endpoint for all agents** |
+| **API Token Security** | Keys exposed in raw local JSON files | **Credentials vault on secure server** |
+| **Protocol Support** | Native MCP servers only | **MCP + OpenAPI Specs + GraphQL + Custom Scripts** |
+| **Tool Updates** | Restart IDEs and update local configs | **Centralized hot-reloading without client restarts** |
+| **Audit Logging** | Impossible to audit centrally | **Centralized audit log for EU AI Act compliance** |
+
+---
+
+## 5 Key Technical Advantages of Executor.sh
+
+1. **Single Point of Connection:** Instead of defining 15 separate server blocks in Cursor, Claude Code, and OpenCode, agents point to \`http://localhost:8080/mcp\` or run \`npx -y @executor/client\`.
+2. **Heterogeneous Protocol Harmonization:** Executor.sh converts **OpenAPI (Swagger) specs**, **GraphQL endpoints**, and custom REST scripts into MCP-compliant tool definitions automatically.
+3. **Enterprise Credentials Vault:** Enterprise private keys (PostgreSQL credentials, GitHub PATs, Stripe keys) remain in the gateway server environment. Developers never store raw API secrets locally.
+4. **EU AI Act Compliance (August 2026):** Routing all tool executions through a single proxy records every input payload and mutation response for mandatory audit trails.
+5. **Hot-Reloading without IDE Restarts:** Adding a new tool on the gateway makes it immediately accessible to all connected AI agents without restarting local IDEs.
+
+---
+
+## Step-by-Step Setup Guide for Executor.sh
+
+### Step 1: Deploy the Gateway Server via Docker
+The most reliable deployment strategy for Executor.sh is Docker:
+
+\`\`\`bash
+docker run -d \\
+  --name executor-mcp-gateway \\
+  -p 8080:8080 \\
+  -v $(pwd)/config:/app/config \\
+  -e GATEWAY_SECRET_KEY="your_secret_key_here" \\
+  executor-sh/gateway:latest
+\`\`\`
+
+### Step 2: Define Your Tool Catalog (\`executor.yaml\`)
+Create a central configuration file declaring federated services:
+
+\`\`\`yaml
+version: "1.0"
+server:
+  port: 8080
+
+tools:
+  - name: postgres-db
+    type: mcp
+    transport: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/db"]
+
+  - name: internal-erp-api
+    type: openapi
+    spec: https://api.yourcompany.com/v1/swagger.json
+    headers:
+      Authorization: "Bearer \${ERP_API_KEY}"
+
+  - name: figma-context
+    type: mcp
+    transport: stdio
+    command: npx
+    args: ["-y", "figma-developer-mcp", "--stdio"]
+    env:
+      FIGMA_API_KEY: "\${FIGMA_PAT_TOKEN}"
+\`\`\`
+
+### Step 3: Connect AI Agents to Executor.sh
+
+Your \`mcp.json\` file across **Cursor, Claude Desktop, OpenCode, Pi, or Codex** collapses to a single entry:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "executor-gateway": {
+      "command": "npx",
+      "args": ["-y", "@executor/client", "--url", "http://localhost:8080/mcp"],
+      "env": {
+        "EXECUTOR_AUTH_TOKEN": "your_user_token"
+      }
+    }
+  }
+}
+\`\`\`
+
+---
+
+> 📊 **AI Tool Infrastructure Maintenance Impact:**
+> * **Manual MCP Management:** 15 servers x 10 developers = 150 config points ➔ API token leaks
+> * **Executor.sh Gateway:** **1 central server** ➔ 0 local secrets ➔ Real-time audit trails
+
+---
+
+> ### 🔒 Centralize and Secure Your Business AI Infrastructure
+> Deploying coding agents without a unified gateway exposes your organization to credential leaks and regulatory gaps. At **IA4PYMES**, we help engineering teams design and deploy corporate MCP gateways and observability stacks.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Architectural Best Practices
+
+1. **Network Isolation:** Deploy the Executor.sh container within your private VPC to restrict port 8080 access exclusively to internal VPN connections.
+2. **Rate Limiting Guardrails:** Configure call frequency rules in \`executor.yaml\` to prevent infinite agent execution loops from exhausting commercial API limits.
+3. **Observability Integration:** Forward gateway metric logs to your telemetry stack (Langfuse or Arize Phoenix) as outlined in our [AI Agent Evaluation Gap Guide](/en/blog/ai-agent-evaluation-gap-observability-production-smes).
+4. **Pair with Frontier Reasoning:** Combine unified gateway tooling with frontier models like [Claude Opus 5](/en/blog/claude-opus-5-anthropic-launch-performance-smes) or [Gemini 3.6 Flash](/en/blog/gemini-3-6-flash-3-5-flash-cyber-google-smes).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Google Gemini 3.6 Flash & 3.5 Flash Cyber (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
