@@ -16,6 +16,163 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Google Gemini 3.6 Flash & 3.5 Flash Cyber (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "gemini-3-6-flash-3-5-flash-cyber-google-pymes",
+        title: "Google lanza Gemini 3.6 Flash y 3.5 Flash Cyber: Reducción del 65% en consumo de tokens para agentes de PYMEs",
+        description: "Análisis del nuevo lanzamiento de Google DeepMind: 1M de tokens de contexto, hasta un 65% de ahorro en llamadas agénticas y modelos especializados en auditoría de ciberseguridad.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Tecnología",
+        image: "/blog/gemini-3-6-flash-cyber-google-2026.png",
+        lang: "es",
+        translationSlug: "gemini-3-6-flash-3-5-flash-cyber-google-smes",
+        content: `
+El **21 de julio de 2026**, Google DeepMind presentó oficialmente la actualización de su familia de modelos rápidos con el lanzamiento de **Gemini 3.6 Flash**, **Gemini 3.5 Flash-Lite** y el modelo especializado **Gemini 3.5 Flash Cyber**.
+
+Esta versión responde directamente al principal problema financiero de las empresas que despliegan agentes autónomos en producción: el coste desmedido por generación excesiva de tokens durante iteraciones multi-paso.
+
+Analizamos las especificaciones técnicas verificadas, la estructura de precios API, las capacidades especializadas en ciberseguridad y su impacto en la arquitectura de sistemas para PYMEs.
+
+---
+
+## Reducción del 65% en Consumo de Tokens Agénticos
+
+Cuando un agente autónomo ejecuta una tarea compleja (como reconciliar facturas contra un ERP o inspeccionar logs de servidores), realiza múltiples llamadas internas a funciones (*tool calling*). En versiones anteriores, cada iteración generaba respuestas verbosas que multiplicaban el coste de la factura API.
+
+Gemini 3.6 Flash introduce un entrenamiento de alineación optimizado para eficiencia de salida:
+
+*   **Ahorro medio:** Genera un **17% menos de tokens de salida** en tareas estándar de programación respecto a Gemini 3.5 Flash.
+*   **Ahorro en flujos agénticos:** Alcanza hasta un **65% de reducción en tokens consumidos** en ejecuciones multi-paso sin pérdida de precisión.
+*   **Benchmarks de ingeniería:** Obtiene un 49% en DeepSWE y un 63,9% en MLE Bench.
+
+---
+
+## Ficha Técnica y Estructura de Precios API
+
+Google ha fijado una tabla de tarifas orientada a entornos corporativos de alta frecuencia:
+
+| Modelo | Ventana de Contexto | Límite Salida | Precio Entrada (1M tokens) | Precio Salida (1M tokens) | Caso de Uso Principal |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Gemini 3.6 Flash** | 1.000.000 tokens | 64.000 tokens | **1,50 $** | **7,50 $** | Agentes de código, RAG masivo y procesamiento multimodal |
+| **Gemini 3.5 Flash-Lite** | 1.000.000 tokens | 8.192 tokens | **0,30 $** | **2,50 $** | Clasificación instantánea (350 tokens/seg) |
+| **Gemini 3.5 Flash Cyber** | 1.000.000 tokens | 32.000 tokens | Bajo piloto corporativo | Bajo piloto corporativo | Auditoría de ciberseguridad y parches automáticos |
+
+---
+
+> 📊 **Comparativa de Costes en Flujos Agénticos Multi-paso (10.000 ejecuciones/mes):**
+> * **Modelo Flash Anterior:** ~15.000.000 tokens de salida ➔ Coste elevado ➔ Latencia acumulada
+> * **Gemini 3.6 Flash:** **~5.250.000 tokens de salida (65% ahorro)** ➔ Latencia sub-segundo ➔ Alta rentabilidad
+
+---
+
+> ### 🔒 Optimiza los Costes de API y la Seguridad de tus Agentes
+> Desplegar agentes sin control de tokens ni validación de endpoints API puede exponer la infraestructura de tu empresa a sobrecostes y vulnerabilidades. En **IA4PYMES** ayudamos a tu equipo a implementar enrutamiento inteligente de modelos y auditorías de seguridad a medida.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Gemini 3.5 Flash Cyber y la Ciberseguridad de APIs
+
+Una de las grandes novedades es **Gemini 3.5 Flash Cyber**, un modelo especializado ajustado con datos de ciberseguridad operacional y la herramienta **CodeMender** de Google.
+
+A medida que los agentes autónomos obtienen permisos para ejecutar mutaciones en bases de datos (Odoo, SAP, Stripe, HubSpot), el principal vector de ataque en 2026 ya no es el engaño mediante texto (*prompt injection*), sino la explotación de las **APIs que ejecutan los agentes**.
+
+Gemini 3.5 Flash Cyber permite a los equipos de IT:
+1. **Auditar llamadas API en tiempo real:** Detectar parámetros anómalos o intentos de inyección de código antes de que impacten en el ERP corporativo.
+2. **Generación automática de parches de seguridad:** Identificar vulnerabilidades en repositorios de código internos y proponer correcciones sin detener el flujo de trabajo.
+
+---
+
+## Recomendaciones para la Arquitectura de tu PYME
+
+*   **Paso 1:** Evalúa migrar tus agentes de extracción y búsqueda RAG a Gemini 3.6 Flash para reducir de inmediato la factura de salida de tokens.
+*   **Paso 2:** Combina modelos comerciales de alta velocidad con servidores privados de modelos abiertos ([GLM-5.2](/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes) o [Ling-3.0-flash](/blog/ling-3-0-flash-inclusion-ai-moe-openrouter-pymes)) para cumplir con la [Ley de IA de la UE de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
+*   **Paso 3:** Conecta tus flujos de diseño y maquetación mediante el protocolo MCP siguiendo nuestro [Tutorial de Figma-Context-MCP](/blog/tutorial-figma-context-mcp-convertir-diseno-codigo-agentes-ia).
+*   **Paso 4:** Garantiza observabilidad completa de las trayectorias agénticas conforme al análisis sobre el [Evaluation Gap en Agentes de IA](/blog/evaluation-gap-agentes-ia-observabilidad-produccion-pymes).
+`.trim(),
+    },
+    {
+        slug: "gemini-3-6-flash-3-5-flash-cyber-google-smes",
+        title: "Google Releases Gemini 3.6 Flash & 3.5 Flash Cyber: 65% Token Consumption Reduction for SME Agents",
+        description: "Technical review of Google DeepMind's new model release: 1M token context, up to 65% savings in multi-turn agentic loops, and specialized cybersecurity auditing models.",
+        date: "2026-07-25",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Tecnología",
+        image: "/blog/gemini-3-6-flash-cyber-google-2026.png",
+        lang: "en",
+        translationSlug: "gemini-3-6-flash-3-5-flash-cyber-google-pymes",
+        content: `
+On **July 21, 2026**, Google DeepMind officially unveiled the latest update to its high-speed model family: **Gemini 3.6 Flash**, **Gemini 3.5 Flash-Lite**, and the specialized **Gemini 3.5 Flash Cyber** model.
+
+This release addresses the single largest financial bottleneck facing enterprises deploying autonomous agents to production: excessive token consumption generated during multi-step execution loops.
+
+We evaluate verified technical specifications, API pricing tables, cybersecurity capabilities, and architectural implications for enterprise SMEs.
+
+---
+
+## 65% Reduction in Agentic Token Consumption
+
+When an autonomous agent performs a complex workflow (such as reconciling invoices against an ERP or analyzing server logs), it triggers consecutive internal function calls (*tool calling*). Previous model generations produced verbose output responses that rapidly inflated API invoices.
+
+Gemini 3.6 Flash introduces alignment fine-tuning engineered specifically for output efficiency:
+
+*   **Average token savings:** Generates **17% fewer output tokens** on standard coding benchmarks compared to Gemini 3.5 Flash.
+*   **Agentic loop savings:** Achieves up to a **65% reduction in output token consumption** during multi-turn agent execution without accuracy loss.
+*   **Engineering benchmarks:** Scores 49% on DeepSWE and 63.9% on MLE Bench.
+
+---
+
+## Technical Specifications and API Pricing
+
+Google established a pricing tier designed for high-frequency enterprise integration:
+
+| Model | Context Window | Output Cap | Input Price (1M tokens) | Output Price (1M tokens) | Primary Use Case |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Gemini 3.6 Flash** | 1,000,000 tokens | 64,000 tokens | **$1.50** | **$7.50** | Coding agents, mass RAG, and multimodal reasoning |
+| **Gemini 3.5 Flash-Lite** | 1,000,000 tokens | 8,192 tokens | **$0.30** | **$2.50** | Instant classification (350 tokens/sec) |
+| **Gemini 3.5 Flash Cyber** | 1,000,000 tokens | 32,000 tokens | Enterprise Pilot | Enterprise Pilot | Cybersecurity auditing and automated patching |
+
+---
+
+> 📊 **Multi-Step Agent Execution Cost Benchmark (10,000 runs/month):**
+> * **Previous Flash Model:** ~15,000,000 output tokens ➔ High API expense ➔ Accumulated latency
+> * **Gemini 3.6 Flash:** **~5,250,000 output tokens (65% savings)** ➔ Sub-second latency ➔ High ROI
+
+---
+
+> ### 🔒 Optimize API Token Expenses and Agent Runtime Security
+> Deploying agents without token controls or API schema validation can expose enterprise systems to unexpected billing spikes and security vulnerabilities. At **IA4PYMES**, we help engineering teams implement intelligent model routing and tailored security audits.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Gemini 3.5 Flash Cyber and API Runtime Security
+
+A key highlight of the release is **Gemini 3.5 Flash Cyber**, a specialized model fine-tuned on operational threat intelligence alongside Google's **CodeMender** framework.
+
+As autonomous agents gain authorization to execute database mutations (Odoo, SAP, Stripe, HubSpot), the primary cyber threat vector in 2026 has shifted from textual prompt injection to exploiting the **API tool endpoints executed by agents**.
+
+Gemini 3.5 Flash Cyber empowers enterprise security teams to:
+1. **Audit API payload requests in real-time:** Flag anomalous parameters or code injection attempts before they reach internal ERP databases.
+2. **Automated patch generation:** Identify security vulnerabilities across internal codebases and propose verified patches without halting production.
+
+---
+
+## SME Architectural Action Plan
+
+*   **Step 1:** Evaluate transitioning high-frequency RAG and extraction agents to Gemini 3.6 Flash to immediately cut output token billing.
+*   **Step 2:** Combine fast commercial endpoints with private self-hosted open models ([GLM-5.2](/en/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes) or [Ling-3.0-flash](/en/blog/ling-3-0-flash-inclusion-ai-moe-openrouter-smes)) to comply with the [EU AI Act by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
+*   **Step 3:** Connect design-to-code pipelines via Model Context Protocol following our [Figma-Context-MCP Tutorial](/en/blog/figma-context-mcp-tutorial-convert-design-code-ai-agents).
+*   **Step 4:** Ensure full observability across agent execution trajectories as detailed in our [AI Agent Evaluation Gap Guide](/en/blog/ai-agent-evaluation-gap-observability-production-smes).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Tutorial Figma-Context-MCP (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
