@@ -313,6 +313,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.8 }}
             onClick={() => goToSlide(index)}
+            aria-label={lang === "en" ? `Go to slide ${index + 1}` : `Ir al caso de éxito ${index + 1}`}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
               }`}
           />
