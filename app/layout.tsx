@@ -6,7 +6,6 @@ import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
 import { LeadsyScript } from "@/components/leadsy-script"
-import { MetricoolScript } from "@/components/metricool-script"
 import Script from "next/script"
 
 const inter = Inter({
@@ -394,7 +393,6 @@ export default function RootLayout({
         <CookieConsent />
         <CustomCursor />
         <LeadsyScript />
-        <MetricoolScript />
       </body>
     </html>
   )
