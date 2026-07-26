@@ -68,13 +68,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <section className="py-20 relative bg-white overflow-hidden text-slate-600">
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
-                >
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
                         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                             {t.heading} <span className="text-blue-600">{t.brand}</span>
@@ -84,11 +78,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                         </p>
                     </div>
 
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
+                    <div>
                         <Link
                             href={t.ctaHref}
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap font-bold shadow-sm"
@@ -96,8 +86,8 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                             {t.cta}
                             <ArrowRight className="w-4 h-4" />
                         </Link>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
 
                 {latestPosts.length === 0 ? (
                     <div className="text-center py-16 text-slate-400 text-sm font-medium">
@@ -106,13 +96,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {latestPosts.map((post, index) => (
-                            <motion.div
-                                key={post.slug}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                            >
+                            <div key={post.slug}>
                                 <Link href={t.postHref(post.slug)} className="cursor-pointer block group h-full">
                                     <article className="h-full flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                                         {/* Image */}
@@ -170,7 +154,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                         </div>
                                     </article>
                                 </Link>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 )}

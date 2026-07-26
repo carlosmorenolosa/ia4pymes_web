@@ -134,12 +134,7 @@ export default function HomeEN() {
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
             {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
-            >
+            <div className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10">
               <Link
                 href="/en"
                 onClick={(e) => {
@@ -156,13 +151,10 @@ export default function HomeEN() {
                   <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
             {/* Centered Navigation Pill */}
-            <motion.nav
-              initial={{ opacity: 0, y: -20 }}
-              animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            <nav
               className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
               aria-label="Main navigation"
             >
@@ -204,18 +196,14 @@ export default function HomeEN() {
                   <span className="text-sm font-bold text-blue-600 cursor-default">EN</span>
                 </div>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
+                <div>
                   <Link
                     href="/en#consultoria"
                     className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                   >
                     Book Consultation
                   </Link>
-                </motion.div>
+                </div>
               </div>
 
               {/* Mobile hamburger */}
@@ -228,7 +216,7 @@ export default function HomeEN() {
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
               </div>
-            </motion.nav>
+            </nav>
           </div>
         </header>
 

@@ -29,12 +29,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={splashFinished ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10"
-          >
+          <div className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10">
             <Link
               href="/"
               onClick={(e) => {
@@ -51,13 +46,10 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
               </div>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Centered Navigation Pill */}
-          <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          <nav
             className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
             aria-label="Navegación principal"
           >
@@ -105,7 +97,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
-          </motion.nav>
+          </nav>
         </div>
       </header>
 

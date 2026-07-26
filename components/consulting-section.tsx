@@ -108,31 +108,17 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Text and Copywriting Column (Left) */}
           <div className="lg:col-span-6 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="space-y-4"
-            >
+            <div className="space-y-4">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
               <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">
                 {t.subtitle}
               </p>
-            </motion.div>
+            </div>
 
-            {/* What's included checklist */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 sm:p-8 space-y-6"
-            >
+            <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 sm:p-8 space-y-6">
               <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <Clock className="w-5 h-5 text-blue-600" />
                 {t.includedHeading}
@@ -167,16 +153,9 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </div>
                 </li>
               </ul>
-            </motion.div>
+            </div>
 
-            {/* Strategic Guarantees */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4"
-            >
+            <div className="space-y-4">
               <div className="flex gap-4 items-start bg-blue-50/50 border border-blue-100/60 rounded-2xl p-5">
                 <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
                 <div>
@@ -196,19 +175,12 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
           </div>
 
           <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-2xl relative"
-            >
-              {/* Top bar styling to make it look like a web app */}
+            <div className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-2xl relative">
               <div className="h-12 bg-slate-100 border-b border-slate-200 flex items-center px-6 gap-2">
                 <span className="w-3 h-3 rounded-full bg-rose-400 block"></span>
                 <span className="w-3 h-3 rounded-full bg-amber-400 block"></span>
@@ -216,7 +188,6 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <span className="text-xs font-semibold text-slate-400 ml-4 select-none">{t.secureText}</span>
               </div>
               
-              {/* Iframe embedding the booking calendar */}
               <div className="w-full bg-white" style={{ height: "720px" }}>
                 <iframe
                   src={t.calUrl}
@@ -225,16 +196,9 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   title={t.titleIframe}
                 />
               </div>
-            </motion.div>
+            </div>
 
-            {/* Price Tag Details (Centered, below the calendar) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col items-center text-center mt-8 lg:mt-12"
-            >
+            <div className="flex flex-col items-center text-center mt-8 lg:mt-12">
               <div>
                 <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
                 <div className="flex items-baseline justify-center gap-2">
@@ -243,7 +207,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
                 <span className="text-xs text-slate-400 block mt-1">{t.totalVat}</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
         </div>

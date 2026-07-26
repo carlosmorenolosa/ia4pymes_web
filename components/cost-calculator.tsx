@@ -61,20 +61,14 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
     return (
         <div className="w-full relative">
-            <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-center md:text-left mb-12 sm:mb-16"
-            >
+            <div className="text-center md:text-left mb-12 sm:mb-16">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
                     {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{" "}{t.headingSuffix}
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     {t.subtitle}
                 </p>
-            </motion.div>
+            </div>
 
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 
@@ -82,19 +76,13 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                 <div className="lg:col-span-7 space-y-10 lg:pr-8">
                     
                     {/* Input: Horas a la semana */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="space-y-5"
-                    >
+                    <div className="space-y-5">
                         <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
                                 {t.labelHours}
                             </span>
-                            <span className="text-2xl font-black text-blue-600">{hoursPerWeek} h</span>
+                            <span className="text-2xl font-black text-blue-600">{hoursPerWeek}h</span>
                         </label>
                         <div className="relative">
                             <input
@@ -108,16 +96,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Input: Número de empleados */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="space-y-5"
-                    >
+                    <div className="space-y-5">
                         <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
@@ -137,16 +119,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Input: Salario por hora */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="space-y-5"
-                    >
+                    <div className="space-y-5">
                         <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
@@ -167,18 +143,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
                 </div>
 
                 {/* Results Section (Right / Bottom) */}
-                <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="lg:col-span-5 relative flex items-center justify-center p-4 lg:p-8"
-                >
+                <div className="lg:col-span-5 relative flex items-center justify-center p-4 lg:p-8">
                     {/* 3D Perspective Wrapper */}
                     <div 
                         className="relative w-full max-w-[420px] aspect-[4/5] sm:aspect-[3/4]"
@@ -255,11 +225,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                     {/* Action Area */}
                                     <div className="mt-8">
-                                        <motion.div
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            className="w-full"
-                                        >
+                                        <div className="w-full">
                                             <Link
                                                 href={t.ctaHref}
                                                 className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)]"
@@ -267,7 +233,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 {t.ctaButton}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </Link>
-                                        </motion.div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +245,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                             ></div>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div>
     )
