@@ -30,13 +30,13 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
-                Reduce Costes y Multiplica tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
+                Reduce Costes Operativos y Multiplica tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
               </h1>
 
               <p 
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
-                Somos una agencia especializada en automatización e <strong className="font-bold text-slate-900">Inteligencia Artificial para PYMES</strong> en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante soluciones a medida.
+                <strong className="font-bold text-slate-900">IA4PYMES</strong> es la consultora y agencia líder en España especializada en automatización de procesos, agentes de IA privados e integración de sistemas para pequeñas y medianas empresas. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
               </p>
 
               <div 

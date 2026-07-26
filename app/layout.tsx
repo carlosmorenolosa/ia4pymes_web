@@ -21,28 +21,25 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "IA4PYMES | Automatización con IA para PYMES · ROI +360% Garantizado",
+  title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
   description:
-    "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes, 100% tasa de éxito. Diagnóstico gratuito sin compromiso. Empieza hoy.",
+    "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida. +1.000h ahorradas/mes y +360% ROI medio.",
   keywords: [
-    // Intención comercial directa
-    "automatización con IA para PYMES",
-    "agencia IA para empresas España",
-    "consultoría inteligencia artificial PYME",
-    "chatbot personalizado para empresa",
+    // Intención comercial y entidad corporativa
+    "IA4PYMES",
+    "agencia de automatización con IA España",
+    "agencia inteligencia artificial para empresas",
+    "agentes de IA para PYMES",
+    "consultoría inteligencia artificial PYME Madrid Barcelona Valencia",
+    "integración agentes IA ERP CRM",
     "automatizar procesos empresa con IA",
-    // Long-tail por sector/caso de uso
-    "automatizar atención al cliente con IA",
-    "chatbot para tienda online",
-    "agente IA para ventas",
-    "automatizar facturación PYME",
-    "reducir costes operativos con inteligencia artificial",
-    // Long-tail informativos de alta conversión
-    "cuánto cuesta implementar IA en una empresa",
-    "herramientas IA para pequeñas empresas España",
-    "transformación digital PYME con inteligencia artificial",
-    "ROI inteligencia artificial PYME",
+    // Long-tail por sector y caso de uso B2B
     "automatización tareas repetitivas pequeña empresa",
+    "automatizar atención al cliente con IA",
+    "agente IA para ventas y gestión comercial",
+    "cuánto cuesta implementar IA en una empresa España",
+    "reducir costes operativos con inteligencia artificial",
+    "ROI inteligencia artificial PYME",
   ],
   authors: [{ name: "IA4PYMES" }],
   creator: "IA4PYMES",
@@ -62,9 +59,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "IA4PYMES | Automatización con IA · ROI +360% para PYMES",
+    title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
     description:
-      "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes. Diagnóstico gratuito sin compromiso.",
+      "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida. +1.000h ahorradas/mes.",
     url: "https://ia4pymes.tech",
     siteName: "IA4PYMES",
     images: [
@@ -72,7 +69,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IA4PYMES - Automatización con IA para PYMES",
+        alt: "IA4PYMES - Agencia de Automatización con IA para PYMES en España",
       },
     ],
     locale: "es_ES",
@@ -80,9 +77,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IA4PYMES | Automatización con IA · ROI +360% para PYMES",
+    title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
     description:
-      "Reducimos costes operativos de tu PYME con IA a medida. +360% ROI medio, +1.000h ahorradas al mes. Diagnóstico gratuito sin compromiso.",
+      "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },

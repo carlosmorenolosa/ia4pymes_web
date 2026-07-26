@@ -166,26 +166,26 @@ export default function Home() {
                   {
                     icon: BarChart2,
                     step: "01",
-                    title: "Analizamos el Despilfarro",
+                    title: "Auditoría Técnica y Diagnóstico de Fugas",
                     description:
-                      "Estudiamos a fondo tu empresa para identificar cada gota de presupuesto que se está perdiendo en tareas manuales y repetitivas que la IA puede resolver hoy mismo.",
-                    benefit: "Ahorro Identificado",
+                      "Estudiamos a fondo los flujos operativos de tu empresa para identificar cuellos de botella y cuantificar las horas desperdiciadas en tareas manuales que la IA puede automatizar.",
+                    benefit: "Fugas de Tiempo Cuantificadas",
                   },
                   {
                     icon: Code,
                     step: "02",
-                    title: "Solución con ROI Asegurado",
+                    title: "Arquitectura de Agentes e Integración ERP/CRM",
                     description:
-                      "No desarrollamos por desarrollar. Creamos una herramienta a medida diseñada específicamente para devolverte la inversión en tiempo récord.",
-                    benefit: "Retorno Garantizado",
+                      "Diseñamos y desarrollamos agentes de IA privados conectando directamente con tus sistemas de gestión (ERP, CRM, bases de datos), garantizando un ROI positivo en tiempo récord.",
+                    benefit: "Integración a Medida Garantizada",
                   },
                   {
                     icon: Settings,
                     step: "03",
-                    title: "Soporte y Mejora Continua",
+                    title: "Despliegue Privado y Escalado Continuo",
                     description:
-                      "Implementamos la solución, formamos a tu equipo y te acompañamos para asegurar que la tecnología evolucione al ritmo que tu empresa crece.",
-                    benefit: "Acompañamiento 24/7",
+                      "Implementamos la solución bajo los más estrictos estándares de privacidad de datos, monitorizando el rendimiento en tiempo real y optimizando los modelos periódicamente.",
+                    benefit: "Privacidad y Control Total",
                   },
                 ].map((process, index, array) => {
                   const IconComponent = process.icon

@@ -259,17 +259,16 @@ export default function HomeEN() {
                     id="hero-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
-                    Cut Costs & Boost Your Margins with <span className="text-blue-600">AI for SMEs</span>
+                    Cut Operational Costs & Scale Your Margins with <span className="text-blue-600">AI for SMEs</span>
                   </h1>
 
                   <p
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    We are an agency specialized in automation and <strong className="font-bold text-slate-900">Artificial Intelligence for SMEs</strong>.{" "}
+                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is Spain's premier AI automation agency. We build custom AI agents, automate repetitive workflows, and integrate LLMs into SME business processes.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
-                      Tangible results and guaranteed ROI
-                    </strong>{" "}
-                    back our real impact through tailored solutions.
+                      +360% average ROI and 1,000+ hours saved monthly
+                    </strong>.
                   </p>
 
                   <div
