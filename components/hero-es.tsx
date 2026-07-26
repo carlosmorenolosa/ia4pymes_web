@@ -26,45 +26,36 @@ export function HeroES({ splashFinished }: HeroESProps) {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
             
             <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
-              <motion.h1
+              <h1
                 id="hero-heading"
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
                 Reduce Costes y Multiplica tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
-              </motion.h1>
+              </h1>
 
-              <motion.p 
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
+              <p 
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
                 Somos una agencia especializada en automatización e <strong className="font-bold text-slate-900">Inteligencia Artificial para PYMES</strong> en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Resultados tangibles y ROI garantizado</strong> avalan nuestro impacto real mediante soluciones a medida.
-              </motion.p>
+              </p>
 
-              <motion.div 
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              <div 
                 className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
               >
                 <Link
                   href="/#consultoria"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95"
                 >
                   Diseñar Hoja de Ruta
                 </Link>
                 <Link
                   href="#casos-exito"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
                 >
                   Explorar casos reales
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </motion.div>
+              </div>
             </div>
 
             <div className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]">

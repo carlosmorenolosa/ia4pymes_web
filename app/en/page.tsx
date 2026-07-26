@@ -255,20 +255,14 @@ export default function HomeEN() {
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
                 <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
-                  <motion.h1
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+                  <h1
                     id="hero-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
                     Cut Costs & Boost Your Margins with <span className="text-blue-600">AI for SMEs</span>
-                  </motion.h1>
+                  </h1>
 
-                  <motion.p
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                  <p
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
                     We are an agency specialized in automation and <strong className="font-bold text-slate-900">Artificial Intelligence for SMEs</strong>.{" "}
@@ -276,53 +270,31 @@ export default function HomeEN() {
                       Tangible results and guaranteed ROI
                     </strong>{" "}
                     back our real impact through tailored solutions.
-                  </motion.p>
+                  </p>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={splashFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+                  <div
                     className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    <Link
+                      href="/en#consultoria"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95"
                     >
-                      <Link
-                        href="/en#consultoria"
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
-                      >
-                        Design AI Roadmap
-                      </Link>
-                    </motion.div>
+                      Design AI Roadmap
+                    </Link>
 
-                    <motion.div
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    <Link
+                      href="#cases"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
                     >
-                      <Link
-                        href="#cases"
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group"
-                      >
-                        <span className="flex items-center justify-center relative overflow-hidden">
-                          Explore real cases
-                        </span>
-                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </motion.div>
-                  </motion.div>
+                      <span className="flex items-center justify-center relative overflow-hidden">
+                        Explore real cases
+                      </span>
+                      <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
-                  animate={
-                    splashFinished
-                      ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }
-                      : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }
-                  }
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
+                <div
                   className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
                 >
                   <div className="w-full max-w-lg sm:max-w-xl">
@@ -334,7 +306,7 @@ export default function HomeEN() {
                       <ThreeAnimatedChip visible={true} />
                     )}
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
