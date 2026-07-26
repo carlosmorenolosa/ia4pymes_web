@@ -172,23 +172,11 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
     return (
         <div className="w-full max-w-3xl mx-auto mb-16 px-4">
-            <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative"
-            >
+            <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
                 {/* Decorative elements removed for pure white theme */}
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Name */}
                         <div className="space-y-2">
                             <label htmlFor="name" className="text-sm font-semibold text-slate-700">{t.name}</label>
@@ -224,15 +212,9 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </p>
                             )}
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Email */}
                         <div className="space-y-2">
                             <label htmlFor="email" className="text-sm font-semibold text-slate-700">{t.email}</label>
@@ -268,16 +250,10 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </p>
                             )}
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Presupuesto */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="space-y-2"
-                    >
+                    <div className="space-y-2">
                         <label htmlFor="budget" className="text-sm font-semibold text-slate-700">{t.budget}</label>
                         <div className="relative">
                             <select
@@ -301,16 +277,10 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 {form.formState.errors.budget.message}
                             </p>
                         )}
-                    </motion.div>
+                    </div>
 
                     {/* Mensaje */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                        className="space-y-2"
-                    >
+                    <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-semibold text-slate-700">{t.message}</label>
                         <textarea
                             id="message"
@@ -325,7 +295,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 {form.formState.errors.message.message}
                             </p>
                         )}
-                    </motion.div>
+                    </div>
 
                     {/* Error general */}
                     {submitStatus === "error" && (
@@ -342,19 +312,11 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     )}
 
                     {/* Botón enviar */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                    >
-                        <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    <div>
+                        <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-600/10"
+                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-600/10 active:scale-95"
                         >
                             <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
                             {isSubmitting ? (
@@ -369,14 +331,14 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 </>
                             )}
                             <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none"></div>
-                        </motion.button>
-                    </motion.div>
+                        </button>
+                    </div>
 
                     <p className="text-center text-xs text-slate-600 mt-4 font-medium">
                         {t.privacyNote}
                     </p>
                 </form>
-            </motion.div>
+            </div>
         </div>
     )
 }
