@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucide-react"
+import { CalIframeEmbed } from "./cal-iframe-embed"
 
 const i18n = {
   es: {
@@ -189,13 +190,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               </div>
               
               <div className="w-full bg-white" style={{ height: "720px" }}>
-                <iframe
-                  src={t.calUrl}
-                  loading="lazy"
-                  style={{ width: "100%", height: "100%", border: "none" }}
-                  className="w-full h-full"
-                  title={t.titleIframe}
-                />
+                <CalIframeEmbed url={t.calUrl} title={t.titleIframe} lang={lang} />
               </div>
             </div>
 
