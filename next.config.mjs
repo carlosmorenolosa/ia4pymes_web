@@ -3,6 +3,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  productionBrowserSourceMaps: true,
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
