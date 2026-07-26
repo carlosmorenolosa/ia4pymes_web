@@ -16,6 +16,293 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Anthropic Defending Code Reference Harness (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "anthropic-defending-code-reference-harness-guia-seguridad-pymes",
+        title: "Anthropic Defending Code Reference Harness: Guía paso a paso para automatizar la auditoría y parcheo de seguridad en PYMEs",
+        description: "Análisis en profundidad y tutorial del nuevo framework open-source de Anthropic: auditoría de código de 6 fases, verificación adversaria con agentes dobles y sandbox seguro gVisor/Docker.",
+        date: "2026-07-26",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Tecnología",
+        image: "/blog/anthropic-defending-code-reference-harness-2026.png",
+        lang: "es",
+        translationSlug: "anthropic-defending-code-reference-harness-sme-security-guide",
+        content: `
+Anthropic ha publicado de forma abierta el repositorio **\`anthropics/defending-code-reference-harness\`**, una arquitectura de referencia diseñada para resolver el problema más crítico en el desarrollo de software corporativo: **la verificación y corrección automatizada de vulnerabilidades sin falsos positivos ni riesgos de seguridad**.
+
+Los escáneres estáticos tradicionales (SAST) generan cientos de alertas falsas que saturan a los equipos de desarrollo. Por otro lado, permitir que un agente de IA escanee y modifique código sin aislamiento estricto puede exponer la red corporativa.
+
+Analizamos cómo funciona este framework de 6 fases, cómo instalarlo paso a paso y su valor estratégico para cumplir con las normativas europeas **NIS2** y la **Ley de IA de la UE**.
+
+---
+
+## Comparativa: Escáneres SAST Tradicionales vs. Reference Harness de Anthropic
+
+| Característica | Escáneres SAST Tradicionales (SonarQube, Snyk) | Anthropic Defending Code Reference Harness |
+| :--- | :--- | :--- |
+| **Detección de Falsos Positivos** | Muy alta (alertas por coincidencias de patrones) | **Casi nula (Verificación Adversaria mediante PoC ejecutable)** |
+| **Corrección de Código** | Sugerencias estáticas genéricas | **Generación de parches Git probados con tests unitarios** |
+| **Entorno de Ejecución** | Escaneo estático en texto plano | **Sandbox aislado en gVisor / Docker con límites rígidos** |
+| **Ciclo de Vida** | Solo fase de descubrimiento | **Ciclo completo de 6 fases: Modelado, Sandbox, Escaneo, PoC, Triaje y Parche** |
+| **Verificación de Explotabilidad** | Imposible (no ejecuta código) | **Agente Adversario B demuestra la brecha antes de avisar al desarrollador** |
+
+---
+
+## Las 6 Fases de la Arquitectura de Seguridad de Anthropic
+
+1. **Modelado de Amenazas (\`Threat Modeling\`):** Define las fronteras de confianza del sistema, identificando puntos de entrada de datos sensibles, endpoints API y librerías de terceros.
+2. **Aislamiento en Sandbox (\`Sandboxing\`):** Aplica la regla fundamental de Anthropic: *"Las restricciones de seguridad deben imponerse en código, no en prompts"*. Utiliza gVisor o contenedores Docker para aislar las llamadas al modelo y restringir el acceso a red y disco.
+3. **Descubrimiento (\`Discovery\`):** El Agente A analiza el código fuente en busca de posibles fallos de seguridad (SQL injection, deserialización no segura, buffer overflow, fugas de memoria).
+4. **Verificación Adversaria (\`Adversarial PoC Verification\`):** Para eliminar los falsos positivos, un Agente B independiente (adversario) intenta construir una prueba de concepto (*Proof-of-Concept*) ejecutable en el sandbox. Si la PoC no logra explotar la brecha, la alerta se descarta automáticamente.
+5. **Triaje (\`Triage\`):** Clasifica y prioriza las vulnerabilidades confirmadas según el estándar de severidad CVSS v3.
+6. **Generación de Parche (\`Patching\`):** Redacta el parche en forma de *git diff*, ejecuta la suite de pruebas unitarias para confirmar que no rompe funcionalidades existentes y verifica que la PoC adversaria ya no tiene efecto.
+
+---
+
+## Tutorial Paso a Paso: Instalación y Uso del Reference Harness
+
+### Paso 1: Requisitos Previos e Instalación
+Asegúrate de contar con Python 3.10+, Docker instalado y activo, y una clave de API de Anthropic (\`ANTHROPIC_API_KEY\`):
+
+\`\`\`bash
+# Clonar el repositorio oficial de Anthropic
+git clone https://github.com/anthropics/defending-code-reference-harness.git
+cd defending-code-reference-harness
+
+# Crear y activar entorno virtual
+python -m venv .venv
+source .venv/bin/activate  # En Windows: .venv\\Scripts\\activate
+
+# Instalar dependencias del sistema
+pip install -r requirements.txt
+\`\`\`
+
+### Paso 2: Configurar el Archivo de Trabajo (\`harness.yaml\`)
+Crea la configuración para indicar la ruta de tu aplicación y el motor de aislamiento:
+
+\`\`\`yaml
+version: "1.0"
+target:
+  directory: "./mi-aplicacion-pyme"
+  language: "python"
+sandbox:
+  type: "docker" # Opciones: "docker", "gvisor"
+  network: "none" # Bloquea acceso saliente a Internet durante el test
+agent:
+  model: "claude-3-7-sonnet" # O "claude-opus-5"
+  max_iterations: 15
+\`\`\`
+
+### Paso 3: Ejecutar la Auditoría Completa de Código
+Lanza el arnés de seguridad desde la terminal:
+
+\`\`\`bash
+python -m harness.cli run \\
+  --config harness.yaml \\
+  --output-dir ./reportes-seguridad
+\`\`\`
+
+El CLI ejecutará el ciclo de 6 fases. En la carpeta \`./reportes-seguridad\` obtendrás:
+* \`verified_vulnerabilities.json\`: Lista de fallos con PoC comprobado.
+* \`patches/\`: Archivos \`.patch\` listos para aplicar con \`git apply\`.
+
+---
+
+## Integración en GitHub Actions (CI/CD)
+
+Puedes añadir este bloque a tu pipeline de GitHub Actions (\`.github/workflows/security-harness.yml\`) para bloquear Pull Requests que introduzcan vulnerabilidades:
+
+\`\`\`yaml
+name: Security Harness Audit
+on: [pull_request]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Harness
+        run: |
+          pip install -r requirements.txt
+      - name: Run Anthropic Security Audit
+        env:
+          ANTHROPIC_API_KEY: \${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m harness.cli run --target-dir . --sandbox docker
+\`\`\`
+
+---
+
+> 📊 **Impacto Operativo en Auditorías de Código:**
+> * **Auditoría Externa Tradicional:** 5.000 € a 15.000 € por pentest manual ➔ Tarda de 2 a 4 semanas ➔ Informes en PDF sin parches
+> * **Anthropic Reference Harness:** **Ejecución en minutos en CI/CD** ➔ 0 falsos positivos (PoC verificado) ➔ Parches Git automáticos
+
+---
+
+> ### 🔒 Protege el Software de tu PYME y Cumple con NIS2 y la Ley de IA
+> La directiva europea NIS2 y la Ley de IA de la UE exigen auditorías de seguridad y trazabilidad en la cadena de suministro de software. En **IA4PYMES** ayudamos a tu empresa a desplegar el arnés de Anthropic y construir pipelines DevSecOps automatizados.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Recomendaciones de Arquitectura para Equipos de IT
+
+1. **Aislamiento Estricto:** Ejecuta siempre el arnés dentro de contenedores gVisor en producción para evitar que PoCs adversarios escapen al sistema host.
+2. **Integra con Gateways MCP:** Conecta el arnés con tu infraestructura unificada siguiendo nuestra guía sobre [Executor.sh MCP Gateway](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+3. **Audita las APIs de tus Agentes:** Asegúrate de validar los contratos JSON de tus herramientas según la alerta de ciberseguridad sobre [Gemini 3.6 Flash y 3.5 Flash Cyber](/blog/gemini-3-6-flash-3-5-flash-cyber-google-pymes).
+4. **Diseña Interfaces Limpias:** Optimiza tus workflows de desarrollo integrando prototipos de diseño mediante el [Tutorial de Figma-Context-MCP](/blog/tutorial-figma-context-mcp-convertir-diseno-codigo-agentes-ia).
+`.trim(),
+    },
+    {
+        slug: "anthropic-defending-code-reference-harness-sme-security-guide",
+        title: "Anthropic Defending Code Reference Harness: Step-by-Step Guide to Automating Security Auditing and Patching for SMEs",
+        description: "In-depth review and tutorial of Anthropic's new open-source repository: 6-stage code auditing pipeline, dual-agent adversarial PoC verification, and secure gVisor/Docker sandboxing.",
+        date: "2026-07-26",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Tecnología",
+        image: "/blog/anthropic-defending-code-reference-harness-2026.png",
+        lang: "en",
+        translationSlug: "anthropic-defending-code-reference-harness-guia-seguridad-pymes",
+        content: `
+Anthropic released **\`anthropics/defending-code-reference-harness\`**, an open-source reference architecture engineered to solve the single hardest problem in software development: **automated vulnerability discovery, verification, and patch generation without false positives or security risks**.
+
+Legacy static application security testing (SAST) scanners produce overwhelming volumes of false positives that paralyze engineering teams. Conversely, allowing unconstrained AI agents to scan and rewrite code without rigid isolation exposes enterprise infrastructure.
+
+We evaluate how this 6-stage framework functions, how to install it step-by-step, and its strategic alignment with European **NIS2** directives and the **EU AI Act**.
+
+---
+
+## Comparison: Legacy SAST Scanners vs. Anthropic Reference Harness
+
+| Feature | Legacy SAST Scanners (SonarQube, Snyk) | Anthropic Defending Code Reference Harness |
+| :--- | :--- | :--- |
+| **False Positive Rate** | Extremely high (pattern-matching alerts) | **Near zero (Adversarial Verification via executable PoC)** |
+| **Code Remediation** | Generic static recommendations | **Automated Git patch generation verified with unit tests** |
+| **Execution Environment** | Static plain-text scanning | **Sandboxed gVisor / Docker container with hard boundaries** |
+| **Security Lifecycle** | Discovery phase only | **Full 6-stage cycle: Threat Modeling, Sandbox, Scan, PoC, Triage, Patch** |
+| **Exploitability Verification** | Impossible (no code execution) | **Adversarial Agent B proves exploitability before alerting engineers** |
+
+---
+
+## The 6 Stages of Anthropic's Security Architecture
+
+1. **Threat Modeling:** Defines system trust boundaries, identifying sensitive data entry points, API endpoints, and third-party libraries.
+2. **Sandboxing:** Enforces Anthropic's core architectural principle: *"Security constraints must be enforced in code, not in prompts"*. Uses gVisor or Docker containers to isolate model invocations and restrict network/disk access.
+3. **Discovery:** Scanner Agent A analyzes source code for security flaws (SQL injection, unsafe deserialization, buffer overflows, memory leaks).
+4. **Adversarial PoC Verification:** To eliminate false positives, an independent Adversarial Agent B attempts to construct an executable Proof-of-Concept (PoC) within the sandbox. If the PoC fails to exploit the flaw, the alert is automatically discarded.
+5. **Triage:** Classifies and ranks verified vulnerabilities according to CVSS v3 severity standards.
+6. **Patching:** Drafts candidate *git diff* patches, runs unit test suites to prevent regression, and confirms the adversarial PoC no longer executes.
+
+---
+
+## Step-by-Step Installation & Setup Tutorial
+
+### Step 1: Prerequisites and Installation
+Ensure you have Python 3.10+, Docker installed and active, and an Anthropic API Key (\`ANTHROPIC_API_KEY\`):
+
+\`\`\`bash
+# Clone official Anthropic repository
+git clone https://github.com/anthropics/defending-code-reference-harness.git
+cd defending-code-reference-harness
+
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\\Scripts\\activate
+
+# Install dependencies
+pip install -r requirements.txt
+\`\`\`
+
+### Step 2: Configure Workspace Settings (\`harness.yaml\`)
+Create a central configuration file targeting your application:
+
+\`\`\`yaml
+version: "1.0"
+target:
+  directory: "./my-app"
+  language: "python"
+sandbox:
+  type: "docker" # Options: "docker", "gvisor"
+  network: "none" # Blocks outgoing internet access during testing
+agent:
+  model: "claude-3-7-sonnet" # Or "claude-opus-5"
+  max_iterations: 15
+\`\`\`
+
+### Step 3: Run Full Security Audit Pipeline
+Execute the security harness from your terminal:
+
+\`\`\`bash
+python -m harness.cli run \\
+  --config harness.yaml \\
+  --output-dir ./security-reports
+\`\`\`
+
+The CLI runs the 6-stage lifecycle. Inside \`./security-reports\`, you will find:
+* \`verified_vulnerabilities.json\`: Verified flaws backed by executable PoCs.
+* \`patches/\`: \`.patch\` files ready to apply via \`git apply\`.
+
+---
+
+## CI/CD Pipeline Integration (GitHub Actions)
+
+Add this workflow to \`.github/workflows/security-harness.yml\` to block vulnerable Pull Requests automatically:
+
+\`\`\`yaml
+name: Security Harness Audit
+on: [pull_request]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Harness
+        run: |
+          pip install -r requirements.txt
+      - name: Run Anthropic Security Audit
+        env:
+          ANTHROPIC_API_KEY: \${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m harness.cli run --target-dir . --sandbox docker
+\`\`\`
+
+---
+
+> 📊 **Operational Impact on Code Security:**
+> * **Traditional External Audit:** $5,000 to $15,000 per manual pentest ➔ Takes 2-4 weeks ➔ Static PDF reports
+> * **Anthropic Reference Harness:** **Runs in minutes in CI/CD** ➔ Near-zero false positives ➔ Automated Git patches
+
+---
+
+> ### 🔒 Secure Your SME Codebase and Comply with NIS2 & EU AI Act
+> European NIS2 directives and the EU AI Act require strict security auditing and supply-chain traceability. At **IA4PYMES**, we help engineering teams deploy Anthropic's reference harness and establish automated DevSecOps pipelines.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Architectural Best Practices
+
+1. **Strict Sandboxing:** Always run the harness inside gVisor containers in production to prevent adversarial PoCs from escaping to host machines.
+2. **Integrate with Unified Gateways:** Route tool connections through a centralized proxy following our [Executor.sh MCP Gateway Guide](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+3. **Audit Agent API Endpoints:** Ensure strict schema validation on all tool payloads as detailed in our [Gemini 3.6 Flash and 3.5 Flash Cyber Analysis](/en/blog/gemini-3-6-flash-3-5-flash-cyber-google-smes).
+4. **Streamline Design Workflows:** Pair security automation with design-to-code pipelines via our [Figma-Context-MCP Tutorial](/en/blog/figma-context-mcp-tutorial-convert-design-code-ai-agents).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Executor.sh MCP Gateway (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
