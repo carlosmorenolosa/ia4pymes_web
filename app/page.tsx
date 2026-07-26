@@ -416,13 +416,13 @@ export default function Home() {
                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Nuestro Proceso</Link>
+                    <Link href="/#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Nuestro Proceso</Link>
                   </li>
                   <li>
-                    <Link href="#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Casos de Éxito</Link>
+                    <Link href="/#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Casos de Éxito</Link>
                   </li>
                   <li>
-                    <Link href="#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Calculadora ROI</Link>
+                    <Link href="/#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Calculadora ROI</Link>
                   </li>
                   <li>
                     <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Blog de Noticias</Link>

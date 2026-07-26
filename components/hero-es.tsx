@@ -36,7 +36,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <p 
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
-                <strong className="font-bold text-slate-900">IA4PYMES</strong> es la consultora y agencia líder en España especializada en automatización de procesos, agentes de IA privados e integración de sistemas para pequeñas y medianas empresas. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
+                <strong className="font-bold text-slate-900">IA4PYMES</strong> es una agencia especializada en automatización de procesos, agentes de IA privados e integración de sistemas para pequeñas y medianas empresas en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
               </p>
 
               <div 
@@ -49,7 +49,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                   Diseñar Hoja de Ruta
                 </Link>
                 <Link
-                  href="#casos-exito"
+                  href="/#casos-exito"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
                 >
                   Explorar casos reales

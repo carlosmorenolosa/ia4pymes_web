@@ -265,7 +265,7 @@ export default function HomeEN() {
                   <p
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is Spain's premier AI automation agency. We build custom AI agents, automate repetitive workflows, and integrate LLMs into SME business processes.{" "}
+                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is an agency specialized in AI automation, private AI agents, and system integration for SMEs in Spain.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
                       +360% average ROI and 1,000+ hours saved monthly
                     </strong>.
@@ -282,7 +282,7 @@ export default function HomeEN() {
                     </Link>
 
                     <Link
-                      href="#cases"
+                      href="/en#cases"
                       className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
                     >
                       <span className="flex items-center justify-center relative overflow-hidden">

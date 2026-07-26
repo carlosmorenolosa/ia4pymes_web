@@ -56,9 +56,9 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               {[
-                { href: "#proceso", label: "Proceso" },
-                { href: "#casos-exito", label: "Casos" },
-                { href: "#calculadora", label: "Calculadora" },
+                { href: "/#proceso", label: "Proceso" },
+                { href: "/#casos-exito", label: "Casos" },
+                { href: "/#calculadora", label: "Calculadora" },
                 { href: "/blog", label: "Blog" },
               ].map(({ href, label }) => (
                 <Link
@@ -113,9 +113,9 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           </button>
           <div className="w-full flex flex-col gap-4 items-center">
             {[
-              { href: "#proceso", label: "Proceso" },
-              { href: "#casos-exito", label: "Casos de Éxito" },
-              { href: "#calculadora", label: "Calculadora" },
+              { href: "/#proceso", label: "Proceso" },
+              { href: "/#casos-exito", label: "Casos de Éxito" },
+              { href: "/#calculadora", label: "Calculadora" },
               { href: "/blog", label: "Blog" },
             ].map(({ href, label }) => (
               <Link
