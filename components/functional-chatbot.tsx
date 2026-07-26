@@ -31,6 +31,10 @@ export function FunctionalChatbot({
       sender: "PymerIA",
       content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡",
     },
+    {
+      sender: "PymerIA",
+      content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇",
+    },
   ])
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
