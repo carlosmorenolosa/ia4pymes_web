@@ -38,7 +38,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.google-analytics.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu https://*.metricool.com https://ddwl4m2hdecbv.cloudfront.net",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu https://*.metricool.com https://ddwl4m2hdecbv.cloudfront.net",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
