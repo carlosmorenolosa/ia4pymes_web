@@ -11,13 +11,10 @@ function checkIsBot() {
 }
 
 export function HomeHeroWrapper() {
-  const [splashFinished, setSplashFinished] = useState(checkIsBot)
-
   return (
     <>
-      <SplashScreen onComplete={() => setSplashFinished(true)} />
-      <HomeHeader splashFinished={splashFinished} />
-      <HeroES splashFinished={splashFinished} />
+      <HomeHeader splashFinished={true} />
+      <HeroES splashFinished={true} />
     </>
   )
 }

@@ -125,8 +125,6 @@ export default function HomeEN() {
 
   return (
     <>
-      <SplashScreen onComplete={() => setSplashFinished(true)} />
-
       <main className="bg-transparent">
         {/* Navigation */}
         <header

@@ -46,9 +46,9 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </motion.p>
 
               <motion.div 
-                initial={{ opacity: 0 }}
-                animate={splashFinished ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
               >
                 <Link
@@ -68,20 +68,18 @@ export function HeroES({ splashFinished }: HeroESProps) {
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
-              animate={splashFinished ? { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" } : { opacity: 0, scale: 0.9, rotate: 5, filter: "blur(10px)" }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
             >
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">
-                {splashFinished && (
-                  isBot ? (
-                    <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
-                      IA4PYMES Chatbot
-                    </div>
-                  ) : (
-                    <AnimatedChip visible={splashFinished} />
-                  )
+                {isBot ? (
+                  <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
+                    IA4PYMES Chatbot
+                  </div>
+                ) : (
+                  <AnimatedChip visible={true} />
                 )}
               </div>
             </motion.div>
