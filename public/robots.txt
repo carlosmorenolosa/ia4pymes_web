@@ -30,4 +30,4 @@ Disallow: /api/
 
 # Sitemap and LLM documentation locations
 Sitemap: https://ia4pymes.tech/sitemap.xml
-llmstxt: https://ia4pymes.tech/llms.txt
+# LLM documentation: https://ia4pymes.tech/llms.txt
