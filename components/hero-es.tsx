@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { AnimatedChip } from "./home-dynamic-imports"
+import { ThreeAnimatedChip } from "./three-animated-chip"
 
 interface HeroESProps {
   splashFinished: boolean
@@ -67,22 +67,17 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </motion.div>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
-            >
+            <div className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]">
               <div className="w-full max-w-lg sm:max-w-xl min-h-[400px]">
                 {isBot ? (
                   <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
                     IA4PYMES Chatbot
                   </div>
                 ) : (
-                  <AnimatedChip visible={true} />
+                  <ThreeAnimatedChip visible={true} />
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
