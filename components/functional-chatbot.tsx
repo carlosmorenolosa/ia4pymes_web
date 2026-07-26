@@ -26,7 +26,12 @@ export function FunctionalChatbot({
   visible?: boolean,
   minimal?: boolean
 }) {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      sender: "PymerIA",
+      content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡",
+    },
+  ])
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isInitialTyping, setIsInitialTyping] = useState(false)
@@ -36,72 +41,10 @@ export function FunctionalChatbot({
   const sessionIdRef = useRef<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Eliminamos el auto-focus automático que causaba saltos de scroll en móviles
-  // El foco ahora se gestionará solo tras una interacción explícita del usuario
-
-
   useEffect(() => {
     // crypto.randomUUID() is supported in all modern browsers
     sessionIdRef.current = crypto.randomUUID()
   }, [])
-
-  useEffect(() => {
-    if (minimal) {
-      // Widget mode: show a single relevant welcome message
-      setIsInitialTyping(true)
-      const t = setTimeout(() => {
-        setIsInitialTyping(false)
-        setMessages([{
-          sender: "PymerIA",
-          content: "¡Hola! 👋 Soy **PymerIA**, el asistente de **IA4PYMES**. Cuéntame en qué sector está tu negocio y te digo cómo la IA puede ayudarte a ahorrar tiempo y dinero."
-        }])
-      }, 1200)
-      return () => clearTimeout(t)
-    }
-    if (!visible) {
-      setIsInitialTyping(false);
-      return;
-    }
-
-    setIsInitialTyping(true);
-
-    // Stage 1: First high-impact CTA after a longer typing period (3s)
-    const t1 = setTimeout(() => {
-      setIsInitialTyping(false);
-      setMessages([{ 
-        sender: "PymerIA", 
-        content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡" 
-      }]);
-    }, 3000)
-
-    // Stage 2: Second typing block starts shortly after first message (4.5s total)
-    const t2 = setTimeout(() => {
-      setMessages(prev => {
-        if (prev.length === 1) setIsInitialTyping(true)
-        return prev
-      })
-    }, 4500)
-
-    // Stage 3: Second direct CTA after more typing (8s total)
-    const t3 = setTimeout(() => {
-      setIsInitialTyping(false);
-      setMessages(prev => {
-        if (prev.length === 1) {
-          return [...prev, { 
-            sender: "PymerIA", 
-            content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇" 
-          }]
-        }
-        return prev
-      });
-    }, 8000)
-
-    return () => {
-      clearTimeout(t1)
-      clearTimeout(t2)
-      clearTimeout(t3)
-    }
-  }, [visible])
 
   useEffect(() => {
     // Determine active interaction: input is focused AND we aren't waiting for a response.
