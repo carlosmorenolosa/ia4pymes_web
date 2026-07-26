@@ -191,6 +191,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               <div className="w-full bg-white" style={{ height: "720px" }}>
                 <iframe
                   src={t.calUrl}
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", border: "none" }}
                   className="w-full h-full"
                   title={t.titleIframe}
