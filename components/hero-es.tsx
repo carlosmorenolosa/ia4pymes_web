@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { AnimatedChip } from "./home-dynamic-imports"
+import { ThreeAnimatedChip } from "./three-animated-chip"
 
 interface HeroESProps {
   splashFinished: boolean
@@ -74,7 +74,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                     IA4PYMES Chatbot
                   </div>
                 ) : (
-                  <AnimatedChip visible={true} />
+                  <ThreeAnimatedChip visible={true} />
                 )}
               </div>
             </div>

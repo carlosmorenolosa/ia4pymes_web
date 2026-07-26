@@ -32,13 +32,7 @@ const SuccessCasesCarousel = dynamic(
   }
 )
 
-const AnimatedChip = dynamic(
-  () => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip),
-  {
-    loading: () => <div className="w-full max-w-sm aspect-square bg-slate-100 rounded-3xl animate-pulse mx-auto" />,
-    ssr: false,
-  }
-)
+import { ThreeAnimatedChip } from "@/components/three-animated-chip"
 
 const ContactForm = dynamic(() => import("@/components/contact-form").then((mod) => mod.ContactForm), {
   ssr: false,
@@ -337,7 +331,7 @@ export default function HomeEN() {
                         IA4PYMES Chatbot
                       </div>
                     ) : (
-                      <AnimatedChip visible={splashFinished} />
+                      <ThreeAnimatedChip visible={true} />
                     )}
                   </div>
                 </motion.div>
