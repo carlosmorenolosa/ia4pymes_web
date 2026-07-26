@@ -189,9 +189,9 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
-                                        <h4 className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
+                                        <div className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
                                             {t.cardTitle}
-                                        </h4>
+                                        </div>
                                         <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
                                     </div>
 
@@ -207,7 +207,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                         </div>
 
                                         <div className="pt-2 flex flex-col items-center">
-                                            <span className="text-slate-400 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
+                                            <span className="text-slate-600 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
                                                 <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
                                                     {results.year.toLocaleString(t.locale)} €

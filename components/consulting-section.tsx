@@ -185,7 +185,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <span className="w-3 h-3 rounded-full bg-rose-400 block"></span>
                 <span className="w-3 h-3 rounded-full bg-amber-400 block"></span>
                 <span className="w-3 h-3 rounded-full bg-emerald-400 block"></span>
-                <span className="text-xs font-semibold text-slate-400 ml-4 select-none">{t.secureText}</span>
+                <span className="text-xs font-semibold text-slate-600 ml-4 select-none">{t.secureText}</span>
               </div>
               
               <div className="w-full bg-white" style={{ height: "720px" }}>
