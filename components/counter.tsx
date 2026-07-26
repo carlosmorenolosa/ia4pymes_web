@@ -39,12 +39,10 @@ export const useCounter = (end: number, duration = 1500) => {
 }
 
 export const Counter = ({ target, prefix = "", suffix = "" }: { target: number; prefix?: string; suffix?: string }) => {
-  const { count, ref } = useCounter(target)
-
   return (
-    <span ref={ref}>
+    <span>
       {prefix}
-      {count}
+      {target}
       {suffix}
     </span>
   )

@@ -117,9 +117,7 @@ export default function RootLayout({
             __html: `(function(){try{if(navigator.webdriver || /Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
           }}
         />
-        {/* Preconnect y DNS prefetch para recursos externos críticos */}
-        <link rel="preconnect" href="https://r2.leadsy.ai" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        {/* DNS prefetch para recursos externos */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
