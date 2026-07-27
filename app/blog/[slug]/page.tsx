@@ -362,6 +362,18 @@ export default async function BlogPostPage({ params }: PageProps) {
                                         {children}
                                     </blockquote>
                                 ),
+                                pre: ({ children }) => (
+                                    <div className="my-8 overflow-x-auto max-w-full rounded-2xl border border-white/10 bg-slate-950/80 p-5 font-mono text-sm leading-relaxed text-slate-200">
+                                        <pre className="overflow-x-auto whitespace-pre-wrap break-words">{children}</pre>
+                                    </div>
+                                ),
+                                code: ({ className, children, ...props }) => {
+                                    return (
+                                        <code className={`${className || ''} break-words font-mono text-sm text-blue-300`} {...props}>
+                                            {children}
+                                        </code>
+                                    );
+                                },
                                 a: ({ href, children }) => {
                                     if (href && (href.startsWith('/') || href.startsWith('#'))) {
                                         return (
