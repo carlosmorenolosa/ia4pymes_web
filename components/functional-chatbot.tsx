@@ -3,12 +3,15 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import dynamic from "next/dynamic"
 import { Send, MessageCircle } from "lucide-react"
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import rehypeSanitize from "rehype-sanitize"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+
+const MarkdownRenderer = dynamic(() => import("./markdown-renderer"), {
+  ssr: false,
+  loading: () => <span className="animate-pulse">...</span>,
+})
 
 interface Message {
   sender: string
@@ -261,26 +264,7 @@ export function FunctionalChatbot({
                 ? "text-slate-600 prose-strong:text-slate-700"
                 : "text-slate-800 prose-strong:text-blue-600"
                 }`}>
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  rehypePlugins={[rehypeSanitize]}
-                  components={{
-                    p: ({ children }) => <p className={`mb-1 last:mb-0 ${minimal ? "text-xs leading-relaxed" : "text-xs sm:text-sm mb-2"}`}>{children}</p>,
-                    ul: ({ children }) => (
-                      <ul className={`list-disc list-inside space-y-0.5 ${minimal ? "text-xs" : "text-xs sm:text-sm"}`}>{children}</ul>
-                    ),
-                    ol: ({ children }) => (
-                      <ol className={`list-decimal list-inside space-y-0.5 ${minimal ? "text-xs" : "text-xs sm:text-sm"}`}>{children}</ol>
-                    ),
-                    strong: ({ children }) => (
-                      <strong className={msg.sender === "User" ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
-                        {children}
-                      </strong>
-                    ),
-                  }}
-                >
-                  {msg.content}
-                </ReactMarkdown>
+                <MarkdownRenderer content={msg.content} minimal={minimal} isUser={msg.sender === "User"} />
               </div>
             </div>
           </motion.div>

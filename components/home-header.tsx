@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { SplashScreen } from "@/components/splash-screen"
@@ -77,14 +76,14 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <Link href="/en" className="text-sm font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
                   href="/#consultoria"
                   className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
-              </motion.div>
+              </div>
             </div>
 
             {/* Mobile burger */}
