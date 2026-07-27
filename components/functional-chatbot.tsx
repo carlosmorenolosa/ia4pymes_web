@@ -166,7 +166,7 @@ export function FunctionalChatbot({
   }
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
+    if (scrollAreaRef.current && messages.length > 2) {
       const scrollContainer = scrollAreaRef.current
 
       if (isLoading) {
@@ -176,24 +176,14 @@ export function FunctionalChatbot({
         })
       } else if (
         pymeriaResponseRef.current &&
-        messages.length > 0 &&
         messages[messages.length - 1].sender === "PymerIA"
       ) {
-        requestAnimationFrame(() => {
-          if (!pymeriaResponseRef.current || !scrollAreaRef.current) return
-          
-          const pymeriaResponseElement = pymeriaResponseRef.current
-          const scrollContainer = scrollAreaRef.current
+        const pymeriaResponseElement = pymeriaResponseRef.current
+        const adjustedTop = Math.max(0, pymeriaResponseElement.offsetTop - 20)
 
-          const containerRect = scrollContainer.getBoundingClientRect()
-          const messageRect = pymeriaResponseElement.getBoundingClientRect()
-          const relativeTop = messageRect.top - containerRect.top + scrollContainer.scrollTop
-          const adjustedTop = Math.max(0, relativeTop - 20)
-
-          scrollContainer.scrollTo({
-            top: adjustedTop,
-            behavior: "smooth",
-          })
+        scrollContainer.scrollTo({
+          top: adjustedTop,
+          behavior: "smooth",
         })
       }
     }

@@ -1,3 +1,9 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -5,7 +11,18 @@ const nextConfig = {
   },
   productionBrowserSourceMaps: true,
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react'],
+  },
+  turbopack: {
+    resolveAlias: {
+      'next/dist/build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+    },
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias['next/dist/build/polyfills/polyfill-module$'] = path.resolve(__dirname, 'lib/empty-polyfill.js')
+    }
+    return config
   },
   images: {
     // unoptimized: true, // Optimización activada para Vercel
