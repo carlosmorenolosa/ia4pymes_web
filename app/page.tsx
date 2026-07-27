@@ -204,7 +204,7 @@ export default function Home() {
                       <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                         {/* Step Indicator & Icon */}
                         <div className="flex flex-col items-center md:items-start shrink-0">
-                          <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-blue-600/20 mb-2 leading-none group-hover:text-blue-600/40 transition-colors duration-500">
+                          <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-blue-600 mb-2 leading-none group-hover:text-blue-700 transition-colors duration-500">
                             {process.step}
                           </span>
                           <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
