@@ -29,7 +29,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
-                <span className="border-b-4 border-red-500/80 pb-0.5">Reduce</span> Costes Operativos y <span className="border-b-4 border-blue-600 pb-0.5 text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
+                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> Costes Operativos y <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
               </h1>
 
               <p 
