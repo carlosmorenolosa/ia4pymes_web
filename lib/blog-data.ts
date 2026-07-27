@@ -3580,8 +3580,8 @@ Al codificar tus reglas en archivos de configuración como \`CLAUDE.md\`, aislar
     },
     {
         slug: "adopting-claude-ecosystem-enterprise-maturity-model",
-        title: "Beyond the 10x Developer: Ultimate Guide to Adopting the Claude Ecosystem at Enterprise Scale",
-        description: "We explain Boris Cherny's AI adoption maturity model (0-4) and teach you step-by-step how to structure your repository with CLAUDE.md and automated validation loops.",
+        title: "Steps of AI Adoption: Boris Cherny's Claude Maturity Model (0 to 4 Guide)",
+        description: "How to adopt the Claude ecosystem at scale. Step-by-step guide to Boris Cherny's 0-4 AI adoption maturity model, CLAUDE.md configuration, and automated agent loops.",
         date: "2026-07-18",
         author: "IA4PYMES",
         readingTime: "9 min",
