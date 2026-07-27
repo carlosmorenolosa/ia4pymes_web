@@ -302,7 +302,7 @@ export default function HomeEN() {
                         IA4PYMES Chatbot
                       </div>
                     ) : (
-                      <ThreeAnimatedChip visible={true} />
+                      <ThreeAnimatedChip visible={true} lang="en" />
                     )}
                   </div>
                 </div>

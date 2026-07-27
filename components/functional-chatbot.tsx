@@ -19,23 +19,73 @@ export function FunctionalChatbot({
   is3D = false, 
   onInteractionChange,
   visible = true,
-  minimal = false
+  minimal = false,
+  lang = "es"
 }: { 
   is3D?: boolean, 
   onInteractionChange?: (active: boolean) => void,
   visible?: boolean,
-  minimal?: boolean
+  minimal?: boolean,
+  lang?: "es" | "en"
 }) {
-  const [messages, setMessages] = useState<Message[]>([
+  const i18n = {
+    es: {
+      welcome1: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡",
+      welcome2: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇",
+      online: "En línea",
+      typing: "PymerIA está escribiendo",
+      thinking: "PymerIA está pensando...",
+      placeholder: "Escribe tu mensaje...",
+      ariaContainer: "Ejemplo de conversación con asistente IA",
+      ariaInput: "Escribe tu mensaje",
+      ariaSend: "Enviar mensaje",
+      errRateLimit: "Has enviado muchos mensajes. Por favor, espera un minuto.",
+      errServer: "Error al conectar con el servidor",
+      errGeneric: "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
+      errNoResponse: "No tengo una respuesta para eso en este momento.",
+    },
+    en: {
+      welcome1: "Would you like to know which repetitive tasks you could automate in your business right now? ⚡",
+      welcome2: "Tell me about your industry or which processes take up most of your time, and I'll show you how to optimize them! 👇",
+      online: "Online",
+      typing: "PymerIA is typing",
+      thinking: "PymerIA is thinking...",
+      placeholder: "Type your message...",
+      ariaContainer: "AI assistant conversation example",
+      ariaInput: "Type your message",
+      ariaSend: "Send message",
+      errRateLimit: "You have sent too many messages. Please wait a minute.",
+      errServer: "Error connecting to the server",
+      errGeneric: "There was a problem processing your request. Please try again later.",
+      errNoResponse: "I don't have an answer for that right now.",
+    },
+  }[lang]
+
+  const [messages, setMessages] = useState<Message[]>(() => [
     {
       sender: "PymerIA",
-      content: "¿Te gustaría saber qué tareas repetitivas podrías automatizar en tu empresa ahora mismo? ⚡",
+      content: i18n.welcome1,
     },
     {
       sender: "PymerIA",
-      content: "¡Cuéntame tu sector o qué procesos te quitan más tiempo y te diré cómo optimizarlos! 👇",
+      content: i18n.welcome2,
     },
   ])
+
+  // Reset initial messages if lang prop changes dynamically
+  useEffect(() => {
+    setMessages([
+      {
+        sender: "PymerIA",
+        content: i18n.welcome1,
+      },
+      {
+        sender: "PymerIA",
+        content: i18n.welcome2,
+      },
+    ])
+  }, [lang])
+
   const [currentInput, setCurrentInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isInitialTyping, setIsInitialTyping] = useState(false)
@@ -46,13 +96,10 @@ export function FunctionalChatbot({
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    // crypto.randomUUID() is supported in all modern browsers
     sessionIdRef.current = crypto.randomUUID()
   }, [])
 
   useEffect(() => {
-    // Determine active interaction: input is focused AND we aren't waiting for a response.
-    // This allows the chatbot to rotate while PymerIA is "thinking".
     if (onInteractionChange) {
       onInteractionChange(isFocused && !isLoading)
     }
@@ -72,7 +119,6 @@ export function FunctionalChatbot({
     setIsLoading(true)
     setIsFocused(false)
     
-    // Force the browser to drop focus from the input so it doesn't get stuck later
     if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
       document.activeElement.blur()
     }
@@ -85,43 +131,42 @@ export function FunctionalChatbot({
         },
         body: JSON.stringify({ 
           conversation: updatedMessages.slice(-20),
-          session_id: sessionIdRef.current
+          session_id: sessionIdRef.current,
+          lang
         }),
       })
 
       if (!response.ok) {
         if (response.status === 429) {
-          throw new Error("Has enviado muchos mensajes. Por favor, espera un minuto.")
+          throw new Error(i18n.errRateLimit)
         }
-        throw new Error("Error al conectar con el servidor")
+        throw new Error(i18n.errServer)
       }
 
       const data = await response.json()
       const pymerIAResponse: Message = {
         sender: "PymerIA",
-        content: data.response || "No tengo una respuesta para eso en este momento.",
+        content: data.response || i18n.errNoResponse,
       }
 
       setMessages((prev) => [...prev, pymerIAResponse])
     } catch (error) {
       const errorMessage: Message = {
         sender: "PymerIA",
-        content: error instanceof Error ? error.message : "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
+        content: error instanceof Error ? error.message : i18n.errGeneric,
       }
       setMessages((prev) => [...prev, errorMessage])
-      console.error("Error al llamar a la Lambda:", error)
+      console.error("Chat API error:", error)
     } finally {
       setIsLoading(false)
     }
   }
-
 
   useEffect(() => {
     if (scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current
 
       if (isLoading) {
-        // Scroll automático cuando el usuario envía un mensaje
         scrollContainer.scrollTo({
           top: scrollContainer.scrollHeight,
           behavior: "smooth",
@@ -131,19 +176,15 @@ export function FunctionalChatbot({
         messages.length > 0 &&
         messages[messages.length - 1].sender === "PymerIA"
       ) {
-        // Usamos requestAnimationFrame para evitar Forced Reflow
         requestAnimationFrame(() => {
           if (!pymeriaResponseRef.current || !scrollAreaRef.current) return
           
           const pymeriaResponseElement = pymeriaResponseRef.current
           const scrollContainer = scrollAreaRef.current
 
-          // Calcular la posición justo antes de la respuesta de PymerIA
           const containerRect = scrollContainer.getBoundingClientRect()
           const messageRect = pymeriaResponseElement.getBoundingClientRect()
           const relativeTop = messageRect.top - containerRect.top + scrollContainer.scrollTop
-
-          // Posicionar justo antes de la respuesta (con un pequeño margen)
           const adjustedTop = Math.max(0, relativeTop - 20)
 
           scrollContainer.scrollTo({
@@ -162,7 +203,7 @@ export function FunctionalChatbot({
         is3D ? "bg-white/95 backdrop-blur-md p-3 border border-white/40 shadow-2xl" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl border border-white/40 shadow-2xl"
       } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
-      aria-label="Ejemplo de conversación con asistente IA"
+      aria-label={i18n.ariaContainer}
     >
 
       {!minimal && (
@@ -181,7 +222,7 @@ export function FunctionalChatbot({
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">En línea</span>
+                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">{i18n.online}</span>
               </div>
             </div>
           </div>
@@ -254,7 +295,7 @@ export function FunctionalChatbot({
           >
             <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-blue-50 border border-blue-200`}>
               <div className="flex items-center space-x-2">
-                <span className="text-slate-700 text-xs font-medium">PymerIA está escribiendo</span>
+                <span className="text-slate-700 text-xs font-medium">{i18n.typing}</span>
                 <div className="flex space-x-1">
                   <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"></div>
                   <div
@@ -284,7 +325,7 @@ export function FunctionalChatbot({
           ref={inputRef}
           value={currentInput}
           onChange={(e) => setCurrentInput(e.target.value)}
-          placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
+          placeholder={isLoading ? i18n.thinking : i18n.placeholder}
           onFocus={() => {
             setIsFocused(true)
           }}
@@ -293,14 +334,14 @@ export function FunctionalChatbot({
           disabled={isLoading}
           name="message"
           autoComplete="off"
-          aria-label="Escribe tu mensaje"
+          aria-label={i18n.ariaInput}
         />
         <Button
           type="submit"
           size="icon"
           className="h-10 w-10 bg-blue-600 hover:bg-blue-700 rounded-xl shrink-0 shadow-lg shadow-blue-600/20"
           disabled={isLoading || !currentInput.trim()}
-          aria-label="Enviar mensaje"
+          aria-label={i18n.ariaSend}
         >
           <Send className="w-4 h-4" />
         </Button>

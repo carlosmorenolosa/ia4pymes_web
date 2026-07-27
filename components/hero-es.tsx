@@ -65,7 +65,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                     IA4PYMES Chatbot
                   </div>
                 ) : (
-                  <ThreeAnimatedChip visible={true} />
+                  <ThreeAnimatedChip visible={true} lang="es" />
                 )}
               </div>
             </div>
