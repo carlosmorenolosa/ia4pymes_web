@@ -52,49 +52,11 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
 })
 
 import { ConsultingSection } from "@/components/consulting-section"
-
-import { SplashScreen } from "@/components/splash-screen"
-import { useIsMobile } from "@/hooks/use-mobile"
-import { useInView, useSpring, useTransform } from "framer-motion"
-
-function StatCounter({
-  value,
-  suffixContent = "",
-  prefixContent = "",
-  duration = 2,
-}: {
-  value: number
-  suffixContent?: string
-  prefixContent?: string
-  duration?: number
-}) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const spring = useSpring(0, { mass: 1, stiffness: 100, damping: 30 })
-  const displayValue = useTransform(spring, (current) => Math.floor(current).toLocaleString("en-US"))
-
-  useEffect(() => {
-    if (isInView) {
-      spring.set(value)
-    }
-  }, [isInView, value, spring])
-
-  return (
-    <span ref={ref}>
-      {prefixContent}
-      <motion.span>{displayValue}</motion.span>
-      {suffixContent}
-    </span>
-  )
-}
+import { FadeIn } from "@/components/fade-in"
+import { Counter } from "@/components/counter"
 
 export default function HomeEN() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const isMobile = useIsMobile()
-  const [splashFinished, setSplashFinished] = useState(() => {
-    if (typeof window === "undefined") return false
-    return !!(window as any).__IS_BOT
-  })
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -104,18 +66,6 @@ export default function HomeEN() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
-      className="w-full"
-    >
-      {children}
-    </motion.div>
-  )
 
   return (
     <>
@@ -368,12 +318,7 @@ export default function HomeEN() {
                     <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
                       Join hundreds of SMEs
                     </h3>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                      className="relative group/btn w-full mt-8"
-                    >
+                    <div className="relative group/btn w-full mt-8 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
                       <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
@@ -384,7 +329,7 @@ export default function HomeEN() {
                         Subscribe Now
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
-                    </motion.div>
+                    </div>
                     <p className="text-slate-500 text-sm mt-6 text-center italic">
                       * No spam, only high-value technical<br className="hidden sm:block" /> and strategic content.
                     </p>
@@ -544,25 +489,19 @@ export default function HomeEN() {
                   { value: 1000, prefix: "+", suffix: "h", label: "Hours saved per month", color: "text-green-600", bg: "hover:shadow-green-500/10" },
                   { value: 100, prefix: "", suffix: "%", label: "Success rate", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
                 ].map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl transition-all duration-500 ${stat.bg}`}
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/ListItem"
-                  >
-                    <div className={`text-5xl sm:text-6xl font-black tracking-tighter mb-3 ${stat.color} drop-shadow-sm`} itemProp="name">
-                      <StatCounter value={stat.value} prefixContent={stat.prefix} suffixContent={stat.suffix} />
+                  <FadeIn key={idx} delay={idx * 0.1}>
+                    <div 
+                      className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ${stat.bg}`}
+                      itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
+                    >
+                      <div className={`text-5xl sm:text-6xl font-black tracking-tighter mb-3 ${stat.color} drop-shadow-sm`} itemProp="name">
+                        <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                      </div>
+                      <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
+                      <meta itemProp="position" content={(idx + 1).toString()} />
+                      <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     </div>
-                    <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
-                    <meta itemProp="position" content={(idx + 1).toString()} />
-                    <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  </motion.div>
+                  </FadeIn>
                 ))}
               </div>
               <SuccessCasesCarousel lang="en" />
@@ -640,11 +579,7 @@ export default function HomeEN() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
               {/* Column 1: Brand */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+              <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <Link href="/en" className="inline-flex items-center group">
@@ -661,48 +596,36 @@ export default function HomeEN() {
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
-              </motion.div>
+              </div>
 
               {/* Column 2: Solutions */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+              <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Solutions</h4>
                 <ul className="space-y-4">
-                  <li><Link href="#process" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Our Process</Link></li>
-                  <li><Link href="#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Success Cases</Link></li>
-                  <li><Link href="#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">ROI Calculator</Link></li>
+                  <li><Link href="/en#process" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Our Process</Link></li>
+                  <li><Link href="/en#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Success Cases</Link></li>
+                  <li><Link href="/en#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">ROI Calculator</Link></li>
                   <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">News Blog</Link></li>
                 </ul>
-              </motion.div>
+              </div>
 
               {/* Column 3: Explore */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+              <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
                   <li><Link href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
-                  <li><Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
+                  <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
-                  <li><Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
+                  <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
-              </motion.div>
+              </div>
 
               {/* Column 4: Connect */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+              <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Connect</h4>
@@ -738,7 +661,7 @@ export default function HomeEN() {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Bottom Bar */}
