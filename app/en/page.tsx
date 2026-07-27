@@ -428,26 +428,26 @@ export default function HomeEN() {
                 {
                   icon: BarChart2,
                   step: "01",
-                  title: "We Analyze the Waste",
+                  title: "Technical Audit & Waste Diagnosis",
                   description:
-                    "We deeply study your company to identify every cent of budget being lost in manual and repetitive tasks that AI can solve today.",
-                  benefit: "Savings Identified",
+                    "We deeply analyze your company's operational workflows to pinpoint bottlenecks and quantify hours wasted on manual tasks that AI can automate today.",
+                  benefit: "Quantified Time Leaks",
                 },
                 {
                   icon: Code,
                   step: "02",
-                  title: "Solution with Guaranteed ROI",
+                  title: "Agent Architecture & ERP/CRM Integration",
                   description:
-                    "We don't develop for the sake of it. We create a custom tool specifically designed to return your investment in record time.",
-                  benefit: "Guaranteed Return",
+                    "We design and build private AI agents directly connecting to your management systems (ERP, CRM, databases), ensuring a positive ROI in record time.",
+                  benefit: "Guaranteed Custom Integration",
                 },
                 {
                   icon: Settings,
                   step: "03",
-                  title: "Support & Continuous Improvement",
+                  title: "Private Deployment & Continuous Scaling",
                   description:
-                    "We implement the solution, train your team and support you to ensure the technology evolves at the pace your company grows.",
-                  benefit: "24/7 Support",
+                    "We deploy solutions under strict data privacy standards, monitoring real-time performance and continuously optimizing AI models as your business grows.",
+                  benefit: "Full Privacy & Control",
                 },
               ].map((process, index, array) => {
                 const IconComponent = process.icon
