@@ -17436,7 +17436,7 @@ You are effectively hiring an untiring "DevSecOps Engineer" that works 24/7 in t
     {
         slug: "qwen-3-6-35b-a3b-modelo-abierto-eficiente-alibaba",
         title: "Qwen3.6-35B-A3B: El nuevo modelo abierto que ofrece inteligencia de peso pesado a coste de peso pluma",
-        description: "Alibaba acaba de liberar Qwen3.6-35B-A3B, un modelo de IA 'Mixture-of-Experts' que rinde como los modelos gigantes de 30B pero funciona en equipos modestos usando el cómputo de uno de 3B. Analizamos sus capacidades agénticas y la innovadora 'Conservación de Pensamiento'.",
+        description: "Alibaba acaba de liberar Qwen3.6-35B-A3B, un modelo de IA 'Mixture-of-Experts' que rinde como los modelos gigantes de 35B pero funciona en equipos modestos usando el cómputo de uno de 3B. Analizamos sus capacidades agénticas y la innovadora 'Conservación de Pensamiento'.",
         date: "2026-04-17",
         author: "IA4PYMES",
         readingTime: "6 min",
@@ -17454,28 +17454,73 @@ Este lanzamiento no es una actualización menor; es un cambio de paradigma para 
 ## La Magia del "MoE": 35B de tamaño, 3B de consumo
 
 El nombre del modelo puede parecer un trabalenguas, pero revela su mayor virtud: 
-*   **35B:** El modelo tiene 35.000 millones de parámetros en total, lo que le otorga un "conocimiento del mundo" y una capacidad de razonamiento espectacular, al nivel de otros modelos densos muy pesados.
+*   **35B:** El modelo tiene 35.000 millones de parámetros en total, lo que le otorga un conocimiento del mundo y una capacidad de razonamiento espectacular, al nivel de otros modelos densos muy pesados.
 *   **A3B (Active 3B):** Gracias a su arquitectura *Sparse Mixture-of-Experts (MoE)*, para generar cualquier palabra, la red neuronal solo activa **3.000 millones de parámetros**.
 
 **¿Qué significa esto para tu PYME?** Básicamente, estás obteniendo las capacidades cognitivas de un gigante de la IA, pero lo puedes ejecutar en servidores modestos o incluso en ordenadores portátiles de gama alta (usando formatos optimizados como GGUF/llama.cpp). Es la democratización absoluta del procesamiento complejo.
 
 ## Innovación Estrella: Conservación de Pensamiento (Thinking Preservation)
 
-When we use AI for iterative tasks (for example: "write this function," then "now find the bugs," then "now integrate it with this database"), traditional models typically have to regenerate or reconsider the context from scratch during every single interaction.
+Cuando utilizamos IA para tareas iterativas (por ejemplo: "escribe esta función", luego "ahora encuentra los errores", luego "ahora intégrala con esta base de datos"), los modelos tradicionales suelen tener que regenerar o reconsiderar el contexto desde cero en cada interacción.
 
-Qwen3.6 introduces **Thinking Preservation**. This architecture (a hybrid of *Gated DeltaNet* and *Gated Attention*) allows the model to retain structural reasoning in its memory throughout the conversation history. This radically accelerates agent-driven software development (Agentic Coding) and prevents the infamous "context amnesia" in very long threads.
+Qwen3.6 introduce la **Conservación de Pensamiento (Thinking Preservation)**. Esta arquitectura (un híbrido de *Gated DeltaNet* y *Gated Attention*) permite al modelo retener el razonamiento estructural en su memoria a lo largo de todo el historial de la conversación. Esto acelera radicalmente el desarrollo de software impulsado por agentes (Agentic Coding) y evita la famosa "amnesia de contexto" en hilos muy largos.
 
-Speaking of long threads: its native context window processes over a quarter of a million tokens (specifically **262,144**), and can be extended up to a million. This is more than enough to embed entire software project directories.
+Hablando de hilos largos: su ventana de contexto nativa procesa más de un cuarto de millón de tokens (específicamente **262.144**), y se puede extender hasta un millón. Esto es más que suficiente para incrustar repositorios enteros de código de tu empresa.
 
-## Natively Multimodal and Agentic
+## Nativamente Multimodal y Agéntico
 
-Qwen3.6-35B-A3B doesn't just consume text. It comes equipped out-of-the-box with a powerful vision encoder, rivaling the visual perception capabilities of models ten times harder to host.
+Qwen3.6-35B-A3B no solo consume texto. Viene equipado de serie con un potente codificador de visión, rivalizando con la percepción visual de modelos diez veces más difíciles de alojar.
 
-The model has been intensely trained on **code generation and orchestration**, particularly in Frontend engineering and repository-level reasoning. It hooks natively into third-party tools and automation frameworks, serving perfectly as the "brain" behind your company's autonomous agents.
+El modelo ha sido entrenado intensamente en **generación y orquestación de código**, particularmente en ingeniería Frontend y razonamiento a nivel de repositorio. Se conecta nativamente con herramientas de terceros y frameworks de automatización, sirviendo perfectamente como el "cerebro" detrás de los agentes autónomos de tu empresa.
+
+## Conclusión
+
+El **Qwen3.6-35B-A3B** (ya disponible gratuitamente en Hugging Face) es la demostración perfecta de que el futuro de la IA empresarial privada no depende de modelos monolíticos inmanejables, sino de sistemas "inteligentes y frugales". Si estabas esperando el momento idóneo para integrar un agente de alta capacidad en los servidores privados de tu empresa para proteger tus datos sensibles, este modelo es tu pasaporte definitivo.
+        `.trim(),
+    },
+    {
+        slug: "qwen-3-6-35b-a3b-efficient-open-model-alibaba",
+        title: "Qwen3.6-35B-A3B: The Open-Weight AI Model Bringing Heavyweight Intelligence at Lightweight Compute",
+        description: "Alibaba has released Qwen3.6-35B-A3B, a Sparse Mixture-of-Experts model performing like 35B dense giants while running on modest hardware using only 3B active parameters. We analyze its agentic coding capabilities and innovative Thinking Preservation.",
+        date: "2026-04-17",
+        author: "IA4PYMES",
+        readingTime: "6 min",
+        category: "Models & Infrastructure",
+        image: "/blog/qwen-3-6-model.png",
+        lang: "en",
+        translationSlug: "qwen-3-6-35b-a3b-modelo-abierto-eficiente-alibaba",
+        content: `
+In mid-April 2026, the **Qwen team (Alibaba Group)** once again disrupted the open-source AI landscape with a release that redefines enterprise efficiency: the **Qwen3.6-35B-A3B** model.
+
+This release is not an incremental update; it represents a fundamental paradigm shift for SMEs and developers seeking to deploy state-of-the-art AI on private on-premise infrastructure without spending tens of thousands of euros on massive GPU clusters.
+
+---
+
+## The Magic of Sparse MoE: 35B Capability, 3B Consumption
+
+The model's name highlights its key architectural innovation:
+*   **35B Total Parameters:** The model possesses 35 billion parameters in total, giving it deep domain knowledge and complex reasoning on par with massive dense models.
+*   **A3B (Active 3B):** Thanks to its *Sparse Mixture-of-Experts (MoE)* architecture, generating each token activates only **3 billion parameters**.
+
+**What does this mean for your SME?** You obtain the cognitive reasoning of an enterprise AI giant while running the model on modest servers or high-end workstations using quantized formats (GGUF/llama.cpp). It is the true democratization of private AI inference.
+
+## Key Innovation: Thinking Preservation
+
+When employing AI for multi-step agentic workflows (for example: "refactor this API," then "run automated unit tests," then "integrate with ERP database"), traditional LLMs re-evaluate context from scratch at every step.
+
+Qwen3.6 introduces **Thinking Preservation**. Built on a hybrid *Gated DeltaNet* and *Gated Attention* layer, it preserves structural reasoning paths in memory across long multi-turn sessions. This eliminates "context amnesia" and dramatically accelerates autonomous software execution.
+
+Furthermore, its native context window handles **262,144 tokens** out-of-the-box (scalable to 1M tokens), easily accommodating entire codebase repositories and corporate databases.
+
+## Natively Multimodal and Agent-Ready
+
+Qwen3.6-35B-A3B natively includes a vision encoder that rivals visual perception in models ten times larger.
+
+Trained extensively on **repository-level code orchestration** and tool calling, it interfaces smoothly with external APIs, databases, and automation frameworks—serving as the ideal core engine for private B2B agents.
 
 ## Conclusion
 
-The **Qwen3.6-35B-A3B** (already available freely on Hugging Face) is the perfect demonstration that the future of private enterprise AI doesn't rely on unmanageable monolithic models, but on "smart and frugal" systems. If you were waiting for the right moment to integrate a high-capacity agent on your company's private servers to protect your sensitive data, this model is your ultimate golden ticket.
+The release of **Qwen3.6-35B-A3B** (available under open weights on Hugging Face) proves that the future of private enterprise AI belongs to efficient, sovereign models. For SMEs looking to run high-ticket automation on private servers while maintaining total data control under the EU AI Act, this model provides the optimal technical foundation.
         `.trim(),
     },
     // ─────────────────────────────────────────────────────────
