@@ -16,6 +16,291 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: OpenAI Codex Security (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "openai-codex-security-agente-auditoria-codigo-pymes",
+        title: "OpenAI Liberó Codex Security: Cómo Auditar y Parchear Vulnerabilidades en tu Código de Forma Autónoma",
+        description: "Análisis técnico del agente open source openai/codex-security: modelo de amenazas dinámico, validación en entorno sandbox, integración en CI/CD y despliegue privado para PYMEs.",
+        date: "2026-07-29",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Seguridad e Infraestructura",
+        image: "/blog/openai-codex-security-appsec-agent-2026.png",
+        lang: "es",
+        translationSlug: "openai-codex-security-agentic-code-auditing-patching-smes",
+        content: `
+OpenAI ha publicado oficialmente en GitHub el repositorio de código abierto [openai/codex-security](https://github.com/openai/codex-security) bajo licencia Apache-2.0. La herramienta incluye un cliente CLI y un SDK en TypeScript diseñados para transformar la auditoría de seguridad de software (*AppSec*).
+
+A diferencia de los escáneres estáticos tradicionales basados en reglas fijas de expresiones regulares (SAST), **Codex Security funciona como un agente autónomo de análisis y reparación**: construye un modelo de amenazas específico para la base de código, rastrea el flujo de datos entre archivos, valida la explotabilidad de cada vulnerabilidad en un entorno aislado de pruebas (*sandbox*) y propone parches automáticos comprobados antes de enviarse a producción.
+
+Explicamos la arquitectura técnica de \`openai/codex-security\`, cómo ejecutarlo en repositorios empresariales y cómo desplegar un flujo de auditoría soberano respetando la privacidad de tu software.
+
+---
+
+## Diferencias Técnicas: SAST Tradicional vs. Análisis Agéntico
+
+Los analizadores estáticos convencionales (como SonarQube o Semgrep) detectan patrones de sintaxis aislados. Este enfoque genera un volumen elevado de falsos positivos que satura a los equipos de desarrollo.
+
+Codex Security introduce un modelo agéntico iterativo en tres fases:
+
+1. **Modelado de Amenazas Específico:** El agente lee la estructura completa del proyecto, identifica endpoints expuestos, rutas de autenticación y librerías externas.
+2. **Validación en Sandbox (Proof-of-Concept):** Antes de reportar un fallo, el agente intenta generar un test dinámico o una prueba de concepto en un entorno aislado para confirmar si la vulnerabilidad es realmente explotable.
+3. **Generación de Parche Verificado:** Si el fallo es real, el agente redacta una propuesta de cambio de código (*Pull Request*) y ejecuta la suite de tests unitarios del proyecto para asegurar que la corrección no altera la lógica de negocio.
+
+---
+
+## Ficha Técnica de OpenAI Codex Security (\`openai/codex-security\`)
+
+| Parámetro / Módulo | Especificación Técnica |
+| :--- | :--- |
+| **Repositorio Oficial** | \`github.com/openai/codex-security\` |
+| **Licencia de Código** | Apache-2.0 (CLI y SDK en TypeScript) |
+| **Interfaces de Uso** | Línea de comandos (CLI), SDK en Node.js/TypeScript y GitHub Actions |
+| **Modo de Análisis** | Agéntico multi-archivo con trazado de flujo de datos (*taint analysis*) |
+| **Formatos de Salida** | Informes JSON, consola interactiva y archivos estándar SARIF |
+| **Validación Dinámica** | Ejecución de exploits simulados en entornos *sandbox* aislados |
+| **Motor de Razonamiento** | Modelos de la familia Codex / OpenAI API |
+
+---
+
+## Guía de Instalación y Uso de Codex Security CLI
+
+Para evaluar una base de código local con \`codex-security\`, el cliente CLI se ejecuta mediante Node.js:
+
+### 1. Instalación y Configuración del Entorno
+
+\`\`\`bash
+# Instalación del cliente global mediante npm
+npm install -g @openai/codex-security
+
+# Exportación de la clave de API (o endpoint enrutado privado)
+export OPENAI_API_KEY="sk-proj-..."
+\`\`\`
+
+### 2. Ejecución de un Escaneo de Repositorio Completo
+
+\`\`\`bash
+# Escaneo agéntico completo con generación de informe SARIF
+codex-security scan ./src \\
+  --output-format sarif \\
+  --output-file security-audit.sarif \\
+  --auto-patch false \\
+  --sandbox-isolation strict
+\`\`\`
+
+### 3. Integración en CI/CD (GitHub Actions)
+
+Codex Security puede bloquear la fusión de código si detecta vulnerabilidades críticas en una *Pull Request*:
+
+\`\`\`yaml
+name: Continuous Security Audit
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  codex-security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Codex Security
+        run: npm install -g @openai/codex-security
+      - name: Run Agentic Vulnerability Scan
+        env:
+          OPENAI_API_KEY: \${"{{ secrets.OPENAI_API_KEY }}"}
+        run: |
+          codex-security scan . --fail-on critical --output-format sarif --output-file audit.sarif
+      - name: Upload SARIF report to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: audit.sarif
+\`\`\`
+
+---
+
+## El Desafío de la Privacidad de Datos y el Cumplimiento UE (Agosto 2026)
+
+Aunque la herramienta CLI es de código abierto, la auditoría agéntica requiere enviar fragmentos de código, esquemas de bases de datos y trazas de ejecución a la API del proveedor para su procesamiento.
+
+Para las empresas europeas que deben cumplir con la [Ley de IA de la UE para agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026) y las normativas de protección de secretos industriales (NIS2), enviar código fuente sensible a APIs externas de terceros supone un riesgo de telemetría y propiedad intelectual.
+
+---
+
+## Arquitectura Soberana: Ejecución de Codex Security con Modelos Locales
+
+Para proteger la confidencialidad del código fuente sin renunciar al análisis agéntico, en **IA4PYMES** integramos el motor de \`codex-security\` con infraestructura privada:
+
+1. **Redirección de Endpoint:** Configuramos el SDK de \`codex-security\` para apuntar a servidores propios de inferencia privada en lugar de las APIs públicas en la nube.
+2. **Modelos Abiertos Especializados:** Utilizamos modelos de pesos abiertos de alta capacidad de razonamiento en código como **Qwen 3.6 Coder** o el recentísimo [Kimi K3 de 2.8T parámetros](/blog/kimi-k3-hugging-face-despliegue-2-8t-requisitos-hardware-pymes).
+3. **Pasarela de Seguridad y Aislamiento:** Filtramos las llamadas mediante nuestro [Executor.sh MCP Gateway](/blog/executor-sh-gateway-mcp-unificado-agentes-ia), bloqueando posibles vectores de exposición o [ataques FARMA de envenenamiento episódico](/blog/ataque-farma-envenenamiento-memoria-agentes-ia-pymes).
+
+---
+
+> 📊 **Comparativa de Auditoría de Código:**
+> * **Auditoría Externa Tradicional:** Entre 4.000 € y 12.000 € por escaneo manual periódico con semanas de demora.
+> * **Pipeline Agéntico Soberano (Codex Security + GPU Local):** Auditoría continua en cada commit en < 3 minutos por 0 € de facturación por token externo. **Reducción del 90% en costes de auditoría de software**.
+
+---
+
+> ### 🔒 Implementa un Pipeline de Seguridad de Código Autónomo y Privado
+> Protege el software de tu empresa sin exponer tu código fuente en servidores de terceros ni depender de las políticas cambiantes que analizamos en el [manifiesto de Anthropic sobre el open source](/blog/anthropic-postura-modelos-open-source-soberania-ia-pymes). En **IA4PYMES** diseñamos y desplegamos tu entorno de auditoría agéntica soberana.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en tu proyecto final).
+
+---
+
+## Enlaces Técnicos y Recursos
+
+1. **Repositorio Oficial en GitHub:** [openai/codex-security](https://github.com/openai/codex-security)
+2. **Gobernanza de Agentes:** Consulta nuestra guía sobre el [Executor.sh MCP Gateway para agentes de IA](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+`.trim(),
+    },
+    {
+        slug: "openai-codex-security-agentic-code-auditing-patching-smes",
+        title: "OpenAI Released Codex Security: Autonomous Vulnerability Auditing, Verification, and Patching for SMEs",
+        description: "Technical breakdown of the open-source openai/codex-security agent: dynamic threat modeling, sandbox validation, CI/CD integration, and private deployment strategies.",
+        date: "2026-07-29",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Seguridad e Infraestructura",
+        image: "/blog/openai-codex-security-appsec-agent-2026.png",
+        lang: "en",
+        translationSlug: "openai-codex-security-agente-auditoria-codigo-pymes",
+        content: `
+OpenAI has officially open-sourced [openai/codex-security](https://github.com/openai/codex-security) on GitHub under the Apache-2.0 license. The tool includes a CLI client and a TypeScript SDK designed to transform enterprise application security auditing (AppSec).
+
+Unlike traditional static analysis security testing (SAST) tools reliant on rigid regular expression rules, **Codex Security operates as an autonomous scanning and remediation agent**: it constructs a project-specific threat model, traces cross-file data flows (*taint analysis*), confirms exploitability in isolated sandbox environments, and generates verified code patches before deployment.
+
+We examine the technical architecture of \`openai/codex-security\`, detail its CLI and CI/CD integration, and outline how enterprise SMEs can run sovereign vulnerability scanning pipelines while protecting proprietary source code.
+
+---
+
+## Technical Shift: Traditional SAST vs. Agentic Code Analysis
+
+Conventional static analyzers (such as SonarQube or Semgrep) inspect isolated syntax patterns. This approach generates a high volume of false positives that burdens engineering teams.
+
+Codex Security introduces an iterative three-stage agentic workflow:
+
+1. **Context-Aware Threat Modeling:** The agent maps project architecture, exposed API routes, authentication flows, and third-party dependencies.
+2. **Sandbox PoC Verification:** Before flagging a vulnerability, the agent attempts to generate and execute a dynamic proof-of-concept test in a sandboxed container to confirm exploitability.
+3. **Verified Patch Generation:** When a vulnerability is confirmed, the agent drafts a precise code patch (*Pull Request*) and runs the project's existing test suite to ensure the fix preserves business logic.
+
+---
+
+## Technical Specifications: OpenAI Codex Security (\`openai/codex-security\`)
+
+| Parameter / Module | Technical Specification |
+| :--- | :--- |
+| **Official Repository** | \`github.com/openai/codex-security\` |
+| **Software License** | Apache-2.0 (CLI & TypeScript SDK) |
+| **Execution Interfaces** | Command-line CLI, Node.js/TypeScript SDK, GitHub Actions |
+| **Analysis Engine** | Multi-file agentic analysis with cross-file data flow tracing |
+| **Output Formats** | Terminal interactive reports, JSON, and standard SARIF files |
+| **Dynamic Validation** | Simulated exploit execution within isolated sandbox containers |
+| **Reasoning Model** | Codex model family / OpenAI API endpoints |
+
+---
+
+## Installation and Usage Guide: Codex Security CLI
+
+To audit a local software repository with \`codex-security\`, execute the CLI using Node.js:
+
+### 1. Installation & Environment Setup
+
+\`\`\`bash
+# Install the global CLI package via npm
+npm install -g @openai/codex-security
+
+# Export API key (or routed private endpoint)
+export OPENAI_API_KEY="sk-proj-..."
+\`\`\`
+
+### 2. Executing a Repository Security Scan
+
+\`\`\`bash
+# Execute full agentic scan with SARIF output
+codex-security scan ./src \\
+  --output-format sarif \\
+  --output-file security-audit.sarif \\
+  --auto-patch false \\
+  --sandbox-isolation strict
+\`\`\`
+
+### 3. CI/CD Pipeline Integration (GitHub Actions)
+
+Codex Security can automatically block pull requests containing critical vulnerabilities:
+
+\`\`\`yaml
+name: Continuous Security Audit
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  codex-security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Codex Security
+        run: npm install -g @openai/codex-security
+      - name: Run Agentic Vulnerability Scan
+        env:
+          OPENAI_API_KEY: \${"{{ secrets.OPENAI_API_KEY }}"}
+        run: |
+          codex-security scan . --fail-on critical --output-format sarif --output-file audit.sarif
+      - name: Upload SARIF report to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: audit.sarif
+\`\`\`
+
+---
+
+## Data Privacy and EU Compliance Challenges (August 2026)
+
+While the CLI tool is open-source, agentic vulnerability scanning requires sending code snippets, database schemas, and execution traces to cloud API endpoints for processing.
+
+For European enterprises preparing for the [EU AI Act Countdown by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations) and NIS2 directives, streaming proprietary source code to external third-party APIs creates data leakage and intellectual property risks.
+
+---
+
+## Sovereign Architecture: Running Codex Security with Local LLMs
+
+To preserve complete source code confidentiality without sacrificing agentic auditing, **IA4PYMES** integrates the \`codex-security\` framework with private infrastructure:
+
+1. **Endpoint Rerouting:** Configure the \`codex-security\` SDK to route analysis requests to private on-premise GPU inference servers.
+2. **Specialized Open Models:** Utilize high-capacity open coding models such as **Qwen 3.6 Coder** or self-hosted instances of [Kimi K3 2.8T parameters](/en/blog/kimi-k3-hugging-face-deployment-2-8t-hardware-requirements-smes).
+3. **Isolation Gateway:** Filter model invocations through our [Executor.sh MCP Gateway](/en/blog/executor-sh-unified-mcp-gateway-ai-agents), protecting agent memory against [FARMA episodic memory poisoning attacks](/en/blog/farma-attack-ai-agent-memory-poisoning-smes).
+
+---
+
+> 📊 **Code Auditing Cost Comparison:**
+> * **Traditional External Audit:** €4,000 to €12,000 per manual security scan with multi-week delays.
+> * **Sovereign Agentic Pipeline (Codex Security + Private GPU):** Continuous auditing on every git commit in under 3 minutes with zero third-party token fees. **90% reduction in software audit overhead**.
+
+---
+
+> ### 🔒 Deploy an Autonomous and Private Code Security Pipeline
+> Safeguard your software applications without exposing your proprietary source code to external servers or being bound by closed platform policies like those outlined in [Anthropic's stance on open weights](/en/blog/anthropic-position-open-weights-models-sme-ai-sovereignty). At **IA4PYMES**, we architect and deploy sovereign agentic auditing pipelines for your enterprise.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable or credited against final development costs).
+
+---
+
+## Technical Resources and References
+
+1. **Official GitHub Repository:** [openai/codex-security](https://github.com/openai/codex-security)
+2. **Agent Governance:** Read our technical guide on the [Executor.sh MCP Gateway for AI agents](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Anthropic Open Weights Position (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
