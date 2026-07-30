@@ -16,6 +16,203 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Caso de Éxito Presupuestos Construcción RAG (NUEVO)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "caso-exito-ia-presupuestos-obras-construccion-rag-vectorial",
+        title: "Caso de Éxito: Sistema de Presupuestación Automática con RAG Vectorial para el Sector Construcción",
+        description: "Cómo transformamos años de histórico de obras desestructurado en un sistema web inteligente que busca partidas semánticamente, calcula costes e identifica riesgos en minutos.",
+        date: "2026-07-30",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Casos de Éxito",
+        image: "/blog/ia-constructoras-presupuestos-rag-vectorial.png",
+        lang: "es",
+        translationSlug: "case-study-ai-construction-bidding-quote-automation-vector-rag",
+        content: `
+En el sector de la edificación y la obra civil, elaborar una propuesta comercial o licitación exige desglosar cientos de partidas técnicas: desde la demolición inicial hasta las mediciones de estructuras, instalaciones y acabados.
+
+Tradicionalmente, las empresas constructoras dependen de la memoria técnica de sus jefes de obra o de búsquedas manuales en hojas de cálculo dispersas. Este proceso requiere entre 4 y 8 días de trabajo de personal técnico senior por cada licitación, genera cuellos de botella comerciales y expone a la empresa a errores humanos o a infravalorar partidas complejas que terminan erosionando el margen de beneficio de la obra.
+
+En **IA4PYMES** diseñamos y desplegamos una solución a medida para una empresa del sector construcción: un **sistema inteligente de presupuestación automática basado en RAG vectorial (Retrieval-Augmented Generation)** que calcula costes reales, estima precios de venta y detecta riesgos históricos en cuestión de minutos.
+
+---
+
+## El Desafío: Años de Histórico de Obras Atrapados en Archivos PDF y Excel
+
+La constructora acumulaba un volumen masivo de datos comerciales y técnicos de licitaciones pasadas, certificaciones reales de obra e informes de costes finales. Sin embargo, esta información sufría tres problemas principales:
+
+1. **Heterogeneidad de Redacción:** Una misma partida técnica aparecía redactada de formas completamente distintas según el proyectista (*"Vaciado de tierras en zanja a máquina con transporte a vertedero"* vs. *"Excavación mecánica en cimentación con gestión de residuos"*). Las búsquedas por palabras clave exactas en Excel no devolvían resultados.
+2. **Dependencia del Conocimiento Implícito:** Solo los estimadores con más años en la compañía recordaban si una partida concreta había sufrido desviaciones presupuestarias en el pasado debido a imprevistos del terreno o subidas de materias primas.
+3. **Cuello de Botella Comercial:** El equipo técnico no daba abasto para responder a todas las invitaciones a licitación en los plazos exigidos por los clientes, perdiendo oportunidades de negocio clave.
+
+---
+
+## La Arquitectura Técnica: Procesamiento de Datos, Embeddings y Búsqueda Semántica
+
+Para transformar este histórico inactivo en un activo operativo de alto valor, estructuramos una arquitectura en cuatro fases principales:
+
+\`\`\`
+[ PDF / Excel Licitación ] ──► [ Extracción & Parsing JSON ]
+                                      │
+                                      ▼
+[ Base de Datos Vectorial ] ◄── [ Embeddings Semánticos ]
+                                      │
+                                      ▼
+[ Motor de Cálculo de Costes ] ──► [ Aplicación Web & Alertas de Riesgo ]
+\`\`\`
+
+### 1. Ingesta, Limpieza y Vectorización del Histórico
+Extrajimos y limpiamos miles de mediciones y partidas de licitaciones pasadas. Convertimos cada descripción técnica, descomposición de precios y coste unitario real en vectores matemáticos (*embeddings*) utilizando modelos de representación del lenguaje. Estos vectores se almacenaron e indexaron en una [base de datos conocimiento vectorial](/blog/ia-base-conocimiento-vectorial-pymes).
+
+### 2. Aplicación Web de Carga Automática de Licitaciones
+Desarrollamos un portal web privado y sencillo para el equipo comercial y técnico. Cuando la empresa recibe un nuevo pliego de condiciones o presupuesto de obra en formato PDF o Excel, el usuario simplemente sube el archivo a la plataforma.
+
+### 3. Búsqueda Semántica de Partidas Similares
+El sistema procesa automáticamente cada línea del nuevo archivo PDF y realiza una búsqueda por similitud semántica contra la base de datos vectorial. Aunque la redacción de la partida del cliente no coincida letra a letra con el pasado, el modelo comprende la intención técnica y encuentra al instante las 3 a 5 partidas históricas más equivalentes con sus costes unitarios reales.
+
+### 4. Motor de Precios, Margen Configurable y Detección de Contratiempos
+El sistema calcula el coste directo estimado y sugiere el precio de venta unitario. El estimador puede ajustar interactivamente los márgenes de beneficio esperados por capítulo.
+
+Además, el sistema incluye un **módulo automático de alertas de fricción operativa**: si en el pasado una partida similar registró desviaciones presupuestarias, retrasos con proveedores o complicaciones técnicas durante la ejecución real de la obra, la aplicación muestra una alerta destacada para que el equipo comercial ajuste el precio o añada contingencias específicas antes de enviar la oferta.
+
+---
+
+## Beneficios Estratégicos y Valor Operativo Medible
+
+El despliegue de esta solución agéntica sobre el histórico de la empresa generó un impacto inmediato en su operativa comercial:
+
+| Métrica Operativa | Método Tradicional (Previo) | Sistema IA4PYMES con RAG Vectorial |
+| :--- | :--- | :--- |
+| **Tiempo de Elaboración por Licitación** | 4 a 6 días de trabajo técnico | **25 a 35 minutos** (90% de reducción) |
+| **Capacidad de Cotización Mensual** | ~5 licitaciones por estimador | **Más de 25 licitaciones** por estimador |
+| **Pérdida de Margen por Error de Valoración** | Recurrente en 15-20% de obras | **0% de partidas de riesgo omitidas** |
+| **Retención del Conocimiento Técnico** | Atrapado en ordenadores personales | **100% indexado e institucionalizado** |
+
+---
+
+## Activos Transferibles y Soberanía Tecnológica
+
+En **IA4PYMES** diseñamos todas las integraciones bajo un principio claro: el código, la infraestructura y los datos pertenecen al 100% a la empresa.
+
+1. **Privacidad de Datos y Cumplimiento UE:** El motor de embeddings y la base de datos vectorial se ejecutan en entorno privado, garantizando que los presupuestos, márgenes y proveedores de la empresa nunca se utilicen para entrenar modelos públicos ni se expongan a terceros, alineándose con las exigencias de la [Ley de IA de la UE para agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
+2. **Integración con Sistemas Existentes:** La aplicación se conecta mediante API con el ERP y CRM corporativos de la constructora, permitiendo sincronizar costes de materiales actualizados y actualizar el pipeline de ventas en tiempo real, siguiendo nuestros patrones de [conexión de IA con CRM y ERP](/blog/ia-conectar-crm-erp-pymes).
+3. **Escalabilidad de Infraestructura:** El sistema se puede desplegar sobre servidores locales mediante [modelos LLM locales y privados](/blog/ia-llm-local-infraestructura-privada-pymes) o en la nube privada del cliente, gobernado por pasarelas seguras como nuestro [Executor.sh MCP Gateway](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+
+---
+
+> ### 🔒 Automatiza la Presupuestación de tu Empresa con Garantía de Margen
+> Transforma el histórico inactivo de tu empresa en una ventaja competitiva inmediata. En **IA4PYMES** analizamos la viabilidad de tus datos, diseñamos la arquitectura técnica RAG a medida y desplegamos tu aplicación comercial privada.
+> 
+> [**Reserva tu sesión de consultoría técnica de 60 minutos aquí**](/#consultoria) (100% reembolsable en el desarrollo final de tu proyecto).
+
+---
+
+## Recursos Relacionados e Integraciones Técnicas
+
+1. **Bases de Datos Vectoriales:** Guía práctica sobre [cómo implementar una base de conocimiento vectorial para PYMEs](/blog/ia-base-conocimiento-vectorial-pymes).
+2. **Análisis de Rentabilidad:** Descubre cómo calcular el [coste real de integración de IA y retorno de inversión](/blog/ia-costes-reales-pymes).
+3. **Integración Empresarial:** Revisa nuestro manual para [conectar agentes de IA con tu CRM y ERP](/blog/ia-conectar-crm-erp-pymes).
+`.trim(),
+    },
+    {
+        slug: "case-study-ai-construction-bidding-quote-automation-vector-rag",
+        title: "Case Study: Automated Construction Bidding and Quote Estimation Powered by Vector RAG",
+        description: "How we turned years of unstructured historical construction data into an intelligent web application that performs semantic search on line items, calculates costs, and flags risks in minutes.",
+        date: "2026-07-30",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Casos de Éxito",
+        image: "/blog/ia-constructoras-presupuestos-rag-vectorial.png",
+        lang: "en",
+        translationSlug: "caso-exito-ia-presupuestos-obras-construccion-rag-vectorial",
+        content: `
+In commercial construction and civil engineering, preparing a competitive bid or tender requires breaking down hundreds of technical line items: from site excavation to structural framing, electrical installations, and final architectural finishes.
+
+Traditionally, construction firms rely on the personal memory of senior project managers or manual searches across scattered Excel files. This estimation process takes between 4 and 8 days of senior technical labor per tender, creating commercial bottlenecks and exposing the company to human error or under-quoted items that erode final profit margins.
+
+At **IA4PYMES**, we architected and deployed a custom solution for an enterprise construction client: an **intelligent automatic quote estimation system powered by Vector RAG (Retrieval-Augmented Generation)** that calculates real direct costs, estimates target commercial prices, and flags historical operational risks in minutes.
+
+---
+
+## The Challenge: Years of Historical Bidding Data Trapped in PDF and Excel Files
+
+The construction firm possessed a massive archive of past commercial bids, actual site progress certificates, and final job cost records. However, this historical knowledge suffered from three primary obstacles:
+
+1. **Phrasing Heterogeneity:** The same technical work item appeared described in completely different ways across architectural projects (*"Trench excavation by machine with off-site disposal"* vs. *"Mechanical foundation digging with waste management"*). Exact keyword searches in Excel failed to return matches.
+2. **Implicit Knowledge Dependency:** Only veteran estimators remembered whether a specific work item had previously suffered cost overruns due to unexpected soil conditions or raw material price spikes.
+3. **Commercial Capacity Bottleneck:** The engineering team could not process all incoming tender invitations within strict client deadlines, turning away lucrative bidding opportunities.
+
+---
+
+## Technical Architecture: Data Ingestion, Embeddings, and Semantic Search
+
+To convert this dormant archive into an active operational engine, we designed a four-stage technical pipeline:
+
+\`\`\`
+[ Tender PDF / Excel File ] ──► [ Parsing & JSON Extraction ]
+                                       │
+                                       ▼
+[ Local Vector Database ] ◄── [ Semantic Embeddings ]
+                                       │
+                                       ▼
+[ Cost Calculation Engine ] ──► [ Web Dashboard & Risk Alerts ]
+\`\`\`
+
+### 1. Ingestion, Cleaning, and Vectorization
+We extracted and cleaned thousands of historical tender items and price breakdowns. Each technical description and unit cost was converted into mathematical vector embeddings using specialized language representation models, indexed inside a private [vector database knowledge base](/en/blog/ai-knowledge-base-vector-database-smes).
+
+### 2. Automated Web Application
+We built a clean, secure web portal for the commercial estimation team. When the firm receives a new tender specification in PDF or Excel format, the estimator simply uploads the file to the platform.
+
+### 3. Semantic Search on Equivalent Line Items
+The application parses each line item of the new PDF document and performs semantic similarity searches against the vector database. Even if the phrasing differs from past tenders, the model captures technical intent and instantly retrieves the 3 to 5 most equivalent historical items along with their verified historical costs.
+
+### 4. Cost Engine, Profit Margin Controls, and Operational Risk Alerts
+The engine calculates estimated direct unit costs and proposes recommended commercial selling prices. Estimators can dynamically adjust target profit margins across chapters.
+
+Additionally, the system features an **automated operational friction alert module**: if a similar line item experienced budget overruns, supplier delays, or execution complications in past projects, the application displays a prominent warning prompt so estimators can adjust rates or add contingency buffers before submitting the bid.
+
+---
+
+## Strategic Impact and Measurable Operational ROI
+
+Deploying this agentic solution across the firm's historical project database delivered immediate operational improvements:
+
+| Metric | Traditional Manual Estimation | IA4PYMES Vector RAG System |
+| :--- | :--- | :--- |
+| **Preparation Time per Tender** | 4 to 6 technical days | **25 to 35 minutes** (90% reduction) |
+| **Monthly Bidding Capacity** | ~5 tenders per estimator | **25+ tenders** per estimator |
+| **Margin Losses from Omitted Risks** | Recurrent in 15-20% of projects | **0% unflagged risk items** |
+| **Technical Knowledge Retention** | Trapped on individual laptops | **100% indexed and institutionalized** |
+
+---
+
+## Technology Sovereignty and Enterprise Ownership
+
+At **IA4PYMES**, we build all custom integrations under a strict principle: the source code, infrastructure, and data belong 100% to the client enterprise.
+
+1. **Data Privacy and EU Compliance:** The embedding engine and vector database run within a private cloud or on-premise environment. Company pricing data and supplier margins are never exposed to public APIs or used to train external models, ensuring full alignment with the [EU AI Act Countdown by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
+2. **Seamless ERP & CRM Integration:** The platform connects via API with the client's corporate ERP and CRM systems, synchronizing real-time material price feeds and updating the sales pipeline as outlined in our guide on [connecting AI with CRM and ERP systems](/en/blog/connecting-ai-agents-crm-erp-smes).
+3. **Private Deployment Architecture:** The system can run on local servers using [private local LLM infrastructure](/en/blog/private-local-llms-hardware-infrastructure-smes) or within private cloud tenants governed by secure gateways like our [Executor.sh MCP Gateway](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+
+---
+
+> ### 🔒 Automate Your Bidding Process While Safeguarding Commercial Margins
+> Transform your firm's historical project archive into a decisive commercial advantage. At **IA4PYMES**, we assess your data readiness, design custom Vector RAG architectures, and deploy secure enterprise estimation tools.
+> 
+> [**Book your 60-minute technical consultation here**](/en#consultoria) (100% credited against final development costs).
+
+---
+
+## Technical References and Further Reading
+
+1. **Vector Databases:** Practical guide on [deploying a private vector knowledge base for SMEs](/en/blog/ai-knowledge-base-vector-database-smes).
+2. **ROI and Costs:** Learn how to calculate the [real cost and ROI of enterprise AI integration](/en/blog/real-cost-ai-integration-roi-smes).
+3. **Enterprise Integration:** Read our technical manual on [connecting AI agents with CRM and ERP systems](/en/blog/connecting-ai-agents-crm-erp-smes).
+`.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: OpenAI Codex Security (NUEVO)
     // ─────────────────────────────────────────────────────────
     {
