@@ -63,7 +63,7 @@ Para transformar este histórico inactivo en un activo operativo de alto valor, 
 \`\`\`
 
 ### 1. Ingesta, Limpieza y Vectorización del Histórico
-Extrajimos y limpiamos miles de mediciones y partidas de licitaciones pasadas. Convertimos cada descripción técnica, descomposición de precios y coste unitario real en vectores matemáticos (*embeddings*) utilizando modelos de representación del lenguaje. Estos vectores se almacenaron e indexaron en una [base de datos conocimiento vectorial](/blog/ia-base-conocimiento-vectorial-pymes).
+Extrajimos y limpiamos miles de mediciones y partidas de licitaciones pasadas. Convertimos cada descripción técnica, descomposición de precios y coste unitario real en vectores matemáticos (*embeddings*) utilizando modelos de representación del lenguaje. Estos vectores se almacenaron e indexaron en una [base de datos de conocimiento vectorial](/blog/base-de-conocimiento-ia-pymes-rag-documentos).
 
 ### 2. Aplicación Web de Carga Automática de Licitaciones
 Desarrollamos un portal web privado y sencillo para el equipo comercial y técnico. Cuando la empresa recibe un nuevo pliego de condiciones o presupuesto de obra en formato PDF o Excel, el usuario simplemente sube el archivo a la plataforma.
@@ -96,8 +96,8 @@ El despliegue de esta solución agéntica sobre el histórico de la empresa gene
 En **IA4PYMES** diseñamos todas las integraciones bajo un principio claro: el código, la infraestructura y los datos pertenecen al 100% a la empresa.
 
 1. **Privacidad de Datos y Cumplimiento UE:** El motor de embeddings y la base de datos vectorial se ejecutan en entorno privado, garantizando que los presupuestos, márgenes y proveedores de la empresa nunca se utilicen para entrenar modelos públicos ni se expongan a terceros, alineándose con las exigencias de la [Ley de IA de la UE para agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026).
-2. **Integración con Sistemas Existentes:** La aplicación se conecta mediante API con el ERP y CRM corporativos de la constructora, permitiendo sincronizar costes de materiales actualizados y actualizar el pipeline de ventas en tiempo real, siguiendo nuestros patrones de [conexión de IA con CRM y ERP](/blog/ia-conectar-crm-erp-pymes).
-3. **Escalabilidad de Infraestructura:** El sistema se puede desplegar sobre servidores locales mediante [modelos LLM locales y privados](/blog/ia-llm-local-infraestructura-privada-pymes) o en la nube privada del cliente, gobernado por pasarelas seguras como nuestro [Executor.sh MCP Gateway](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+2. **Integración con Sistemas Existentes:** La aplicación se conecta mediante API con el ERP y CRM corporativos de la constructora, permitiendo sincronizar costes de materiales actualizados y actualizar el pipeline de ventas en tiempo real, siguiendo nuestros patrones de [conexión de IA con CRM y ERP](/blog/conectar-crm-erp-antes-de-ia-pymes).
+3. **Escalabilidad de Infraestructura:** El sistema se puede desplegar sobre servidores locales mediante [modelos LLM locales y privados](/blog/llm-locales-infraestructura-privada-pymes) o en la nube privada del cliente, gobernado por pasarelas seguras como nuestro [Executor.sh MCP Gateway](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
 
 ---
 
@@ -110,9 +110,9 @@ En **IA4PYMES** diseñamos todas las integraciones bajo un principio claro: el c
 
 ## Recursos Relacionados e Integraciones Técnicas
 
-1. **Bases de Datos Vectoriales:** Guía práctica sobre [cómo implementar una base de conocimiento vectorial para PYMEs](/blog/ia-base-conocimiento-vectorial-pymes).
-2. **Análisis de Rentabilidad:** Descubre cómo calcular el [coste real de integración de IA y retorno de inversión](/blog/ia-costes-reales-pymes).
-3. **Integración Empresarial:** Revisa nuestro manual para [conectar agentes de IA con tu CRM y ERP](/blog/ia-conectar-crm-erp-pymes).
+1. **Bases de Datos Vectoriales:** Guía práctica sobre [cómo implementar una base de conocimiento vectorial para PYMEs](/blog/base-de-conocimiento-ia-pymes-rag-documentos).
+2. **Análisis de Rentabilidad:** Descubre cómo calcular el [coste real de integración de IA y retorno de inversión](/blog/como-calcular-roi-real-ia-pymes-ahorro-costes).
+3. **Integración Empresarial:** Revisa nuestro manual para [conectar agentes de IA con tu CRM y ERP](/blog/conectar-crm-erp-antes-de-ia-pymes).
 `.trim(),
     },
     {
@@ -160,7 +160,7 @@ To convert this dormant archive into an active operational engine, we designed a
 \`\`\`
 
 ### 1. Ingestion, Cleaning, and Vectorization
-We extracted and cleaned thousands of historical tender items and price breakdowns. Each technical description and unit cost was converted into mathematical vector embeddings using specialized language representation models, indexed inside a private [vector database knowledge base](/en/blog/ai-knowledge-base-vector-database-smes).
+We extracted and cleaned thousands of historical tender items and price breakdowns. Each technical description and unit cost was converted into mathematical vector embeddings using specialized language representation models, indexed inside a private [vector database knowledge base](/en/blog/ai-knowledge-base-sme-rag-documents).
 
 ### 2. Automated Web Application
 We built a clean, secure web portal for the commercial estimation team. When the firm receives a new tender specification in PDF or Excel format, the estimator simply uploads the file to the platform.
@@ -193,8 +193,8 @@ Deploying this agentic solution across the firm's historical project database de
 At **IA4PYMES**, we build all custom integrations under a strict principle: the source code, infrastructure, and data belong 100% to the client enterprise.
 
 1. **Data Privacy and EU Compliance:** The embedding engine and vector database run within a private cloud or on-premise environment. Company pricing data and supplier margins are never exposed to public APIs or used to train external models, ensuring full alignment with the [EU AI Act Countdown by August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations).
-2. **Seamless ERP & CRM Integration:** The platform connects via API with the client's corporate ERP and CRM systems, synchronizing real-time material price feeds and updating the sales pipeline as outlined in our guide on [connecting AI with CRM and ERP systems](/en/blog/connecting-ai-agents-crm-erp-smes).
-3. **Private Deployment Architecture:** The system can run on local servers using [private local LLM infrastructure](/en/blog/private-local-llms-hardware-infrastructure-smes) or within private cloud tenants governed by secure gateways like our [Executor.sh MCP Gateway](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+2. **Seamless ERP & CRM Integration:** The platform connects via API with the client's corporate ERP and CRM systems, synchronizing real-time material price feeds and updating the sales pipeline as outlined in our guide on [connecting AI with CRM and ERP systems](/en/blog/connect-crm-erp-before-ai-smes).
+3. **Private Deployment Architecture:** The system can run on local servers using [private local LLM infrastructure](/en/blog/local-llm-private-infrastructure-smes) or within private cloud tenants governed by secure gateways like our [Executor.sh MCP Gateway](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
 
 ---
 
@@ -207,9 +207,9 @@ At **IA4PYMES**, we build all custom integrations under a strict principle: the 
 
 ## Technical References and Further Reading
 
-1. **Vector Databases:** Practical guide on [deploying a private vector knowledge base for SMEs](/en/blog/ai-knowledge-base-vector-database-smes).
-2. **ROI and Costs:** Learn how to calculate the [real cost and ROI of enterprise AI integration](/en/blog/real-cost-ai-integration-roi-smes).
-3. **Enterprise Integration:** Read our technical manual on [connecting AI agents with CRM and ERP systems](/en/blog/connecting-ai-agents-crm-erp-smes).
+1. **Vector Databases:** Practical guide on [deploying a private vector knowledge base for SMEs](/en/blog/ai-knowledge-base-sme-rag-documents).
+2. **ROI and Costs:** Learn how to calculate the [real cost and ROI of enterprise AI integration](/en/blog/how-to-calculate-real-roi-ai-smes).
+3. **Enterprise Integration:** Read our technical manual on [connecting AI agents with CRM and ERP systems](/en/blog/connect-crm-erp-before-ai-smes).
 `.trim(),
     },
     // ─────────────────────────────────────────────────────────
