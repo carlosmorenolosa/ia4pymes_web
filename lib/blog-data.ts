@@ -208,7 +208,7 @@ At **IA4PYMES**, we build all custom integrations under a strict principle: the 
 ## Technical References and Further Reading
 
 1. **Vector Databases:** Practical guide on [deploying a private vector knowledge base for SMEs](/en/blog/ai-knowledge-base-sme-rag-documents).
-2. **ROI and Costs:** Learn how to calculate the [real cost and ROI of enterprise AI integration](/en/blog/how-to-calculate-real-roi-ai-smes).
+2. **ROI and Costs:** Learn how to calculate the [real cost and ROI of enterprise AI integration](/en/blog/how-to-calculate-real-roi-ai-smes-cost-savings).
 3. **Enterprise Integration:** Read our technical manual on [connecting AI agents with CRM and ERP systems](/en/blog/connect-crm-erp-before-ai-smes).
 `.trim(),
     },
