@@ -89,7 +89,7 @@ En **IA4PYMES** recomendamos estructurar el motor de IA de tu empresa combinando
                    ▼                                           ▼
 [ Datos Sensibles / On-Premise ]             [ Inferencia Alta Velocidad ]
    Modelos Locales Aislados                     DeepSeek-V4-Flash-0731 (0,14$/1M)
- (Ollama / GGUF / Llama 3 8B)                   (vLLM / Pasarela Privada API)
+ (Ollama / GGUF / Gemma 4)                     (vLLM / Pasarela Privada API)
 \`\`\`
 
 1. **Tareas Rápidas de Alta Frecuencia:** Enruta la extracción de datos de documentos, generación de resúmenes y análisis de código a \`DeepSeek-V4-Flash-0731\` para maximizar la velocidad y minimizar los costes operativos, tal como explicamos en nuestra guía para [calcular el ROI real en automatizaciones de IA](/blog/como-calcular-roi-real-ia-pymes-ahorro-costes).
@@ -182,7 +182,7 @@ At **IA4PYMES**, we recommend building your enterprise AI engine by pairing the 
                  ▼                                             ▼
 [ Sensitive Data / On-Premise ]               [ High-Speed Inference ]
   Isolated Local Models                       DeepSeek-V4-Flash-0731 ($0.14/1M)
-(Ollama / GGUF / Llama 3 8B)                 (vLLM / Private API Gateway)
+(Ollama / GGUF / Gemma 4)                    (vLLM / Private API Gateway)
 \`\`\`
 
 1. **High-Frequency Processing:** Route document parsing, code analysis, and summary generation to \`DeepSeek-V4-Flash-0731\` to maximize processing speed while minimizing overhead, as detailed in our guide on [calculating real AI ROI for SMEs](/en/blog/how-to-calculate-real-roi-ai-smes-cost-savings).
