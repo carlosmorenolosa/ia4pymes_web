@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Shield, Lock, Eye, FileText, CheckCircle, Cpu, Mail, Linkedin, Facebook, Instagram, Youtube } from "lucide-react"
 import { HomeHeader } from "@/components/home-header"
+import { ScrollTopLink } from "@/components/scroll-top-link"
 
 export const metadata = {
   title: "Privacy Policy | IA4PYMES",
@@ -210,7 +211,7 @@ export default function PrivacyPolicyEN() {
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link>
+                    <ScrollTopLink href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</ScrollTopLink>
                   </li>
                   <li>
                     <Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link>

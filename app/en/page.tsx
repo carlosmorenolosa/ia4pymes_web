@@ -18,6 +18,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
+import { ScrollTopLink } from "@/components/scroll-top-link"
 
 import dynamic from "next/dynamic"
 
@@ -627,7 +628,7 @@ export default function HomeEN() {
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
+                  <li><ScrollTopLink href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</ScrollTopLink></li>
                   <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
                   <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>

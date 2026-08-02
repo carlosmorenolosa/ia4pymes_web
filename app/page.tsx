@@ -17,6 +17,7 @@ import { HomeHeroWrapper } from "@/components/home-hero-wrapper"
 import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import { FadeIn } from "@/components/fade-in"
 import { Counter } from "@/components/counter"
+import { ScrollTopLink } from "@/components/scroll-top-link"
 import {
   SuccessCasesCarousel,
   ContactForm,
@@ -437,7 +438,7 @@ export default function Home() {
                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
+                    <ScrollTopLink href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</ScrollTopLink>
                   </li>
                   <li>
                     <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
