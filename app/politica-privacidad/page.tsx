@@ -16,10 +16,6 @@ export default function PoliticaPrivacidad() {
         {/* Hero Section */}
         <section className="py-12 sm:py-16 bg-white relative">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black uppercase tracking-widest mb-6">
-              <Shield className="w-4 h-4 text-blue-600" />
-              Protección de Datos & Gobernanza
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]">
               Política de <span className="text-blue-600">Privacidad</span>
             </h1>
