@@ -102,7 +102,7 @@ export default function PoliticaPrivacidad() {
                 4. Conservación de los Datos
               </h2>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl pl-13">
-                Los datos personales se conservarán durante el tiempo strictly necesario para cumplir con la finalidad para la que se recaban y para determinar las posibles responsabilidades derivadas de dicha finalidad.
+                Los datos personales se conservarán durante el tiempo estrictamente necesario para cumplir con la finalidad para la que se recaban y para determinar las posibles responsabilidades derivadas de dicha finalidad.
               </p>
             </div>
 
