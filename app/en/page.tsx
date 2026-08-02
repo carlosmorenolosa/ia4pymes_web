@@ -627,7 +627,20 @@ export default function HomeEN() {
               >
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
+                  <li>
+                    <Link
+                      href="/en"
+                      onClick={(e) => {
+                        if (typeof window !== "undefined" && window.location.pathname === "/en") {
+                          e.preventDefault()
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                      }}
+                      className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium"
+                    >
+                      About Us
+                    </Link>
+                  </li>
                   <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
                   <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>

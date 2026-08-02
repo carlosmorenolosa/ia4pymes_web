@@ -437,7 +437,18 @@ export default function Home() {
                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</Link>
+                    <Link
+                      href="/"
+                      onClick={(e) => {
+                        if (typeof window !== "undefined" && window.location.pathname === "/") {
+                          e.preventDefault()
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                      }}
+                      className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium"
+                    >
+                      Sobre nosotros
+                    </Link>
                   </li>
                   <li>
                     <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
