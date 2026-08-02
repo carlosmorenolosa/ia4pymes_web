@@ -111,6 +111,19 @@ export default function PoliticaPrivacidad() {
             </p>
           </section>
 
+          <section className="space-y-3">
+            <div className="flex items-center gap-2 text-slate-950 font-bold text-lg">
+              <Shield className="w-4 h-4 text-blue-600" />
+              <h2>7. Transparencia y Cumplimiento del EU AI Act (Reglamento UE 2024/1689 - Art. 50)</h2>
+            </div>
+            <p>
+              En cumplimiento de las obligaciones de transparencia estipuladas en el <strong>Artículo 50 del Reglamento (UE) 2024/1689 (Ley de Inteligencia Artificial de la UE)</strong>, informamos a los usuarios de que los widgets conversacionales interactivos de esta web (como el asistente <strong>PymerIA</strong>) son sistemas alimentados por Inteligencia Artificial.
+            </p>
+            <p>
+              Dichos asistentes tienen como único fin ofrecer orientación informativa previa sobre nuestros servicios y ayudar en el agendamiento de consultorías. No ejecutan decisiones automatizadas con efectos jurídicos ni realizan evaluaciones o perfilados de alto riesgo.
+            </p>
+          </section>
+
         </div>
 
         {/* Footer */}

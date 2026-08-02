@@ -46,6 +46,8 @@ export function FunctionalChatbot({
       errServer: "Error al conectar con el servidor",
       errGeneric: "Hubo un problema al procesar tu solicitud. Inténtalo de nuevo más tarde.",
       errNoResponse: "No tengo una respuesta para eso en este momento.",
+      aiBadge: "Asistente de IA (Art. 50)",
+      aiNotice: "🤖 Asistente interactivo generado por IA (Cumplimiento Art. 50 EU AI Act)",
     },
     en: {
       welcome1: "Would you like to know which repetitive tasks you could automate in your business right now? ⚡",
@@ -61,6 +63,8 @@ export function FunctionalChatbot({
       errServer: "Error connecting to the server",
       errGeneric: "There was a problem processing your request. Please try again later.",
       errNoResponse: "I don't have an answer for that right now.",
+      aiBadge: "AI Assistant (Art. 50)",
+      aiNotice: "🤖 Interactive AI-generated assistant (EU AI Act Art. 50 Compliant)",
     },
   }[lang]
 
@@ -209,7 +213,10 @@ export function FunctionalChatbot({
               <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
             </div>
             <div>
-              <div className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</div>
+              <div className="flex items-center gap-2">
+                <div className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</div>
+                <span className="text-[10px] font-bold bg-blue-100/80 text-blue-700 px-2 py-0.5 rounded-full border border-blue-200/60 shadow-sm">{i18n.aiBadge}</span>
+              </div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -320,6 +327,9 @@ export function FunctionalChatbot({
           <Send className="w-4 h-4" />
         </Button>
       </form>
+      <div className="mt-2 text-center text-[10px] text-slate-400 font-medium tracking-tight">
+        {i18n.aiNotice}
+      </div>
     </div>
   )
 }

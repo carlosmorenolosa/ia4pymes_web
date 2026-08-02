@@ -111,6 +111,19 @@ export default function PrivacyPolicyEN() {
             </p>
           </section>
 
+          <section className="space-y-3">
+            <div className="flex items-center gap-2 text-slate-950 font-bold text-lg">
+              <Shield className="w-4 h-4 text-blue-600" />
+              <h2>7. Transparency & EU AI Act Compliance (Regulation EU 2024/1689 - Art. 50)</h2>
+            </div>
+            <p>
+              In compliance with the transparency obligations specified under <strong>Article 50 of Regulation (EU) 2024/1689 (EU AI Act)</strong>, users are informed that the interactive conversational widgets on this site (such as the assistant <strong>PymerIA</strong>) are systems powered by Artificial Intelligence.
+            </p>
+            <p>
+              These assistants serve solely for general commercial guidance and scheduling consultation sessions. They do not execute automated decision-making producing legal effects or perform high-risk profiling.
+            </p>
+          </section>
+
         </div>
 
         {/* Footer */}
