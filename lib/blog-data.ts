@@ -6666,8 +6666,8 @@ The main benefit of this setup is **sovereignty and scalability**: by running on
     // ─────────────────────────────────────────────────────────
     {
         slug: "presentacion-grok-4-5-autonomia-ia-pymes",
-        title: "Presentamos Grok 4.5: La era de la verdadera autonomía operativa para las PYMEs",
-        description: "Analizamos el lanzamiento de Grok 4.5 por Cursor y SpaceXAI. Descubre cómo su aprendizaje por refuerzo y arquitectura MoE abren la puerta a agentes de IA autónomos y seguros.",
+        title: "Grok 4.5 de xAI: Características, Benchmarks y Uso en PYMEs (2026)",
+        description: "Guía completa sobre Grok 4.5: arquitectura MoE, integración en Cursor, aprendizaje por refuerzo y cómo aplicarlo para automatizar tu PYME.",
         date: "2026-07-09",
         author: "IA4PYMES",
         readingTime: "8 min",
