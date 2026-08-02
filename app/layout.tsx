@@ -180,7 +180,7 @@ export default function RootLayout({
                 addressCountry: "ES",
               },
               sameAs: [
-                "https://linkedin.com/company/ia4pymes", 
+                "https://es.linkedin.com/company/ia4pymestech", 
                 "https://twitter.com/ia4pymes",
                 "https://www.facebook.com/profile.php?id=61560704600913",
                 "https://www.instagram.com/ia4pymes/"
