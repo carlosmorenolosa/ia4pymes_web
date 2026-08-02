@@ -5329,8 +5329,8 @@ By encoding rules in configuration files like \`CLAUDE.md\`, isolating agent wor
     // ─────────────────────────────────────────────────────────
     {
         slug: "kimi-k3-modelo-open-source-3t-supera-propietarios",
-        title: "La caída de los modelos cerrados: Kimi K3 supera a la élite privada en benchmarks clave",
-        description: "Analizamos el lanzamiento de Kimi K3, el primer modelo open-source de la clase 3T con 2.8 billones de parámetros, que bate a Claude Fable 5 y GPT 5.6 en programación y matemáticas.",
+        title: "Kimi K3 MoE: El Modelo Open-Source de 2.8T que Supera a Claude Fable y GPT 5.6",
+        description: "Análisis técnico de Kimi K3: arquitectura 2.8T parameters, atención KDA y benchmarks en programación frente a modelos cerrados de IA.",
         date: "2026-07-17",
         author: "IA4PYMES",
         readingTime: "8 min",
@@ -7751,8 +7751,8 @@ The redeployment of Claude Fable 5 is a stark reminder that advanced AI capabili
     // ─────────────────────────────────────────────────────────
     {
         slug: "tutorial-claude-code-router-modelos-locales-open-source",
-        title: "Tutorial: Cómo Usar Claude Code con Modelos Locales y Baratos Usando Claude Code Router",
-        description: "¿Quieres el potencial de Claude Code sin pagar la costosa API de Sonnet o enviando tu código propietario? Aprende a usar Claude Code Router con DeepSeek y Ollama.",
+        title: "Claude Code Router: Guía de Instalación con Ollama y DeepSeek (2026)",
+        description: "Aprende a configurar @musistudio/claude-code-router paso a paso. Conecta Claude Code con Ollama, DeepSeek y modelos locales para ahorrar un 90% en la API.",
         date: "2026-06-30",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -7864,8 +7864,8 @@ El potencial de Claude Code es inmenso, pero su coste y la privacidad del códig
     },
     {
         slug: "tutorial-claude-code-router-local-open-source-models",
-        title: "Tutorial: How to Run Claude Code with Local and Cheap Models Using Claude Code Router",
-        description: "Want the power of Claude Code without paying expensive Sonnet API bills or leaking proprietary code? Learn to run Claude Code Router with DeepSeek and Ollama.",
+        title: "Claude Code Router Tutorial: Run Local Models with Ollama & DeepSeek",
+        description: "Step-by-step setup guide for @musistudio/claude-code-router. Connect Claude Code CLI to Ollama, DeepSeek, and local LLMs to cut API costs by 90%.",
         date: "2026-06-30",
         author: "IA4PYMES",
         readingTime: "9 min",
