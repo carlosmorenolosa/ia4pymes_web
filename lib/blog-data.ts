@@ -85,17 +85,11 @@ Para aprovechar la llegada de modelos de pesos abiertos de esta capacidad, las P
 * **Orquestación de Agentes Autónomos:** Despliegue de agentes especializados que procesan correo corporativo, validan albaranes y automatizan la atención al cliente con datos propios.
 * **Comparativa con Modelos Competidores:** Como analizamos en nuestra comparativa sobre [modelos chinos de IA en 2026](/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes) y en la actualización de [DeepSeek-V4-Flash-0731](/blog/deepseek-v4-flash-0731-analisis-rendimiento-benchmarks-pymes), la elección entre API comercial y servidor local depende exclusivamente del volumen operativo y la sensibilidad de los datos.
 
-<div className="my-12 p-8 bg-blue-50/80 rounded-3xl border border-blue-100 text-center space-y-4">
-  <h3 className="text-2xl font-black text-slate-900">¿Quieres desplegar modelos como Qwen3.8 en la infraestructura de tu PYME?</h3>
-  <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
-    En IA4PYMES auditamos tus procesos empresariales, diseñamos la arquitectura de servidores locales y conectamos tus bases de datos con agentes de IA soberanos.
-  </p>
-  <div className="pt-2">
-    <a href="/#consultoria" className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg">
-      Reservar Consultoría Técnica
-    </a>
-  </div>
-</div>
+> ### ¿Quieres desplegar modelos como Qwen3.8 en la infraestructura de tu PYME?
+>
+> En IA4PYMES auditamos tus procesos empresariales, diseñamos la arquitectura de servidores locales y conectamos tus bases de datos con agentes de IA soberanos.
+>
+> [**Reservar Consultoría Técnica →**](/#consultoria)
 `
     },
     {
@@ -165,17 +159,11 @@ To leverage open-weights models effectively, companies must focus on production 
 * **Autonomous AI Agents:** Deploy specialized agents to process corporate email, verify delivery notes, and handle customer support securely.
 * **Model Selection Strategy:** As explored in our analysis of [Chinese AI models in 2026](/en/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes) and [DeepSeek-V4-Flash-0731](/en/blog/deepseek-v4-flash-0731-benchmark-breakthrough-sme-ai-guide), choosing between cloud APIs and local servers depends on volume and data sensitivity.
 
-<div className="my-12 p-8 bg-blue-50/80 rounded-3xl border border-blue-100 text-center space-y-4">
-  <h3 className="text-2xl font-black text-slate-900">Ready to deploy models like Qwen3.8 on your SME infrastructure?</h3>
-  <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
-    At IA4PYMES, we audit your business processes, design local server architecture, and connect your databases with sovereign AI agents.
-  </p>
-  <div className="pt-2">
-    <a href="/en#consultoria" className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg">
-      Book Technical Consultation
-    </a>
-  </div>
-</div>
+> ### Ready to deploy models like Qwen3.8 on your SME infrastructure?
+>
+> At IA4PYMES, we audit your business processes, design local server architecture, and connect your databases with sovereign AI agents.
+>
+> [**Book Technical Consultation →**](/en#consultoria)
 `
     },
     // ─────────────────────────────────────────────────────────
