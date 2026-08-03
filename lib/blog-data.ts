@@ -20,8 +20,8 @@ export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
     {
         slug: "qwen-3-8-benchmarks-oficiales-liberacion-open-source-27b-pymes",
-        title: "Alibaba desvela los benchmarks de Qwen3.8: 2,4 billones de parámetros, puesto #2 mundial y liberación open-source con versión 27B la próxima semana",
-        description: "Analizamos la publicación de resultados de Qwen3.8-Max. Alibaba confirma la liberación de pesos abiertos a partir del 10 de agosto y la llegada de Qwen3.8-27B, el modelo denso idóneo para servidores locales de PYMEs.",
+        title: "Qwen 3.8 y Qwen 3.8 27B Open Source: Benchmarks Oficiales de Alibaba y Guía de Despliegue Local en PYMEs",
+        description: "Analizamos los benchmarks oficiales de Qwen 3.8-Max (puesto #2 mundial) y la confirmación de Alibaba de liberar los pesos abiertos de Qwen 3.8-27B el 10 de agosto. Descubre cómo instalarlo en servidores locales de tu PYME.",
         date: "2026-08-03",
         author: "IA4PYMES",
         readingTime: "10 min",
@@ -108,8 +108,8 @@ Para aprovechar la llegada de modelos de pesos abiertos de esta capacidad, las P
     },
     {
         slug: "qwen-3-8-official-benchmarks-open-weights-27b-sme-guide",
-        title: "Alibaba Releases Qwen3.8 Benchmarks: 2.4T Parameters, Global #2 Rank, and Open-Weights 27B Launch Next Week",
-        description: "An in-depth evaluation of Qwen3.8-Max benchmark results. Alibaba confirms open-weights release starting August 10, alongside Qwen3.8-27B for self-hosted SME AI infrastructure.",
+        title: "Qwen 3.8 & Qwen 3.8 27B Open Source: Official Alibaba Benchmarks & SME Local Server Deployment Guide",
+        description: "Explore official Qwen 3.8-Max benchmark results (#2 global rank) and Alibaba's August 10 open-weights release announcement for Qwen 3.8-27B. Complete SME hardware and local infrastructure guide.",
         date: "2026-08-03",
         author: "IA4PYMES",
         readingTime: "10 min",
