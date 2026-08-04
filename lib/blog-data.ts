@@ -139,7 +139,7 @@ Los datos de implantación de agentes contables de IA en PYMEs españolas de ent
 * **Ahorro de horas semanales:** Un equipo administrativo que procesa 1.000 facturas mensuales pasa de dedicar 75 horas/mes a menos de 4 horas/mes (limitadas a revisar las excepciones que el agente clasifica con baja confianza).
 * **Tasa de error en libros de IVA:** Caída de la tasa de error del 8,5% a menos del **0,02%**, eliminando las notificaciones y requerimientos por discrepancias fiscales en los Modelos 303 y 347.
 
-Como hemos detallado en nuestros análisis sobre [agentes autónomos en contabilidad](/blog/ia-agente-autonomo-contabilidad-facturas-pymes) y la optimización operativa en [gestorías y asesorías fiscales](/blog/ia-gestorias-asesorias-fiscales-automatizacion), la automatización documental libera tiempo del personal calificado para tareas de análisis financiero y control de tesorería.
+Como hemos detallado en nuestros análisis sobre [agentes autónomos en contabilidad](/blog/sap-vs-agentes-open-source-creando-un-asistente-contable-autonomo) y la optimización operativa en [gestorías y asesorías fiscales](/blog/ia-gestorias-asesorias-automatizacion), la automatización documental libera tiempo del personal calificado para tareas de análisis financiero y control de tesorería.
 
 ---
 
@@ -150,13 +150,13 @@ La adopción de estas tecnologías de automatización e integración con la norm
 1. **Kit Digital (Categoría Gestión de Procesos e IA):** Subvenciona la contratación e integración de módulos de software homologados y agentes de inteligencia artificial para la digitalización de flujos contables.
 2. **Kit Consulting (Bono de Asesoramiento en IA):** Concede entre **12.000€ y 24.000€** a PYMEs de 10 a 250 empleados para auditar los flujos de facturación, diseñar la arquitectura de datos e implementar las conexiones entre los modelos de IA y el ERP de la empresa.
 
-Para profundizar en los requisitos de estas subvenciones, puedes consultar nuestra [guía del Kit Consulting para PYMEs españolas](/blog/ia-kit-consulting-guia-pymes-espana).
+Para profundizar en los requisitos de estas subvenciones, puedes consultar nuestra [guía del Kit Consulting para PYMEs españolas](/blog/kit-consulting-2026-subvencion-inteligencia-artificial-pymes).
 
 > ### ¿Quieres adaptar tus flujos de facturación a VeriFactu e integrar agentes de IA en tu ERP?
 >
 > En IA4PYMES auditamos tus procesos contables, diseñamos la integración con tu software actual (Holded, Factusol, A3, Sage) y desplegamos agentes de extracción documental para eliminar el trabajo manual.
 >
-> [**Reserva Auditoría Técnica →**]/#consultoria)
+> [**Reserva Auditoría Técnica →**](/#consultoria)
 
 ---
 
@@ -293,7 +293,7 @@ Deploying AI accounting agents across Spanish SMEs (15 to 120 employees) yields 
 * **Administrative Hours:** An administrative team processing 1,000 monthly invoices cuts processing time from 75 hours/month down to under 4 hours/month (restricted to reviewing low-confidence exceptions).
 * **VAT Ledger Error Rates:** Reduced from 8.5% down to under **0.02%**, eliminating tax discrepancy notices on quarterly returns.
 
-As explored in our analysis of [AI autonomous agents in accounting](/en/blog/voice-ai-agents-vs-traditional-call-center-roi) and operational optimization for [tax firms and accountants](/en/blog/ai-agent-evaluation-gap-observability-production-smes), document automation reallocates skilled staff to treasury control and financial strategy.
+As explored in our analysis of [AI autonomous agents in accounting](/en/blog/sap-vs-open-source-agents-building-autonomous-accounting-assistant) and operational optimization for [tax firms and accountants](/blog/ia-gestorias-asesorias-automatizacion), document automation reallocates skilled staff to treasury control and financial strategy.
 
 ---
 
@@ -303,6 +303,8 @@ Implementing VeriFactu-compliant automation receives public financial backing in
 
 1. **Kit Digital (Process Management & AI Category):** Subsidizes software modules and AI agents to digitize accounting workflows.
 2. **Kit Consulting (AI Advisory Grant):** Grants **€12,000 to €24,000** for SMEs (10 to 250 employees) to audit invoicing workflows and deploy API integrations connecting AI models with corporate ERP systems.
+
+For further details on grant eligibility, consult our [guide to Kit Consulting subsidies for SMEs](/en/blog/kit-consulting-2026-subsidy-artificial-intelligence-smes).
 
 > ### Need to adapt your invoicing workflows to VeriFactu and integrate AI into your ERP?
 >
