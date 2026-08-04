@@ -156,7 +156,7 @@ Para profundizar en los requisitos de estas subvenciones, puedes consultar nuest
 >
 > En IA4PYMES auditamos tus procesos contables, diseñamos la integración con tu software actual (Holded, Factusol, A3, Sage) y desplegamos agentes de extracción documental para eliminar el trabajo manual.
 >
-> [**Reserva Auditoría Técnica →**](/#consultoria)
+> **[Reserva Auditoría Técnica →](/#consultoria)**
 
 ---
 
@@ -310,7 +310,7 @@ For further details on grant eligibility, consult our [guide to Kit Consulting s
 >
 > At IA4PYMES, we audit accounting workflows, design custom integrations with local ERP software (Holded, Factusol, A3, Sage), and deploy AI document extraction agents.
 >
-> [**Book Technical Audit →**](/en#consultoria)
+> **[Book Technical Audit →](/en#consultoria)**
 
 ---
 
