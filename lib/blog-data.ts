@@ -55,7 +55,7 @@ Los microservicios bajo demanda funcionan mediante conexiones API de ejecución 
 
 El dictado por voz convencional suele requerir correcciones manuales continuas debido a la falta de vocabulario especializado y a la incapacidad de estructurar la información en campos sintácticamente válidos.
 
-Mediante la integración de modelos de voz a texto optimizados para terminología médica (*Whisper-v3-medical*) combinados con modelos de lenguaje de pequeño tamaño (SLM), el facultativo habla de forma natural durante la exploración del paciente. El sistema procesa el audio y genera instantáneamente un objeto JSON compatible con el estándar sanitario **HL7 FHIR**.
+Mediante la integración de modelos de reconocimiento de voz a texto de grado médico (Speech-to-Text) combinados con modelos de lenguaje de pequeño tamaño (SLM), el facultativo habla de forma natural durante la exploración del paciente. El sistema procesa el audio y genera instantáneamente un objeto JSON compatible con el estándar sanitario **HL7 FHIR**.
 
 \`\`\`json
 {
@@ -185,7 +185,7 @@ On-demand AI microservices operate via event-driven API endpoints. Clinics pay s
 
 Conventional voice dictation tools require continuous manual editing due to a lack of specialized medical vocabulary and an inability to format raw speech into syntactically structured EHR fields.
 
-By pairing medical-grade speech recognition models (*Whisper-v3-medical*) with small language models (SLM), clinicians dictate naturally during patient consultations. The system processes the audio stream and instantly generates a structured **HL7 FHIR** JSON payload.
+By pairing specialized medical-grade speech-to-text models with small language models (SLM), clinicians dictate naturally during patient consultations. The system processes the audio stream and instantly generates a structured **HL7 FHIR** JSON payload.
 
 \`\`\`json
 {
