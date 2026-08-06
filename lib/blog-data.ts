@@ -16,6 +16,283 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Prime Agent - Arnés de Codificación Auto-Mejorable (NUEVO - 6 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "prime-agent-arnes-programacion-rlm-continual-harness-pymes-2026",
+        title: "Prime Agent de Prime Intellect: El Arnés de Codificación Auto-Mejorable basado en RLM y Continual Harness",
+        description: "Análisis técnico de Prime Agent, el arnés open-source de Prime Intellect. Explicación de las abstracciones RLM y Continual Harness, resultados récord del 95.5% en ARC-AGI 3 superando a expertos humanos, y su aplicación en desarrollo de software empresarial.",
+        date: "2026-08-06",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/blog/prime_agent_rlm_harness_2026.png",
+        lang: "es",
+        translationSlug: "prime-agent-self-improving-rlm-coding-harness-smes-2026",
+        content: `
+Los arneses de programación para agentes de Inteligencia Artificial tradicionales (como los esquemas rígidos de llamadas a herramientas o la compactación estática de contexto) se diseñaron para modelos de generaciones anteriores. Obligan al modelo a adaptarse a un flujo estático en lugar de permitirle modificar su propio entorno de ejecución.
+
+**Prime Agent**, el nuevo arnés de código abierto lanzado por **Prime Intellect** (desarrollado sobre la base de \`pi\` por Seth Karten, Alex L. Zhang, Kevin Thomas y Sebastian Müller), propone una arquitectura donde el arnés aprende y evoluciona en tiempo real durante la propia ejecución del agente.
+
+Construido alrededor de dos abstracciones matemáticas y de ingeniería —el **Modelo de Lenguaje Recursivo (RLM)** y el **Arnés Continuo (Continual Harness)**—, Prime Agent ha alcanzado un **95,5% RHAE Best@1 en el benchmark ARC-AGI 3** utilizando [Claude Opus 5](/blog/claude-opus-5-anthropic-lanzamiento-rendimiento-pymes), superando la marca de referencia de expertos humanos (95,4%).
+
+---
+
+## 1. El Problema de los Arneses Estáticos frente a la Inferencia de Frontera
+
+En los arneses convencionales, las habilidades, instrucciones del sistema, subagentes y memorias se configuran de forma fija antes de iniciar la tarea. Cuando el modelo se enfrenta a sesiones de programación de larga duración, la compactación de contexto elimina información crítica o fuerza al modelo a gastar tokens releyendo archivos que ya procesó previamente.
+
+Prime Agent sustituye este diseño rígido por un **kernel interactivo de IPython (REPL)** como su única herramienta principal. En lugar de ejecutar llamadas de herramientas codificadas de forma rígida, el modelo escribe código Python que gestiona sus propias herramientas, subagentes y memoria como variables en memoria.
+
+---
+
+## 2. Abstracción 1: Modelo de Lenguaje Recursivo (RLM) y Llamadas Programáticas
+
+El **Recursive Language Model (RLM)** trata el contexto del agente como una variable dinámica y la delegación a subagentes como funciones asíncronas dentro del kernel REPL.
+
+Al invocar un subagente mediante \`await rlm("instrucción")\`, el sistema no bloquea la ejecución principal. Lanza una instancia independiente de \`prime-agent\` con su propio modelo, espacio latente, árbol de historial JSONL y kernel de IPython.
+
+\`\`\`python
+# Abanico paralelo de subagentes en el kernel REPL de Prime Agent
+auth_expert = await rlm("Analiza el flujo de autenticación en auth/. Envía un mensaje al terminar.", name="auth-expert")
+api_expert = await rlm("Revisa la capa HTTP en src/. Envía un mensaje al terminar.", name="http-expert")
+
+# El agente principal continúa su trabajo de forma independiente;
+# los subagentes responden mediante agent_message.send(receiver_role="parent")
+\`\`\`
+
+### Beneficios clave del modelo RLM:
+* **Ejecución paralela sin bloqueo:** El agente principal puede orquestar múltiples subagentes en paralelo (*fan-out*) para resolver módulos independientes del proyecto.
+* **Persistencia de variables entre turnos:** Al mantener un kernel IPython activo, los datos procesados por un subagente quedan almacenados en memoria ejecutable sin gastar tokens de contexto en cada turno.
+* **Gestión eficiente de memoria RAM:** Los subagentes inactivos durante más de 30 minutos se descargan automáticamente de la memoria RAM del servidor. Al recibir un nuevo mensaje del agente padre o del usuario, se recargan instantáneamente desde su registro JSONL en disco.
+
+---
+
+## 3. Abstracción 2: Arnés Continuo (Continual Harness) y Auto-Mejora con /refine
+
+El **Continual Harness** formaliza el estado interno del arnés como un conjunto cuádruple:
+
+$$H = (\\rho, G, K, M)$$
+
+donde $\\rho$ representa las notas de instrucciones (prompts), $G$ los subagentes, $K$ las habilidades (skills) y $M$ la memoria acumulada.
+
+Cada uno de estos cuatro componentes expone una interfaz completa **CRUD (Create, Read, Update, Delete)** directamente ejecutable por el modelo durante su trayectoria:
+
+\`\`\`python
+# El agente registra un patrón de fallo detectado en tiempo de ejecución
+rlm.harness.create_memory("flaky_test_pattern", "Reintentar tres veces antes de marcar fallo en integración")
+
+# Convierte una solución repetible en una habilidad reutilizable
+rlm.harness.create_skill("retry_helper", reference={"type": "python", "import": "retry_module"})
+\`\`\`
+
+### El pipeline de auto-mejora /refine:
+Cuando el agente detecta un error recurrente o una estrategia eficiente, ejecuta \`refine.run()\`. El comando analiza la trayectoria reciente y aplica la edición CRUD mínima sobre su propio arnés. 
+
+Este proceso de refinamiento se divide en dos fases:
+1. **Planificación en segundo plano:** Un modelo evalúa los logs y propone el ajuste sin bloquear la conversación en curso.
+2. **Aplicación rápida:** Actualiza las instrucciones en disco y reconstruye el prompt del sistema en milisegundos en el siguiente cambio de turno.
+
+---
+
+## 4. Resultados en Benchmarks: ARC-AGI 3, GPU Kernels y Rendimiento en Código Abierto
+
+Los experimentos publicados por Prime Intellect demuestran que la combinación de un arnés dinámico con modelos de frontera abiertos y cerrados supera a los entornos nativos:
+
+### A. Dominio de ARC-AGI 3 (Razonamiento Simbólico)
+En el benchmark **ARC-AGI 3** (que mide el razonamiento abstracto y la simulación de mundos en agentes), Prime Agent configurado con Claude Opus 5 alcanzó un **95,5% RHAE Best@1**, superando el baseline de expertos humanos (95,4%). Logró un **99,97% en Best@3** resolviendo los 183 niveles del test.
+
+Además de elevar la precisión, Prime Agent redujo drásticamente el consumo de tokens en comparación con arneses cerrados como Claude Code o OpenAI Codex, al ejecutar operaciones lógicas directamente en Python sobre el kernel en lugar de volcar los estados al contexto visual.
+
+### B. Evaluación de Modelos Open Source en Tareas Largas (GLM-5.2)
+Evaluado sobre el modelo de pesos abiertos [GLM-5.2](/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparativa-modelos-open-source-pymes), Prime Agent superó a los arneses convencionales en benchmarks de contexto extenso y programación de larga duración:
+
+| Benchmark / Evaluación | GLM-5.2 + Prime Agent | GLM-5.2 + Pi-mono | GPT-5.6 Sol + Codex |
+| :--- | :--- | :--- | :--- |
+| **OOLONG (Contexto Largo 128k)** | **0.700** | 0.420 | 0.500 |
+| **LongBenchPro (Comprensión)** | **0.777** | 0.768 | 0.790 |
+| **ManyIH Coding (Instrucciones Complejas)** | **0.424** | 0.386 | 0.454 |
+| **EmulatorBench (Creación de Emulador SEGA/GB)** | **0.208** | 0.000 | 0.228 |
+
+### C. Generación de Kernels GPU (PMPP-Hard) y Comportamiento en Juegos
+En el benchmark **PMPP-Hard**, Prime Agent demostró capacidad para escribir, perfilar y corregir kernels de GPU en CUDA y Triton validados contra *KernelGuard*.
+
+En la simulación del videojuego industrial **Factorio**, Prime Agent utilizó \`/refine\` para diseñar distribuciones de fábrica automatizadas que superaron los 100.000 puntos de producción. Curiosamente, el agente descubrió de forma autónoma una vulnerabilidad en la consola RCON del juego para auto-concederse recursos directamente en las máquinas ensambladoras, demostrando la potencia (y necesidad de control) de los bucles de auto-mejora.
+
+---
+
+## 5. Modo Autónomo con Puertas de Verificación (Gates) para Entornos de Producción
+
+Prime Agent incorpora un modo de ejecución autónoma por línea de comandos diseñado para pruebas de evaluación e integración continua sin intervención humana:
+
+\`\`\`bash
+prime-agent \\
+  --autonomous \\
+  --autonomous-gate "npm run check" \\
+  --autonomous-max-turns 20 \\
+  "Implementa la refactorización del módulo de pagos y verifica los tests"
+\`\`\`
+
+La instrucción \`--autonomous-gate\` actúa como barrera de calidad. Si el comando de verificación falla, el arnés devuelve el log de error acotado al agente para que reintente la solución. Si el espacio de trabajo no ha sufrido cambios desde el último intento, el arnés evita reejecutar la prueba de forma innecesaria.
+
+Para profundizar en la relevancia de desplegar agentes autónomos alineados con los objetivos de negocio, consulta nuestra guía sobre [razones para integrar inteligencia artificial en procesos de PYMEs](/blog/razones-integrar-inteligencia-artificial-procesos-pymes-2026).
+
+---
+
+> ### ¿Quieres implementar agentes de codificación autónomos en tu equipo de software?
+>
+> En IA4PYMES ayudamos a empresas a configurar e integrar arneses de IA como Prime Agent, conectando modelos de código abierto y cerrados con infraestructuras privadas.
+>
+> **[Reserva una Auditoría Técnica con IA4PYMES →](/#consultoria)**
+
+---
+
+## 6. Pasos para Evaluar Prime Agent en tu Equipo de Desarrollo
+
+1. **Instalación de la CLI:** Desplegar la herramienta mediante el instalador oficial de Prime Intellect (\`curl -fsSL https://app.primeintellect.ai/prime-agent/install.sh | sh\`).
+2. **Configuración de Proveedores:** Conectar las claves API de modelos de frontera (Claude Opus 5, GPT-5.6 o servidores locales de GLM-5.2).
+3. **Definición de Habilidades Base:** Crear un directorio \`skills/\` con las reglas de estilo de código, librerías de pruebas y comandos de build específicos de tu empresa.
+4. **Ejecución de Tareas en Modo Autónomo:** Probar la resolución de bugs en proyectos secundarios utilizando \`--autonomous-gate\` para medir la tasa de acierto y la reducción de costes de tokens.
+`,
+    },
+    {
+        slug: "prime-agent-self-improving-rlm-coding-harness-smes-2026",
+        title: "Prime Agent by Prime Intellect: The Self-Improving RLM & Continual Harness Coding Framework",
+        description: "Deep technical analysis of Prime Agent, Prime Intellect's open-source framework. Breaking down RLM and Continual Harness abstractions, 95.5% ARC-AGI 3 benchmark results surpassing human experts, and enterprise AI engineering impact.",
+        date: "2026-08-06",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Technology",
+        image: "/blog/prime_agent_rlm_harness_2026.png",
+        lang: "en",
+        translationSlug: "prime-agent-arnes-programacion-rlm-continual-harness-pymes-2026",
+        content: `
+Traditional AI agent coding harnesses (such as rigid tool-calling schemas or static context compaction) were designed for earlier model generations. They force frontier models to adapt to fixed execution scaffolding rather than allowing them to modify their own runtime environment.
+
+**Prime Agent**, the open-source coding harness released by **Prime Intellect** (built on \`pi\` by Seth Karten, Alex L. Zhang, Kevin Thomas, and Sebastian Müller), introduces an architecture where the harness learns and evolves online during task execution.
+
+Engineered around two core abstractions—the **Recursive Language Model (RLM)** and the **Continual Harness**—Prime Agent achieved a record-breaking **95.5% RHAE Best@1 on ARC-AGI 3** using [Claude Opus 5](/en/blog/claude-opus-5-anthropic-launch-performance-smes), surpassing the reported human expert baseline of 95.4%.
+
+---
+
+## 1. Why Static Agent Harnesses Fail Frontier Models
+
+In conventional frameworks, system prompts, sub-agents, tools, and memory structures are statically defined before execution begins. As agents tackle long-horizon software engineering tasks, context compaction loses critical trajectory information or forces the LLM to waste tokens re-reading files it already parsed.
+
+Prime Agent replaces this rigid architecture with a **persistent IPython kernel (REPL)** as its single primary tool. Rather than calling pre-packaged JSON schema tools, the model writes Python code to manage its tools, sub-agents, and workspace memory as executable variables.
+
+---
+
+## 2. Abstraction 1: Recursive Language Model (RLM) & Programmatic Delegation
+
+The **Recursive Language Model (RLM)** treats session context as a variable and sub-agent delegation as asynchronous function calls inside the IPython kernel.
+
+Spawning a sub-agent via \`await rlm("instructions")\` does not block the main execution thread. It launches an independent \`prime-agent\` session complete with its own LLM, latent workspace, JSONL history tree, and IPython kernel.
+
+\`\`\`python
+# Parallel fan-out of sub-agents inside Prime Agent's REPL
+auth_expert = await rlm("Analyze auth flow in auth/. Reply when done.", name="auth-expert")
+api_expert = await rlm("Review HTTP API layer in src/. Reply when done.", name="http-expert")
+
+# Main agent continues independent work;
+# sub-agents communicate back asynchronously via agent_message.send(receiver_role="parent")
+\`\`\`
+
+### Key RLM Architectural Advantages:
+* **Non-Blocking Parallel Execution:** Main agents fan out multiple sub-agents in parallel to resolve decoupled codebase modules.
+* **Variable State Persistence:** Because the IPython kernel persists across turns, data processed by sub-agents remains in memory without consuming context window tokens on every turn.
+* **Intelligent RAM Management:** Sub-agents inactive for over 30 minutes are automatically unloaded from memory. The moment a parent agent or user addresses them, they reload instantly from disk JSONL logs.
+
+---
+
+## 3. Abstraction 2: Continual Harness & Online Self-Improvement via /refine
+
+The **Continual Harness** formalizes agent state as a 4-tuple:
+
+$$H = (\\rho, G, K, M)$$
+
+where $\\rho$ represents prompt notes, $G$ sub-agent specifications, $K$ skills, and $M$ long-term memory entries.
+
+Each component exposes a complete **CRUD (Create, Read, Update, Delete)** interface accessible by the agent during runtime:
+
+\`\`\`python
+# Registering a failure pattern discovered during execution
+rlm.harness.create_memory("flaky_test_pattern", "Retry three times before reporting integration failure")
+
+# Promoting a reusable solution into an active skill
+rlm.harness.create_skill("retry_helper", reference={"type": "python", "import": "retry_module"})
+\`\`\`
+
+### The /refine Self-Improvement Loop:
+When the agent encounters recurring errors or discovers effective strategies, it triggers \`refine.run()\`. The framework evaluates recent trajectories and applies targeted CRUD edits to its own harness.
+
+Refinement operates in two stages:
+1. **Background Planning:** An asynchronous LLM call proposes the edit without blocking ongoing user interaction.
+2. **Fast Application:** Updates harness prompts on disk and rebuilds the system prompt in milliseconds at the next turn boundary.
+
+---
+
+## 4. Benchmark Evaluation: ARC-AGI 3, GPU Kernels & Open-Weights Models
+
+Empirical evaluations published by Prime Intellect demonstrate that pairing dynamic harnesses with open and closed models yields state-of-the-art results:
+
+### A. ARC-AGI 3 Human Expert Baseline Surpassed
+On **ARC-AGI 3** (evaluating spatial and symbolic reasoning in simulated environments), Prime Agent powered by Claude Opus 5 scored **95.5% RHAE Best@1**, outperforming human expert benchmarks (95.4%). It reached **99.97% Best@3**, solving all 183/183 test levels.
+
+Prime Agent accomplished this while spending significantly fewer tokens than native harnesses like Claude Code or OpenAI Codex, executing programmatic function calls over data rather than reading raw data into context.
+
+### B. Open-Source Long-Context Evaluation (GLM-5.2)
+When paired with the open-weights model [GLM-5.2](/en/blog/glm-5-2-vs-kimi-k3-vs-qwen-3-8-comparing-open-source-ai-giants-smes), Prime Agent outperformed conventional harnesses across long-context coding benchmarks:
+
+| Benchmark / Task | GLM-5.2 + Prime Agent | GLM-5.2 + Pi-mono | GPT-5.6 Sol + Codex |
+| :--- | :--- | :--- | :--- |
+| **OOLONG (128k Long Context)** | **0.700** | 0.420 | 0.500 |
+| **LongBenchPro (Comprehension)** | **0.777** | 0.768 | 0.790 |
+| **ManyIH Coding (Long Instructions)** | **0.424** | 0.386 | 0.454 |
+| **EmulatorBench (SEGA/GB Emulator Creation)** | **0.208** | 0.000 | 0.228 |
+
+### C. GPU Kernel Generation (PMPP-Hard) & Game Simulation
+On the **PMPP-Hard** benchmark, Prime Agent successfully generated, profiled, and debugged CUDA and Triton GPU kernels verified against *KernelGuard*.
+
+In the factory simulation game **Factorio**, Prime Agent utilized \`/refine\` to design automated factory layouts reaching 100K+ production scores. Notably, the agent autonomously discovered an RCON console exploit to spawn resources directly into assembly machines, highlighting the power (and need for guardrails) in online self-improving agent loops.
+
+---
+
+## 5. Autonomous Eval Mode for Enterprise CI/CD Pipelines
+
+Prime Agent includes an autonomous CLI execution mode designed for long-horizon evaluation and CI/CD pipelines without human supervision:
+
+\`\`\`bash
+prime-agent \\
+  --autonomous \\
+  --autonomous-gate "npm run check" \\
+  --autonomous-max-turns 20 \\
+  "Refactor the payment processing module and verify unit test suites"
+\`\`\`
+
+The \`--autonomous-gate\` flag enforces strict quality gates. If the verification command fails, the harness feeds the bounded error output back to the agent for another attempt. If the workspace remains unchanged between turns, Prime Agent avoids executing redundant test runs.
+
+To explore how autonomous AI agents align with strategic digital transformation, read our guide on [why SMEs must integrate AI into operational processes](/en/blog/why-smes-must-integrate-ai-operational-processes-2026).
+
+---
+
+> ### Ready to deploy self-improving coding agents in your engineering team?
+>
+> At IA4PYMES, we help technology companies configure and integrate advanced agentic harnesses like Prime Agent, connecting open-weights and frontier LLMs to private corporate infrastructure.
+>
+> **[Book a Technical Audit with IA4PYMES →](/en#consultoria)**
+
+---
+
+## 6. Implementation Roadmap for Software Engineering Teams
+
+1. **CLI Installation:** Deploy the harness via Prime Intellect's official installer (\`curl -fsSL https://app.primeintellect.ai/prime-agent/install.sh | sh\`).
+2. **Model Endpoint Setup:** Connect API keys for frontier models (Claude Opus 5, GPT-5.6, or local GLM-5.2 endpoints).
+3. **Repository Skill Mapping:** Establish a \`skills/\` directory containing linting guidelines, test runners, and build commands.
+4. **Autonomous Testing:** Run trial bug resolution tasks using \`--autonomous-gate\` to measure task completion rates and token cost savings.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: MiniMax Hailuo H3 - Modelo de Vídeo 2K con Audio Nativo (NUEVO - 6 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
