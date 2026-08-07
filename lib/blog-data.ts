@@ -74,17 +74,17 @@ En lugar de leer 40 páginas de un contrato comercial, el motor de IA extrae aut
 * Alertas de riesgo por discrepancias frente a la normativa vigente.
 
 ### Módulo 4: Clasificación y Archivado Inteligente
-Los documentos procesados se etiquetan, renombran de forma estandarizada (ej: \`20260807_Contrato_Arrendamiento_Local_Madrid.pdf\`) y se archivan automáticamente en el gestor documental o CRM de la empresa mediante flujos de [n8n o Python](/blog/tutorial-red-privada-chatgpt-ollama-n8n-pymes-paso-a-paso).
+Los documentos procesados se etiquetan, renombran de forma estandarizada (ej: \`20260807_Contrato_Arrendamiento_Local_Madrid.pdf\`) y se archivan automáticamente en el gestor documental o CRM de la empresa mediante flujos de [n8n o Python](/blog/tutorial-agente-ia-n8n-prospeccion-b2b).
 
 ---
 
-## 3. Casos Prácticos por Sector
+### Casos de Uso por Sector y Reducción de Tiempos
 
-| Sector | Tarea Documental Tradicional | Solución con IA Automatizada | Ahorro de Tiempo |
+| Sector | Tarea Tradicional | Solución con IA4PYMES | Ahorro Real Medido |
 | :--- | :--- | :--- | :--- |
-| **Despachos de Abogados** | Revisión manual de borradores y jurisprudencia | [RAG privado](/blog/ia-abogados-despachos-juridicos-gestion-documental-contratos-2026) + Extracción automática de cláusulas de riesgo | **De 3 horas a 8 minutos** |
-| **Sector Inmobiliario** | Redacción de contratos de reserva, arras y alquiler | [Generación de contratos](/blog/ia-inmobiliarias-real-estate-automatizacion-contratos-captacion-2026) sincronizada con el CRM inmobiliario | **De 2 horas a 4 minutos** |
-| **Gestorías y Asesorías** | Lectura e introducción de facturas y nóminas | Extracción OCR con validación [Veri*Factu](/blog/verifactu-facturacion-electronica-ia-pymes-automatizacion-contable-2026) y sincronización ERP | **Reducción del 85% de carga** |
+| **Despachos de Abogados** | Revisión manual de borradores y jurisprudencia | [RAG privado](/blog/ia-abogados-legaltech-automatizacion-despachos) + Extracción automática de cláusulas de riesgo | **De 3 horas a 8 minutos** |
+| **Sector Inmobiliario** | Redacción de contratos de reserva, arras y alquiler | [Generación de contratos](/blog/ia-inmobiliarias-automatizacion-ventas-gestion-propiedades) sincronizada con el CRM inmobiliario | **De 2 horas a 4 minutos** |
+| **Gestorías y Asesorías** | Lectura e introducción de facturas y nóminas | Extracción OCR con validación [Veri*Factu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026) y sincronización ERP | **Reducción del 85% de carga** |
 | **Corredurías de Seguros** | Cotejo manual de pólizas y partes de siniestros | Análisis comparativo de coberturas y resumen sintético de siniestros | **De 45 min a 3 minutos** |
 
 ---
@@ -185,7 +185,7 @@ Instead of reading 40 pages of commercial agreements, the AI engine automaticall
 * Risk flags highlighting deviations from company standard terms.
 
 ### Module 4: Intelligent Filing & CRM Integration
-Processed files are auto-tagged, standardized (e.g., \`20260807_Lease_Agreement_Madrid_Unit4.pdf\`), and indexed into corporate document stores or CRMs via automated [n8n / Python integration pipelines](/en/blog/tutorial-private-chatgpt-network-ollama-n8n-smes-step-by-step).
+Processed files are auto-tagged, standardized (e.g., \`20260807_Lease_Agreement_Madrid_Unit4.pdf\`), and indexed into corporate document stores or CRMs via automated [n8n / Python integration pipelines](/en/blog/n8n-b2b-ai-agent-prospecting-tutorial).
 
 ---
 
@@ -1181,7 +1181,7 @@ Our clinic microservices are engineered under strict **Privacy by Design** princ
 
 ### Technical Compliance Guarantees:
 * **Zero Data Retention (ZDR):** Inference calls execute exclusively in server RAM and are wiped immediately after returning JSON payloads. No data is stored on disk or used for model training.
-* **Sovereign European Hosting:** Compute nodes reside in EU datacenters (Germany, France, or Spain) or on private On-Premise GPU servers within the clinic's local network, following our [Guide to deploying local LLMs on private SME infrastructure](/en/blog/local-llms-private-infrastructure-smes).
+* **Sovereign European Hosting:** Compute nodes reside in EU datacenters (Germany, France, or Spain) or on private On-Premise GPU servers within the clinic's local network, following our [Guide to deploying local LLMs on private SME infrastructure](/en/blog/local-llm-private-infrastructure-smes).
 * **Human-in-the-Loop Governance:** In accordance with the [EU AI Act](/en/blog/eu-ai-act-compliance-smes-2026-obligations), AI microservices act strictly as clinical decision-support tools. Diagnostic and treatment liability remains exclusively with the licensed medical practitioner.
 
 ---
