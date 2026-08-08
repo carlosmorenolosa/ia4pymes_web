@@ -120,6 +120,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
 
+        {/* Agentic Web & WebMCP Declarations */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM documentation" />
+        <meta name="ai-agent" content="enabled" />
+
         {/* Favicon optimizado */}
         <link rel="icon" href="/LOGO.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/LOGO.png" />

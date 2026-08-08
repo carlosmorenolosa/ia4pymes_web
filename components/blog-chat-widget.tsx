@@ -31,11 +31,11 @@ export function BlogChatWidget({ lang = "es" }: BlogChatWidgetProps) {
   const whatsappUrl = `https://wa.me/34680538801?text=${encodeURIComponent(copy.text)}`
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5 pointer-events-none">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
       {/* Tooltip bubble */}
       {showTooltip && (
         <div
-          className="pointer-events-auto bg-white text-slate-800 text-[13px] font-bold py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2 select-none animate-in fade-in zoom-in-95 duration-300"
+          className="absolute bottom-16 right-0 whitespace-nowrap pointer-events-auto bg-white text-slate-800 text-[13px] font-bold py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2 select-none animate-in fade-in zoom-in-95 duration-300"
         >
           {/* Green active pulse inside tooltip */}
           <span className="relative flex h-2 w-2">
