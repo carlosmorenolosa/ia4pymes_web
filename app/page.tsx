@@ -13,7 +13,8 @@ import {
 import Link from "next/link"
 import dynamic from "next/dynamic"
 // framer-motion removed from Server Component
-import { HomeHeroWrapper } from "@/components/home-hero-wrapper"
+import { HomeHeader } from "@/components/home-header"
+import { HeroES } from "@/components/hero-es"
 import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import { FadeIn } from "@/components/fade-in"
 import { Counter } from "@/components/counter"
@@ -38,8 +39,8 @@ const FaqSection = dynamic(() =>
 export default function Home() {
   return (
     <>
-      
-      <HomeHeroWrapper />
+      <HomeHeader splashFinished={true} />
+      <HeroES splashFinished={true} />
       <main className="bg-transparent">
 
 
