@@ -16,11 +16,13 @@ const nextConfig = {
   turbopack: {
     resolveAlias: {
       'next/dist/build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+      'next/dist/build/polyfills/polyfill-module.js': './lib/empty-polyfill.js',
     },
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.resolve.alias['next/dist/build/polyfills/polyfill-module$'] = path.resolve(__dirname, 'lib/empty-polyfill.js')
+      config.resolve.alias['next/dist/build/polyfills/polyfill-module'] = path.resolve(__dirname, 'lib/empty-polyfill.js')
+      config.resolve.alias['next/dist/build/polyfills/polyfill-module.js'] = path.resolve(__dirname, 'lib/empty-polyfill.js')
     }
     return config
   },
