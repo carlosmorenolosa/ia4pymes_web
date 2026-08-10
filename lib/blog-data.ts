@@ -159,7 +159,7 @@ Combinando el OCR con *visual grounding*, el agente lee planos de arquitectura o
 ## 6. Preguntas Frecuentes sobre Qwen-MM-Plugins
 
 ### ¿Qwen-MM-Plugins solo funciona con modelos de Alibaba?
-No. Los servidores MCP y los prompts de *skills* son agnósticos. Pueden utilizarse con Claude 3.5 Sonnet, GPT-4o o modelos locales como Qwen2-VL y Ollama ejecutados en servidores soberanos.
+No. Los servidores MCP y los prompts de *skills* son agnósticos. Pueden utilizarse con Claude Sonnet 5, GPT-5.6 o modelos locales como Gemma 4 y Qwen 3.6 ejecutados en servidores soberanos.
 
 ### ¿Se pueden ejecutar los plugins en entornos locales sin conexión a internet?
 Sí. El plugin \`core\` y \`video-memory\` pueden configurarse para llamar a endpoints locales de vLLM o Ollama dentro de la red privada de la empresa.
@@ -309,7 +309,7 @@ Combining OCR with *visual grounding*, the agent parses architectural blueprints
 ## 6. Frequently Asked Questions about Qwen-MM-Plugins
 
 ### Does Qwen-MM-Plugins only work with Alibaba models?
-No. The MCP servers and skill prompts are model-agnostic. They work with Claude 3.5 Sonnet, GPT-4o, or local open-weights models like Qwen2-VL executed via vLLM/Ollama.
+No. The MCP servers and skill prompts are model-agnostic. They work with Claude Sonnet 5, GPT-5.6, or local open-weights models like Gemma 4 and Qwen 3.6 executed via vLLM/Ollama.
 
 ### Can these plugins run on local, air-gapped infrastructure?
 Yes. The \`core\` and \`video-memory\` modules can be configured to call local vLLM or Ollama endpoints inside your private network.
