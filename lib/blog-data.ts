@@ -16,8 +16,308 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
-    // ARTÍCULO BILINGÜE: Automatización Documental con IA para PYMEs (NUEVO - 7 AGOSTO 2026)
+    // ARTÍCULO BILINGÜE: Qwen-MM-Plugins por Alibaba QwenLM (NUEVO - 10 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
+    {
+        slug: "qwen-mm-plugins-agentes-ia-multimodales-terminal-pymes-2026",
+        title: "Qwen-MM-Plugins: Cómo Transformar Agentes de Terminal en Sistemas Multimodales con Visión, CAD 3D y Memoria de Vídeo",
+        description: "Análisis técnico de Qwen-MM-Plugins por Alibaba (QwenLM). Integración de herramientas de visión, parseo dinámico de resolución, CAD 3D (FreeCAD/Blender), memoria jerárquica de vídeo largo y servidores MCP para agentes de desarrollo en PYMEs.",
+        date: "2026-08-10",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Desarrollo",
+        image: "/blog/qwen_mm_plugins_multimodal_agents_header.jpg",
+        lang: "es",
+        translationSlug: "qwen-mm-plugins-multimodal-ai-agents-terminal-harnesses-smes-2026",
+        content: `
+Los agentes de inteligencia artificial en terminal (como *Claude Code*, *Qoder*, *OpenHands* o *Codex*) han demostrado una alta capacidad para refactorizar código y ejecutar pruebas. Sin embargo, sufren una limitación estructural: operan a ciegas respecto al entorno visual. No pueden inspeccionar un fallo de renderizado en un navegador, analizar una pieza mecánica en software CAD, interpretar un flujo en vídeo de 40 minutos o verificar la maquetación de un documento técnico escaneado.
+
+El equipo de Alibaba Qwen (QwenLM) ha publicado **Qwen-MM-Plugins**, una biblioteca de código abierto diseñada para dotar a los [arneses de programación](/blog/prime-agent-arnes-programacion-rlm-continual-harness-pymes-2026) de capacidades multimodales nativas sin necesidad de reconstruir la arquitectura del agente desde cero.
+
+A través de un sistema modular que combina instrucciones de modelo (*skills*) y servidores del [protocolo de contexto de modelo (MCP)](/blog/executor-sh-gateway-mcp-unificado-agentes-ia), Qwen-MM-Plugins permite que cualquier agente de consola procese imágenes de resolución dinámica, manipule modelos 3D en FreeCAD o Blender y consulte vídeos de larga duración mediante grafos de memoria.
+
+---
+
+## 1. Arquitectura de Qwen-MM-Plugins: Skills + Servidores MCP
+
+El diseño de la librería se apoya en una separación clara entre la percepción del modelo y la ejecución de herramientas en el sistema operativo:
+
+\`\`\`
+┌──────────────────────────────────────────────────────────┐
+│             Agente de Terminal (Harness)                 │
+│         (Claude Code / Qoder / Qwen Code / Codex)         │
+└────────────────────────────┬─────────────────────────────┘
+                             │
+            ┌────────────────┴────────────────┐
+            ▼                                 ▼
+┌──────────────────────┐          ┌──────────────────────┐
+│    Skills (Prompt)   │          │  Servidores MCP (uvx)│
+│  Instrucciones sobre │          │  Ejecución local de  │
+│  cuándo usar visión  │          │  herramientas CLI    │
+└──────────────────────┘          └──────────────────────┘
+            │                                 │
+            └────────────────┬────────────────┘
+                             ▼
+┌──────────────────────────────────────────────────────────┐
+│  Configuración Compartida (~/.qwen-mm-plugins/config)   │
+└──────────────────────────────────────────────────────────┘
+\`\`\`
+
+### El instalador automatizado
+La instalación se realiza con un comando interactivo que detecta los arneses presentes en el sistema y escribe la configuración compartida:
+
+\`\`\`bash
+curl -fsSL https://raw.githubusercontent.com/QwenLM/Qwen-MM-Plugins/main/install.sh | bash
+\`\`\`
+
+El script registra los plugins seleccionados en \`~/.qwen-mm-plugins/config\` y los expone mediante ejecutables sobre demanda con \`uvx\`. Esto evita sobrecargar la memoria del proceso principal del agente cuando no se están ejecutando tareas visuales.
+
+---
+
+## 2. Los 5 Módulos Principales de la Librería
+
+Qwen-MM-Plugins se divide en paquetes especializados que pueden activarse de forma independiente según las necesidades del proyecto:
+
+| Módulo | Función Principal | Herramientas Incluidas |
+| :--- | :--- | :--- |
+| **\`core\`** | Percepción visual y lectura multiformato | Parseo de PDFs/Office/3D, OCR, visual grounding (bounding boxes), segmentación, ASR y vision chat. |
+| **\`video-memory\`** | Memoria jerárquica para vídeo de larga duración | Grafo de eventos (Root → SuperEvent → MacroEvent → Subgraph) e índice vectorial para consultas en vídeo de +30 min. |
+| **\`video-edit\`** | Recorte y anotación visual | Extracción de fotogramas clave, anotación de cajas delimitadoras y edición guiada de clips. |
+| **\`freecad\` / \`blender\`** | Integración con software 3D y CAD | Clientes ligeros Python para inspeccionar, modificar y exportar geometrías paramétricas. |
+| **\`edu-agent\`** | Generación de material formativo | Skill para estructurar tutoriales paso a paso e instrucciones interactivas. |
+
+---
+
+## 3. Parseo de Resolución Dinámica (*Naive Dynamic Resolution*)
+
+Uno de los problemas habituales al enviar capturas de pantalla a un modelo de visión tradicional es el recorte fijo o la compresión de imagen, que distorsiona botones pequeños y textos de código.
+
+El módulo \`core\` utiliza el mecanismo de **Resolución Dinámica Nativa** presente en los [modelos de pesos abiertos de la familia Qwen](/blog/qwen-3-8-benchmarks-oficiales-liberacion-open-source-27b-pymes). En lugar de redimensionar la imagen a un cuadrado fijo (ej. 224x224 píxeles), el sistema convierte la imagen en un número variable de tokens de visión según su aspecto y resolución original:
+
+\`\`\`json
+{
+  "plugin": "core",
+  "tool": "visual_grounding",
+  "input": {
+    "image_path": "./debug_ui_dashboard.png",
+    "query": "Boton de confirmación de pago en el modal flotante"
+  },
+  "output": {
+    "bbox_2d": [420, 680, 510, 810],
+    "label": "button#submit-payment",
+    "confidence": 0.984
+  }
+}
+\`\`\`
+
+Esta capacidad de *visual grounding* devuelve las coordenadas exactas de píxel (\`bbox_2d\`), permitiendo que el agente de terminal sepa dónde hacer clic o qué regla CSS ajustar para corregir un fallo de maquetación en la interfaz.
+
+---
+
+## 4. Memoria Jerárquica para Vídeos Largos (\`video-memory\`)
+
+Analizar un vídeo de inspección técnica o una grabación de pantalla de una hora saturaría la ventana de contexto de cualquier LLM si se enviasen todos los fotogramas como imágenes independientes.
+
+El módulo \`video-memory\` resuelve este cuello de botella mediante la construcción de una estructura en grafo de cuatro niveles:
+
+\`\`\`mermaid
+graph TD
+    A[Root: Grabación Completa 60 min] --> B1[SuperEvent 0-20 min: Configuración Inicial]
+    A --> B2[SuperEvent 20-40 min: Ejecución de Pruebas]
+    A --> B3[SuperEvent 40-60 min: Análisis de Fallos]
+    B3 --> C1[MacroEvent: Caída de Servicio en Servidor 2]
+    C1 --> D1[Subgraph: Extracción de Fotogramas de Consola a los 44m12s]
+\`\`\`
+
+Cuando el agente recibe la consulta *"¿En qué minuto aparece el mensaje de error de conexión en la consola?"*, no lee las 60 personas de metraje. Navega el grafo desde el nodo raíz hasta el subgrafo correspondiente y extrae únicamente los tres fotogramas relevantes, reduciendo el consumo de tokens en un **94%**.
+
+---
+
+## 5. Integración en PYMEs: Casos de Uso Industrial y de Desarrollo
+
+Para empresas con departamentos técnicos, la multimodalidad nativa en la terminal elimina pasos manuales intermedios:
+
+### A. Automatización de QA en Interfaces Web y Móviles
+El agente ejecuta las pruebas E2E en Playwright, captura una pantalla en caso de fallo, utiliza el plugin \`core\` para localizar el elemento desalineado y edita directamente el código componente en React o Vue sin intervención humana. Esta integración complementa flujos de maquetación como [Figma Context MCP](/blog/tutorial-figma-context-mcp-convertir-diseno-codigo-agentes-ia).
+
+### B. Validación de Planos 3D y Piezas Paramétricas (FreeCAD / Blender)
+En oficinas técnicas e industrias de mecanizado, el agente puede abrir un archivo \`.FCStd\` mediante el cliente de FreeCAD, medir tolerancias de piezas, verificar que los agujeros de métrica coinciden con las especificaciones del cliente y exportar el reporte final en PDF.
+
+### C. Auditoría Documental de Planos y Escrituras Notariales
+Combinando el OCR con *visual grounding*, el agente lee planos de arquitectura o documentos escaneados torcidos, identifica los sellos notariales o discrepancias en cotas y actualiza las bases de datos de la empresa.
+
+---
+
+> ### ¿Quieres integrar agentes multimodales y servidores MCP en tu empresa?
+>
+> En IA4PYMES diseñamos y desplegamos arquitecturas agénticas en terminal conectadas a tus herramientas de software, bases de datos y entornos CAD bajo estricta privacidad.
+>
+> **[Reserva una Auditoría Técnica con IA4PYMES →](/#consultoria)**
+
+---
+
+## 6. Preguntas Frecuentes (FAQ para GEO y Búsqueda Semántica)
+
+### ¿Qwen-MM-Plugins solo funciona con modelos de Alibaba?
+No. Los servidores MCP y los prompts de *skills* son agnósticos. Pueden utilizarse con Claude 3.5 Sonnet, GPT-4o o modelos locales como Qwen2-VL y Ollama ejecutados en servidores soberanos.
+
+### ¿Se pueden ejecutar los plugins en entornos locales sin conexión a internet?
+Sí. El plugin \`core\` y \`video-memory\` pueden configurarse para llamar a endpoints locales de vLLM o Ollama dentro de la red privada de la empresa.
+
+### ¿Qué diferencia hay entre Qwen-MM-Plugins y un script de Python habitual?
+Un script tradicional exige programar la lógica de captura para cada caso. Qwen-MM-Plugins expone las herramientas mediante la especificación estandarizada MCP, permitiendo que el propio agente decida de forma autónoma qué herramienta visual invocar según el problema detectado.
+`,
+    },
+    {
+        slug: "qwen-mm-plugins-multimodal-ai-agents-terminal-harnesses-smes-2026",
+        title: "Qwen-MM-Plugins: Transforming Terminal AI Agents into Multimodal Engines with Vision, 3D CAD & Video Memory",
+        description: "Technical analysis of Qwen-MM-Plugins by Alibaba (QwenLM). Integrating vision tools, dynamic resolution parsing, 3D CAD (FreeCAD/Blender), hierarchical video memory, and MCP servers for SME engineering agents.",
+        date: "2026-08-10",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Development",
+        image: "/blog/qwen_mm_plugins_multimodal_agents_header.jpg",
+        lang: "en",
+        translationSlug: "qwen-mm-plugins-agentes-ia-multimodales-terminal-pymes-2026",
+        content: `
+Terminal-based AI agents (such as *Claude Code*, *Qoder*, *OpenHands*, or *Codex*) have proven highly effective at refactoring code and running CLI test suites. However, they face a structural limitation: they operate blind to the visual environment. They cannot inspect a rendering bug in a browser, analyze a mechanical component in CAD software, process a 40-minute video stream, or verify the layout of a scanned technical document.
+
+Alibaba's Qwen team (QwenLM) has open-sourced **Qwen-MM-Plugins**, a modular library designed to equip [programming harnesses](/en/blog/prime-agent-self-improving-rlm-coding-harness-smes-2026) with native multimodal capabilities without rebuilding agent architectures from scratch.
+
+By combining prompt instructions (*skills*) with [Model Context Protocol (MCP)](/en/blog/executor-sh-unified-mcp-gateway-ai-agents) servers, Qwen-MM-Plugins enables any console agent to process dynamic-resolution images, manipulate 3D models in FreeCAD or Blender, and query long-form videos via hierarchical memory graphs.
+
+---
+
+## 1. Architecture of Qwen-MM-Plugins: Skills + MCP Servers
+
+The library separates model perception from OS-level tool execution:
+
+\`\`\`
+┌──────────────────────────────────────────────────────────┐
+│              Terminal AI Agent (Harness)                 │
+│         (Claude Code / Qoder / Qwen Code / Codex)         │
+└────────────────────────────┬─────────────────────────────┘
+                             │
+            ┌────────────────┴────────────────┐
+            ▼                                 ▼
+┌──────────────────────┐          ┌──────────────────────┐
+│    Skills (Prompt)   │          │   MCP Servers (uvx)  │
+│ Instructs model when │          │ On-demand execution  │
+│ to call vision tools │          │ of CLI binaries      │
+└──────────────────────┘          └──────────────────────┘
+            │                                 │
+            └────────────────┬────────────────┘
+                             ▼
+┌──────────────────────────────────────────────────────────┐
+│    Shared Configuration (~/.qwen-mm-plugins/config)     │
+└──────────────────────────────────────────────────────────┘
+\`\`\`
+
+### Automated Installer
+Setup is executed via a guided script that auto-detects installed agent harnesses:
+
+\`\`\`bash
+curl -fsSL https://raw.githubusercontent.com/QwenLM/Qwen-MM-Plugins/main/install.sh | bash
+\`\`\`
+
+The script registers selected plugins in \`~/.qwen-mm-plugins/config\` and exposes them as on-demand executables using \`uvx\`, avoiding memory bloat on the agent's main process when visual tools are idle.
+
+---
+
+## 2. Core Plugin Modules
+
+Qwen-MM-Plugins is divided into specialized modules that can be activated independently:
+
+| Module | Primary Function | Included Tools |
+| :--- | :--- | :--- |
+| **\`core\`** | Visual perception & multi-format reading | PDF/Office/3D parsing, OCR, visual grounding (bounding boxes), segmentation, ASR, and vision chat. |
+| **\`video-memory\`** | Hierarchical long-video memory | Event graph (Root → SuperEvent → MacroEvent → Subgraph) & vector index for QA over +30 min video. |
+| **\`video-edit\`** | Visual clipping & box annotation | Keyframe extraction, bounding box overlay, and guided clip editing. |
+| **\`freecad\` / \`blender\`** | 3D & CAD software integration | Thin-client Python wrappers to inspect, modify, and export parametric geometries. |
+| **\`edu-agent\`** | Educational material generation | Skill prompt to structure step-by-step tutorials and interactive guides. |
+
+---
+
+## 3. Naive Dynamic Resolution Parsing
+
+Sending screenshots to traditional vision models often causes issues due to fixed aspect ratios or image compression, which distorts small buttons and code snippets.
+
+The \`core\` module leverages **Naive Dynamic Resolution**, a feature found in [open-weights models from the Qwen family](/en/blog/qwen-3-8-official-benchmarks-open-weights-27b-sme-guide). Instead of resizing images to a fixed square (e.g., 224x224 pixels), the system converts images into a variable number of vision tokens based on their original aspect ratio:
+
+\`\`\`json
+{
+  "plugin": "core",
+  "tool": "visual_grounding",
+  "input": {
+    "image_path": "./debug_ui_dashboard.png",
+    "query": "Payment confirmation button in the floating modal"
+  },
+  "output": {
+    "bbox_2d": [420, 680, 510, 810],
+    "label": "button#submit-payment",
+    "confidence": 0.984
+  }
+}
+\`\`\`
+
+This *visual grounding* returns exact pixel coordinates (\`bbox_2d\`), allowing terminal agents to pinpoint button locations or identify CSS layout bugs automatically.
+
+---
+
+## 4. Hierarchical Long-Video Memory (\`video-memory\`)
+
+Analyzing a 60-minute technical recording would instantly overwhelm an LLM's context window if every frame were sent as an individual image.
+
+The \`video-memory\` module solves this by building a four-level graph structure:
+
+\`\`\`mermaid
+graph TD
+    A[Root: Full 60 min Recording] --> B1[SuperEvent 0-20 min: Initial Setup]
+    A --> B2[SuperEvent 20-40 min: Test Execution]
+    A --> B3[SuperEvent 40-60 min: Failure Analysis]
+    B3 --> C1[MacroEvent: Server 2 Crash]
+    C1 --> D1[Subgraph: Frame Extraction at 44m12s]
+\`\`\`
+
+When queried with *"At what timestamp does the connection error appear on the console?"*, the agent navigates the graph from the root node to the target subgraph, fetching only three relevant frames and reducing token consumption by **94%**.
+
+---
+
+## 5. Enterprise SME Use Cases
+
+For technical teams, native multimodal capability in the terminal removes manual steps:
+
+### A. E2E UI Testing & Visual Bug Patching
+The agent runs Playwright tests, captures a screenshot on failure, uses the \`core\` plugin to locate misaligned elements, and directly edits the React or Vue component code. This pairs seamlessly with workflows like [Figma Context MCP](/en/blog/figma-context-mcp-tutorial-convert-design-code-ai-agents).
+
+### B. 3D Model & Parametric CAD Validation (FreeCAD / Blender)
+In engineering and machining firms, the agent opens a \`.FCStd\` file via the FreeCAD client, measures tolerances, verifies hole alignment against client specs, and generates a PDF report.
+
+### C. Technical Document & Blueprint Auditing
+Combining OCR with *visual grounding*, the agent parses architectural blueprints or skewed scanned deeds, identifies notary seals or dimension discrepancies, and updates corporate databases.
+
+---
+
+> ### Looking to deploy multimodal agents and MCP servers in your business?
+>
+> At IA4PYMES, we design and deploy agentic terminal architectures connected to your software tools, databases, and CAD environments under strict GDPR compliance.
+>
+> **[Book a Technical Audit with IA4PYMES →](/en#consultoria)**
+
+---
+
+## 6. Frequently Asked Questions (FAQ for GEO & Semantic Search)
+
+### Does Qwen-MM-Plugins only work with Alibaba models?
+No. The MCP servers and skill prompts are model-agnostic. They work with Claude 3.5 Sonnet, GPT-4o, or local open-weights models like Qwen2-VL executed via vLLM/Ollama.
+
+### Can these plugins run on local, air-gapped infrastructure?
+Yes. The \`core\` and \`video-memory\` modules can be configured to call local vLLM or Ollama endpoints inside your private network.
+
+### How does Qwen-MM-Plugins differ from a standard Python script?
+Standard scripts require manual logic for each task. Qwen-MM-Plugins exposes tools via the standardized MCP specification, allowing the AI agent to autonomously decide which visual tool to invoke based on runtime feedback.
+`,
+    },
     {
         slug: "automatizacion-ia-gestion-documental-contratos-pymes-2026",
         title: "Automatización Inteligente de Documentos: Cómo Ahorrar Cientos de Horas en Contratos, Gestorías, Inmobiliarias y Seguros",
