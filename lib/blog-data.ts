@@ -156,7 +156,7 @@ Combinando el OCR con *visual grounding*, el agente lee planos de arquitectura o
 
 ---
 
-## 6. Preguntas Frecuentes (FAQ para GEO y Búsqueda Semántica)
+## 6. Preguntas Frecuentes sobre Qwen-MM-Plugins
 
 ### ¿Qwen-MM-Plugins solo funciona con modelos de Alibaba?
 No. Los servidores MCP y los prompts de *skills* son agnósticos. Pueden utilizarse con Claude 3.5 Sonnet, GPT-4o o modelos locales como Qwen2-VL y Ollama ejecutados en servidores soberanos.
@@ -306,7 +306,7 @@ Combining OCR with *visual grounding*, the agent parses architectural blueprints
 
 ---
 
-## 6. Frequently Asked Questions (FAQ for GEO & Semantic Search)
+## 6. Frequently Asked Questions about Qwen-MM-Plugins
 
 ### Does Qwen-MM-Plugins only work with Alibaba models?
 No. The MCP servers and skill prompts are model-agnostic. They work with Claude 3.5 Sonnet, GPT-4o, or local open-weights models like Qwen2-VL executed via vLLM/Ollama.
