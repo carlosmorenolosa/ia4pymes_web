@@ -16,6 +16,356 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Liberación de Qwen 3.8-27B en Hugging Face (NUEVO - 12 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026",
+        title: "Alibaba libera Qwen 3.8-27B en Hugging Face: Guía paso a paso para descargarlo y ejecutarlo en tu servidor local (12 Agosto 2026)",
+        description: "Alibaba publica hoy en Hugging Face los pesos abiertos de Qwen 3.8-27B. Guía técnica completa con requisitos de VRAM, cuantización GGUF y tutorial de despliegue local con Ollama y vLLM.",
+        date: "2026-08-12",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Infraestructura",
+        image: "/images/qwen_3_8_27b_hugging_face_release_smes_2026.png",
+        lang: "es",
+        translationSlug: "qwen-3-8-27b-hugging-face-download-run-local-smes-2026",
+        content: `
+Hoy, **12 de agosto de 2026**, el equipo de Alibaba (QwenLM) ha publicado oficialmente en Hugging Face y ModelScope los pesos abiertos del modelo **Qwen 3.8-27B**. Tras el anuncio inicial del la familia Qwen 3.8 a principios de mes, la comunidad de código abierto esperaba la disponibilidad inmediata de esta variante de 27 mil millones de parámetros.
+
+Mientras que la versión *flagship* (Qwen 3.8-Max, con 2.4 billones de parámetros) requiere infraestructuras pesadas de múltiples nodos GPU, la variante **Qwen 3.8-27B** representa el punto óptimo de equilibrio para PYMEs y desarrolladores: ofrece razonamiento de clase frontera en tareas de código, análisis de datos y llamadas a herramientas, pero puede ejecutarse en **un único servidor de la empresa o en una tarjeta gráfica de consumo**.
+
+A continuación, analizamos las especificaciones técnicas del modelo, los requisitos exactos de memoria VRAM según el tipo de cuantización y una guía práctica paso a paso para descargarlo y ponerlo en marcha localmente hoy mismo.
+
+---
+
+## 1. ¿Por qué Qwen 3.8-27B es la variante clave para empresas?
+
+El salto cualitativo de la arquitectura Qwen 3.8 radica en la optimización de sus capas de atención densa híbrida y el procesamiento dinámico de contexto. Esto permite a la variante de 27B competir directamente con APIs comerciales cerradas en tareas de producción, eliminando los costes por token en la nube.
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│                    FAMILIA QWEN 3.8                       │
+├─────────────────────────────┬─────────────────────────────┤
+│      Qwen 3.8-Max (2.4T)    │     Qwen 3.8-27B (Open)     │
+├─────────────────────────────┼─────────────────────────────┤
+│ Requiere clústeres GPU      │ Ejecutable en 1x GPU        │
+│ Reservado para APIs Cloud   │ Descargable en Hugging Face │
+│ Dependencia de terceros     │ Soberanía total de datos    │
+└─────────────────────────────┴─────────────────────────────┘
+\`\`\`
+
+### Ventajas operativas directas:
+* **Privacidad y cumplimiento del RGPD / EU AI Act**: Al ejecutarse en red local (*air-gapped*), el tráfico confidencial de clientes no abandona las instalaciones de la empresa.
+* **Cero marcados de agua obligatorios**: A diferencia de las APIs propietarias sujetas a marcas de agua invisibles impuestas por el [Reglamento de IA de la UE de 2026](/blog/anthropic-claude-marcas-de-agua-invisibles-texto-ia-pymes-2026), un modelo local te da control absoluto sobre el decodificador de tokens.
+* **Integración nativa con agentes de terminal**: Compatible de origen con arneses de automatización como [Qwen-MM-Plugins](/blog/qwen-mm-plugins-agentes-ia-multimodales-terminal-pymes-2026) y pasarelas MCP como [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+
+---
+
+## 2. Requisitos de Hardware y Memoria VRAM
+
+Para seleccionar la variante adecuada según tu infraestructura física, consulta la siguiente tabla de requisitos de memoria VRAM:
+
+| Formato / Cuantización | Tamaño en Disco | VRAM Mínima Recomendada | Hardware Compatible |
+| :--- | :--- | :--- | :--- |
+| **FP16 (Sin cuantizar)** | ~54 GB | 56 GB VRAM | 2x NVIDIA RTX 4090 (48GB) o 1x RTX 6000 Ada (48GB) |
+| **INT8 (8-bit AWQ / GPTQ)** | ~28 GB | 30 GB VRAM | 1x NVIDIA RTX 6000 Ada / Mac Studio M3 Max (48GB+) |
+| **INT4 / Q4_K_M (GGUF)** | ~17 GB | 18 GB VRAM | **1x NVIDIA RTX 4090 (24GB) o Mac Studio (36GB)** |
+| **Q3_K_S (Extremo)** | ~13 GB | 14 GB VRAM | 1x NVIDIA RTX 4070 Ti Super (16GB) |
+
+> **Nota:** Para la inmensa mayoría de pequeñas y medianas empresas, la cuantización **Q4_K_M (GGUF)** ofrece la mejor relación entre velocidad de generación (tokens/segundo) y precisión lingüística.
+
+---
+
+## 3. Tutorial: Cómo descargar y ejecutar Qwen 3.8-27B en local
+
+Existen tres métodos principales para poner en marcha el modelo según el entorno de trabajo de tu equipo técnico:
+
+### Método A: Despliegue rápido en 1 minuto con Ollama (Recomendado)
+
+Si buscas la forma más sencilla de probar el modelo en macOS, Linux o Windows, utiliza Ollama:
+
+1. **Verifica que tienes Ollama actualizado**:
+   \`\`\`bash
+   ollama --version
+   \`\`\`
+2. **Descarga y ejecuta el modelo directamente**:
+   \`\`\`bash
+   ollama run qwen3.8:27b
+   \`\`\`
+3. **Consulta el modelo vía API local**:
+   \`\`\`bash
+   curl http://localhost:11434/api/generate -d '{
+     "model": "qwen3.8:27b",
+     "prompt": "Genera una lista de comprobación de auditoría contable para una PYME."
+   }'
+   \`\`\`
+
+---
+
+### Método B: Servidor de producción de alto rendimiento con vLLM
+
+Para entornos de servidor Linux donde varios agentes o trabajadores consultan el modelo en paralelo, la librería vLLM maximiza el número de peticiones por segundo utilizando *PagedAttention*:
+
+1. **Instala vLLM y las dependencias de Hugging Face**:
+   \`\`\`bash
+   pip install vllm transformers huggingface_hub
+   \`\`\`
+2. **Descarga e inicia el servidor API compatible con OpenAI**:
+   \`\`\`bash
+   vllm serve Qwen/Qwen3.8-27B-Instruct \\
+     --quantization awq \\
+     --gpu-memory-utilization 0.92 \\
+     --max-model-len 32768 \\
+     --port 8000
+   \`\`\`
+3. **Conecta tus aplicaciones corporativas**:
+   Configura el endpoint \`http://localhost:8000/v1\` en tu software de gestión o agente interno como si fuera una API de OpenAI.
+
+---
+
+### Método C: Ejecución en Python mediante Hugging Face \`transformers\`
+
+Si prefieres integrar el modelo dentro de un script de automatización propio en Python:
+
+\`\`\`python
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_id = "Qwen/Qwen3.8-27B-Instruct"
+
+# Carga del tokenizador y el modelo
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    torch_dtype=torch.bfloat16,
+    device_map="auto"
+)
+
+# Prompt de prueba
+prompt = "Analiza el siguiente resumen financiero e identifica tres riesgos operativos."
+messages = [{"role": "user", "content": prompt}]
+text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+model_inputs = tokenizer([text], return_tensors="pt").to("cuda")
+
+generated_ids = model.generate(
+    **model_inputs,
+    max_new_tokens=512,
+    temperature=0.7
+)
+
+response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+print(response)
+\`\`\`
+
+---
+
+## 4. Cuadro comparativo: Qwen 3.8-27B frente a otros modelos locales
+
+| Modelo | Parámetros | VRAM (INT4) | Especialidad Principal | Rendimiento en Código |
+| :--- | :--- | :--- | :--- | :--- |
+| **Qwen 3.8-27B** | **27B** | **18 GB** | **Razonamiento general, código y agentes MCP** | **Sobresaliente** |
+| [Kimi K3](/blog/kimi-k3-hugging-face-despliegue-2-8t-requisitos-hardware-pymes) | 2.8T (MoE) | 120 GB+ | Análisis documental ultra extenso | Excelente |
+| DeepSeek V4 | 16B | 12 GB | Generación rápida de respuestas | Notable |
+| GLM-5.2 | 32B | 22 GB | Tareas multilingües complejas | Sobresaliente |
+
+---
+
+## 5. Próximos pasos para tu empresa
+
+Disponer de un modelo con la potencia de Qwen 3.8-27B en infraestructura propia permite a las empresas automatizar tareas complejas de extracción de datos, redactar informes técnicos y coordinar agentes sin incurrir en costes recurrentes de API.
+
+> **[Reserva una Consultoría de Infraestructura IA con IA4PYMES →](/#consultoria)**
+> Dimensionamos el hardware necesario para tu empresa, configuramos los servidores de inferencia vLLM/Ollama y conectamos agentes privados de IA a tus bases de datos.
+
+---
+
+## 6. Preguntas Frecuentes
+
+### ¿Necesito una conexión a Internet constante para usar Qwen 3.8-27B una vez descargado?
+No. Tras descargar los pesos del modelo desde Hugging Face u Ollama, la inferencia se realiza 100% en local de forma totalmente desconectada (*air-gapped*).
+
+### ¿Puedo ejecutar Qwen 3.8-27B en un ordenador portátil?
+Solo si dispones de un ordenador con memoria unificada compartida de al menos 36 GB (como un Apple Mac Studio o MacBook Pro con procesador M2/M3/M4 Max). En ordenadores Windows convencionales, se requiere una tarjeta gráfica dedicada con al menos 16-24 GB de VRAM.
+
+### ¿Se pueden ajustar (fine-tuning) los pesos de Qwen 3.8-27B con datos de mi empresa?
+Sí. Al ser un modelo de pesos abiertos en Hugging Face, puedes aplicar técnicas de ajuste fino eficiente como LoRA o QLoRA utilizando bibliotecas como Unsloth o TRL para adaptar el modelo a la jerga interna de tu sector.
+`,
+    },
+    {
+        slug: "qwen-3-8-27b-hugging-face-download-run-local-smes-2026",
+        title: "Alibaba Releases Qwen 3.8-27B Open Weights on Hugging Face: Step-by-Step Local Deployment Guide for SMEs (August 12, 2026)",
+        description: "Alibaba publishes Qwen 3.8-27B open weights on Hugging Face today. Complete technical guide with VRAM sizing, GGUF quantization, and step-by-step local deployment using Ollama and vLLM.",
+        date: "2026-08-12",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Infrastructure",
+        image: "/images/qwen_3_8_27b_hugging_face_release_smes_2026.png",
+        lang: "en",
+        translationSlug: "qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026",
+        content: `
+Today, **August 12, 2026**, Alibaba (QwenLM) officially published the open weights for **Qwen 3.8-27B** on Hugging Face and ModelScope. Following the initial Qwen 3.8 family announcement earlier this month, developers and enterprises have eagerly anticipated the public release of this 27-billion parameter variant.
+
+While the flagship model (Qwen 3.8-Max, featuring 2.4 trillion parameters) requires heavy multi-node GPU clusters, **Qwen 3.8-27B** represents the sweet spot for SMEs and independent developers: it delivers frontier-class reasoning in coding, data analysis, and tool calls while running efficiently on **a single company server node or consumer GPU**.
+
+Below, we detail the technical specifications, exact VRAM requirements per quantization tier, and a step-by-step practical guide to downloading and running the model locally today.
+
+---
+
+## 1. Why Qwen 3.8-27B is the Sweet Spot for Enterprise Workloads
+
+The structural breakthrough of the Qwen 3.8 architecture lies in its hybrid dense attention optimization and dynamic context handling. This enables the 27B parameter model to compete with closed cloud APIs in production environments while eliminating per-token SaaS costs.
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│                    QWEN 3.8 FAMILY                        │
+├─────────────────────────────┬─────────────────────────────┤
+│      Qwen 3.8-Max (2.4T)    │     Qwen 3.8-27B (Open)     │
+├─────────────────────────────┼─────────────────────────────┤
+│ Requires GPU clusters       │ Runs on 1x GPU / Workstation│
+│ Hosted Cloud API only       │ Downloadable on Hugging Face│
+│ Third-party dependence      │ Complete Data Sovereignty   │
+└─────────────────────────────┴─────────────────────────────┘
+\`\`\`
+
+### Key Enterprise Advantages:
+* **Data Sovereignty & EU AI Act Compliance**: Running on-premise (*air-gapped*) ensures confidential client data never leaves company infrastructure.
+* **No Mandatory Watermarking**: Unlike cloud APIs subject to mandatory invisible text watermarking under [2026 EU AI Act rules](/en/blog/anthropic-claude-invisible-text-watermarking-ai-smes-2026), local models grant complete control over token decoding.
+* **Native Agent Harness Support**: Out-of-the-box compatibility with multimodal agent harnesses like [Qwen-MM-Plugins](/en/blog/qwen-mm-plugins-multimodal-ai-agents-terminal-harnesses-smes-2026) and MCP gateways like [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+
+---
+
+## 2. Hardware Requirements & VRAM Sizing
+
+To choose the optimal quantization variant for your hardware, review the following memory sizing matrix:
+
+| Format / Quantization | Disk Space | Min Recommended VRAM | Compatible Hardware |
+| :--- | :--- | :--- | :--- |
+| **FP16 (Unquantized)** | ~54 GB | 56 GB VRAM | 2x NVIDIA RTX 4090 (48GB) or 1x RTX 6000 Ada |
+| **INT8 (8-bit AWQ / GPTQ)** | ~28 GB | 30 GB VRAM | 1x NVIDIA RTX 6000 Ada / Mac Studio M3 Max (48GB+) |
+| **INT4 / Q4_K_M (GGUF)** | ~17 GB | 18 GB VRAM | **1x NVIDIA RTX 4090 (24GB) or Mac Studio (36GB)** |
+| **Q3_K_S (Extreme)** | ~13 GB | 14 GB VRAM | 1x NVIDIA RTX 4070 Ti Super (16GB) |
+
+> **Recommendation:** For most small to mid-sized businesses, **Q4_K_M (GGUF)** quantization delivers the optimal trade-off between inference speed (tokens/second) and language accuracy.
+
+---
+
+## 3. Step-by-Step Guide: How to Download and Run Qwen 3.8-27B Locally
+
+Choose one of the three primary deployment methods below based on your technical stack:
+
+### Method A: 1-Minute Quick Start with Ollama (Recommended)
+
+To evaluate the model rapidly on macOS, Linux, or Windows:
+
+1. **Verify Ollama is updated**:
+   \`\`\`bash
+   ollama --version
+   \`\`\`
+2. **Pull and execute the model directly**:
+   \`\`\`bash
+   ollama run qwen3.8:27b
+   \`\`\`
+3. **Query via local REST API**:
+   \`\`\`bash
+   curl http://localhost:11434/api/generate -d '{
+     "model": "qwen3.8:27b",
+     "prompt": "Generate a accounting audit checklist for an SME."
+   }'
+   \`\`\`
+
+---
+
+### Method B: High-Throughput Production Serving with vLLM
+
+For Linux enterprise servers where multiple internal services query the model concurrently, vLLM maximizes throughput using *PagedAttention*:
+
+1. **Install vLLM and Hugging Face tools**:
+   \`\`\`bash
+   pip install vllm transformers huggingface_hub
+   \`\`\`
+2. **Launch the OpenAI-compatible API server**:
+   \`\`\`bash
+   vllm serve Qwen/Qwen3.8-27B-Instruct \\
+     --quantization awq \\
+     --gpu-memory-utilization 0.92 \\
+     --max-model-len 32768 \\
+     --port 8000
+   \`\`\`
+3. **Connect Enterprise Apps**:
+   Point your internal agent pipeline or ERP/CRM tools to \`http://localhost:8000/v1\` as an OpenAI API drop-in replacement.
+
+---
+
+### Method C: Python Integration via Hugging Face \`transformers\`
+
+To integrate inference inside a custom Python pipeline:
+
+\`\`\`python
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_id = "Qwen/Qwen3.8-27B-Instruct"
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    torch_dtype=torch.bfloat16,
+    device_map="auto"
+)
+
+prompt = "Analyze the following financial summary and identify three operational risks."
+messages = [{"role": "user", "content": prompt}]
+text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+model_inputs = tokenizer([text], return_tensors="pt").to("cuda")
+
+generated_ids = model.generate(
+    **model_inputs,
+    max_new_tokens=512,
+    temperature=0.7
+)
+
+response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+print(response)
+\`\`\`
+
+---
+
+## 4. Open-Weights Model Matrix
+
+| Model | Parameters | VRAM (INT4) | Core Specialization | Coding Performance |
+| :--- | :--- | :--- | :--- | :--- |
+| **Qwen 3.8-27B** | **27B** | **18 GB** | **General Reasoning, Code & MCP Agents** | **Outstanding** |
+| [Kimi K3](/en/blog/kimi-k3-hugging-face-deployment-2-8t-hardware-requirements-smes) | 2.8T (MoE) | 120 GB+ | Ultra-long document analysis | Excellent |
+| DeepSeek V4 | 16B | 12 GB | Fast response generation | High |
+| GLM-5.2 | 32B | 22 GB | Complex multilingual reasoning | Outstanding |
+
+---
+
+## 5. Enterprise Next Steps
+
+Deploying a model with the capability of Qwen 3.8-27B on sovereign hardware empowers businesses to automate complex data extraction, generate technical reports, and orchestrate agents without recurring cloud API fees.
+
+> **[Book an AI Infrastructure Consulting Session with IA4PYMES →](/en#consultoria)**
+> We size the required hardware for your enterprise, configure vLLM/Ollama inference servers, and connect private AI agents to your corporate databases.
+
+---
+
+## 6. Frequently Asked Questions
+
+### Do I need an active Internet connection to run Qwen 3.8-27B after downloading?
+No. Once the model weights are downloaded from Hugging Face or Ollama, inference runs 100% locally in an isolated (*air-gapped*) state.
+
+### Can I run Qwen 3.8-27B on a laptop?
+Only if your laptop features unified memory of 36 GB or more (such as an Apple Mac Studio or MacBook Pro with an M2/M3/M4 Max chip). On standard Windows laptops, a dedicated GPU with at least 16-24 GB VRAM is required.
+
+### Can I fine-tune Qwen 3.8-27B with proprietary company data?
+Yes. As an open-weights model on Hugging Face, you can perform efficient fine-tuning (LoRA/QLoRA) using tools like Unsloth or TRL to adapt the model to internal domain terminology.
+`,
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Marcas de Agua Invisibles de Claude por Anthropic (NUEVO - 11 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
