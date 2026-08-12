@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import ReadingProgressBar from "@/components/reading-progress-bar"
 import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
+import { BlogAuthorAvatar } from "@/components/blog-author-avatar"
 
 interface PageProps {
     params: Promise<{ slug: string }>
@@ -305,9 +306,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                     {/* Author & Date Card */}
                     <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
-                                <span className="font-black text-white text-xl leading-none">IA4</span>
-                            </div>
+                            <BlogAuthorAvatar />
                             <div>
                                 <p className="font-black text-white text-sm uppercase tracking-tight">{post.author}</p>
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
