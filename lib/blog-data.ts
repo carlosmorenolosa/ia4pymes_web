@@ -20,8 +20,8 @@ export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
     {
         slug: "qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026",
-        title: "Alibaba libera Qwen 3.8-27B en Hugging Face: Guía paso a paso para descargarlo y ejecutarlo en tu servidor local (12 Agosto 2026)",
-        description: "Alibaba publica hoy en Hugging Face los pesos abiertos de Qwen 3.8-27B. Guía técnica completa con requisitos de VRAM, cuantización GGUF y tutorial de despliegue local con Ollama y vLLM.",
+        title: "Alibaba anuncia la liberación de Qwen 3.8-27B en Hugging Face hoy: Guía técnica y de despliegue local para PYMEs (12 Agosto 2026)",
+        description: "Alibaba prevé publicar hoy en Hugging Face los pesos abiertos de Qwen 3.8-27B. Guía técnica completa con requisitos de VRAM, cuantización GGUF y tutorial de despliegue local con Ollama y vLLM.",
         date: "2026-08-12",
         author: "IA4PYMES",
         readingTime: "11 min",
@@ -30,11 +30,11 @@ export const blogPosts: BlogPost[] = [
         lang: "es",
         translationSlug: "qwen-3-8-27b-hugging-face-download-run-local-smes-2026",
         content: `
-Hoy, **12 de agosto de 2026**, el equipo de Alibaba (QwenLM) ha publicado oficialmente en Hugging Face y ModelScope los pesos abiertos del modelo **Qwen 3.8-27B**. Tras el anuncio inicial del la familia Qwen 3.8 a principios de mes, la comunidad de código abierto esperaba la disponibilidad inmediata de esta variante de 27 mil millones de parámetros.
+Hoy, **12 de agosto de 2026**, el equipo de Alibaba (QwenLM) ha anunciado que publicará hoy en Hugging Face y ModelScope los pesos abiertos del esperado modelo **Qwen 3.8-27B**. Tras la presentación de la familia Qwen 3.8 a principios de mes, la comunidad de código abierto aguardaba con expectación la llegada de esta variante clave de 27 mil millones de parámetros.
 
 Mientras que la versión *flagship* (Qwen 3.8-Max, con 2.4 billones de parámetros) requiere infraestructuras pesadas de múltiples nodos GPU, la variante **Qwen 3.8-27B** representa el punto óptimo de equilibrio para PYMEs y desarrolladores: ofrece razonamiento de clase frontera en tareas de código, análisis de datos y llamadas a herramientas, pero puede ejecutarse en **un único servidor de la empresa o en una tarjeta gráfica de consumo**.
 
-A continuación, analizamos las especificaciones técnicas del modelo, los requisitos exactos de memoria VRAM según el tipo de cuantización y una guía práctica paso a paso para descargarlo y ponerlo en marcha localmente hoy mismo.
+A continuación, analizamos las especificaciones técnicas del modelo, los requisitos exactos de memoria VRAM según el tipo de cuantización y una guía práctica paso a paso para descargarlo y ponerlo en marcha localmente tan pronto como los pesos queden disponibles hoy.
 
 ---
 
@@ -194,8 +194,8 @@ Sí. Al ser un modelo de pesos abiertos en Hugging Face, puedes aplicar técnica
     },
     {
         slug: "qwen-3-8-27b-hugging-face-download-run-local-smes-2026",
-        title: "Alibaba Releases Qwen 3.8-27B Open Weights on Hugging Face: Step-by-Step Local Deployment Guide for SMEs (August 12, 2026)",
-        description: "Alibaba publishes Qwen 3.8-27B open weights on Hugging Face today. Complete technical guide with VRAM sizing, GGUF quantization, and step-by-step local deployment using Ollama and vLLM.",
+        title: "Alibaba Prepares to Release Qwen 3.8-27B Open Weights Today on Hugging Face: Technical & Local Deployment Guide for SMEs (August 12, 2026)",
+        description: "Alibaba is set to release Qwen 3.8-27B open weights on Hugging Face today. Complete technical guide with VRAM sizing, GGUF quantization, and step-by-step local deployment using Ollama and vLLM.",
         date: "2026-08-12",
         author: "IA4PYMES",
         readingTime: "11 min",
@@ -204,11 +204,11 @@ Sí. Al ser un modelo de pesos abiertos en Hugging Face, puedes aplicar técnica
         lang: "en",
         translationSlug: "qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026",
         content: `
-Today, **August 12, 2026**, Alibaba (QwenLM) officially published the open weights for **Qwen 3.8-27B** on Hugging Face and ModelScope. Following the initial Qwen 3.8 family announcement earlier this month, developers and enterprises have eagerly anticipated the public release of this 27-billion parameter variant.
+Today, **August 12, 2026**, Alibaba (QwenLM) announced that it will release the open weights for **Qwen 3.8-27B** on Hugging Face and ModelScope later today. Following the initial Qwen 3.8 family announcement earlier this month, developers and enterprises have eagerly anticipated the public availability of this 27-billion parameter variant.
 
 While the flagship model (Qwen 3.8-Max, featuring 2.4 trillion parameters) requires heavy multi-node GPU clusters, **Qwen 3.8-27B** represents the sweet spot for SMEs and independent developers: it delivers frontier-class reasoning in coding, data analysis, and tool calls while running efficiently on **a single company server node or consumer GPU**.
 
-Below, we detail the technical specifications, exact VRAM requirements per quantization tier, and a step-by-step practical guide to downloading and running the model locally today.
+Below, we detail the technical specifications, exact VRAM requirements per quantization tier, and a step-by-step practical guide to downloading and running the model locally as soon as the weights drop today.
 
 ---
 
