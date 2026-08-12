@@ -7739,8 +7739,8 @@ Al codificar tus reglas en archivos de configuración como \`CLAUDE.md\`, aislar
     },
     {
         slug: "adopting-claude-ecosystem-enterprise-maturity-model",
-        title: "Steps of AI Adoption: Boris Cherny's Claude Maturity Model (0 to 4 Guide)",
-        description: "How to adopt the Claude ecosystem at scale. Step-by-step guide to Boris Cherny's 0-4 AI adoption maturity model, CLAUDE.md configuration, and automated agent loops.",
+        title: "Steps of AI Adoption: Boris Cherny's Claude Maturity Model (Levels 0-4)",
+        description: "Master the 5 steps of Claude AI adoption (Levels 0-4) by Boris Cherny. Practical guide on CLAUDE.md setup, Git Worktrees, and autonomous agent workflows.",
         date: "2026-07-18",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -11908,8 +11908,8 @@ El futuro del desarrollo de software no consiste en reemplazar a los programador
     },
     {
         slug: "orca-ide-parallel-agentic-development-smes",
-        title: "The Agentic Fleet: How to Scale Your SME's Engineering Output with Orca, the Parallel Agentic IDE",
-        description: "Discover Orca ADE, the development environment designed to orchestrate multiple AI agents (Claude Code, Codex, Gemini) in parallel via Git Worktrees, boosting developer throughput without code conflicts.",
+        title: "Orca ADE Guide: How to Orchestrate Parallel AI Coding Agents",
+        description: "Learn how Orca ADE (Agent Development Environment) uses Git Worktrees to run Claude Code, Codex, and Aider in parallel without merge conflicts.",
         date: "2026-06-22",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -12951,8 +12951,8 @@ Sea cual sea tu elección, la adopción de agentes de desarrollo open-source es 
     },
     {
         slug: "pi-coding-agent-vs-opencode-vs-aider",
-        title: "Pi vs. OpenCode vs. Aider: Which Open-Source AI Coding Agent is Best in 2026?",
-        description: "Comprehensive 2026 benchmark comparison of Pi, OpenCode, and Aider. Compare token costs, privacy features, multi-file editing, and local LLM performance.",
+        title: "OpenCode vs Aider vs Pi Agent: 2026 Open-Source AI Coding Comparison",
+        description: "Detailed benchmark comparison of OpenCode, Aider, and Pi Coding Agent. Compare local LLM integration, token costs, multi-file editing, and privacy.",
         date: "2026-06-18",
         author: "IA4PYMES",
         readingTime: "9 min",
