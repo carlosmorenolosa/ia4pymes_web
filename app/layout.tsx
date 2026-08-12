@@ -119,6 +119,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+
+        {/* Google AdSense Script */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8255889676002687"
+          crossOrigin="anonymous"
+        />
 
         {/* Agentic Web & WebMCP Declarations */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM documentation" />
