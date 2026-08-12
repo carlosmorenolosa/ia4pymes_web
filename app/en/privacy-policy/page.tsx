@@ -161,6 +161,19 @@ export default function PrivacyPolicyEN() {
               </p>
             </div>
 
+            {/* Section 8 */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
+                <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <Shield className="w-5 h-5" />
+                </span>
+                8. Cookies & Advertising Policy
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl pl-13">
+                This website uses technical and analytical first-party and third-party cookies solely to optimize user navigation, measure website performance, and manage advertising campaign analytics. You may configure or reject non-essential cookies at any time through your browser settings without restricting access to primary platform features.
+              </p>
+            </div>
+
           </div>
         </section>
 

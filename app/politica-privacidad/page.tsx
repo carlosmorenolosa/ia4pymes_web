@@ -161,6 +161,19 @@ export default function PoliticaPrivacidad() {
               </p>
             </div>
 
+            {/* Section 8 */}
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
+                <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <Shield className="w-5 h-5" />
+                </span>
+                8. Política de Cookies y Publicidad
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl pl-13">
+                Este sitio web utiliza cookies propias y de terceros exclusivamente analíticas y técnicas con la finalidad de optimizar la navegación, medir el rendimiento del portal y, en su caso, gestionar la medición de campañas publicitarias. Puede configurar o rechazar en cualquier momento el uso de cookies no esenciales desde los ajustes de su navegador sin afectar a la navegación principal por la plataforma.
+              </p>
+            </div>
+
           </div>
         </section>
 
