@@ -114,18 +114,29 @@ export default function RootLayout({
             __html: `(function(){try{if(navigator.webdriver || /Lighthouse|Headless|Googlebot|bingbot/i.test(navigator.userAgent)){window.__IS_BOT=true;var s=document.createElement('style');s.textContent='.splash-overlay{display:none!important}';document.head.appendChild(s)}}catch(e){}})()`,
           }}
         />
-        {/* DNS prefetch para recursos externos */}
+        {/* DNS prefetch y Preconnect para recursos externos */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://faves.grow.me" />
+        <link rel="preconnect" href="https://faves.grow.me" crossOrigin="anonymous" />
 
         {/* Google AdSense Script */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8255889676002687"
           crossOrigin="anonymous"
+        />
+
+        {/* Mediavine Grow Script */}
+        <Script
+          id="grow-me-initializer"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpmNzQ4ZTQzZC1iMmYyLTQ5NGQtYmQ0Yi04MmZmNjAwMzE3OTE=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
+          }}
         />
 
         {/* Agentic Web & WebMCP Declarations */}
