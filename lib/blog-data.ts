@@ -16,6 +16,323 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Lanzamiento de DeepSeek Harness (NUEVO - 13 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "deepseek-harness-arnes-agentes-ia-open-source-pymes-2026",
+        title: "DeepSeek Harness: Análisis Técnico del Arnés de Agentes Open Source de DeepSeek y su Aplicación en PYMEs",
+        description: "Desglose de DeepSeek Harness (github.com/deepseek-ai/deepseek-harness): arquitectura de plugins con motor Cordis, trazabilidad de ejecuciones, integración con DeepSeek-V4 y modelos locales para automatización empresarial.",
+        date: "2026-08-13",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Agentes IA",
+        image: "/images/deepseek_harness_agentic_framework_smes_2026.png",
+        lang: "es",
+        translationSlug: "deepseek-harness-open-source-agentic-framework-smes-2026",
+        content: `
+El equipo de **DeepSeek AI** ha liberado bajo licencia open-source (MIT) su esperado marco de trabajo agéntico: **DeepSeek Harness** (\`github.com/deepseek-ai/deepseek-harness\`). Tradicionalmente enfocada en el desarrollo de modelos de lenguaje base de alta eficiencia como [DeepSeek-V4 Flash](/blog/deepseek-v4-flash-0731-analisis-rendimiento-benchmarks-pymes), la compañía china da el salto al entorno de ejecución (*runtime*) proporcionando la infraestructura necesaria para transformar LLMs estándar en agentes autónomos de producción.
+
+Hasta ahora, las empresas que buscaban desplegar sistemas de agentes se veían atrapadas entre arneses propietarios cerrados (como *Claude Code*) o librerías de orquestación rígidas con alto consumo de tokens.
+
+En esta guía técnica analizamos la arquitectura de DeepSeek Harness, la filosofía "Everything is a Plugin", su motor de trazabilidad **Cordis** y cómo integrarlo en la infraestructura de una PYME para automatizar procesos con cero dependencias SaaS.
+
+---
+
+## 1. Filosofía de diseño: "Everything is a Plugin" y motor Cordis
+
+La arquitectura de DeepSeek Harness rompe con la estructura monolítica de los marcos agénticos tradicionales. Su diseño se rige por un principio fundamental: **todo componente es un plugin desacoplado**.
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│              ARQUITECTURA DE DEEPSEEK HARNESS             │
+├───────────────────────────────────────────────────────────┤
+│                  MOTOR CORDIS (Espaciotemporal)          │
+├───────────────┬───────────────┬───────────┬───────────────┤
+│  PLUGINS LLM  │ PLUGINS TOOLS │  MEMORIA  │ TRACE LOGS    │
+│  (DeepSeek-V4 │ (MCP / Shell  │ (Vector / │ (Append-only  │
+│   / Qwen/Grok)│  / DB / APIs) │  RAG)     │  Replay)      │
+└───────────────┴───────────────┴───────────┴───────────────┘
+\`\`\`
+
+### Pilares técnicos principales:
+
+1. **Motor de Orquestación Cordis**: Un meta-framework desacoplado que gestiona la composición espaciotemporal de agentes, permitiendo pausar, reanudar, bifurcar (*fork*) y clonar la ejecución de cualquier tarea en tiempo real.
+2. **Trazabilidad Absoluta ("Every Run is Traceable")**: Registra un historial inmutable (*append-only session log*) de cada pensamiento, llamada a herramienta, respuesta de API y bifurcación de sub-agentes. Esto permite auditar exactamente por qué un agente tomó una decisión concreta en producción.
+3. **Soporte Nativo para Protocolos Abiertos**: Integración directa con el protocolo MCP (*Model Context Protocol*), permitiendo conectar servidores unificados como [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia) de forma inmediata.
+
+---
+
+## 2. Comparativa técnica: DeepSeek Harness frente a alternativas del mercado
+
+En el entorno de automatización de 2026, las PYMEs deben evaluar la eficiencia operativa, el coste por token y la flexibilidad de despliegue:
+
+| Característica / Parámetro | DeepSeek Harness | [Prime-Agent](/blog/prime-agent-arnes-programacion-rlm-continual-harness-pymes-2026) | Claude Code CLI | [Qwen-MM-Plugins](/blog/qwen-mm-plugins-agentes-ia-multimodales-terminal-pymes-2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Licencia** | Open Source (MIT) | Open Source (Apache) | Propietaria (SaaS) | Open Source |
+| **Motor Base** | Cordis Framework | RLM Loop Engine | Claude Engine | Qwen Core |
+| **Trazabilidad (Replay)** | **Append-Only Nativo** | Logs de Sesión | Limitada | Logs Estándar |
+| **Modelos Soportados** | **Multimodelo (API / Local)** | Multi-LLM | Exclusivo Claude | Exclusivo Qwen |
+| **Despliegue Local** | **Sí (Con Qwen 3.8-27B)** | Sí | No (Requiere API) | **Sí** |
+| **Bifurcación de Sub-Agentes** | Nativa en tiempo real | Por sub-procesos | No disponible | Vía scripts |
+
+---
+
+## 3. Estrategia de despliegue para PYMEs: Arquitectura Híbrida
+
+DeepSeek Harness permite construir arquitecturas agénticas híbridas que protegen el presupuesto de la empresa y garantizan el cumplimiento normativo.
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│           ARQUITECTURA AGÉNTICA CON DEEPSEEK HARNESS         │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    [DeepSeek Harness Engine]     [Pasarela MCP / Executor.sh]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [DeepSeek-V4]  [Qwen 3.8-27B]  [VeriFactu ERP]  [Bases SQL]
+ (API Barata)    (Local Air-gap) (Facturación)   (Confidencial)
+\`\`\`
+
+* **Rutas de Alta Carga Cognitiva**: Tareas de refactorización masiva o planificación de proyectos se derivan a la API de [DeepSeek-V4 Flash](/blog/deepseek-v4-flash-0731-analisis-rendimiento-benchmarks-pymes) o modelos como [Grok 4.6](/blog/grok-4-6-xai-lanzamiento-agentes-autonomos-optimizacion-pymes-2026), manteniendo un coste por token residual.
+* **Rutas de Datos Confidenciales**: Procesamiento de contratos, expedientes médicos o normativas contables como [VeriFactu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026) se ejecutan 100% en local conectando DeepSeek Harness con [Qwen 3.8-27B en local](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026).
+
+---
+
+## 4. Ejemplo práctico: Configuración de un agente con DeepSeek Harness en Python
+
+A continuación se muestra un ejemplo de inicialización de un agente de auditoría de código con plugins personalizados utilizando la interfaz de DeepSeek Harness:
+
+\`\`\`python
+import asyncio
+from deepseek_harness import AgentRuntime, PluginRegistry
+from deepseek_harness.plugins import MCPToolPlugin, LocalLLMPlugin
+
+async def main():
+    # 1. Registrar plugins de modelo y herramientas
+    registry = PluginRegistry()
+    
+    # Plugin de LLM local o API DeepSeek-V4
+    registry.register("llm", LocalLLMPlugin(
+        model_name="qwen3.8:27b",
+        api_base="http://localhost:11434/v1"
+    ))
+    
+    # Plugin MCP para conectar herramientas empresariales
+    registry.register("tools", MCPToolPlugin(
+        server_url="http://localhost:8000/mcp"
+    ))
+
+    # 2. Inicializar el entorno de ejecución (Runtime) con motor Cordis
+    runtime = AgentRuntime(
+        registry=registry,
+        enable_trace=True,  # Trazabilidad completa habilitada
+        trace_log_path="./traces/session_001.jsonl"
+    )
+
+    # 3. Ejecutar tarea agéntica con bucle de razonamiento
+    result = await runtime.run(
+        task="Auditar repositorio de código y generar informe de vulnerabilidades estructurado."
+    )
+    
+    print(f"Estado de ejecución: {result.status}")
+    print(f"Log de trazabilidad guardado en: {result.trace_path}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+\`\`\`
+
+---
+
+## 5. Casos de uso de alto ROI para PYMEs con DeepSeek Harness
+
+1. **Pruebas de software y QA automatizado**: Ejecución continua de suites de test de extremo a extremo (E2E), reproduciendo fallos y generando parches de código con registro de trazas para el equipo de desarrollo.
+2. **Gestión documental y conciliación bancaria**: Extracción de datos en facturas PDF, validación contra bases de datos internas y resolución de discrepancias mediante sub-agentes especializados.
+3. **Soporte técnico B2B con reproducción de incidencias**: Agentes que no solo responden preguntas, sino que ejecutan comandos de diagnóstico en entornos aislados (*sandboxes*) para resolver problemas de clientes.
+
+---
+
+## 6. Siguientes pasos para tu empresa
+
+La liberación de DeepSeek Harness democratiza la infraestructura agéntica que antes solo estaba al alcance de grandes corporaciones o plataformas cerradas de suscripción.
+
+> **[Reserva una Consultoría de Integración de Agentes con IA4PYMES →](/#consultoria)**
+> Diseñamos e implementamos sistemas de agentes basados en DeepSeek Harness y pasarelas MCP seguras, optimizando los costes de tu PYME y garantizando soberanía de datos.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Es DeepSeek Harness 100% gratuito y de código abierto?
+Sí. El repositorio está publicado en \`github.com/deepseek-ai/deepseek-harness\` bajo la licencia permisiva **MIT**, permitiendo su uso comercial, modificación e integración en proyectos privados sin costes de licencia.
+
+### ¿Se puede utilizar DeepSeek Harness con modelos locales sin conexión a internet?
+Absolutamente. La arquitectura de plugins permite reemplazar el conector de modelo por cualquier motor local compatible con la interfaz OpenAI API (como Ollama, vLLM o LM Studio) ejecutando modelos como [Qwen 3.8-27B](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026) en servidor propio.
+
+### ¿Qué ventaja tiene el motor Cordis frente a frameworks como LangChain o CrewAI?
+Cordis está diseñado específicamente para la trazabilidad inmutable de trazas de ejecución (*append-only logs*) y la gestión espaciotemporal de agentes, permitiendo pausar, inspeccionar, reproducir y bifurcar bucles de ejecución de agentes sin perder contexto ni duplicar llamadas a APIs.
+`,
+    },
+    {
+        slug: "deepseek-harness-open-source-agentic-framework-smes-2026",
+        title: "DeepSeek Harness: Deep Technical Analysis of DeepSeek's Open-Source Agentic Framework for SMEs",
+        description: "In-depth technical breakdown of DeepSeek Harness (github.com/deepseek-ai/deepseek-harness): Cordis engine plugin architecture, full execution traceability, DeepSeek-V4 integration, and SME automation strategy.",
+        date: "2026-08-13",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "AI Agents",
+        image: "/images/deepseek_harness_agentic_framework_smes_2026.png",
+        lang: "en",
+        translationSlug: "deepseek-harness-arnes-agentes-ia-open-source-pymes-2026",
+        content: `
+The engineering team at **DeepSeek AI** has open-sourced (MIT License) its long-awaited agentic runtime framework: **DeepSeek Harness** (\`github.com/deepseek-ai/deepseek-harness\`). Known for producing high-efficiency frontier models such as [DeepSeek-V4 Flash](/en/blog/deepseek-v4-flash-0731-benchmark-breakthrough-sme-ai-guide), DeepSeek is expanding into runtime infrastructure, providing the critical execution layer needed to transform standard LLMs into autonomous enterprise agents.
+
+Until now, businesses building agentic pipelines were forced to choose between locked-in proprietary tools (such as *Claude Code*) or rigid orchestration frameworks with high token overhead.
+
+In this technical breakdown, we analyze the architecture of DeepSeek Harness, the "Everything is a Plugin" philosophy, the **Cordis** tracing engine, and how SMEs can deploy it to automate operations with zero vendor lock-in.
+
+---
+
+## 1. Design Philosophy: "Everything is a Plugin" & the Cordis Engine
+
+DeepSeek Harness moves away from monolithic agent framework designs. Its core architecture follows a single principle: **every system component is a decoupled plugin**.
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│               DEEPSEEK HARNESS ARCHITECTURE               │
+├───────────────────────────────────────────────────────────┤
+│                CORDIS ENGINE (Spatiotemporal)             │
+├───────────────┬───────────────┬───────────┬───────────────┤
+│  LLM PLUGINS  │ TOOL PLUGINS  │  MEMORY   │ TRACE LOGS    │
+│  (DeepSeek-V4 │ (MCP / Shell  │ (Vector / │ (Append-only  │
+│   / Qwen/Grok)│  / DB / APIs) │  RAG)     │  Replay)      │
+└───────────────┴───────────────┴───────────┴───────────────┘
+\`\`\`
+
+### Primary Technical Pillars:
+
+1. **Cordis Orchestration Engine**: A meta-framework designed for spatiotemporal composability, allowing developers to pause, resume, fork, and clone agent execution trajectories in real time.
+2. **Absolute Traceability ("Every Run is Traceable")**: Records an immutable, append-only session log covering every system prompt, reasoning path, tool invocation, and sub-agent branch. This enables complete auditing of why an agent performed specific actions in production.
+3. **Native Support for Open Protocols**: Direct integration with Model Context Protocol (MCP), enabling seamless connection to unified gateways such as [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+
+---
+
+## 2. Technical Comparison: DeepSeek Harness vs. Market Alternatives
+
+When evaluating agentic frameworks in 2026, SMEs must balance operational efficiency, token expense, and infrastructure flexibility:
+
+| Feature / Metric | DeepSeek Harness | [Prime-Agent](/en/blog/prime-agent-self-improving-rlm-coding-harness-smes-2026) | Claude Code CLI | [Qwen-MM-Plugins](/en/blog/qwen-mm-plugins-multimodal-ai-agents-terminal-harnesses-smes-2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **License** | Open Source (MIT) | Open Source (Apache) | Proprietary (SaaS) | Open Source |
+| **Core Engine** | Cordis Framework | RLM Loop Engine | Claude Engine | Qwen Core |
+| **Traceability (Replay)** | **Native Append-Only** | Session Logs | Limited | Standard Logs |
+| **Model Support** | **Multi-Model (API/Local)**| Multi-LLM | Claude Only | Qwen Only |
+| **Local Deployment** | **Yes (With Qwen 3.8-27B)** | Yes | No (Cloud API Only) | **Yes** |
+| **Sub-Agent Forking** | Native Real-Time | Thread-based | Not Available | Script-based |
+
+---
+
+## 3. SME Deployment Strategy: Hybrid Architecture
+
+DeepSeek Harness allows small and medium enterprises to construct hybrid agentic architectures that optimize API budgets while ensuring regulatory compliance.
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│            AGENTIC ARCHITECTURE WITH DEEPSEEK HARNESS        │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    [DeepSeek Harness Engine]     [MCP Gateway / Executor.sh]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [DeepSeek-V4]  [Qwen 3.8-27B]  [Accounting ERP] [SQL DBs]
+ (Low-cost API)  (Air-gapped)   (Invoicing)      (Confidential)
+\`\`\`
+
+* **High Cognitive Loads**: Tasks such as codebase refactoring or system planning are routed to [DeepSeek-V4 Flash](/en/blog/deepseek-v4-flash-0731-benchmark-breakthrough-sme-ai-guide) or [Grok 4.6](/en/blog/grok-4-6-xai-release-autonomous-agents-sme-optimization-2026), keeping token costs to a minimum.
+* **Confidential Workloads**: Financial records, client contracts, and invoicing data (such as [VeriFactu electronic invoicing](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026)) are processed 100% locally by pairing DeepSeek Harness with [Qwen 3.8-27B locally](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026).
+
+---
+
+## 4. Code Example: Initializing a DeepSeek Harness Agent in Python
+
+Below is an example showing how to initialize a code auditing agent with custom plugins using the DeepSeek Harness runtime:
+
+\`\`\`python
+import asyncio
+from deepseek_harness import AgentRuntime, PluginRegistry
+from deepseek_harness.plugins import MCPToolPlugin, LocalLLMPlugin
+
+async def main():
+    # 1. Register model and tool plugins
+    registry = PluginRegistry()
+    
+    # Local LLM or DeepSeek-V4 API plugin
+    registry.register("llm", LocalLLMPlugin(
+        model_name="qwen3.8:27b",
+        api_base="http://localhost:11434/v1"
+    ))
+    
+    # MCP plugin for enterprise tools
+    registry.register("tools", MCPToolPlugin(
+        server_url="http://localhost:8000/mcp"
+    ))
+
+    # 2. Initialize Agent Runtime with Cordis tracing engine
+    runtime = AgentRuntime(
+        registry=registry,
+        enable_trace=True,  # Full append-only log tracing enabled
+        trace_log_path="./traces/session_001.jsonl"
+    )
+
+    # 3. Execute agentic task loop
+    result = await runtime.run(
+        task="Audit code repository and generate structured vulnerability report."
+    )
+    
+    print(f"Execution Status: {result.status}")
+    print(f"Trace Log Saved To: {result.trace_path}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+\`\`\`
+
+---
+
+## 5. High-ROI SME Use Cases for DeepSeek Harness
+
+1. **Automated Software Testing & QA**: Continuous end-to-end (E2E) test execution that reproduces bugs, generates patches, and records trace logs for developer review.
+2. **Document Processing & Reconciliation**: Extracting data from PDF invoices, validating entries against internal SQL databases, and resolving discrepancies via specialized sub-agents.
+3. **Tier-2 B2B Technical Support Agents**: Autonomous agents that execute diagnostic scripts inside isolated sandboxes to troubleshoot customer tickets.
+
+---
+
+## 6. Next Steps for Your Business
+
+The open-source release of DeepSeek Harness democratizes enterprise-grade agent infrastructure that was previously limited to proprietary platforms.
+
+> **[Book an Agentic Integration Consultation with IA4PYMES →](/en#consultoria)**
+> We architect and deploy production agent systems using DeepSeek Harness and secure MCP gateways, optimizing token spend while safeguarding organizational data.
+
+---
+
+## 7. Frequently Asked Questions
+
+### Is DeepSeek Harness 100% free and open-source?
+Yes. The repository is published at \`github.com/deepseek-ai/deepseek-harness\` under the permissive **MIT License**, permitting free commercial use, modification, and integration into private enterprise codebases.
+
+### Can DeepSeek Harness run with local offline LLMs?
+Yes. The plugin architecture allows swapping the model provider with any OpenAI API-compatible local server (such as Ollama or vLLM) executing open-weights models like [Qwen 3.8-27B](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026) on company hardware.
+
+### How does the Cordis engine differ from frameworks like LangChain or CrewAI?
+Cordis is specifically built for immutable append-only execution tracing and spatiotemporal agent management, enabling developers to pause, inspect, replay, and fork execution loops without losing state or duplicating API calls.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Guía de Certificación Anthropic Claude (NUEVO - 13 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
