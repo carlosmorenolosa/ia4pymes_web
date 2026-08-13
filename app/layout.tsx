@@ -130,10 +130,9 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Mediavine Grow Script */}
-        <Script
-          id="grow-me-initializer"
-          strategy="afterInteractive"
+        {/* Mediavine Grow Script (Raw script tag required for Mediavine crawler verification) */}
+        <script
+          data-grow-initializer=""
           dangerouslySetInnerHTML={{
             __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpmNzQ4ZTQzZC1iMmYyLTQ5NGQtYmQ0Yi04MmZmNjAwMzE3OTE=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
           }}
