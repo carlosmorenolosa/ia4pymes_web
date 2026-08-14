@@ -16,6 +16,311 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Lanzamiento de Gemini 3.7 Flash de Google (NUEVO - 14 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "gemini-3-7-flash-google-lanzamiento-razonamiento-hibrido-pymes-2026",
+        title: "Google lanza Gemini 3.7 Flash: Razonamiento Híbrido Ajustable, 1M de Contexto y Casos de Uso para PYMEs (Agosto 2026)",
+        description: "Desglose técnico de Gemini 3.7 Flash de Google: niveles de pensamiento dinámicos (Low/Med/High), 65.3% en DeepSWE v1.1, multimodalidad nativa (PDF, audio, vídeo) y pricing de $0.75/1M tokens para empresas.",
+        date: "2026-08-14",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Modelos IA",
+        image: "/images/gemini_3_7_flash_google_release_smes_2026.png",
+        lang: "es",
+        translationSlug: "gemini-3-7-flash-google-release-hybrid-reasoning-smes-2026",
+        content: `
+Google DeepMind ha anunciado el lanzamiento oficial de **Gemini 3.7 Flash**, el modelo de mayor tracción y rendimiento operativo dentro de la familia Gemini 3. Presentado apenas tres semanas después de la versión [Gemini 3.6 Flash](/blog/gemini-3-6-flash-3-5-flash-cyber-google-pymes), esta actualización introduce una novedad arquitectónica fundamental: **niveles de razonamiento ajustables (*tunable thinking levels*)** que permiten a los desarrolladores y directores técnicos regular el equilibrio exacto entre latencia, coste por token y profundidad analítica.
+
+Con una ventana de contexto masiva de **1 millón de tokens**, un límite de generación de salida de **64.000 tokens** y un salto en el benchmark de ingeniería de software *DeepSWE v1.1* del 49.0% al **65.3%**, Gemini 3.7 Flash se posiciona como el motor de trabajo prioritario para automatización corporativa en PYMEs.
+
+En esta guía técnica analizamos sus especificaciones, la estructura de precios promocional ($0.75 / 1M tokens de entrada hasta finales de 2026), cómo configurar el presupuesto de razonamiento y tres casos de uso de alto impacto empresarial.
+
+---
+
+## 1. Novedades técnicas de Gemini 3.7 Flash y razonamiento híbrido
+
+Hasta ahora, las empresas debían elegir entre dos extremos: modelos ultra-rápidos sin capacidad de reflexión o modelos de razonamiento profundo lentos y costosos. Gemini 3.7 Flash unifica ambos paradigmas en un único endpoint mediante el parámetro de configuración de pensamiento:
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│               FICHA TÉCNICA: GEMINI 3.7 FLASH             │
+├─────────────────────────────┬─────────────────────────────┤
+│ Ventana de Contexto         │ 1.000.000 Tokens            │
+├─────────────────────────────┼─────────────────────────────┤
+│ Salida Máxima de Generación │ 64.000 Tokens               │
+├─────────────────────────────┼─────────────────────────────┤
+│ Modos de Pensamiento        │ Low (Rápido), Med, High     │
+├─────────────────────────────┼─────────────────────────────┤
+│ Benchmark DeepSWE v1.1      │ 65.3% (Frente a 49.0% en 3.6)│
+├─────────────────────────────┼─────────────────────────────┤
+│ Benchmark Comprensión PDF   │ 34.0% (GDP.pdf benchmark)   │
+├─────────────────────────────┼─────────────────────────────┤
+│ Precios API (Hasta 31/12/26)│ $0.75 / 1M Input Tokens     │
+│                             │ $3.75 / 1M Output Tokens    │
+└─────────────────────────────┴─────────────────────────────┘
+\`\`\`
+
+### Modos de funcionamiento del presupuesto de razonamiento:
+* **Modo 'Low' (Latencia sub-segundo)**: Inferencia inmediata sin cadena de pensamiento extendida. Ideal para clasificación de correos, extracción de campos en facturas y chatbots de atención al cliente en tiempo real.
+* **Modo 'Medium' (Equilibrio operativo)**: Razonamiento estructurado para validar esquemas de datos, resumir contratos legales de cientos de páginas y contrastar normativas.
+* **Modo 'High' (Ingeniería de software profunda)**: Planificación exhaustiva de código, resolución de bugs en microservicios y generación de suites de tests unitarios antes de emitir la primera línea de respuesta.
+
+---
+
+## 2. Comparativa técnica frente a modelos del mercado
+
+El despliegue de Gemini 3.7 Flash compite directamente contra modelos recientes como [GLM-5.3](/blog/glm-5-3-zhipu-ai-lanzamiento-programacion-agentes-pymes-2026) y arneses de ejecución como [DeepSeek Harness](/blog/deepseek-harness-arnes-agentes-ia-open-source-pymes-2026):
+
+| Métrica / Parámetro | Gemini 3.7 Flash | [GLM-5.3 (Z.ai)](/blog/glm-5-3-zhipu-ai-lanzamiento-programacion-agentes-pymes-2026) | [DeepSeek-V4](/blog/deepseek-v4-flash-0731-analisis-rendimiento-benchmarks-pymes) | [Qwen 3.8-27B (Local)](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Contexto Máximo** | **1.000.000 Tokens** | 128.000 Tokens | 128.000 Tokens | 32.768 Tokens |
+| **Razonamiento Ajustable** | **Sí (Low/Med/High)** | Fijo Post-Training | Fijo | Fijo |
+| **Entrada Multimodal Nativa**| **Texto/PDF/Audio/Vídeo**| Texto/Imágenes | Texto/Imágenes | Texto/Visión |
+| **Precio Input / Output (1M)**| **$0.75 / $3.75** | $1.00 / $2.00 | $0.27 / $1.10 | **$0.00 (Servidor local)**|
+| **DeepSWE v1.1 (Código)** | **65.3%** | 64.8% | 58.2% | 48.5% |
+
+---
+
+## 3. Casos de uso de alto impacto para PYMEs con Gemini 3.7 Flash
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│          ARQUITECTURA DE INTEGRACIÓN PARA PYMES              │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    [Ingesta Multimodal 1M]        [Razonamiento Crítico High]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [Vídeos / Audios] [PDFs Masivos] [Refactorización] [Auditoría Fiscal]
+ (Soporte Técnico) (Contratos)    (Microservicios)  (VeriFactu)
+\`\`\`
+
+### 1. Ingesta masiva de contratos y expedientes en PDF
+Gracias a su ventana de 1M de tokens y su 34.0% en el benchmark *GDP.pdf*, una PYME puede cargar auditorías anuales completas, escrituras notariales o catálogos técnicos de miles de páginas. El modelo correlaciona cláusulas dispersas sin necesidad de fragmentación vectorial (*chunking*) agresiva.
+
+### 2. Automatización contable y conciliación de facturas con VeriFactu
+Al integrar Gemini 3.7 Flash con pasarelas como [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia), el modelo procesa cientos de tickets de compra y facturas escaneadas simultáneamente, validando el cumplimiento del sistema tributario [VeriFactu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026) y detectando discrepancias de IVA.
+
+### 3. Agentes de diagnóstico técnico basados en vídeo y audio
+A diferencia de otros LLMs que requieren transcripciones intermedias, Gemini 3.7 Flash ingiere directamente grabaciones de audio de llamadas con clientes o vídeos de maquinaria averiada en talleres e instalaciones industriales, proporcionando diagnósticos paso a paso en segundos.
+
+---
+
+## 4. Ejemplo práctico: Configuración de llamadas con presupuesto de pensamiento en Python
+
+A continuación se muestra cómo invocar Gemini 3.7 Flash utilizando el SDK oficial de Google GenAI para alternar dinámicamente entre modo rápido y modo de razonamiento profundo:
+
+\`\`\`python
+import os
+from google import genai
+from google.genai import types
+
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+# 1. Llamada en modo 'High' para planificación de arquitectura de software
+response_reasoning = client.models.generate_content(
+    model="gemini-3.7-flash",
+    contents="Analiza este esquema de base de datos relacional y propone una migración a microservicios tolerante a fallos.",
+    config=types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(
+            thinking_budget=4096  # Presupuesto de razonamiento profundo
+        ),
+        response_mime_type="application/json"
+    )
+)
+
+print("Razonamiento y Respuesta Estructurada:")
+print(response_reasoning.text)
+\`\`\`
+
+---
+
+## 5. Estrategia Híbrida: Nube Económica vs Soberanía Local
+
+Aunque el precio promocional de **$0.75 por millón de tokens** hace que Gemini 3.7 Flash sea extremadamente accesible, las empresas con datos altamente regulados deben mantener una arquitectura equilibrada:
+
+* **Capa Cloud de Alta Productividad (Gemini 3.7 Flash)**: Ideal para ingesta de material público, desarrollo de software, análisis de vídeos formativos y procesamiento masivo de documentación no confidencial.
+* **Capa Soberana Local ([Qwen 3.8-27B en local](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026))**: Desplegada en servidores propios sin conexión externa para nóminas, historiales médicos y secretos industriales.
+
+---
+
+## 6. Siguientes pasos para tu empresa
+
+Gemini 3.7 Flash establece un nuevo estándar de rendimiento por euro invertido para las pequeñas y medianas empresas que buscan automatizar procesos complejos sin costes SaaS sobredimensionados.
+
+> **[Solicita una Consultoría de Integración de IA con IA4PYMES →](/#consultoria)**
+> Implementamos arquitecturas inteligentes a medida integrando Gemini 3.7 Flash con tus herramientas internas, ERPs y flujos de trabajo corporativos.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Qué diferencia a Gemini 3.7 Flash de Gemini 3.6 Flash?
+Gemini 3.7 Flash incorpora niveles de razonamiento ajustables (*tunable thinking levels*), un aumento del rendimiento en programación (*DeepSWE v1.1*) del 49% al 65.3% y una mejora sustancial en comprensión de documentos PDF complejos.
+
+### ¿Hasta cuándo estará disponible el precio promocional de Gemini 3.7 Flash?
+Google ha fijado una tarifa reducida de **$0.75 / 1M tokens de entrada** y **$3.75 / 1M tokens de salida** hasta el **31 de diciembre de 2026**. A partir del 1 de enero de 2027, el coste pasará a ser de $1.50 y $7.50 respectivamente.
+
+### ¿Puede Gemini 3.7 Flash procesar archivos de audio y vídeo directamente?
+Sí. El modelo es nativamente multimodal y puede ingerir archivos de vídeo (MP4), audio (MP3/WAV), documentos PDF e imágenes de alta resolución sin necesidad de etapas previas de transcripción externa.
+`,
+    },
+    {
+        slug: "gemini-3-7-flash-google-release-hybrid-reasoning-smes-2026",
+        title: "Google Releases Gemini 3.7 Flash: Tunable Hybrid Reasoning, 1M Context & Enterprise SME Playbook (August 2026)",
+        description: "Technical deep dive into Google's Gemini 3.7 Flash: dynamic thinking levels (Low/Med/High), 65.3% on DeepSWE v1.1, native multimodal ingestion, and $0.75/1M token pricing for SMEs.",
+        date: "2026-08-14",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "AI Models",
+        image: "/images/gemini_3_7_flash_google_release_smes_2026.png",
+        lang: "en",
+        translationSlug: "gemini-3-7-flash-google-lanzamiento-razonamiento-hibrido-pymes-2026",
+        content: `
+Google DeepMind has officially released **Gemini 3.7 Flash**, the flagship workhorse model of the Gemini 3 family. Arriving just three weeks after [Gemini 3.6 Flash](/en/blog/gemini-3-6-flash-3-5-flash-cyber-google-smes), this release introduces a core architectural breakthrough: **tunable thinking levels**, enabling software architects and technical leads to precisely calibrate the tradeoff between inference latency, token cost, and cognitive depth.
+
+Featuring a massive **1 million token context window**, a **64,000 token maximum output ceiling**, and a leap on the *DeepSWE v1.1* software engineering benchmark from 49.0% to **65.3%**, Gemini 3.7 Flash sets a new efficiency benchmark for SME business automation.
+
+In this technical guide, we break down its specifications, the promotional pricing structure ($0.75 / 1M input tokens through late 2026), how to configure the dynamic thinking budget, and three practical SME deployment blueprints.
+
+---
+
+## 1. Technical Innovations in Gemini 3.7 Flash & Hybrid Reasoning
+
+Historically, enterprises had to choose between fast models without reflective capabilities or slow, expensive reasoning models. Gemini 3.7 Flash bridges this divide in a single API endpoint:
+
+\`\`\`
+┌───────────────────────────────────────────────────────────┐
+│               TECHNICAL SPECS: GEMINI 3.7 FLASH           │
+├─────────────────────────────┬─────────────────────────────┤
+│ Context Window              │ 1,000,000 Tokens            │
+├─────────────────────────────┼─────────────────────────────┤
+│ Max Output Generation       │ 64,000 Tokens               │
+├─────────────────────────────┼─────────────────────────────┤
+│ Reasoning Modes             │ Low (Direct), Med, High     │
+├─────────────────────────────┼─────────────────────────────┤
+│ DeepSWE v1.1 Benchmark      │ 65.3% (Up from 49.0% in 3.6)│
+├─────────────────────────────┼─────────────────────────────┤
+│ PDF Document Comprehension  │ 34.0% (GDP.pdf benchmark)   │
+├─────────────────────────────┼─────────────────────────────┤
+│ API Pricing (Until 12/31/26)│ $0.75 / 1M Input Tokens     │
+│                             │ $3.75 / 1M Output Tokens    │
+└─────────────────────────────┴─────────────────────────────┘
+\`\`\`
+
+### Dynamic Thinking Budget Modes:
+* **'Low' Mode (Sub-second Latency)**: Direct generation with zero chain-of-thought delay. Optimal for email categorization, invoice field extraction, and real-time customer service agents.
+* **'Medium' Mode (Operational Balance)**: Structured reasoning for verifying JSON schema compliance, cross-referencing multi-page legal contracts, and compliance auditing.
+* **'High' Mode (Deep Software Engineering)**: Multi-step architectural planning, microservice debugging, and unit test generation before outputting the final implementation code.
+
+---
+
+## 2. Benchmark Comparison Against Frontier Models
+
+Gemini 3.7 Flash competes directly against recent frontier models including [GLM-5.3](/en/blog/glm-5-3-zhipu-ai-release-coding-long-horizon-agents-smes-2026) and execution harnesses like [DeepSeek Harness](/en/blog/deepseek-harness-open-source-agentic-framework-smes-2026):
+
+| Metric / Parameter | Gemini 3.7 Flash | [GLM-5.3 (Z.ai)](/en/blog/glm-5-3-zhipu-ai-release-coding-long-horizon-agents-smes-2026) | [DeepSeek-V4](/en/blog/deepseek-v4-flash-0731-benchmark-breakthrough-sme-ai-guide) | [Qwen 3.8-27B (Local)](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Max Context Window** | **1,000,000 Tokens** | 128,000 Tokens | 128,000 Tokens | 32,768 Tokens |
+| **Tunable Thinking Levels** | **Yes (Low/Med/High)**| Static Post-Training| Static | Static |
+| **Native Multimodal Input** | **Text/PDF/Audio/Video**| Text/Images | Text/Images | Text/Vision |
+| **Input / Output Price (1M)**| **$0.75 / $3.75** | $1.00 / $2.00 | $0.27 / $1.10 | **$0.00 (Local Server)** |
+| **DeepSWE v1.1 (Coding)** | **65.3%** | 64.8% | 58.2% | 48.5% |
+
+---
+
+## 3. High-Impact SME Use Cases for Gemini 3.7 Flash
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│                ENTERPRISE SME DEPLOYMENT PIPELINE            │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    [1M Multimodal Ingestion]       [High-Reasoning Planning]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [Video / Audio]  [Massive PDFs]  [Refactoring]  [Fiscal Audit]
+ (Tech Support)   (Contracts)     (Microservices)(VeriFactu)
+\`\`\`
+
+### 1. Ingesting Full-Year Legal & Technical Archives
+With 1M tokens of active context and 34.0% accuracy on the *GDP.pdf* benchmark, SMEs can upload full annual audits, architectural blueprints, or thousands of product specifications without lossy vector chunking.
+
+### 2. Automated Accounting & Invoicing Reconciliation
+Paired with unified agent gateways like [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents), Gemini 3.7 Flash parses hundreds of receipts and invoices simultaneously, checking compliance with frameworks like [VeriFactu electronic invoicing](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026).
+
+### 3. Native Video & Audio Field Diagnostics
+Unlike traditional pipelines requiring separate speech-to-text models, Gemini 3.7 Flash directly consumes video recordings from factory equipment or support call audio, generating step-by-step repair guides in seconds.
+
+---
+
+## 4. Code Implementation: Setting Thinking Budget in Python
+
+The snippet below illustrates how to invoke Gemini 3.7 Flash using the official Google GenAI SDK to configure dynamic reasoning budgets:
+
+\`\`\`python
+import os
+from google import genai
+from google.genai import types
+
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+# Invoking in 'High' mode for deep architectural planning
+response_reasoning = client.models.generate_content(
+    model="gemini-3.7-flash",
+    contents="Analyze this relational database schema and propose a fault-tolerant microservice architecture.",
+    config=types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(
+            thinking_budget=4096  # Deep reasoning token budget
+        ),
+        response_mime_type="application/json"
+    )
+)
+
+print("Structured Reasoning Output:")
+print(response_reasoning.text)
+\`\`\`
+
+---
+
+## 5. Hybrid Enterprise Strategy: Cost-Effective Cloud vs Local Air-Gapping
+
+While the introductory rate of **$0.75 per 1M input tokens** makes Gemini 3.7 Flash one of the most cost-effective frontier options, companies managing strict regulatory data should implement a hybrid architecture:
+
+* **High-Throughput Cloud Layer (Gemini 3.7 Flash)**: Handles public documentation, codebase refactoring, training videos, and non-confidential multimodal processing.
+* **Sovereign Local Layer ([Qwen 3.8-27B locally](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026))**: Runs on local hardware for processing confidential payroll records, patient medical data, and trade secrets.
+
+---
+
+## 6. Next Steps for Your Business
+
+Gemini 3.7 Flash delivers unprecedented cognitive value per dollar for small and medium enterprises seeking to automate workflows without runaway SaaS expenses.
+
+> **[Book an AI Integration Strategy Consultation with IA4PYMES →](/en#consultoria)**
+> We build and deploy custom AI pipelines connecting Gemini 3.7 Flash to your internal systems, databases, and enterprise applications.
+
+---
+
+## 7. Frequently Asked Questions
+
+### What differentiates Gemini 3.7 Flash from Gemini 3.6 Flash?
+Gemini 3.7 Flash introduces tunable thinking levels, boosts coding performance on *DeepSWE v1.1* from 49.0% to 65.3%, and delivers major improvements in multimodal PDF and video comprehension.
+
+### How long is the promotional pricing for Gemini 3.7 Flash available?
+Google has set an introductory rate of **$0.75 / 1M input tokens** and **$3.75 / 1M output tokens** through **December 31, 2026**. Starting January 1, 2027, the pricing adjusts to $1.50 and $7.50 respectively.
+
+### Can Gemini 3.7 Flash process raw audio and video files directly?
+Yes. The model is natively multimodal, ingesting video (MP4), audio (MP3/WAV), PDFs, and high-resolution images natively without external transcription preprocessing.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Lanzamiento de GLM-5.3 de Zhipu AI (NUEVO - 14 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
