@@ -4053,7 +4053,7 @@ Cuando una PYME despliega un agente autónomo para automatizar tareas (por ejemp
 Para aprovechar la potencia de los agentes autónomos sin exponer la red ni la información confidencial de tu negocio a fugas de seguridad o violaciones del [EU AI Act antes de agosto de 2026](/blog/ley-de-ia-ue-pymes-cumplimiento-obligatorio-agosto-2026), en **IA4PYMES** aplicamos cuatro principios de arquitectura defensiva:
 
 ### 1. Despliegue en Entornos Aislados (*Air-Gapped Sandboxing*)
-Cualquier código ejecutado por un agente de IA debe correr dentro de contenedores efímeros aislados (Docker/MicroVMs) sin acceso a la red de la empresa ni a Internet público, salvo que se definan explícitamente listas blancas de dominios (*domain whitelisting*).
+Cualquier código generado o ejecutado por un agente de IA debe correr dentro de contenedores efímeros aislados (Docker/MicroVMs) sin acceso a la red de la empresa ni a Internet público (tal como analizamos en nuestra [comparativa de sandboxing y ejecución de comandos en OpenCode, Aider y Pi Agent](/blog/comparativa-pi-coding-agent-opencode-aider) y en el [modelo de adopción escalonada de Claude en empresas](/blog/adoptar-ecosistema-claude-code-modelos-madurez-empresarial)), salvo que se definan explícitamente listas blancas de dominios (*domain whitelisting*).
 
 ### 2. Aislamiento de Modelos en Infraestructura Privada
 Para datos de alta confidencialidad (contratos, registros contables, secretos comerciales), la solución definitiva es alojar modelos de peso abierto (*open-weights*) en servidores locales On-Premise. Revisa nuestra [Guía para desplegar LLMs locales en infraestructura privada de PYMEs](/blog/llm-locales-infraestructura-privada-pymes) para eliminar el tráfico hacia APIs externas.
@@ -4132,7 +4132,7 @@ When an SME deploys an autonomous agent to process routine tasks (such as parsin
 To harness agentic automation without exposing your enterprise network or violating the [EU AI Act before August 2026](/en/blog/eu-ai-act-compliance-smes-2026-obligations), **IA4PYMES** enforces four core principles of defensive agent architecture:
 
 ### 1. Air-Gapped Sandboxing
-Any code generated or executed by an AI agent must run inside ephemeral, isolated containers (Docker / MicroVMs) with no access to the internal corporate network or the public internet, unless explicit domain whitelisting is configured.
+Any code generated or executed by an AI agent must run inside ephemeral, isolated containers (Docker / MicroVMs) with no access to the internal corporate network or the public internet (as evaluated across execution loops in our [comparison of OpenCode, Aider, and Pi Coding Agent](/en/blog/pi-coding-agent-vs-opencode-vs-aider) and our [Claude Enterprise AI Adoption Maturity Model](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)), unless explicit domain whitelisting is configured.
 
 ### 2. On-Premise Private Model Isolation
 For highly sensitive data (contracts, accounting records, trade secrets), the ultimate solution is hosting open-weight models locally on private hardware. Review our [SME Private Local LLM Infrastructure Guide](/en/blog/local-llm-private-infrastructure-smes) to eliminate third-party API traffic entirely.
@@ -9147,7 +9147,7 @@ Analizamos la arquitectura detrás de este logro histórico, lo que supone para 
 El verdadero titular de Kimi K3 no es solo su descomunal tamaño, sino su capacidad para batir a la élite del software cerrado en pruebas de fuego reales. 
 
 En las evaluaciones técnicas presentadas por Moonshot AI:
-* **Programación de Largo Horizonte:** En tareas de desarrollo de software complejas que requieren modificar código a lo largo de múltiples archivos y miles de líneas, Kimi K3 superó las puntuaciones globales de Claude Fable 5.
+* **Programación de Largo Horizonte:** En tareas de desarrollo de software complejas que requieren modificar código a lo largo de múltiples archivos y miles de líneas (un reto evaluado en nuestra [comparativa de agentes de código abiertos como OpenCode, Aider y Pi Agent](/blog/comparativa-pi-coding-agent-opencode-aider)), Kimi K3 superó las puntuaciones globales de Claude Fable 5.
 * **Razonamiento Matemático Avanzado:** En la resolución de problemas de olimpiadas matemáticas y demostraciones formales, el modelo logró superar las cotas de GPT 5.6 Sol.
 * **Comprensión de Contexto Largo:** Gracias a su ventana de 1M de tokens combinada con visión nativa, analiza PDFs técnicos masivos extrayendo correlaciones complejas con mayor tasa de acierto que los motores de OpenAI y Anthropic.
 
@@ -9216,7 +9216,7 @@ We analyze the architecture behind this historical milestone, what it means for 
 The real headline of Kimi K3 is not just its massive size, but its ability to beat the closed-source elite in demanding real-world evaluations.
 
 In technical benchmarks presented by Moonshot AI:
-* **Long-Horizon Coding:** In complex software engineering tasks requiring code edits across multiple files and thousands of lines, Kimi K3 outperformed the overall scores of Claude Fable 5.
+* **Long-Horizon Coding:** In complex software engineering tasks requiring code edits across multiple files and thousands of lines (a core benchmark evaluated in our [comparison of open-source coding agents like OpenCode, Aider, and Pi Agent](/en/blog/pi-coding-agent-vs-opencode-vs-aider)), Kimi K3 outperformed the overall scores of Claude Fable 5.
 * **Advanced Mathematical Reasoning:** In solving olympiad math problems and formal proofs, the model surpassed the limits of GPT 5.6 Sol.
 * **Long-Context Understanding:** Utilizing its 1M context window paired with native vision, it analyzes massive technical PDFs and extracts complex correlations with higher accuracy than OpenAI and Anthropic engines.
 
@@ -22512,7 +22512,7 @@ Uno de los saltos más espectaculares de la versión 4.7 es su capacidad multimo
 
 Si bien Opus 4.6 ya era un gigante programando, los usuarios que manejan bases de código gigantes (por encima de los 100.000 tokens) a menudo notaban cierta pérdida de "foco" en sesiones largas. 
 
-**Opus 4.7** soluciona esto optimizando la atención en flujos de trabajo prolongados. Requiere **muchísima menos supervisión humana** para completar proyectos grandes, siendo capaz de mantener la consistencia del código a lo largo de decenas de archivos sin "olvidar" las directrices de arquitectura impuestas en el primer *prompt*.
+**Opus 4.7** soluciona esto optimizando la atención en flujos de trabajo prolongados. Requiere **muchísima menos supervisión humana** para completar proyectos grandes, siendo capaz de mantener la consistencia del código a lo largo de decenas de archivos sin "olvidar" las directrices de arquitectura impuestas en el primer *prompt* (un flujo clave cuando se orquesta con arneses de desarrollo como los analizados en nuestra [comparativa de OpenCode, Aider y Pi Coding Agent](/blog/comparativa-pi-coding-agent-opencode-aider) y en la guía sobre [adopción del ecosistema Claude a escala empresarial](/blog/adoptar-ecosistema-claude-code-modelos-madurez-empresarial)).
 
 ## 3. Pionero en Salvaguardas de Ciberseguridad
 
@@ -22569,7 +22569,7 @@ What does this mean in practice? This represents **more than three times the res
 
 While Opus 4.6 was already a coding giant, users managing massive codebases (over 100,000 tokens) sometimes noticed a loss of "focus" over very long, multi-turn sessions.
 
-**Opus 4.7** solves this by drastically optimizing its attention spans for extended workflows. It requires **significantly less human supervision** to complete large software projects, maintaining code consistency across dozens of files without "forgetting" the architectural guidelines established in the initial prompt.
+**Opus 4.7** solves this by drastically optimizing its attention spans for extended workflows. It requires **significantly less human supervision** to complete large software projects, maintaining code consistency across dozens of files without "forgetting" the architectural guidelines established in the initial prompt (a critical capability when orchestrated with coding harnesses evaluated in our [comparison of OpenCode, Aider, and Pi Coding Agent](/en/blog/pi-coding-agent-vs-opencode-vs-aider) and our [guide to enterprise Claude adoption](/en/blog/adopting-claude-ecosystem-enterprise-maturity-model)).
 
 ## 3. Pioneering Cybersecurity Safeguards
 
