@@ -20,8 +20,8 @@ export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
     {
         slug: "qwen-3-8-35b-a3b-moe-filtracion-modelscope-rendimiento-pymes-2026",
-        title: "Qwen 3.8-35B-A3B filtrado en ModelScope: Por qué la arquitectura MoE cambia las reglas de la IA local para PYMEs",
-        description: "Alibaba prepara el lanzamiento de Qwen 3.8-35B-A3B (filtrado en el commit ab726e9 de ModelScope): 35B parámetros totales con solo 3B activos, inferencia ultra-rápida en GPUs de 8GB-16GB y análisis de arquitectura para empresas.",
+        title: "Qwen 3.8-35B-A3B MoE Filtrado: Cómo Ejecutar IA de 35B en GPUs de 8GB-16GB y Ahorrar Miles de Euros en PYMEs (Agosto 2026)",
+        description: "Guía técnica y análisis del commit filtrado en ModelScope de Qwen 3.8-35B-A3B: arquitectura Mixture of Experts (3B activos), requisitos de VRAM/RAM, inferencia a 80 tok/s y hoja de ruta para empresas.",
         date: "2026-08-15",
         author: "IA4PYMES",
         readingTime: "13 min",
@@ -149,8 +149,8 @@ Históricamente, cuando Alibaba añade las definiciones de modelos en los reposi
     },
     {
         slug: "qwen-3-8-35b-a3b-moe-leak-modelscope-sme-efficiency-2026",
-        title: "Qwen 3.8-35B-A3B Spotted in ModelScope: Why MoE Architecture Unlocks Frontier Local AI for SMEs",
-        description: "Alibaba's upcoming Qwen 3.8-35B-A3B leaked via ModelScope ms-swift commit ab726e9: 35B total parameters with only 3B active per token, high throughput on 8GB-16GB VRAM GPUs, and enterprise deployment blueprint.",
+        title: "Qwen 3.8-35B-A3B MoE Leaked: How to Run a 35B Model on 8GB-16GB GPUs & Cut AI Costs for SMEs (August 2026)",
+        description: "Technical deep dive into the leaked ModelScope commit for Qwen 3.8-35B-A3B: Mixture of Experts mechanics (3B active parameters), VRAM/RAM matrix, 80 tok/s inference, and SME deployment blueprint.",
         date: "2026-08-15",
         author: "IA4PYMES",
         readingTime: "13 min",
