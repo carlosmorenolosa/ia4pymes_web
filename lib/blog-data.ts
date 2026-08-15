@@ -16,6 +16,267 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Filtración Qwen 3.8-35B-A3B MoE (NUEVO - 15 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "qwen-3-8-35b-a3b-moe-filtracion-modelscope-rendimiento-pymes-2026",
+        title: "Qwen 3.8-35B-A3B filtrado en ModelScope: Por qué la arquitectura MoE cambia las reglas de la IA local para PYMEs",
+        description: "Alibaba prepara el lanzamiento de Qwen 3.8-35B-A3B (filtrado en el commit ab726e9 de ModelScope): 35B parámetros totales con solo 3B activos, inferencia ultra-rápida en GPUs de 8GB-16GB y análisis de arquitectura para empresas.",
+        date: "2026-08-15",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Modelos IA",
+        image: "/images/qwen_3_8_35b_a3b_moe_leak_smes_2026.png",
+        lang: "es",
+        translationSlug: "qwen-3-8-35b-a3b-moe-leak-modelscope-sme-efficiency-2026",
+        content: `
+Mientras la comunidad de desarrolladores celebraba la llegada del modelo denso [Qwen 3.8-27B en Hugging Face](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026) y sus recientes [versiones cuantizadas en GGUF por Unsloth](/blog/unsloth-qwen-3-8-27b-gguf-ejecutar-local-ram-pymes-2026), una actualización silenciosa en el repositorio oficial de **ModelScope ms-swift** ha desvelado el verdadero salto estratégico de Alibaba: el registro del modelo **\`Qwen/Qwen3.8-35B-A3B\`**.
+
+El hallazgo, detectado en el commit \`ab726e9d445a6520a70df2c831177d46adb1f589\`, confirma que el equipo de Qwen prepara la liberación de un modelo basado en **Mezcla de Expertos (MoE - Mixture of Experts)** con **35.000 millones de parámetros totales** donde solo se activan **~3.000 millones de parámetros por cada token generado** (\`A3B\` = *Active 3 Billion*).
+
+Para el tejido empresarial y las PYMEs que buscan soberanía tecnológica sin invertir en servidores de miles de euros, este modelo representa una ventaja operativa superior frente a los modelos densos tradicionales.
+
+En este artículo analizamos la prueba técnica del commit filtrado, la física del cálculo MoE frente a modelos densos, los requisitos de hardware en VRAM/RAM y por qué este modelo democratiza los agentes de producción locales.
+
+---
+
+## 1. La evidencia técnica: El commit de ModelScope
+
+La filtración no procede de un rumor anónimo, sino del repositorio oficial de herramientas de fine-tuning y despliegue de Alibaba (\`modelscope/ms-swift\`), donde se han añadido las definiciones de plantillas y cargadores específicos para la arquitectura MoE de Qwen 3.8:
+
+![Evidencia técnica en el commit de ModelScope](/images/qwen_3_8_35b_a3b_leak_modelscope_commit.png)
+
+Como se observa en el código fuente de \`swift/model/models/qwen.py\`:
+* Se incorpora el identificador oficial **\`Qwen/Qwen3.8-35B-A3B\`** y su variante nativa en **\`FP8\`**.
+* Se utiliza el cargador **\`Qwen3_5MoeLoader\`** con la plantilla \`TemplateType.qwen3_8\`.
+* Se añade también el modelo insignia de alta escala **\`Qwen/Qwen3.8-2.4T-A95B\`** (2.4 trillones con 95B activos).
+
+---
+
+## 2. Denso vs. MoE: ¿Por qué 35B-A3B es revolucionario para PYMEs?
+
+Para entender el impacto financiero y de rendimiento de este modelo, es necesario comprender la diferencia matemática entre un modelo denso y una arquitectura Mixture of Experts (MoE):
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    COMPARATIVA DE ARQUITECTURA COMPUTACIONAL            │
+├───────────────────────────────────┬─────────────────────────────────────┤
+│ MODELO DENSO (QWEN 3.8-27B)       │ MODELO MOE (QWEN 3.8-35B-A3B)       │
+├───────────────────────────────────┼─────────────────────────────────────┤
+│ • 27.000M parámetros calculados   │ • 35.000M parámetros totales en VRAM│
+│   por CADA token generado         │ • Solo ~3.000M parámetros activos   │
+│ • Alto consumo de FLOPS por token │   por cada token generado           │
+│ • Velocidad moderada (20-30 t/s)  │ • Coste computacional de modelo 3B  │
+│ • Exige GPUs con gran ancho de bus│ • Velocidad ultra-rápida (60-90 t/s)│
+└───────────────────────────────────┴─────────────────────────────────────┘
+\`\`\`
+
+### La ventaja del enrutamiento de expertos:
+1. **Capacidad de conocimiento de 35B**: El modelo tiene 35 billones de parámetros distribuidos en diferentes redes neuronales expertas (código, razonamiento matemático, extracción de datos, redacción legal).
+2. **Velocidad de ejecución de un 3B**: Un router dinámico selecciona únicamente los 2 o 3 expertos relevantes para responder a la consulta. Al generar cada token, tu tarjeta gráfica solo realiza las operaciones matemáticas equivalentes a un modelo diminuto de 3B.
+3. **Throughput masivo en GPUs modestas**: Mientras que un modelo denso de 27B satura los núcleos CUDA de una NVIDIA RTX 3060/4060 o RTX 4070 (8GB - 12GB - 16GB), el modelo 35B-A3B cuantizado en 4 bits genera texto a velocidades superiores a **60-80 tokens por segundo**.
+
+---
+
+## 3. Matriz de Hardware y Requisitos para Empresas
+
+Gracias a que la carga de cómputo por token es de solo 3B, el factor limitante ya no es la potencia del procesador gráfico, sino únicamente disponer de memoria suficiente para alojar los pesos del modelo:
+
+| Formato / Cuantización | Memoria Total (VRAM + RAM) | Velocidad Estimada | Hardware Mínimo Recomendado |
+| :--- | :--- | :--- | :--- |
+| **Q3_K_M (MoE)** | ~14 GB | 70-90 tok/s | GPU 12GB (RTX 3060/4070) o PC 24GB RAM |
+| **Q4_K_M (Estándar)** | **~18-20 GB** | **60-80 tok/s** | **1x RTX 4080 (16GB) / RTX 4090 / Mac 32GB** |
+| **Q5_K_M / Q6_K** | ~23-26 GB | 50-70 tok/s | Mac Studio 36GB / 2x GPUs 16GB / 48GB RAM |
+| **FP8 Nativo** | ~35 GB | 80-110 tok/s | 2x RTX 4090 (48GB VRAM) / Mac Studio 64GB |
+
+---
+
+## 4. Casos de uso de alto rendimiento para PYMEs con Qwen 3.8-35B-A3B
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│           ARQUITECTURA DE AGENTES CON QWEN 3.8-35B-A3B       │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+     [Alto Rendimiento Local]       [Cero Coste por Token]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [Atención Clientes] [Extracción ERP] [Agentes Código] [Normativa Fiscal]
+ (Latencia <100ms)   (Bases SQL)      (DeepSeek-Harn) (VeriFactu RGPD)
+\`\`\`
+
+1. **Atención al Cliente y Call Centers con Latencia Cero**:
+   La velocidad de más de 70 tokens/segundo permite integrar el modelo con sistemas de voz interactiva en tiempo real (Voice AI) sin pausas molestas para el usuario.
+2. **Procesamiento Masivo de Facturación ([VeriFactu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026))**:
+   Extrae y valida NIFs, bases imponibles y líneas de pedido en cientos de facturas por minuto sin pagar un solo céntimo en APIs comerciales.
+3. **Agentes Autónomos con [DeepSeek Harness](/blog/deepseek-harness-arnes-agentes-ia-open-source-pymes-2026) y [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia)**:
+   Al ejecutar bucles de llamadas a herramientas (*tool calling loops*), la alta velocidad de generación evita cuellos de botella en la ejecución de scripts en terminal.
+
+---
+
+## 5. Estrategia Híbrida: Cómo preparar tu infraestructura
+
+Ante la inminente liberación de los pesos oficiales por parte de Alibaba, las empresas deben estructurar su pila tecnológica:
+
+* **Paso 1 (Preparación de Pasarelas MCP)**: Configurar servidores de datos locales mediante protocolos estandarizados para que el modelo se conecte directamente al CRM o ERP interno.
+* **Paso 2 (Segregación de Cargas)**: Mantener APIs como [Gemini 3.7 Flash](/blog/gemini-3-7-flash-google-lanzamiento-razonamiento-hibrido-pymes-2026) o [GLM-5.3](/blog/glm-5-3-zhipu-ai-lanzamiento-programacion-agentes-pymes-2026) para ingesta masiva de vídeo y PDFs de 1 millón de tokens, y delegar el 100% de las tareas recurrentes y confidenciales a **Qwen 3.8-35B-A3B en local**.
+
+---
+
+## 6. Siguientes pasos para tu empresa
+
+La arquitectura Mixture of Experts (MoE) marca el fin de la dependencia forzosa de la nube para tareas de alta velocidad y volumen.
+
+> **[Reserva una Consultoría de Despliegue de IA Local con IA4PYMES →](/#consultoria)**
+> Diseñamos e instalamos servidores locales optimizados para modelos MoE y arquitecturas de agentes soberanas con retorno de inversión garantizado.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Qué significa la nomenclatura "35B-A3B"?
+Significa que el modelo cuenta con **35.000 millones de parámetros totales** almacenados en memoria, pero para procesar cada palabra o token solo activa un subconjunto de expertos equivalente a **3.000 millones de parámetros activos** (\`A3B\`).
+
+### ¿Por qué es más rápido un modelo MoE que un modelo denso equivalente?
+Porque un modelo denso de 27B o 32B obliga a la tarjeta gráfica a calcular todas las capas para cada token, mientras que el modelo MoE solo ejecuta los cálculos de 3B parámetros, requiriendo una fracción de los FLOPS y logrando el triple de velocidad.
+
+### ¿Cuándo estarán disponibles los pesos descargables de Qwen 3.8-35B-A3B?
+Históricamente, cuando Alibaba añade las definiciones de modelos en los repositorios de ModelScope (\`ms-swift\`), la publicación de pesos en Hugging Face suele producirse en un plazo de pocos días o semanas.
+`,
+    },
+    {
+        slug: "qwen-3-8-35b-a3b-moe-leak-modelscope-sme-efficiency-2026",
+        title: "Qwen 3.8-35B-A3B Spotted in ModelScope: Why MoE Architecture Unlocks Frontier Local AI for SMEs",
+        description: "Alibaba's upcoming Qwen 3.8-35B-A3B leaked via ModelScope ms-swift commit ab726e9: 35B total parameters with only 3B active per token, high throughput on 8GB-16GB VRAM GPUs, and enterprise deployment blueprint.",
+        date: "2026-08-15",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "AI Models",
+        image: "/images/qwen_3_8_35b_a3b_moe_leak_smes_2026.png",
+        lang: "en",
+        translationSlug: "qwen-3-8-35b-a3b-moe-filtracion-modelscope-rendimiento-pymes-2026",
+        content: `
+While the developer community was actively deploying the dense [Qwen 3.8-27B release on Hugging Face](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026) and its recent [Unsloth GGUF quantizations](/en/blog/unsloth-qwen-3-8-27b-gguf-run-local-ram-smes-2026), a quiet commit in Alibaba's official **ModelScope ms-swift** repository revealed Alibaba's primary architectural leap: the registration of **\`Qwen/Qwen3.8-35B-A3B\`**.
+
+Discovered in commit \`ab726e9d445a6520a70df2c831177d46adb1f589\`, the update confirms that the Qwen team is preparing to release a **Mixture of Experts (MoE)** model featuring **35 billion total parameters** with only **~3 billion active parameters per generated token** (\`A3B\` = *Active 3 Billion*).
+
+For small and medium enterprises seeking AI autonomy without multi-thousand-dollar cloud GPU clusters, this architecture provides significant operational advantages over legacy dense models.
+
+In this technical breakdown, we examine the commit evidence, the computational mechanics of MoE versus dense models, hardware memory requirements across VRAM/RAM tiers, and why 35B-A3B democratizes high-throughput local agentic deployments.
+
+---
+
+## 1. Technical Evidence: The ModelScope Commit
+
+The leak originates from Alibaba's official fine-tuning and deployment framework repository (\`modelscope/ms-swift\`), where dedicated model loaders and template configurations for the Qwen 3.8 MoE family were committed:
+
+![Technical Evidence in ModelScope GitHub Commit](/images/qwen_3_8_35b_a3b_leak_modelscope_commit.png)
+
+Key implementation details in \`swift/model/models/qwen.py\`:
+* Addition of the model entry **\`Qwen/Qwen3.8-35B-A3B\`** and its native **\`FP8\`** counterpart.
+* Integration with the **\`Qwen3_5MoeLoader\`** engine and \`TemplateType.qwen3_8\`.
+* Simultaneous inclusion of the flagship cluster model **\`Qwen/Qwen3.8-2.4T-A95B\`** (2.4 trillion parameters with 95B active).
+
+---
+
+## 2. Dense vs. MoE: Why 35B-A3B Changes Local AI Economics
+
+To understand the operational and financial impact, consider the mathematical distinction between dense networks and Mixture of Experts (MoE):
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    COMPUTATIONAL ARCHITECTURE COMPARISON                │
+├───────────────────────────────────┬─────────────────────────────────────┤
+│ DENSE MODEL (QWEN 3.8-27B)        │ MOE MODEL (QWEN 3.8-35B-A3B)        │
+├───────────────────────────────────┼─────────────────────────────────────┤
+│ • 27 Billion parameters computed  │ • 35 Billion total parameters in mem│
+│   for EVERY generated token       │ • Only ~3 Billion active parameters │
+│ • High FLOPs computation per token│   computed per generated token      │
+│ • Moderate speed (20-30 tok/sec)  │ • Computational cost of a 3B model  │
+│ • Demands high memory bandwidth   │ • Ultra-high speed (60-90 tok/sec)  │
+└───────────────────────────────────┴─────────────────────────────────────┘
+\`\`\`
+
+### The Expert Routing Advantage:
+1. **35B Knowledge Capacity**: The model retains 35 billion parameters distributed across specialized sub-networks (coding, mathematical logic, JSON parsing, legal analysis).
+2. **3B Compute Latency**: A dynamic router activates only the top 2–3 relevant experts per token. Computing a response requires only the FLOPS of a 3B model.
+3. **Massive Throughput on Budget Hardware**: While a dense 27B model saturates mid-range GPUs (NVIDIA RTX 3060/4060/4070 with 8GB–16GB VRAM), the 35B-A3B 4-bit quantized model outputs tokens at **60 to 80+ tokens per second**.
+
+---
+
+## 3. SME Hardware & Memory Requirements
+
+Because the compute workload per token is equivalent to a 3B model, the GPU compute capability is no longer the bottleneck—only hosting the total weights in memory:
+
+| Format / Quantization | Total Memory (VRAM + RAM) | Estimated Generation Speed | Minimum Hardware Target |
+| :--- | :--- | :--- | :--- |
+| **Q3_K_M (MoE)** | ~14 GB | 70-90 tok/s | 12GB GPU (RTX 3060/4070) or 24GB PC RAM |
+| **Q4_K_M (Standard)** | **~18-20 GB** | **60-80 tok/s** | **1x RTX 4080 (16GB) / RTX 4090 / Mac 32GB** |
+| **Q5_K_M / Q6_K** | ~23-26 GB | 50-70 tok/s | Mac Studio 36GB / Dual 16GB GPUs / 48GB RAM |
+| **Native FP8** | ~35 GB | 80-110 tok/s | 2x RTX 4090 (48GB VRAM) / Mac Studio 64GB |
+
+---
+
+## 4. High-ROI Business Use Cases for Qwen 3.8-35B-A3B
+
+\`\`\`
+┌──────────────────────────────────────────────────────────────┐
+│             SME AGENT WORKFLOW WITH QWEN 3.8-35B-A3B         │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    [High Local Throughput]         [Zero SaaS Token Invoicing]
+               │                               │
+       ┌───────┴───────┐               ┌───────┴───────┐
+       ▼               ▼               ▼               ▼
+ [Voice Customer Care] [ERP Extraction] [Code Agents]   [Audit Compliance]
+ (Sub-100ms Latency)  (SQL Queries)    (DeepSeek-Harn)  (VeriFactu GDPR)
+\`\`\`
+
+1. **Real-Time Voice AI Customer Service**:
+   Speeds exceeding 70 tokens/sec allow seamless integration with conversational voice agents without awkward latency pauses.
+2. **High-Volume Invoice & Document Extraction ([VeriFactu](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026))**:
+   Extracts and cross-references tax IDs, tax rates, and line items across hundreds of receipts per minute locally.
+3. **Autonomous Agent Loops with [DeepSeek Harness](/en/blog/deepseek-harness-open-source-agentic-framework-smes-2026) and [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents)**:
+   In multi-step tool calling pipelines, high inference speed eliminates execution latency in terminal environments.
+
+---
+
+## 5. Hybrid Enterprise Strategy: Preparing Your Stack
+
+In anticipation of the public weights drop, businesses should prepare their integration pipeline:
+
+* **Step 1 (Model Context Protocol Integration)**: Configure standardized local MCP gateways so the model directly interfaces with internal SQL databases and ERPs.
+* **Step 2 (Workload Segmentation)**: Route 1M-token PDF archives and complex video tasks to cloud APIs like [Gemini 3.7 Flash](/en/blog/gemini-3-7-flash-google-release-hybrid-reasoning-smes-2026) or [GLM-5.3](/en/blog/glm-5-3-zhipu-ai-release-coding-long-horizon-agents-smes-2026), while shifting 100% of recurring, sensitive business logic to **local Qwen 3.8-35B-A3B**.
+
+---
+
+## 6. Next Steps for Your Business
+
+Mixture of Experts architecture removes the compute bottlenecks of on-premise AI deployments.
+
+> **[Book a Sovereign AI Infrastructure Consultation with IA4PYMES →](/en#consultoria)**
+> We engineer and deploy on-premise MoE AI clusters and secure agentic architectures with guaranteed ROI.
+
+---
+
+## 7. Frequently Asked Questions
+
+### What does "35B-A3B" mean in model naming?
+It designates a model with **35 billion total parameters** loaded in memory, where each token routes through a dynamic subset of expert networks equivalent to **3 billion active parameters** (\`A3B\`).
+
+### Why is an MoE model significantly faster than a dense model?
+A dense 27B model forces the GPU to calculate all parameters per token. In contrast, an MoE model only computes the active 3B parameters, requiring substantially fewer FLOPS and tripling generation speed.
+
+### When will the official weights for Qwen 3.8-35B-A3B be released?
+Historically, once Alibaba commits model architecture definitions and template loaders to ModelScope repositories (\`ms-swift\`), public weight releases on Hugging Face follow within days or weeks.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Unsloth Qwen 3.8-27B en GGUF (NUEVO - 14 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
