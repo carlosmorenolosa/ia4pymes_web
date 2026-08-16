@@ -9796,8 +9796,8 @@ The release of Grok Build solidifies the trend of open-source coding assistants.
     // ─────────────────────────────────────────────────────────
     {
         slug: "adoptar-ecosistema-claude-code-modelos-madurez-empresarial",
-        title: "Más allá del desarrollador 10x: Guía definitiva para adoptar el ecosistema de Claude a nivel empresarial",
-        description: "Explicamos el modelo de madurez de adopción de IA de Boris Cherny (0-4) y te enseñamos paso a paso cómo estructurar tu proyecto con CLAUDE.md y bucles de verificación autónomos.",
+        title: "Pasos de Adopción de IA: Modelo de Madurez Claude para Empresas (Nivel 0-4)",
+        description: "Framework de adopción de IA de Boris Cherny (Anthropic): cómo pasar de usar ChatGPT aislado (Nivel 1) a orquestar decenas de agentes autónomos (Nivel 4).",
         date: "2026-07-18",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -9890,8 +9890,8 @@ Al codificar tus reglas en archivos de configuración como \`CLAUDE.md\`, aislar
     },
     {
         slug: "adopting-claude-ecosystem-enterprise-maturity-model",
-        title: "Steps of AI Adoption: Boris Cherny's Claude Maturity Model (Levels 0-4)",
-        description: "Master the 5 steps of Claude AI adoption (Levels 0-4) by Boris Cherny. Practical guide on CLAUDE.md setup, Git Worktrees, and autonomous agent workflows.",
+        title: "Steps of AI Adoption: Claude Enterprise Maturity Model (Levels 0-4)",
+        description: "Boris Cherny's 5 Steps of AI Adoption: Learn how to scale your company from isolated developer prompts (Step 1) to multi-agent parallel workflows (Step 4).",
         date: "2026-07-18",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -15018,8 +15018,8 @@ Before starting any AI automation or software development project, take the time
     // ─────────────────────────────────────────────────────────
     {
         slug: "comparativa-pi-coding-agent-opencode-aider",
-        title: "Soberanía en tu terminal: Comparativa definitiva entre Pi Coding Agent, OpenCode y Aider para tu PYME",
-        description: "Comparamos técnicamente los tres asistentes de programación de código abierto líderes para terminal. Descubre cuál elegir para blindar el desarrollo de software de tu empresa.",
+        title: "Pi Agent vs OpenCode vs Aider: Comparativa de Agentes de Programación 2026",
+        description: "Comparativa técnica entre Pi Coding Agent, OpenCode y Aider: velocidad en terminal, soporte de LLMs locales con Ollama y costes de tokens para empresas.",
         date: "2026-06-18",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -15102,8 +15102,8 @@ Sea cual sea tu elección, la adopción de agentes de desarrollo open-source es 
     },
     {
         slug: "pi-coding-agent-vs-opencode-vs-aider",
-        title: "OpenCode vs Aider vs Pi Agent: 2026 Open-Source AI Coding Comparison",
-        description: "Detailed benchmark comparison of OpenCode, Aider, and Pi Coding Agent. Compare local LLM integration, token costs, multi-file editing, and privacy.",
+        title: "Pi Agent vs OpenCode vs Aider: 2026 AI Coding Agent Comparison",
+        description: "Benchmark comparison of Pi Coding Agent, OpenCode, and Aider. Compare local LLM integration, token costs, LSP diagnostics, and Git workflows.",
         date: "2026-06-18",
         author: "IA4PYMES",
         readingTime: "9 min",
@@ -23127,8 +23127,8 @@ Those who were already familiar with Claude's *Artifacts* framework will feel ri
     // ─────────────────────────────────────────────────────────
     {
         slug: "claude-routines-automatizacion-autonoma-en-la-nube-anthropic",
-        title: "Claude Routines de Anthropic: Cómo Automatizar Tareas de Desarrollo 24/7 en la Nube",
-        description: "Guía completa sobre Claude Routines: automatiza la revisión de PRs, tests y refactorización en la nube 24/7 con los nuevos agentes autónomos de Anthropic.",
+        title: "Claude Routines de Anthropic: Automatización Autónoma 24/7 en la Nube",
+        description: "Cómo usar Claude Routines para automatizar tareas repetitivas, revisiones de código y flujos de trabajo 24/7 en la nube sin intervención humana.",
         date: "2026-04-15",
         author: "IA4PYMES",
         readingTime: "7 min",
@@ -23190,8 +23190,8 @@ Estás contratando a un "Ingeniero DevSecOps" infatigable que trabaja 24/7 en la
     },
     {
         slug: "claude-routines-autonomous-cloud-automation-anthropic",
-        title: "Claude Routines: How to Automate 24/7 Cloud Dev Tasks with Autonomous AI",
-        description: "Complete guide to Claude Routines: automate PR reviews, testing, and cloud refactoring 24/7 using Anthropic's new autonomous cloud agents.",
+        title: "Claude Routines by Anthropic: 24/7 Autonomous Cloud Automation Guide",
+        description: "Learn how Claude Routines automate cloud workflows, PR reviews, and scheduled background tasks 24/7 without manual developer approval.",
         date: "2026-04-15",
         author: "IA4PYMES",
         readingTime: "7 min",
@@ -26739,8 +26739,8 @@ Si quieres que echemos un vistazo a tu caso concreto y te digamos qué podrías 
     },
     {
         slug: "cuanto-cuesta-automatizar-negocio-pequeno",
-        title: "¿Cuánto Cuesta Automatizar Procesos en una PYME? (Precios 2026 y ROI Real)",
-        description: "Desglosamos el precio real de automatizar tu PYME en 2026. Compara costes de integraciones CRM/ERP, software de IA y calcula cuánto dinero ahorrarás al mes.",
+        title: "¿Cuánto Cuesta Automatizar una Empresa con IA? (Precios 2026 y ROI Real)",
+        description: "Desglose de precios reales de automatización con IA en 2026: costes por nivel (desde 500€), integración CRM/ERP y cálculo de ahorro de +1.000h al mes.",
         date: "2026-01-12",
         author: "IA4PYMES",
         readingTime: "8 min",
