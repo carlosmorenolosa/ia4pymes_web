@@ -84,7 +84,35 @@ export default function SectoresPage() {
           "item": "https://ia4pymes.tech/sectores"
         }
       ]
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": SECTORS.map((sector, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": sector.name,
+        "description": sector.description,
+        "url": `https://ia4pymes.tech/sectores/${sector.key}/madrid`
+      }))
     }
+  }
+
+  const serviceCatalogSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "IA4PYMES - Consultoría de IA por Sectores",
+    "url": "https://ia4pymes.tech/sectores",
+    "image": "https://ia4pymes.tech/og-image.png",
+    "description": "Especialización sectorial en ingeniería de inteligencia artificial para clínicas, abogados y gestorías en Madrid, Barcelona y Valencia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Madrid" },
+      { "@type": "City", "name": "Barcelona" },
+      { "@type": "City", "name": "Valencia" }
+    ]
   }
 
   return (
@@ -92,6 +120,10 @@ export default function SectoresPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceCatalogSchema) }}
       />
 
       {/* Header Bar */}

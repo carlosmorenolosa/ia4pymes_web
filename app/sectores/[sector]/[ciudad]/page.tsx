@@ -225,42 +225,103 @@ export default async function SectorCityPage({ params }: PageProps) {
   const sectorName = getSectorName(sector)
   const cityName = getCityName(ciudad)
 
-  const pageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": `Soluciones de IA para ${sectorName} en ${cityName} · IA4PYMES`,
-    "description": `Cómo la inteligencia artificial ayuda a las ${sectorName.toLowerCase()} en ${cityName}.`,
-    "url": `https://ia4pymes.tech/sectores/${normSector}/${normCity}`,
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://ia4pymes.tech"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Sectores",
-          "item": "https://ia4pymes.tech/sectores"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": `${sectorName} en ${cityName}`,
-          "item": `https://ia4pymes.tech/sectores/${normSector}/${normCity}`
-        }
-      ]
+  const sectorFaqs = [
+    {
+      question: `¿Cómo ayuda la IA a las ${sectorName.toLowerCase()} en ${cityName}?`,
+      answer: data.paragraphs[0] || `La inteligencia artificial permite automatizar la atención a clientes, la gestión de citas y el procesamiento de documentos para ${sectorName.toLowerCase()} en ${cityName}.`
+    },
+    {
+      question: `¿Cuáles son los principales beneficios de automatizar una empresa de ${sectorName.toLowerCase()} en ${cityName}?`,
+      answer: data.benefits.join(" ")
+    },
+    {
+      question: `¿Cuánto tiempo lleva implementar un sistema de IA para ${sectorName.toLowerCase()}?`,
+      answer: `El diagnóstico inicial toma entre 1 y 2 semanas, seguido de un despliegue modular de 2 a 4 semanas adaptado a la operativa de tu negocio en ${cityName}.`
+    },
+    {
+      question: `¿Están protegidos los datos de clientes y expedientes bajo el RGPD?`,
+      answer: `Absolutamente. Todas las soluciones implementadas por IA4PYMES cumplen con el RGPD y el Reglamento de IA de la UE de 2026, con opción de despliegue 100% privado en servidores locales.`
     }
+  ]
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": `IA4PYMES - Soluciones de IA para ${sectorName} en ${cityName}`,
+    "url": `https://ia4pymes.tech/sectores/${normSector}/${normCity}`,
+    "image": "https://ia4pymes.tech/og-image.png",
+    "description": `Automatización de procesos, agentes conversacionales y modelos de IA a medida para ${sectorName.toLowerCase()} en ${cityName}.`,
+    "priceRange": "€€",
+    "telephone": "+34-600-000-000",
+    "email": "contacto@ia4pymes.tech",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": cityName,
+      "addressCountry": "ES"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": cityName
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "IA4PYMES",
+      "url": "https://ia4pymes.tech",
+      "logo": "https://ia4pymes.tech/LOGO.png"
+    }
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": sectorFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://ia4pymes.tech"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sectores",
+        "item": "https://ia4pymes.tech/sectores"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": `${sectorName} en ${cityName}`,
+        "item": `https://ia4pymes.tech/sectores/${normSector}/${normCity}`
+      }
+    ]
   }
 
   return (
     <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <ReadingProgressBar />

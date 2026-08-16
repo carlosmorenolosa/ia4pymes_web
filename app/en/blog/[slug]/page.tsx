@@ -114,27 +114,33 @@ export default async function EnBlogPostPage({ params }: PageProps) {
 
     return (
         <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30">
-            {/* Article JSON-LD Schema */}
+            {/* Article / BlogPosting JSON-LD Schema */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Article",
+                        "@type": "BlogPosting",
                         "headline": post.title,
                         "description": post.description,
-                        "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
+                        "image": post.image ? (post.image.startsWith("http") ? post.image : `https://ia4pymes.tech${post.image}`) : "https://ia4pymes.tech/og-image.png",
                         "datePublished": new Date(post.date).toISOString(),
                         "dateModified": new Date((post as any).updatedAt ?? post.date).toISOString(),
                         "inLanguage": "en",
-                        "author": [{
+                        "articleSection": post.category,
+                        "author": {
                             "@type": "Organization",
                             "name": post.author,
-                            "url": "https://ia4pymes.tech"
-                        }],
+                            "url": "https://ia4pymes.tech",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://ia4pymes.tech/LOGO.png"
+                            }
+                        },
                         "publisher": {
                             "@type": "Organization",
                             "name": "IA4PYMES",
+                            "url": "https://ia4pymes.tech",
                             "logo": {
                                 "@type": "ImageObject",
                                 "url": "https://ia4pymes.tech/LOGO.png"
@@ -160,17 +166,18 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                         "proficiencyLevel": "Intermediate",
                         "articleSection": post.category,
                         "inLanguage": "en",
-                        "image": post.image ? `https://ia4pymes.tech${post.image}` : "https://ia4pymes.tech/og-image.png",
+                        "image": post.image ? (post.image.startsWith("http") ? post.image : `https://ia4pymes.tech${post.image}`) : "https://ia4pymes.tech/og-image.png",
                         "datePublished": new Date(post.date).toISOString(),
                         "dateModified": new Date((post as any).updatedAt ?? post.date).toISOString(),
-                        "author": [{
+                        "author": {
                             "@type": "Organization",
                             "name": post.author,
                             "url": "https://ia4pymes.tech"
-                        }],
+                        },
                         "publisher": {
                             "@type": "Organization",
                             "name": "IA4PYMES",
+                            "url": "https://ia4pymes.tech",
                             "logo": {
                                 "@type": "ImageObject",
                                 "url": "https://ia4pymes.tech/LOGO.png"
@@ -228,6 +235,12 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                             {
                                 "@type": "ListItem",
                                 "position": 3,
+                                "name": post.category,
+                                "item": `https://ia4pymes.tech/en/blog?category=${encodeURIComponent(post.category)}`
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 4,
                                 "name": post.title,
                                 "item": `https://ia4pymes.tech/en/blog/${post.slug}`
                             }

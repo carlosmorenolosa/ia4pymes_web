@@ -78,8 +78,152 @@ export default function HomeEN() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const homeFaqsEN = [
+    {
+      question: "Is this solution useful for my industry?",
+      answer: "The key is not what you do, but what slow or inefficient processes you have. If there are repetitive tasks in your business, we can optimize them.",
+    },
+    {
+      question: "Do I have to change the software I already use?",
+      answer: "Not at all. We adapt the AI to your current way of working, integrating it into your existing systems without operational disruptions or painful migrations.",
+    },
+    {
+      question: "Do my employees need to understand Artificial Intelligence?",
+      answer: "Zero. Since these are custom projects, we take care of explaining everything step by step, clearly and in person, so they can handle it without any issues.",
+    },
+    {
+      question: "What if the investment doesn't pay off?",
+      answer: "Before creating anything, we map out a roadmap to calculate the expected return on investment. If we see the numbers don't benefit you, we simply don't proceed.",
+    },
+    {
+      question: "Is my company's data safe?",
+      answer: "Absolutely. We comply with GDPR, sign a confidentiality agreement, and your information is never used to train public AI models.",
+    },
+    {
+      question: "What are the delivery timelines?",
+      answer: "The initial diagnosis takes about 2 to 3 weeks. After that, development and deployment of the systems takes between 1 and 4 months.",
+    },
+  ]
+
+  const organizationSchemaEN = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IA4PYMES",
+    "url": "https://ia4pymes.tech/en",
+    "logo": "https://ia4pymes.tech/LOGO.png",
+    "description": "AI & Process Automation Consultancy and Engineering for Small and Medium-Sized Enterprises in Europe.",
+    "email": "contacto@ia4pymes.tech",
+    "sameAs": [
+      "https://es.linkedin.com/company/ia4pymestech",
+      "https://www.instagram.com/ia4pymes/",
+      "https://www.youtube.com/@IA4PYMES",
+      "https://x.com/Ia4Pymes",
+      "https://www.tiktok.com/@ia4pymes",
+      "https://www.facebook.com/profile.php?id=61560704600913"
+    ]
+  }
+
+  const professionalServiceSchemaEN = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "IA4PYMES - AI Consulting & Custom Agent Development",
+    "url": "https://ia4pymes.tech/en",
+    "image": "https://ia4pymes.tech/og-image.png",
+    "priceRange": "€€",
+    "telephone": "+34-600-000-000",
+    "email": "contacto@ia4pymes.tech",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Spain" },
+      { "@type": "AdministrativeArea", "name": "European Union" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI and Business Process Automation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business Process Automation (BPA + AI)",
+            "description": "Intelligent invoice extraction, accounting reconciliation, and quote generation connected to ERP/CRM."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24/7 Conversational RAG Agents",
+            "description": "WhatsApp, web, and email chatbots connected to private company knowledge bases with zero hallucinations."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Voice Calling & Call Centers",
+            "description": "Natural language call handling (<300ms latency) and automated appointment scheduling."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Private & On-Premise LLM Infrastructure",
+            "description": "Deployment of open-weights models locally for strict GDPR compliance and zero token costs."
+          }
+        }
+      ]
+    }
+  }
+
+  const faqSchemaEN = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": homeFaqsEN.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  }
+
+  const breadcrumbSchemaEN = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ia4pymes.tech/en"
+      }
+    ]
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaEN) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchemaEN) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaEN) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchemaEN) }}
+      />
       <main className="bg-transparent">
         {/* Navigation */}
         <header

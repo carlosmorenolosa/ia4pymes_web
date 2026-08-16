@@ -37,8 +37,152 @@ const FaqSection = dynamic(() =>
 )
 
 export default function Home() {
+  const homeFaqs = [
+    {
+      question: "¿Es útil esta solución para mi sector?",
+      answer: "La clave no es a qué te dedicas, sino qué procesos lentos o ineficientes tienes. Si hay tareas repetitivas en tu negocio, podemos optimizarlas.",
+    },
+    {
+      question: "¿Tengo que cambiar los programas que ya utilizo?",
+      answer: "Para nada. Adaptamos la IA a tu forma de trabajar actual, integrándola en tus sistemas de siempre sin cortes operativos ni migraciones dolorosas.",
+    },
+    {
+      question: "¿Mis empleados necesitan entender de Inteligencia Artificial?",
+      answer: "Cero. Al ser proyectos a medida, me encargo de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
+    },
+    {
+      question: "¿Qué pasa si la inversión no sale a cuenta?",
+      answer: "Antes de crear nada, trazamos un mapa de ruta para calcular el retorno de inversión esperado. Si vemos que los números no te benefician, simplemente no avanzamos.",
+    },
+    {
+      question: "¿Están a salvo los datos de mi empresa?",
+      answer: "Por supuesto. Cumplimos con el RGPD, firmamos un acuerdo de confidencialidad y tu información jamás se usa para entrenar modelos de IA públicos.",
+    },
+    {
+      question: "¿Cuáles son los plazos de entrega?",
+      answer: "El diagnóstico inicial nos toma unas 2 o 3 semanas. Después, el desarrollo y la puesta en marcha de los sistemas dura entre 1 y 4 meses.",
+    },
+  ]
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IA4PYMES",
+    "url": "https://ia4pymes.tech",
+    "logo": "https://ia4pymes.tech/LOGO.png",
+    "description": "Agencia de Inteligencia Artificial y Automatización de Procesos para Pequeñas y Medianas Empresas en España.",
+    "email": "contacto@ia4pymes.tech",
+    "sameAs": [
+      "https://es.linkedin.com/company/ia4pymestech",
+      "https://www.instagram.com/ia4pymes/",
+      "https://www.youtube.com/@IA4PYMES",
+      "https://x.com/Ia4Pymes",
+      "https://www.tiktok.com/@ia4pymes",
+      "https://www.facebook.com/profile.php?id=61560704600913"
+    ]
+  }
+
+  const professionalServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "IA4PYMES - Consultoría y Desarrollo de IA para PYMEs",
+    "url": "https://ia4pymes.tech",
+    "image": "https://ia4pymes.tech/og-image.png",
+    "priceRange": "€€",
+    "telephone": "+34-600-000-000",
+    "email": "contacto@ia4pymes.tech",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Spain" },
+      { "@type": "AdministrativeArea", "name": "European Union" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Inteligencia Artificial y Automatización",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automatización de Procesos Operativos (BPA + IA)",
+            "description": "Extracción OCR de facturas, conciliación contable y generación de presupuestos conectada a ERP/CRM."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Agentes Conversacionales RAG 24/7",
+            "description": "Chatbots para WhatsApp, web y email conectados a bases de conocimiento internas con cero alucinaciones."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Centralitas Telefónicas y Agentes de Voz con IA",
+            "description": "Atención de llamadas en lenguaje natural (<300ms) y agendamiento automático de citas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Infraestructura de LLMs Locales y Privados",
+            "description": "Despliegue de modelos abiertos on-premise para máxima confidencialidad y cumplimiento RGPD."
+          }
+        }
+      ]
+    }
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": homeFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://ia4pymes.tech"
+      }
+    ]
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <HomeHeader splashFinished={true} />
       <HeroES splashFinished={true} />
       <main className="bg-transparent">
