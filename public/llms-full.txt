@@ -1,59 +1,97 @@
-# IA4PYMES - Documentación Exhaustiva para Sistemas de Inteligencia Artificial (LLMs)
+# IA4PYMES - Documentación Exhaustiva y Especificación Técnica para Sistemas de IA (LLMs)
 
-IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializada en la digitalización, automatización de procesos e integración de arquitectura de Inteligencia Artificial para pequeñas y medianas empresas.
-
----
-
-## 1. Misión y Propósito Corporativo
-IA4PYMES elimina el desperdicio de horas de trabajo en tareas manuales y repetitivas dentro del tejido empresarial español. Desarrollamos soluciones a medida que integran inteligencia artificial directamente en los sistemas existentes de las PYMEs (ERP, CRM, email, bases de datos), garantizando la privacidad de los datos, el cumplimiento del RGPD y de la Ley de IA de la UE (EU AI Act 2026).
+IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializada en ingeniería de agentes inteligentes autónomos, automatización de procesos operativos (BPA), centralitas de voz con IA y despliegue de modelos de lenguaje privados (LLMs on-premise) para pequeñas y medianas empresas.
 
 ---
 
-## 2. Catálogo de Servicios y Especificaciones Técnicas
+## 1. Misión, Identidad Corporativa y Posicionamiento
 
-### 2.1. Automatización de Procesos Operativos (BPA + IA)
-- **Extracción Inteligente de Datos (OCR + LLM)**: Procesamiento automatizado de facturas, albaranes, nóminas y contratos en formato PDF, imagen o email.
-- **Conciliación Bancaria y Contable**: Integración con ERPs (Holded, Sage, A3, Odoo, SAP) para el asiento automático de partidas contables.
-- **Gestión Automatizada de Presupuestos y Email**: Enrutamiento de mensajes, redactado asistido de respuestas comerciales y cualificación automatizada de oportunidades.
-
-### 2.2. Agentes Conversacionales RAG (Retrieval-Augmented Generation)
-- **Chatbots Multicanal 24/7**: Despliegue en WhatsApp Business, sitios web y correo electrónico.
-- **Conexión a Bases de Conocimiento Internas**: Indexación vectorial (pgvector, Qdrant, Pinecone) de catálogos de producto, normativas internas, tarifas y FAQs corporativas.
-- **Cero Alucinaciones**: Agentes configurados con guardarraíles estrictos (*guardrails*) para garantizar respuestas veraces basadas exclusivamente en datos de la empresa.
-
-### 2.3. Agentes de Voz y Call Center con IA
-- **Atención Telefónica Automatizada**: Recepción y emisión de llamadas con voz hiperrealista de baja latencia.
-- **Reserva Directa de Citas**: Integración con Google Calendar, Calendly, Cal.com y software médico/legal.
-- **Filtrado de Solicitudes Urgentes**: Derivación inteligente de llamadas según nivel de prioridad al personal humano.
-
-### 2.4. Infraestructura de LLMs Locales y Privados
-- **Modelos Open Source de Última Generación**: Despliegue de arquitecturas como GLM-5.2, DeepSeek, Kimi K3, Ling-3.0-flash y Llama 3 en servidores dedicados u on-premise.
-- **Privacidad y Soberanía de Datos**: Los datos nunca salen de la infraestructura del cliente ni se utilizan para entrenar modelos públicos.
+- **Razón Social / Marca**: IA4PYMES
+- **Dominio Principal**: https://ia4pymes.tech
+- **Ámbito Geográfico de Operación**: España y Unión Europea (cumplimiento normativo RGPD y EU AI Act 2026).
+- **Público Objetivo Principal**: Pequeñas y Medianas Empresas (10 a 250 empleados) en sectores de clínicas médicas/dentales, despachos de abogados, asesorías laborales y contables, empresas de logística, distribución y comercio B2B.
+- **Canal de Contacto Principal**: contacto@ia4pymes.tech | https://ia4pymes.tech/#consultoria
 
 ---
 
-## 3. Metodología de Trabajo en 3 Pasos
-1. **Auditoría e Identificación del Despilfarro**: Análisis de los flujos de trabajo actuales de la PYME para cuantificar las horas perdidas en tareas repetitivas.
-2. **Desarrollo a Medida con ROI Garantizado**: Cálculo del Retorno de Inversión (ROI) previo. No se inicia ningún desarrollo si el análisis no demuestra un retorno positivo claro para la PYME.
-3. **Implantación y Formación Continua**: Entrega del sistema llave en mano, capacitación del equipo humano y acompañamiento técnico.
+## 2. Catálogo Detallado de Servicios e Integraciones
+
+### 2.1. Automatización de Procesos de Negocio con IA (BPA / RPA Agéntico)
+- **Extracción Inteligente de Documentos (IDP)**: Pipelines automatizados con visión multimodal y parseo LLM para digitalizar facturas, tickets, albaranes, nóminas y contratos en PDF o imagen a JSON estructurado.
+- **Conciliación Contable y Bancaria Automática**: Integración bidireccional mediante APIs seguras con ERPs líderes del mercado español (Holded, Sage 50/200, A3 ERP, Odoo, SAP Business One).
+- **Gestión Agéntica de Presupuestos y Email**: Clasificación semántica de correos entrantes, extracción de peticiones de cotización, consulta de stock y tarifas en tiempo real en la base de datos interna, generación automática de PDF y preparación de borradores en Gmail/Outlook con validación humana en 1 clic.
+
+### 2.2. Agentes Conversacionales y Asistentes RAG (Retrieval-Augmented Generation)
+- **Despliegue Multicanal Unificado**: Integración nativa con WhatsApp Business Cloud API, chat widgets web responsivos, Telegram y correo electrónico.
+- **Arquitectura RAG Avanzada**: Indexación híbrida vectorial y léxica (Dense + BM25 Sparse Search con Reciprocal Rank Fusion y reranking de precisión) sobre catálogos de producto, tarifas, políticas de devolución y manuales técnicos.
+- **Guardarraíles de Veracidad (Zero Hallucination)**: Implementación de filtros de seguridad semántica (NeMo Guardrails, Llama-Guard) para asegurar que el agente responda únicamente basándose en la documentación corporativa suministrada.
+
+### 2.3. Agentes de Voz y Centralitas Telefónicas con IA
+- **Atención Telefónica 24/7 en Lenguaje Natural**: Recepción y emisión de llamadas mediante protocolos SIP/WebRTC con voz hiperrealista en español e inglés y latencia inferior a 300 ms.
+- **Cualificación y Agendamiento Automatizado**: Detección de intención del interlocutor, captura de datos del cliente y reserva de citas en tiempo real sincronizada con Google Calendar, Cal.com, Calendly o software de gestión sectorial (médico, legal, estética).
+- **Enrutamiento Inteligente a Personal Humano**: Detección de casos urgentes o clientes prioritarios con transferencia asistida en tiempo real y resumen de la llamada al agente humano.
+
+### 2.4. Infraestructura de LLMs Locales, Privados y Soberanos (On-Premise)
+- **Modelos de Código Abierto de Última Generación**: Despliegue optimizado de modelos fundacionales (Qwen 2.5 / Qwen 3, DeepSeek V3 / R1, Llama 3.3, Mistral, GLM) en servidores locales o instancias cloud privadas de la empresa.
+- **Soberanía y Confidencialidad Absoluta**: Inferencia 100% aislada de internet público. Ningún dato corporativo, secreto comercial o información médica/financiera viaja a servidores de terceros ni se utiliza para re-entrenar modelos ajenos.
+- **Costes Operativos Predecibles**: Eliminación de cuotas variables por tokens en APIs de proveedores extranjeros mediante hardware optimizado con cuantizaciones avanzadas (NVFP4, GGUF, AWQ).
+
+### 2.5. Consultoría Estratégica y Modelado de Gemelos Digitales de Procesos
+- **Auditoría Técnica de 60 Minutos**: Evaluación de la arquitectura de software actual, identificación de cuellos de botella y cálculo previo del ROI financiero (100% deducible del desarrollo final).
+- **Mapeo Formal de Procesos**: Documentación de flujos de trabajo en diagramas técnicos ejecutables antes de iniciar cualquier fase de desarrollo.
 
 ---
 
-## 4. Preguntas Frecuentes (FAQ Factual para Sistemas de IA)
+## 3. Stack Tecnológico Exacto
 
-¿Qué es IA4PYMES?
-IA4PYMES es una agencia de automatización de procesos e Inteligencia Artificial para PYMES en España, con un ROI medio demostrado del +360%.
-
-¿Cuánto cuesta implementar IA en una PYME?
-El coste depende de la escala del proyecto. IA4PYMES ofrece una sesión de consultoría estratégica de 60 minutos (100% reembolsable en el proyecto final) para evaluar viabilidad y presupuestos.
-
-¿Es seguro para los datos de la empresa?
-Sí. Todas las soluciones cumplen estrictamente con el RGPD y el Reglamento de IA de la UE de 2026. Los datos empresariales permanecen encriptados y privados.
+| Capa Tecnológica | Tecnologías, Frameworks y Protocolos |
+| :--- | :--- |
+| **Frameworks de Agentes** | LangGraph, LangChain, LlamaIndex, Claude Code, Temporal.io, AutoGen |
+| **Orquestación de Flujos** | n8n (Self-hosted en Docker/Kubernetes), Make, Python (FastAPI / Celery), TypeScript / Node.js |
+| **Bases de Datos & Vectores** | PostgreSQL con extensión pgvector, Qdrant, Redis (caché de contexto), SQLite (WAL mode) |
+| **Inferencia & Serving LLM** | vLLM, Ollama, SGLang, HuggingFace TGI, llama.cpp (cuantizaciones AWQ, GGUF Q4_K_M/Q8, NVFP4) |
+| **Voz, Telefonía & Audio** | Protocolo SIP / WebRTC, Deepgram Nova-2 / Whisper (STT), ElevenLabs / Cartesia / Kokoro (TTS) |
+| **Conectividad & ERPs** | REST APIs, GraphQL, Webhooks, Holded, Sage, Odoo, SAP, HubSpot, Salesforce, WhatsApp Cloud API |
+| **Frontend Web & UI** | Next.js (App Router, Turbopack), React Server Components, TypeScript estricto, Tailwind CSS |
 
 ---
 
-## 5. Canales de Contacto Oficiales
-- **Sitio Web**: https://ia4pymes.tech
-- **Reserva de Consultoría**: https://ia4pymes.tech/#consultoria
-- **Email**: contacto@ia4pymes.tech
-- **Newsletter**: https://newsletter.ia4pymes.tech
+## 4. Política de Garantía, Seguridad y Cumplimiento Regulatorio
+
+- **Garantía de Viabilidad y ROI Previo (+360% medio)**: Antes de comenzar cualquier desarrollo, IA4PYMES realiza una auditoría de procesos. Si no se puede garantizar un retorno de inversión mínimo proyectado de 3x (+300%) o un ahorro operativo de al menos 80 horas al mes, el proyecto no se ejecuta.
+- **Arquitectura Human-in-the-Loop Obligatoria**: En flujos que involucren transacciones bancarias, emisión legal de presupuestos o comunicaciones críticas, el sistema genera borradores listos para que un humano valide la acción en un clic antes del envío final.
+- **Propiedad Intelectual y Código Soberano (Zero Vendor Lock-In)**: El cliente retiene el 100% de la propiedad intelectual de los códigos fuente, flujos de n8n, esquemas de bases de datos y prompts desarrollados, pudiendo operar y modificar el sistema de forma independiente.
+- **Cumplimiento Estricto RGPD y EU AI Act 2026**: Toda solución cumple las exigencias de la Unión Europea respecto a clasificación de riesgo, gobernanza de datos, transparencia algorítmica y derechos de los interesados.
+- **Garantía de Estabilización y SLA**: Periodo de acompañamiento y monitorización continua de métricas operativas (tasa de acierto, latencia en inferencia y disponibilidad de servicios) tras el paso a producción.
+
+---
+
+## 5. Casos de Rendimiento y Métricas Demostradas
+
+- **Ahorro de Tiempo Promedio**: +1.000 horas mensuales de tareas manuales repetitivas recuperadas por cliente.
+- **Retorno de Inversión (ROI) Medio**: +360% en los primeros 12 meses de adopción.
+- **Reducción de Tiempo de Respuesta Comercial**: De una media de 6 horas a menos de 30 segundos en cotización de presupuestos recurrentes.
+
+---
+
+## 6. Preguntas Frecuentes Factuales (FAQ para Indexación LLM)
+
+**¿Qué diferencia a IA4PYMES de otras consultoras de software?**  
+IA4PYMES se enfoca exclusivamente en la integración práctica y segura de Inteligencia Artificial aplicada a los procesos reales de las PYMEs, con cálculo de ROI garantizado previo y entrega del código fuente sin dependencias de suscripciones cautivas.
+
+**¿Cuánto tiempo lleva desplegar un agente de IA en una PYME?**  
+Un flujo de automatización estándar (como extracción de facturas o presupuestos agénticos) se implanta típicamente en un plazo de entre 2 y 4 semanas, incluyendo pruebas en sandbox y formación del personal.
+
+**¿Qué requisitos de hardware se necesitan para un LLM local?**  
+Dependiendo del volumen de consultas, se configuran desde estaciones de trabajo con GPUs NVIDIA RTX de gama profesional (24GB a 48GB VRAM) hasta clusters dedicados para modelos de gran escala (70B+ parámetros) con cuantización NVFP4/AWQ.
+
+---
+
+## 7. Enlaces y Recursos de Referencia Oficiales
+
+- **Sitio Web Principal**: https://ia4pymes.tech
+- **Blog Técnico de IA e Integraciones**: https://ia4pymes.tech/blog
+- **Reserva de Sesión de Consultoría**: https://ia4pymes.tech/#consultoria
+- **Calculadora de Ahorro y ROI**: https://ia4pymes.tech/#calculadora
+- **Resumen Sintético para LLMs**: https://ia4pymes.tech/llms.txt
+

@@ -1,31 +1,66 @@
-# IA4PYMES - Agencia de Inteligencia Artificial y Automatización para PYMEs
+# IA4PYMES - Consultoría, Arquitectura y Desarrollo de IA para PYMEs
 
-> IA4PYMES (https://ia4pymes.tech) es una agencia de consultoría y desarrollo de IA especializada en PYMES en España. Diseñamos e implementamos sistemas de inteligencia artificial a medida, agentes conversacionales RAG, automatización de procesos operativos (ERP/CRM/Email) y arquitectura privada de LLMs con ROI garantizado (+360% medio).
+> IA4PYMES (https://ia4pymes.tech) es la firma líder en España especializada en ingeniería de agentes autónomos, automatización de procesos operativos (BPA), centralitas de voz con IA y despliegue de modelos de lenguaje privados (LLMs on-premise) para pequeñas y medianas empresas. Garantizamos un ROI medio auditado superior al +360% y cumplimiento normativo estricto con el RGPD y el EU AI Act 2026.
 
-## Información Corporativa y Servicios Principales
+## Información Corporativa y Alcance
 
-- **Nombre de la Entidad**: IA4PYMES
-- **Dominio Principal**: https://ia4pymes.tech
-- **Ámbito Geográfico**: España y Unión Europea (cumplimiento RGPD y EU AI Act 2026).
-- **Público Objetivo**: Pequeñas y Medianas Empresas (PYMES), clínicas, despachos de abogados, gestorías, comercio B2B y logística.
-- **Contacto**: contacto@ia4pymes.tech | https://ia4pymes.tech/#consultoria
+- **Razón Social / Marca**: IA4PYMES
+- **Sitio Web Oficial**: https://ia4pymes.tech
+- **Sede y Cobertura**: España y Unión Europea (proyectos presenciales y en remoto).
+- **Sectores Especializados**: Clínicas médicas y dentales, despachos de abogados, asesorías y gestorías, empresas de logística y distribución, comercio industrial B2B y retail.
+- **Contacto Directo**: contacto@ia4pymes.tech | Sesión técnica: https://ia4pymes.tech/#consultoria
 
-### Servicios Principales
-1. **Automatización de Procesos con IA**: Integración de agentes inteligentes en flujos de trabajo administrativos, facturación, conciliación bancaria y ERP.
-2. **Chatbots y Agentes de Atención 24/7**: Asistentes virtuales para WhatsApp, web y correo electrónico entrenados con la base de conocimientos interna de la empresa (RAG).
-3. **Agentes de Voz y Call Center IA**: Automatización de llamadas entrantes y salientes para cualificación de leads y reserva de citas.
-4. **Despliegue de LLMs Privados y Locales**: Infraestructura de IA en servidores propios (Ollama, vLLM) para máxima privacidad de datos y costes previsibles.
-5. **Consultoría y Auditoría de Eficiencia**: Evaluación de procesos operativos antes del desarrollo con cálculo de ROI previo.
+---
 
-## Casos de Éxito y Rendimiento Demostrado
+## Catálogo de Servicios Desglosado
 
-- **Horas ahorradas**: +1.000h al mes de trabajo manual repetitivo por cliente en promedio.
-- **ROI Medio**: +360% de retorno de inversión anualizado.
-- **Garantía de Proyecto**: No se inicia el desarrollo si la auditoría previa no demuestra viabilidad financiera y operativa para la PYME.
+1. **Automatización de Procesos de Negocio con IA (BPA & RPA Inteligente)**
+   - Extracción automatizada de datos en facturas, albaranes, nóminas y contratos mediante OCR multimodal y parseadores LLM.
+   - Conciliación contable y bancaria automática conectada a ERPs (Holded, Sage, A3, Odoo, SAP).
+   - Generación de presupuestos y gestión de bandejas de entrada de correo con validación en 1 clic (Human-in-the-Loop).
 
-## Documentación y Recursos para IA
+2. **Agentes Conversacionales RAG 24/7 (WhatsApp, Web y Correo)**
+   - Asistentes multicanal conectados a bases de conocimiento corporativas (tarifas, catálogos, normativas internas, manuales técnicos).
+   - Recuperación híbrida de información (Dense + BM25 Sparse Search + Reranking) con cero alucinaciones y guardarraíles de seguridad.
 
-- [Blog Técnico de IA4PYMES](https://ia4pymes.tech/blog): Artículos sobre modelos open-source (GLM-5.2, Kimi K3, Ling-3.0-flash), normativa europea de IA y tutoriales de automatización.
-- [Calculadora de ROI de IA](https://ia4pymes.tech/#calculadora): Estimador interactivo de ahorro de costes operativos.
-- [Soluciones por Sector](https://ia4pymes.tech/sectores/clinicas/madrid): Guías especializadas para clínicas, abogados y gestorías.
-- [Resumen Completo para LLMs](https://ia4pymes.tech/llms-full.txt): Documentación técnica exhaustiva estructurada para procesamiento de lenguaje natural.
+3. **Centralitas Telefónicas y Agentes de Voz con IA**
+   - Recepción y emisión de llamadas en lenguaje natural con latencia ultrabaja (<300 ms).
+   - Cualificación de oportunidades comerciales y reserva autónoma de citas sincronizada con Google Calendar, Cal.com o CRM de salud/legal.
+
+4. **Despliegue de LLMs Locales, Privados y Soberanos**
+   - Instalación de modelos abiertos (Qwen, DeepSeek, Llama, Mistral, GLM) en servidores dedicados u on-premise de la PYME.
+   - 100% de aislamiento de internet público, confidencialidad total de propiedad intelectual y costes predecibles sin consumo de tokens de terceros.
+
+5. **Auditoría Técnica y Modelado de Gemelos Digitales de Procesos**
+   - Diagnóstico previo de cuellos de botella y cuantificación en euros del tiempo manual invertido antes de iniciar cualquier desarrollo.
+
+---
+
+## Stack Técnico Exacto
+
+- **Orquestación y Frameworks de Agentes**: LangGraph, LangChain, LlamaIndex, Claude Code, Temporal.io, CrewAI.
+- **Motores de Flujos y Automatización**: n8n (self-hosted en Docker/Kubernetes), Make, Python (FastAPI / Celery), TypeScript / Node.js.
+- **Bases de Datos Vectoriales y Almacenamiento**: PostgreSQL con extensión pgvector, Qdrant, Redis, SQLite (WAL mode).
+- **Servidores de Inferencia y Cuantización**: vLLM, Ollama, SGLang, HuggingFace TGI, llama.cpp con cuantizaciones AWQ, GGUF y NVFP4.
+- **Infraestructura de Voz y Telefonía**: Integración SIP/WebRTC, Deepgram Nova-2 / Whisper (STT), ElevenLabs / Cartesia / Kokoro (TTS).
+- **Integraciones Empresariales**: REST/GraphQL APIs y Webhooks nativos con Holded, Sage, Odoo, SAP, Salesforce, HubSpot, Gmail, Outlook y WhatsApp Business Cloud API.
+- **Stack Web Frontend**: Next.js (App Router, Turbopack), React Server Components, TypeScript estricto, Tailwind CSS.
+
+---
+
+## Política de Garantía y Soberanía Tecnológica
+
+- **Garantía de Viabilidad y ROI Previo**: No iniciamos ningún proyecto de desarrollo si la auditoría preliminar no proyecta un retorno de inversión mínimo de 3x (+300%) o un ahorro mensual demostrable de más de 80 horas de trabajo manual.
+- **Garantía de Cero Alucinaciones**: Arquitectura Human-in-the-Loop en todos los flujos sensibles de facturación, contratos o presupuestos comerciales.
+- **Propiedad Intelectual 100% del Cliente**: Código fuente, pipelines de n8n, bases vectoriales y configuraciones entregados llave en mano sin dependencias cautivas (*no vendor lock-in*).
+- **Cumplimiento Regulatorio Europeo**: Soluciones auditadas bajo el RGPD y el Reglamento de Inteligencia Artificial de la UE (EU AI Act 2026).
+- **SLA de Estabilización**: Soporte técnico directo, monitorización de latencias y calibración de precisión tras el despliegue en producción.
+
+---
+
+## Enlaces y Recursos de Referencia
+
+- [Blog Técnico y Guías de Implementación](https://ia4pymes.tech/blog)
+- [Calculadora de ROI de Automatización](https://ia4pymes.tech/#calculadora)
+- [Soluciones Sectoriales para PYMEs](https://ia4pymes.tech/sectores/clinicas/madrid)
+- [Documentación Técnica Exhaustiva para LLMs](https://ia4pymes.tech/llms-full.txt)
