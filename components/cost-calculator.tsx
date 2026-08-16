@@ -7,10 +7,10 @@ import { Calculator, ArrowRight, Euro, Clock, Users } from "lucide-react"
 
 const i18n = {
   es: {
-    heading: "¿Cuánto",
-    headingHighlight: "dinero pierdes",
-    headingSuffix: "por no automatizar?",
-    subtitle: "Descubre el coste real de los procesos manuales y repetitivos en tu empresa. Cada hora invertida en tareas rutinarias es margen de beneficio que dejas sobre la mesa.",
+    heading: "Calculadora de ROI:",
+    headingHighlight: "¿Cuánto dinero pierde",
+    headingSuffix: "tu empresa por no automatizar?",
+    subtitle: "Calcula el ahorro mensual y anual de automatizar tareas manuales y procesos repetitivos en tu PYME con agentes de Inteligencia Artificial.",
     labelHours: "Horas a la semana por empleado",
     labelEmployees: "Trabajadores afectados",
     labelWage: "Coste por hora / empleado",
@@ -23,10 +23,10 @@ const i18n = {
     locale: "es-ES",
   },
   en: {
-    heading: "How much",
-    headingHighlight: "money are you losing",
-    headingSuffix: "by not automating?",
-    subtitle: "Discover the real cost of manual and repetitive processes in your company. Every hour spent on routine tasks is profit margin left on the table.",
+    heading: "ROI Calculator:",
+    headingHighlight: "How much money is your company losing",
+    headingSuffix: "by not automating processes?",
+    subtitle: "Calculate the monthly and annual savings of automating repetitive tasks in your SME with custom Artificial Intelligence agents.",
     labelHours: "Hours per week per employee",
     labelEmployees: "Affected employees",
     labelWage: "Cost per hour / employee",

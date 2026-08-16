@@ -220,11 +220,11 @@ export default function Home() {
                     id="newsletter-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
                   >
-                    La <span className="text-blue-600">ventaja competitiva</span> que llega a tu correo
+                    Newsletter de IA: <span className="text-blue-600">Casos Prácticos para tu Empresa</span>
                   </h2>
                   
                   <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
-                    Explicamos cada día cómo aplicar la IA en situaciones reales. Recibe ejemplos prácticos y herramientas que puedes empezar a implementar hoy mismo en tu negocio.
+                    Explicamos semanalmente cómo aplicar la Inteligencia Artificial y la automatización de procesos en situaciones operativas reales. Recibe herramientas y arquitecturas listas para implementar en tu negocio.
                   </p>
 
                   <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
@@ -292,10 +292,10 @@ export default function Home() {
                     id="process-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                   >
-                    La Metodología <span className="text-blue-600">IA4PYMES</span>
+                    Metodología en 3 Pasos: <span className="text-blue-600">Auditoría, Integración y Despliegue</span>
                   </h2>
                   <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                    Un proceso transparente diseñado para maximizar tu retorno de inversión.
+                    Un proceso de ingeniería transparente diseñado para maximizar el retorno de inversión y blindar la privacidad de tus datos.
                   </p>
                 </header>
               </FadeIn>
@@ -418,10 +418,10 @@ export default function Home() {
                   id="success-cases-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
-                  Casos de Éxito <span className="text-blue-600">Destacados</span>
+                  Casos de Éxito: <span className="text-blue-600">Automatización e IA en Empresas Reales</span>
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                  Impacto real garantizado.
+                  Resultados auditados en clínicas, logística, despachos de abogados y construcción: reducción de errores y retornos de inversión superiores al +200%.
                 </p>
               </header>
 
@@ -487,10 +487,10 @@ export default function Home() {
                   id="contact-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
-                  Hablemos de Tu <span className="text-blue-600">Proyecto</span>
+                  Solicita tu Diagnóstico Gratuito: <span className="text-blue-600">Hablemos de Tu Proyecto</span>
                 </h2>
                 <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
-                  Comienza hoy tu transformación digital aportándonos más detalles sobre lo que necesitas. Nuestro equipo analizará tu caso para ofrecerte la mejor solución de Inteligencia Artificial.
+                  Comienza hoy tu transformación operativa aportándonos detalles sobre tus procesos. Nuestro equipo de ingenieros analizará tu caso para diseñar la mejor arquitectura de Inteligencia Artificial.
                 </p>
               </header>
 

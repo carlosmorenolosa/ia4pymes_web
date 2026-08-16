@@ -444,10 +444,10 @@ export default function HomeEN() {
                     id="newsletter-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
                   >
-                    The <span className="text-blue-600">competitive advantage</span> that arrives in your inbox
+                    AI Newsletter: <span className="text-blue-600">Actionable Case Studies for Your Business</span>
                   </h2>
                   <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
-                    We explain every day how to apply AI in real situations. Receive practical examples and tools you can start implementing today in your business.
+                    We explain how to apply Artificial Intelligence and process automation in real-world operations every week. Get architectures, prompts, and tools ready to implement today.
                   </p>
                   <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
                     <li className="flex items-center justify-center lg:justify-start gap-4">
@@ -508,10 +508,10 @@ export default function HomeEN() {
                   id="process-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
-                  The <span className="text-blue-600">IA4PYMES</span> Methodology
+                  3-Step Methodology: <span className="text-blue-600">Audit, Integration & Deployment</span>
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                  A transparent process designed to maximize your return on investment.
+                  A transparent engineering process designed to maximize your return on investment and protect corporate data privacy.
                 </p>
               </header>
             </FadeIn>
@@ -528,17 +528,17 @@ export default function HomeEN() {
                 {
                   icon: BarChart2,
                   step: "01",
-                  title: "Technical Audit & Waste Diagnosis",
+                  title: "Technical Audit & Inefficiency Diagnosis",
                   description:
-                    "We deeply analyze your company's operational workflows to pinpoint bottlenecks and quantify hours wasted on manual tasks that AI can automate today.",
-                  benefit: "Quantified Time Leaks",
+                    "We deeply analyze your company's operational workflows to pinpoint bottlenecks and quantify wasted hours on manual tasks that AI can automate.",
+                  benefit: "Quantified Time Savings",
                 },
                 {
                   icon: Code,
                   step: "02",
                   title: "Agent Architecture & ERP/CRM Integration",
                   description:
-                    "We design and build private AI agents directly connecting to your management systems (ERP, CRM, databases), ensuring a positive ROI in record time.",
+                    "We design and build private AI agents connecting directly to your management systems (ERP, CRM, databases), ensuring positive ROI in record time.",
                   benefit: "Guaranteed Custom Integration",
                 },
                 {
@@ -546,8 +546,8 @@ export default function HomeEN() {
                   step: "03",
                   title: "Private Deployment & Continuous Scaling",
                   description:
-                    "We deploy solutions under strict data privacy standards, monitoring real-time performance and continuously optimizing AI models as your business grows.",
-                  benefit: "Full Privacy & Control",
+                    "We deploy the solution under the strictest data privacy standards, monitoring performance in real time and regularly optimizing the models.",
+                  benefit: "Total Privacy & Control",
                 },
               ].map((process, index, array) => {
                 const IconComponent = process.icon
@@ -626,10 +626,10 @@ export default function HomeEN() {
                   id="success-cases-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
-                  Outstanding <span className="text-blue-600">Success Cases</span>
+                  Case Studies: <span className="text-blue-600">Real-World AI & Automation for SMEs</span>
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-                  Guaranteed real impact.
+                  Audited results across clinics, logistics, law firms, and construction: error reduction and ROIs exceeding +200%.
                 </p>
               </header>
 
@@ -688,10 +688,10 @@ export default function HomeEN() {
                   id="contact-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
-                  Let&apos;s Talk About Your <span className="text-blue-600">Project</span>
+                  Request Your Free Diagnosis: <span className="text-blue-600">Let&apos;s Discuss Your Project</span>
                 </h2>
                 <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
-                  Start your digital transformation today by giving us more details about what you need. Our team will analyze your case to offer you the best Artificial Intelligence solution.
+                  Start your operational transformation today by sharing details about your processes. Our engineering team will evaluate your case to design the optimal Artificial Intelligence architecture.
                 </p>
               </header>
 

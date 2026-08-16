@@ -7,10 +7,10 @@ import { CalIframeEmbed } from "./cal-iframe-embed"
 
 const i18n = {
   es: {
-    heading: "Diseña tu ",
+    heading: "Consultoría de IA: Diseña tu ",
     headingHighlight: "Hoja de Ruta",
-    headingSuffix: " con IA",
-    subtitle: "Reserva una sesión estratégica de 60 minutos. Analizamos la viabilidad técnica de tu proyecto y trazamos un plano arquitectónico de desarrollo con las tecnologías idóneas.",
+    headingSuffix: " para PYMEs",
+    subtitle: "Reserva una sesión estratégica de 60 minutos con nuestros ingenieros. Analizamos la viabilidad técnica de tu empresa y trazamos un plano arquitectónico de desarrollo con ROI garantizado.",
     includedHeading: "¿Qué definimos en la sesión?",
     included1Title: "1. Arquitectura y Viabilidad",
     included1Desc: "Analizamos la viabilidad del proyecto y diseñamos la arquitectura técnica ideal (servidores, LLMs, integraciones de datos) para tus necesidades.",
@@ -35,10 +35,10 @@ const i18n = {
     secureText: "Pasarela de pago y reserva segura",
   },
   en: {
-    heading: "Design Your ",
+    heading: "AI Consulting: Design Your ",
     headingHighlight: "AI Roadmap",
-    headingSuffix: "",
-    subtitle: "Book a 60-minute strategic session. We analyze your project's technical feasibility and map out a development architecture with the ideal technologies.",
+    headingSuffix: " for SMEs",
+    subtitle: "Book a 60-minute strategic session with our engineers. We analyze your company's technical feasibility and map out a custom development architecture with guaranteed ROI.",
     includedHeading: "What do we define in the session?",
     included1Title: "1. Architecture & Feasibility",
     included1Desc: "We analyze project feasibility and design the ideal technical architecture (servers, LLMs, data integrations) for your needs.",
