@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://ia4pymes.tech/en/blog",
         languages: {
-            "es-ES": "/blog",
-            "en": "/en/blog",
-            "x-default": "/blog",
+            "es": "https://ia4pymes.tech/blog",
+            "en": "https://ia4pymes.tech/en/blog",
+            "x-default": "https://ia4pymes.tech/blog",
         },
     },
     openGraph: {

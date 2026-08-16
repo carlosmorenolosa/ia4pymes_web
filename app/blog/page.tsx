@@ -18,6 +18,14 @@ export const metadata: Metadata = {
         "agentes IA autónomos empresas",
         "cómo aplicar IA en mi negocio",
     ],
+    alternates: {
+        canonical: "https://ia4pymes.tech/blog",
+        languages: {
+            "es": "https://ia4pymes.tech/blog",
+            "en": "https://ia4pymes.tech/en/blog",
+            "x-default": "https://ia4pymes.tech/blog",
+        },
+    },
     openGraph: {
         title: "Blog de IA para PYMES | Casos Reales y Herramientas · IA4PYMES",
         description: "Artículos semanales sobre cómo aplicar IA en tu empresa. Casos reales, herramientas y automatizaciones paso a paso.",

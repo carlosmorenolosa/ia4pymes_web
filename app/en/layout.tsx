@@ -29,11 +29,12 @@ export const metadata: Metadata = {
   publisher: "IA4PYMES",
   metadataBase: new URL("https://ia4pymes.tech"),
   alternates: {
-    canonical: "/en",
+    canonical: "https://ia4pymes.tech/en",
     languages: {
-      en: "/en",
-      "es-ES": "/",
-      "x-default": "/",
+      "es": "https://ia4pymes.tech",
+      "es-ES": "https://ia4pymes.tech",
+      "en": "https://ia4pymes.tech/en",
+      "x-default": "https://ia4pymes.tech",
     },
   },
   openGraph: {

@@ -3,9 +3,19 @@ import { Shield, Lock, Eye, FileText, CheckCircle, Cpu, Mail, Linkedin, Facebook
 import { HomeHeader } from "@/components/home-header"
 import { ScrollTopLink } from "@/components/scroll-top-link"
 
-export const metadata = {
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
   title: "Privacy Policy | IA4PYMES",
   description: "Privacy policy, personal data protection, and EU AI Act compliance guidelines of IA4PYMES.",
+  alternates: {
+    canonical: "https://ia4pymes.tech/en/privacy-policy",
+    languages: {
+      "es": "https://ia4pymes.tech/politica-privacidad",
+      "en": "https://ia4pymes.tech/en/privacy-policy",
+      "x-default": "https://ia4pymes.tech/politica-privacidad",
+    },
+  },
 }
 
 export default function PrivacyPolicyEN() {
