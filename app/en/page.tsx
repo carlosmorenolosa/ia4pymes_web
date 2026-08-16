@@ -70,6 +70,15 @@ export default function HomeEN() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
+  const scrollToConsulting = (e?: React.MouseEvent) => {
+    const target = document.getElementById("consultoria") || document.getElementById("consulting")
+    if (target) {
+      if (e) e.preventDefault()
+      target.scrollIntoView({ behavior: "smooth" })
+      window.history.pushState(null, "", "/en#consultoria")
+    }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -298,7 +307,8 @@ export default function HomeEN() {
                 <div>
                   <Link
                     href="/en#consultoria"
-                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                    onClick={scrollToConsulting}
+                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2 cursor-pointer"
                   >
                     Book Consultation
                   </Link>
@@ -345,8 +355,11 @@ export default function HomeEN() {
             <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
             <Link
               href="/en#consultoria"
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
+              onClick={(e) => {
+                setMobileMenuOpen(false)
+                scrollToConsulting(e)
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 cursor-pointer"
             >
               Book Consultation
             </Link>
@@ -381,7 +394,8 @@ export default function HomeEN() {
                   >
                     <Link
                       href="/en#consultoria"
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95"
+                      onClick={scrollToConsulting}
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95 cursor-pointer"
                     >
                       Design AI Roadmap
                     </Link>
@@ -602,7 +616,8 @@ export default function HomeEN() {
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
                   href="/en#consultoria"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                  onClick={scrollToConsulting}
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 cursor-pointer"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -664,7 +679,8 @@ export default function HomeEN() {
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
                   href="/en#consultoria"
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                  onClick={scrollToConsulting}
+                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group cursor-pointer"
                   aria-label="Book Consultation"
                 >
                   <span>Book Consultation</span>
@@ -774,7 +790,7 @@ export default function HomeEN() {
                 <ul className="space-y-4">
                   <li><ScrollTopLink href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</ScrollTopLink></li>
                   <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
-                  <li><Link href="/en#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Book Consultation</Link></li>
+                  <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium cursor-pointer">Book Consultation</Link></li>
                   <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
               </div>
@@ -826,7 +842,7 @@ export default function HomeEN() {
               </p>
               <div className="flex items-center gap-6">
                 <Link href="#contact" className="text-slate-600 hover:text-blue-600 text-[13px] font-semibold transition-colors">Contact</Link>
-                <Link href="/en#consultoria" className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors">Book Consultation</Link>
+                <Link href="/en#consultoria" onClick={scrollToConsulting} className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors cursor-pointer">Book Consultation</Link>
               </div>
             </div>
           </div>

@@ -139,7 +139,15 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                     <p className="text-slate-600 mb-6 font-medium">{t.ctaQuestion}</p>
                     <Link
                         href={t.ctaHref}
-                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        onClick={(e) => {
+                            const target = document.getElementById("consultoria") || document.getElementById("consulting")
+                            if (target) {
+                                e.preventDefault()
+                                target.scrollIntoView({ behavior: "smooth" })
+                                window.history.pushState(null, "", t.ctaHref)
+                            }
+                        }}
+                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                     >
                         {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />
