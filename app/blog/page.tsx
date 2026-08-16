@@ -80,7 +80,7 @@ export default function BlogPage() {
                         </h1>
 
                         <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl leading-relaxed font-medium">
-                            Perspectivas técnicas, investigación operativa y análisis estratégico sobre cómo la Inteligencia Artificial está redefiniendo el tejido empresarial.
+                            Guías técnicas, casos reales y arquitecturas de automatización con IA para PYMEs. Aprende a integrar agentes autónomos, desplegar LLMs privados y reducir costes operativos en tu empresa.
                         </p>
                     </div>
                 </div>

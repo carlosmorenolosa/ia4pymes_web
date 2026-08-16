@@ -78,7 +78,7 @@ export default function EnBlogPage() {
                         </h1>
 
                         <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl leading-relaxed font-medium">
-                            Technical insights, operational research, and strategic analysis on how Artificial Intelligence is redefining the business landscape — in English.
+                            Technical guides, real-world case studies, and AI automation architectures for SMEs. Learn how to integrate autonomous agents, deploy private LLMs, and cut operational costs in your business.
                         </p>
 
                         {/* Note about Spanish articles */}
