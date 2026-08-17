@@ -1,13 +1,12 @@
 "use client"
 
-import { Star, Quote, CheckCircle } from "lucide-react"
+import { Star, Quote } from "lucide-react"
 
 const i18n = {
   es: {
     heading: "La Experiencia de Trabajar con",
     headingHighlight: "IA4PYMES",
     subtitle: "Opiniones de empresas que han transformado sus plataformas y procesos con nuestras soluciones de desarrollo e inteligencia artificial.",
-    verifiedBadge: "Proyecto Verificado",
     reviews: [
       {
         company: "Apartamento Club — Creative Agency",
@@ -27,7 +26,6 @@ const i18n = {
     heading: "The Experience of Working with",
     headingHighlight: "IA4PYMES",
     subtitle: "Real feedback from businesses that have transformed their platforms and workflows with our custom development and AI automation solutions.",
-    verifiedBadge: "Verified Project",
     reviews: [
       {
         company: "Apartamento Club — Creative Agency",
@@ -93,8 +91,8 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </p>
               </div>
 
-              {/* Bottom footer: Company name & verified badge */}
-              <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              {/* Bottom footer: Company name */}
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                     {review.company}
@@ -102,11 +100,6 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
                     {review.tag}
                   </span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 border border-green-200/60 rounded-full text-green-700 text-xs font-semibold self-start sm:self-auto">
-                  <CheckCircle className="w-3.5 h-3.5 text-green-600" />
-                  <span>{t.verifiedBadge}</span>
                 </div>
               </div>
             </article>
