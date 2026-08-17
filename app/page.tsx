@@ -36,6 +36,10 @@ const FaqSection = dynamic(() =>
   import("@/components/faq-section").then((mod) => mod.FaqSection)
 )
 
+const ReviewsSection = dynamic(() =>
+  import("@/components/reviews-section").then((mod) => mod.ReviewsSection)
+)
+
 export default function Home() {
   const homeFaqs = [
     {
@@ -98,6 +102,41 @@ export default function Home() {
     "areaServed": [
       { "@type": "Country", "name": "Spain" },
       { "@type": "AdministrativeArea", "name": "European Union" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Apartamento Club — Creative Agency"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Buscábamos renovar la web de la agencia con un estándar visual y de rendimiento muy exigente, pero sin entrar en los típicos presupuestos inflados ni los meses de retraso de las agencias de desarrollo habituales. Con IA4PYMES la comunicación fue directa de ingeniero a cliente: estructuraron la arquitectura, optimizaron los tiempos de carga al milisegundo y tuvimos la plataforma lista en tiempo récord. Da gusto trabajar con gente tan resolutiva."
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Vandalverse"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Lanzar la tienda online de figuras decorativas nos generaba muchas dudas por la complejidad del catálogo y las pasarelas de pago. IA4PYMES no solo nos montó un e-commerce impecable y rápido, sino que automatizó los flujos de gestión de pedidos para que no perdiéramos horas en tareas manuales. Nos costó una fracción de lo que nos presupuestaban otros proveedores y el soporte post-lanzamiento ha sido inmejorable."
+      }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -472,6 +511,9 @@ export default function Home() {
             </div>
           </FadeIn>
         </section>
+
+        {/* Reviews Section */}
+        <ReviewsSection />
 
         {/* FAQ Section */}
         <FaqSection />

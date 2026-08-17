@@ -62,6 +62,10 @@ const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) =
   ssr: false,
 })
 
+const ReviewsSection = dynamic(() => import("@/components/reviews-section").then((mod) => mod.ReviewsSection), {
+  ssr: false,
+})
+
 import { ConsultingSection } from "@/components/consulting-section"
 import { FadeIn } from "@/components/fade-in"
 import { Counter } from "@/components/counter"
@@ -148,6 +152,41 @@ export default function HomeEN() {
     "areaServed": [
       { "@type": "Country", "name": "Spain" },
       { "@type": "AdministrativeArea", "name": "European Union" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Apartamento Club — Creative Agency"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "We needed a high-performance website that matched our agency’s design standards without the usual inflated quotes or endless delays from traditional dev shops. Working with IA4PYMES was direct, transparent, and remarkably fast. They delivered a blazing-fast architecture and met every single deadline flawlessly."
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Vandalverse"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Launching our online store was daunting due to catalog complexity and payment integrations. IA4PYMES built an ultra-fast e-commerce platform and automated our order management workflows from day one. It cost a fraction of traditional agency quotes, and their post-launch support has been outstanding."
+      }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -690,6 +729,9 @@ export default function HomeEN() {
             </div>
           </FadeIn>
         </section>
+
+        {/* Reviews Section */}
+        <ReviewsSection lang="en" />
 
         {/* FAQ Section */}
         <FaqSection lang="en" />
