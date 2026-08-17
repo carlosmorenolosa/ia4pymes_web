@@ -12,13 +12,13 @@ const i18n = {
       {
         company: "Apartamento Club — Creative Agency",
         rating: 5,
-        text: "Buscábamos renovar la web de la agencia con un estándar visual y de rendimiento muy exigente, pero sin entrar en los típicos presupuestos inflados ni los meses de retraso de las agencias de desarrollo habituales. Con IA4PYMES la comunicación fue directa de ingeniero a cliente: estructuraron la arquitectura, optimizaron los tiempos de carga al milisegundo y tuvimos la plataforma lista en tiempo récord. Da gusto trabajar con gente tan resolutiva.",
+        text: "Buscábamos una web de agencia con máximo rendimiento sin los presupuestos inflados ni retrasos habituales. La comunicación con IA4PYMES fue directa y la entrega, impecable y en tiempo récord.",
         tag: "Desarrollo Web & Arquitectura",
       },
       {
         company: "Vandalverse",
         rating: 5,
-        text: "Lanzar la tienda online de figuras decorativas nos generaba muchas dudas por la complejidad del catálogo y las pasarelas de pago. IA4PYMES no solo nos montó un e-commerce impecable y rápido, sino que automatizó los flujos de gestión de pedidos para que no perdiéramos horas en tareas manuales. Nos costó una fracción de lo que nos presupuestaban otros proveedores y el soporte post-lanzamiento ha sido inmejorable.",
+        text: "Montaron un e-commerce rápido y automatizaron la gestión de pedidos a una fracción del coste de otros proveedores. El soporte post-lanzamiento ha sido inmejorable.",
         tag: "E-Commerce & Automatización",
       },
     ],
@@ -32,13 +32,13 @@ const i18n = {
       {
         company: "Apartamento Club — Creative Agency",
         rating: 5,
-        text: "We needed a high-performance website that matched our agency’s design standards without the usual inflated quotes or endless delays from traditional dev shops. Working with IA4PYMES was direct, transparent, and remarkably fast. They delivered a blazing-fast architecture and met every single deadline flawlessly.",
+        text: "We needed a high-performance agency website without inflated agency fees or delays. Communication with IA4PYMES was direct, fast, and delivered on time.",
         tag: "Web Development & Architecture",
       },
       {
         company: "Vandalverse",
         rating: 5,
-        text: "Launching our online store was daunting due to catalog complexity and payment integrations. IA4PYMES built an ultra-fast e-commerce platform and automated our order management workflows from day one. It cost a fraction of traditional agency quotes, and their post-launch support has been outstanding.",
+        text: "They built a blazing-fast e-commerce platform and automated order management at a fraction of traditional agency quotes. Outstanding post-launch support.",
         tag: "E-Commerce & Automation",
       },
     ],

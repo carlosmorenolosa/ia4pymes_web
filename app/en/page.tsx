@@ -172,7 +172,7 @@ export default function HomeEN() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "We needed a high-performance website that matched our agency’s design standards without the usual inflated quotes or endless delays from traditional dev shops. Working with IA4PYMES was direct, transparent, and remarkably fast. They delivered a blazing-fast architecture and met every single deadline flawlessly."
+        "reviewBody": "We needed a high-performance agency website without inflated agency fees or delays. Communication with IA4PYMES was direct, fast, and delivered on time."
       },
       {
         "@type": "Review",
@@ -185,7 +185,7 @@ export default function HomeEN() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Launching our online store was daunting due to catalog complexity and payment integrations. IA4PYMES built an ultra-fast e-commerce platform and automated our order management workflows from day one. It cost a fraction of traditional agency quotes, and their post-launch support has been outstanding."
+        "reviewBody": "They built a blazing-fast e-commerce platform and automated order management at a fraction of traditional agency quotes. Outstanding post-launch support."
       }
     ],
     "hasOfferCatalog": {

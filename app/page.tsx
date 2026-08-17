@@ -122,7 +122,7 @@ export default function Home() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Buscábamos renovar la web de la agencia con un estándar visual y de rendimiento muy exigente, pero sin entrar en los típicos presupuestos inflados ni los meses de retraso de las agencias de desarrollo habituales. Con IA4PYMES la comunicación fue directa de ingeniero a cliente: estructuraron la arquitectura, optimizaron los tiempos de carga al milisegundo y tuvimos la plataforma lista en tiempo récord. Da gusto trabajar con gente tan resolutiva."
+        "reviewBody": "Buscábamos una web de agencia con máximo rendimiento sin los presupuestos inflados ni retrasos habituales. La comunicación con IA4PYMES fue directa y la entrega, impecable y en tiempo récord."
       },
       {
         "@type": "Review",
@@ -135,7 +135,7 @@ export default function Home() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Lanzar la tienda online de figuras decorativas nos generaba muchas dudas por la complejidad del catálogo y las pasarelas de pago. IA4PYMES no solo nos montó un e-commerce impecable y rápido, sino que automatizó los flujos de gestión de pedidos para que no perdiéramos horas en tareas manuales. Nos costó una fracción de lo que nos presupuestaban otros proveedores y el soporte post-lanzamiento ha sido inmejorable."
+        "reviewBody": "Montaron un e-commerce rápido y automatizaron la gestión de pedidos a una fracción del coste de otros proveedores. El soporte post-lanzamiento ha sido inmejorable."
       }
     ],
     "hasOfferCatalog": {
