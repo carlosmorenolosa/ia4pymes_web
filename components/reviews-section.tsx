@@ -4,7 +4,6 @@ import { Star, Quote, CheckCircle } from "lucide-react"
 
 const i18n = {
   es: {
-    badge: "Opiniones de Clientes",
     heading: "La Experiencia de Trabajar con",
     headingHighlight: "IA4PYMES",
     subtitle: "Opiniones de empresas que han transformado sus plataformas y procesos con nuestras soluciones de desarrollo e inteligencia artificial.",
@@ -25,7 +24,6 @@ const i18n = {
     ],
   },
   en: {
-    badge: "Client Reviews",
     heading: "The Experience of Working with",
     headingHighlight: "IA4PYMES",
     subtitle: "Real feedback from businesses that have transformed their platforms and workflows with our custom development and AI automation solutions.",
@@ -58,11 +56,6 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
         <header className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-4">
-            <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-            <span>{t.badge}</span>
-          </div>
-
           <h2
             id="reviews-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
