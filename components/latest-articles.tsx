@@ -9,19 +9,19 @@ import { getAllPosts, getEnPosts } from "@/lib/blog-data"
 
 const i18n = {
     es: {
-        heading: "Blog de",
+        heading: "Blog y Guías de",
         brand: "IA4PYMES",
-        subtitle: "Perspectivas técnicas y análisis estratégico sobre cómo la Inteligencia Artificial redefine el tejido empresarial.",
-        cta: "Ver Documentación",
+        subtitle: "Guías técnicas, casos reales y arquitecturas de automatización con IA para PYMEs. Aprende a integrar agentes autónomos, desplegar LLMs privados y reducir costes operativos en tu empresa.",
+        cta: "Ver Todas las Guías",
         ctaHref: "/blog",
         readLabel: "Leer Artículo",
         locale: "es-ES",
         postHref: (slug: string) => `/blog/${slug}`,
     },
     en: {
-        heading: "IA4PYMES",
-        brand: "Blog",
-        subtitle: "Technical insights and strategic analysis on how Artificial Intelligence is reshaping the business landscape.",
+        heading: "Articles & Guides:",
+        brand: "IA4PYMES",
+        subtitle: "Technical guides, real-world case studies, and AI automation architectures for SMEs. Learn how to integrate autonomous agents, deploy private LLMs, and cut operational costs in your business.",
         cta: "View All Articles",
         ctaHref: "/en/blog",
         readLabel: "Read Article",
