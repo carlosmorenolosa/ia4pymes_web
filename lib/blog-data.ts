@@ -16,6 +16,314 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: NaN Builders Review & Tarifa Plana Inferencia (NUEVO - 18 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026",
+        title: "NaN Builders: La Tarifa Plana de Inferencia Open Source con Zero Logs, RGPD y Modelos SOTA que Revoluciona el Desarrollo de IA (Análisis 2026)",
+        description: "Análisis a fondo de NaN Builders (nan.builders): inferencia ilimitada de modelos abiertos (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), cero logs con RGPD en la UE, comunidad privada de Discord y descuento exclusivo.",
+        date: "2026-08-18",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "Infraestructura IA",
+        image: "/images/nan_builders_flat_rate_inference_smes_2026.png",
+        lang: "es",
+        translationSlug: "nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026",
+        content: `
+Cualquiera que haya desarrollado agentes autónomos, pipelines RAG o aplicaciones de IA en producción conoce la misma frustración: **el contador de tokens**. Con las recientes [subidas de precios y tarifas dinámicas en horario laboral de proveedores cloud](/blog/deepseek-v4-pro-subida-precios-tarifas-dinamicas-pico-valle-pymes-2026), calcular el coste real de una arquitectura de software se ha vuelto una pesadilla para desarrolladores y PYMEs.
+
+Por otro lado, montar un cluster local propio con GPUs dedicadas de última generación exige una inversión de miles de euros en hardware y mantenimiento.
+
+Existe una tercera vía que cambia por completo las reglas del juego: **NaN Builders** (\`nan.builders\`), una plataforma de inferencia de modelos abiertos bajo **tarifa plana mensual**, con **cero logs**, servidores en la Unión Europea (**cumplimiento RGPD total**) y una comunidad privada de creadores de IA de primer nivel.
+
+En este análisis detallado explicamos qué ofrece su cluster, cómo funciona su API compatible con OpenAI, el stack completo (LLMs, Embeddings, Rerankers, TTS y STT) y por qué se ha convertido en la herramienta imprescindible para nuestro día a día.
+
+> 🎁 **Descuento Exclusivo para Lectores**: Si te suscribes a NaN Builders a través de nuestro [enlace de invitación a NaN Builders](https://cloud.nan.builders/r/KFR0JS04), obtienes **5 € de descuento directo en tu primer mes**.
+
+---
+
+## 1. ¿Qué es NaN Builders y por qué rompe el modelo tradicional de APIs?
+
+NaN Builders es una iniciativa creada por **Cristian Córdova** (\`@barckcode\`, founder de Helmcode) y **Borja Pérez** (\`@borjaperfra\`). Nace de una necesidad compartida por quienes construyen producto real: **poder quemar tokens sin miedo a la factura final**.
+
+En lugar de cobrar por cada millón de tokens consumidos, NaN Builders opera un cluster compartido de GPUs dedicadas de alto rendimiento donde los miembros abonan una cuota fija mensual.
+
+![Arquitectura Completa del Cluster de Inferencia NaN Builders](/images/nan_builders_full_stack_cluster_architecture_2026.png)
+
+### Las 4 garantías fundamentales de la plataforma:
+1. **Tarifa Plana Fija**: Sabes exactamente lo que pagas a principio de mes (70 €/mes en el tier estándar \`nan_member\`, IVA incluido). No hay costes imprevistos ni recargos por hora pico.
+2. **Zero Logs & Privacidad RGPD**: La inferencia se procesa íntegramente en servidores ubicados dentro de la **Unión Europea**. No se almacenan prompts, respuestas ni fragmentos de código (\`0 bytes\` registrados). Tus datos no entrenan ningún modelo.
+3. **API 100% Compatible con OpenAI**: Basta con cambiar el \`baseURL\` y añadir tu API key personal para conectar cualquier framework: LangChain, LlamaIndex, Claude Code, Cursor, OpenCode o tus propios scripts.
+4. **Votación Trimestral de Modelos**: La comunidad vota en Discord qué nuevos modelos del ecosistema open-source se incorporan al cluster según avanza la tecnología.
+
+---
+
+## 2. El Stack Completo: Mucho más que un simple LLM
+
+La mayoría de servicios de inferencia solo ofrecen generación de texto. Para crear un sistema de IA empresarial completo (como automatización de facturas con [VeriFactu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026) o agentes conectados mediante [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia)), necesitas múltiples capas que normalmente disparan la factura.
+
+NaN Builders incluye todo el stack en una sola suscripción:
+
+### A) Modelos de Lenguaje (LLMs) y Razonamiento
+* **DeepSeek V4-Flash**: Arquitectura MoE de 284B-21B parámetros, contexto masivo de 1M de tokens, soporte nativo de llamadas a herramientas (*tool calling*) y razonamiento analítico (500M tokens/mes incluidos).
+* **MiMo v2.5 (Xiaomi)**: Modelo MoE omnimodal de 310B-15B con procesamiento de visión y audio, 1M de contexto (1.000M tokens/mes incluidos).
+* **Google Gemma 4**: 26B-A4B MoE, 256k contexto, razonamiento y visión (**sin contador / ilimitado**).
+* **Alibaba Qwen 3.6**: 35B-A3B MoE, 256k contexto (**sin contador / ilimitado**). Excelente complemento a las ejecuciones en [GGUF local con Unsloth](/blog/unsloth-qwen-3-8-27b-gguf-ejecutar-local-ram-pymes-2026) y [Qwen 3.8-35B MoE](/blog/qwen-3-8-35b-a3b-moe-filtracion-modelscope-rendimiento-pymes-2026).
+
+### B) Motor RAG: Embeddings y Reranking Sin Límites
+* **Qwen3-Embedding (8B, 4096 dimensiones)**: Rendimiento sobresaliente en el benchmark MMTEB (70.58) y soporte para más de 100 idiomas (**sin contador**).
+* **Qwen3-Reranker (8B, BF16 cross-lingual)**: Reordenación semántica de fragmentos documentales para garantizar que el LLM solo reciba el contexto más relevante (**sin contador**).
+
+### C) Voz e Interacción: TTS y STT de Ultra-Baja Latencia
+* **Kokoro (TTS)**: Síntesis de voz neural con 82M parámetros, 67 voces naturales (incluyendo las reconocidas \`ef_dora\` y \`em_alex\`) y latencia inferior a 1 segundo (**sin contador**).
+* **Whisper Large-v3 (STT)**: Transcripción de audio optimizada en CTranslate2 con solo un 3.2% de tasa de error (WER) en español y detección automática de idioma (**sin contador**).
+
+---
+
+## 3. Comparativa Económica: ¿Cuánto ahorra una PYME o Builder?
+
+Analicemos un caso de uso real de una empresa o maker con 3 agentes en producción procesando soporte al cliente, análisis de documentos y generación de audios explicativos:
+
+| Concepto Mensual | Proveedores Cloud Tradicionales (Pay-per-Token) | Suscripción NaN Builders (\`nan_member\`) |
+| :--- | :--- | :--- |
+| **150M Tokens LLM (DeepSeek / Qwen)** | ~180 € - 350 € (con tarifas pico) | **Incluido** |
+| **50.000 Consultas Embeddings + Rerank** | ~45 € | **0 € (Ilimitado)** |
+| **60 Horas de Transcripción Whisper** | ~22 € | **0 € (Ilimitado)** |
+| **200.000 Caracteres Text-to-Speech (TTS)**| ~30 € | **0 € (Ilimitado)** |
+| **Gobernanza / Servidores en UE** | Requiere acuerdos Enterprise caros | **100% Incluido por diseño** |
+| **TOTAL MENSUAL** | **277 € - 447 € / mes** | **70 € / mes (IVA incl.)** |
+
+El ahorro mensual supera el **75%**, pero la mayor ventaja no es solo el dinero: es la **tranquilidad operativa**. No tienes que monitorizar si un bucle agéntico con [DeepSeek Harness](/blog/deepseek-harness-arnes-agentes-ia-open-source-pymes-2026) ha consumido más llamadas de las previstas.
+
+---
+
+## 4. La Comunidad de Discord: El Verdadero Activo Oculto
+
+Tener acceso a GPUs es potente, pero el valor diferencial de NaN Builders reside en su **comunidad privada de Discord**.
+
+No es un canal de soporte técnico genérico: es un punto de encuentro diario donde ingenieros senior, fundadores de startups, investigadores y builders independientes comparten:
+* Arquitecturas reales de agentes en producción con MCP y frameworks modernos.
+* Hacks de optimización de prompts, context window y serialización de datos.
+* Demostraciones en directo (*builds*), sesiones de preguntas y respuestas (AMAs) y hackathons periódicos.
+* Votación directa sobre qué hardware y qué modelos se despliegan en el siguiente trimestre.
+
+Estar en ese entorno acelera cualquier desarrollo meses respecto a trabajar en solitario.
+
+---
+
+## 5. Cómo Integrar NaN Builders en tu Código en 3 Líneas
+
+Dado que la API es totalmente compatible con la especificación de OpenAI, integrarla en Node.js, Python o cualquier herramienta existente requiere apenas segundos:
+
+### Ejemplo en TypeScript / Node.js
+\`\`\`typescript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://api.nan.builders/v1",
+  apiKey: process.env.NAN_BUILDERS_API_KEY,
+});
+
+async function runInference() {
+  const response = await client.chat.completions.create({
+    model: "deepseek-v4-flash",
+    messages: [
+      { role: "system", content: "Eres un analista financiero experto para PYMEs." },
+      { role: "user", content: "Calcula el punto de equilibrio para una inversión de 12.000€ con margen del 35%." }
+    ],
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+runInference();
+\`\`\`
+
+### Ejemplo de Embeddings para RAG
+\`\`\`typescript
+async function createEmbedding(text: string) {
+  const embedding = await client.embeddings.create({
+    model: "qwen3-embedding",
+    input: text,
+  });
+  return embedding.data[0].embedding;
+}
+\`\`\`
+
+---
+
+## 6. Planes Disponibles y Descuento Exclusivo
+
+NaN Builders ofrece tres modalidades según tus necesidades:
+
+1. **nan_community (14,99 €/mes)**: Acceso completo a Discord, canales privados, charlas en directo, workshops y cola reservada de inferencia.
+2. **nan_member (70 €/mes - IVA incluido)**: El plan de referencia. Inferencia completa con modelos ilimitados, 500M tokens en DeepSeek V4-Flash, 1.0B en MiMo v2.5, embeddings, reranker, Whisper y Kokoro sin contador, API key personal y Discord.
+3. **nan_member · GLM 5.2 premium (200 €/mes)**: 3.000M de tokens por ciclo de facturación para el modelo de razonamiento de frontera GLM 5.2.
+
+> 👉 **[Únete a NaN Builders con 5€ de Descuento en tu Primer Mes →](https://cloud.nan.builders/r/KFR0JS04)**
+> Plazas limitadas según capacidad de cómputo del cluster. Al registrarte con este enlace de invitación obtendrás 5 € de descuento directo al activar tu membresía.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Mis datos se utilizan para entrenar modelos?
+No. NaN Builders aplica una política estricta de **cero logs**. Las peticiones se procesan en memoria volátil en servidores de la Unión Europea y se destruyen inmediatamente tras la respuesta.
+
+### ¿Puedo utilizar mi API key en herramientas como Cursor, Claude Code o LibreChat?
+Sí. Al ser 100% compatible con el protocolo OpenAI, solo necesitas configurar la URL base (\`https://api.nan.builders/v1\`) y tu clave personal.
+
+### ¿Por qué existe lista de espera (waitlist)?
+Porque el cluster garantiza velocidad y latencia real a sus miembros. Solo se abren nuevas plazas cuando se añade más capacidad de cómputo en GPUs.
+`,
+    },
+    {
+        slug: "nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026",
+        title: "NaN Builders Review: The Flat-Rate Open-Source AI Inference Cluster with Zero Logs, GDPR & SOTA Models (2026 Deep Dive)",
+        description: "Comprehensive review of NaN Builders (nan.builders): unmetered open-source AI inference (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), zero-log EU hosting, private builder Discord community, and exclusive discount.",
+        date: "2026-08-18",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "AI Infrastructure",
+        image: "/images/nan_builders_flat_rate_inference_smes_2026.png",
+        lang: "en",
+        translationSlug: "nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026",
+        content: `
+Anyone who has deployed autonomous agents, RAG architectures, or production AI pipelines understands the primary friction point: **token meters**. Following recent [cloud API price hikes and business-hour dynamic surge pricing](/en/blog/deepseek-v4-pro-price-hike-dynamic-peak-pricing-smes-2026), predicting monthly infrastructure bills has become a serious hurdle for engineers and SMEs.
+
+On the other hand, maintaining a dedicated private on-premise GPU cluster demands thousands of dollars in initial hardware capital and DevOps overhead.
+
+A powerful alternative is reshaping how builders ship AI: **NaN Builders** (\`nan.builders\`), a shared open-source model inference platform operating on a **fixed monthly flat rate**, with **zero logging**, servers located inside the European Union (**full GDPR compliance**), and a private Discord community of top-tier AI builders.
+
+In this deep dive, we break down what the cluster delivers, how its OpenAI-compatible API functions, the complete technology stack (LLMs, Embeddings, Rerankers, TTS, STT), and why it has become an indispensable part of our engineering workflow.
+
+> 🎁 **Exclusive Reader Discount**: Sign up through our [NaN Builders Invitation Link](https://cloud.nan.builders/r/KFR0JS04) to claim a **€5 direct discount on your first month**.
+
+---
+
+## 1. What is NaN Builders and How Does It Challenge Traditional Cloud APIs?
+
+Created by **Cristian Córdova** (\`@barckcode\`, founder of Helmcode) and **Borja Pérez** (\`@borjaperfra\`), NaN Builders addresses a fundamental builder challenge: **burning tokens without fear of surprise invoices**.
+
+Instead of billing per million tokens consumed, NaN Builders operates a shared high-performance dedicated GPU cluster where members pay a predictable monthly membership fee.
+
+![Full Stack Architecture of NaN Builders Inference Cluster](/images/nan_builders_full_stack_cluster_architecture_2026.png)
+
+### The 4 Core Guarantees:
+1. **Fixed Flat Rate**: Complete cost predictability (€70/month on the standard \`nan_member\` tier, taxes included). No surprise overages or peak-hour multiplier spikes.
+2. **Zero Logs & GDPR Compliance**: All compute is hosted inside the **European Union**. No prompts, completions, or code snippets are ever recorded (\`0 bytes\` stored). Your proprietary data is never used for training.
+3. **100% OpenAI-Compatible API**: Simply update your \`baseURL\` and insert your personal API key across LangChain, LlamaIndex, Claude Code, Cursor, OpenCode, or custom scripts.
+4. **Quarterly Community Model Voting**: Members vote in Discord on which new open-weight models enter the cluster as open-source AI evolves.
+
+---
+
+## 2. The Complete AI Stack: Beyond Standard Text Generation
+
+Most inference providers restrict their offerings to text LLMs. Building a complete enterprise system (such as invoice processing with [VeriFactu](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026) or agent orchestration via [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents)) requires embeddings, reranking, and voice pipelines that quickly escalate costs.
+
+NaN Builders bundles the entire stack under one subscription:
+
+### A) Language Models (LLMs) & Reasoning
+* **DeepSeek V4-Flash**: 284B-21B MoE architecture, 1M context window, native tool calling and reasoning support (500M tokens/month included).
+* **MiMo v2.5 (Xiaomi)**: 310B-15B omnimodal MoE with vision and audio understanding, 1M context (1.0B tokens/month included).
+* **Google Gemma 4**: 26B-A4B MoE, 256k context, vision and reasoning (**unmetered / unlimited**).
+* **Alibaba Qwen 3.6**: 35B-A3B MoE, 256k context (**unmetered / unlimited**). Pairs seamlessly with on-premise [Unsloth GGUF quantizations](/en/blog/unsloth-qwen-3-8-27b-gguf-run-local-ram-smes-2026) and [Qwen 3.8-35B MoE](/en/blog/qwen-3-8-35b-a3b-moe-leak-modelscope-sme-efficiency-2026).
+
+### B) RAG Engine: Unmetered Embeddings & Reranking
+* **Qwen3-Embedding (8B, 4096 dims)**: Leading MMTEB score (70.58) across 100+ languages (**unmetered**).
+* **Qwen3-Reranker (8B, BF16 cross-lingual)**: Precision semantic chunk reranking for high-accuracy RAG retrieval (**unmetered**).
+
+### C) Voice & Audio: Ultra-Low Latency TTS and STT
+* **Kokoro (TTS)**: Neural speech synthesis with 82M parameters, 67 expressive voices (including natural \`ef_dora\` and \`em_alex\`) with sub-second latency (**unmetered**).
+* **Whisper Large-v3 (STT)**: CTranslate2-optimized transcription with ~3.2% Spanish WER and automatic language detection (**unmetered**).
+
+---
+
+## 3. Financial Comparison: How Much Does an SME or Builder Save?
+
+Consider a production setup running 3 automated agents for customer support, document parsing, and audio generation:
+
+| Monthly Metric | Standard Cloud APIs (Pay-per-Token) | NaN Builders Membership (\`nan_member\`) |
+| :--- | :--- | :--- |
+| **150M LLM Tokens (DeepSeek / Qwen)** | ~$180 - $350 (with peak surge rates) | **Included** |
+| **50,000 Embedding & Rerank Calls** | ~$45 | **$0 (Unmetered)** |
+| **60 Hours Whisper Audio Transcription** | ~$22 | **$0 (Unmetered)** |
+| **200,000 Text-to-Speech Characters** | ~$30 | **$0 (Unmetered)** |
+| **EU Hosting / GDPR Compliance** | Requires expensive enterprise add-ons | **100% Native by Design** |
+| **TOTAL MONTHLY COST** | **~$277 - $447 / month** | **€70 / month (Taxes incl.)** |
+
+You save over **75%** on monthly spend, but the primary benefit is **peace of mind**: running multi-step agentic workflows with [DeepSeek Harness](/en/blog/deepseek-harness-open-source-agentic-framework-smes-2026) will never trigger unexpected billing spikes.
+
+---
+
+## 4. The Discord Community: The Hidden Multiplier
+
+Hardware compute is powerful, but the true multiplier of NaN Builders is its **private Discord community**.
+
+This is a focused workspace where senior engineers, startup founders, and indie hackers collaborate daily:
+* Sharing production agent codebases and MCP integrations.
+* Prompt engineering, context cache optimizations, and JSON schema patterns.
+* Live build streams, AMAs, and regular community hackathons.
+* Voting directly on new models and hardware additions every quarter.
+
+---
+
+## 5. Integrating NaN Builders in 3 Lines of Code
+
+Because the endpoint follows the standard OpenAI format, transitioning existing scripts takes seconds:
+
+### TypeScript / Node.js Example
+\`\`\`typescript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://api.nan.builders/v1",
+  apiKey: process.env.NAN_BUILDERS_API_KEY,
+});
+
+async function runInference() {
+  const response = await client.chat.completions.create({
+    model: "deepseek-v4-flash",
+    messages: [
+      { role: "system", content: "You are an expert enterprise AI architect." },
+      { role: "user", content: "Analyze cost-benefit tradeoffs of hybrid LLM routing." }
+    ],
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+runInference();
+\`\`\`
+
+---
+
+## 6. Available Tiers and Exclusive Discount
+
+NaN Builders provides three distinct access tiers:
+
+1. **nan_community (€14.99/month)**: Full Discord access, private channels, live build streams, workshops, and reserved inference queue spot.
+2. **nan_member (€70/month - taxes included)**: The premier builder tier. Unmetered inference across open models, 500M tokens on DeepSeek V4-Flash, 1.0B on MiMo v2.5, unmetered embeddings, rerankers, Whisper, Kokoro, and personal API key.
+3. **nan_member · GLM 5.2 premium (€200/month)**: 3,000M tokens per billing period for frontier reasoning model GLM 5.2.
+
+> 👉 **[Join NaN Builders with a €5 Discount on Your First Month →](https://cloud.nan.builders/r/KFR0JS04)**
+> Seats are strictly limited to match physical GPU cluster capacity. Claim your spot through this invite link to apply your €5 first-month discount.
+
+---
+
+## 7. Frequently Asked Questions
+
+### Are my prompts or outputs stored on servers?
+No. NaN Builders enforces a strict **zero-log policy**. Requests are computed in volatile memory within EU datacenters and destroyed immediately upon generation.
+
+### Can I plug my API key into Cursor, Claude Code, or LibreChat?
+Yes. It supports the OpenAI schema natively: just supply the base URL (\`https://api.nan.builders/v1\`) and your personal API key.
+
+### Why is there a waitlist?
+To guarantee high throughput and low latency for all active members. New batches of seats open exclusively when additional physical GPU capacity is provisioned.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: DeepSeek V4-Pro y Tarifas Dinámicas Pico/Valle (NUEVO - 17 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
