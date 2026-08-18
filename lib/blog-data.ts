@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026",
         title: "NaN Builders: La Tarifa Plana de Inferencia Open Source con Zero Logs, RGPD y Modelos SOTA que Revoluciona el Desarrollo de IA (Análisis 2026)",
-        description: "Análisis a fondo de NaN Builders (nan.builders): inferencia ilimitada de modelos abiertos (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), cero logs con RGPD en la UE, comunidad privada de Discord y descuento exclusivo.",
+        description: "Análisis a fondo de NaN Builders: inferencia ilimitada de modelos abiertos (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), cero logs con RGPD en la UE, comunidad privada de Discord y descuento exclusivo.",
         date: "2026-08-18",
         author: "IA4PYMES",
         readingTime: "14 min",
@@ -34,7 +34,7 @@ Cualquiera que haya desarrollado agentes autónomos, pipelines RAG o aplicacione
 
 Por otro lado, montar un cluster local propio con GPUs dedicadas de última generación exige una inversión de miles de euros en hardware y mantenimiento.
 
-Existe una tercera vía que cambia por completo las reglas del juego: **NaN Builders** (\`nan.builders\`), una plataforma de inferencia de modelos abiertos bajo **tarifa plana mensual**, con **cero logs**, servidores en la Unión Europea (**cumplimiento RGPD total**) y una comunidad privada de creadores de IA de primer nivel.
+Aquí es donde entra **NaN Builders**: una plataforma de inferencia de modelos abiertos bajo **tarifa plana mensual**, con **cero logs**, servidores en la Unión Europea (**cumplimiento RGPD total**) y una comunidad privada de creadores de IA de primer nivel.
 
 En este análisis detallado explicamos qué ofrece su cluster, cómo funciona su API compatible con OpenAI, el stack completo (LLMs, Embeddings, Rerankers, TTS y STT) y por qué se ha convertido en la herramienta imprescindible para nuestro día a día.
 
@@ -180,7 +180,7 @@ Porque el cluster garantiza velocidad y latencia real a sus miembros. Solo se ab
     {
         slug: "nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026",
         title: "NaN Builders Review: The Flat-Rate Open-Source AI Inference Cluster with Zero Logs, GDPR & SOTA Models (2026 Deep Dive)",
-        description: "Comprehensive review of NaN Builders (nan.builders): unmetered open-source AI inference (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), zero-log EU hosting, private builder Discord community, and exclusive discount.",
+        description: "Comprehensive review of NaN Builders: unmetered open-source AI inference (DeepSeek, Qwen, Whisper, Kokoro, Embeddings), zero-log EU hosting, private builder Discord community, and exclusive discount.",
         date: "2026-08-18",
         author: "IA4PYMES",
         readingTime: "14 min",
@@ -193,7 +193,7 @@ Anyone who has deployed autonomous agents, RAG architectures, or production AI p
 
 On the other hand, maintaining a dedicated private on-premise GPU cluster demands thousands of dollars in initial hardware capital and DevOps overhead.
 
-A powerful alternative is reshaping how builders ship AI: **NaN Builders** (\`nan.builders\`), a shared open-source model inference platform operating on a **fixed monthly flat rate**, with **zero logging**, servers located inside the European Union (**full GDPR compliance**), and a private Discord community of top-tier AI builders.
+Here is where **NaN Builders** enters: a shared open-source model inference platform operating on a **fixed monthly flat rate**, with **zero logging**, servers located inside the European Union (**full GDPR compliance**), and a private Discord community of top-tier AI builders.
 
 In this deep dive, we break down what the cluster delivers, how its OpenAI-compatible API functions, the complete technology stack (LLMs, Embeddings, Rerankers, TTS, STT), and why it has become an indispensable part of our engineering workflow.
 
