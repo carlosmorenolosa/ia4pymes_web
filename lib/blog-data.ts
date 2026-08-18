@@ -296,6 +296,17 @@ async function runInference() {
 runInference();
 \`\`\`
 
+### Embeddings Example for RAG
+\`\`\`typescript
+async function createEmbedding(text: string) {
+  const embedding = await client.embeddings.create({
+    model: "qwen3-embedding",
+    input: text,
+  });
+  return embedding.data[0].embedding;
+}
+\`\`\`
+
 ---
 
 ## 6. Available Tiers and Exclusive Discount
