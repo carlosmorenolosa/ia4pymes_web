@@ -106,7 +106,7 @@ export default function Home() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "2",
+      "reviewCount": "3",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -136,6 +136,19 @@ export default function Home() {
           "bestRating": "5"
         },
         "reviewBody": "Montaron un e-commerce rápido y automatizaron la gestión de pedidos a una fracción del coste de otros proveedores. El soporte post-lanzamiento ha sido inmejorable."
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Asociación de Hostelería y Turismo de Navarra"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Desarrollaron un chatbot con IA que atiende al instante las consultas de asociados y visitantes en nuestra web. El equipo ha sido extraordinariamente diligente, rápido y resolutivo en cada ajuste."
       }
     ],
     "hasOfferCatalog": {

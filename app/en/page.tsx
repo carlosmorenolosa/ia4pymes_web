@@ -156,7 +156,7 @@ export default function HomeEN() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "2",
+      "reviewCount": "3",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -186,6 +186,19 @@ export default function HomeEN() {
           "bestRating": "5"
         },
         "reviewBody": "They built a blazing-fast e-commerce platform and automated order management at a fraction of traditional agency quotes. Outstanding post-launch support."
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Organization",
+          "name": "Navarra Hospitality & Tourism Association"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "They developed an AI chatbot that instantly answers inquiries from members and visitors on our website. Their team has been remarkably fast, diligent, and responsive to every need."
       }
     ],
     "hasOfferCatalog": {
