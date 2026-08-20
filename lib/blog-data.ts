@@ -16,6 +16,377 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Ornith-1.5 Modelos de Auto-Mejora y Self-Scaffolding (NUEVO - 20 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "ornith-1-5-modelos-auto-mejora-scaffolding-autonomo-pymes-2026",
+        title: "Ornith-1.5: La Familia de Modelos Open Source con Auto-Mejora y Creación Autónoma de Agentes que Iguala a Claude Opus 4.8 (Agosto 2026)",
+        description: "Análisis técnico de Ornith-1.5 (397B MoE, 35B-A3B y 9B Mobile): el bucle cerrado de auto-mejora con GRPO, generación autónoma de tareas y scaffolds, y cómo revoluciona el desarrollo de software y agentes en PYMEs.",
+        date: "2026-08-20",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "Modelos Open Source",
+        image: "/images/ornith_1_5_self_improvement_models_smes_2026.png",
+        lang: "es",
+        translationSlug: "ornith-1-5-self-improvement-self-scaffolding-models-smes-2026",
+        content: `
+Uno de los mayores cuellos de botella en la adopción de inteligencia artificial por parte de desarrolladores y empresas ha sido la dependencia del *prompt engineering* manual y de arneses estáticos diseñados por humanos. Si querías que un modelo resolviera problemas complejos de programación, migraciones de bases de datos o flujos agénticos, tenías que pasar semanas afinando instrucciones, creando herramientas a medida y ajustando parámetros de evaluación.
+
+El equipo de **Ornith AI** acaba de presentar [**Ornith-1.5**](https://ornith.ai/ornith_1_5.html), una familia de modelos abiertos que aborda este problema desde la raíz mediante un **bucle cerrado de auto-mejora (*end-to-end self-improvement loop*)**.
+
+El modelo no se limita a resolver problemas existentes: **propone de forma autónoma tareas en su frontera de capacidad, sintetiza el arnés (*scaffold*) y las herramientas necesarias para abordarlas, y genera trayectorias de solución optimizadas mediante aprendizaje por refuerzo con GRPO**.
+
+Los resultados empíricos colocan a su variante insignia (**397B MoE**) a la par de **Claude Opus 4.8** en benchmarks de programación agéntica como *Terminal-Bench 2.1* (86,1 vs 85,0) y *SWE-bench Verified* (86,0), mientras que su versión ligera (**35B-A3B**, que activa únicamente 3B de parámetros por token) supera con holgura a modelos de 30B y 35B densos.
+
+---
+
+## 1. El Bucle de Auto-Mejora: Tareas, Arneses y Soluciones Generadas por la Propia IA
+
+En los enfoques convencionales de entrenamiento post-pretraining (SFT y RLHF), el modelo se entrena sobre bancos fijos de preguntas preparadas por humanos. Cuando el modelo domina esas preguntas, el entrenamiento deja de generar mejoras significativas.
+
+Ornith-1.5 sustituye esa distribución estática por un ciclo de tres etapas interconectadas y optimizadas conjuntamente:
+
+![Bucle de Auto-Mejora de Ornith-1.5 mediante GRPO](/images/ornith_self_improvement_loop_architecture_2026.png)
+
+### Etapa 1: Propuesta de Tareas en la Frontera (\`q\`)
+A partir de un entorno de código o especificación técnica, el sistema analiza el historial de resolución previo y propone nuevas tareas con un nivel de dificultad situado exactamente en su frontera de aprendizaje actual.
+
+La recompensa de la tarea se calcula mediante una formulación multiplicativa:
+\`\`\`
+R_task = V(q, s) × D(q, s, {τ_i}) × N(q)
+\`\`\`
+* **Validez y Verificabilidad \`V(q, s)\`**: Filtro estricto binario. Si el problema está mal planteado o el arnés no puede evaluar la solución de forma determinista, \`V = 0\` y la tarea se descarta de inmediato para evitar recompensar problemas absurdos.
+* **Dificultad de Frontera \`D\`**: Se mide la tasa empírica de éxito (\`p\`) en un muestreo de soluciones. El objetivo es situar la dificultad en un \`p* = 0,2\` (20% de acierto inicial), el punto óptimo para que el aprendizaje por refuerzo extraiga gradientes útiles.
+* **Novedad y Diversidad \`N(q)\`**: Penaliza la repetición de variaciones triviales respecto a un búfer de tareas previas.
+
+### Etapa 2: Construcción Autónoma del Arnés y Herramientas (\`s\`, \`h\`)
+Para cada tarea generada, el modelo diseña su propia estrategia de descomposición, instrucciones contextuales, herramientas auxiliares y arnés de validación (\`h\`).
+La recompensa del arnés mide tres factores:
+\`\`\`
+R_harness = C(q, h) × F(h, {τ_i}) × H(h)
+\`\`\`
+* **Alineamiento con la tarea \`C\`**: fidelidad a los requisitos planteados.
+* **Fidelidad de la recompensa \`F\`**: capacidad de distinguir soluciones correctas de intentos fallidos.
+* **Resistencia al *Reward Hacking* \`H\`**: mecanismos contra atajos o trampas que intenten engañar al evaluador sin resolver el problema real.
+
+### Etapa 3: Generación de Soluciones y Optimización de Políticas (\`τ_i\`)
+El modelo ejecuta las trayectorias de solución sobre el arnés generado. El resultado alimenta un algoritmo de optimización de gradiente de política relativa por grupos (**GRPO**), actualizando simultáneamente la capacidad del generador de tareas, del constructor de arneses y de la política de resolución.
+
+---
+
+## 2. Desglose de la Familia Ornith-1.5 y Rendimiento en Benchmarks
+
+La familia se estructura en tres escalas diseñadas para distintos entornos de despliegue:
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    FAMILIA DE MODELOS ORNITH-1.5 (2026)                     │
+├───────────────────┬──────────────┬───────────────────┬──────────────────────┤
+│ Modelo            │ Parámetros   │ Activos por Token │ Entorno Ideal        │
+├───────────────────┼──────────────┼───────────────────┼──────────────────────┤
+│ **Ornith-1.5-397B**│ 397B MoE     │ ~28B              │ Servidores Cloud / GPU│
+│ **Ornith-1.5-35B** │ 35B MoE      │ **3B**            │ Workstation / 1 GPU  │
+│ **Ornith-1.5-9B**  │ 9B Denso     │ 9B                │ Edge / PC / Móvil    │
+└───────────────────┴──────────────┴───────────────────┴──────────────────────┘
+\`\`\`
+
+### A) Ornith-1.5-397B (MoE): Rendimiento Frontier Open Source
+En pruebas estandarizadas sobre entornos de terminal y resolución de incidencias en repositorios reales:
+
+| Benchmark | Ornith-1.5-397B | Claude Opus 4.8 | DeepSeek-V4-Flash | GLM-5.2 | Kimi K3 (2.8T) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Terminal-Bench 2.1 (Terminus-2)** | **86,1** | 85,0 | 82,7 | 81,0 | 88,3 |
+| **Terminal-Bench 2.1 (Claude Code)**| **85,2** | 78,9 | 81,8 | 82,7 | – |
+| **SWE-bench Verified** | **86,0** | 85,8 | 81,6 | 83,0 | 86,2 |
+| **DeepSWE** | **56,0** | 59,0 | 54,4 | 46,2 | 67,5 |
+| **GPQA Diamond (Razonamiento)** | **92,8** | 93,6 | 91,4 | 91,2 | 93,5 |
+| **MCP-Atlas (Uso de Herramientas)** | **80,0** | 82,2 | 74,6 | 77,8 | 82,3 |
+
+### B) Ornith-1.5-35B-A3B: Eficiencia Extrema para Desarrollo Local
+La variante intermedia activa únicamente **3.000 millones de parámetros por token**, lo que permite ejecutarla con una latencia mínima en GPUs de consumo (16 GB a 24 GB de VRAM) o equipos Mac con Apple Silicon:
+* **Terminal-Bench 2.1 (Claude Code)**: **68,5** (frente a 49,2 de Qwen 3.6-35B y 42,1 de Gemma 4-31B).
+* **SWE-bench Verified**: **79,0** (frente a 52,0 de Gemma 4-31B y 76,0 de Muse Glimmer-30B).
+* **DeepSWE**: **22,0** (mientras que todos los demás modelos de su escala obtuvieron 0).
+
+### C) Ornith-1.5-9B y 9B-Mobile: Agentes en Dispositivos Edge
+Optimizado para funcionar en teléfonos móviles (iOS y Android) y servidores ligeros:
+* **Terminal-Bench 2.1**: **47,0** (supera a modelos de más de 30B como Gemma 4-31B que obtienen 42,1).
+* **SWE-bench Verified**: **70,6** (frente al 53,2 de Qwen 3.5-9B).
+
+---
+
+## 3. Qué Significa Esto para las PYMEs y el Desarrollo de Software
+
+La capacidad de un modelo de auto-diseñar su arnés de resolución transforma los flujos de trabajo técnicos en las empresas en tres áreas críticas:
+
+### 1. Despliegue de Agentes Internos Sin Fricción
+Hasta ahora, conectar un agente a un ERP o base de datos contable exigía programar manualmente cada paso intermedio de razonamiento y validación. Con Ornith-1.5, el modelo genera internamente las subdivisiones de la tarea y valida los resultados intermedios contra esquemas deterministas ([Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia)).
+
+### 2. Reducción Radical de Costes de Cómputo
+El modelo **35B-A3B** entrega capacidades de desarrollo agéntico superiores a modelos comerciales cerrados, consumiendo una fracción del cómputo. Al activar solo 3B de parámetros por token, puede desplegarse en servidores locales o clusters de inferencia a tarifa fija como [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026), evitando los sobrecostes de APIs cloud tradicionales.
+
+### 3. Seguridad y Contención
+Tal y como vimos en el reciente análisis sobre la [pausa en el desarrollo de modelos de OpenAI por riesgos de ciberseguridad](/blog/openai-frena-desarrollo-modelos-riesgo-ciberseguridad-agentes-pymes-2026), la autonomía agéntica exige entornos estrictamente aislados (*sandboxing*). El entrenamiento de Ornith-1.5 incluye salvaguardas explícitas contra el *reward hacking* y la ejecución de comandos no controlados fuera del arnés.
+
+---
+
+## 4. Ejemplo Práctico: Invocación de Ornith-1.5-35B para Tareas Agénticas
+
+Al seguir la interfaz estándar de OpenAI / vLLM, la integración en Node.js o TypeScript se realiza de forma directa:
+
+\`\`\`typescript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "http://localhost:8000/v1", // O cluster privado en la UE
+  apiKey: process.env.ORNITH_API_KEY || "local",
+});
+
+async function runAutonomousCodeFix() {
+  const response = await client.chat.completions.create({
+    model: "ornith-1.5-35b-a3b",
+    messages: [
+      {
+        role: "system",
+        content: "Eres un agente de refactorización. Genera tu propio plan de descomposición antes de emitir los parches de código."
+      },
+      {
+        role: "user",
+        content: "Optimiza la consulta de conciliación bancaria para facturas de clientes y añade pruebas unitarias con cobertura de casos límite."
+      }
+    ],
+    temperature: 0.6,
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+runAutonomousCodeFix();
+\`\`\`
+
+---
+
+## 5. Comparativa Técnica de Modelos para Agentes de Código en 2026
+
+| Característica | Ornith-1.5-397B | Ornith-1.5-35B-A3B | Claude Opus 4.8 | DeepSeek-V4-Flash |
+| :--- | :--- | :--- | :--- | :--- |
+| **Licencia** | Open Weights | Open Weights | Propietario (API) | Open Weights / API |
+| **Terminal-Bench 2.1** | **86,1** | 68,5 | 85,0 | 82,7 |
+| **SWE-bench Verified** | **86,0** | 79,0 | 85,8 | 81,6 |
+| **Auto-Scaffolding** | **Nativo (GRPO)** | **Nativo (GRPO)** | Estático | Estático |
+| **Parámetros Activos** | ~28B | **3B** | Desconocido | ~21B |
+| **Despliegue Local** | Requiere multi-GPU | **1 GPU / Mac M-Series** | No disponible | Requiere servidor dedicado |
+
+---
+
+## 6. Conclusión
+
+Ornith-1.5 demuestra que el futuro de los modelos abiertos no consiste únicamente en escalar parámetros brutos, sino en perfeccionar la **autonomía metodológica del modelo**: la capacidad de formular sus propios problemas, construir sus propias herramientas y auditar sus propios resultados.
+
+Para las empresas que buscan automatizar procesos de ingeniería, análisis de datos e integración de sistemas, contar con modelos de alta capacidad capaces de ejecutarse en infraestructura propia representa un salto cuantitativo en soberanía tecnológica y rentabilidad.
+
+> **[Implementa Agentes Autónomos con Modelos Abiertos en tu PYME con IA4PYMES →](/#consultoria)**
+> Diseñamos arquitecturas de software, pasarelas MCP y entornos locales optimizados para que tu empresa saque el máximo partido a la nueva generación de IA.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Qué es el Self-Scaffolding en Ornith-1.5?
+Es la capacidad del modelo para generar y ajustar dinámicamente sus propias instrucciones, herramientas y estrategias de descomposición para resolver una tarea sin requerir plantillas humanas fijas.
+
+### ¿Se puede ejecutar Ornith-1.5 en un ordenador portátil?
+La versión **Ornith-1.5-9B-Mobile** está diseñada específicamente para dispositivos móviles y ordenadores portátiles, mientras que la versión **Ornith-1.5-35B-A3B** (al activar solo 3B de parámetros) puede correr fluidamente en estaciones de trabajo con una sola GPU o equipos Mac con Apple Silicon y [cuantizaciones GGUF](/blog/unsloth-qwen-3-8-27b-gguf-ejecutar-local-ram-pymes-2026).
+
+### ¿Cómo previene Ornith-1.5 el engaño de recompensas (Reward Hacking)?
+A través del término de recompensa de arnés \`H(h)\`, que evalúa la robustez del entorno de pruebas frente a atajos, fallos de evaluación y soluciones aparentes que no cumplen con la especificación real.
+`,
+    },
+    {
+        slug: "ornith-1-5-self-improvement-self-scaffolding-models-smes-2026",
+        title: "Ornith-1.5: The Open-Source Model Family with End-to-End Self-Improvement and Autonomous Scaffolding Matching Claude Opus 4.8 (August 2026)",
+        description: "In-depth technical review of Ornith-1.5 (397B MoE, 35B-A3B, 9B Mobile): the closed self-improvement loop using GRPO, autonomous task & harness synthesis, and how it transforms enterprise AI agent workflows.",
+        date: "2026-08-20",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "Open Source AI",
+        image: "/images/ornith_1_5_self_improvement_models_smes_2026.png",
+        lang: "en",
+        translationSlug: "ornith-1-5-modelos-auto-mejora-scaffolding-autonomo-pymes-2026",
+        content: `
+A major bottleneck in enterprise AI adoption has been the persistent reliance on manual prompt engineering and static, human-crafted agent harnesses. Until now, deploying models to handle complex software engineering, database migrations, or multi-step agentic pipelines required weeks of engineering effort to fine-tune prompts, build bespoke tool wrappers, and calibrate evaluation criteria.
+
+The team at **Ornith AI** has introduced [**Ornith-1.5**](https://ornith.ai/ornith_1_5.html), an open-source model family designed to resolve this challenge through an **end-to-end self-improvement loop**.
+
+Rather than relying on static training datasets, the model **autonomously proposes tasks at its capability frontier, synthesizes the task-specific scaffolds and verification harnesses required to approach them, and generates solution rollouts optimized through reinforcement learning with GRPO**.
+
+Empirical results demonstrate that its flagship tier (**397B MoE**) performs on par with **Claude Opus 4.8** on demanding agentic coding benchmarks like *Terminal-Bench 2.1* (86.1 vs 85.0) and *SWE-bench Verified* (86.0), while its lightweight tier (**35B-A3B**, activating only 3B parameters per token) substantially outperforms competing 30B and 35B dense models.
+
+---
+
+## 1. The Closed Self-Improvement Loop: Autonomous Tasks, Harnesses, and Rollouts
+
+Traditional post-pretraining (SFT and RLHF) trains models on fixed benchmark datasets. Once a model masters those static distributions, additional training yields diminishing returns.
+
+Ornith-1.5 replaces static curricula with a three-stage closed loop:
+
+![Ornith-1.5 End-to-End Self-Improvement Loop Architecture](/images/ornith_self_improvement_loop_architecture_2026.png)
+
+### Stage 1: Frontier Task Generation (\`q\`)
+Conditioned on a codebase or technical environment, the system analyzes previous problem-solving history and proposes progressively harder tasks located directly at its current capability frontier.
+
+The task reward follows a multiplicative formulation:
+\`\`\`
+R_task = V(q, s) × D(q, s, {τ_i}) × N(q)
+\`\`\`
+* **Validity and Verifiability \`V(q, s)\`**: A hard gate. If a proposed task is malformed or its evaluation is non-deterministic, \`V = 0\`, preventing meaningless problems from receiving reinforcement rewards.
+* **Frontier Difficulty \`D\`**: Measures empirical rollout success (\`p\`). The optimization targets \`p* = 0.2\` (a 20% initial success rate), ensuring tasks are challenging yet learnable.
+* **Novelty and Diversity \`N(q)\`**: Penalizes repetitive variations relative to a historical task buffer.
+
+### Stage 2: Scaffold and Harness Construction (\`s\`, \`h\`)
+For every valid task, the model synthesizes its own task decomposition strategy, tool wrappers, and evaluation harness (\`h\`).
+The harness reward evaluates three factors:
+\`\`\`
+R_harness = C(q, h) × F(h, {τ_i}) × H(h)
+\`\`\`
+* **Task Alignment \`C\`**: Faithfulness to the task specification.
+* **Reward Fidelity \`F\`**: Accurate discrimination between correct and flawed solutions.
+* **Hack Resistance \`H\`**: Resilience against evaluator shortcuts or reward-hacking behavior.
+
+### Stage 3: Solution Rollouts and Policy Optimization (\`τ_i\`)
+The model executes solution trajectories against the generated harness. Rewards propagate across all three stages using Group Relative Policy Optimization (**GRPO**), simultaneously improving task proposal, harness generation, and solution execution.
+
+---
+
+## 2. Ornith-1.5 Model Family & Benchmark Evaluation
+
+The release spans three distinct hardware targets:
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ORNITH-1.5 MODEL FAMILY (2026)                           │
+├───────────────────┬──────────────┬───────────────────┬──────────────────────┤
+│ Model             │ Total Params │ Active per Token  │ Target Deployment    │
+├───────────────────┼──────────────┼───────────────────┼──────────────────────┤
+│ **Ornith-1.5-397B**│ 397B MoE     │ ~28B              │ Cloud Datacenter GPUs│
+│ **Ornith-1.5-35B** │ 35B MoE      │ **3B**            │ Workstation / 1 GPU  │
+│ **Ornith-1.5-9B**  │ 9B Dense     │ 9B                │ Edge / PC / Mobile   │
+└───────────────────┴──────────────┴───────────────────┴──────────────────────┘
+\`\`\`
+
+### A) Ornith-1.5-397B (MoE): Frontier Open-Source Coding
+Evaluated across terminal environments and repository-level issue resolution:
+
+| Benchmark | Ornith-1.5-397B | Claude Opus 4.8 | DeepSeek-V4-Flash | GLM-5.2 | Kimi K3 (2.8T) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Terminal-Bench 2.1 (Terminus-2)** | **86.1** | 85.0 | 82.7 | 81.0 | 88.3 |
+| **Terminal-Bench 2.1 (Claude Code)**| **85.2** | 78.9 | 81.8 | 82.7 | – |
+| **SWE-bench Verified** | **86.0** | 85.8 | 81.6 | 83.0 | 86.2 |
+| **DeepSWE** | **56.0** | 59.0 | 54.4 | 46.2 | 67.5 |
+| **GPQA Diamond (Reasoning)** | **92.8** | 93.6 | 91.4 | 91.2 | 93.5 |
+| **MCP-Atlas (Tool Use)** | **80.0** | 82.2 | 74.6 | 77.8 | 82.3 |
+
+### B) Ornith-1.5-35B-A3B: High-Efficiency Local Agent Development
+Activating only **3 billion parameters per token**, this model delivers rapid inference on consumer hardware (16GB–24GB VRAM) or Apple Silicon Mac workstations:
+* **Terminal-Bench 2.1 (Claude Code)**: **68.5** (vs. 49.2 for Qwen 3.6-35B and 42.1 for Gemma 4-31B).
+* **SWE-bench Verified**: **79.0** (vs. 52.0 for Gemma 4-31B and 76.0 for Muse Glimmer-30B).
+* **DeepSWE**: **22.0** (while competing 35B models scored 0).
+
+### C) Ornith-1.5-9B & 9B-Mobile: Edge Agent Execution
+Optimized for mobile platforms (iOS and Android) and lightweight edge runtimes:
+* **Terminal-Bench 2.1**: **47.0** (outperforming 31B models like Gemma 4-31B at 42.1).
+* **SWE-bench Verified**: **70.6** (vs. 53.2 for Qwen 3.5-9B).
+
+---
+
+## 3. Practical Implications for SMEs and Software Teams
+
+The ability of a model to synthesize its own problem-solving scaffolding impacts business operations in three key ways:
+
+### 1. Zero-Friction Enterprise Agent Deployment
+Connecting an agent to an accounting database or ERP traditionally required manually coding intermediate reasoning and validation steps. With Ornith-1.5, the model formulates task decomposition dynamically and tests intermediate steps against deterministic schemas ([Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents)).
+
+### 2. Radical Compute Cost Reductions
+The **35B-A3B** model matches the agentic capabilities of commercial cloud models at a fraction of the inference cost. Because only 3B parameters are active per token, businesses can host it locally or via flat-rate inference clusters like [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026), bypassing pay-per-token API surges.
+
+### 3. Hardened Security and Containment
+As highlighted in our recent analysis of [OpenAI pacing model development over cybersecurity risks](/en/blog/openai-paces-model-development-cyber-capabilities-agent-sandboxing-smes-2026), autonomous agent capabilities demand sandboxed runtimes. Ornith-1.5's training specifically penalizes reward-hacking and unverified out-of-harness executions.
+
+---
+
+## 4. TypeScript Implementation: Invoking Ornith-1.5-35B for Agentic Workflows
+
+Because Ornith-1.5 adheres to the standard OpenAI / vLLM API schema, integrating it into Node.js or TypeScript takes only seconds:
+
+\`\`\`typescript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "http://localhost:8000/v1", // Or private EU inference endpoint
+  apiKey: process.env.ORNITH_API_KEY || "local",
+});
+
+async function runAutonomousCodeFix() {
+  const response = await client.chat.completions.create({
+    model: "ornith-1.5-35b-a3b",
+    messages: [
+      {
+        role: "system",
+        content: "You are an autonomous refactoring agent. Formulate your internal decomposition plan before issuing patch rollouts."
+      },
+      {
+        role: "user",
+        content: "Optimize the customer bank reconciliation SQL query and generate unit tests covering edge cases."
+      }
+    ],
+    temperature: 0.6,
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+runAutonomousCodeFix();
+\`\`\`
+
+---
+
+## 5. Technical Comparison: Agentic Coding Models in 2026
+
+| Feature | Ornith-1.5-397B | Ornith-1.5-35B-A3B | Claude Opus 4.8 | DeepSeek-V4-Flash |
+| :--- | :--- | :--- | :--- | :--- |
+| **Licensing** | Open Weights | Open Weights | Proprietary API | Open Weights / API |
+| **Terminal-Bench 2.1** | **86.1** | 68.5 | 85.0 | 82.7 |
+| **SWE-bench Verified** | **86.0** | 79.0 | 85.8 | 81.6 |
+| **Self-Scaffolding** | **Native (GRPO)** | **Native (GRPO)** | Static | Static |
+| **Active Parameters** | ~28B | **3B** | Undisclosed | ~21B |
+| **Local Deployment** | Requires Multi-GPU | **1 GPU / Mac M-Series** | Not Available | Requires Dedicated Server |
+
+---
+
+## 6. Strategic Takeaway
+
+Ornith-1.5 highlights a decisive shift in open-source AI: progress is no longer just about raw parameter scaling, but about **methodological autonomy**—the capacity of a model to generate its own tasks, build its own verification tools, and evaluate its own trajectories.
+
+For businesses automating engineering pipelines, data audits, and system integrations, deploying self-improving models on private infrastructure offers unprecedented control and ROI.
+
+> **[Deploy Autonomous Open-Source AI Agents with IA4PYMES →](/en#consultoria)**
+> We design secure MCP architectures, deterministic agent sandboxes, and optimized local deployments to help your business capture the full value of modern open-source AI.
+
+---
+
+## 7. Frequently Asked Questions
+
+### What is Self-Scaffolding in Ornith-1.5?
+It refers to the model's ability to autonomously construct and refine its own toolset, prompts, and task-decomposition strategies for any given problem without requiring static human-written harnesses.
+
+### Can Ornith-1.5 run on consumer hardware?
+Yes. The **Ornith-1.5-9B-Mobile** model runs on mobile and edge devices, while **Ornith-1.5-35B-A3B** (activating only 3B parameters per token) runs smoothly on single-GPU workstations or Apple Silicon Macs using [GGUF quantizations](/en/blog/unsloth-qwen-3-8-27b-gguf-run-local-ram-smes-2026).
+
+### How does Ornith-1.5 prevent reward hacking?
+Through its harness reward term \`H(h)\`, which assesses the robustness of the evaluation harness against shortcuts, superficial solutions, and evaluator exploitation.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: OpenAI Frena Desarrollo por Ciberseguridad y Sandboxing Agentes (NUEVO - 19 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
