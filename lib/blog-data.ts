@@ -16,6 +16,341 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Claude Academy Anthropic Formación y Certificaciones (NUEVO - 21 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "claude-academy-anthropic-cursos-gratis-certificaciones-ia-pymes-2026",
+        title: "Claude Academy: La Plataforma Oficial y Gratuita de Anthropic para Formar Equipos y Desarrollar con MCP, Claude Code y APIs (Guía 2026)",
+        description: "Análisis completo de Claude Academy (academy.claude.com): rutas de aprendizaje gratuitas, certificaciones oficiales, dominio de Claude Code, integración MCP para empresas y cómo capacitar a tu plantilla sin coste.",
+        date: "2026-08-21",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "Ecosistema IA",
+        image: "/images/claude_academy_anthropic_certification_smes_2026.png",
+        lang: "es",
+        translationSlug: "claude-academy-anthropic-free-courses-certifications-mcp-smes-2026",
+        content: `
+Uno de los mayores frenos en la digitalización de pequeñas y medianas empresas no es la falta de modelos de inteligencia artificial, sino la **brecha de capacitación de los equipos**. La mayoría de empleados utiliza interfaces de chat para tareas superficiales, mientras que los equipos técnicos pierden semanas intentando integrar APIs sin dominar estándares modernos como el protocolo **MCP (*Model Context Protocol*)** o arneses de terminal como **Claude Code**.
+
+Para resolver esta fragmentación, Anthropic ha lanzado oficialmente [**Claude Academy**](https://academy.claude.com/), su portal centralizado de formación gratuita, casos de uso reales y certificaciones para profesionales, desarrolladores y empresas.
+
+La plataforma no exige suscripciones de pago ni cuentas avanzadas para acceder a sus cursos. En este análisis detallado desglosamos sus 4 rutas formativas, las certificaciones oficiales disponibles, cómo aplicar estas metodologías en tu empresa y cómo ahorrar miles de euros en consultoría básica capacitando a tu plantilla desde la fuente oficial.
+
+---
+
+## 1. Qué es Claude Academy y Cómo se Estructura su Catálogo Formativo
+
+Claude Academy agrupa el conocimiento técnico y operativo acumulado por Anthropic en una plataforma modular estructurada por perfiles profesionales:
+
+![Itinerario Formativo de Claude Academy para Equipos Empresariales](/images/claude_academy_learning_path_enterprise_matrix_2026.png)
+
+### Las 4 Rutas de Aprendizaje Principales:
+
+1. **Ruta 1: Fluidez en IA y Productividad (*AI Fluency*)**:
+   - Orientada a directores de operaciones, finanzas, recursos humanos y marketing.
+   - Enseña los fundamentos de razonamiento de los LLMs, diseño de instrucciones precisas (*prompt engineering*), análisis de datos complejos y gestión de flujos de trabajo con **Claude Cowork** y **Claude Tag** en Slack y Microsoft Teams.
+
+2. **Ruta 2: Ingeniería de Software con Claude Code**:
+   - Diseñada para desarrolladores y equipos técnicos.
+   - Cubre la configuración del agente en línea de comandos (*terminal-first*), integración en entornos IDE (Cursor, VS Code), refactorización de repositorios completos, depuración automatizada y tuberías de CI/CD.
+
+3. **Ruta 3: Arquitectura de Sistemas y API de Claude**:
+   - Enfocada en arquitectos de software e ingenieros de IA.
+   - Profundiza en el uso de herramientas (*tool use* / *function calling*), optimización de costes y latencia mediante **Prompt Caching** (reducción de hasta un 90% en costes de tokens de entrada), y construcción de servidores **MCP** para conectar bases de datos y microservicios.
+
+4. **Ruta 4: Despliegue Cloud Empresarial y Seguridad**:
+   - Orientada a ingenieros de DevOps y responsables de seguridad.
+   - Guías prácticas para desplegar Claude de forma nativa en **Amazon Bedrock** y **Google Cloud Vertex AI**, aislamiento de red y cumplimiento normativo del **EU AI Act**.
+
+---
+
+## 2. Los Productos del Ecosistema Claude que Cubre la Academia
+
+La academia cubre el catálogo completo de soluciones de Anthropic:
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 MAPA DE PRODUCTOS EN CLAUDE ACADEMY (2026)                  │
+├───────────────────┬──────────────────────────────────┬──────────────────────┤
+│ Producto          │ Enfoque Formativo                │ Perfil Destinatario  │
+├───────────────────┼──────────────────────────────────┼──────────────────────┤
+│ **Claude.ai**     │ Razonamiento, análisis de datos  │ Todo tipo de usuario │
+│ **Claude Cowork** │ Delegación de tareas y entregas  │ Equipos de trabajo   │
+│ **Claude Code**   │ Desarrollo terminal y refactor   │ Ingenieros de software│
+│ **Claude Tag**    │ Colaboración en canales de chat  │ Operaciones / Soporte│
+│ **Claude Platform**│ API, Console, Prompt Caching, MCP│ Arquitectos Cloud / IA│
+└───────────────────┴──────────────────────────────────┴──────────────────────┘
+\`\`\`
+
+---
+
+## 3. Certificaciones Oficiales: Validar las Competencias del Equipo
+
+Claude Academy divide el reconocimiento formativo en dos niveles:
+
+### A) Badges y Certificados Digitales Gratuitos (Skilljar / Coursera)
+Al completar cada módulo interactivo y superar las evaluaciones prácticas, el alumno recibe una insignia verificable y un certificado digital de finalización emitido por Anthropic. Esto permite a las PYMEs auditar qué miembros del equipo han completado la capacitación en seguridad de datos, uso de herramientas o desarrollo.
+
+### B) Certificación Profesional Claude (Pearson VUE)
+Para consultores e ingenieros que requieren una validación oficial de alto nivel frente a clientes corporativos, Anthropic mantiene exámenes supervisados a través de la red Pearson VUE en tres especialidades:
+* **Claude Certified Practitioner**: Validación de competencias operativas y casos de uso de negocio.
+* **Claude Certified Developer**: Programación de aplicaciones, gestión de contexto y llamadas a APIs.
+* **Claude Certified Architect**: Diseño de sistemas distribuidos con MCP, despliegue cloud en Bedrock/Vertex y políticas de contención y seguridad.
+
+---
+
+## 4. Implementación Técnica: Uso Eficiente de la API con Prompt Caching
+
+Uno de los módulos más valiosos para las empresas dentro de Claude Academy es el de **Prompt Caching**. Si tu sistema envía manuales de producto, bases de datos o esquemas repetitivos en cada petición, cachear ese contexto reduce la factura en un 90% y la latencia en un 85%:
+
+\`\`\`typescript
+// claude-cached-api-example.ts
+import Anthropic from "@anthropic-ai/sdk";
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+async function runCachedEnterpriseQuery() {
+  const response = await anthropic.messages.create({
+    model: "claude-3-7-sonnet-20250219",
+    max_tokens: 1024,
+    system: [
+      {
+        type: "text",
+        text: "Eres el auditor contable de la empresa. Analiza las siguientes transacciones contra la política interna de gastos.",
+      },
+      {
+        type: "text",
+        text: "--- MANUAL DE POLÍTICA DE GASTOS COMPLETO (20.000 palabras) ---",
+        // Marcamos este bloque para cacheado efímero de alta velocidad:
+        cache_control: { type: "ephemeral" },
+      },
+    ],
+    messages: [
+      {
+        role: "user",
+        content: "Revisa la factura #INV-9821 y valida si el gasto en dietas supera el límite por empleado.",
+      },
+    ],
+  });
+
+  console.log("Tokens de entrada leídos de caché:", response.usage.cache_read_input_tokens);
+  console.log("Tokens de entrada nuevos creados:", response.usage.cache_creation_input_tokens);
+  console.log("Respuesta del auditor:", response.content[0]);
+}
+
+runCachedEnterpriseQuery();
+\`\`\`
+
+---
+
+## 5. El Impacto de Claude Academy para las PYMEs
+
+Para una empresa con entre 10 y 100 empleados, la adopción desordenada de IA genera dos problemas habituales:
+1. **Facturas duplicadas**: Diferentes empleados pagando suscripciones aisladas sin compartir conocimiento ni plantillas.
+2. **Brechas de seguridad**: Subida de datos confidenciales sin políticas claras de retención. Como analizamos tras el [comunicado de OpenAI sobre riesgos y sandboxing de agentes](/blog/openai-frena-desarrollo-modelos-riesgo-ciberseguridad-agentes-pymes-2026), operar sin protocolos definidos expone la información crítica.
+
+Al utilizar los cursos oficiales de Claude Academy, una empresa puede:
+* **Estandarizar el protocolo MCP**: Conectar su base de datos a través de pasarelas seguras como [Executor.sh](/blog/executor-sh-gateway-mcp-unificado-agentes-ia) sin desarrollar conectores propietarios frágiles.
+* **Evaluar alternativas de cómputo**: Comprender cuándo conviene utilizar la API de Claude y cuándo desplegar modelos abiertos locales como [Ornith-1.5](/blog/ornith-1-5-modelos-auto-mejora-scaffolding-autonomo-pymes-2026) o [Qwen 3.8-27B en GGUF](/blog/unsloth-qwen-3-8-27b-gguf-ejecutar-local-ram-pymes-2026), o clusters de tarifa fija como [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026).
+* **Eliminar el coste de formación externa inicial**: Capacitar a todo el equipo con material verificado directamente por el laboratorio de desarrollo.
+
+---
+
+## 6. Conclusión y Hoja de Ruta Recomendada
+
+Claude Academy marca un estándar en la industria al ofrecer formación estructurada y gratuita sin barreras de entrada comerciales. 
+
+La recomendación para cualquier empresa es establecer un plan de formación en tres fases:
+1. **Semana 1-2**: Todo el personal no técnico completa los módulos de *AI Fluency*.
+2. **Semana 3-4**: Los desarrolladores configuran *Claude Code* y completan los módulos de herramientas y *Prompt Caching*.
+3. **Mes 2 en adelante**: Los líderes técnicos auditan las integraciones MCP y certifican las arquitecturas en producción.
+
+> **[Audita y Diseña la Estrategia de IA de tu Empresa con IA4PYMES →](/#consultoria)**
+> Te ayudamos a estructurar la adopción de Claude y modelos abiertos, implementar servidores MCP seguros y automatizar procesos con retorno de inversión medible.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Es realmente gratis Claude Academy?
+Sí. El acceso a todos los cursos, tutoriales y casos de uso en [academy.claude.com](https://academy.claude.com/) es 100% gratuito. Solo se requiere un registro básico con correo electrónico.
+
+### ¿Se necesita saber programar para aprovechar los cursos?
+No. La ruta de **AI Fluency** y los módulos sobre Claude.ai, Claude Cowork y Claude Tag están diseñados específicamente para perfiles de negocio, administración y operaciones sin conocimientos técnicos.
+
+### ¿Qué diferencia hay entre Claude Code y la API estándar?
+Claude Code es un agente de línea de comandos diseñado específicamente para inspeccionar código, ejecutar terminales y editar archivos de forma interactiva en el entorno local del desarrollador, mientras que la API está pensada para integrar modelos de Claude dentro de aplicaciones y servicios cloud.
+`,
+    },
+    {
+        slug: "claude-academy-anthropic-free-courses-certifications-mcp-smes-2026",
+        title: "Claude Academy: Anthropic's Official Free Learning Platform for Teams, Claude Code, MCP & API Development (2026 Guide)",
+        description: "Comprehensive review of Claude Academy (academy.claude.com): free learning tracks, official certifications, mastering Claude Code, enterprise MCP integrations, and upskilling teams at zero cost.",
+        date: "2026-08-21",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "AI Ecosystem",
+        image: "/images/claude_academy_anthropic_certification_smes_2026.png",
+        lang: "en",
+        translationSlug: "claude-academy-anthropic-cursos-gratis-certificaciones-ia-pymes-2026",
+        content: `
+A major barrier in corporate AI adoption is not the lack of models, but the **internal skills gap across business teams**. Most employees use chat interfaces for basic drafting, while engineering teams spend weeks integrating bespoke APIs without mastering modern standards like the **Model Context Protocol (MCP)** or terminal agents like **Claude Code**.
+
+To bridge this divide, Anthropic has officially introduced [**Claude Academy**](https://academy.claude.com/), a centralized, free learning platform featuring modular courses, real-world enterprise use cases, and official certifications for professionals, developers, and corporate teams.
+
+The platform requires no paid subscription or enterprise account to access its curriculum. In this technical deep dive, we examine its 4 core learning tracks, the available certification paths, how to implement these patterns in production, and how SMEs can upskill their entire workforce at zero training cost.
+
+---
+
+## 1. What is Claude Academy and How is the Curriculum Structured?
+
+Claude Academy consolidates Anthropic's operational and architectural knowledge into modular, role-based tracks:
+
+![Claude Academy Enterprise Learning Roadmap](/images/claude_academy_learning_path_enterprise_matrix_2026.png)
+
+### The 4 Core Learning Paths:
+
+1. **Track 1: AI Fluency & Productivity**:
+   - Tailored for operations, finance, HR, and marketing leaders.
+   - Covers foundational LLM reasoning, structured prompt engineering, complex data analysis, and orchestrating workflows with **Claude Cowork** and **Claude Tag** in Slack and Microsoft Teams.
+
+2. **Track 2: Software Engineering with Claude Code**:
+   - Designed for software engineers and technical leads.
+   - Covers terminal-first agent configurations, IDE extensions (Cursor, VS Code), codebase-wide refactoring, automated debugging, and CI/CD pipeline integration.
+
+3. **Track 3: System Architecture and the Claude API**:
+   - Targeted at software architects and AI developers.
+   - Dives deep into tool use / function calling, cost and latency optimization with **Prompt Caching** (up to 90% savings on input tokens), and building custom **MCP** servers to connect private databases and microservices.
+
+4. **Track 4: Enterprise Cloud Deployment & Security**:
+   - For DevOps engineers and compliance officers.
+   - Practical blueprints for deploying Claude natively on **Amazon Bedrock** and **Google Cloud Vertex AI**, network egress isolation, and **EU AI Act** compliance.
+
+---
+
+## 2. Complete Ecosystem Products Covered in the Academy
+
+The curriculum spans the full Anthropic solution suite:
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 PRODUCT SUITE IN CLAUDE ACADEMY (2026)                      │
+├───────────────────┬──────────────────────────────────┬──────────────────────┤
+│ Product           │ Learning Focus                   │ Target Role          │
+├───────────────────┼──────────────────────────────────┼──────────────────────┤
+│ **Claude.ai**     │ Reasoning & Data Analysis        │ General Business     │
+│ **Claude Cowork** │ Task Delegation & Deliverables   │ Project Teams        │
+│ **Claude Code**   │ Terminal Development & Refactor  │ Software Engineers   │
+│ **Claude Tag**    │ Channel-Based AI Collaboration   │ Operations / Support │
+│ **Claude Platform**│ API, Console, Prompt Caching, MCP│ Cloud / AI Architects│
+└───────────────────┴──────────────────────────────────┴──────────────────────┘
+\`\`\`
+
+---
+
+## 3. Official Certifications: Validating Team Competencies
+
+Claude Academy provides a two-tier recognition model:
+
+### A) Free Digital Badges and Completion Certificates (Skilljar / Coursera)
+Learners completing interactive modules and passing practical quizzes earn verifiable digital badges and completion certificates directly from Anthropic. This enables SMEs to verify that team members have completed data privacy, tool use, and operational training.
+
+### B) Professional Claude Certification (Pearson VUE)
+For senior engineers and enterprise consultants requiring proctored credentials, Anthropic offers Pearson VUE examinations across three tracks:
+* **Claude Certified Practitioner**: Business workflows, operational adoption, and productivity.
+* **Claude Certified Developer**: API integrations, context optimization, and application development.
+* **Claude Certified Architect**: Distributed MCP system design, enterprise cloud deployments (Bedrock/Vertex), and cybersecurity sandboxing.
+
+---
+
+## 4. Production Implementation: Optimizing API Workflows with Prompt Caching
+
+One of the most impactful architectural practices taught in Claude Academy is **Prompt Caching**. When workflows repeatedly send system prompts, product documentation, or database schemas, caching that context cuts input token costs by 90% and slashes latency by 85%:
+
+\`\`\`typescript
+// claude-cached-api-example.ts
+import Anthropic from "@anthropic-ai/sdk";
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+async function runCachedEnterpriseQuery() {
+  const response = await anthropic.messages.create({
+    model: "claude-3-7-sonnet-20250219",
+    max_tokens: 1024,
+    system: [
+      {
+        type: "text",
+        text: "You are an enterprise financial auditor. Evaluate transactions against the company expense policy.",
+      },
+      {
+        type: "text",
+        text: "--- COMPLETE CORPORATE EXPENSE POLICY MANUAL (20,000 words) ---",
+        // Enable high-speed ephemeral caching for this block:
+        cache_control: { type: "ephemeral" },
+      },
+    ],
+    messages: [
+      {
+        role: "user",
+        content: "Audit invoice #INV-9821 and verify whether daily meal allowances exceed the corporate limit.",
+      },
+    ],
+  });
+
+  console.log("Cached input tokens read:", response.usage.cache_read_input_tokens);
+  console.log("New cache creation tokens:", response.usage.cache_creation_input_tokens);
+  console.log("Auditor output:", response.content[0]);
+}
+
+runCachedEnterpriseQuery();
+\`\`\`
+
+---
+
+## 5. Strategic Benefits for SMEs
+
+For organizations with 10 to 100 employees, uncoordinated AI adoption typically leads to two severe issues:
+1. **Redundant Subscriptions**: Team members purchasing isolated SaaS accounts without unified templates or shared knowledge bases.
+2. **Data Governance Liabilities**: Uploading confidential corporate documents without clear data retention controls. As seen in our analysis of [OpenAI pacing model development over cybersecurity risks](/en/blog/openai-paces-model-development-cyber-capabilities-agent-sandboxing-smes-2026), operating without structured containment introduces significant exposure.
+
+Leveraging Claude Academy allows businesses to:
+* **Standardize on MCP**: Connect internal databases via standardized gateways like [Executor.sh](/en/blog/executor-sh-unified-mcp-gateway-ai-agents) rather than brittle, proprietary API scripts.
+* **Evaluate Hybrid Architectures**: Know precisely when to use commercial Claude APIs vs. self-hosted open models like [Ornith-1.5](/en/blog/ornith-1-5-self-improvement-self-scaffolding-models-smes-2026), [Qwen 3.8-27B GGUF](/en/blog/unsloth-qwen-3-8-27b-gguf-run-local-ram-smes-2026), or flat-rate clusters like [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026).
+* **Eliminate Initial Training Costs**: Upskill technical and non-technical staff using verified material developed directly by the frontier AI lab.
+
+---
+
+## 6. Strategic Takeaway and Action Plan
+
+Claude Academy sets a standard for accessible, high-quality enterprise education. 
+
+We recommend a three-phase corporate rollout:
+1. **Weeks 1–2**: All non-technical staff complete the *AI Fluency* foundations track.
+2. **Weeks 3–4**: Software engineers configure *Claude Code* and complete the *Prompt Caching* and tool use modules.
+3. **Month 2 onward**: Technical leads audit MCP integrations and certify production cloud architectures.
+
+> **[Audit and Scale Your Enterprise AI Strategy with IA4PYMES →](/en#consultoria)**
+> We build secure MCP gateways, sandboxed agent architectures, and hybrid cloud/local deployments to deliver measurable business ROI.
+
+---
+
+## 7. Frequently Asked Questions
+
+### Is Claude Academy genuinely free?
+Yes. All courses, tutorials, and practical guides on [academy.claude.com](https://academy.claude.com/) are 100% free to access with a standard email registration.
+
+### Do business users need coding knowledge?
+No. The **AI Fluency** track and modules covering Claude.ai, Claude Cowork, and Claude Tag are designed specifically for operational, management, and administrative roles.
+
+### How does Claude Code differ from the standard API?
+Claude Code is an interactive, terminal-first agent designed to inspect repositories, run shell commands, and edit files directly in local developer environments, whereas the API is used to programmatically embed Claude into backend services and applications.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Ornith-1.5 Modelos de Auto-Mejora y Self-Scaffolding (NUEVO - 20 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
