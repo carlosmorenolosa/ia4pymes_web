@@ -16,6 +16,375 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO BILINGÜE: Gentle-Pi Vibe Coding y SDD Buenas Prácticas (NUEVO - 31 AGOSTO 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "gentle-pi-gentleman-programming-vibe-coding-sdd-buenas-practicas-pymes",
+        title: "Gentle-Pi: Cómo Profesionalizar el Vibe Coding con Spec-Driven Development, TDD Estricto y Subagentes en tu Empresa",
+        description: "Guía técnica y práctica de gentle-pi (Gentleman Programming): instalación paso a paso, arquitectura SDD/OpenSpec, flujo TDD Red-Green-Refactor, lentes de revisión 4R y cómo programar con agentes IA sin acumular deuda técnica.",
+        date: "2026-08-31",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "Desarrollo y Agentes IA",
+        image: "/images/gentle_pi_vibe_coding_best_practices_smes_2026.png",
+        lang: "es",
+        translationSlug: "gentle-pi-gentleman-programming-vibe-coding-sdd-best-practices-smes",
+        content: `
+El fenómeno del *vibe coding* (programar mediante lenguaje natural delegando la escritura de código en modelos de inteligencia artificial) ha permitido a fundadores, desarrolladores y equipos técnicos crear prototipos en cuestión de horas. Sin embargo, en entornos empresariales y proyectos de software reales, el *vibe coding* no estructurado suele derivar en un colapso operativo:
+
+* El agente empieza a generar código antes de clarificar los requisitos reales.
+* Las decisiones de diseño arquitectónico se pierden al compactarse el historial del chat.
+* Un cambio menor se convierte en un *diff* descontrolado de 1.000 líneas tocando 15 archivos a la vez.
+* Las pruebas unitarias se ejecutan tarde o nunca.
+* Los revisores humanos reciben un muro de código ininteligible difícil de auditar.
+
+Para resolver este problema de raíz, el equipo de **Gentleman Programming** (liderado por Alan Buscaglia) ha creado [**gentle-pi**](https://github.com/Gentleman-Programming/gentle-pi), un paquete nativo de Pi que transforma a los agentes de IA en un **arnés de ingeniería riguroso guiado por Spec-Driven Development (SDD), TDD estricto y lentes de revisión profesional**.
+
+En esta guía práctica analizamos cómo funciona su arquitectura, cómo instalarlo paso a paso y cómo aplicarlo para construir software empresarial robusto sin acumular deuda técnica.
+
+---
+
+## 1. Qué es gentle-pi y Cómo Resuelve el Caos del Vibe Coding
+
+\`gentle-pi\` no es un simple conjunto de *prompts*, sino una capa operativa completa (*operating layer*) que instala en Pi el rol de un **arquitecto senior (*el Gentleman*)**:
+
+![Flujo de Trabajo de Ingeniería de Software con gentle-pi](/images/gentle_pi_sdd_tdd_4r_architecture_workflow_2026.png)
+
+El arnés estructura el ciclo de vida del desarrollo en cuatro pilares innegociables:
+
+### 1. Enrutamiento Inteligente de Tareas (*Work Routing Discipline*)
+El sistema evalúa el alcance de cada petición antes de tocar una sola línea de código:
+* **Edición pequeña y local**: Se ejecuta directamente en la sesión principal.
+* **Exploración de contexto amplio (lectura de 4+ archivos)**: Se delega automáticamente a un subagente de exploración (*scout* o *context-builder*) para no saturar la memoria de la sesión principal.
+* **Cambio arquitectónico o de alto riesgo (modificación de 2+ archivos clave)**: Se canaliza obligatoriamente a través de un flujo **SDD / OpenSpec**.
+
+### 2. Desarrollo Guiado por Especificaciones (Spec-Driven Development - SDD)
+En lugar de confiar en el contexto volátil del chat, \`gentle-pi\` descompone cualquier funcionalidad compleja en artefactos persistentes versionados en Git:
+\`\`\`
+Exploración (Explore) ➔ Propuesta (Proposal) ➔ Especificación (Spec) ➔ Diseño (Design) ➔ Tareas (Tasks) ➔ Aplicación (Apply) ➔ Verificación (Verify) ➔ Sincronización (Sync)
+\`\`\`
+Si el modelo compacta su memoria o la sesión se reinicia, las decisiones arquitectónicas permanecen intactas en los archivos de especificación.
+
+### 3. TDD Estricto (*Strict Test-Driven Development*)
+Cuando el proyecto cuenta con una suite de pruebas configurada, el agente no puede dar por finalizada una tarea sin aportar evidencia reproducible del ciclo:
+\`\`\`
+ROJO (Escribir test que falla) ➔ VERDE (Implementar código mínimo) ➔ TRIANGULAR (Casos límite) ➔ REFACTORIZAR (Limpiar código)
+\`\`\`
+
+### 4. Lentes de Revisión 4R (*The 4R Review Framework*)
+Para garantizar que el código sea mantenible y seguro, el arnés somete el cambio a cuatro lentes de auditoría independientes:
+* \`review-readability\`: Nombres claros, coherencia estructural y guía de estilo.
+* \`review-reliability\`: Determinismo, pruebas de regresión y cobertura de errores.
+* \`review-resilience\`: Tolerancia a fallos, recuperación ante caídas y desacoplamiento.
+* \`review-risk\`: Seguridad, permisos, exposición de datos sensibles y dependencias.
+
+---
+
+## 2. Instalación y Puesta en Marcha Paso a Paso
+
+La instalación de \`gentle-pi\` se realiza de forma directa sobre el runtime de Pi mediante npm:
+
+\`\`\`bash
+# 1. Instalar gentle-pi
+pi install npm:gentle-pi@0.14.0
+
+# 2. Instalar paquetes complementarios recomendados del ecosistema
+pi install npm:pi-subagents-j0k3r
+pi install npm:pi-intercom
+pi install npm:gentle-engram
+pi install npm:pi-web-access
+pi install npm:pi-lens
+\`\`\`
+
+### Inicializar el Arnés en tu Repositorio
+
+Abre la terminal en la raíz de tu proyecto y ejecuta los comandos de diagnóstico:
+
+\`\`\`text
+/gentle:status          # Comprueba el estado del paquete, OpenSpec y modelos
+/gentle:doctor          # Ejecuta un diagnóstico de herramientas, permisos y guardas
+/sdd-init               # Inicializa openspec/config.yaml en el repositorio
+/gentle:models          # Asigna modelos específicos a cada tipo de subagente
+/gentle:persona         # Alterna entre el modo 'gentleman' y 'neutral'
+\`\`\`
+
+---
+
+## 3. Ejemplo Práctico: Implementación de una Integración con SDD y TDD
+
+Supongamos que tu empresa necesita integrar la validación de facturas electrónicas con [VeriFactu](/blog/verifactu-factura-electronica-ia-pymes-automatizacion-contable-2026) o conectar una base de datos mediante [Executor.sh / MCP](/blog/executor-sh-gateway-mcp-unificado-agentes-ia).
+
+En lugar de pedirle al agente *"escríbeme un script de validación"*, el flujo con \`gentle-pi\` se ejecuta con disciplina arquitectónica:
+
+\`\`\`typescript
+// invoice-validator.test.ts (Evidencia TDD - Fase RED)
+import { describe, it, expect } from "vitest";
+import { validateInvoicePayload } from "./invoice-validator";
+
+describe("Validación Estricta de Facturas VeriFactu", () => {
+  it("debe rechazar facturas con NIF de emisor malformado", () => {
+    const invalidInvoice = {
+      nifEmisor: "123456", // NIF no válido
+      totalFactura: 150.00,
+      cuotaIva: 31.50,
+    };
+
+    const result = validateInvoicePayload(invalidInvoice);
+    expect(result.isValid).toBe(false);
+    expect(result.errorCode).toBe("INVALID_ISSUER_NIF");
+  });
+
+  it("debe calcular correctamente el desglose de IVA al 21%", () => {
+    const validInvoice = {
+      nifEmisor: "B12345678",
+      baseImponible: 100.00,
+      tipoIva: 0.21,
+      cuotaIva: 21.00,
+      totalFactura: 121.00,
+    };
+
+    const result = validateInvoicePayload(validInvoice);
+    expect(result.isValid).toBe(true);
+  });
+});
+\`\`\`
+
+Una vez que el subagente de pruebas verifica que los tests fallan correctamente (fase **RED**), el subagente de implementación escribe la lógica mínima para pasarlos (**GREEN**), ejecuta la triangulación de casos límite y aplica las lentes de revisión **4R** antes de generar el *commit*.
+
+---
+
+## 4. Asignación de Modelos por Capacidad y Ahorro de Costes
+
+Uno de los grandes beneficios de \`gentle-pi\` es su capacidad para asignar distintos modelos de IA según la fase del trabajo mediante el comando \`/gentle:models\`:
+
+| Fase / Subagente | Modelo Recomendado | Justificación |
+| :--- | :--- | :--- |
+| **Exploración / Scout** | [Qwen 3.8 Flash Next](/blog/qwen-3-8-flash-next-arquitectura-hibrida-moe-125b-pymes-2026) | Ultrarrápido y coste cero para leer 20 archivos. |
+| **Diseño / Especificación** | Claude Opus 4.8 / GPT-5 | Máxima capacidad de razonamiento conceptual. |
+| **Implementación / Apply** | [GLM-5.3-Flash](/blog/qwen-3-8-flash-vs-glm-5-3-flash-comparativa-modelos-abiertos-empresas) | Excelente benchmark en *DeepSWE* y generación de código. |
+| **Revisión 4R y Auditoría** | [Ornith-1.5-397B](/blog/ornith-1-5-modelos-auto-mejora-scaffolding-autonomo-pymes-2026) | Detección rigurosa de fallos y resistencia a *reward hacking*. |
+
+Esta combinación permite reducir el gasto en APIs en más de un 75% frente al uso indiscriminado de un único modelo comercial cerrado, y puede ejecutarse íntegramente sobre hardware local como el [Apple Mac Studio M5](/blog/mac-studio-m5-max-m5-ultra-servidor-ia-local-512gb-ram-pymes-2026) o clusters unmetered como [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026).
+
+---
+
+## 5. El Impacto de gentle-pi para PYMEs y Equipos Técnicos
+
+Para empresas con equipos de desarrollo reducidos o fundadores técnicos, adoptar \`gentle-pi\` aporta tres ventajas estratégicas inmediatas:
+
+1. **Eliminación de la Deuda Técnica Silenciosa**: El código generado por IA suele funcionar a primera vista pero romperse meses después por falta de tipado, tests o diseño modular. \`gentle-pi\` obliga a documentar y probar cada cambio.
+2. **Onboarding Rápido de Nuevos Desarrolladores**: Gracias a los artefactos generados en la carpeta \`openspec/\`, cualquier nuevo miembro del equipo puede entender por qué se tomó cada decisión técnica sin tener que descifrar miles de líneas de código.
+3. **Control y Seguridad en Producción**: Las guardas de seguridad integradas bloquean comandos de terminal destructivos (\`rm -rf\`, modificaciones no autorizadas de claves API o sobrescritura de archivos protegidos).
+
+---
+
+## 6. Conclusión y Hoja de Ruta
+
+El *vibe coding* fue el primer paso para democratizar la programación asistida por IA. Sin embargo, para construir software comercial, seguro y mantenible, las empresas necesitan dar el salto hacia el **desarrollo estructurado con arneses de ingeniería**.
+
+\`gentle-pi\` marca el camino a seguir: rigor en las especificaciones, verificación estricta mediante pruebas y delegación inteligente en subagentes.
+
+> **[Audita y Profesionaliza los Flujos de IA y Desarrollo en tu Empresa con IA4PYMES →](/#consultoria)**
+> Diseñamos arneses a medida, configuramos entornos de desarrollo agéntico con pruebas automatizadas y formamos a tu equipo en las mejores prácticas de la ingeniería asistida por IA.
+
+---
+
+## 7. Preguntas Frecuentes
+
+### ¿Es gentle-pi compatible con entornos como Cursor o VS Code?
+\`gentle-pi\` está diseñado específicamente para el CLI de **Pi**, pero los artefactos de especificación que genera (\`openspec/\` y documentos de arquitectura) son estándares abiertos en Markdown y YAML totalmente interoperables con Cursor, Windsurf o [Claude Code](/blog/claude-academy-anthropic-cursos-gratis-certificaciones-ia-pymes-2026).
+
+### ¿Qué ocurre si mi proyecto no tiene tests automáticos?
+El arnés permite operar en modo flexible, pero alertará al desarrollador sobre la ausencia de una suite de pruebas (\`npm test\`, \`pytest\`, \`cargo test\`) y propondrá crearla en la fase de especificación para habilitar el flujo de TDD estricto.
+
+### ¿Se puede utilizar gentle-pi de forma 100% gratuita?
+Sí. El paquete \`gentle-pi\` es de código abierto con licencia MIT y puede utilizarse tanto con modelos comerciales como con modelos de pesos abiertos locales sin pagar licencias adicionales de software.
+`,
+    },
+    {
+        slug: "gentle-pi-gentleman-programming-vibe-coding-sdd-best-practices-smes",
+        title: "Gentle-Pi: Transforming Vibe Coding with Spec-Driven Development, Strict TDD, and Subagent Orchestration",
+        description: "Comprehensive developer guide to gentle-pi by Gentleman Programming: step-by-step setup, SDD/OpenSpec workflows, Strict TDD Red-Green-Refactor loops, 4R native review lenses, and building enterprise software without technical debt.",
+        date: "2026-08-31",
+        author: "IA4PYMES",
+        readingTime: "14 min",
+        category: "AI Software Engineering",
+        image: "/images/gentle_pi_vibe_coding_best_practices_smes_2026.png",
+        lang: "en",
+        translationSlug: "gentle-pi-gentleman-programming-vibe-coding-sdd-buenas-practicas-pymes",
+        content: `
+The emergence of *vibe coding*—authoring software through conversational prompts and delegating code generation to AI models—has enabled founders and development teams to prototype features at unprecedented speeds. However, in enterprise environments and long-lived codebases, unstructured vibe coding quickly triggers operational collapse:
+
+* The AI begins generating code before project specifications are fully established.
+* Architectural decisions vanish as conversation histories are truncated.
+* A minor feature request silently turns into an uncontrolled 1,000-line diff spanning 15 different files.
+* Tests are executed late or completely omitted.
+* Human reviewers are confronted with opaque walls of code that are painful to audit.
+
+To address this challenge at its root, the team at **Gentleman Programming** (led by Alan Buscaglia) built [**gentle-pi**](https://github.com/Gentleman-Programming/gentle-pi), a native Pi package that transforms raw AI coding agents into a **disciplined engineering harness powered by Spec-Driven Development (SDD), Strict TDD, and multi-lens review guardrails**.
+
+In this technical guide, we break down its architecture, installation workflow, and how engineering teams can apply it to build production-grade software without accumulating technical debt.
+
+---
+
+## 1. What is gentle-pi and How Does It Structure Vibe Coding?
+
+\`gentle-pi\` is not merely a collection of prompts; it is a comprehensive runtime operating layer that equips Pi with the persona and rigor of a **senior technical architect (*el Gentleman*)**:
+
+![gentle-pi Software Engineering Workflow](/images/gentle_pi_sdd_tdd_4r_architecture_workflow_2026.png)
+
+The harness enforces four non-negotiable engineering pillars:
+
+### 1. Work Routing Discipline
+The harness evaluates the complexity and risk of every incoming task before writing code:
+* **Small, localized edit**: Handled directly in the primary session thread.
+* **Context-heavy investigation (reading 4+ files)**: Automatically delegated to read-only subagents (*scouts* or *context-builders*) to preserve parent session memory.
+* **High-risk or architectural modification (modifying 2+ core files)**: Obligatorily routed through a **Spec-Driven Development (SDD / OpenSpec)** pipeline.
+
+### 2. Spec-Driven Development (SDD / OpenSpec)
+Instead of relying on ephemeral chat context, \`gentle-pi\` breaks complex features into Git-versioned specification artifacts:
+\`\`\`
+Explore ➔ Proposal ➔ Spec ➔ Design ➔ Tasks ➔ Apply ➔ Verify ➔ Sync
+\`\`\`
+If the session restarts or the model compacts its memory window, architectural decisions and task checklists remain securely recorded in the repository.
+
+### 3. Strict TDD (Test-Driven Development)
+When a project declares an automated test command, the agent must generate verifiable evidence following the classic cycle:
+\`\`\`
+RED (Write failing test) ➔ GREEN (Minimal code to pass) ➔ TRIANGULATE (Edge cases) ➔ REFACTOR (Clean code)
+\`\`\`
+
+### 4. The 4R Native Review Framework
+Before changes are merged, the code undergoes scrutiny across four distinct evaluation lenses:
+* \`review-readability\`: Clear naming conventions, file structure, and style guide adherence.
+* \`review-reliability\`: Determinism, regression testing, and error handling coverage.
+* \`review-resilience\`: Partial failure tolerance, process decoupling, and recovery mechanics.
+* \`review-risk\`: Security boundaries, permissions, secret exposure, and dependency vulnerabilities.
+
+---
+
+## 2. Installation and Initial Configuration
+
+Installing \`gentle-pi\` is performed directly on the Pi runtime via npm:
+
+\`\`\`bash
+# 1. Install gentle-pi
+pi install npm:gentle-pi@0.14.0
+
+# 2. Install recommended ecosystem companion packages
+pi install npm:pi-subagents-j0k3r
+pi install npm:pi-intercom
+pi install npm:gentle-engram
+pi install npm:pi-web-access
+pi install npm:pi-lens
+\`\`\`
+
+### Initializing the Harness in Your Repository
+
+Launch Pi in the root directory of your repository and run the diagnostic commands:
+
+\`\`\`text
+/gentle:status          # Checks package state, OpenSpec assets, and model bindings
+/gentle:doctor          # Runs read-only diagnostics on tools, guards, and configs
+/sdd-init               # Initializes openspec/config.yaml in the repository
+/gentle:models          # Assigns specific models and effort tiers to subagents
+/gentle:persona         # Toggles between 'gentleman' and 'neutral' persona modes
+\`\`\`
+
+---
+
+## 3. Practical Example: Building an Enterprise Feature with SDD and TDD
+
+Suppose your organization needs to implement an automated invoice validation service for [VeriFactu e-invoicing](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026) or connect internal databases via [Executor.sh / MCP gateways](/en/blog/executor-sh-unified-mcp-gateway-ai-agents).
+
+Rather than asking the agent to *"write an invoice validation script"*, the \`gentle-pi\` harness enforces disciplined execution:
+
+\`\`\`typescript
+// invoice-validator.test.ts (TDD Evidence - RED Phase)
+import { describe, it, expect } from "vitest";
+import { validateInvoicePayload } from "./invoice-validator";
+
+describe("Strict VeriFactu Invoice Validation", () => {
+  it("should reject invoices with malformed issuer Tax IDs", () => {
+    const invalidInvoice = {
+      nifEmisor: "123456", // Invalid tax ID format
+      totalFactura: 150.00,
+      cuotaIva: 31.50,
+    };
+
+    const result = validateInvoicePayload(invalidInvoice);
+    expect(result.isValid).toBe(false);
+    expect(result.errorCode).toBe("INVALID_ISSUER_NIF");
+  });
+
+  it("should correctly compute 21% VAT breakdowns", () => {
+    const validInvoice = {
+      nifEmisor: "B12345678",
+      baseImponible: 100.00,
+      tipoIva: 0.21,
+      cuotaIva: 21.00,
+      totalFactura: 121.00,
+    };
+
+    const result = validateInvoicePayload(validInvoice);
+    expect(result.isValid).toBe(true);
+  });
+});
+\`\`\`
+
+Once the testing subagent confirms that tests fail for the right reasons (**RED**), the implementation worker implements minimal code to pass (**GREEN**), adds boundary condition tests (**TRIANGULATE**), and applies the **4R review lenses** prior to commit.
+
+---
+
+## 4. Multi-Model Routing for Performance and Cost Optimization
+
+A core architectural capability of \`gentle-pi\` is assigning specialized models to specific subagents via \`/gentle:models\`:
+
+| Phase / Subagent | Recommended Model | Rationale |
+| :--- | :--- | :--- |
+| **Exploration / Scout** | [Qwen 3.8 Flash Next](/en/blog/qwen-3-8-flash-next-hybrid-moe-125b-architecture-smes-2026) | High-speed, near-zero cost for reading 20+ files. |
+| **Design / Architecture** | Claude Opus 4.8 / GPT-5 | Maximum abstract reasoning and system design. |
+| **Implementation Worker** | [GLM-5.3-Flash](/en/blog/qwen-3-8-flash-vs-glm-5-3-flash-technical-comparison-enterprise-models) | High accuracy on *DeepSWE* and fast code synthesis. |
+| **4R Reviewer / Auditor** | [Ornith-1.5-397B](/en/blog/ornith-1-5-self-improvement-self-scaffolding-models-smes-2026) | Uncompromising code analysis and anti-reward hacking. |
+
+This tiered setup reduces API costs by over 75% compared to monolithic commercial models and can run locally on workstations like the [Apple Mac Studio M5](/en/blog/mac-studio-m5-max-m5-ultra-local-ai-server-512gb-ram-smes-2026) or private European clusters like [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026).
+
+---
+
+## 5. Strategic Benefits for SMEs and Software Engineering Teams
+
+For small development teams and technical founders, adopting \`gentle-pi\` delivers three immediate advantages:
+
+1. **Eliminating Invisible Technical Debt**: AI-generated code often functions initially but breaks later due to missing edge-case handling or unmanaged dependencies. \`gentle-pi\` mandates documentation and automated test verification.
+2. **Accelerated Developer Onboarding**: Specification artifacts stored in \`openspec/\` enable new engineers to understand architectural decisions without reverse-engineering thousands of lines of code.
+3. **Safe Production Execution**: Built-in runtime guards block hazardous shell commands (\`rm -rf\`, unverified secret edits, or sensitive file overwrites).
+
+---
+
+## 6. Strategic Takeaway
+
+Unstructured vibe coding was the initial step in AI-assisted programming. To deliver production-ready enterprise software, organizations must transition toward **disciplined engineering harnesses**.
+
+\`gentle-pi\` demonstrates the optimal path forward: rigorous specifications, strict test-driven validation, and structured subagent orchestration.
+
+> **[Transform Your AI Software Engineering Workflows with IA4PYMES →](/en#consultoria)**
+> We build custom agentic development harnesses, implement automated testing pipelines, and train engineering teams in modern AI architecture best practices.
+
+---
+
+## 7. Frequently Asked Questions
+
+### Is gentle-pi compatible with IDEs like Cursor or VS Code?
+\`gentle-pi\` is built natively for the Pi CLI environment, but its output artifacts (\`openspec/\` markdown and YAML files) are open standards fully compatible with Cursor, Windsurf, or [Claude Code](/en/blog/claude-academy-anthropic-free-courses-certifications-mcp-smes-2026).
+
+### What happens if my repository has no existing test suite?
+The harness operates flexibly, but will notify developers of missing test configurations (\`npm test\`, \`pytest\`, \`cargo test\`) and propose creating a baseline test suite during the specification phase.
+
+### Is gentle-pi free and open-source?
+Yes. \`gentle-pi\` is licensed under the MIT License and can be utilized with both commercial APIs and self-hosted open-weights models without additional software licensing fees.
+`,
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Qwen3.8-Flash vs. GLM-5.3-Flash Comparativa (NUEVO - 28 AGOSTO 2026)
     // ─────────────────────────────────────────────────────────
     {
