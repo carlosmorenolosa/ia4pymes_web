@@ -17,7 +17,6 @@ import {
   Facebook,
 } from "lucide-react"
 import Link from "next/link"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import { ScrollTopLink } from "@/components/scroll-top-link"
 
 import dynamic from "next/dynamic"
@@ -903,7 +902,6 @@ export default function HomeEN() {
           </div>
         </footer>
       </main>
-      <BlogChatWidgetLoader lang="en" />
     </>
   )
 }

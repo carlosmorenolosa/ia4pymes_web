@@ -15,7 +15,6 @@ import dynamic from "next/dynamic"
 // framer-motion removed from Server Component
 import { HomeHeader } from "@/components/home-header"
 import { HeroES } from "@/components/hero-es"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import { FadeIn } from "@/components/fade-in"
 import { Counter } from "@/components/counter"
 import { ScrollTopLink } from "@/components/scroll-top-link"
@@ -707,7 +706,6 @@ export default function Home() {
           </div>
         </footer>
       </main>
-      <BlogChatWidgetLoader lang="es" />
     </>
   )
 }

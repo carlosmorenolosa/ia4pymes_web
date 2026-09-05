@@ -3,7 +3,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { getEnPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowRight, BookOpen, Sparkles, Terminal, Globe } from "lucide-react"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 
 export const metadata: Metadata = {
     title: "IA4PYMES Blog | Artificial Intelligence for Business",
@@ -230,7 +229,6 @@ export default function EnBlogPage() {
                     </div>
                 </div>
             </footer>
-            <BlogChatWidgetLoader lang="en" />
         </main>
     )
 }

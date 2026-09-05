@@ -7,7 +7,6 @@ import { Calendar, Clock, ArrowLeft, ArrowRight, Terminal, Globe } from "lucide-
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import ReadingProgressBar from "@/components/reading-progress-bar"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import { BlogAuthorAvatar } from "@/components/blog-author-avatar"
 
 interface PageProps {
@@ -435,8 +434,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
             </section>
 
-            {/* Blog floating chat widget */}
-            <BlogChatWidgetLoader lang="es" />
+            {/* CTA Section */}
 
             {/* Premium Footer */}
             <footer className="py-12 bg-slate-950 border-t border-white/5">

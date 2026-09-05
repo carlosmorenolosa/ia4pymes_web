@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Terminal, Sparkles, ArrowLeft, ArrowRight, Calendar } from "lucide-react"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 import ReadingProgressBar from "@/components/reading-progress-bar"
 import { BlogAuthorAvatar } from "@/components/blog-author-avatar"
 
@@ -450,8 +449,7 @@ export default async function SectorCityPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Blog floating chat widget */}
-      <BlogChatWidgetLoader lang="es" />
+      {/* Premium Footer */}
 
       {/* Premium Footer */}
       <footer className="py-12 bg-slate-950 border-t border-white/5">

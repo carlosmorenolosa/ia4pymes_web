@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Sparkles, ArrowRight, Building2, Scale, Calculator, MapPin } from "lucide-react"
-import { BlogChatWidgetLoader } from "@/components/blog-chat-widget-loader"
 
 export const metadata: Metadata = {
   title: "Soluciones de Inteligencia Artificial por Sector y Ciudad | IA4PYMES",
@@ -228,8 +227,6 @@ export default function SectoresPage() {
           </Link>
         </div>
       </section>
-
-      <BlogChatWidgetLoader />
     </main>
   )
 }
