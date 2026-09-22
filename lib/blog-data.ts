@@ -122,7 +122,7 @@ En **IA4PYMES** no vendemos humo tecnológico ni cursos genéricos. Ayudamos a e
 2. **Integración Llave en Mano**: Conectamos tus herramientas actuales (ERP, buzón de correo, base de datos) con modelos de IA fiables y seguros, aplicando metodologías de ingeniería contrastadas como [gentle-pi](/blog/gentle-pi-gentleman-programming-vibe-coding-sdd-buenas-practicas-pymes).
 3. **Acompañamiento y Formación**: Formamos a tu personal para que utilicen las nuevas automatizaciones con soltura desde el primer día.
 
-> **[Solicita una Auditoría Operativa Gratuita para tu Empresa →](/#consultoria)**
+> **[Solicita una Auditoría Operativa de Procesos para tu Empresa →](/#consultoria)**
 > Analizamos tus flujos de trabajo actuales y te entregamos un informe con los 3 procesos donde tu empresa puede ahorrar más tiempo y dinero este trimestre.
 
 ---
@@ -243,7 +243,7 @@ At **IA4PYMES**, we do not sell generic courses or speculative tech. We help est
 2. **Turnkey Integration**: We connect your existing software (ERP, email, databases) to secure, reliable AI models using proven engineering frameworks like [gentle-pi](/en/blog/gentle-pi-gentleman-programming-vibe-coding-sdd-best-practices-smes).
 3. **Staff Training & Support**: We train your team so they master the new automated workflows smoothly from day one.
 
-> **[Request a Free Operational AI Audit for Your Business →](/en#consultoria)**
+> **[Request an Operational Process AI Audit for Your Business →](/en#consultoria)**
 > We review your current workflows and deliver a concrete report outlining the top 3 processes where your business can save the most time and money this quarter.
 
 ---
