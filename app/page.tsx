@@ -607,6 +607,25 @@ export default function Home() {
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
+                <div className="pt-1">
+                  <a
+                    href="https://kribaia.com/proveedor/ia4pymes-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block transition-transform hover:scale-105 active:scale-95"
+                    title="Sello kriterion de Kribaia - Proveedor Verificado de IA"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="https://kribaia.com/badge/ia4pymes-tech.svg"
+                      alt="Sello kriterion de Kribaia"
+                      width={180}
+                      height={48}
+                      className="h-auto w-auto max-w-[180px] drop-shadow-sm"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
                 </div>
               </FadeIn>
 
