@@ -16,6 +16,91 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO: Sello Kriterion de Kribaia y Selección de Proveedores de IA (13 OCTUBRE 2026)
+    // ─────────────────────────────────────────────────────────
+    {
+        slug: "sello-kribaia-kriterion-proveedores-ia-espana-como-elegir",
+        title: "Sello Kriterion de Kribaia: Por Qué el 90% de los Proveedores de IA no Pasan una Verificación Real",
+        description: "Qué mide el Sello Kriterion de Kribaia, por qué no se puede comprar con publicidad y qué cinco preguntas debe hacer una pyme antes de contratar desarrollo de inteligencia artificial o automatización.",
+        date: "2026-10-13",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Estrategia y Auditoría IA",
+        image: "/images/sello_kribaia_kriterion_ia_pymes.jpg",
+        lang: "es",
+        content: `
+El mercado español de la inteligencia artificial para pymes tiene un problema de señal técnica: tras el auge de modelos como GPT-4 y Claude, cientos de agencias tradicionales de marketing digital, academias de cursos rápidos y desarrolladores web reconvirtieron sus páginas de servicios de la noche a la mañana. Todas afirman implementar "agentes autónomos", "transformación integral con IA" y "soluciones avanzadas".
+
+Cuando una pequeña o mediana empresa contrata sobre esas promesas, el desenlace habitual es uno de estos tres: un envoltorio superficial sobre una suscripción mensual a ChatGPT que nadie en la plantilla sabe usar, un script frágil que deja de funcionar ante el primer cambio en la bandeja de entrada, o un presupuesto abultado sin conexión a los sistemas de gestión reales (ERP, CRM o base de datos).
+
+Para aportar claridad a este ecosistema nació **Kribaia**, una plataforma independiente que clasifica y audita proveedores de inteligencia artificial y automatización en España mediante verificación manual y contacto directo con clientes reales.
+
+En **IA4PYMES** recibimos la máxima distinción del directorio: el **Sello Kriterion**. En este artículo explicamos qué exige esta certificación, por qué el directorio rechaza el modelo de pago por posición y qué cinco comprobaciones técnicas debe hacer cualquier empresa antes de firmar un contrato de desarrollo de IA.
+
+---
+
+## 1. Qué es Kribaia y en Qué se Diferencia de los Directorios Comerciales
+
+La mayoría de los directorios de software y servicios empresariales en internet funcionan bajo un modelo de pago por clic o suscripción patrocinada: quien paga la cuota más alta aparece en el primer lugar de la lista, con insignias doradas o etiquetas de "proveedor destacado". La posición no refleja capacidad de entrega, sino presupuesto publicitario.
+
+Kribaia opera con una regla editorial opuesta:
+
+* **Nadie paga por aparecer ni por posicionarse**: La inclusión y el orden no admiten patrocinio comercial ni subastas de visibilidad.
+* **Señal pública verificable**: El equipo editorial revisa primero si el proveedor cuenta con certificaciones técnicas en infraestructura cloud (AWS, Azure, Google Cloud), código auditable o experiencia demostrada en ingeniería de software.
+* **Filtro manual de descarte**: Los perfiles que revenden cuentas estándar de terceros o presentan afirmaciones sin soporte técnico quedan fuera del directorio.
+
+---
+
+## 2. El Sello Kriterion: Auditoría con un Cliente Real
+
+Dentro del directorio existen diferentes niveles de validación. El escalón superior es el **Sello Kriterion**.
+
+![Sello Kriterion de Kribaia — Distintivo de Calidad y Verificación Manual](/images/kribaia-badge-ia4pymes.svg)
+
+Este distintivo no se concede mediante formularios automatizados ni intercambio de enlaces. Para otorgarlo, Kribaia exige:
+
+1. **Entrevista técnica en profundidad**: Se analiza la arquitectura de desarrollo (lenguajes como Python, frameworks de interfaz como React, bases de datos vectoriales como Pinecone o Qdrant y protocolos de despliegue on-premise o en nube).
+2. **Criterio de contención de proyectos**: Se evalúa cómo actúa el proveedor cuando un cliente plantea múltiples ideas dispersas a la vez. El estándar exige validar un único caso de uso con retorno medible antes de abordar desarrollos secundarios.
+3. **Llamada de contraste con un cliente real**: Un miembro del equipo de Kribaia contacta directamente con una empresa que haya contratado al proveedor. Se verifica que el software funciona en producción, que los plazos y presupuestos se cumplieron, que las incidencias técnicas se resolvieron sin evasivas y si el cliente volvería a contratar al equipo.
+
+En nuestra auditoría, Kribaia contrastó el despliegue de un asistente de inteligencia artificial para la gestión y respuesta de consultas de asociados y visitantes, confirmando la resolución técnica de incidencias y la recomendación directa del cliente. Puedes consultar la ficha técnica oficial en nuestro [perfil verificado en Kribaia](https://kribaia.com/proveedor/ia4pymes-tech).
+
+---
+
+## 3. Las Cinco Preguntas que Debes Hacer a un Proveedor de IA Antes de Contratar
+
+Si diriges una pyme con entre 5 y 50 empleados y buscas automatizar tareas operativas o implantar agentes de IA, estas cinco preguntas técnicas te permitirán separar la ingeniería real de la reventa de software comercial:
+
+### 1. "¿Dónde se ejecutan los modelos y quién custodia los datos de mi empresa?"
+Si la respuesta es "en una cuenta de ChatGPT de equipo" o el proveedor no sabe especificar qué política de retención de datos aplica la API elegida, detén la conversación. Una solución profesional exige contratos de API empresarial con cláusulas de no entrenamiento de modelos, encriptación en tránsito y en reposo, y la posibilidad de desplegar modelos locales de código abierto (on-premise) si la confidencialidad de tu sector lo exige, en cumplimiento estricto del [AI Act europeo](/blog/nueva-ley-ia-espana-multas-obligaciones-pymes-guia-legal-2026).
+
+### 2. "¿El sistema se conecta a nuestro ERP o CRM mediante API, o requiere copiar y pegar?"
+Un chatbot que vive aislado en una pestaña del navegador genera más trabajo del que ahorra. La verdadera automatización extrae datos de tu ERP (Holded, Sage, SAP, A3), consulta bases de datos relacionales o vectoriales y devuelve resultados estructurados sin intervención manual.
+
+### 3. "¿Qué mecanismo de evaluación utilizáis para evitar alucinaciones?"
+Los modelos de lenguaje cometen errores si se les alimenta con instrucciones vagas. Pregunta si utilizan técnicas de Generación Aumentada por Recuperación (RAG) con verificación de fuentes documentales, umbrales de confianza y filtros de respuesta que obliguen al sistema a responder "no dispongo de esa información" cuando el dato no figura en la base de conocimiento interna.
+
+### 4. "¿Cómo se estructura el cobro del proyecto?"
+Desconfía de las suscripciones eternas sin hitos de entrega. Un esquema de ingeniería transparente se compone de:
+* Una fase de diagnóstico y auditoría de procesos previa.
+* Hitos de desarrollo contra entregables verificables en un entorno de pruebas.
+* Un coste de mantenimiento y computación cloud ajustado al consumo real de tokens e infraestructura.
+
+### 5. "Si decidimos prescindir de vuestro servicio, ¿el código y la base de conocimiento son nuestros?"
+El cliente debe mantener la propiedad de sus datos, sus índices vectoriales y la documentación técnica de los flujos creados. Evita proveedores que bloqueen el acceso a tus propios procedimientos operativos dentro de plataformas cerradas y propietarias.
+
+---
+
+## 4. Auditoría Técnica Previa: El Paso Obligatorio
+
+En IA4PYMES no iniciamos desarrollos de software sin antes calcular el retorno sobre la inversión. Si un proceso manual consume 15 horas al mes en tu empresa, una inversión de diez mil euros en IA no tiene justificación financiera; si un cuello de botella en presupuestos o atención al cliente retrasa la facturación y consume 80 horas mensuales, una arquitectura a medida recupera su coste en pocos meses.
+
+Contar con el **Sello Kriterion de Kribaia** confirma nuestro compromiso con una ingeniería sobria, orientada a resultados tangibles y sin artificios comerciales.
+
+Si quieres evaluar los flujos de trabajo de tu empresa y comprobar si la inteligencia artificial resolverá tus problemas operativos con rentabilidad positiva, reserva una sesión estratégica con nuestro equipo de ingenieros en [nuestra sección de consultoría](/#consultoria).
+`
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO BILINGÜE: Plan IA360 y Bono de IA para PYMEs (7 OCTUBRE 2026)
     // ─────────────────────────────────────────────────────────
     {
