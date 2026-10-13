@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
         image: "/images/sello_kribaia_kriterion_ia_pymes.jpg",
         lang: "es",
         content: `
-El mercado español de la inteligencia artificial para pymes tiene un problema de señal técnica: tras el auge de modelos como GPT-4 y Claude, cientos de agencias tradicionales de marketing digital, academias de cursos rápidos y desarrolladores web reconvirtieron sus páginas de servicios de la noche a la mañana. Todas afirman implementar "agentes autónomos", "transformación integral con IA" y "soluciones avanzadas".
+El mercado español de la inteligencia artificial para pymes tiene un problema de señal técnica: tras el salto generacional de modelos frontera como **GPT-6 Astra** de OpenAI o **Claude Opus 5.5** de Anthropic, cientos de agencias tradicionales de marketing digital, academias de cursos rápidos y desarrolladores web reconvirtieron sus páginas de servicios de la noche a la mañana. Todas afirman implementar "agentes autónomos", "transformación integral con IA" y "soluciones avanzadas".
 
 Cuando una pequeña o mediana empresa contrata sobre esas promesas, el desenlace habitual es uno de estos tres: un envoltorio superficial sobre una suscripción mensual a ChatGPT que nadie en la plantilla sabe usar, un script frágil que deja de funcionar ante el primer cambio en la bandeja de entrada, o un presupuesto abultado sin conexión a los sistemas de gestión reales (ERP, CRM o base de datos).
 
