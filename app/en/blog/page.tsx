@@ -126,16 +126,16 @@ export default function EnBlogPage() {
                                                 />
                                             )}
 
-                                            <div className="absolute top-4 left-4 flex gap-2">
+                                            <div className="absolute top-4 left-4 right-4 flex flex-wrap items-start gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20 shrink-0">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 bg-black/60 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-white/10">
+                                                <span className="px-2.5 py-1 bg-black/60 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-white/10 min-w-0 max-w-full truncate">
                                                     {post.category}
                                                 </span>
-                                                <span className="px-2.5 py-1 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-400/20">
+                                                <span className="px-2.5 py-1 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-400/20 shrink-0">
                                                     EN
                                                 </span>
                                             </div>
