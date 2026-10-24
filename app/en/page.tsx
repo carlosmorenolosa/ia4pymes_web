@@ -708,7 +708,7 @@ export default function HomeEN() {
                 {[
                   { value: 15, prefix: "", suffix: " min", label: "Viability guarantee or full refund", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
                   { value: 100, prefix: "", suffix: "%", label: "Consultancy fee deducted if you build with us", color: "text-green-600", bg: "hover:shadow-green-500/10" },
-                  { value: 3, prefix: "", suffix: " wks", label: "Initial diagnosis & roadmap", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
+                  { value: 24, prefix: "", suffix: "/7", label: "AI agents running around the clock", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 

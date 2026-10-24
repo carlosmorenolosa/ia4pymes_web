@@ -551,7 +551,7 @@ export default function Home() {
                 {[
                   { value: 15, prefix: "", suffix: " min", label: "Garantía de viabilidad o reembolso íntegro", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
                   { value: 100, prefix: "", suffix: "%", label: "Consultoría descontada si desarrollas con nosotros", color: "text-green-600", bg: "hover:shadow-green-500/10" },
-                  { value: 3, prefix: "", suffix: " sem.", label: "Diagnóstico inicial y mapa de ruta", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
+                  { value: 24, prefix: "", suffix: "/7", label: "Agentes de IA operando sin turnos", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
