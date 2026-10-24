@@ -3,11 +3,55 @@
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
-import { SplashScreen } from "@/components/splash-screen"
 
-export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
+type Lang = "es" | "en"
+
+/**
+ * One header, two languages. The labels and the anchors are the only thing that
+ * changes: the markup, the classes and the order are shared, so the English page
+ * cannot drift from the Spanish one again.
+ */
+const COPY = {
+  es: {
+    home: "/",
+    nav: [
+      { href: "/#que-hacemos", label: "Qué hacemos", mobile: "Qué hacemos" },
+      { href: "/#proceso", label: "Proceso", mobile: "Proceso" },
+      { href: "/#casos-exito", label: "Casos", mobile: "Casos de Éxito" },
+      { href: "/#calculadora", label: "Calculadora", mobile: "Calculadora" },
+      { href: "/blog", label: "Blog", mobile: "Blog" },
+    ],
+    cta: { href: "/#consultoria", label: "Reservar Consultoría" },
+    switchTo: { href: "/en", label: "EN" },
+    current: "ES",
+    logoLabel: "Ir al inicio de IA4PYMES",
+    navAria: "Navegación principal",
+    openAria: "Abrir menú",
+    closeAria: "Cerrar menú",
+  },
+  en: {
+    home: "/en",
+    nav: [
+      { href: "/en#what-we-do", label: "What we do", mobile: "What we do" },
+      { href: "/en#process", label: "Process", mobile: "Process" },
+      { href: "/en#cases", label: "Cases", mobile: "Case Studies" },
+      { href: "/en#calculator", label: "Calculator", mobile: "Calculator" },
+      { href: "/en/blog", label: "Blog", mobile: "Blog" },
+    ],
+    cta: { href: "/en#consultoria", label: "Book a Consultation" },
+    switchTo: { href: "/", label: "ES" },
+    current: "EN",
+    logoLabel: "Back to the IA4PYMES home page",
+    navAria: "Main navigation",
+    openAria: "Open menu",
+    closeAria: "Close menu",
+  },
+}
+
+export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: boolean; lang?: Lang }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const t = COPY[lang]
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -17,8 +61,6 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
 
   return (
     <>
-
-
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${ isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent" }`}
       >
@@ -26,15 +68,15 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           {/* Logo */}
           <div className="relative md:absolute md:left-4 lg:left-6 pointer-events-auto z-10">
             <Link
-              href="/"
+              href={t.home}
               onClick={(e) => {
-                if (window.location.pathname === "/") {
+                if (window.location.pathname === t.home) {
                   e.preventDefault()
                   window.scrollTo({ top: 0, behavior: "smooth" })
                 }
               }}
               className="flex items-center group cursor-pointer transition-all hover:opacity-80 active:scale-95"
-              aria-label="Ir al inicio de IA4PYMES"
+              aria-label={t.logoLabel}
             >
               <div className="flex items-center relative tracking-[-0.04em]">
                 <span className="text-3xl sm:text-3xl md:text-6xl font-extrabold text-blue-600">IA</span>
@@ -46,17 +88,11 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           {/* Centered Navigation Pill */}
           <nav
             className="flex items-center bg-white/70 backdrop-blur-xl border-slate-200/60 rounded-lg p-1.5 sm:p-2 shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
-            aria-label="Navegación principal"
+            aria-label={t.navAria}
           >
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
-              {[
-                { href: "/#que-hacemos", label: "Qué hacemos" },
-                { href: "/#proceso", label: "Proceso" },
-                { href: "/#casos-exito", label: "Casos" },
-                { href: "/#calculadora", label: "Calculadora" },
-                { href: "/blog", label: "Blog" },
-              ].map(({ href, label }) => (
+              {t.nav.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
@@ -68,17 +104,17 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               ))}
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="flex items-center gap-1 px-2">
-                <span className="text-base font-bold text-blue-600 cursor-default">ES</span>
+                <span className="text-base font-bold text-blue-600 cursor-default">{t.current}</span>
                 <span className="text-slate-300 text-xs">|</span>
-                <Link href="/en" className="text-base font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+                <Link href={t.switchTo.href} className="text-base font-semibold text-slate-600 hover:text-slate-700 transition-colors">{t.switchTo.label}</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
-                  href="/#consultoria"
+                  href={t.cta.href}
                   className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
-                  Reservar Consultoría
+                  {t.cta.label}
                 </Link>
               </div>
             </div>
@@ -88,7 +124,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
-                aria-label="Abrir menú"
+                aria-label={t.openAria}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -103,41 +139,35 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-lg hover:bg-slate-200 transition-colors active:scale-95"
-            aria-label="Cerrar menú"
+            aria-label={t.closeAria}
           >
             <X className="w-7 h-7" />
           </button>
           <div className="w-full flex flex-col gap-4 items-center">
-            {[
-              { href: "/#que-hacemos", label: "Qué hacemos" },
-              { href: "/#proceso", label: "Proceso" },
-              { href: "/#casos-exito", label: "Casos de Éxito" },
-              { href: "/#calculadora", label: "Calculadora" },
-              { href: "/blog", label: "Blog" },
-            ].map(({ href, label }) => (
+            {t.nav.map(({ href, mobile }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors"
               >
-                {label}
+                {mobile}
               </Link>
             ))}
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <div className="flex items-center gap-4">
-            <span className="text-xl font-bold text-blue-600">ES</span>
+            <span className="text-xl font-bold text-blue-600">{t.current}</span>
             <span className="text-slate-300">|</span>
-            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+            <Link href={t.switchTo.href} onClick={() => setMobileMenuOpen(false)} className="text-xl font-bold text-slate-600 hover:text-slate-700 transition-colors">{t.switchTo.label}</Link>
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <Link
-            href="/#consultoria"
+            href={t.cta.href}
             onClick={() => setMobileMenuOpen(false)}
             className="inline-flex items-center justify-center gap-2 rounded-lg text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
           >
-            Reservar Consultoría
+            {t.cta.label}
           </Link>
         </div>
       )}
