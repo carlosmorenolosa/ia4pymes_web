@@ -248,7 +248,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <FadeIn>
               <header className="text-center mb-12 sm:mb-16">
-                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]">
+                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 leading-[1.1]">
                   Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
@@ -332,7 +332,7 @@ export default function Home() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 leading-[1.1]"
                   >
                     Newsletter de IA: <span className="text-blue-600">Casos Prácticos para tu Empresa</span>
                   </h2>
@@ -401,7 +401,7 @@ export default function Home() {
                 <header className="text-center mb-10 sm:mb-14">
                   <h2
                     id="process-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
                   >
                     Metodología en 3 Pasos: <span className="text-blue-600">Auditoría, Integración y Despliegue</span>
                   </h2>
@@ -527,7 +527,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2 
                   id="success-cases-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
                 >
                   Casos de Éxito: <span className="text-blue-600">Automatización e IA en Empresas Reales</span>
                 </h2>
@@ -596,7 +596,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="contact-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
                 >
                   Solicita tu Diagnóstico Gratuito: <span className="text-blue-600">Hablemos de Tu Proyecto</span>
                 </h2>
@@ -678,7 +678,7 @@ export default function Home() {
                       alt="Sello kriterion de Kribaia"
                       width={180}
                       height={48}
-                      className="h-auto w-auto max-w-[180px] drop-shadow-sm"
+                      className="h-auto w-auto max-w-[180px]"
                       loading="lazy"
                     />
                   </a>

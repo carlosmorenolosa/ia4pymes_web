@@ -79,7 +79,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="space-y-5">
                         <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Clock className="w-5 h-5" /></span>
                                 {t.labelHours}
                             </span>
                             <span className="text-2xl font-black text-blue-600">{hoursPerWeek}h</span>
@@ -102,7 +102,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="space-y-5">
                         <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Users className="w-5 h-5" /></span>
                                 {t.labelEmployees}
                             </span>
                             <span className="text-2xl font-black text-blue-600">{employees}</span>
@@ -125,7 +125,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="space-y-5">
                         <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-green-600"><Euro className="w-5 h-5" /></span>
                                 {t.labelWage}
                             </span>
                             <span className="text-2xl font-black text-green-600">{hourlyWage} €</span>
@@ -172,9 +172,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                             {Array.from({ length: 10 }).map((_, i) => (
                                 <div
                                     key={i}
-                                    className={`absolute inset-0 rounded-[40px] pointer-events-none ${
-                                        i === 0 ? "bg-slate-200" : "bg-white/80 border border-slate-200/30"
-                                    }`}
+                                    className={`absolute inset-0 rounded-[40px] pointer-events-none ${ i === 0 ? "bg-slate-200" : "bg-white/80 border border-slate-200/30" }`}
                                     style={{ transform: `translateZ(${-i * 2}px)` }}
                                 ></div>
                             ))}
@@ -209,7 +207,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                         <div className="pt-2 flex flex-col items-center">
                                             <span className="text-slate-600 font-bold text-xs mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
-                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
+                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter">
                                                     {results.year.toLocaleString(t.locale)} €
                                                 </span>
                                                 {/* Underline accent */}

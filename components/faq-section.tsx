@@ -107,8 +107,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                         return (
                             <div
                                 key={index}
-                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600" : "border-slate-200 hover:border-blue-200"
-                                    }`}
+                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600" : "border-slate-200 hover:border-blue-200" }`}
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
@@ -118,15 +117,13 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                     <span className={`font-semibold text-lg sm:text-xl pr-8 ${isOpen ? "text-blue-600" : "text-slate-800"}`}>
                                         {faq.question}
                                     </span>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-blue-100 text-blue-600" : "bg-slate-100 text-slate-500"
-                                        }`}>
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-blue-100 text-blue-600" : "bg-slate-100 text-slate-500" }`}>
                                         {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>
 
                                 <div
-                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                                        }`}
+                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0" }`}
                                 >
                                     <div className="overflow-hidden">
                                         <p className="px-6 pb-6 text-slate-600 leading-relaxed text-base sm:text-lg">

@@ -68,7 +68,7 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
         <header className="text-center mb-16 sm:mb-20">
           <h2
             id="reviews-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
           >
             {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
           </h2>
@@ -86,7 +86,7 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
               <div>
                 {/* Top header: Rating stars & Quote icon */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform shrink-0">
                     <Quote className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                 </div>

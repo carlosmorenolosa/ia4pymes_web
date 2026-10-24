@@ -112,7 +112,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                             <div className="absolute top-4 left-4 flex gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-600 text-white border-blue-600/20 text-xs rounded-md">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-xs rounded-md">
                                                         LATEST
                                                     </span>
                                                 )}

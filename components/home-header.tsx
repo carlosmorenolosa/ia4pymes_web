@@ -20,11 +20,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
 
 
       <header
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
-          isScrolled
-            ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
-            : "py-6 md:py-10 bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${ isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent" }`}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
           {/* Logo */}
@@ -80,7 +76,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
                   href="/#consultoria"
-                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-sm md:text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-sm md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
@@ -91,7 +87,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
             <div className="flex md:hidden items-center">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex items-center justify-center size-10 rounded-lg text-slate-800 transition-all active:scale-95"
+                className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
                 aria-label="Abrir menú"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
