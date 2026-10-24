@@ -2,7 +2,6 @@ import {
   BarChart2,
   Code,
   Settings,
-  Bot,
   CheckCircle,
   ArrowRight,
   Mail,
@@ -244,59 +243,36 @@ export default function Home() {
       <main className="bg-transparent">
 
         {/* What We Do Section — indexable entity definition (SEO + GEO) */}
-        <section id="que-hacemos" className="py-16 sm:py-24 bg-card relative" aria-labelledby="que-hacemos-heading">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <section id="que-hacemos" className="py-20 sm:py-28 relative" aria-labelledby="que-hacemos-heading">
+          <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
             <FadeIn>
-              <header className="text-center mb-12 sm:mb-16">
-                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm leading-[1.1]">
-                  Qué hacemos: <span className="text-signal">desarrollo de software con IA</span> para tu PYME
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <h2
+                  id="que-hacemos-heading"
+                  className="lg:col-span-4 text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
+                >
+                  Qué hacemos: <span className="text-signal">software con IA</span> para tu PYME
                 </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
-                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. Nuestro equipo interno diseña, desarrolla, integra y mantiene el software: entregamos código en producción, no presentaciones.
-                </p>
-              </header>
-              <div className="grid md:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
-                {[
-                  {
-                    icon: Code,
-                    title: "Desarrollo de software a medida",
-                    description:
-                      "Aplicaciones web, herramientas internas y sistemas de gestión conectados a tu ERP o CRM (Holded, Sage, Odoo). Código propio que evoluciona con tu negocio, sin dependencia de plataformas cerradas.",
-                    benefit: "Código propio, sin lock-in",
-                  },
-                  {
-                    icon: Settings,
-                    title: "Automatización de procesos operativos",
-                    description:
-                      "Facturas, albaranes, presupuestos y correos procesados automáticamente con validación humana en un clic. Cada automatización arranca con el ahorro en horas cuantificado en euros.",
-                    benefit: "Ahorro cuantificado en euros",
-                  },
-                  {
-                    icon: Bot,
-                    title: "Agentes de IA privados (RGPD)",
-                    description:
-                      "Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en la nube europea o en tus propios servidores, siempre con datos aislados y cifrados: tus datos nunca entrenan modelos públicos.",
-                    benefit: "Nube europea u on-premise",
-                  },
-                ].map((service) => {
-                  const IconComponent = service.icon
-                  return (
-                    <div
-                      key={service.title}
-                      className="relative group bg-card border border-line rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-signal/25 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
+
+                <ul className="lg:col-span-8 w-full border-t border-line">
+                  {[
+                    { title: "Software a medida", benefit: "Código propio, sin lock-in" },
+                    { title: "Automatización de procesos", benefit: "Ahorro cuantificado en euros" },
+                    { title: "Agentes de IA privados", benefit: "Nube europea u on-premise" },
+                  ].map((item) => (
+                    <li
+                      key={item.title}
+                      className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-line py-6"
                     >
-                      <h3 className="text-xl sm:text-2xl font-bold text-ink mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
-                        <IconComponent className="w-5 h-5 text-signal shrink-0" aria-hidden="true" />
-                        {service.title}
+                      <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-ink">
+                        {item.title}
                       </h3>
-                      <p className="text-ink-soft leading-relaxed mb-6">{service.description}</p>
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-sunken rounded-full group-hover:bg-signal-wash transition-colors duration-300">
-                        <CheckCircle className="w-4 h-4 text-signal" aria-hidden="true" />
-                        <span className="text-sm font-semibold text-ink-soft group-hover:text-signal-deep">{service.benefit}</span>
-                      </div>
-                    </div>
-                  )
-                })}
+                      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-faint">
+                        {item.benefit}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </FadeIn>
           </div>
@@ -316,79 +292,6 @@ export default function Home() {
 
 
 
-        {/* Newsletter Section */}
-        <section
-          id="newsletter"
-          className="py-20 sm:py-32 relative overflow-hidden bg-transparent"
-          aria-labelledby="newsletter-heading"
-        >
-          {/* Aesthetic Background removed for pure white theme */}
-          <div className="absolute inset-0 bg-transparent pointer-events-none"></div>
-
-          <FadeIn>
-            <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-              <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-                
-                <div className="lg:col-span-7 text-center lg:text-left">
-                  <h2
-                    id="newsletter-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm leading-[1.1]"
-                  >
-                    Newsletter de IA: <span className="text-signal">Casos Prácticos para tu Empresa</span>
-                  </h2>
-                  
-                  <p className="text-lg sm:text-xl text-ink-soft max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
-                    Explicamos semanalmente cómo aplicar la Inteligencia Artificial y la automatización de procesos en situaciones operativas reales. Recibe herramientas y arquitecturas listas para implementar en tu negocio.
-                  </p>
-
-                  <ul className="space-y-5 text-ink-soft font-medium hidden sm:block text-lg">
-                    <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-signal" />
-                      Casos de uso reales paso a paso
-                    </li>
-                    <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-signal" />
-                      Automatizaciones listas para tu PYME
-                    </li>
-                    <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-signal" />
-                      Herramientas que ahorran tiempo real
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-                  {/* Aesthetic Background removed for pure white theme */}
-                  
-                  <div className="bg-card border border-line rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden group">
-                    <h3 className="text-2xl font-bold text-ink mb-6 text-center tracking-tight flex items-center justify-center gap-2.5">
-                      <Mail className="w-5 h-5 text-signal shrink-0" aria-hidden="true" />
-                      Únete a cientos de PYMES
-                    </h3>
-                    
-                    <div className="relative group/btn w-full mt-8 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
-                      <div className="absolute -inset-1 bg-signal rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
-                      <Link
-                        href="https://newsletter.ia4pymes.tech"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-signal text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-signal-deep transition-all duration-300 text-lg sm:text-xl"
-                      >
-                        Suscribirse Ahora
-                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                    
-                    <p className="text-ink-faint text-sm mt-6 text-center italic">
-                      * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </FadeIn>
-        </section>
 
         {/* Process Section */}
         <section
@@ -722,7 +625,7 @@ export default function Home() {
                     <Link href="/#consultoria" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Reservar Consultoría</Link>
                   </li>
                   <li>
-                    <Link href="#newsletter" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Newsletter Semanal</Link>
+                    <Link href="https://newsletter.ia4pymes.tech" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Newsletter Semanal</Link>
                   </li>
                 </ul>
                 </div>

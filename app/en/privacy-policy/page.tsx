@@ -243,7 +243,7 @@ export default function PrivacyPolicyEN() {
                     <Link href="/en#consultoria" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Book Consulting</Link>
                   </li>
                   <li>
-                    <Link href="/en#newsletter" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Weekly Newsletter</Link>
+                    <Link href="https://newsletter.ia4pymes.tech" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Weekly Newsletter</Link>
                   </li>
                 </ul>
               </div>

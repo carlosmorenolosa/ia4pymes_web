@@ -863,7 +863,7 @@ export default function HomeEN() {
                   <li><ScrollTopLink href="/en" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">About Us</ScrollTopLink></li>
                   <li><Link href="/en#faq" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-ink-faint hover:text-signal transition-colors text-sm font-medium cursor-pointer">Book Consultation</Link></li>
-                  <li><Link href="/en#newsletter" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
+                  <li><Link href="https://newsletter.ia4pymes.tech" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
               </div>
 
