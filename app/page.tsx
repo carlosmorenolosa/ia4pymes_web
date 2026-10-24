@@ -298,9 +298,6 @@ export default function Home() {
                   )
                 })}
               </div>
-              <p className="text-slate-600 mt-12 sm:mt-16 leading-relaxed max-w-3xl mx-auto text-center">
-                ¿Quieres ver cómo lo aplicamos en tu industria? Explora nuestros <Link href="/sectores" className="text-blue-600 font-semibold hover:underline">casos por sector y ciudad</Link> o lee la <Link href="/blog" className="text-blue-600 font-semibold hover:underline">guía técnica de nuestro blog</Link>, donde publicamos cada semana cómo implementamos estas soluciones en empresas reales. Consultoría y desarrollo de software con IA: primero medimos si sale a cuenta, después desarrollamos.
-              </p>
             </FadeIn>
           </div>
         </section>
