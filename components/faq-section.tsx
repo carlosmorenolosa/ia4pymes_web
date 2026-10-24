@@ -15,6 +15,11 @@ const i18n = {
     ctaHref: "/#consultoria",
     faqs: [
       {
+        question: "¿Qué es IA4PYMES?",
+        answer:
+          "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos que reducen costes operativos y aumentan márgenes. Calculamos el ROI esperado de cada proyecto antes de desarrollar: si los números no salen, no avanzamos.",
+      },
+      {
         question: "¿Es útil esta solución para mi sector?",
         answer: "La clave no es a qué te dedicas, sino qué procesos lentos o ineficientes tienes. Si hay tareas repetitivas en tu negocio, podemos optimizarlas.",
       },
