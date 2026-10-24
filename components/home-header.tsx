@@ -49,7 +49,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
 
           {/* Centered Navigation Pill */}
           <nav
-            className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
+            className="flex items-center bg-white/70 backdrop-blur-xl border-slate-200/60 rounded-lg p-1.5 sm:p-2 shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
             aria-label="Navegación principal"
           >
             {/* Desktop Navigation */}
@@ -64,10 +64,10 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <Link
                   key={href}
                   href={href}
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   {label}
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
                 </Link>
               ))}
               <div className="w-px h-6 bg-slate-200 mx-2" />
@@ -80,7 +80,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
                   href="/#consultoria"
-                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-sm md:text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
@@ -91,7 +91,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
             <div className="flex md:hidden items-center">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
+                className="flex items-center justify-center size-10 rounded-lg text-slate-800 transition-all active:scale-95"
                 aria-label="Abrir menú"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -106,7 +106,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
         <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
+            className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-lg hover:bg-slate-200 transition-colors active:scale-95"
             aria-label="Cerrar menú"
           >
             <X className="w-7 h-7" />
@@ -139,7 +139,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           <Link
             href="/#consultoria"
             onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
+            className="inline-flex items-center justify-center gap-2 rounded-lg text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
           >
             Reservar Consultoría
           </Link>

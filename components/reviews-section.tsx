@@ -9,7 +9,7 @@ const i18n = {
     subtitle: "Opiniones de empresas que han transformado sus plataformas y procesos con nuestras soluciones de desarrollo e inteligencia artificial.",
     reviews: [
       {
-        company: "Apartamento Club — Creative Agency",
+        company: "Apartamento Club, Creative Agency",
         rating: 5,
         text: "Buscábamos una web de agencia con máximo rendimiento sin los presupuestos inflados ni retrasos habituales. La comunicación con IA4PYMES fue directa y la entrega, impecable y en tiempo récord.",
         tag: "Desarrollo Web Impulsado por IA",
@@ -34,7 +34,7 @@ const i18n = {
     subtitle: "Real feedback from businesses that have transformed their platforms and workflows with our custom development and AI automation solutions.",
     reviews: [
       {
-        company: "Apartamento Club — Creative Agency",
+        company: "Apartamento Club, Creative Agency",
         rating: 5,
         text: "We needed a high-performance agency website without inflated agency fees or delays. Communication with IA4PYMES was direct, fast, and delivered on time.",
         tag: "AI-Powered Web Development",
@@ -81,17 +81,11 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
           {t.reviews.map((review, idx) => (
             <article
               key={idx}
-              className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
+              className="bg-slate-50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
             >
               <div>
                 {/* Top header: Rating stars & Quote icon */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-1" aria-label={`${review.rating} de 5 estrellas`}>
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                    <span className="ml-1.5 text-xs sm:text-sm font-bold text-slate-700">5.0</span>
-                  </div>
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform shrink-0">
                     <Quote className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>

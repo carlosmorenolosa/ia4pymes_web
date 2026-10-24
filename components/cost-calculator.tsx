@@ -93,7 +93,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={hoursPerWeek}
                                 onChange={(e) => setHoursPerWeek(Number(e.target.value))}
                                 aria-label={t.labelHours}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all"
                             />
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={employees}
                                 onChange={(e) => setEmployees(Number(e.target.value))}
                                 aria-label={t.labelEmployees}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all"
                             />
                         </div>
                     </div>
@@ -140,7 +140,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={hourlyWage}
                                 onChange={(e) => setHourlyWage(Number(e.target.value))}
                                 aria-label={t.labelWage}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all"
                             />
                         </div>
                     </div>
@@ -181,18 +181,18 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                             {/* Main Display Face */}
                             <div 
-                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] flex flex-col overflow-hidden border border-white p-8 sm:p-10"
+                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] flex flex-col overflow-hidden p-8 sm:p-10"
                                 style={{ transform: "translateZ(1px)" }}
                             >
                                 {/* Decorative internal glow */}
-                                <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+                                <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100/50 rounded-lg blur-3xl pointer-events-none"></div>
                                 
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
                                         <div className="text-sm font-black text-blue-600 mb-1">
                                             {t.cardTitle}
                                         </div>
-                                        <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
+                                        <div className="w-12 h-1 bg-blue-100 mx-auto rounded-lg"></div>
                                     </div>
 
                                     <div className="space-y-6">
@@ -214,7 +214,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 </span>
                                                 {/* Underline accent */}
                                                 <motion.div 
-                                                    className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-full blur-[1px]"
+                                                    className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-lg blur-[1px]"
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: "100%" }}
                                                     transition={{ duration: 1, delay: 0.8 }}

@@ -25,9 +25,10 @@ export function HeroES({ splashFinished }: HeroESProps) {
             <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
               <h1
                 id="hero-heading"
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
               >
-                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> Costes y <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">Software a Medida con IA</span>
+                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Software a medida</span> con{" "}
+                <span className="text-blue-600">IA</span> para PYMES
               </h1>
 
               <p 
@@ -41,13 +42,13 @@ export function HeroES({ splashFinished }: HeroESProps) {
               >
                 <Link
                   href="/#consultoria"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4 active:scale-95"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4 active:scale-95"
                 >
                   Diseñar Hoja de Ruta
                 </Link>
                 <Link
                   href="/#casos-exito"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 px-8 py-4 group active:scale-95"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-slate-700 bg-slate-50 hover:bg-slate-50 px-8 py-4 group active:scale-95"
                 >
                   Explorar casos reales
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />

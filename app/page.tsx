@@ -26,7 +26,7 @@ import {
   ConsultingSection,
 } from "@/components/home-dynamic-imports"
 
-// SSR habilitado — contenido indexable por Google
+// SSR habilitado, contenido indexable por Google
 const LatestArticles = dynamic(() =>
   import("@/components/latest-articles").then((mod) => mod.LatestArticles),
   { loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
@@ -119,7 +119,7 @@ export default function Home() {
         "@type": "Review",
         "author": {
           "@type": "Organization",
-          "name": "Apartamento Club — Creative Agency"
+          "name": "Apartamento Club, Creative Agency"
         },
         "reviewRating": {
           "@type": "Rating",
@@ -243,7 +243,7 @@ export default function Home() {
       <HeroES splashFinished={true} />
       <main className="bg-transparent">
 
-        {/* What We Do Section — indexable entity definition (SEO + GEO) */}
+        {/* What We Do Section, indexable entity definition (SEO + GEO) */}
         <section id="que-hacemos" className="py-16 sm:py-24 bg-white relative" aria-labelledby="que-hacemos-heading">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <FadeIn>
@@ -283,14 +283,14 @@ export default function Home() {
                   return (
                     <div
                       key={service.title}
-                      className="relative group bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
+                      className="relative group bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
                     >
                       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
                         <IconComponent className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
                         {service.title}
                       </h3>
                       <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full group-hover:bg-blue-50 transition-colors duration-300">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors duration-300">
                         <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
                         <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
                       </div>
@@ -360,19 +360,19 @@ export default function Home() {
                 <div className="lg:col-span-5 relative mt-8 lg:mt-0">
                   {/* Aesthetic Background removed for pure white theme */}
                   
-                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden group">
+                  <div className="bg-slate-50 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden group">
                     <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight flex items-center justify-center gap-2.5">
                       <Mail className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
                       Únete a cientos de PYMES
                     </h3>
                     
                     <div className="relative group/btn w-full mt-8 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
-                      <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                      <div className="absolute -inset-1 bg-blue-600 rounded-lg blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
+                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-lg hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
                       >
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -478,7 +478,7 @@ export default function Home() {
                             {process.description}
                           </p>
                           
-                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
+                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
                             <CheckCircle className="w-4 h-4 text-blue-600" />
                             <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">
                               {process.benefit}
@@ -502,7 +502,7 @@ export default function Home() {
                 <div className="mt-12 sm:mt-16 text-center">
                   <Link
                     href="/#consultoria"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4"
                   >
                     <span>Reservar Consultoría</span>
                     <ArrowRight
@@ -549,7 +549,7 @@ export default function Home() {
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
-                      className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
+                      className="relative group bg-slate-50 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
                     <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
@@ -660,8 +660,8 @@ export default function Home() {
                 <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
                   Empresa de desarrollo de software con IA para PYMES: diseñamos, desarrollamos e integramos el software que reduce tus costes operativos. Resultados reales y ROI medible.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[11px] font-semibold text-slate-600 tracking-wide">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-[11px] font-semibold text-slate-600 tracking-wide">
+                  <span className="w-2 h-2 bg-blue-600 rounded-lg"></span>
                   Built with ❤️ in Spain
                 </div>
                 <div className="pt-1">
@@ -734,7 +734,7 @@ export default function Home() {
                   <h4 className="text-sm font-black text-slate-900st">Conecta</h4>
                 <div className="space-y-4">
                   <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
-                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
                       <Mail className="w-4 h-4" />
                     </div>
                     <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>

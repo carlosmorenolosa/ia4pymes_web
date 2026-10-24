@@ -120,7 +120,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 sm:p-8 space-y-6">
+            <div className="bg-slate-50 rounded-[2rem] p-6 sm:p-8 space-y-6">
               <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <Clock className="w-5 h-5 text-blue-600" />
                 {t.includedHeading}
@@ -158,7 +158,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
             </div>
 
             <div className="space-y-4">
-              <div className="flex gap-4 items-start bg-blue-50/50 border border-blue-100/60 rounded-2xl p-5">
+              <div className="flex gap-4 items-start bg-blue-50/50 border-blue-100/60 rounded-2xl p-5">
                 <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee1Title}</h4>
@@ -168,7 +168,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start bg-slate-50 border border-slate-200/60 rounded-2xl p-5">
+              <div className="flex gap-4 items-start bg-slate-50 border-slate-200/60 rounded-2xl p-5">
                 <HelpCircle className="w-8 h-8 text-slate-500 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee2Title}</h4>
@@ -184,9 +184,9 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
             <div className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden relative">
               <div className="h-12 bg-slate-100 border-b border-slate-200 flex items-center px-6 gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
+                <span className="w-2.5 h-2.5 rounded-lg bg-slate-300 block"></span>
+                <span className="w-2.5 h-2.5 rounded-lg bg-slate-300 block"></span>
+                <span className="w-2.5 h-2.5 rounded-lg bg-slate-300 block"></span>
                 <span className="text-xs font-semibold text-slate-600 ml-4 select-none">{t.secureText}</span>
               </div>
               
