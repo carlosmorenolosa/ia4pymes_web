@@ -252,7 +252,7 @@ export default function Home() {
                   Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-xl lg:text-xl text-slate-600 px-4">
-                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. Nuestro equipo interno diseña, desarrolla, integra y mantiene el software: entregamos código en producción, no presentaciones.
+                  Tres líneas de trabajo, un mismo equipo interno que escribe y mantiene el código: entregamos en producción, no presentaciones.
                 </p>
               </header>
               <div className="grid md:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
