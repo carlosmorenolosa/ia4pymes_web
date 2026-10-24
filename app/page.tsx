@@ -2,6 +2,7 @@ import {
   BarChart2,
   Code,
   Settings,
+  Bot,
   CheckCircle,
   ArrowRight,
   Mail,
@@ -243,38 +244,61 @@ export default function Home() {
       <main className="bg-transparent">
 
         {/* What We Do Section — indexable entity definition (SEO + GEO) */}
-        <section id="que-hacemos" className="py-16 sm:py-24 bg-white" aria-labelledby="que-hacemos-heading">
+        <section id="que-hacemos" className="py-16 sm:py-24 bg-white relative" aria-labelledby="que-hacemos-heading">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <FadeIn>
-              <header className="max-w-3xl mb-12">
-                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[1.1] mb-6">
+              <header className="text-center mb-12 sm:mb-16">
+                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]">
                   Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
                 </h2>
-                <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. Nuestro equipo interno diseña, desarrolla, integra y mantiene el software: entregamos código en producción, no presentaciones. Trabajamos para PYMES en toda España, desde la auditoría inicial hasta el despliegue y la formación de tu equipo.
+                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. Nuestro equipo interno diseña, desarrolla, integra y mantiene el software: entregamos código en producción, no presentaciones.
                 </p>
               </header>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Desarrollo de software a medida</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Aplicaciones web, herramientas internas y sistemas de gestión conectados a tu ERP o CRM (Holded, Sage, Odoo). Código propio que evoluciona con tu negocio, sin dependencia de plataformas cerradas.
-                  </p>
-                </div>
-                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Automatización de procesos operativos</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Facturas, albaranes, presupuestos y correos procesados automáticamente con validación humana en un clic. Cada automatización arranca con el ahorro en horas cuantificado en euros.
-                  </p>
-                </div>
-                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Agentes de IA privados (RGPD)</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en servidores privados u on-premise para máxima confidencialidad y cumplimiento del RGPD.
-                  </p>
-                </div>
+              <div className="grid md:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+                {[
+                  {
+                    icon: Code,
+                    title: "Desarrollo de software a medida",
+                    description:
+                      "Aplicaciones web, herramientas internas y sistemas de gestión conectados a tu ERP o CRM (Holded, Sage, Odoo). Código propio que evoluciona con tu negocio, sin dependencia de plataformas cerradas.",
+                    benefit: "Código propio, sin lock-in",
+                  },
+                  {
+                    icon: Settings,
+                    title: "Automatización de procesos operativos",
+                    description:
+                      "Facturas, albaranes, presupuestos y correos procesados automáticamente con validación humana en un clic. Cada automatización arranca con el ahorro en horas cuantificado en euros.",
+                    benefit: "Ahorro cuantificado en euros",
+                  },
+                  {
+                    icon: Bot,
+                    title: "Agentes de IA privados (RGPD)",
+                    description:
+                      "Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en servidores privados u on-premise para máxima confidencialidad y cumplimiento del RGPD.",
+                    benefit: "Despliegue privado u on-premise",
+                  },
+                ].map((service) => {
+                  const IconComponent = service.icon
+                  return (
+                    <div
+                      key={service.title}
+                      className="relative group bg-white border border-slate-100 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500"
+                    >
+                      <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6 mx-auto sm:mx-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
+                        <IconComponent className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{service.title}</h3>
+                      <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
+                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-              <p className="text-slate-600 mt-10 leading-relaxed max-w-3xl">
+              <p className="text-slate-600 mt-12 sm:mt-16 leading-relaxed max-w-3xl mx-auto text-center">
                 ¿Quieres ver cómo lo aplicamos en tu industria? Explora nuestros <Link href="/sectores" className="text-blue-600 font-semibold hover:underline">casos por sector y ciudad</Link> o lee la <Link href="/blog" className="text-blue-600 font-semibold hover:underline">guía técnica de nuestro blog</Link>, donde publicamos cada semana cómo implementamos estas soluciones en empresas reales. Consultoría y desarrollo de software con IA: primero medimos si sale a cuenta, después desarrollamos.
               </p>
             </FadeIn>
