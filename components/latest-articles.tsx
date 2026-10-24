@@ -90,7 +90,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
 
                 {latestPosts.length === 0 ? (
-                    <div className="text-center py-16 text-slate-400 text-sm font-medium">
+                    <div className="text-center py-16 text-slate-500 text-sm font-medium">
                         {lang === "en" ? "No English articles published yet." : "No hay artículos publicados aún."}
                     </div>
                 ) : (
@@ -147,7 +147,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 <span className="text-xs font-mono text-slate-600 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
                                                     {t.readLabel}
                                                 </span>
-                                                <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-400 transition-colors border border-slate-100 group-hover:border-blue-100">
+                                                <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-500 transition-colors border border-slate-100 group-hover:border-blue-100">
                                                     <ArrowRight className="w-4 h-4" />
                                                 </div>
                                             </div>

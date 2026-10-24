@@ -184,7 +184,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 id="name"
                                 type="text"
                                 placeholder={t.namePlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
                                 {...form.register("name")}
                             />
                             {form.formState.errors.name && (
@@ -202,7 +202,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 id="company"
                                 type="text"
                                 placeholder={t.companyPlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
                                 {...form.register("company")}
                             />
                             {form.formState.errors.company && (
@@ -222,7 +222,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 id="email"
                                 type="email"
                                 placeholder={t.emailPlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
                                 {...form.register("email")}
                             />
                             {form.formState.errors.email && (
@@ -240,7 +240,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                                 id="phone"
                                 type="tel"
                                 placeholder={t.phonePlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400`}
+                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
                                 {...form.register("phone")}
                             />
                             {form.formState.errors.phone && (
@@ -286,7 +286,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                             id="message"
                             placeholder={t.messagePlaceholder}
                             rows={4}
-                            className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-400 resize-none`}
+                            className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500 resize-none`}
                             {...form.register("message")}
                         ></textarea>
                         {form.formState.errors.message && (
