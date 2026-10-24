@@ -42,6 +42,10 @@ const ReviewsSection = dynamic(() =>
 export default function Home() {
   const homeFaqs = [
     {
+      question: "¿Qué es IA4PYMES?",
+      answer: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos que reducen costes operativos y aumentan márgenes, con un ROI medio del +360%.",
+    },
+    {
       question: "¿Es útil esta solución para mi sector?",
       answer: "La clave no es a qué te dedicas, sino qué procesos lentos o ineficientes tienes. Si hay tareas repetitivas en tu negocio, podemos optimizarlas.",
     },
@@ -73,7 +77,7 @@ export default function Home() {
     "name": "IA4PYMES",
     "url": "https://ia4pymes.tech",
     "logo": "https://ia4pymes.tech/LOGO.png",
-    "description": "Agencia de Inteligencia Artificial y Automatización de Procesos para Pequeñas y Medianas Empresas en España.",
+    "description": "Empresa de desarrollo de software especializada en inteligencia artificial para PYMES en España: software a medida, agentes de IA privados y automatización de procesos.",
     "email": "contacto@ia4pymes.tech",
     "sameAs": [
       "https://es.linkedin.com/company/ia4pymestech",
@@ -238,6 +242,44 @@ export default function Home() {
       <HeroES splashFinished={true} />
       <main className="bg-transparent">
 
+        {/* What We Do Section — indexable entity definition (SEO + GEO) */}
+        <section id="que-hacemos" className="py-16 sm:py-24 bg-white" aria-labelledby="que-hacemos-heading">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <FadeIn>
+              <header className="max-w-3xl mb-12">
+                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 leading-[1.1] mb-6">
+                  Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
+                </h2>
+                <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
+                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. No asesoramos y desaparecemos: nuestro equipo diseña, desarrolla, integra y mantiene el software que automatiza tu operación. Trabajamos para PYMES en toda España, desde la auditoría inicial hasta el despliegue y la formación de tu equipo.
+                </p>
+              </header>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Desarrollo de software a medida</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Aplicaciones, herramientas internas y sistemas de gestión desarrollados con IA generativa integrada, conectados a tu ERP o CRM. Código propio, sin dependencias de plataformas cerradas.
+                  </p>
+                </div>
+                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Automatización de procesos operativos</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Facturas, presupuestos, correos y tareas repetitivas procesadas automáticamente con validación humana en un clic. Menos horas manuales, menos errores, más margen.
+                  </p>
+                </div>
+                <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Agentes de IA privados (RGPD)</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en servidores privados u on-premise para máxima confidencialidad y cumplimiento del RGPD.
+                  </p>
+                </div>
+              </div>
+              <p className="text-slate-600 mt-10 leading-relaxed max-w-3xl">
+                ¿Quieres ver cómo lo aplicamos en tu industria? Explora nuestros <Link href="/sectores" className="text-blue-600 font-semibold hover:underline">casos por sector y ciudad</Link> o lee la <Link href="/blog" className="text-blue-600 font-semibold hover:underline">guía técnica de nuestro blog</Link>, donde publicamos cada semana cómo implementamos estas soluciones en empresas reales. Consultoría y desarrollo de software con IA, con ROI calculado antes de escribir la primera línea de código.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
 
         {/* Cost Calculator Section */}
         <section id="calculadora" className="py-16 sm:py-24 bg-white relative">
@@ -601,7 +643,7 @@ export default function Home() {
                   </div>
                 </Link>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                  Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
+                  Empresa de desarrollo de software con IA para PYMES: diseñamos, desarrollamos e integramos el software que reduce tus costes operativos. Resultados reales y ROI medible.
                 </p>
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-600 uppercase tracking-widest">
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>

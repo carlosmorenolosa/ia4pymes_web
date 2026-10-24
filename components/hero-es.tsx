@@ -27,13 +27,13 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
-                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> Costes Operativos y <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">IA para PYMES</span>
+                Reduce Costes Operativos y Multiplica tus Márgenes con software desarrollado <span className="text-blue-600">a medida con IA para tu PYME</span>
               </h1>
 
               <p 
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
-                <strong className="font-bold text-slate-900">IA4PYMES</strong> es una agencia especializada en automatización de procesos, agentes de IA privados e integración de sistemas para pequeñas y medianas empresas en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
+                <strong className="font-bold text-slate-900">IA4PYMES</strong> es una empresa de desarrollo de software especializada en inteligencia artificial: diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos para pequeñas y medianas empresas en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
               </p>
 
               <div 

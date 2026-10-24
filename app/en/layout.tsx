@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "IA4PYMES | AI Automation for SMEs in Spain · +360% ROI Guaranteed",
+  title: "IA4PYMES | Custom AI Software Development for SMEs in Spain · +360% ROI",
   description:
-    "We cut operational costs for SMEs with custom AI. +360% average ROI, +1,000h saved per month, 100% success rate. Free diagnosis, no commitment. Start today.",
+    "Software development company specialized in AI for SMEs in Spain. We design, build and integrate custom software, private AI agents and process automation that cut operational costs. +360% average ROI.",
   keywords: [
     // Direct commercial intent
     "AI automation for SMEs Spain",

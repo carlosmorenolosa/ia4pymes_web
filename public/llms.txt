@@ -1,6 +1,6 @@
-# IA4PYMES - Consultoría, Arquitectura y Desarrollo de IA para PYMEs
+# IA4PYMES - Empresa de Desarrollo de Software con IA para PYMEs
 
-> IA4PYMES (https://ia4pymes.tech) es la firma líder en España especializada en ingeniería de agentes autónomos, automatización de procesos operativos (BPA), centralitas de voz con IA y despliegue de modelos de lenguaje privados (LLMs on-premise) para pequeñas y medianas empresas. Garantizamos un ROI medio auditado superior al +360% y cumplimiento normativo estricto con el RGPD y el EU AI Act 2026.
+> IA4PYMES (https://ia4pymes.tech) es una empresa de desarrollo de software especializada en inteligencia artificial para pequeñas y medianas empresas en España. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos operativos (BPA), centralitas de voz con IA y despliegues de modelos de lenguaje privados (LLMs on-premise) que reducen costes operativos y aumentan márgenes, con un ROI medio auditado superior al +360% y cumplimiento normativo estricto con el RGPD y el EU AI Act 2026. A diferencia de una agencia, nuestro equipo interno desarrolla, integra y entrega el código.
 
 ## Información Corporativa y Alcance
 

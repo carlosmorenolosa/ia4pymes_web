@@ -428,13 +428,13 @@ export default function HomeEN() {
                     id="hero-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
-                    <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Cut</span> Operational Costs & <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Scale</span> Your Margins with <span className="text-blue-600">AI for SMEs</span>
+                    Develop <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Cuts Costs</span> & <span className="text-blue-600">Scales Margins</span> for Your SME
                   </h1>
 
                   <p
                     className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is an agency specialized in AI automation, private AI agents, and system integration for SMEs in Spain.{" "}
+                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is a software development company specialized in artificial intelligence: we design and build custom software, private AI agents, and process automation for small and medium-sized businesses in Spain.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
                       +360% average ROI and 1,000+ hours saved monthly
                     </strong>.
@@ -815,7 +815,7 @@ export default function HomeEN() {
                   </div>
                 </Link>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                  AI automation agency for SMEs focused on real results and guaranteed ROI. We turn operational waste into profitability.
+                  AI software development company for SMEs: we design, build and integrate the software that cuts your operational costs. Real results and measurable ROI.
                 </p>
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>

@@ -21,14 +21,15 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
+  title: "IA4PYMES | Software y Automatización con IA para PYMES",
   description:
-    "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida. +1.000h ahorradas/mes y +360% ROI medio.",
+    "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. Consultoría y desarrollo con +360% ROI medio.",
   keywords: [
     // Intención comercial y entidad corporativa
     "IA4PYMES",
-    "agencia de automatización con IA España",
-    "agencia inteligencia artificial para empresas",
+    "empresa de desarrollo de software con IA España",
+    "desarrollo de software a medida con inteligencia artificial",
+    "desarrollo software ia para pymes",
     "agentes de IA para PYMES",
     "consultoría inteligencia artificial PYME Madrid Barcelona Valencia",
     "integración agentes IA ERP CRM",
@@ -60,9 +61,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
+    title: "IA4PYMES | Software y Automatización con IA para PYMES",
     description:
-      "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida. +1.000h ahorradas/mes.",
+      "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. +1.000h ahorradas/mes.",
     url: "https://ia4pymes.tech",
     siteName: "IA4PYMES",
     images: [
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IA4PYMES - Agencia de Automatización con IA para PYMES en España",
+        alt: "IA4PYMES - Empresa de desarrollo de software con IA para PYMES en España",
       },
     ],
     locale: "es_ES",
@@ -78,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IA4PYMES | Agencia de Automatización con IA en España · ROI +360%",
+    title: "IA4PYMES | Software y Automatización con IA para PYMES",
     description:
-      "Agencia de Inteligencia Artificial para PYMES y empresas en España. Eliminamos tareas repetitivas y reducimos costes operativos con agentes de IA a medida.",
+      "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },
@@ -180,10 +181,13 @@ export default function RootLayout({
               "@type": "Organization",
               name: "IA4PYMES",
               alternateName: "IA 4 PYMES",
-              description: "Agencia de automatización de procesos e Inteligencia Artificial a medida para PYMES en España",
+              description: "Empresa de desarrollo de software especializada en inteligencia artificial para PYMES: diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones que reducen costes operativos y aumentan márgenes.",
               url: "https://ia4pymes.tech",
               logo: "https://ia4pymes.tech/LOGO.png",
+              additionalType: "https://schema.org/SoftwareApplication",
               knowsAbout: [
+                "Desarrollo de software a medida",
+                "Ingeniería de software con IA",
                 "Inteligencia Artificial para PYMES",
                 "Automatización de Procesos Empresariales",
                 "Chatbots Empresariales RAG",
@@ -300,7 +304,7 @@ export default function RootLayout({
                   name: "¿Qué es IA4PYMES?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "IA4PYMES es una agencia especializada en automatización de procesos para PYMES mediante Inteligencia Artificial. Desarrollamos chatbots, automatizamos tareas repetitivas y creamos herramientas de IA personalizadas para cada negocio, con un ROI medio del +360%.",
+                    text: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones que reducen costes operativos y aumentan márgenes, con un ROI medio del +360%.",
                   },
                 },
                 {
