@@ -110,13 +110,13 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent opacity-60" />
 
-                                            <div className="absolute top-4 left-4 flex gap-2">
+                                            <div className="absolute top-4 left-4 right-4 flex items-start gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 text-white text-xs">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20 shrink-0">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 text-slate-800 text-xs font-medium">
+                                                <span className="px-2.5 py-1 bg-slate-900/85 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold rounded-full min-w-0 truncate">
                                                     {post.category}
                                                 </span>
                                             </div>
@@ -144,7 +144,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                             </p>
 
                                             <div className="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
-                                                <span className="text-xs text-slate-600r group-hover:text-blue-600 transition-colors">
+                                                <span className="text-xs text-slate-600 group-hover:text-blue-600 transition-colors">
                                                     {t.readLabel}
                                                 </span>
                                                 <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-500 transition-colors border border-slate-100">
