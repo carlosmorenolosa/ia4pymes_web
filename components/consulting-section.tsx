@@ -112,7 +112,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
               <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">

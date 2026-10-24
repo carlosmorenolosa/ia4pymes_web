@@ -426,7 +426,7 @@ export default function HomeEN() {
                 <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
                   <h1
                     id="hero-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
                     Develop <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Cuts Costs</span> & <span className="text-blue-600">Scales Margins</span>
                   </h1>
@@ -507,7 +507,7 @@ export default function HomeEN() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
                   >
                     AI Newsletter: <span className="text-blue-600">Actionable Case Studies for Your Business</span>
                   </h2>
@@ -571,7 +571,7 @@ export default function HomeEN() {
               <header className="text-center mb-10 sm:mb-14">
                 <h2
                   id="process-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   3-Step Methodology: <span className="text-blue-600">Audit, Integration & Deployment</span>
                 </h2>
@@ -690,7 +690,7 @@ export default function HomeEN() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="success-cases-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Case Studies: <span className="text-blue-600">Real-World AI & Automation for SMEs</span>
                 </h2>
@@ -715,7 +715,7 @@ export default function HomeEN() {
                       className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
-                      <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
+                      <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
                         <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                       </div>
                       <div className="text-slate-600 text-sm sm:text-base font-semibold tracking-wide leading-snug">{stat.label}</div>
@@ -755,7 +755,7 @@ export default function HomeEN() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="contact-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Request Your Free Diagnosis: <span className="text-blue-600">Let&apos;s Discuss Your Project</span>
                 </h2>

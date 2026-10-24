@@ -14,49 +14,49 @@ colors:
   accent-signal: "#ef4444"
 typography:
   display-xl:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)"
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   display-lg:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "clamp(1.9rem, 4vw, 3rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.03em"
   heading:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.02em"
   stat:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "clamp(2.5rem, 5vw, 3.5rem)"
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "-0.04em"
   body:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "normal"
   body-lg:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
+    fontFamily: "Instrument Sans, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: "0.01em"
   mono:
-    fontFamily: "Geist Mono, ui-monospace, monospace"
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.5
@@ -129,17 +129,20 @@ One blue, one signal red, and a slate neutral ramp. Nothing else.
 
 ## Typography
 
-One family, one voice: **Schibsted Grotesk**, for headings, body copy,
-navigation, buttons, forms, labels and numerals alike. Hierarchy comes from size,
-weight and spacing, never from switching typeface. It is a Scandinavian grotesque:
-precise, low-contrast and quiet, which is the right register for an engineering
-company and separates the site from the default Inter/Geist look.
+Two families, one idea: the code is the brand.
 
-- Weights in use: 400 body, 500 UI labels, 600 emphasis, 700 headings, 800 display
-  and statistics. Do not introduce intermediate weights.
-- `Geist Mono` exists only for code inside blog articles.
-- Because a single family flattens tone, the weight and size steps must stay
-  clearly separated: a heading is never the same weight as the paragraph below it.
+- **JetBrains Mono** carries display and headings (h1–h3, statistics, blog headings)
+  and also inline code. A monospace headline states "we write software" before the
+  visitor reads a word, and it cannot be imitated by a template.
+- **Instrument Sans** carries everything that is read at length or operated: body
+  copy, navigation, buttons, forms, labels, captions.
+- Weights in use: JetBrains 700/800 for display, Instrument 400/500/600 for text.
+  JetBrains Mono loads 500/700/800 — never call for 900, the browser synthesises it.
+- **Monospace is wider**: display steps sit two sizes below a proportional scale.
+  Headings run `text-2xl sm:text-3xl lg:text-4xl`, never `text-6xl`. If a headline
+  needs more than three lines, shorten the copy rather than shrinking the type.
+- Tight tracking (`-0.03em` to `-0.04em`) is required on mono display to keep words
+  readable as word-shapes; body copy keeps normal tracking.
 - Headings use `text-wrap: balance`; paragraphs use `text-wrap: pretty`. A heading
   whose last line is a single word must be rewrapped, not left.
 - Body copy sits between 65 and 75 characters per line. Never below 16px for body
@@ -199,7 +202,8 @@ company and separates the site from the default Inter/Geist look.
 
 **Don't**
 - Don't use Inter, Roboto or Geist as the interface font.
-- Don't pair Schibsted Grotesk with a second display family on a web surface.
+- Don't set a monospace headline above `text-4xl`; it overflows and reads as a wall.
+
 - Don't put an icon tile above a heading.
 - Don't animate a status dot to imply liveness.
 - Don't use gradient text, glow, glassmorphism, or radial halos.

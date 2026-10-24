@@ -248,7 +248,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <FadeIn>
               <header className="text-center mb-12 sm:mb-16">
-                <h2 id="que-hacemos-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]">
+                <h2 id="que-hacemos-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]">
                   Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
@@ -332,7 +332,7 @@ export default function Home() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
                   >
                     Newsletter de IA: <span className="text-blue-600">Casos Prácticos para tu Empresa</span>
                   </h2>
@@ -401,7 +401,7 @@ export default function Home() {
                 <header className="text-center mb-10 sm:mb-14">
                   <h2
                     id="process-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                   >
                     Metodología en 3 Pasos: <span className="text-blue-600">Auditoría, Integración y Despliegue</span>
                   </h2>
@@ -527,7 +527,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2 
                   id="success-cases-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Casos de Éxito: <span className="text-blue-600">Automatización e IA en Empresas Reales</span>
                 </h2>
@@ -552,7 +552,7 @@ export default function Home() {
                       className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
-                    <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
+                    <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
                       <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                     </div>
                     <div className="text-slate-600 text-sm sm:text-base font-semibold tracking-wide leading-snug">{stat.label}</div>
@@ -596,7 +596,7 @@ export default function Home() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="contact-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
                 >
                   Solicita tu Diagnóstico Gratuito: <span className="text-blue-600">Hablemos de Tu Proyecto</span>
                 </h2>

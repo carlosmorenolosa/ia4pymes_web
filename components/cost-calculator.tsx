@@ -62,7 +62,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <div className="w-full relative">
             <div className="text-center md:text-left mb-12 sm:mb-16">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tighter mb-6 relative z-10">
                     {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{" "}{t.headingSuffix}
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
@@ -209,7 +209,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                         <div className="pt-2 flex flex-col items-center">
                                             <span className="text-slate-600 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
-                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
+                                                <span className="text-3xl sm:text-4xl font-extrabold text-red-600 tracking-tighter drop-shadow-sm">
                                                     {results.year.toLocaleString(t.locale)} €
                                                 </span>
                                                 {/* Underline accent */}

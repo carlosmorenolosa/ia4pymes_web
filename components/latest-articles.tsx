@@ -70,7 +70,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-4">
                             {t.heading} <span className="text-blue-600">{t.brand}</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl text-lg font-light">

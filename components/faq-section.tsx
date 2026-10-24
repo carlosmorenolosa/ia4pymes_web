@@ -88,7 +88,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter text-slate-900 mb-4">
                         {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">

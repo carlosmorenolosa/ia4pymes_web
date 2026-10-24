@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Schibsted_Grotesk, Geist_Mono } from "next/font/google"
+import { JetBrains_Mono, Instrument_Sans } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
@@ -8,17 +8,18 @@ import { Analytics } from "@vercel/analytics/next"
 import { LeadsyScript } from "@/components/leadsy-script"
 import Script from "next/script"
 
-const schibsted = Schibsted_Grotesk({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-schibsted",
+  variable: "--font-jetbrains",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "700", "800"],
 })
 
-const geistMono = Geist_Mono({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-instrument",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 })
 
 export const metadata: Metadata = {
@@ -412,7 +413,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${schibsted.variable} ${geistMono.variable} font-sans text-slate-900`}>
+      <body className={`${instrumentSans.variable} ${jetbrains.variable} font-sans text-slate-900`}>
         {children}
         <Analytics />
         <CookieConsent />

@@ -25,7 +25,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
             <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
               <h1
                 id="hero-heading"
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
                 <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> Costes y <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">Software a Medida con IA</span>
               </h1>
