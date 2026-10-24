@@ -706,21 +706,20 @@ export default function HomeEN() {
                 itemType="https://schema.org/ItemList"
               >
                 {[
-                  { value: 15, prefix: "", suffix: " min", label: "Viability guarantee or full refund", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
-                  { value: 100, prefix: "", suffix: "%", label: "Consultancy fee deducted if you build with us", color: "text-green-600", bg: "hover:shadow-green-500/10" },
-                  { value: 24, prefix: "", suffix: "/7", label: "AI agents running around the clock", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
+                  { value: 15, prefix: "", suffix: " min", label: "Viability guarantee or full refund" },
+                  { value: 100, prefix: "", suffix: "%", label: "Consultancy fee deducted if you build with us" },
+                  { value: 24, prefix: "", suffix: "/7", label: "AI agents running around the clock" },
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
-                      className={`relative group bg-white border border-slate-100 p-8 sm:p-10 rounded-[2.5rem] text-center shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ${stat.bg}`}
+                      className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
-                      <div className={`text-5xl sm:text-6xl font-black tracking-tighter mb-3 ${stat.color} drop-shadow-sm`} itemProp="name">
+                      <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
                         <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                       </div>
-                      <div className="text-slate-500 text-sm sm:text-base font-bold uppercase tracking-widest leading-tight">{stat.label}</div>
+                      <div className="text-slate-600 text-sm sm:text-base font-semibold tracking-wide leading-snug">{stat.label}</div>
                       <meta itemProp="position" content={(idx + 1).toString()} />
-                      <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     </div>
                   </FadeIn>
                 ))}
