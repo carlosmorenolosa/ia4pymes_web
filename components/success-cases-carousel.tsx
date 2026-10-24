@@ -189,37 +189,13 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                 <div className="mx-auto max-w-3xl" style={{ zIndex: 1000 }}>
                   <TiltCard className="relative" style={{ zIndex: 1000 }}>
                     <div
-                      className="flex flex-col p-8 sm:p-10 lg:p-12 rounded-3xl h-full text-left bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group relative"
+                      className="flex flex-col p-8 sm:p-10 lg:p-12 rounded-3xl h-full text-left bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer group relative"
                       style={{
                         zIndex: 1000,
                         position: "relative",
                         isolation: "isolate",
                       }}
                     >
-                      {/* Glow effect */}
-                      <div
-                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none ${case_.color === "blue"
-                          ? "shadow-[0_0_60px_rgba(37,99,235,0.3)] border-2 border-blue-600/50"
-                          : case_.color === "orange"
-                            ? "shadow-[0_0_60px_rgba(249,115,22,0.3)] border-2 border-orange-400/50"
-                            : case_.color === "green"
-                              ? "shadow-[0_0_60px_rgba(34,197,94,0.3)] border-2 border-green-400/50"
-                              : "shadow-[0_0_60px_rgba(147,51,234,0.3)] border-2 border-purple-400/50"
-                          }`}
-                        style={{ zIndex: -1 }}
-                      ></div>
-                      {/* Animated background gradient */}
-                      <div
-                        className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-all duration-500 ${case_.color === "blue"
-                          ? "bg-gradient-to-br from-blue-100 via-blue-50 to-transparent"
-                          : case_.color === "orange"
-                            ? "bg-gradient-to-br from-orange-100 via-orange-50 to-transparent"
-                            : case_.color === "green"
-                              ? "bg-gradient-to-br from-green-100 via-green-50 to-transparent"
-                              : "bg-gradient-to-br from-purple-100 via-purple-50 to-transparent"
-                          }`}
-                        style={{ zIndex: -1 }}
-                      ></div>
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 relative z-10 gap-4">
                         <div className="flex-1 min-w-0">
                           <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2 break-words group-hover:text-slate-900 transition-colors duration-300">
@@ -230,14 +206,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                           </p>
                         </div>
                         <div
-                          className={`w-14 h-14 sm:w-16 sm:h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center shrink-0 shadow-lg transition-all duration-500 group-hover:scale-125 ${case_.color === "blue"
-                            ? "text-blue-600 bg-blue-600/10 border-blue-600/20 group-hover:bg-blue-600/20 group-hover:border-blue-600/40"
-                            : case_.color === "orange"
-                              ? "text-orange-600 bg-orange-500/10 border-orange-500/20 group-hover:bg-orange-500/20 group-hover:border-orange-500/40"
-                              : case_.color === "green"
-                                ? "text-green-600 bg-green-500/10 border-green-500/20 group-hover:bg-green-500/20 group-hover:border-green-500/40"
-                                : "text-purple-600 bg-purple-500/10 border-purple-500/20 group-hover:bg-purple-500/20 group-hover:border-purple-500/40"
-                            }`}
+                          className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center shrink-0 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600"
                         >
                           <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
                         </div>
@@ -275,7 +244,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
-        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
+        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 shadow-lg rounded-full hover:bg-white transition-colors duration-300 border border-gray-200"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Previous slide" : "Anterior caso de éxito"}
       >
@@ -285,7 +254,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
-        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 backdrop-blur-sm shadow-xl rounded-full hover:bg-white transition-colors duration-300 border border-gray-200/50"
+        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 shadow-lg rounded-full hover:bg-white transition-colors duration-300 border border-gray-200"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Next slide" : "Siguiente caso de éxito"}
       >
