@@ -43,7 +43,7 @@ export default function Home() {
   const homeFaqs = [
     {
       question: "¿Qué es IA4PYMES?",
-      answer: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos que reducen costes operativos y aumentan márgenes, con un ROI medio del +360%.",
+      answer: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos que reducen costes operativos y aumentan márgenes. Calculamos el ROI esperado de cada proyecto antes de desarrollar: si los números no salen, no avanzamos.",
     },
     {
       question: "¿Es útil esta solución para mi sector?",
@@ -251,20 +251,20 @@ export default function Home() {
                   Qué hacemos: <span className="text-blue-600">desarrollo de software con IA</span> para tu PYME
                 </h2>
                 <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. No asesoramos y desaparecemos: nuestro equipo diseña, desarrolla, integra y mantiene el software que automatiza tu operación. Trabajamos para PYMES en toda España, desde la auditoría inicial hasta el despliegue y la formación de tu equipo.
+                  IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial. Nuestro equipo interno diseña, desarrolla, integra y mantiene el software: entregamos código en producción, no presentaciones. Trabajamos para PYMES en toda España, desde la auditoría inicial hasta el despliegue y la formación de tu equipo.
                 </p>
               </header>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
                   <h3 className="text-xl font-bold text-slate-900 mb-3">Desarrollo de software a medida</h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Aplicaciones, herramientas internas y sistemas de gestión desarrollados con IA generativa integrada, conectados a tu ERP o CRM. Código propio, sin dependencias de plataformas cerradas.
+                    Aplicaciones web, herramientas internas y sistemas de gestión conectados a tu ERP o CRM (Holded, Sage, Odoo). Código propio que evoluciona con tu negocio, sin dependencia de plataformas cerradas.
                   </p>
                 </div>
                 <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
                   <h3 className="text-xl font-bold text-slate-900 mb-3">Automatización de procesos operativos</h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Facturas, presupuestos, correos y tareas repetitivas procesadas automáticamente con validación humana en un clic. Menos horas manuales, menos errores, más margen.
+                    Facturas, albaranes, presupuestos y correos procesados automáticamente con validación humana en un clic. Cada automatización arranca con el ahorro en horas cuantificado en euros.
                   </p>
                 </div>
                 <div className="border border-slate-200 rounded-3xl p-8 bg-white shadow-sm">
@@ -275,7 +275,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-slate-600 mt-10 leading-relaxed max-w-3xl">
-                ¿Quieres ver cómo lo aplicamos en tu industria? Explora nuestros <Link href="/sectores" className="text-blue-600 font-semibold hover:underline">casos por sector y ciudad</Link> o lee la <Link href="/blog" className="text-blue-600 font-semibold hover:underline">guía técnica de nuestro blog</Link>, donde publicamos cada semana cómo implementamos estas soluciones en empresas reales. Consultoría y desarrollo de software con IA, con ROI calculado antes de escribir la primera línea de código.
+                ¿Quieres ver cómo lo aplicamos en tu industria? Explora nuestros <Link href="/sectores" className="text-blue-600 font-semibold hover:underline">casos por sector y ciudad</Link> o lee la <Link href="/blog" className="text-blue-600 font-semibold hover:underline">guía técnica de nuestro blog</Link>, donde publicamos cada semana cómo implementamos estas soluciones en empresas reales. Consultoría y desarrollo de software con IA: primero medimos si sale a cuenta, después desarrollamos.
               </p>
             </FadeIn>
           </div>
@@ -525,9 +525,9 @@ export default function Home() {
                 itemType="https://schema.org/ItemList"
               >
                 {[
-                  { value: 360, prefix: "+", suffix: "%", label: "Media del ROI", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
-                  { value: 1000, prefix: "+", suffix: "h", label: "Horas ahorradas al mes", color: "text-green-600", bg: "hover:shadow-green-500/10" },
-                  { value: 100, prefix: "", suffix: "%", label: "Tasa de éxito", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
+                  { value: 0, prefix: "", suffix: " €", label: "Auditoría de ROI sin coste", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
+                  { value: 3, prefix: "", suffix: " sem.", label: "Diagnóstico inicial y mapa de ruta", color: "text-green-600", bg: "hover:shadow-green-500/10" },
+                  { value: 100, prefix: "", suffix: "%", label: "RGPD: tus datos no entrenan modelos públicos", color: "text-orange-600", bg: "hover:shadow-orange-500/10" }
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 

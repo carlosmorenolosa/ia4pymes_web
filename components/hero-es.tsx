@@ -33,7 +33,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <p 
                 className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
               >
-                <strong className="font-bold text-slate-900">IA4PYMES</strong> es una empresa de desarrollo de software especializada en inteligencia artificial: diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos para pequeñas y medianas empresas en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">+360% ROI medio y +1.000h ahorradas al mes</strong>.
+                <strong className="font-bold text-slate-900">IA4PYMES</strong> es una empresa de desarrollo de software especializada en inteligencia artificial: diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos para pequeñas y medianas empresas en España. <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">Calculamos el ROI de tu proyecto antes de escribir la primera línea de código</strong>.
               </p>
 
               <div 

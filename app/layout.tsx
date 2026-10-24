@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IA4PYMES | Software y Automatización con IA para PYMES",
   description:
-    "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. Consultoría y desarrollo con +360% ROI medio.",
+    "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. ROI calculado antes de desarrollar.",
   keywords: [
     // Intención comercial y entidad corporativa
     "IA4PYMES",
@@ -304,7 +304,7 @@ export default function RootLayout({
                   name: "¿Qué es IA4PYMES?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones que reducen costes operativos y aumentan márgenes, con un ROI medio del +360%.",
+                    text: "IA4PYMES es una empresa de desarrollo de software especializada en inteligencia artificial para PYMES. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones que reducen costes operativos y aumentan márgenes. Calculamos el ROI esperado de cada proyecto antes de desarrollar: si los números no salen, no avanzamos.",
                   },
                 },
                 {

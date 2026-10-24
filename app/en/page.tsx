@@ -436,7 +436,7 @@ export default function HomeEN() {
                   >
                     <strong className="font-bold text-slate-900">IA4PYMES</strong> is a software development company specialized in artificial intelligence: we design and build custom software, private AI agents, and process automation for small and medium-sized businesses in Spain.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
-                      +360% average ROI and 1,000+ hours saved monthly
+                      We calculate your project's ROI before writing a single line of code
                     </strong>.
                   </p>
 
@@ -706,9 +706,9 @@ export default function HomeEN() {
                 itemType="https://schema.org/ItemList"
               >
                 {[
-                  { value: 360, prefix: "+", suffix: "%", label: "Average ROI", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
-                  { value: 1000, prefix: "+", suffix: "h", label: "Hours saved per month", color: "text-green-600", bg: "hover:shadow-green-500/10" },
-                  { value: 100, prefix: "", suffix: "%", label: "Success rate", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
+                  { value: 0, prefix: "", suffix: " €", label: "Free ROI audit", color: "text-blue-600", bg: "hover:shadow-blue-500/10" },
+                  { value: 3, prefix: "", suffix: " wks", label: "Initial diagnosis & roadmap", color: "text-green-600", bg: "hover:shadow-green-500/10" },
+                  { value: 100, prefix: "", suffix: "%", label: "GDPR: your data never trains public models", color: "text-orange-600", bg: "hover:shadow-orange-500/10" },
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
