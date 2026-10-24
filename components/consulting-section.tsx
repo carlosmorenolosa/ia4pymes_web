@@ -112,10 +112,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify max-w-[70ch]">
+              <p className="text-xl sm:text-xl text-slate-600 leading-relaxed text-justify max-w-[70ch]">
                 {t.subtitle}
               </p>
             </div>
@@ -133,7 +133,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </span>
                   <div>
                     <strong className="text-slate-900 block">{t.included1Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included1Desc}</span>
+                    <span className="text-slate-600 text-base">{t.included1Desc}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -142,7 +142,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </span>
                   <div>
                     <strong className="text-slate-900 block">{t.included2Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included2Desc}</span>
+                    <span className="text-slate-600 text-base">{t.included2Desc}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -151,7 +151,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </span>
                   <div>
                     <strong className="text-slate-900 block">{t.included3Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included3Desc}</span>
+                    <span className="text-slate-600 text-base">{t.included3Desc}</span>
                   </div>
                 </li>
               </ul>
@@ -162,7 +162,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee1Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1 max-w-[70ch]">
+                  <p className="text-slate-600 text-base mt-1 max-w-[70ch]">
                     {t.guarantee1Desc}
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <HelpCircle className="w-8 h-8 text-slate-500 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee2Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1 max-w-[70ch]">
+                  <p className="text-slate-600 text-base mt-1 max-w-[70ch]">
                     {t.guarantee2Desc}
                   </p>
                 </div>
@@ -197,10 +197,10 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
             <div className="flex flex-col items-center text-center mt-8 lg:mt-12">
               <div>
-                <span className="text-sm font-semibold text-slate-500 blockr">{t.priceTitle}</span>
+                <span className="text-base font-semibold text-slate-500 blockr">{t.priceTitle}</span>
                 <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-4xl sm:text-5xl font-black text-slate-900">{t.price}</span>
-                  <span className="text-lg font-bold text-slate-500">{t.plusVat}</span>
+                  <span className="text-3xl sm:text-5xl font-black text-slate-900">{t.price}</span>
+                  <span className="text-xl font-bold text-slate-500">{t.plusVat}</span>
                 </div>
                 <span className="text-xs text-slate-500 block mt-1">{t.totalVat}</span>
               </div>

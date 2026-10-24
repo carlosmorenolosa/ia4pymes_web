@@ -62,10 +62,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <div className="w-full relative">
             <div className="text-center md:text-left mb-12 sm:mb-16">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
                     {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{" "}{t.headingSuffix}
                 </h2>
-                <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                <p className="text-xl md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     {t.subtitle}
                 </p>
             </div>
@@ -77,12 +77,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                     
                     {/* Input: Horas a la semana */}
                     <div className="space-y-5">
-                        <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Clock className="w-5 h-5" /></span>
                                 {t.labelHours}
                             </span>
-                            <span className="text-2xl font-black text-blue-600">{hoursPerWeek}h</span>
+                            <span className="text-xl font-black text-blue-600">{hoursPerWeek}h</span>
                         </label>
                         <div className="relative">
                             <input
@@ -100,12 +100,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Input: Número de empleados */}
                     <div className="space-y-5">
-                        <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Users className="w-5 h-5" /></span>
                                 {t.labelEmployees}
                             </span>
-                            <span className="text-2xl font-black text-blue-600">{employees}</span>
+                            <span className="text-xl font-black text-blue-600">{employees}</span>
                         </label>
                         <div className="relative">
                             <input
@@ -123,12 +123,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Input: Salario por hora */}
                     <div className="space-y-5">
-                        <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-10 h-10 text-green-600"><Euro className="w-5 h-5" /></span>
                                 {t.labelWage}
                             </span>
-                            <span className="text-2xl font-black text-green-600">{hourlyWage} €</span>
+                            <span className="text-xl font-black text-green-600">{hourlyWage} €</span>
                         </label>
                         <div className="relative">
                             <input
@@ -187,7 +187,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
-                                        <div className="text-sm font-black text-blue-600 mb-1">
+                                        <div className="text-base font-black text-blue-600 mb-1">
                                             {t.cardTitle}
                                         </div>
                                         <div className="w-12 h-1 bg-blue-100 mx-auto rounded-lg"></div>
@@ -195,12 +195,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm">{t.weekly}</span>
-                                            <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
+                                            <span className="text-slate-500 font-bold text-base">{t.weekly}</span>
+                                            <span className="text-xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm">{t.monthly}</span>
+                                            <span className="text-slate-500 font-bold text-base">{t.monthly}</span>
                                             <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString(t.locale)} €</span>
                                         </div>
 

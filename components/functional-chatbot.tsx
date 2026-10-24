@@ -213,13 +213,13 @@ export function FunctionalChatbot({
               <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
             </div>
             <div>
-              <div className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</div>
+              <div className={`${is3D ? "text-base" : "text-base sm:text-xl lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-[11px] font-semibold text-slate-600 tracking-wide">{i18n.online}</span>
+                <span className="text-xs font-semibold text-slate-600 tracking-wide">{i18n.online}</span>
               </div>
             </div>
           </div>
@@ -300,7 +300,7 @@ export function FunctionalChatbot({
             setIsFocused(true)
           }}
           onBlur={() => setIsFocused(false)}
-          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-slate-900 placeholder:text-slate-500 h-10"
+          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-base text-slate-900 placeholder:text-slate-500 h-10"
           disabled={isLoading}
           name="message"
           autoComplete="off"

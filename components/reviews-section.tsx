@@ -68,11 +68,11 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
         <header className="text-center mb-16 sm:mb-20">
           <h2
             id="reviews-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6"
           >
             {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+          <p className="max-w-3xl mx-auto text-base sm:text-xl lg:text-xl text-slate-600 px-4">
             {t.subtitle}
           </p>
         </header>
@@ -92,17 +92,17 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
 
                 {/* Review text */}
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-normal max-w-[70ch]">
+                <p className="text-slate-700 text-base sm:text-base leading-relaxed mb-6 font-normal max-w-[70ch]">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </div>
 
               {/* Bottom footer: Company name & tag */}
               <div className="pt-5 border-t border-slate-100 flex flex-col gap-1">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-snug">
+                <h3 className="text-base sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
                   {review.company}
                 </h3>
-                <span className="text-[11px] sm:text-xs font-semiboldr text-blue-600">
+                <span className="text-xs sm:text-xs font-semiboldr text-blue-600">
                   {review.tag}
                 </span>
               </div>

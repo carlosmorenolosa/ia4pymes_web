@@ -37,8 +37,8 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               aria-label="Ir al inicio de IA4PYMES"
             >
               <div className="flex items-center relative tracking-[-0.04em]">
-                <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
-                <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
+                <span className="text-3xl sm:text-3xl md:text-6xl font-extrabold text-blue-600">IA</span>
+                <span className="text-3xl sm:text-3xl md:text-6xl font-black text-slate-900">4</span>
               </div>
             </Link>
           </div>
@@ -60,7 +60,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <Link
                   key={href}
                   href={href}
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   {label}
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -68,15 +68,15 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               ))}
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="flex items-center gap-1 px-2">
-                <span className="text-sm font-bold text-blue-600 cursor-default">ES</span>
+                <span className="text-base font-bold text-blue-600 cursor-default">ES</span>
                 <span className="text-slate-300 text-xs">|</span>
-                <Link href="/en" className="text-sm font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+                <Link href="/en" className="text-base font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
                   href="/#consultoria"
-                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-sm md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
@@ -127,15 +127,15 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <div className="flex items-center gap-4">
-            <span className="text-2xl font-bold text-blue-600">ES</span>
+            <span className="text-xl font-bold text-blue-600">ES</span>
             <span className="text-slate-300">|</span>
-            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <Link
             href="/#consultoria"
             onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center gap-2 rounded-lg text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
+            className="inline-flex items-center justify-center gap-2 rounded-lg text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
           >
             Reservar Consultoría
           </Link>

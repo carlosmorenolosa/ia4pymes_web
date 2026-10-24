@@ -70,10 +70,10 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
+                        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                             {t.heading} <span className="text-blue-600">{t.brand}</span>
                         </h2>
-                        <p className="text-slate-600 max-w-2xl text-lg font-light">
+                        <p className="text-slate-600 max-w-2xl text-xl font-light">
                             {t.subtitle}
                         </p>
                     </div>
@@ -90,7 +90,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
 
                 {latestPosts.length === 0 ? (
-                    <div className="text-center py-16 text-slate-500 text-sm font-medium">
+                    <div className="text-center py-16 text-slate-500 text-base font-medium">
                         {lang === "en" ? "No English articles published yet." : "No hay artículos publicados aún."}
                     </div>
                 ) : (
@@ -139,7 +139,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 {post.title}
                                             </h3>
 
-                                            <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 font-light max-w-[70ch]">
+                                            <p className="text-slate-600 text-base leading-relaxed mb-6 line-clamp-3 font-light max-w-[70ch]">
                                                 {post.description}
                                             </p>
 
