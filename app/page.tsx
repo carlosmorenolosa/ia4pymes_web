@@ -245,18 +245,25 @@ export default function Home() {
           <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
             <FadeIn>
               <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-                <h2
-                  id="que-hacemos-heading"
-                  className="lg:col-span-4 text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
-                >
-                  Qué hacemos: <span className="text-signal">software con IA</span> para tu PYME
-                </h2>
+                <div className="lg:col-span-4">
+                  <h2
+                    id="que-hacemos-heading"
+                    className="text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
+                  >
+                    Qué hacemos: <span className="text-signal">software con IA</span> para tu PYME
+                  </h2>
+                  <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.65] text-ink-soft">
+                    Desarrollo de software a medida, automatización de procesos y agentes de IA
+                    privados para PYMES en España. Integramos con tu ERP o CRM
+                    (Holded, Sage, Odoo) y desplegamos en nube europea u on-premise, bajo RGPD.
+                  </p>
+                </div>
 
                 <ul className="lg:col-span-8 w-full border-t border-line">
                   {[
                     { title: "Software a medida", benefit: "Código propio, sin lock-in" },
-                    { title: "Automatización de procesos", benefit: "Ahorro cuantificado en euros" },
-                    { title: "Agentes de IA privados", benefit: "Nube europea u on-premise" },
+                    { title: "Automatización de procesos", benefit: "Facturas, albaranes, presupuestos" },
+                    { title: "Agentes de IA privados", benefit: "Chatbots y voz · RGPD" },
                   ].map((item) => (
                     <li
                       key={item.title}
