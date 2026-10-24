@@ -197,7 +197,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
             <div className="flex flex-col items-center text-center mt-8 lg:mt-12">
               <div>
-                <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
+                <span className="text-sm font-semibold text-slate-500 blockr">{t.priceTitle}</span>
                 <div className="flex items-baseline justify-center gap-2">
                   <span className="text-4xl sm:text-5xl font-black text-slate-900">{t.price}</span>
                   <span className="text-lg font-bold text-slate-500">{t.plusVat}</span>

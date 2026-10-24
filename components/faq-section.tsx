@@ -107,7 +107,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                         return (
                             <div
                                 key={index}
-                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
+                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600" : "border-slate-200 hover:border-blue-200"
                                     }`}
                             >
                                 <button
@@ -152,7 +152,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                 window.history.pushState(null, "", t.ctaHref)
                             }
                         }}
-                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 cursor-pointer"
                     >
                         {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />

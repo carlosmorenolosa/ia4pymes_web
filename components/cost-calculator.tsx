@@ -181,7 +181,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                             {/* Main Display Face */}
                             <div 
-                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] shadow-sm flex flex-col overflow-hidden border border-white p-8 sm:p-10"
+                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] flex flex-col overflow-hidden border border-white p-8 sm:p-10"
                                 style={{ transform: "translateZ(1px)" }}
                             >
                                 {/* Decorative internal glow */}
@@ -189,7 +189,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
-                                        <div className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
+                                        <div className="text-sm font-black text-blue-600 mb-1">
                                             {t.cardTitle}
                                         </div>
                                         <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
@@ -197,17 +197,17 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.weekly}</span>
+                                            <span className="text-slate-500 font-bold text-sm">{t.weekly}</span>
                                             <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.monthly}</span>
+                                            <span className="text-slate-500 font-bold text-sm">{t.monthly}</span>
                                             <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="pt-2 flex flex-col items-center">
-                                            <span className="text-slate-600 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
+                                            <span className="text-slate-600 font-bold text-xs mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
                                                 <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
                                                     {results.year.toLocaleString(t.locale)} €
@@ -228,7 +228,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                         <div className="w-full">
                                             <Link
                                                 href={t.ctaHref}
-                                                className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)]"
+                                                className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group"
                                             >
                                                 {t.ctaButton}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

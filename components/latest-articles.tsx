@@ -81,7 +81,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div>
                         <Link
                             href={t.ctaHref}
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap font-bold shadow-sm"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap font-bold"
                         >
                             {t.cta}
                             <ArrowRight className="w-4 h-4" />
@@ -98,7 +98,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                         {latestPosts.map((post, index) => (
                             <div key={post.slug}>
                                 <Link href={t.postHref(post.slug)} className="cursor-pointer block group h-full">
-                                    <article className="h-full flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                    <article className="h-full flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
                                         {/* Image */}
                                         <div className="relative h-52 overflow-hidden bg-slate-100">
                                             <Image
@@ -112,11 +112,11 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                             <div className="absolute top-4 left-4 flex gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-600 text-white border border-blue-600/20 text-xs font-mono rounded-md shadow-sm">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white border border-blue-600/20 text-xs font-mono rounded-md">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 bg-white/90 text-slate-800 border border-slate-200 text-xs font-medium rounded-md backdrop-blur-md shadow-sm">
+                                                <span className="px-2.5 py-1 bg-white/90 text-slate-800 border border-slate-200 text-xs font-medium rounded-md backdrop-blur-md">
                                                     {post.category}
                                                 </span>
                                             </div>
@@ -144,7 +144,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                             </p>
 
                                             <div className="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
-                                                <span className="text-xs font-mono text-slate-600 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                                                <span className="text-xs font-mono text-slate-600r group-hover:text-blue-600 transition-colors">
                                                     {t.readLabel}
                                                 </span>
                                                 <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-500 transition-colors border border-slate-100 group-hover:border-blue-100">

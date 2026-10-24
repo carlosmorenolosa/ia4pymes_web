@@ -283,7 +283,7 @@ export default function Home() {
                   return (
                     <div
                       key={service.title}
-                      className="relative group bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
+                      className="relative group bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
                     >
                       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
                         <IconComponent className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
@@ -372,7 +372,7 @@ export default function Home() {
                         href="https://newsletter.ia4pymes.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
+                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
                       >
                         Suscribirse Ahora
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -464,7 +464,7 @@ export default function Home() {
                           <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-blue-600 mb-2 leading-none group-hover:text-blue-700 transition-colors duration-500">
                             {process.step}
                           </span>
-                          <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
+                          <div className="mb-4 text-blue-600">
                             <IconComponent className="w-6 h-6" />
                           </div>
                         </div>
@@ -502,7 +502,7 @@ export default function Home() {
                 <div className="mt-12 sm:mt-16 text-center">
                   <Link
                     href="/#consultoria"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4"
                   >
                     <span>Reservar Consultoría</span>
                     <ArrowRight
@@ -549,7 +549,7 @@ export default function Home() {
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
-                      className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
+                      className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
                     <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
@@ -567,7 +567,7 @@ export default function Home() {
               <div className="mt-12 sm:mt-16 text-center">
                 <Link
                   href="/#consultoria"
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 group"
                   aria-label="Reservar Consultoría"
                 >
                   <span>Reservar Consultoría</span>
@@ -689,7 +689,7 @@ export default function Home() {
               {/* Column 2: Soluciones */}
               <FadeIn delay={0.3}>
                 <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Soluciones</h4>
+                  <h4 className="text-sm font-black text-slate-900st">Soluciones</h4>
                 <ul className="space-y-4">
                   <li>
                     <Link href="/#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Nuestro Proceso</Link>
@@ -710,7 +710,7 @@ export default function Home() {
               {/* Column 3: Explorar */}
               <FadeIn delay={0.4}>
                 <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explorar</h4>
+                  <h4 className="text-sm font-black text-slate-900st">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
                     <ScrollTopLink href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Sobre nosotros</ScrollTopLink>
@@ -731,7 +731,7 @@ export default function Home() {
               {/* Column 4: Conecta */}
               <FadeIn delay={0.5}>
                 <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Conecta</h4>
+                  <h4 className="text-sm font-black text-slate-900st">Conecta</h4>
                 <div className="space-y-4">
                   <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
                     <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
@@ -740,24 +740,24 @@ export default function Home() {
                     <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
                   </a>
                     <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-                      <a href="https://es.linkedin.com/company/ia4pymestech?trk=public_post_feed-actor-image" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
+                      <a href="https://es.linkedin.com/company/ia4pymestech?trk=public_post_feed-actor-image" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="LinkedIn">
                         <Linkedin className="w-5 h-5" />
                       </a>
-                      <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Facebook">
+                      <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="Facebook">
                         <Facebook className="w-5 h-5" />
                       </a>
-                      <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
+                      <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="Instagram">
                         <Instagram className="w-5 h-5" />
                       </a>
-                      <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="TikTok">
+                      <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="TikTok">
                         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.34V9.05a9.14 9.14 0 0 0 5.25 1.63V7.23a5.27 5.27 0 0 1-1.34-.54z" />
                         </svg>
                       </a>
-                      <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
+                      <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="YouTube">
                         <Youtube className="w-5 h-5" />
                       </a>
-                      <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="X (Twitter)">
+                      <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95" aria-label="X (Twitter)">
                         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
