@@ -428,7 +428,7 @@ export default function HomeEN() {
                     id="hero-heading"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
                   >
-                    Develop <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Cuts Costs</span> & <span className="text-blue-600">Scales Margins</span> for Your SME
+                    Develop <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Cuts Costs</span> & <span className="text-blue-600">Scales Margins</span>
                   </h1>
 
                   <p

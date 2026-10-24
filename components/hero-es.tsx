@@ -27,7 +27,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
               >
-                Reduce Costes Operativos y Multiplica tus Márgenes con software desarrollado <span className="text-blue-600">a medida con IA para tu PYME</span>
+                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> Costes y <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Multiplica</span> tus Márgenes con <span className="text-blue-600">Software a Medida con IA</span>
               </h1>
 
               <p 
