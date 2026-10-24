@@ -219,7 +219,7 @@ export function FunctionalChatbot({
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">{i18n.online}</span>
+                <span className="text-[11px] font-semibold text-slate-600 tracking-wide">{i18n.online}</span>
               </div>
             </div>
           </div>
@@ -324,7 +324,7 @@ export function FunctionalChatbot({
           <Send className="w-4 h-4" />
         </Button>
       </form>
-      <div className="mt-2 text-center text-[10px] text-slate-500 font-medium tracking-tight">
+      <div className="mt-2 text-center text-xs text-slate-500 font-medium tracking-tight">
         {i18n.aiNotice}
       </div>
     </div>
