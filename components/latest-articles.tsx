@@ -112,11 +112,11 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
 
                                             <div className="absolute top-4 left-4 flex gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-xs rounded-md">
+                                                    <span className="px-2.5 py-1 text-white text-xs">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 bg-white/90 text-slate-800 text-xs font-medium rounded-md backdrop-blur-md">
+                                                <span className="px-2.5 py-1 text-slate-800 text-xs font-medium">
                                                     {post.category}
                                                 </span>
                                             </div>
@@ -139,7 +139,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 {post.title}
                                             </h3>
 
-                                            <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 font-light">
+                                            <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 font-light max-w-[70ch]">
                                                 {post.description}
                                             </p>
 
@@ -147,7 +147,7 @@ export function LatestArticles({ lang = "es" }: { lang?: "es" | "en" }) {
                                                 <span className="text-xs text-slate-600r group-hover:text-blue-600 transition-colors">
                                                     {t.readLabel}
                                                 </span>
-                                                <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-500 transition-colors border border-slate-100 group-hover:border-blue-100">
+                                                <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 text-slate-500 transition-colors border border-slate-100">
                                                     <ArrowRight className="w-4 h-4" />
                                                 </div>
                                             </div>

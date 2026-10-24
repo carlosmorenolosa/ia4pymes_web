@@ -244,15 +244,7 @@ export function FunctionalChatbot({
             className={`${msg.sender === "User" ? "text-right" : "text-left"}`}
           >
             <div
-              className={`inline-block p-2.5 rounded-[1rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${
-                msg.sender === "User"
-                  ? minimal
-                    ? "bg-slate-100 ml-auto border border-slate-200 text-slate-700"
-                    : "bg-white ml-auto border border-slate-100 text-slate-600"
-                  : minimal
-                    ? "bg-blue-50 border border-blue-200"
-                    : "bg-gradient-to-br from-blue-50 to-white border border-blue-50"
-              } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
+              className={`inline-block p-2.5 max-w-[85%] sm:max-w-[90%] break-words ${ msg.sender === "User" ? minimal ? "bg-slate-100 ml-auto text-slate-700" : "bg-white ml-auto text-slate-600" : minimal ? "bg-blue-50 border-blue-200" : "bg-gradient-to-br from-blue-50 to-white border-blue-50" } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
             >
               <div className={`prose prose-sm max-w-none ${msg.sender === "User"
                 ? "text-slate-600 prose-strong:text-slate-700"
@@ -271,7 +263,7 @@ export function FunctionalChatbot({
             exit={{ opacity: 0, y: -10 }}
             className="text-left"
           >
-            <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-blue-50 border border-blue-200`}>
+            <div className={`inline-block p-2.5 rounded-tl-none max-w-xs bg-blue-50`}>
               <div className="flex items-center space-x-2">
                 <span className="text-slate-700 text-xs font-medium">{i18n.typing}</span>
                 <div className="flex space-x-1">

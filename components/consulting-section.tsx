@@ -115,7 +115,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">
+              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify max-w-[70ch]">
                 {t.subtitle}
               </p>
             </div>
@@ -162,7 +162,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee1Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1">
+                  <p className="text-slate-600 text-sm mt-1 max-w-[70ch]">
                     {t.guarantee1Desc}
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 <HelpCircle className="w-8 h-8 text-slate-500 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee2Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1">
+                  <p className="text-slate-600 text-sm mt-1 max-w-[70ch]">
                     {t.guarantee2Desc}
                   </p>
                 </div>

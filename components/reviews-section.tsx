@@ -81,7 +81,7 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
           {t.reviews.map((review, idx) => (
             <article
               key={idx}
-              className="bg-slate-50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
+              className="bg-slate-50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 transition-all duration-500 flex flex-col justify-between relative group"
             >
               <div>
                 {/* Top header: Rating stars & Quote icon */}
@@ -92,7 +92,7 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
 
                 {/* Review text */}
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-normal max-w-[70ch]">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </div>

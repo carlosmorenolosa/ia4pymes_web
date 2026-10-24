@@ -283,14 +283,14 @@ export default function Home() {
                   return (
                     <div
                       key={service.title}
-                      className="relative group bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
+                      className="relative group bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left transition-all duration-500"
                     >
                       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
                         <IconComponent className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
                         {service.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors duration-300">
+                      <p className="text-slate-600 leading-relaxed mb-6 max-w-[70ch]">{service.description}</p>
+                      <div className="inline-flex items-center gap-2 mt-auto">
                         <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
                         <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
                       </div>
@@ -379,7 +379,7 @@ export default function Home() {
                       </Link>
                     </div>
                     
-                    <p className="text-slate-500 text-sm mt-6 text-center italic">
+                    <p className="text-slate-500 text-sm mt-6 text-center italic max-w-[70ch]">
                       * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
                     </p>
                   </div>
@@ -478,7 +478,7 @@ export default function Home() {
                             {process.description}
                           </p>
                           
-                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
+                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors duration-300">
                             <CheckCircle className="w-4 h-4 text-blue-600" />
                             <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">
                               {process.benefit}
@@ -549,7 +549,7 @@ export default function Home() {
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
-                      className="relative group bg-slate-50 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-blue-500/10 transition-all duration-500"
+                      className="relative group bg-slate-50 p-8 sm:p-10 rounded-[2.5rem] text-center transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
                     <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
@@ -770,7 +770,7 @@ export default function Home() {
 
             {/* Bottom Bar */}
             <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-slate-600 text-[13px] font-semibold">
+              <p className="text-slate-600 text-[13px] font-semibold max-w-[70ch]">
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
               <div className="flex items-center gap-6">

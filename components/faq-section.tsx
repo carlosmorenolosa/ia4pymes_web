@@ -126,7 +126,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                     className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0" }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <p className="px-6 pb-6 text-slate-600 leading-relaxed text-base sm:text-lg">
+                                        <p className="px-6 pb-6 text-slate-600 leading-relaxed text-base sm:text-lg max-w-[70ch]">
                                             {faq.answer}
                                         </p>
                                     </div>
@@ -138,7 +138,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
                 {/* CTA */}
                 <div className="text-center">
-                    <p className="text-slate-600 mb-6 font-medium">{t.ctaQuestion}</p>
+                    <p className="text-slate-600 mb-6 font-medium max-w-[70ch]">{t.ctaQuestion}</p>
                     <Link
                         href={t.ctaHref}
                         onClick={(e) => {
