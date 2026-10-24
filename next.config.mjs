@@ -80,6 +80,18 @@ const nextConfig = {
         destination: '/#contacto',
         permanent: true,
       },
+      {
+        // The sector pages were removed: templated city pages with no internal
+        // links and almost no impressions. Their URLs land on the home.
+        source: '/sectores',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/sectores/:path*',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }

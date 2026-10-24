@@ -20,17 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
-    const sectors = ['clinicas', 'abogados', 'gestorias']
-    const cities = ['madrid', 'barcelona', 'valencia']
-
-    const sectorUrls = sectors.flatMap((sector) =>
-        cities.map((city) => ({
-            url: `${baseUrl}/sectores/${sector}/${city}`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly' as const,
-            priority: 0.7,
-        }))
-    )
 
     const latestDate = posts.length > 0 
         ? new Date(posts.reduce((latest, post) => new Date(post.date) > new Date(latest.date) ? post : latest).date) 
@@ -62,12 +51,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.85,
         },
         {
-            url: `${baseUrl}/sectores`,
-            lastModified: latestDate,
-            changeFrequency: 'weekly',
-            priority: 0.85,
-        },
-        {
             url: `${baseUrl}/politica-privacidad`,
             lastModified: latestDate,
             changeFrequency: 'yearly',
@@ -81,6 +64,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
         ...blogUrls,
         ...enBlogUrls,
-        ...sectorUrls,
     ]
 }

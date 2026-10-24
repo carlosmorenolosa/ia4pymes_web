@@ -62,5 +62,4 @@
 
 - [Blog Técnico y Guías de Implementación](https://ia4pymes.tech/blog)
 - [Calculadora de ROI de Automatización](https://ia4pymes.tech/#calculadora)
-- [Soluciones Sectoriales para PYMEs](https://ia4pymes.tech/sectores/clinicas/madrid)
 - [Documentación Técnica Exhaustiva para LLMs](https://ia4pymes.tech/llms-full.txt)
