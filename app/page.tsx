@@ -283,15 +283,15 @@ export default function Home() {
                   return (
                     <div
                       key={service.title}
-                      className="relative group bg-white border border-slate-100 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500"
+                      className="relative group bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
                     >
-                      <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6 mx-auto sm:mx-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
-                        <IconComponent className="w-7 h-7" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{service.title}</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
+                        <IconComponent className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
+                        {service.title}
+                      </h3>
                       <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
-                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full group-hover:bg-blue-50 transition-colors duration-300">
+                        <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
                         <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
                       </div>
                     </div>
@@ -360,12 +360,9 @@ export default function Home() {
                 <div className="lg:col-span-5 relative mt-8 lg:mt-0">
                   {/* Aesthetic Background removed for pure white theme */}
                   
-                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 shadow-xl relative overflow-hidden group">
-                    <div className="w-20 h-20 bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
-                      <Mail className="w-10 h-10 text-blue-600" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
+                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden group">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight flex items-center justify-center gap-2.5">
+                      <Mail className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
                       Únete a cientos de PYMES
                     </h3>
                     
