@@ -2,55 +2,56 @@
 name: IA4PYMES
 description: Software development with AI for Spanish SMEs — technical, credible, unhyped.
 colors:
-  primary: "#2563eb"
-  primary-deep: "#1d4ed8"
-  primary-wash: "#eff6ff"
-  ink: "#0f172a"
-  body: "#475569"
-  muted: "#64748b"
-  surface: "#ffffff"
-  sunken: "#f8fafc"
-  border: "#e2e8f0"
-  accent-signal: "#ef4444"
+  primary: "#1d4ed8"
+  primary-deep: "#1739a8"
+  primary-wash: "#eef2ff"
+  ink: "#1a1815"
+  body: "#5c5651"
+  muted: "#8a837c"
+  surface: "#fdfcfa"
+  background: "#faf9f7"
+  sunken: "#f2efea"
+  border: "#e5e1db"
+  accent-signal: "#d43722"
 typography:
   display-xl:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)"
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   display-lg:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "clamp(1.9rem, 4vw, 3rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.03em"
   heading:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.02em"
   stat:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "clamp(2.5rem, 5vw, 3.5rem)"
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "-0.04em"
   body:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "normal"
   body-lg:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.4
@@ -129,12 +130,13 @@ One blue, one signal red, and a slate neutral ramp. Nothing else.
 
 ## Typography
 
-**Frozen at Inter, pending art direction.** The site currently uses Inter for
-everything with `Geist Mono` for code in blog articles. That is a deliberate,
-temporary state: the typography is the one thing an art-direction pass must decide,
-and it is being decided separately. Do not change the family inside this branch or
-in ordinary feature work — treat this section as a placeholder to be replaced
-wholesale when the art-direction phase lands.
+**Archivo, one family in two roles.** Display and text share `Archivo`; display
+sets `font-stretch: 108%` so headlines read as architecture rather than as UI. A
+single family with a width axis is deliberate: it gives the headings their own
+voice without pairing two typefaces that have to justify each other.
+
+`Geist Mono` is reserved for code inside blog articles and for technical metadata
+labels (`latency`, `region`, `stack`). It never sets a headline.
 
 What stays true regardless of the eventual family:
 
@@ -205,3 +207,19 @@ What stays true regardless of the eventual family:
 - Don't use gradient text, glow, glassmorphism, or radial halos.
 - Don't colour individual statistics differently from one another.
 - Don't claim aggregate ROI or hours-saved figures that the owner cannot verify.
+
+## Motion and the node system
+
+The site has one idea about movement: **scattered work becomes an ordered
+system**. The hero renders it literally — 144 nodes drift unordered, then connect
+and align into a reticle as the page scrolls. It is the product argument, not
+decoration, and it is the only WebGL scene on the site.
+
+- One scene, one place: the hero. Never add a second canvas without removing one.
+- The canvas loads with `dynamic(ssr:false)` and never blocks first paint.
+- `prefers-reduced-motion: reduce` removes the canvas entirely; the CSS fallback
+  stays legible and complete.
+- Smooth scroll (Lenis) is global but disabled under reduced motion, and never on
+  top of a modal or a form.
+- Animation marks hierarchy or relationship. Anything that animates only to look
+  busy gets deleted.

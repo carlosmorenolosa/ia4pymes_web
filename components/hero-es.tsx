@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { ThreeAnimatedChip } from "./hero-chip-client"
+import { HeroNodeBackdrop } from "./hero-node-backdrop"
 
 interface HeroESProps {
   splashFinished: boolean
@@ -17,6 +18,13 @@ export function HeroES({ splashFinished }: HeroESProps) {
   return (
     <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
       <div className="absolute inset-0 bg-transparent pointer-events-none z-0"></div>
+
+      {/* The argument, rendered: scattered work aligning into a system. */}
+      <HeroNodeBackdrop className="pointer-events-none absolute inset-0 z-0 opacity-[0.55]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_78%,transparent)_38%,transparent_62%)] lg:bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_72%,transparent)_34%,transparent_58%)]"
+      />
       
       <div className="relative z-10 flex-col flex h-full">
         <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">

@@ -3,39 +3,52 @@
 
 :root {
   --font-inter: var(--font-inter);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Warm light base: bone paper, ink, signal. See DESIGN.md. */
+  --background: oklch(0.978 0.004 85);
+  --foreground: oklch(0.203 0.008 60);
+  --card: oklch(0.995 0.002 85);
+  --card-foreground: oklch(0.203 0.008 60);
+  --popover: oklch(0.995 0.002 85);
+  --popover-foreground: oklch(0.203 0.008 60);
+  --primary: oklch(0.492 0.216 264);
+  --primary-foreground: oklch(0.995 0.002 85);
+  --secondary: oklch(0.949 0.006 85);
+  --secondary-foreground: oklch(0.203 0.008 60);
+  --muted: oklch(0.949 0.006 85);
+  --muted-foreground: oklch(0.505 0.012 70);
+  --accent: oklch(0.944 0.014 250);
+  --accent-foreground: oklch(0.38 0.16 264);
+  --destructive: oklch(0.548 0.196 27);
+  --destructive-foreground: oklch(0.995 0.002 85);
+  --border: oklch(0.903 0.007 85);
+  --input: oklch(0.903 0.007 85);
+  --ring: oklch(0.492 0.216 264);
+  --chart-1: oklch(0.492 0.216 264);
+  --chart-2: oklch(0.58 0.15 200);
+  --chart-3: oklch(0.55 0.19 27);
+  --chart-4: oklch(0.62 0.13 145);
+  --chart-5: oklch(0.505 0.012 70);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.995 0.002 85);
+  --sidebar-foreground: oklch(0.203 0.008 60);
+  --sidebar-primary: oklch(0.492 0.216 264);
+  --sidebar-primary-foreground: oklch(0.995 0.002 85);
+  --sidebar-accent: oklch(0.949 0.006 85);
+  --sidebar-accent-foreground: oklch(0.203 0.008 60);
+  --sidebar-border: oklch(0.903 0.007 85);
+  --sidebar-ring: oklch(0.492 0.216 264);
+
+  /* Art-direction tokens */
+  --ink: oklch(0.203 0.008 60);
+  --ink-soft: oklch(0.44 0.011 65);
+  --ink-faint: oklch(0.62 0.009 70);
+  --sunken: oklch(0.951 0.007 85);
+  --line: oklch(0.885 0.008 85);
+  --signal: oklch(0.492 0.216 264);
+  --signal-deep: oklch(0.404 0.181 264);
+  --signal-wash: oklch(0.955 0.023 258);
+  --signal-red: oklch(0.548 0.196 27);
 }
 
 .dark {
@@ -74,8 +87,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-inter);
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-archivo);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -113,6 +126,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-sunken: var(--sunken);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-signal-wash: var(--signal-wash);
+  --color-signal-red: var(--signal-red);
 }
 
 @layer base {
@@ -123,6 +146,8 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tighter;
     text-wrap: balance;
+    font-stretch: 108%;
+    letter-spacing: -0.03em;
   }
 
   p, li {

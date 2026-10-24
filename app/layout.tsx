@@ -1,17 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
+import { Archivo, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
+import { SmoothScroll } from "@/components/smooth-scroll"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
 import { LeadsyScript } from "@/components/leadsy-script"
 import Script from "next/script"
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-archivo",
   display: "swap",
+  axes: ["wdth"],
 })
 
 const geistMono = Geist_Mono({
@@ -411,10 +413,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
+      <body className={`${archivo.variable} ${geistMono.variable} font-sans text-slate-900`}>
         {children}
         <Analytics />
         <CookieConsent />
+        <SmoothScroll />
         <CustomCursor />
         <LeadsyScript />
       </body>
