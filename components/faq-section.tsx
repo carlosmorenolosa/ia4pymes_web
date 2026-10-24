@@ -78,83 +78,62 @@ const i18n = {
 
 export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
     const t = i18n[lang]
-    const [openIndex, setOpenIndex] = useState<number | null>(0)
+    const [openIndex, setOpenIndex] = useState<number | null>(null)
 
     const toggleFaq = (index: number) => {
         setOpenIndex(openIndex === index ? null : index)
     }
 
     return (
-        <section id="faq" className="py-16 sm:py-24 bg-card border-t border-line relative overflow-hidden">
-            <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-4">
+        <section id="faq" className="py-20 sm:py-28 relative" aria-labelledby="faq-heading">
+            <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                    <h2
+                        id="faq-heading"
+                        className="lg:col-span-4 text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
+                    >
                         {t.heading} <span className="text-signal">{t.headingHighlight}</span>
                     </h2>
-                    <p className="text-lg text-ink-soft max-w-2xl mx-auto">
-                        {t.subtitle}
-                    </p>
-                </div>
 
-                <div className="space-y-4 mb-12">
-                    {t.faqs.map((faq, index) => {
-                        const isOpen = openIndex === index
-                        return (
-                            <div
-                                key={index}
-                                className={`bg-card rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-signal shadow-md" : "border-line hover:border-signal/25 hover:shadow-sm"
-                                    }`}
-                            >
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-inset"
-                                    aria-expanded={isOpen}
-                                >
-                                    <span className={`font-semibold text-lg sm:text-xl pr-8 ${isOpen ? "text-signal" : "text-ink"}`}>
-                                        {faq.question}
-                                    </span>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-signal-wash text-signal" : "bg-sunken text-ink-faint"
-                                        }`}>
-                                        {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                                    </div>
-                                </button>
+                    <div className="lg:col-span-8 w-full border-t border-line">
+                        {t.faqs.map((faq, index) => {
+                            const isOpen = openIndex === index
+                            return (
+                                <div key={index} className="border-b border-line">
+                                    <button
+                                        onClick={() => toggleFaq(index)}
+                                        className="w-full text-left py-5 sm:py-6 flex items-start justify-between gap-8 group focus:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2"
+                                        aria-expanded={isOpen}
+                                    >
+                                        <span
+                                            className={`text-lg sm:text-xl font-semibold tracking-[-0.02em] transition-colors ${
+                                                isOpen ? "text-signal" : "text-ink group-hover:text-signal"
+                                            }`}
+                                        >
+                                            {faq.question}
+                                        </span>
+                                        <span className="shrink-0 pt-1 text-ink-faint" aria-hidden="true">
+                                            {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                                        </span>
+                                    </button>
 
-                                <div
-                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                    <div
+                                        className={`grid transition-all duration-300 ease-in-out ${
+                                            isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                                         }`}
-                                >
-                                    <div className="overflow-hidden">
-                                        <p className="px-6 pb-6 text-ink-soft leading-relaxed text-base sm:text-lg">
-                                            {faq.answer}
-                                        </p>
+                                    >
+                                        <div className="overflow-hidden">
+                                            <p className="pb-6 pr-8 max-w-[62ch] text-ink-soft leading-[1.65] text-base">
+                                                {faq.answer}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* CTA */}
-                <div className="text-center">
-                    <p className="text-ink-soft mb-6 font-medium">{t.ctaQuestion}</p>
-                    <Link
-                        href={t.ctaHref}
-                        onClick={(e) => {
-                            const target = document.getElementById("consultoria") || document.getElementById("consulting")
-                            if (target) {
-                                e.preventDefault()
-                                target.scrollIntoView({ behavior: "smooth" })
-                                window.history.pushState(null, "", t.ctaHref)
-                            }
-                        }}
-                        className="inline-flex items-center bg-signal text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-                    >
-                        {t.ctaButton}
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </section>
     )
 }
-

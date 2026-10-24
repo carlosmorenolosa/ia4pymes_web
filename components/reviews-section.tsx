@@ -61,59 +61,35 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
   return (
     <section
       id="opiniones"
-      className="py-16 sm:py-24 bg-transparent relative overflow-hidden"
+      className="py-20 sm:py-28 relative"
       aria-labelledby="reviews-heading"
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-        <header className="text-center mb-16 sm:mb-20">
+      <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <h2
             id="reviews-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
+            className="lg:col-span-4 text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
           >
             {t.heading} <span className="text-signal">{t.headingHighlight}</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
-            {t.subtitle}
-          </p>
-        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {t.reviews.map((review, idx) => (
-            <article
-              key={idx}
-              className="bg-card border border-line rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
-            >
-              <div>
-                {/* Top header: Rating stars & Quote icon */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-1" aria-label={`${review.rating} de 5 estrellas`}>
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                    <span className="ml-1.5 text-xs sm:text-sm font-bold text-ink-soft">5.0</span>
-                  </div>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-signal-wash flex items-center justify-center text-signal group-hover:scale-110 transition-transform shrink-0">
-                    <Quote className="w-4 sm:w-5 h-4 sm:h-5" />
-                  </div>
-                </div>
-
-                {/* Review text */}
-                <p className="text-ink-soft text-sm sm:text-base leading-relaxed mb-6 font-normal">
+          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-12 gap-y-10">
+            {t.reviews.map((review, idx) => (
+              <figure key={idx} className="m-0">
+                <blockquote className="text-ink-soft text-[15px] leading-[1.65]">
                   &ldquo;{review.text}&rdquo;
-                </p>
-              </div>
-
-              {/* Bottom footer: Company name & tag */}
-              <div className="pt-5 border-t border-line flex flex-col gap-1">
-                <h3 className="text-base sm:text-lg font-bold text-ink tracking-tight leading-snug">
-                  {review.company}
-                </h3>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-signal">
-                  {review.tag}
-                </span>
-              </div>
-            </article>
-          ))}
+                </blockquote>
+                <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-sm font-semibold tracking-[-0.01em] text-ink">
+                    {review.company}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-faint">
+                    {review.rating}.0
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>

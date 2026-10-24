@@ -1,7 +1,5 @@
 import {
   BarChart2,
-  Code,
-  Settings,
   CheckCircle,
   ArrowRight,
   Mail,
@@ -279,7 +277,7 @@ export default function Home() {
         </section>
 
         {/* Cost Calculator Section */}
-        <section id="calculadora" className="py-16 sm:py-24 bg-card relative">
+        <section id="calculadora" className="py-24 sm:py-32 bg-sunken border-y border-line relative">
           <FadeIn>
             <div className="container mx-auto px-4 max-w-7xl relative z-10">
               <CostCalculator />
@@ -296,127 +294,72 @@ export default function Home() {
         {/* Process Section */}
         <section
           id="proceso"
-          className="py-16 sm:py-24 bg-card overflow-hidden"
+          className="py-20 sm:py-28 relative"
           aria-labelledby="process-heading"
         >
-            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-              <FadeIn delay={0.1}>
-                <header className="text-center mb-10 sm:mb-14">
-                  <h2
-                    id="process-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
-                  >
-                    Metodología en 3 Pasos: <span className="text-signal">Auditoría, Integración y Despliegue</span>
-                  </h2>
-                  <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
-                    Un proceso de ingeniería transparente diseñado para maximizar el retorno de inversión y blindar la privacidad de tus datos.
-                  </p>
-                </header>
-              </FadeIn>
-
+          <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
+            <FadeIn>
               <div
-                className="max-w-4xl mx-auto space-y-10 sm:space-y-14 relative"
+                className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start"
                 itemScope
                 itemType="https://schema.org/HowTo"
               >
-                <meta itemProp="name" content="Proceso de desarrollo de IA para PYMES" />
-                <meta itemProp="description" content="Proceso de 3 pasos para crear herramientas de IA personalizadas" />
+                <h2
+                  id="process-heading"
+                  className="lg:col-span-4 text-[clamp(1.7rem,3.2vw,2.6rem)] font-black leading-[1.02] tracking-[-0.035em] text-ink"
+                >
+                  Metodología en 3 pasos: <span className="text-signal">auditoría, integración y despliegue</span>
+                </h2>
 
-                { [
-                  {
-                    icon: BarChart2,
-                    step: "01",
-                    title: "Auditoría Técnica y Diagnóstico de Fugas",
-                    description:
-                      "Estudiamos a fondo los flujos operativos de tu empresa para identificar cuellos de botella y cuantificar las horas desperdiciadas en tareas manuales que la IA puede automatizar.",
-                    benefit: "Fugas de Tiempo Cuantificadas",
-                  },
-                  {
-                    icon: Code,
-                    step: "02",
-                    title: "Arquitectura de Agentes e Integración ERP/CRM",
-                    description:
-                      "Diseñamos y desarrollamos agentes de IA privados conectando directamente con tus sistemas de gestión (ERP, CRM, bases de datos), garantizando un ROI positivo en tiempo récord.",
-                    benefit: "Integración a Medida Garantizada",
-                  },
-                  {
-                    icon: Settings,
-                    step: "03",
-                    title: "Despliegue Privado y Escalado Continuo",
-                    description:
-                      "Implementamos la solución bajo los más estrictos estándares de privacidad de datos, monitorizando el rendimiento en tiempo real y optimizando los modelos periódicamente.",
-                    benefit: "Privacidad y Control Total",
-                  },
-                ].map((process, index, array) => {
-                  const IconComponent = process.icon
-                  return (
-                    <FadeIn key={index} delay={0.2 + index * 0.15}>
-                      <article
-                      className="group relative"
+                <ol className="lg:col-span-8 grid sm:grid-cols-3 border-t border-line">
+                  {[
+                    {
+                      step: "01",
+                      title: "Auditoría",
+                      benefit: "Fugas de tiempo cuantificadas",
+                      detail:
+                        "Estudiamos los flujos operativos de tu empresa para identificar cuellos de botella y cuantificar las horas desperdiciadas en tareas manuales que la IA puede automatizar.",
+                    },
+                    {
+                      step: "02",
+                      title: "Integración",
+                      benefit: "Conectado a tu ERP o CRM",
+                      detail:
+                        "Diseñamos y desarrollamos agentes de IA privados conectando directamente con tus sistemas de gestión (ERP, CRM, bases de datos), garantizando un ROI positivo en tiempo récord.",
+                    },
+                    {
+                      step: "03",
+                      title: "Despliegue",
+                      benefit: "Privacidad y control total",
+                      detail:
+                        "Implementamos la solución bajo los más estrictos estándares de privacidad de datos, monitorizando el rendimiento en tiempo real y optimizando los modelos periódicamente.",
+                    },
+                  ].map((process) => (
+                    <li
+                      key={process.step}
+                      className="border-b border-line py-7 sm:py-8 sm:pr-8"
                       itemProp="step"
                       itemScope
                       itemType="https://schema.org/HowToStep"
                     >
-                      <meta itemProp="position" content={`${index + 1}`} />
+                      <meta itemProp="position" content={process.step} />
                       <meta itemProp="name" content={process.title} />
-                      <meta itemProp="text" content={process.description} />
+                      <meta itemProp="text" content={process.detail} />
 
-                      <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-                        {/* Step Indicator & Icon */}
-                        <div className="flex flex-col items-center md:items-start shrink-0">
-                          <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-signal mb-2 leading-none group-hover:text-signal-deep transition-colors duration-500">
-                            {process.step}
-                          </span>
-                          <div className="w-12 h-12 rounded-2xl bg-signal-wash flex items-center justify-center text-signal mb-4">
-                            <IconComponent className="w-6 h-6" />
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-grow pt-2">
-                          <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-4 tracking-tight">
-                            {process.title}
-                          </h3>
-                          <p className="text-lg sm:text-xl text-ink-soft leading-relaxed max-w-2xl mb-6">
-                            {process.description}
-                          </p>
-                          
-                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-sunken border border-line rounded-full group-hover:bg-signal-wash group-hover:border-signal/15 transition-colors duration-300">
-                            <CheckCircle className="w-4 h-4 text-signal" />
-                            <span className="text-sm font-semibold text-ink-soft group-hover:text-signal-deep">
-                              {process.benefit}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Divider logic */}
-                      {index !== array.length - 1 && (
-                        <div className="mt-16 sm:mt-24 border-b border-line w-full" />
-                      )}
-                    </article>
-                  </FadeIn>
-                )
-              })}
+                      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
+                        {process.step}
+                      </span>
+                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-ink">
+                        {process.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-ink-soft">{process.benefit}</p>
+                    </li>
+                  ))}
+                </ol>
               </div>
-
-              {/* Added CTA button here as requested */}
-              <FadeIn delay={0.6}>
-                <div className="mt-12 sm:mt-16 text-center">
-                  <Link
-                    href="/#consultoria"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-signal bg-signal shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-signal-deep px-8 py-4"
-                  >
-                    <span>Reservar Consultoría</span>
-                    <ArrowRight
-                      className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
+            </FadeIn>
+          </div>
+        </section>
 
         {/* Success Cases Section */}
         <section
@@ -546,140 +489,88 @@ export default function Home() {
         <LatestArticles />
 
         {/* Footer */}
-        <footer className="bg-card pt-20 pb-12 relative overflow-hidden border-t border-line">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-              
-              {/* Column 1: Brand */}
-              <FadeIn delay={0.2}>
-                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <Link href="/" className="inline-flex items-center group">
-                  <div className="flex items-center relative tracking-tighter">
-                    <span className="text-2xl font-extrabold text-signal">IA</span>
-                    <span className="text-2xl font-black text-ink">4</span>
-                    <span className="ml-1 text-2xl font-bold text-ink uppercase tracking-tight">PYMES</span>
-                  </div>
+        <footer className="border-t border-line pt-16 pb-10">
+          <div className="container mx-auto px-5 sm:px-8 max-w-[1360px]">
+            <div className="grid gap-12 md:grid-cols-12">
+              <div className="md:col-span-5 space-y-5">
+                <Link href="/" className="inline-flex items-center tracking-tighter">
+                  <span className="text-2xl font-extrabold text-signal">IA</span>
+                  <span className="text-2xl font-black text-ink">4</span>
+                  <span className="ml-1 text-2xl font-bold uppercase tracking-tight text-ink">PYMES</span>
                 </Link>
-                <p className="text-ink-faint text-sm leading-relaxed max-w-xs">
-                  Empresa de desarrollo de software con IA para PYMES: diseñamos, desarrollamos e integramos el software que reduce tus costes operativos. Resultados reales y ROI medible.
+                <p className="text-sm text-ink-soft max-w-[30ch]">
+                  Desarrollo de software con IA para PYMES españolas.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-sunken border border-line rounded-full text-[11px] font-semibold text-ink-soft tracking-wide">
-                  <span className="w-2 h-2 bg-signal rounded-full"></span>
-                  Built with ❤️ in Spain
-                </div>
-                <div className="pt-1">
-                  <a
-                    href="https://kribaia.com/proveedor/ia4pymes-tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block transition-transform hover:scale-105 active:scale-95"
-                    title="Sello kriterion de Kribaia - Proveedor Verificado de IA"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="https://kribaia.com/badge/ia4pymes-tech.svg"
-                      alt="Sello kriterion de Kribaia"
-                      width={180}
-                      height={48}
-                      className="h-auto w-auto max-w-[180px] drop-shadow-sm"
-                      loading="lazy"
-                    />
+                <a
+                  href="https://kribaia.com/proveedor/ia4pymes-tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Sello kriterion de Kribaia - Proveedor Verificado de IA"
+                  className="inline-block"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://kribaia.com/badge/ia4pymes-tech.svg"
+                    alt="Sello kriterion de Kribaia"
+                    width={150}
+                    height={40}
+                    className="h-auto w-auto max-w-[150px]"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+
+              <nav aria-label="Navegación del pie" className="md:col-span-4 grid grid-cols-2 gap-x-8 gap-y-3 content-start">
+                <Link href="/#proceso" className="text-sm text-ink-soft hover:text-signal transition-colors">Proceso</Link>
+                <Link href="/#casos-exito" className="text-sm text-ink-soft hover:text-signal transition-colors">Casos</Link>
+                <Link href="/#calculadora" className="text-sm text-ink-soft hover:text-signal transition-colors">Calculadora</Link>
+                <Link href="#faq" className="text-sm text-ink-soft hover:text-signal transition-colors">FAQ</Link>
+                <Link href="/blog" className="text-sm text-ink-soft hover:text-signal transition-colors">Blog</Link>
+                <Link href="/sectores" className="text-sm text-ink-soft hover:text-signal transition-colors">Sectores</Link>
+                <ScrollTopLink href="/" className="text-sm text-ink-soft hover:text-signal transition-colors">Sobre nosotros</ScrollTopLink>
+                <Link href="https://newsletter.ia4pymes.tech" target="_blank" rel="noopener noreferrer" className="text-sm text-ink-soft hover:text-signal transition-colors">Newsletter</Link>
+              </nav>
+
+              <div className="md:col-span-3 space-y-5">
+                <a
+                  href="mailto:contacto@ia4pymes.tech"
+                  className="inline-flex items-center gap-2 text-sm text-ink hover:text-signal transition-colors"
+                >
+                  <Mail className="w-4 h-4 shrink-0" aria-hidden="true" />
+                  contacto@ia4pymes.tech
+                </a>
+                <div className="flex flex-wrap gap-2">
+                  <a href="https://es.linkedin.com/company/ia4pymestech" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="LinkedIn">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="Facebook">
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="Instagram">
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="TikTok">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.34V9.05a9.14 9.14 0 0 0 5.25 1.63V7.23a5.27 5.27 0 0 1-1.34-.54z" />
+                    </svg>
+                  </a>
+                  <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="YouTube">
+                    <Youtube className="w-4 h-4" />
+                  </a>
+                  <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-line flex items-center justify-center text-ink-soft hover:border-signal hover:text-signal transition-colors" aria-label="X (Twitter)">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                   </a>
                 </div>
-                </div>
-              </FadeIn>
-
-              {/* Column 2: Soluciones */}
-              <FadeIn delay={0.3}>
-                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-ink uppercase tracking-widest">Soluciones</h4>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/#proceso" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Nuestro Proceso</Link>
-                  </li>
-                  <li>
-                    <Link href="/#casos-exito" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Casos de Éxito</Link>
-                  </li>
-                  <li>
-                    <Link href="/#calculadora" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Calculadora ROI</Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Blog de Noticias</Link>
-                  </li>
-                </ul>
-                </div>
-              </FadeIn>
-
-              {/* Column 3: Explorar */}
-              <FadeIn delay={0.4}>
-                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-ink uppercase tracking-widest">Explorar</h4>
-                <ul className="space-y-4">
-                  <li>
-                    <ScrollTopLink href="/" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Sobre nosotros</ScrollTopLink>
-                  </li>
-                  <li>
-                    <Link href="#faq" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Preguntas Frecuentes</Link>
-                  </li>
-                  <li>
-                    <Link href="/#consultoria" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Reservar Consultoría</Link>
-                  </li>
-                  <li>
-                    <Link href="https://newsletter.ia4pymes.tech" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Newsletter Semanal</Link>
-                  </li>
-                </ul>
-                </div>
-              </FadeIn>
-
-              {/* Column 4: Conecta */}
-              <FadeIn delay={0.5}>
-                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-                  <h4 className="text-sm font-black text-ink uppercase tracking-widest">Conecta</h4>
-                <div className="space-y-4">
-                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-ink-faint hover:text-signal transition-colors group">
-                    <div className="w-8 h-8 rounded-lg bg-sunken flex items-center justify-center group-hover:bg-signal-wash transition-colors">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
-                  </a>
-                    <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-                      <a href="https://es.linkedin.com/company/ia4pymestech?trk=public_post_feed-actor-image" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-signal hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                      <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Facebook">
-                        <Facebook className="w-5 h-5" />
-                      </a>
-                      <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
-                        <Instagram className="w-5 h-5" />
-                      </a>
-                      <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="TikTok">
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.34V9.05a9.14 9.14 0 0 0 5.25 1.63V7.23a5.27 5.27 0 0 1-1.34-.54z" />
-                        </svg>
-                      </a>
-                      <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
-                        <Youtube className="w-5 h-5" />
-                      </a>
-                      <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="X (Twitter)">
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
+              </div>
             </div>
 
-            {/* Bottom Bar */}
-            <div className="pt-8 border-t border-line flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-ink-soft text-[13px] font-semibold">
-                © 2026 IA4PYMES. Todos los derechos reservados.
-              </p>
+            <div className="mt-14 pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-3">
+              <p className="text-[13px] text-ink-faint">© 2026 IA4PYMES</p>
               <div className="flex items-center gap-6">
-                <Link href="/" className="text-ink-soft hover:text-signal text-[13px] font-semibold transition-colors">Inicio</Link>
-                <Link href="#contacto" className="text-ink-soft hover:text-signal text-[13px] font-semibold transition-colors">Contacto</Link>
-                <Link href="/#consultoria" className="text-signal hover:text-signal-deep text-[13px] font-bold transition-colors">Reservar Consultoría</Link>
+                <Link href="#contacto" className="text-[13px] text-ink-soft hover:text-signal transition-colors">Contacto</Link>
+                <Link href="/#consultoria" className="text-[13px] font-semibold text-signal hover:text-signal-deep transition-colors">Reservar consultoría</Link>
               </div>
             </div>
           </div>
