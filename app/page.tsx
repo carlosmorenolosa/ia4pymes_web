@@ -188,7 +188,7 @@ export default function Home() {
           "itemOffered": {
             "@type": "Service",
             "name": "Infraestructura de LLMs Locales y Privados",
-            "description": "Despliegue de modelos abiertos on-premise para máxima confidencialidad y cumplimiento RGPD."
+            "description": "Despliegue de modelos abiertos en la nube europea u on-premise para máxima confidencialidad y cumplimiento RGPD."
           }
         }
       ]
@@ -275,8 +275,8 @@ export default function Home() {
                     icon: Bot,
                     title: "Agentes de IA privados (RGPD)",
                     description:
-                      "Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en servidores privados u on-premise para máxima confidencialidad y cumplimiento del RGPD.",
-                    benefit: "Despliegue privado u on-premise",
+                      "Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en la nube europea o en tus propios servidores, siempre con datos aislados y cifrados: tus datos nunca entrenan modelos públicos.",
+                    benefit: "Nube europea u on-premise",
                   },
                 ].map((service) => {
                   const IconComponent = service.icon

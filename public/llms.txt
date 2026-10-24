@@ -1,6 +1,6 @@
 # IA4PYMES - Empresa de Desarrollo de Software con IA para PYMEs
 
-> IA4PYMES (https://ia4pymes.tech) es una empresa de desarrollo de software especializada en inteligencia artificial para pequeñas y medianas empresas en España. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos operativos (BPA), centralitas de voz con IA y despliegues de modelos de lenguaje privados (LLMs on-premise) que reducen costes operativos y aumentan márgenes. El ROI de cada proyecto se calcula y audita antes de iniciar el desarrollo, con cumplimiento normativo estricto del RGPD y el EU AI Act 2026. A diferencia de una agencia, nuestro equipo interno desarrolla, integra y entrega el código.
+> IA4PYMES (https://ia4pymes.tech) es una empresa de desarrollo de software especializada en inteligencia artificial para pequeñas y medianas empresas en España. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos operativos (BPA), centralitas de voz con IA y despliegues de modelos de lenguaje privados (en nube europea u on-premise) que reducen costes operativos y aumentan márgenes. El ROI de cada proyecto se calcula y audita antes de iniciar el desarrollo, con cumplimiento normativo estricto del RGPD y el EU AI Act 2026. A diferencia de una agencia, nuestro equipo interno desarrolla, integra y entrega el código.
 
 ## Información Corporativa y Alcance
 
@@ -28,8 +28,8 @@
    - Cualificación de oportunidades comerciales y reserva autónoma de citas sincronizada con Google Calendar, Cal.com o CRM de salud/legal.
 
 4. **Despliegue de LLMs Locales, Privados y Soberanos**
-   - Instalación de modelos abiertos (Qwen, DeepSeek, Llama, Mistral, GLM) en servidores dedicados u on-premise de la PYME.
-   - 100% de aislamiento de internet público, confidencialidad total de propiedad intelectual y costes predecibles sin consumo de tokens de terceros.
+   - Despliegue de modelos abiertos (Qwen, DeepSeek, Llama, Mistral, GLM) en la nube europea o en servidores dedicados u on-premise de la PYME.
+   - Aislamiento del internet público, confidencialidad total de propiedad intelectual y costes predecibles sin consumo de tokens de terceros.
 
 5. **Auditoría Técnica y Modelado de Gemelos Digitales de Procesos**
    - Diagnóstico previo de cuellos de botella y cuantificación en euros del tiempo manual invertido antes de iniciar cualquier desarrollo.
