@@ -288,7 +288,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
                     {/* Meta badges */}
                     <div className="flex flex-wrap items-center gap-4 mb-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
                             <Terminal className="w-3.5 h-3.5" />
                             {post.category}
                         </div>
@@ -309,7 +309,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                             <BlogAuthorAvatar />
                             <div>
                                 <p className="font-black text-white text-sm uppercase tracking-tight">{post.author}</p>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
+                                <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
                             </div>
                         </div>
                         <div className="hidden sm:block h-10 w-px bg-slate-100" />
@@ -411,7 +411,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* CTA Section */}
             <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
                         <Terminal className="w-4 h-4" />
                         initiating_deployment...
                     </div>
@@ -439,15 +439,15 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* Premium Footer */}
             <footer className="py-12 bg-slate-950 border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
-                    <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
+                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-black uppercase tracking-widest">
                         <Terminal className="w-5 h-5" />
                         <span>IA4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
                     <div className="flex items-center gap-10">
-                        <Link href="/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/blog" className="text-sm font-black text-slate-400 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
                             Documentación
                         </Link>
-                        <Link href="/" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/" className="text-sm font-black text-slate-400 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
                             Retornar al sistema
                         </Link>
                     </div>

@@ -98,7 +98,7 @@ export default function EnBlogPage() {
                     {posts.length === 0 ? (
                         <div className="text-center py-24 border border-white/5 rounded-3xl bg-white/[0.02]">
                             <Terminal className="w-12 h-12 text-slate-700 mx-auto mb-4" />
-                            <p className="text-slate-500 font-mono text-sm font-bold mb-6">
+                            <p className="text-slate-400 font-mono text-sm font-bold mb-6">
                                 [EN] No English articles published yet. Check back soon.
                             </p>
                             <Link
@@ -128,14 +128,14 @@ export default function EnBlogPage() {
 
                                             <div className="absolute top-4 left-4 right-4 flex flex-wrap items-start gap-2">
                                                 {index === 0 && (
-                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20 shrink-0">
+                                                    <span className="px-2.5 py-1 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20 shrink-0">
                                                         LATEST
                                                     </span>
                                                 )}
-                                                <span className="px-2.5 py-1 bg-black/60 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-white/10 min-w-0 max-w-full truncate">
+                                                <span className="px-2.5 py-1 bg-white/15 backdrop-blur-md text-white text-xs font-black uppercase tracking-widest rounded-full border border-white/25 min-w-0 max-w-full truncate">
                                                     {post.category}
                                                 </span>
-                                                <span className="px-2.5 py-1 bg-blue-600/80 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-400/20 shrink-0">
+                                                <span className="px-2.5 py-1 bg-blue-600/80 backdrop-blur-md text-white text-xs font-black uppercase tracking-widest rounded-full border border-blue-400/20 shrink-0">
                                                     EN
                                                 </span>
                                             </div>
@@ -171,7 +171,7 @@ export default function EnBlogPage() {
 
                                             {/* CTA */}
                                             <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
-                                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-400 transition-colors">
+                                                <span className="text-xs font-black text-slate-400 uppercase tracking-widest group-hover:text-blue-400 transition-colors">
                                                     Read Article
                                                 </span>
                                                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 border border-white/10">
@@ -215,7 +215,7 @@ export default function EnBlogPage() {
             {/* Footer */}
             <footer className="py-12 bg-[#030712] border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-8">
-                    <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-bold tracking-widest uppercase">
+                    <div className="flex items-center gap-3 text-slate-400 font-mono text-xs font-bold tracking-widest uppercase">
                         <Terminal className="w-4 h-4" />
                         <span>IA4PYMES // BLOG_EN_2026</span>
                     </div>
