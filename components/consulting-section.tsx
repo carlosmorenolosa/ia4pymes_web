@@ -202,7 +202,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   <span className="text-4xl sm:text-5xl font-black text-slate-900">{t.price}</span>
                   <span className="text-lg font-bold text-slate-500">{t.plusVat}</span>
                 </div>
-                <span className="text-xs text-slate-400 block mt-1">{t.totalVat}</span>
+                <span className="text-xs text-slate-500 block mt-1">{t.totalVat}</span>
               </div>
             </div>
           </div>

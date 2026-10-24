@@ -308,7 +308,7 @@ export function FunctionalChatbot({
             setIsFocused(true)
           }}
           onBlur={() => setIsFocused(false)}
-          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-slate-900 placeholder:text-slate-400 h-10"
+          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-slate-900 placeholder:text-slate-500 h-10"
           disabled={isLoading}
           name="message"
           autoComplete="off"
@@ -324,7 +324,7 @@ export function FunctionalChatbot({
           <Send className="w-4 h-4" />
         </Button>
       </form>
-      <div className="mt-2 text-center text-[10px] text-slate-400 font-medium tracking-tight">
+      <div className="mt-2 text-center text-[10px] text-slate-500 font-medium tracking-tight">
         {i18n.aiNotice}
       </div>
     </div>
