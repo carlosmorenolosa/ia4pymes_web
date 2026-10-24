@@ -27,9 +27,9 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
               >
-                <span className="text-blue-600">Software a medida para PYMES</span>:{" "}
+                Software a medida para PYMES:{" "}
                 <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">reduce</span> costes y{" "}
-                <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">multiplica</span> tus márgenes con IA
+                <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px]">multiplica</span> tus márgenes con IA
               </h1>
 
               <p 
