@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
+import { Bricolage_Grotesque, Instrument_Sans, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
@@ -8,10 +8,18 @@ import { Analytics } from "@vercel/analytics/next"
 import { LeadsyScript } from "@/components/leadsy-script"
 import Script from "next/script"
 
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-bricolage",
   display: "swap",
+  weight: ["600", "700", "800"],
+})
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 })
 
 const geistMono = Geist_Mono({
@@ -411,7 +419,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans text-slate-900`}>
+      <body className={`${instrumentSans.variable} ${bricolage.variable} ${geistMono.variable} font-sans text-slate-900`}>
         {children}
         <Analytics />
         <CookieConsent />
