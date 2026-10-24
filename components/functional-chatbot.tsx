@@ -196,8 +196,8 @@ export function FunctionalChatbot({
   return (
     <div
       className={`w-full h-full flex flex-col relative ${
-        minimal ? "bg-white p-3" :
-        is3D ? "bg-white/95 backdrop-blur-md p-3 border border-white/40 shadow-2xl" : "bg-white/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl border border-white/40 shadow-2xl"
+        minimal ? "bg-card p-3" :
+        is3D ? "bg-card/95 backdrop-blur-md p-3 border border-white/40 shadow-2xl" : "bg-card/90 backdrop-blur-2xl p-4 sm:p-6 lg:p-8 justify-center rounded-2xl sm:rounded-3xl border border-white/40 shadow-2xl"
       } ${is3D ? "rounded-none" : ""}`}
       role="complementary"
       aria-label={i18n.ariaContainer}
@@ -213,13 +213,13 @@ export function FunctionalChatbot({
               <MessageCircle className={`text-white ${is3D ? "w-4 h-4" : "w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7"}`} />
             </div>
             <div>
-              <div className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-slate-900 tracking-tight`}>PymerIA</div>
+              <div className={`${is3D ? "text-sm" : "text-base sm:text-lg lg:text-xl"} font-black text-ink tracking-tight`}>PymerIA</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-[11px] font-semibold text-slate-600 tracking-wide">{i18n.online}</span>
+                <span className="text-[11px] font-semibold text-ink-soft tracking-wide">{i18n.online}</span>
               </div>
             </div>
           </div>
@@ -247,16 +247,16 @@ export function FunctionalChatbot({
               className={`inline-block p-2.5 rounded-[1rem] shadow-sm max-w-[85%] sm:max-w-[90%] break-words ${
                 msg.sender === "User"
                   ? minimal
-                    ? "bg-slate-100 ml-auto border border-slate-200 text-slate-700"
-                    : "bg-white ml-auto border border-slate-100 text-slate-600"
+                    ? "bg-sunken ml-auto border border-line text-ink-soft"
+                    : "bg-card ml-auto border border-line text-ink-soft"
                   : minimal
-                    ? "bg-blue-50 border border-blue-200"
+                    ? "bg-signal-wash border border-signal/25"
                     : "bg-gradient-to-br from-blue-50 to-white border border-blue-50"
               } ${msg.sender === "User" ? "rounded-tr-none" : "rounded-tl-none"}`}
             >
               <div className={`prose prose-sm max-w-none ${msg.sender === "User"
-                ? "text-slate-600 prose-strong:text-slate-700"
-                : "text-slate-800 prose-strong:text-blue-600"
+                ? "text-ink-soft prose-strong:text-ink-soft"
+                : "text-ink prose-strong:text-signal"
                 }`}>
                 <MarkdownRenderer content={msg.content} minimal={minimal} isUser={msg.sender === "User"} />
               </div>
@@ -271,17 +271,17 @@ export function FunctionalChatbot({
             exit={{ opacity: 0, y: -10 }}
             className="text-left"
           >
-            <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-blue-50 border border-blue-200`}>
+            <div className={`inline-block p-2.5 rounded-[1rem] rounded-tl-none shadow-sm max-w-xs bg-signal-wash border border-signal/25`}>
               <div className="flex items-center space-x-2">
-                <span className="text-slate-700 text-xs font-medium">{i18n.typing}</span>
+                <span className="text-ink-soft text-xs font-medium">{i18n.typing}</span>
                 <div className="flex space-x-1">
-                  <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"></div>
+                  <div className="w-1 h-1 bg-signal rounded-full animate-bounce"></div>
                   <div
-                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-signal rounded-full animate-bounce"
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                   <div
-                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-signal rounded-full animate-bounce"
                     style={{ animationDelay: "0.4s" }}
                   ></div>
                 </div>
@@ -296,7 +296,7 @@ export function FunctionalChatbot({
           e.preventDefault();
           handleSendMessage();
         }}
-        className={`mt-4 flex items-center gap-2 p-1 bg-slate-50 border border-slate-100 rounded-2xl transition-all ${
+        className={`mt-4 flex items-center gap-2 p-1 bg-sunken border border-line rounded-2xl transition-all ${
         messages.length === 2 && !isFocused ? "ring-2 ring-blue-500/30 shadow-[0_0_15px_rgba(37,99,235,0.2)] animate-pulse" : "focus-within:ring-2 focus-within:ring-blue-500/20"
       }`}>
         <Input
@@ -308,7 +308,7 @@ export function FunctionalChatbot({
             setIsFocused(true)
           }}
           onBlur={() => setIsFocused(false)}
-          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-slate-900 placeholder:text-slate-500 h-10"
+          className="flex-1 border-none bg-transparent shadow-none focus-visible:ring-0 text-sm text-ink placeholder:text-ink-faint h-10"
           disabled={isLoading}
           name="message"
           autoComplete="off"
@@ -317,14 +317,14 @@ export function FunctionalChatbot({
         <Button
           type="submit"
           size="icon"
-          className="h-10 w-10 bg-blue-600 hover:bg-blue-700 rounded-xl shrink-0 shadow-lg shadow-blue-600/20"
+          className="h-10 w-10 bg-signal hover:bg-signal-deep rounded-xl shrink-0 shadow-lg shadow-blue-600/20"
           disabled={isLoading || !currentInput.trim()}
           aria-label={i18n.ariaSend}
         >
           <Send className="w-4 h-4" />
         </Button>
       </form>
-      <div className="mt-2 text-center text-xs text-slate-500 font-medium tracking-tight">
+      <div className="mt-2 text-center text-xs text-ink-faint font-medium tracking-tight">
         {i18n.aiNotice}
       </div>
     </div>

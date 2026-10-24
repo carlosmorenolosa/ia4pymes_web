@@ -16,7 +16,7 @@ export function NotFoundClient() {
                     className="mb-8"
                 >
                     <h1 className="text-[150px] sm:text-[200px] font-black leading-none">
-                        <span className="text-blue-600">
+                        <span className="text-signal">
                              404
                          </span>
                     </h1>
@@ -28,10 +28,10 @@ export function NotFoundClient() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-800 mb-4">
+                    <h2 className="text-2xl sm:text-3xl font-black text-ink mb-4">
                         ¡Ups! Página no encontrada
                     </h2>
-                    <p className="text-slate-600 text-lg mb-8 max-w-md mx-auto">
+                    <p className="text-ink-soft text-lg mb-8 max-w-md mx-auto">
                         Parece que esta página se ha perdido en el ciberespacio.
                         Pero no te preocupes, podemos ayudarte a encontrar lo que buscas.
                     </p>
@@ -46,7 +46,7 @@ export function NotFoundClient() {
                 >
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-xl hover:scale-105 transition-all duration-300"
+                        className="inline-flex items-center gap-2 bg-signal text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-xl hover:scale-105 transition-all duration-300"
                     >
                         <Home className="w-5 h-5" />
                         Volver al Inicio
@@ -54,7 +54,7 @@ export function NotFoundClient() {
 
                     <Link
                         href="/#contacto"
-                        className="inline-flex items-center gap-2 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:border-blue-200 hover:text-blue-600 transition-all duration-300"
+                        className="inline-flex items-center gap-2 bg-card border-2 border-line text-ink-soft px-6 py-3 rounded-xl font-semibold hover:border-signal/25 hover:text-signal transition-all duration-300"
                     >
                         <Sparkles className="w-5 h-5" />
                         Contactar con IA
@@ -66,20 +66,20 @@ export function NotFoundClient() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
-                    className="mt-12 pt-8 border-t border-slate-200"
+                    className="mt-12 pt-8 border-t border-line"
                 >
-                    <p className="text-slate-500 mb-4">Enlaces útiles:</p>
+                    <p className="text-ink-faint mb-4">Enlaces útiles:</p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm">
-                        <Link href="/#proceso" className="text-blue-600 hover:underline">
+                        <Link href="/#proceso" className="text-signal hover:underline">
                             Nuestro Proceso
                         </Link>
-                        <Link href="/#casos-exito" className="text-blue-600 hover:underline">
+                        <Link href="/#casos-exito" className="text-signal hover:underline">
                             Casos de Éxito
                         </Link>
-                        <Link href="/#beneficios" className="text-blue-600 hover:underline">
+                        <Link href="/#beneficios" className="text-signal hover:underline">
                             Beneficios
                         </Link>
-                        <Link href="/#contacto" className="text-blue-600 hover:underline">
+                        <Link href="/#contacto" className="text-signal hover:underline">
                             Contacto
                         </Link>
                     </div>

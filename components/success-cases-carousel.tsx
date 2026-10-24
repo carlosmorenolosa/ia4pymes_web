@@ -189,7 +189,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                 <div className="mx-auto max-w-3xl" style={{ zIndex: 1000 }}>
                   <TiltCard className="relative" style={{ zIndex: 1000 }}>
                     <div
-                      className="flex flex-col p-8 sm:p-10 lg:p-12 rounded-3xl h-full text-left bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer group relative"
+                      className="flex flex-col p-8 sm:p-10 lg:p-12 rounded-3xl h-full text-left bg-card border border-line hover:border-signal/25 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer group relative"
                       style={{
                         zIndex: 1000,
                         position: "relative",
@@ -198,15 +198,15 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                     >
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 relative z-10 gap-4">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2 break-words group-hover:text-slate-900 transition-colors duration-300">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-2 break-words group-hover:text-ink transition-colors duration-300">
                             {case_.title}
                           </h3>
-                          <p className="text-lg sm:text-xl font-semibold text-slate-600 break-words group-hover:text-slate-700 transition-colors duration-300">
+                          <p className="text-lg sm:text-xl font-semibold text-ink-soft break-words group-hover:text-ink-soft transition-colors duration-300">
                             {case_.company}
                           </p>
                         </div>
                         <div
-                          className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center shrink-0 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600"
+                          className="w-12 h-12 sm:w-14 sm:h-14 bg-signal-wash border border-signal/15 rounded-2xl flex items-center justify-center shrink-0 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-white group-hover:border-signal"
                         >
                           <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
                         </div>
@@ -218,7 +218,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                         <div className="flex items-center gap-3">
                           <CheckCircle
                             className={`w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${case_.color === "blue"
-                              ? "text-blue-600 group-hover:text-blue-700"
+                              ? "text-signal group-hover:text-signal-deep"
                               : case_.color === "orange"
                                 ? "text-orange-600 group-hover:text-orange-700"
                                 : case_.color === "green"
@@ -226,7 +226,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                                   : "text-purple-600 group-hover:text-purple-700"
                               }`}
                           />
-                          <p className="text-base sm:text-lg font-semibold text-slate-700 break-words group-hover:text-slate-800 transition-colors duration-300">
+                          <p className="text-base sm:text-lg font-semibold text-ink-soft break-words group-hover:text-ink transition-colors duration-300">
                             {case_.benefit}
                           </p>
                         </div>
@@ -244,21 +244,21 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
-        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 shadow-lg rounded-full hover:bg-white transition-colors duration-300 border border-gray-200"
+        className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 xl:-left-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-card/95 shadow-lg rounded-full hover:bg-card transition-colors duration-300 border border-gray-200"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Previous slide" : "Anterior caso de éxito"}
       >
-        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-signal" />
       </motion.button>
       <motion.button
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
-        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/95 shadow-lg rounded-full hover:bg-white transition-colors duration-300 border border-gray-200"
+        className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 xl:-right-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-card/95 shadow-lg rounded-full hover:bg-card transition-colors duration-300 border border-gray-200"
         style={{ zIndex: 1001 }}
         aria-label={lang === "en" ? "Next slide" : "Siguiente caso de éxito"}
       >
-        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-signal" />
       </motion.button>
       {/* Dot Navigation */}
       <div className="flex justify-center mt-8 gap-3" style={{ zIndex: 1001 }}>
@@ -269,7 +269,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
             whileTap={{ scale: 0.8 }}
             onClick={() => goToSlide(index)}
             aria-label={lang === "en" ? `Go to slide ${index + 1}` : `Ir al caso de éxito ${index + 1}`}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-blue-600 shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-signal shadow-lg scale-125" : "bg-gray-300 hover:bg-gray-400"
               }`}
           />
         ))}
@@ -277,14 +277,14 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
       {/* Progress Bar */}
       <div className="mt-6 w-full bg-gray-200 rounded-full h-1 overflow-hidden" style={{ zIndex: 1001 }}>
         <div
-          className="bg-blue-600 h-1 rounded-full transition-all duration-500 ease-out"
+          className="bg-signal h-1 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${((currentSlide + 1) / successCases.length) * 100}%` }}
         >
         </div>
       </div>
       {/* Case Counter */}
-      <div className="text-center mt-4 text-sm text-gray-600" style={{ zIndex: 1001 }}>
-        <span className="font-semibold text-blue-600">{currentSlide + 1}</span>{" "}
+      <div className="text-center mt-4 text-sm text-ink-soft" style={{ zIndex: 1001 }}>
+        <span className="font-semibold text-signal">{currentSlide + 1}</span>{" "}
         {counterLabel}{" "}
         <span className="font-semibold">{successCases.length}</span> {counterSuffix}
       </div>

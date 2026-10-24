@@ -113,13 +113,13 @@ export function Chatbot() {
   }, [messages, isLoading])
 
   return (
-    <div className="w-full max-w-xl h-[600px] flex flex-col justify-center p-8 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl">
+    <div className="w-full max-w-xl h-[600px] flex flex-col justify-center p-8 rounded-3xl bg-card/80 backdrop-blur-xl border border-white/50 shadow-2xl">
       <div className="flex items-center mb-6">
         <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-4 shrink-0">
           <MessageCircle className="text-white w-7 h-7" />
         </div>
         <div>
-          <h3 className="text-xl font-bold text-slate-800">PymerIA</h3>
+          <h3 className="text-xl font-bold text-ink">PymerIA</h3>
         </div>
       </div>
       <div ref={scrollAreaRef} className="flex-1 p-4 flex flex-col space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-[#f0f4ff]">
@@ -132,13 +132,13 @@ export function Chatbot() {
             transition={{ duration: 0.3 }}
             className={`my-2 px-4 py-3 rounded-2xl break-words shadow-md w-fit max-w-[90%] ${msg.sender === "User"
                 ? "bg-blue-800 self-end ml-auto text-right text-white rounded-br-sm"
-                : "bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
+                : "bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-ink rounded-bl-sm"
               }`}
           >
             <div
               className={`prose prose-sm max-w-none ${msg.sender === "User"
                   ? "text-white prose-strong:text-white"
-                  : "text-slate-800 prose-strong:text-blue-600"
+                  : "text-ink prose-strong:text-signal"
                 }`}
             >
               <ReactMarkdown
@@ -156,13 +156,13 @@ export function Chatbot() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="my-2 px-4 py-3 rounded-2xl shadow-md w-fit max-w-[90%] bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-slate-800 rounded-bl-sm"
+            className="my-2 px-4 py-3 rounded-2xl shadow-md w-fit max-w-[90%] bg-gradient-to-r from-blue-100 to-blue-50 self-start text-left text-ink rounded-bl-sm"
           >
             <div className="flex items-center justify-center space-x-2">
-              <span className="text-sm font-medium text-slate-700">PymerIA está pensando</span>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0s" }}></div>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
-              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
+              <span className="text-sm font-medium text-ink-soft">PymerIA está pensando</span>
+              <div className="w-1.5 h-1.5 bg-signal rounded-full animate-pulse" style={{ animationDelay: "0s" }}></div>
+              <div className="w-1.5 h-1.5 bg-signal rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
+              <div className="w-1.5 h-1.5 bg-signal rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
             </div>
           </motion.div>
         )}
@@ -175,7 +175,7 @@ export function Chatbot() {
             onChange={(e) => setCurrentInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={isLoading ? "PymerIA está pensando..." : "Escribe tu mensaje..."}
-            className="flex-1 h-10 bg-white text-gray-800 border border-gray-300 rounded-lg px-4 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 disabled:opacity-50"
+            className="flex-1 h-10 bg-card text-gray-800 border border-gray-300 rounded-lg px-4 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-signal transition-all duration-300 disabled:opacity-50"
             disabled={isLoading}
           />
           <button

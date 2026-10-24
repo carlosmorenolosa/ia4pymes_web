@@ -82,9 +82,9 @@ export function CalendlyWidget() {
       onMouseEnter={() => document.body.classList.add("calendly-hover")}
       onMouseLeave={() => document.body.classList.remove("calendly-hover")}
     >
-      <div className="bg-white p-3 sm:p-4 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
+      <div className="bg-card p-3 sm:p-4 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
         <div
-          className="absolute top-0 left-0 w-full h-2 bg-blue-600"
+          className="absolute top-0 left-0 w-full h-2 bg-signal"
           aria-hidden="true"
         ></div>
         <div
@@ -100,10 +100,10 @@ export function CalendlyWidget() {
             >
               <div className="text-center">
                 <div className="relative mb-6">
-                  <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                  <div className="w-16 h-16 border-4 border-signal border-t-transparent rounded-full animate-spin mx-auto"></div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-700 mb-2">Cargando calendario</h3>
-                <p className="text-sm text-gray-600">Preparando tu consulta gratuita</p>
+                <p className="text-sm text-ink-soft">Preparando tu consulta gratuita</p>
               </div>
             </div>
           )}

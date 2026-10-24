@@ -34,7 +34,7 @@ const SECTORS = [
     icon: Building2,
     description: "Automatización 24/7 de citación médica, gestión inteligente de agendas y transcripción asistida de historiales clínicos.",
     color: "from-blue-500/20 to-cyan-500/20",
-    borderColor: "border-blue-500/30",
+    borderColor: "border-signal/30",
   },
   {
     key: "abogados",
@@ -115,7 +115,7 @@ export default function SectoresPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30">
+    <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-signal/30">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -129,17 +129,17 @@ export default function SectoresPage() {
       <header className="border-b border-white/10 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between max-w-7xl">
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-signal flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
               IA
             </div>
             <span className="font-bold text-lg text-white tracking-tight">
-              IA4PYMES<span className="text-blue-500">.tech</span>
+              IA4PYMES<span className="text-signal">.tech</span>
             </span>
           </Link>
           <div className="flex items-center gap-4">
             <Link
               href="/#consultoria"
-              className="px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold transition-all shadow-lg shadow-blue-600/20"
+              className="px-4 py-2 rounded-full bg-signal hover:bg-signal text-white text-xs sm:text-sm font-bold transition-all shadow-lg shadow-blue-600/20"
             >
               Consultoría Gratuita
             </Link>
@@ -149,14 +149,14 @@ export default function SectoresPage() {
 
       {/* Hero Section */}
       <section className="py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-signal/15 blur-[120px] rounded-full pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-blue-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/5 border border-white/10 text-blue-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-6">
             <Sparkles className="w-4 h-4 text-blue-400" />
             Especialización por Sector & Ciudad
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight max-w-4xl mx-auto leading-tight mb-6">
-            Soluciones de IA Adaptadas a Tu <span className="text-blue-500">Sector</span> y <span className="text-cyan-400">Ciudad</span>
+            Soluciones de IA Adaptadas a Tu <span className="text-signal">Sector</span> y <span className="text-cyan-400">Ciudad</span>
           </h1>
           <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
             Modelos de IA privada, automatización de procesos y agentes autónomos configurados para los requerimientos operativos de tu empresa en España.
@@ -172,11 +172,11 @@ export default function SectoresPage() {
             return (
               <div
                 key={sector.key}
-                className={`rounded-3xl bg-slate-900/60 border ${sector.borderColor} p-8 flex flex-col justify-between backdrop-blur-xl relative overflow-hidden group hover:border-blue-500/50 transition-all duration-300`}
+                className={`rounded-3xl bg-slate-900/60 border ${sector.borderColor} p-8 flex flex-col justify-between backdrop-blur-xl relative overflow-hidden group hover:border-signal/50 transition-all duration-300`}
               >
                 <div className={`absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br ${sector.color} rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500`} />
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-signal/10 border border-signal/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">
@@ -188,7 +188,7 @@ export default function SectoresPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <h3 className="text-xs font-bold text-ink-faint uppercase tracking-widest mb-4 flex items-center gap-2">
                     <MapPin className="w-3.5 h-3.5 text-blue-400" />
                     Selecciona tu Ciudad:
                   </h3>
@@ -197,10 +197,10 @@ export default function SectoresPage() {
                       <Link
                         key={city.key}
                         href={`/sectores/${sector.key}/${city.key}`}
-                        className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-white/5 hover:bg-blue-600/20 hover:border-blue-500/40 text-slate-300 hover:text-white text-sm font-semibold transition-all group/link"
+                        className="flex items-center justify-between px-4 py-3 rounded-xl bg-card/5 border border-white/5 hover:bg-signal/20 hover:border-signal/40 text-slate-300 hover:text-white text-sm font-semibold transition-all group/link"
                       >
                         <span>{sector.name.split(" ")[0]} en {city.name}</span>
-                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover/link:text-blue-400 group-hover/link:translate-x-1 transition-all" />
+                        <ArrowRight className="w-4 h-4 text-ink-faint group-hover/link:text-blue-400 group-hover/link:translate-x-1 transition-all" />
                       </Link>
                     ))}
                   </div>
@@ -220,7 +220,7 @@ export default function SectoresPage() {
           </p>
           <Link
             href="/#consultoria"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-xl shadow-blue-600/25"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-signal hover:bg-signal text-white font-bold transition-all shadow-xl shadow-blue-600/25"
           >
             Solicitar Auditoría de Procesos
             <ArrowRight className="w-4 h-4" />

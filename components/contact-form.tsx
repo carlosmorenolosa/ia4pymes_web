@@ -139,12 +139,12 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
     if (submitStatus === "success") {
         return (
             <div className="w-full max-w-2xl mx-auto my-16">
-                <div className="bg-white/50 backdrop-blur-xl border border-white/20 p-8 sm:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center transform transition-all animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="bg-card/50 backdrop-blur-xl border border-white/20 p-8 sm:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-center transform transition-all animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{t.successTitle}</h3>
-                    <p className="text-slate-600 text-lg mb-8">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-4">{t.successTitle}</h3>
+                    <p className="text-ink-soft text-lg mb-8">
                         {t.successText}
                     </p>
                     <div className="flex flex-col gap-4 max-w-sm mx-auto">
@@ -152,14 +152,14 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                             href="https://calendly.com/ia4pymes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
+                            className="w-full bg-signal hover:bg-signal-deep text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
                         >
                             {t.calendarCta}
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                         <button
                             onClick={() => setSubmitStatus("idle")}
-                            className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-semibold mt-4"
+                            className="text-ink-soft hover:text-ink transition-colors text-sm font-semibold mt-4"
                             aria-label={t.anotherReq}
                         >
                             {t.anotherReq}
@@ -172,23 +172,23 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
     return (
         <div className="w-full max-w-3xl mx-auto mb-16 px-4">
-            <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
+            <div className="bg-card/70 backdrop-blur-xl border border-white/40 p-6 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
                 {/* Decorative elements removed for pure white theme */}
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Name */}
                         <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-semibold text-slate-700">{t.name}</label>
+                            <label htmlFor="name" className="text-sm font-semibold text-ink-soft">{t.name}</label>
                             <input
                                 id="name"
                                 type="text"
                                 placeholder={t.namePlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
+                                className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.name ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink placeholder:text-ink-faint`}
                                 {...form.register("name")}
                             />
                             {form.formState.errors.name && (
-                                <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                                <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                     <AlertCircle className="w-3 h-3" />
                                     {form.formState.errors.name.message}
                                 </p>
@@ -197,16 +197,16 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                         {/* Company */}
                         <div className="space-y-2">
-                            <label htmlFor="company" className="text-sm font-semibold text-slate-700">{t.company}</label>
+                            <label htmlFor="company" className="text-sm font-semibold text-ink-soft">{t.company}</label>
                             <input
                                 id="company"
                                 type="text"
                                 placeholder={t.companyPlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
+                                className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.company ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink placeholder:text-ink-faint`}
                                 {...form.register("company")}
                             />
                             {form.formState.errors.company && (
-                                <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                                <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                     <AlertCircle className="w-3 h-3" />
                                     {form.formState.errors.company.message}
                                 </p>
@@ -217,16 +217,16 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Email */}
                         <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-semibold text-slate-700">{t.email}</label>
+                            <label htmlFor="email" className="text-sm font-semibold text-ink-soft">{t.email}</label>
                             <input
                                 id="email"
                                 type="email"
                                 placeholder={t.emailPlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
+                                className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.email ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink placeholder:text-ink-faint`}
                                 {...form.register("email")}
                             />
                             {form.formState.errors.email && (
-                                <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                                <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                     <AlertCircle className="w-3 h-3" />
                                     {form.formState.errors.email.message}
                                 </p>
@@ -235,16 +235,16 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                         {/* Phone */}
                         <div className="space-y-2">
-                            <label htmlFor="phone" className="text-sm font-semibold text-slate-700">{t.phone}</label>
+                            <label htmlFor="phone" className="text-sm font-semibold text-ink-soft">{t.phone}</label>
                             <input
                                 id="phone"
                                 type="tel"
                                 placeholder={t.phonePlaceholder}
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500`}
+                                className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.phone ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink placeholder:text-ink-faint`}
                                 {...form.register("phone")}
                             />
                             {form.formState.errors.phone && (
-                                <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                                <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                     <AlertCircle className="w-3 h-3" />
                                     {form.formState.errors.phone.message}
                                 </p>
@@ -254,25 +254,25 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Presupuesto */}
                     <div className="space-y-2">
-                        <label htmlFor="budget" className="text-sm font-semibold text-slate-700">{t.budget}</label>
+                        <label htmlFor="budget" className="text-sm font-semibold text-ink-soft">{t.budget}</label>
                         <div className="relative">
                             <select
                                 id="budget"
-                                className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 appearance-none cursor-pointer`}
+                                className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.budget ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink appearance-none cursor-pointer`}
                                 {...form.register("budget")}
                                 aria-label={t.budget}
                             >
-                                <option value="" disabled className="text-slate-500">{t.budgetPlaceholder}</option>
+                                <option value="" disabled className="text-ink-faint">{t.budgetPlaceholder}</option>
                                 {t.budgetOptions.map((opt) => (
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink-faint">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                             </div>
                         </div>
                         {form.formState.errors.budget && (
-                            <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                            <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3" />
                                 {form.formState.errors.budget.message}
                             </p>
@@ -281,16 +281,16 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Mensaje */}
                     <div className="space-y-2">
-                        <label htmlFor="message" className="text-sm font-semibold text-slate-700">{t.message}</label>
+                        <label htmlFor="message" className="text-sm font-semibold text-ink-soft">{t.message}</label>
                         <textarea
                             id="message"
                             placeholder={t.messagePlaceholder}
                             rows={4}
-                            className={`w-full px-4 py-3 rounded-xl bg-white/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-slate-200 focus:border-blue-600 focus:ring-blue-600/10'} outline-none focus:ring-4 transition-all duration-200 text-slate-800 placeholder:text-slate-500 resize-none`}
+                            className={`w-full px-4 py-3 rounded-xl bg-card/50 border ${form.formState.errors.message ? 'border-red-300 focus:ring-red-200' : 'border-line focus:border-signal focus:ring-signal/10'} outline-none focus:ring-4 transition-all duration-200 text-ink placeholder:text-ink-faint resize-none`}
                             {...form.register("message")}
                         ></textarea>
                         {form.formState.errors.message && (
-                            <p className="text-red-500 text-xs font-medium mt-1 flex items-center gap-1">
+                            <p className="text-signal-red text-xs font-medium mt-1 flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3" />
                                 {form.formState.errors.message.message}
                             </p>
@@ -299,12 +299,12 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Error general */}
                     {submitStatus === "error" && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex flex-col gap-2 transition-all">
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-signal-red text-sm flex flex-col gap-2 transition-all">
                             <div className="flex items-start gap-3">
                                 <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                                 <div>
                                     <p className="font-bold mb-1">{t.errorTitle}</p>
-                                    <p className="font-mono text-xs bg-white/50 p-2 rounded border border-red-100">{errorMessage}</p>
+                                    <p className="font-mono text-xs bg-card/50 p-2 rounded border border-red-100">{errorMessage}</p>
                                     <p className="mt-2 text-xs">{t.errorContact}</p>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full relative overflow-hidden group bg-blue-600 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-700 transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-blue-600/10 active:scale-95"
+                            className="w-full relative overflow-hidden group bg-signal text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-signal-deep transition-all duration-300 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer focus:ring-4 focus:ring-signal/10 active:scale-95"
                         >
                             <div className="absolute inset-0 w-full h-full border border-white/10 rounded-full"></div>
                             {isSubmitting ? (
@@ -334,7 +334,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         </button>
                     </div>
 
-                    <p className="text-center text-xs text-slate-600 mt-4 font-medium">
+                    <p className="text-center text-xs text-ink-soft mt-4 font-medium">
                         {t.privacyNote}
                     </p>
                 </form>

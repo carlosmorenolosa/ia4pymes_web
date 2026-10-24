@@ -93,7 +93,7 @@ export const ParticlesBackground = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-white"
+            className="fixed inset-0 w-full h-full pointer-events-none -z-10 bg-card"
         />
     )
 }

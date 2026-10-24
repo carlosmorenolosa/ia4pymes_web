@@ -91,7 +91,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
                 transition={{ duration: 0.2, ease: [0.76, 0, 0.24, 1], delay: 0.05 }}
               >
                 <span className="text-white">IA</span>
-                <span className="text-blue-600">4</span>
+                <span className="text-signal">4</span>
               </motion.div>
             </div>
             

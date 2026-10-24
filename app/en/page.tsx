@@ -27,7 +27,7 @@ import { ParticlesBackground } from "@/components/particles-background"
 const SuccessCasesCarousel = dynamic(
   () => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel),
   {
-    loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+    loading: () => <div className="h-[400px] bg-sunken/50 rounded-3xl animate-pulse" />,
     ssr: false,
   }
 )
@@ -38,7 +38,7 @@ const ThreeAnimatedChip = dynamic(
     ssr: false,
     loading: () => (
       <div className="w-full flex items-center justify-center p-2 sm:p-4">
-        <div className="w-[280px] h-[400px] xs:w-[320px] xs:h-[450px] sm:w-[380px] sm:h-[540px] bg-white rounded-[32px] sm:rounded-[40px] shadow-[0_20px_50px_rgba(37,99,235,0.12)] border border-slate-200/80 animate-pulse" />
+        <div className="w-[280px] h-[400px] xs:w-[320px] xs:h-[450px] sm:w-[380px] sm:h-[540px] bg-card rounded-[32px] sm:rounded-[40px] shadow-[0_20px_50px_rgba(37,99,235,0.12)] border border-line/80 animate-pulse" />
       </div>
     ),
   }
@@ -49,7 +49,7 @@ const ContactForm = dynamic(() => import("@/components/contact-form").then((mod)
 })
 
 const LatestArticles = dynamic(() => import("@/components/latest-articles").then((mod) => mod.LatestArticles), {
-  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />,
+  loading: () => <div className="h-[400px] bg-sunken/50 rounded-3xl animate-pulse" />,
   ssr: false,
 })
 
@@ -288,7 +288,7 @@ export default function HomeEN() {
         {/* Navigation */}
         <header
           className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
-            isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent"
+            isScrolled ? "py-3 bg-card/80 backdrop-blur-xl border-b border-line/50 shadow-sm" : "py-6 md:py-10 bg-transparent"
           }`}
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
@@ -306,60 +306,60 @@ export default function HomeEN() {
                 aria-label="Go to IA4PYMES home"
               >
                 <div className="flex items-center relative tracking-[-0.04em]">
-                  <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
-                  <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
+                  <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-signal">IA</span>
+                  <span className="text-3xl sm:text-4xl md:text-6xl font-black text-ink">4</span>
                 </div>
               </Link>
             </div>
 
             {/* Centered Navigation Pill */}
             <nav
-              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
+              className="flex items-center bg-card/70 backdrop-blur-xl border border-line/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-card/90 transition-all duration-300 pointer-events-auto z-10"
               aria-label="Main navigation"
             >
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
                 <Link
                   href="#process"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-ink-soft text-sm md:text-base font-semibold hover:text-signal transition-all duration-300 px-6 py-2 rounded-full hover:bg-sunken/50 whitespace-nowrap"
                 >
                   Process
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-signal rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="#cases"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-ink-soft text-sm md:text-base font-semibold hover:text-signal transition-all duration-300 px-6 py-2 rounded-full hover:bg-sunken/50 whitespace-nowrap"
                 >
                   Cases
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-signal rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="#calculator"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-ink-soft text-sm md:text-base font-semibold hover:text-signal transition-all duration-300 px-6 py-2 rounded-full hover:bg-sunken/50 whitespace-nowrap"
                 >
                   Calculator
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-signal rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="/en/blog"
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-ink-soft text-sm md:text-base font-semibold hover:text-signal transition-all duration-300 px-6 py-2 rounded-full hover:bg-sunken/50 whitespace-nowrap"
                 >
                   Blog EN
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-signal rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
                 {/* Language Selector */}
                 <div className="flex items-center gap-1 px-2">
-                  <Link href="/" className="text-sm font-semibold text-slate-400 hover:text-slate-700 transition-colors">ES</Link>
+                  <Link href="/" className="text-sm font-semibold text-slate-400 hover:text-ink-soft transition-colors">ES</Link>
                   <span className="text-slate-300 text-xs">|</span>
-                  <span className="text-sm font-bold text-blue-600 cursor-default">EN</span>
+                  <span className="text-sm font-bold text-signal cursor-default">EN</span>
                 </div>
                 <div className="w-px h-6 bg-slate-200 mx-2"></div>
                 <div>
                   <Link
                     href="/en#consultoria"
                     onClick={scrollToConsulting}
-                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2 cursor-pointer"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-signal bg-signal hover:bg-signal-deep shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2 cursor-pointer"
                   >
                     Book Consultation
                   </Link>
@@ -370,7 +370,7 @@ export default function HomeEN() {
               <div className="flex md:hidden items-center">
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex items-center justify-center size-10 rounded-full text-slate-800 transition-all active:scale-95"
+                  className="flex items-center justify-center size-10 rounded-full text-ink transition-all active:scale-95"
                   aria-label="Open menu"
                 >
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -382,35 +382,35 @@ export default function HomeEN() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
+          <div className="md:hidden fixed inset-0 bg-card z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
+              className="absolute top-8 right-8 p-3 text-ink bg-sunken/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
               aria-label="Close menu"
             >
               <X className="w-7 h-7" />
             </button>
             <div className="w-full flex flex-col gap-4 items-center">
-              <Link href="#process" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Process</Link>
-              <Link href="#cases" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Success Cases</Link>
-              <Link href="#calculator" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Calculator</Link>
-              <Link href="/en/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors">Blog EN</Link>
+              <Link href="#process" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-ink tracking-tight py-2 hover:text-signal transition-colors">Process</Link>
+              <Link href="#cases" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-ink tracking-tight py-2 hover:text-signal transition-colors">Success Cases</Link>
+              <Link href="#calculator" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-ink tracking-tight py-2 hover:text-signal transition-colors">Calculator</Link>
+              <Link href="/en/blog" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-ink tracking-tight py-2 hover:text-signal transition-colors">Blog EN</Link>
             </div>
-            <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
+            <div className="w-full h-px bg-sunken my-4 max-w-xs"></div>
             {/* Mobile Language Selector */}
             <div className="flex items-center gap-4">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-400 hover:text-slate-700 transition-colors">ES</Link>
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-400 hover:text-ink-soft transition-colors">ES</Link>
               <span className="text-slate-300">|</span>
-              <span className="text-2xl font-bold text-blue-600">EN</span>
+              <span className="text-2xl font-bold text-signal">EN</span>
             </div>
-            <div className="w-full h-px bg-slate-100 my-4 max-w-xs"></div>
+            <div className="w-full h-px bg-sunken my-4 max-w-xs"></div>
             <Link
               href="/en#consultoria"
               onClick={(e) => {
                 setMobileMenuOpen(false)
                 scrollToConsulting(e)
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-signal px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 cursor-pointer"
             >
               Book Consultation
             </Link>
@@ -426,16 +426,16 @@ export default function HomeEN() {
                 <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
                   <h1
                     id="hero-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 drop-shadow-sm text-balance"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-ink drop-shadow-sm text-balance"
                   >
-                    Develop <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">Cuts Costs</span> & <span className="text-blue-600">Scales Margins</span>
+                    Develop <span className="underline decoration-signal-red decoration-4 underline-offset-[2px]">Custom AI Software</span> that <span className="underline decoration-signal decoration-4 underline-offset-[2px] text-signal">Cuts Costs</span> & <span className="text-signal">Scales Margins</span>
                   </h1>
 
                   <p
-                    className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
+                    className="text-lg md:text-xl lg:text-[1.35rem] mb-8 text-ink-soft font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
                   >
-                    <strong className="font-bold text-slate-900">IA4PYMES</strong> is a software development company specialized in artificial intelligence: we design and build custom software, private AI agents, and process automation for small and medium-sized businesses in Spain.{" "}
-                    <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
+                    <strong className="font-bold text-ink">IA4PYMES</strong> is a software development company specialized in artificial intelligence: we design and build custom software, private AI agents, and process automation for small and medium-sized businesses in Spain.{" "}
+                    <strong className="font-bold text-ink border-b-2 border-signal/30">
                       We calculate your project's ROI before writing a single line of code
                     </strong>.
                   </p>
@@ -446,14 +446,14 @@ export default function HomeEN() {
                     <Link
                       href="/en#consultoria"
                       onClick={scrollToConsulting}
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-signal bg-signal shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-signal-deep px-8 py-4 active:scale-95 cursor-pointer"
                     >
                       Design AI Roadmap
                     </Link>
 
                     <Link
                       href="/en#cases"
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-ink-soft border border-line bg-card hover:bg-sunken shadow-sm px-8 py-4 group active:scale-95"
                     >
                       <span className="flex items-center justify-center relative overflow-hidden">
                         Explore real cases
@@ -468,7 +468,7 @@ export default function HomeEN() {
                 >
                   <div className="w-full max-w-lg sm:max-w-xl">
                     {typeof window !== "undefined" && (window as any).__IS_BOT ? (
-                      <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
+                      <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-line/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-400 font-semibold">
                         IA4PYMES Chatbot
                       </div>
                     ) : (
@@ -482,7 +482,7 @@ export default function HomeEN() {
         </section>
 
         {/* Cost Calculator Section */}
-        <section id="calculator" className="py-16 sm:py-24 bg-white relative">
+        <section id="calculator" className="py-16 sm:py-24 bg-card relative">
           <FadeIn>
             <div className="container mx-auto px-4 max-w-7xl relative z-10">
               <CostCalculator lang="en" />
@@ -507,50 +507,50 @@ export default function HomeEN() {
                 <div className="lg:col-span-7 text-center lg:text-left">
                   <h2
                     id="newsletter-heading"
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm leading-[1.1]"
                   >
-                    AI Newsletter: <span className="text-blue-600">Actionable Case Studies for Your Business</span>
+                    AI Newsletter: <span className="text-signal">Actionable Case Studies for Your Business</span>
                   </h2>
-                  <p className="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
+                  <p className="text-lg sm:text-xl text-ink-soft max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
                     We explain how to apply Artificial Intelligence and process automation in real-world operations every week. Get architectures, prompts, and tools ready to implement today.
                   </p>
-                  <ul className="space-y-5 text-slate-700 font-medium hidden sm:block text-lg">
+                  <ul className="space-y-5 text-ink-soft font-medium hidden sm:block text-lg">
                     <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      <CheckCircle className="w-6 h-6 text-signal" />
                       Real step-by-step use cases
                     </li>
                     <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      <CheckCircle className="w-6 h-6 text-signal" />
                       Automations ready for your SME
                     </li>
                     <li className="flex items-center justify-center lg:justify-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      <CheckCircle className="w-6 h-6 text-signal" />
                       Tools that save real time
                     </li>
                   </ul>
                 </div>
 
                 <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-                  <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 sm:p-12 shadow-xl relative overflow-hidden group">
-                    <div className="w-20 h-20 bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
-                      <Mail className="w-10 h-10 text-blue-600" />
+                  <div className="bg-card border border-line rounded-[2.5rem] p-8 sm:p-12 shadow-xl relative overflow-hidden group">
+                    <div className="w-20 h-20 bg-sunken border border-line rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm relative group-hover:scale-110 transition-transform duration-500">
+                      <Mail className="w-10 h-10 text-signal" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center tracking-tight">
+                    <h3 className="text-2xl font-bold text-ink mb-6 text-center tracking-tight">
                       Join hundreds of SMEs
                     </h3>
                     <div className="relative group/btn w-full mt-8 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
-                      <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
+                      <div className="absolute -inset-1 bg-signal rounded-full blur opacity-30 group-hover/btn:opacity-75 transition duration-500"></div>
                       <Link
                         href="https://newsletter.ia4pymes.tech"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-3 w-full bg-blue-600 text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-blue-700 transition-all duration-300 text-lg sm:text-xl"
+                        className="relative flex items-center justify-center gap-3 w-full bg-signal text-white font-bold py-5 px-8 rounded-full shadow-[0_10px_20px_-5px_rgba(37,99,235,0.39)] hover:bg-signal-deep transition-all duration-300 text-lg sm:text-xl"
                       >
                         Subscribe Now
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
                     </div>
-                    <p className="text-slate-500 text-sm mt-6 text-center italic">
+                    <p className="text-ink-faint text-sm mt-6 text-center italic">
                       * No spam, only high-value technical<br className="hidden sm:block" /> and strategic content.
                     </p>
                   </div>
@@ -563,7 +563,7 @@ export default function HomeEN() {
         {/* Process Section */}
         <section
           id="process"
-          className="py-16 sm:py-24 bg-white overflow-hidden"
+          className="py-16 sm:py-24 bg-card overflow-hidden"
           aria-labelledby="process-heading"
         >
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -571,11 +571,11 @@ export default function HomeEN() {
               <header className="text-center mb-10 sm:mb-14">
                 <h2
                   id="process-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
                 >
-                  3-Step Methodology: <span className="text-blue-600">Audit, Integration & Deployment</span>
+                  3-Step Methodology: <span className="text-signal">Audit, Integration & Deployment</span>
                 </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
                   A transparent engineering process designed to maximize your return on investment and protect corporate data privacy.
                 </p>
               </header>
@@ -630,24 +630,24 @@ export default function HomeEN() {
 
                       <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                         <div className="flex flex-col items-center md:items-start shrink-0">
-                          <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-blue-600 mb-2 leading-none group-hover:text-blue-700 transition-colors duration-500">
+                          <span aria-hidden="true" className="text-6xl sm:text-7xl font-black text-signal mb-2 leading-none group-hover:text-signal-deep transition-colors duration-500">
                             {process.step}
                           </span>
-                          <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
+                          <div className="w-12 h-12 rounded-2xl bg-signal-wash flex items-center justify-center text-signal mb-4">
                             <IconComponent className="w-6 h-6" />
                           </div>
                         </div>
 
                         <div className="flex-grow pt-2">
-                          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-ink mb-4 tracking-tight">
                             {process.title}
                           </h3>
-                          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-6">
+                          <p className="text-lg sm:text-xl text-ink-soft leading-relaxed max-w-2xl mb-6">
                             {process.description}
                           </p>
-                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
-                            <CheckCircle className="w-4 h-4 text-blue-600" />
-                            <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-700">
+                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-sunken border border-line rounded-full group-hover:bg-signal-wash group-hover:border-signal/15 transition-colors duration-300">
+                            <CheckCircle className="w-4 h-4 text-signal" />
+                            <span className="text-sm font-semibold text-ink-soft group-hover:text-signal-deep">
                               {process.benefit}
                             </span>
                           </div>
@@ -655,7 +655,7 @@ export default function HomeEN() {
                       </div>
 
                       {index !== array.length - 1 && (
-                        <div className="mt-16 sm:mt-24 border-b border-slate-100 w-full" />
+                        <div className="mt-16 sm:mt-24 border-b border-line w-full" />
                       )}
                     </article>
                   </FadeIn>
@@ -668,7 +668,7 @@ export default function HomeEN() {
                 <Link
                   href="/en#consultoria"
                   onClick={scrollToConsulting}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-signal bg-signal shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-signal-deep px-8 py-4 cursor-pointer"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -690,11 +690,11 @@ export default function HomeEN() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="success-cases-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
                 >
-                  Case Studies: <span className="text-blue-600">Real-World AI & Automation for SMEs</span>
+                  Case Studies: <span className="text-signal">Real-World AI & Automation for SMEs</span>
                 </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+                <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
                   Audited results across clinics, logistics, law firms, and construction: error reduction and ROIs exceeding +200%.
                 </p>
               </header>
@@ -712,13 +712,13 @@ export default function HomeEN() {
                 ].map((stat, idx) => (
                   <FadeIn key={idx} delay={idx * 0.1}>
                     <div 
-                      className="relative group bg-white border border-slate-200 p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
+                      className="relative group bg-card border border-line p-8 sm:p-10 rounded-[2.5rem] text-center hover:border-signal/25 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-500"
                       itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem"
                     >
-                      <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-slate-900 group-hover:text-blue-600 transition-colors duration-300" itemProp="name">
+                      <div className="text-5xl sm:text-6xl font-black tracking-tighter mb-3 text-ink group-hover:text-signal transition-colors duration-300" itemProp="name">
                         <Counter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                       </div>
-                      <div className="text-slate-600 text-sm sm:text-base font-semibold tracking-wide leading-snug">{stat.label}</div>
+                      <div className="text-ink-soft text-sm sm:text-base font-semibold tracking-wide leading-snug">{stat.label}</div>
                       <meta itemProp="position" content={(idx + 1).toString()} />
                     </div>
                   </FadeIn>
@@ -730,7 +730,7 @@ export default function HomeEN() {
                 <Link
                   href="/en#consultoria"
                   onClick={scrollToConsulting}
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                  className="inline-flex items-center justify-center bg-signal text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-lg hover:bg-signal-deep hover:shadow-xl transition-all duration-300 transform hover:scale-105 group cursor-pointer"
                   aria-label="Book Consultation"
                 >
                   <span>Book Consultation</span>
@@ -755,11 +755,11 @@ export default function HomeEN() {
               <header className="text-center mb-16 sm:mb-20">
                 <h2
                   id="contact-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
                 >
-                  Request Your Free Diagnosis: <span className="text-blue-600">Let&apos;s Discuss Your Project</span>
+                  Request Your Free Diagnosis: <span className="text-signal">Let&apos;s Discuss Your Project</span>
                 </h2>
-                <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed px-4">
+                <p className="max-w-4xl mx-auto text-base sm:text-lg lg:text-xl xl:text-2xl text-ink-soft leading-relaxed px-4">
                   Start your operational transformation today by sharing details about your processes. Our engineering team will evaluate your case to design the optimal Artificial Intelligence architecture.
                 </p>
               </header>
@@ -767,7 +767,7 @@ export default function HomeEN() {
               <ContactForm lang="en" />
 
               <div className="text-center mt-8 sm:mt-12">
-                <ul className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-slate-600 list-none">
+                <ul className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-ink-soft list-none">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
                     <span className="font-medium text-sm sm:text-base">100% Free</span>
@@ -783,7 +783,7 @@ export default function HomeEN() {
                 </ul>
                 <Link
                   href="/en"
-                  className="mt-6 sm:mt-8 text-blue-600 hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
+                  className="mt-6 sm:mt-8 text-signal hover:text-blue-800 font-semibold text-base sm:text-lg hover:underline transition-colors duration-300 flex items-center gap-2 mx-auto"
                   aria-label="Back to top"
                 >
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 rotate-180" aria-hidden="true" />
@@ -798,7 +798,7 @@ export default function HomeEN() {
         <LatestArticles lang="en" />
 
         {/* Footer */}
-        <footer className="bg-white pt-20 pb-12 relative overflow-hidden border-t border-slate-100">
+        <footer className="bg-card pt-20 pb-12 relative overflow-hidden border-t border-line">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
@@ -808,16 +808,16 @@ export default function HomeEN() {
               >
                 <Link href="/en" className="inline-flex items-center group">
                   <div className="flex items-center relative tracking-tighter">
-                    <span className="text-2xl font-extrabold text-blue-600">IA</span>
-                    <span className="text-2xl font-black text-slate-900">4</span>
-                    <span className="ml-1 text-2xl font-bold text-slate-900 uppercase tracking-tight">PYMES</span>
+                    <span className="text-2xl font-extrabold text-signal">IA</span>
+                    <span className="text-2xl font-black text-ink">4</span>
+                    <span className="ml-1 text-2xl font-bold text-ink uppercase tracking-tight">PYMES</span>
                   </div>
                 </Link>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                <p className="text-ink-faint text-sm leading-relaxed max-w-xs">
                   AI software development company for SMEs: we design, build and integrate the software that cuts your operational costs. Real results and measurable ROI.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[11px] font-semibold text-slate-500 tracking-wide">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-sunken border border-line rounded-full text-[11px] font-semibold text-ink-faint tracking-wide">
+                  <span className="w-2 h-2 bg-signal rounded-full animate-pulse"></span>
                   Built with ❤️ in Spain
                 </div>
                 <div className="pt-1">
@@ -845,12 +845,12 @@ export default function HomeEN() {
               <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Solutions</h4>
+                <h4 className="text-sm font-black text-ink uppercase tracking-widest">Solutions</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/en#process" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Our Process</Link></li>
-                  <li><Link href="/en#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Success Cases</Link></li>
-                  <li><Link href="/en#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">ROI Calculator</Link></li>
-                  <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">News Blog</Link></li>
+                  <li><Link href="/en#process" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Our Process</Link></li>
+                  <li><Link href="/en#cases" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Success Cases</Link></li>
+                  <li><Link href="/en#calculator" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">ROI Calculator</Link></li>
+                  <li><Link href="/en/blog" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">News Blog</Link></li>
                 </ul>
               </div>
 
@@ -858,12 +858,12 @@ export default function HomeEN() {
               <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Explore</h4>
+                <h4 className="text-sm font-black text-ink uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
-                  <li><ScrollTopLink href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</ScrollTopLink></li>
-                  <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">FAQ</Link></li>
-                  <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium cursor-pointer">Book Consultation</Link></li>
-                  <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
+                  <li><ScrollTopLink href="/en" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">About Us</ScrollTopLink></li>
+                  <li><Link href="/en#faq" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">FAQ</Link></li>
+                  <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-ink-faint hover:text-signal transition-colors text-sm font-medium cursor-pointer">Book Consultation</Link></li>
+                  <li><Link href="/en#newsletter" className="text-ink-faint hover:text-signal transition-colors text-sm font-medium">Weekly Newsletter</Link></li>
                 </ul>
               </div>
 
@@ -871,33 +871,33 @@ export default function HomeEN() {
               <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Connect</h4>
+                <h4 className="text-sm font-black text-ink uppercase tracking-widest">Connect</h4>
                 <div className="space-y-4">
-                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-slate-500 hover:text-blue-600 transition-colors group">
-                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                  <a href="mailto:contacto@ia4pymes.tech" className="flex items-center justify-center md:justify-start gap-3 text-ink-faint hover:text-signal transition-colors group">
+                    <div className="w-8 h-8 rounded-lg bg-sunken flex items-center justify-center group-hover:bg-signal-wash transition-colors">
                       <Mail className="w-4 h-4" />
                     </div>
                     <span className="text-sm font-medium tracking-tight">contacto@ia4pymes.tech</span>
                   </a>
                   <div className="flex items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="https://es.linkedin.com/company/ia4pymestech?trk=public_post_feed-actor-image" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
+                    <a href="https://es.linkedin.com/company/ia4pymestech?trk=public_post_feed-actor-image" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-signal hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="LinkedIn">
                       <Linkedin className="w-5 h-5" />
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61560704600913" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Facebook">
                       <Facebook className="w-5 h-5" />
                     </a>
-                    <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
+                    <a href="https://www.instagram.com/ia4pymes/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-pink-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="Instagram">
                       <Instagram className="w-5 h-5" />
                     </a>
-                    <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="TikTok">
+                    <a href="https://www.tiktok.com/@ia4pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="TikTok">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.34V9.05a9.14 9.14 0 0 0 5.25 1.63V7.23a5.27 5.27 0 0 1-1.34-.54z" />
                       </svg>
                     </a>
-                    <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
+                    <a href="https://www.youtube.com/@IA4PYMES" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="YouTube">
                       <Youtube className="w-5 h-5" />
                     </a>
-                    <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="X (Twitter)">
+                    <a href="https://x.com/Ia4Pymes" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-sunken flex items-center justify-center text-ink-soft hover:bg-black hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-sm" aria-label="X (Twitter)">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
@@ -908,13 +908,13 @@ export default function HomeEN() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-slate-600 text-[13px] font-semibold">
+            <div className="pt-8 border-t border-line flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-ink-soft text-[13px] font-semibold">
                 © 2026 IA4PYMES. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <Link href="#contact" className="text-slate-600 hover:text-blue-600 text-[13px] font-semibold transition-colors">Contact</Link>
-                <Link href="/en#consultoria" onClick={scrollToConsulting} className="text-blue-600 hover:text-blue-700 text-[13px] font-bold transition-colors cursor-pointer">Book Consultation</Link>
+                <Link href="#contact" className="text-ink-soft hover:text-signal text-[13px] font-semibold transition-colors">Contact</Link>
+                <Link href="/en#consultoria" onClick={scrollToConsulting} className="text-signal hover:text-signal-deep text-[13px] font-bold transition-colors cursor-pointer">Book Consultation</Link>
               </div>
             </div>
           </div>

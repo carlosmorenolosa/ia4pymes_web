@@ -78,10 +78,10 @@ export function CookieConsent() {
                     style={{ cursor: "default" }}
                 >
                     <div className="container mx-auto max-w-4xl">
-                        <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div className="bg-card rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                             {/* Icon */}
-                            <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full flex-shrink-0">
-                                <Cookie className="w-6 h-6 text-blue-600" />
+                            <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-signal-wash rounded-full flex-shrink-0">
+                                <Cookie className="w-6 h-6 text-signal" />
                             </div>
 
                             {/* Text */}
@@ -91,7 +91,7 @@ export function CookieConsent() {
                                         ? "We use cookies to analyze traffic and improve your experience. By accepting, you help us understand how you use the web. " 
                                         : "Utilizamos cookies para analizar el tráfico y mejorar tu experiencia. Al aceptar, nos ayudas a entender cómo usas la web. "}
                                     <button
-                                        className="text-blue-600 hover:underline font-medium"
+                                        className="text-signal hover:underline font-medium"
                                         onClick={() => window.open(isEnglish ? "/en/privacy-policy" : "/politica-privacidad", "_blank")}
                                     >
                                         {isEnglish ? "More information" : "Más información"}
@@ -103,13 +103,13 @@ export function CookieConsent() {
                             <div className="flex gap-3 w-full sm:w-auto flex-shrink-0">
                                 <button
                                     onClick={handleReject}
-                                    className="flex-1 sm:flex-none px-4 py-2.5 text-gray-600 hover:text-gray-800 font-medium text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                    className="flex-1 sm:flex-none px-4 py-2.5 text-ink-soft hover:text-gray-800 font-medium text-sm border border-gray-300 rounded-lg hover:bg-sunken transition-colors"
                                 >
                                     {isEnglish ? "Reject" : "Rechazar"}
                                 </button>
                                 <button
                                     onClick={handleAccept}
-                                    className="flex-1 sm:flex-none px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg transition-colors shadow-sm"
+                                    className="flex-1 sm:flex-none px-6 py-2.5 bg-signal hover:bg-signal-deep text-white font-medium text-sm rounded-lg transition-colors shadow-sm"
                                 >
                                     {isEnglish ? "Accept" : "Aceptar"}
                                 </button>
@@ -118,7 +118,7 @@ export function CookieConsent() {
                             {/* Close button for mobile */}
                             <button
                                 onClick={handleReject}
-                                className="absolute top-2 right-2 sm:hidden p-1 text-gray-400 hover:text-gray-600"
+                                className="absolute top-2 right-2 sm:hidden p-1 text-gray-400 hover:text-ink-soft"
                                 aria-label="Cerrar"
                             >
                                 <X className="w-5 h-5" />

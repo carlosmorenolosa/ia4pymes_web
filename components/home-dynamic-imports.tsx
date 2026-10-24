@@ -6,12 +6,12 @@ import dynamic from "next/dynamic"
 // y deben definirse en un Client Component
 export const SuccessCasesCarousel = dynamic(
   () => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel),
-  { loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl animate-pulse" />, ssr: false }
+  { loading: () => <div className="h-[400px] bg-sunken/50 rounded-3xl animate-pulse" />, ssr: false }
 )
 
 export const AnimatedChip = dynamic(
   () => import("@/components/three-animated-chip").then((mod) => mod.ThreeAnimatedChip),
-  { loading: () => <div className="w-full max-w-sm aspect-[380/540] bg-slate-100 rounded-[40px] animate-pulse mx-auto" />, ssr: false }
+  { loading: () => <div className="w-full max-w-sm aspect-[380/540] bg-sunken rounded-[40px] animate-pulse mx-auto" />, ssr: false }
 )
 
 export const ContactForm = dynamic(
@@ -26,6 +26,6 @@ export const CostCalculator = dynamic(
 
 export const ConsultingSection = dynamic(
   () => import("@/components/consulting-section").then((mod) => mod.ConsultingSection),
-  { ssr: false, loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
+  { ssr: false, loading: () => <div className="h-[600px] bg-sunken/50 rounded-3xl animate-pulse" /> }
 )
 

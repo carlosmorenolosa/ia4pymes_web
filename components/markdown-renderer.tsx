@@ -32,7 +32,7 @@ export default function MarkdownRenderer({ content, minimal = false, isUser = fa
           </ol>
         ),
         strong: ({ children }) => (
-          <strong className={isUser ? "text-slate-700 font-bold" : "text-blue-600 font-bold"}>
+          <strong className={isUser ? "text-ink-soft font-bold" : "text-signal font-bold"}>
             {children}
           </strong>
         ),

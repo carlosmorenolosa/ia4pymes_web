@@ -68,11 +68,11 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
         <header className="text-center mb-16 sm:mb-20">
           <h2
             id="reviews-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 drop-shadow-sm"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-ink mb-6 drop-shadow-sm"
           >
-            {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
+            {t.heading} <span className="text-signal">{t.headingHighlight}</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 px-4">
+          <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-ink-soft px-4">
             {t.subtitle}
           </p>
         </header>
@@ -81,7 +81,7 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
           {t.reviews.map((review, idx) => (
             <article
               key={idx}
-              className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
+              className="bg-card border border-line rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:border-blue-300 transition-all duration-500 flex flex-col justify-between relative group"
             >
               <div>
                 {/* Top header: Rating stars & Quote icon */}
@@ -90,25 +90,25 @@ export function ReviewsSection({ lang = "es" }: { lang?: "es" | "en" }) {
                     {[...Array(review.rating)].map((_, i) => (
                       <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-amber-400 text-amber-400" />
                     ))}
-                    <span className="ml-1.5 text-xs sm:text-sm font-bold text-slate-700">5.0</span>
+                    <span className="ml-1.5 text-xs sm:text-sm font-bold text-ink-soft">5.0</span>
                   </div>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-signal-wash flex items-center justify-center text-signal group-hover:scale-110 transition-transform shrink-0">
                     <Quote className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                 </div>
 
                 {/* Review text */}
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                <p className="text-ink-soft text-sm sm:text-base leading-relaxed mb-6 font-normal">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </div>
 
               {/* Bottom footer: Company name & tag */}
-              <div className="pt-5 border-t border-slate-100 flex flex-col gap-1">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-snug">
+              <div className="pt-5 border-t border-line flex flex-col gap-1">
+                <h3 className="text-base sm:text-lg font-bold text-ink tracking-tight leading-snug">
                   {review.company}
                 </h3>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-blue-600">
+                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-signal">
                   {review.tag}
                 </span>
               </div>

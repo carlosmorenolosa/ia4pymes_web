@@ -21,7 +21,7 @@ const i18n = {
     guarantee1Title: "Garantía de Reembolso en Proyecto",
     guarantee1Desc: (
       <span>
-        Si decides contratar el desarrollo e implementación del proyecto de IA con nosotros, <strong className="font-bold text-slate-900">te descontamos el 100% de la consultoría (361,79€)</strong> del presupuesto final. La sesión te saldrá completamente gratis.
+        Si decides contratar el desarrollo e implementación del proyecto de IA con nosotros, <strong className="font-bold text-ink">te descontamos el 100% de la consultoría (361,79€)</strong> del presupuesto final. La sesión te saldrá completamente gratis.
       </span>
     ),
     guarantee2Title: "Garantía de Viabilidad de 15 Minutos",
@@ -49,7 +49,7 @@ const i18n = {
     guarantee1Title: "Project Refund Guarantee",
     guarantee1Desc: (
       <span>
-        If you decide to hire the development and implementation of the AI project with us, <strong className="font-bold text-slate-900">we deduct 100% of the consultancy cost (361.79€)</strong> from the final budget. The session is completely free.
+        If you decide to hire the development and implementation of the AI project with us, <strong className="font-bold text-ink">we deduct 100% of the consultancy cost (361.79€)</strong> from the final budget. The session is completely free.
       </span>
     ),
     guarantee2Title: "15-Minute Viability Guarantee",
@@ -102,7 +102,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
   }, []);
 
   return (
-    <section id="consultoria" className="py-16 sm:py-24 bg-white relative overflow-hidden scroll-mt-16">
+    <section id="consultoria" className="py-16 sm:py-24 bg-card relative overflow-hidden scroll-mt-16">
       <div id="consulting" className="absolute -top-24 pointer-events-none" />
       {/* Decorative background grid (subtle) */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
@@ -112,67 +112,67 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
-                {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-ink tracking-tighter leading-[1.1]">
+                {t.heading}<span className="text-signal">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed text-justify">
+              <p className="text-lg sm:text-xl text-ink-soft leading-relaxed text-justify">
                 {t.subtitle}
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 sm:p-8 space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-blue-600" />
+            <div className="bg-sunken border border-line rounded-[2rem] p-6 sm:p-8 space-y-6">
+              <h3 className="text-xl font-bold text-ink flex items-center gap-2">
+                <Clock className="w-5 h-5 text-signal" />
                 {t.includedHeading}
               </h3>
               
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-signal-wash text-signal mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
                   <div>
-                    <strong className="text-slate-900 block">{t.included1Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included1Desc}</span>
+                    <strong className="text-ink block">{t.included1Title}</strong>
+                    <span className="text-ink-soft text-sm">{t.included1Desc}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-signal-wash text-signal mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
                   <div>
-                    <strong className="text-slate-900 block">{t.included2Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included2Desc}</span>
+                    <strong className="text-ink block">{t.included2Title}</strong>
+                    <span className="text-ink-soft text-sm">{t.included2Desc}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-signal-wash text-signal mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
                   <div>
-                    <strong className="text-slate-900 block">{t.included3Title}</strong>
-                    <span className="text-slate-600 text-sm">{t.included3Desc}</span>
+                    <strong className="text-ink block">{t.included3Title}</strong>
+                    <span className="text-ink-soft text-sm">{t.included3Desc}</span>
                   </div>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <div className="flex gap-4 items-start bg-blue-50/50 border border-blue-100/60 rounded-2xl p-5">
-                <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
+              <div className="flex gap-4 items-start bg-signal-wash/50 border border-signal/15/60 rounded-2xl p-5">
+                <ShieldCheck className="w-8 h-8 text-signal shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900 text-base">{t.guarantee1Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1">
+                  <h4 className="font-bold text-ink text-base">{t.guarantee1Title}</h4>
+                  <p className="text-ink-soft text-sm mt-1">
                     {t.guarantee1Desc}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start bg-slate-50 border border-slate-200/60 rounded-2xl p-5">
-                <HelpCircle className="w-8 h-8 text-slate-500 shrink-0 mt-0.5" />
+              <div className="flex gap-4 items-start bg-sunken border border-line/60 rounded-2xl p-5">
+                <HelpCircle className="w-8 h-8 text-ink-faint shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-900 text-base">{t.guarantee2Title}</h4>
-                  <p className="text-slate-600 text-sm mt-1">
+                  <h4 className="font-bold text-ink text-base">{t.guarantee2Title}</h4>
+                  <p className="text-ink-soft text-sm mt-1">
                     {t.guarantee2Desc}
                   </p>
                 </div>
@@ -182,27 +182,27 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           </div>
 
           <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
-            <div className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden relative">
-              <div className="h-12 bg-slate-100 border-b border-slate-200 flex items-center px-6 gap-2">
+            <div className="w-full bg-sunken rounded-[2.5rem] border border-line overflow-hidden relative">
+              <div className="h-12 bg-sunken border-b border-line flex items-center px-6 gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
-                <span className="text-xs font-semibold text-slate-600 ml-4 select-none">{t.secureText}</span>
+                <span className="text-xs font-semibold text-ink-soft ml-4 select-none">{t.secureText}</span>
               </div>
               
-              <div className="w-full bg-white" style={{ height: "720px" }}>
+              <div className="w-full bg-card" style={{ height: "720px" }}>
                 <CalIframeEmbed url={t.calUrl} title={t.titleIframe} lang={lang} />
               </div>
             </div>
 
             <div className="flex flex-col items-center text-center mt-8 lg:mt-12">
               <div>
-                <span className="text-sm font-semibold text-slate-500 block uppercase tracking-wider">{t.priceTitle}</span>
+                <span className="text-sm font-semibold text-ink-faint block uppercase tracking-wider">{t.priceTitle}</span>
                 <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-4xl sm:text-5xl font-black text-slate-900">{t.price}</span>
-                  <span className="text-lg font-bold text-slate-500">{t.plusVat}</span>
+                  <span className="text-4xl sm:text-5xl font-black text-ink">{t.price}</span>
+                  <span className="text-lg font-bold text-ink-faint">{t.plusVat}</span>
                 </div>
-                <span className="text-xs text-slate-500 block mt-1">{t.totalVat}</span>
+                <span className="text-xs text-ink-faint block mt-1">{t.totalVat}</span>
               </div>
             </div>
           </div>

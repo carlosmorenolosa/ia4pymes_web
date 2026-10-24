@@ -7,9 +7,9 @@ export function BlockNotFound() {
       <div className="text-center space-y-6 max-w-md">
         <div className="flex justify-center mb-8">
           <div className="flex space-x-1">
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse [animation-delay:0.2s]"></div>
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse [animation-delay:0.4s]"></div>
+            <div className="w-2 h-2 bg-signal rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-signal rounded-full animate-pulse [animation-delay:0.2s]"></div>
+            <div className="w-2 h-2 bg-signal rounded-full animate-pulse [animation-delay:0.4s]"></div>
           </div>
         </div>
         <div className="space-y-4">
@@ -30,7 +30,7 @@ export function BlockNotFound() {
           </Button>
           <Button
             variant="outline"
-            className="border-blue-200 hover:bg-blue-50 transition-all duration-300 bg-transparent"
+            className="border-signal/25 hover:bg-signal-wash transition-all duration-300 bg-transparent"
           >
             <Search className="w-4 h-4 mr-2" />
             Search

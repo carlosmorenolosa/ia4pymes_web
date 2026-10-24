@@ -112,7 +112,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
     const faqs = extractFaqsFromMarkdown(post.content)
 
     return (
-        <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30">
+        <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-signal/30">
             {/* Article / BlogPosting JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -252,7 +252,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
 
             {/* Translation banner — links back to ES version */}
             {post.translationSlug && (
-                <div className="bg-blue-600/10 border-b border-blue-500/20">
+                <div className="bg-signal/10 border-b border-signal/20">
                     <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-3 flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-sm text-blue-300 font-medium">
                             <Globe className="w-4 h-4 shrink-0" />
@@ -260,7 +260,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                         </div>
                         <Link
                             href={`/blog/${post.translationSlug}`}
-                            className="shrink-0 text-xs font-black uppercase tracking-widest text-blue-400 hover:text-white border border-blue-500/40 hover:border-blue-400 px-4 py-1.5 rounded-full transition-all"
+                            className="shrink-0 text-xs font-black uppercase tracking-widest text-blue-400 hover:text-white border border-signal/40 hover:border-blue-400 px-4 py-1.5 rounded-full transition-all"
                         >
                             Leer en ES →
                         </Link>
@@ -288,7 +288,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                     <nav className="mb-12">
                         <Link
                             href="/en/blog"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/5 border border-white/10 text-slate-400 hover:text-white hover:bg-card/10 transition-all cursor-pointer group text-sm font-bold uppercase tracking-widest"
                         >
                             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Back to blog
@@ -297,7 +297,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
 
                     {/* Meta badges */}
                     <div className="flex flex-wrap items-center gap-4 mb-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-signal text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
                             <Terminal className="w-3.5 h-3.5" />
                             {post.category}
                         </div>
@@ -305,7 +305,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                             <Clock className="w-4 h-4 text-blue-400" />
                             {post.readingTime} ETA
                         </div>
-                        <div className="flex items-center gap-2 px-3 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-300 text-[10px] font-black uppercase tracking-widest rounded-full">
+                        <div className="flex items-center gap-2 px-3 py-1 bg-signal/20 border border-signal/30 text-blue-300 text-[10px] font-black uppercase tracking-widest rounded-full">
                             🇬🇧 EN
                         </div>
                     </div>
@@ -316,7 +316,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
+                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-card/5 border border-white/10 backdrop-blur-xl shadow-2xl">
                         <div className="flex items-center gap-4">
                             <BlogAuthorAvatar />
                             <div>
@@ -324,9 +324,9 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Research Team</p>
                             </div>
                         </div>
-                        <div className="hidden sm:block h-10 w-px bg-slate-100" />
+                        <div className="hidden sm:block h-10 w-px bg-sunken" />
                         <div className="flex items-center gap-3 text-slate-400 text-sm font-bold uppercase tracking-widest">
-                            <Calendar className="w-5 h-5 text-blue-500" />
+                            <Calendar className="w-5 h-5 text-signal" />
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString("en-US", {
                                     day: "2-digit",
@@ -339,7 +339,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                 </div>
 
                 {/* Accent Glow */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-signal/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </header>
 
             {/* Reading Area */}
@@ -354,14 +354,14 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                             remarkPlugins={[remarkGfm]}
                             components={{
                                 table: ({ children }) => (
-                                    <div className="my-12 overflow-x-auto rounded-3xl border border-white/5 bg-white/[0.02] p-1">
+                                    <div className="my-12 overflow-x-auto rounded-3xl border border-white/5 bg-card/[0.02] p-1">
                                         <table className="w-full text-left border-collapse text-base">
                                             {children}
                                         </table>
                                     </div>
                                 ),
                                 thead: ({ children }) => (
-                                    <thead className="bg-white/[0.03] border-b border-white/5">
+                                    <thead className="bg-card/[0.03] border-b border-white/5">
                                         {children}
                                     </thead>
                                 ),
@@ -376,12 +376,12 @@ export default async function EnBlogPostPage({ params }: PageProps) {
                                     </td>
                                 ),
                                 tr: ({ children }) => (
-                                    <tr className="hover:bg-white/[0.01] transition-colors">
+                                    <tr className="hover:bg-card/[0.01] transition-colors">
                                         {children}
                                     </tr>
                                 ),
                                 blockquote: ({ children }) => (
-                                    <blockquote className="border-l-4 border-blue-600 bg-blue-900/10 rounded-r-3xl p-8 my-12 not-italic text-slate-200 font-medium">
+                                    <blockquote className="border-l-4 border-signal bg-blue-900/10 rounded-r-3xl p-8 my-12 not-italic text-slate-200 font-medium">
                                         {children}
                                     </blockquote>
                                 ),
@@ -422,13 +422,13 @@ export default async function EnBlogPostPage({ params }: PageProps) {
             {/* CTA Section */}
             <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-signal text-white rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
                         <Terminal className="w-4 h-4" />
                         initiating_deployment...
                     </div>
 
                     <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
-                        From theory to <span className="text-blue-500">execution</span>
+                        From theory to <span className="text-signal">execution</span>
                     </h2>
 
                     <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-justify text-pretty">
@@ -437,7 +437,7 @@ export default async function EnBlogPostPage({ params }: PageProps) {
 
                     <Link
                         href="/en#consultoria"
-                        className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
+                        className="inline-flex items-center gap-4 bg-signal text-white px-10 py-5 rounded-full font-black hover:bg-signal-deep hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
                     >
                         Book Consultation
                         <ArrowRight className="w-6 h-6" />
@@ -450,15 +450,15 @@ export default async function EnBlogPostPage({ params }: PageProps) {
             {/* Footer */}
             <footer className="py-12 bg-slate-950 border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-10">
-                    <div className="flex items-center gap-3 text-slate-500 font-mono text-xs font-black uppercase tracking-widest">
+                    <div className="flex items-center gap-3 text-ink-faint font-mono text-xs font-black uppercase tracking-widest">
                         <Terminal className="w-5 h-5" />
                         <span>IA4PYMES_CORE_SYSTEM // {new Date().getFullYear()}</span>
                     </div>
                     <div className="flex items-center gap-10">
-                        <Link href="/en/blog" className="text-sm font-black text-slate-500 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/en/blog" className="text-sm font-black text-ink-faint hover:text-signal transition-colors cursor-pointer uppercase tracking-widest">
                             EN Blog
                         </Link>
-                        <Link href="/en" className="text-sm font-black text-slate-500 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
+                        <Link href="/en" className="text-sm font-black text-ink-faint hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
                             Back to Home
                         </Link>
                     </div>
