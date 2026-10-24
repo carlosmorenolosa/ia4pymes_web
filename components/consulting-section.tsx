@@ -182,11 +182,11 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
           </div>
 
           <div id="cal-booking-widget-container" className="lg:col-span-6 w-full relative">
-            <div className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-2xl relative">
+            <div className="w-full bg-slate-50 rounded-[2.5rem] border border-slate-200 overflow-hidden relative">
               <div className="h-12 bg-slate-100 border-b border-slate-200 flex items-center px-6 gap-2">
-                <span className="w-3 h-3 rounded-full bg-rose-400 block"></span>
-                <span className="w-3 h-3 rounded-full bg-amber-400 block"></span>
-                <span className="w-3 h-3 rounded-full bg-emerald-400 block"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 block"></span>
                 <span className="text-xs font-semibold text-slate-600 ml-4 select-none">{t.secureText}</span>
               </div>
               
