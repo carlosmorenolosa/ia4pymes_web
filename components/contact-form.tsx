@@ -143,8 +143,8 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{t.successTitle}</h3>
-                    <p className="text-slate-600 text-lg mb-8">
+                    <h3 className="text-xl sm:text-3xl font-bold text-slate-900 mb-4">{t.successTitle}</h3>
+                    <p className="text-slate-600 text-xl mb-8">
                         {t.successText}
                     </p>
                     <div className="flex flex-col gap-4 max-w-sm mx-auto">
@@ -159,7 +159,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                         </Link>
                         <button
                             onClick={() => setSubmitStatus("idle")}
-                            className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-semibold mt-4"
+                            className="text-slate-600 hover:text-slate-900 transition-colors text-base font-semibold mt-4"
                             aria-label={t.anotherReq}
                         >
                             {t.anotherReq}
@@ -179,7 +179,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Name */}
                         <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-semibold text-slate-700">{t.name}</label>
+                            <label htmlFor="name" className="text-base font-semibold text-slate-700">{t.name}</label>
                             <input
                                 id="name"
                                 type="text"
@@ -197,7 +197,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                         {/* Company */}
                         <div className="space-y-2">
-                            <label htmlFor="company" className="text-sm font-semibold text-slate-700">{t.company}</label>
+                            <label htmlFor="company" className="text-base font-semibold text-slate-700">{t.company}</label>
                             <input
                                 id="company"
                                 type="text"
@@ -217,7 +217,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Email */}
                         <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-semibold text-slate-700">{t.email}</label>
+                            <label htmlFor="email" className="text-base font-semibold text-slate-700">{t.email}</label>
                             <input
                                 id="email"
                                 type="email"
@@ -235,7 +235,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                         {/* Phone */}
                         <div className="space-y-2">
-                            <label htmlFor="phone" className="text-sm font-semibold text-slate-700">{t.phone}</label>
+                            <label htmlFor="phone" className="text-base font-semibold text-slate-700">{t.phone}</label>
                             <input
                                 id="phone"
                                 type="tel"
@@ -254,7 +254,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Presupuesto */}
                     <div className="space-y-2">
-                        <label htmlFor="budget" className="text-sm font-semibold text-slate-700">{t.budget}</label>
+                        <label htmlFor="budget" className="text-base font-semibold text-slate-700">{t.budget}</label>
                         <div className="relative">
                             <select
                                 id="budget"
@@ -281,7 +281,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Mensaje */}
                     <div className="space-y-2">
-                        <label htmlFor="message" className="text-sm font-semibold text-slate-700">{t.message}</label>
+                        <label htmlFor="message" className="text-base font-semibold text-slate-700">{t.message}</label>
                         <textarea
                             id="message"
                             placeholder={t.messagePlaceholder}
@@ -299,7 +299,7 @@ export function ContactForm({ lang = "es" }: { lang?: "es" | "en" }) {
 
                     {/* Error general */}
                     {submitStatus === "error" && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex flex-col gap-2 transition-all">
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-base flex flex-col gap-2 transition-all">
                             <div className="flex items-start gap-3">
                                 <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                                 <div>

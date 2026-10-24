@@ -47,8 +47,8 @@ export function CalIframeEmbed({ url, title, lang = "es" }: { url: string; title
           <div className="w-16 h-16 rounded-full bg-blue-600/10 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
             <Calendar className="w-8 h-8" />
           </div>
-          <span className="text-slate-900 font-bold text-lg mb-1">{clickText}</span>
-          <span className="text-slate-500 text-sm font-medium max-w-xs">{clickSubtext}</span>
+          <span className="text-slate-900 font-bold text-xl mb-1">{clickText}</span>
+          <span className="text-slate-500 text-base font-medium max-w-xs">{clickSubtext}</span>
         </div>
       ) : (
         <iframe
