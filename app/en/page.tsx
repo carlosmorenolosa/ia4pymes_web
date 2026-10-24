@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import {
   BarChart2,
+  Bot,
   Code,
   Settings,
   CheckCircle,
@@ -27,8 +28,7 @@ import { ParticlesBackground } from "@/components/particles-background"
 const SuccessCasesCarousel = dynamic(
   () => import("@/components/success-cases-carousel").then((mod) => mod.SuccessCasesCarousel),
   {
-    loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl" />,
-    ssr: false,
+    loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl" />
   }
 )
 
@@ -45,25 +45,20 @@ const ThreeAnimatedChip = dynamic(
 )
 
 const ContactForm = dynamic(() => import("@/components/contact-form").then((mod) => mod.ContactForm), {
-  ssr: false,
-})
+  })
 
 const LatestArticles = dynamic(() => import("@/components/latest-articles").then((mod) => mod.LatestArticles), {
-  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl" />,
-  ssr: false,
+  loading: () => <div className="h-[400px] bg-slate-50/50 rounded-3xl" />
 })
 
 const CostCalculator = dynamic(() => import("@/components/cost-calculator").then((mod) => mod.CostCalculator), {
-  ssr: false,
-})
+  })
 
 const FaqSection = dynamic(() => import("@/components/faq-section").then((mod) => mod.FaqSection), {
-  ssr: false,
-})
+  })
 
 const ReviewsSection = dynamic(() => import("@/components/reviews-section").then((mod) => mod.ReviewsSection), {
-  ssr: false,
-})
+  })
 
 import { ConsultingSection } from "@/components/consulting-section"
 import { FadeIn } from "@/components/fade-in"
@@ -314,35 +309,35 @@ export default function HomeEN() {
 
             {/* Centered Navigation Pill */}
             <nav
-              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
+              className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-lg p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
               aria-label="Main navigation"
             >
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
                 <Link
                   href="#process"
-                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   Process
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="#cases"
-                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   Cases
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="#calculator"
-                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   Calculator
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </Link>
                 <Link
                   href="/en/blog"
-                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   Blog EN
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
@@ -359,7 +354,7 @@ export default function HomeEN() {
                   <Link
                     href="/en#consultoria"
                     onClick={scrollToConsulting}
-                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2 cursor-pointer"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2 cursor-pointer"
                   >
                     Book Consultation
                   </Link>
@@ -385,7 +380,7 @@ export default function HomeEN() {
           <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
+              className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-lg hover:bg-slate-200 transition-colors active:scale-95"
               aria-label="Close menu"
             >
               <X className="w-7 h-7" />
@@ -410,7 +405,7 @@ export default function HomeEN() {
                 setMobileMenuOpen(false)
                 scrollToConsulting(e)
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-full text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 cursor-pointer"
             >
               Book Consultation
             </Link>
@@ -448,14 +443,14 @@ export default function HomeEN() {
                     <Link
                       href="/en#consultoria"
                       onClick={scrollToConsulting}
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95 cursor-pointer"
                     >
                       Design AI Roadmap
                     </Link>
 
                     <Link
                       href="/en#cases"
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-slate-700 border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-8 py-4 group active:scale-95"
                     >
                       <span className="flex items-center justify-center relative overflow-hidden">
                         Explore real cases
@@ -484,6 +479,65 @@ export default function HomeEN() {
         </section>
 
         {/* Cost Calculator Section */}
+        {/* What We Do Section, indexable entity definition (SEO + GEO) */}
+        <section id="what-we-do" className="py-16 sm:py-24 bg-white relative" aria-labelledby="what-we-do-heading">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <FadeIn>
+              <header className="text-center mb-12 sm:mb-16">
+                <h2 id="what-we-do-heading" className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-6 leading-[1.1]">
+                  What we do: <span className="text-blue-600">AI software development</span> for your SME
+                </h2>
+                <p className="max-w-3xl mx-auto text-base sm:text-xl lg:text-xl text-slate-600 px-4">
+                  Three lines of work, one in-house team that writes and maintains the code: we ship to production, not slide decks.
+                </p>
+              </header>
+              <div className="grid md:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
+                {[
+                  {
+                    icon: Code,
+                    title: "Custom software development",
+                    description:
+                      "Web applications, internal tools and management systems connected to your ERP or CRM (Holded, Sage, Odoo). Your own codebase, evolving with your business, with no dependency on closed platforms.",
+                    benefit: "Your own code, no lock-in",
+                  },
+                  {
+                    icon: Settings,
+                    title: "Operational process automation",
+                    description:
+                      "Invoices, delivery notes, quotes and email processed automatically with one-click human validation. Every automation starts with the hours saved quantified in euros.",
+                    benefit: "Savings quantified in euros",
+                  },
+                  {
+                    icon: Bot,
+                    title: "Private AI agents (GDPR)",
+                    description:
+                      "Chatbots and voice agents connected to your knowledge base, deployed on European cloud or on your own servers, always with isolated and encrypted data: your data never trains public models.",
+                    benefit: "European cloud or on-premise",
+                  },
+                ].map((service) => {
+                  const IconComponent = service.icon
+                  return (
+                    <div
+                      key={service.title}
+                      className="relative group bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 text-center sm:text-left transition-all duration-500"
+                    >
+                      <h3 className="text-xl sm:text-xl font-bold text-slate-900 mb-4 tracking-tight flex items-center justify-center sm:justify-start gap-2.5">
+                        <IconComponent className="w-5 h-5 text-blue-600 shrink-0" aria-hidden="true" />
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed mb-6 max-w-[70ch]">{service.description}</p>
+                      <div className="inline-flex items-center gap-2 mt-auto">
+                        <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
+                        <span className="text-base font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
         <section id="calculator" className="py-16 sm:py-24 bg-white relative">
           <FadeIn>
             <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -645,7 +699,7 @@ export default function HomeEN() {
                           <p className="text-xl sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-6">
                             {process.description}
                           </p>
-                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
+                          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300">
                             <CheckCircle className="w-4 h-4 text-blue-600" />
                             <span className="text-base font-semibold text-slate-700 group-hover:text-blue-700">
                               {process.benefit}
@@ -668,7 +722,7 @@ export default function HomeEN() {
                 <Link
                   href="/en#consultoria"
                   onClick={scrollToConsulting}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 cursor-pointer"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -816,7 +870,7 @@ export default function HomeEN() {
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
                   AI software development company for SMEs: we design, build and integrate the software that cuts your operational costs. Real results and measurable ROI.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-500 tracking-wide">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-lg text-xs font-semibold text-slate-500 tracking-wide">
                   <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
                   Built with ❤️ in Spain
                 </div>
