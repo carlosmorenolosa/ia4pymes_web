@@ -14,43 +14,43 @@ colors:
   accent-signal: "#ef4444"
 typography:
   display-xl:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)"
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   display-lg:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "clamp(1.9rem, 4vw, 3rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.03em"
   heading:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.02em"
   stat:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "clamp(2.5rem, 5vw, 3.5rem)"
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "-0.04em"
   body:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "normal"
   body-lg:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.4
@@ -129,18 +129,22 @@ One blue, one signal red, and a slate neutral ramp. Nothing else.
 
 ## Typography
 
-Two families with clearly separate jobs.
+**Frozen at Inter, pending art direction.** The site currently uses Inter for
+everything with `Geist Mono` for code in blog articles. That is a deliberate,
+temporary state: the typography is the one thing an art-direction pass must decide,
+and it is being decided separately. Do not change the family inside this branch or
+in ordinary feature work — treat this section as a placeholder to be replaced
+wholesale when the art-direction phase lands.
 
-- **Bricolage Grotesque** carries display and headings only (h1, h2, h3, stat
-  numerals). Its slightly quirky construction is the personality of the site.
-- **Instrument Sans** carries everything that is read or operated: body copy,
-  navigation, buttons, forms, labels, captions.
-- No third family on web surfaces. `Geist Mono` exists only for code inside blog
-  articles.
+What stays true regardless of the eventual family:
+
+- Display and body may share one family, but hierarchy must never rely on the
+  typeface alone: size, weight and spacing carry it.
+- Body copy sits between 65 and 75 characters per line, never below 16px, and
+  interface labels never below 11px.
 - Headings use `text-wrap: balance`; paragraphs use `text-wrap: pretty`. A heading
   whose last line is a single word must be rewrapped, not left.
-- Body copy sits between 65 and 75 characters per line. Never below 16px for body
-  and never below 14px for interface labels.
+- `Geist Mono` is the only monospace, and only for code.
 
 ## Layout
 
@@ -182,8 +186,8 @@ Two families with clearly separate jobs.
   flow without a container — never stacked above the heading as a standalone tile.
 - **Input**: `rounded.md`, `border`, white; placeholder text uses `muted` at 4.5:1
   minimum against white, never a lighter grey.
-- **Statistic**: Bricolage numeral in `ink` or `primary`, an Instrument Sans label
-  in `body`, no decorative dot, no coloured variant per stat.
+- **Statistic**: numeral in `ink` or `primary`, label in `body`, no decorative
+  dot, no coloured variant per stat.
 
 ## Do's and Don'ts
 
@@ -195,7 +199,7 @@ Two families with clearly separate jobs.
 - Verify text contrast at 4.5:1 for body and 3:1 for large text.
 
 **Don't**
-- Don't use Inter, Roboto or Geist as the interface font.
+- Don't introduce a second typeface before art direction decides the family.
 - Don't put an icon tile above a heading.
 - Don't animate a status dot to imply liveness.
 - Don't use gradient text, glow, glassmorphism, or radial halos.
