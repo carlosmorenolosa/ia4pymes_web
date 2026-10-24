@@ -62,10 +62,10 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
     return (
         <div className="w-full relative">
             <div className="text-center md:text-left mb-12 sm:mb-16">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter mb-6 relative z-10">
                     {t.heading} <span className="text-blue-600">{t.headingHighlight}</span><br className="hidden lg:block"/>{" "}{t.headingSuffix}
                 </h2>
-                <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                <p className="text-xl md:text-xl text-slate-600 max-w-2xl leading-relaxed">
                     {t.subtitle}
                 </p>
             </div>
@@ -77,12 +77,12 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                     
                     {/* Input: Horas a la semana */}
                     <div className="space-y-5">
-                        <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="hours-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Clock className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Clock className="w-5 h-5" /></span>
                                 {t.labelHours}
                             </span>
-                            <span className="text-2xl font-black text-blue-600">{hoursPerWeek}h</span>
+                            <span className="text-xl font-black text-blue-600">{hoursPerWeek}h</span>
                         </label>
                         <div className="relative">
                             <input
@@ -93,19 +93,19 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={hoursPerWeek}
                                 onChange={(e) => setHoursPerWeek(Number(e.target.value))}
                                 aria-label={t.labelHours}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all"
                             />
                         </div>
                     </div>
 
                     {/* Input: Número de empleados */}
                     <div className="space-y-5">
-                        <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="employees-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-100 text-blue-600"><Users className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-blue-600"><Users className="w-5 h-5" /></span>
                                 {t.labelEmployees}
                             </span>
-                            <span className="text-2xl font-black text-blue-600">{employees}</span>
+                            <span className="text-xl font-black text-blue-600">{employees}</span>
                         </label>
                         <div className="relative">
                             <input
@@ -116,19 +116,19 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={employees}
                                 onChange={(e) => setEmployees(Number(e.target.value))}
                                 aria-label={t.labelEmployees}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all"
                             />
                         </div>
                     </div>
 
                     {/* Input: Salario por hora */}
                     <div className="space-y-5">
-                        <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-lg font-bold text-slate-800">
+                        <label htmlFor="wage-range" className="flex items-center justify-between text-base sm:text-xl font-bold text-slate-800">
                             <span className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-green-100 text-green-600"><Euro className="w-5 h-5" /></span>
+                                <span className="flex items-center justify-center w-10 h-10 text-green-600"><Euro className="w-5 h-5" /></span>
                                 {t.labelWage}
                             </span>
-                            <span className="text-2xl font-black text-green-600">{hourlyWage} €</span>
+                            <span className="text-xl font-black text-green-600">{hourlyWage} €</span>
                         </label>
                         <div className="relative">
                             <input
@@ -140,7 +140,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                 value={hourlyWage}
                                 onChange={(e) => setHourlyWage(Number(e.target.value))}
                                 aria-label={t.labelWage}
-                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all shadow-inner"
+                                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600 hover:accent-green-700 transition-all"
                             />
                         </div>
                     </div>
@@ -172,49 +172,47 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                             {Array.from({ length: 10 }).map((_, i) => (
                                 <div
                                     key={i}
-                                    className={`absolute inset-0 rounded-[40px] pointer-events-none ${
-                                        i === 0 ? "bg-slate-200" : "bg-white/80 border border-slate-200/30"
-                                    }`}
+                                    className={`absolute inset-0 rounded-[40px] pointer-events-none ${ i === 0 ? "bg-slate-200" : "bg-white/80 border border-slate-200/30" }`}
                                     style={{ transform: `translateZ(${-i * 2}px)` }}
                                 ></div>
                             ))}
 
                             {/* Main Display Face */}
                             <div 
-                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] shadow-sm flex flex-col overflow-hidden border border-white p-8 sm:p-10"
+                                className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-[40px] flex flex-col overflow-hidden p-8 sm:p-10"
                                 style={{ transform: "translateZ(1px)" }}
                             >
                                 {/* Decorative internal glow */}
-                                <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+                                <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100/50 rounded-lg blur-3xl pointer-events-none"></div>
                                 
                                 <div className="relative z-10 flex flex-col h-full justify-between">
                                     <div className="text-center mb-6">
-                                        <div className="text-sm font-black text-blue-600 mb-1 uppercase tracking-[0.2em]">
+                                        <div className="text-base font-black text-blue-600 mb-1">
                                             {t.cardTitle}
                                         </div>
-                                        <div className="w-12 h-1 bg-blue-100 mx-auto rounded-full"></div>
+                                        <div className="w-12 h-1 bg-blue-100 mx-auto rounded-lg"></div>
                                     </div>
 
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.weekly}</span>
-                                            <span className="text-2xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
+                                            <span className="text-slate-500 font-bold text-base">{t.weekly}</span>
+                                            <span className="text-xl font-black text-rose-500/80 tracking-tight">{results.week.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="flex justify-between items-center border-b border-slate-100 pb-4">
-                                            <span className="text-slate-500 font-bold text-sm uppercase tracking-wide">{t.monthly}</span>
+                                            <span className="text-slate-500 font-bold text-base">{t.monthly}</span>
                                             <span className="text-3xl font-black text-rose-500/90 tracking-tight">{results.month.toLocaleString(t.locale)} €</span>
                                         </div>
 
                                         <div className="pt-2 flex flex-col items-center">
-                                            <span className="text-slate-600 font-bold text-xs uppercase tracking-[0.15em] mb-3">{t.yearlyLabel}</span>
+                                            <span className="text-slate-600 font-bold text-xs mb-3">{t.yearlyLabel}</span>
                                             <div className="relative">
-                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter drop-shadow-sm">
+                                                <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter">
                                                     {results.year.toLocaleString(t.locale)} €
                                                 </span>
                                                 {/* Underline accent */}
                                                 <motion.div 
-                                                    className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-full blur-[1px]"
+                                                    className="absolute -bottom-2 left-0 right-0 h-2 bg-red-500/20 rounded-lg blur-[1px]"
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: "100%" }}
                                                     transition={{ duration: 1, delay: 0.8 }}
@@ -228,7 +226,7 @@ export function CostCalculator({ lang = "es" }: { lang?: "es" | "en" }) {
                                         <div className="w-full">
                                             <Link
                                                 href={t.ctaHref}
-                                                className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)]"
+                                                className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-6 rounded-2xl transition-all duration-300 group"
                                             >
                                                 {t.ctaButton}
                                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

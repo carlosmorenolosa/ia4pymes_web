@@ -93,10 +93,10 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
         <section id="faq" className="py-16 sm:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
                 <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
+                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-4">
                         {t.heading} <span className="text-blue-600">{t.headingHighlight}</span>
                     </h2>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         {t.subtitle}
                     </p>
                 </div>
@@ -107,29 +107,26 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                         return (
                             <div
                                 key={index}
-                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600 shadow-md" : "border-slate-200 hover:border-blue-200 hover:shadow-sm"
-                                    }`}
+                                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? "border-blue-600" : "border-slate-200 hover:border-blue-200" }`}
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
                                     className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset"
                                     aria-expanded={isOpen}
                                 >
-                                    <span className={`font-semibold text-lg sm:text-xl pr-8 ${isOpen ? "text-blue-600" : "text-slate-800"}`}>
+                                    <span className={`font-semibold text-xl sm:text-xl pr-8 ${isOpen ? "text-blue-600" : "text-slate-800"}`}>
                                         {faq.question}
                                     </span>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-blue-100 text-blue-600" : "bg-slate-100 text-slate-500"
-                                        }`}>
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-blue-100 text-blue-600" : "bg-slate-100 text-slate-500" }`}>
                                         {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>
 
                                 <div
-                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                                        }`}
+                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0" }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <p className="px-6 pb-6 text-slate-600 leading-relaxed text-base sm:text-lg">
+                                        <p className="px-6 pb-6 text-slate-600 leading-relaxed text-base sm:text-xl max-w-[70ch]">
                                             {faq.answer}
                                         </p>
                                     </div>
@@ -141,7 +138,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
                 {/* CTA */}
                 <div className="text-center">
-                    <p className="text-slate-600 mb-6 font-medium">{t.ctaQuestion}</p>
+                    <p className="text-slate-600 mb-6 font-medium max-w-[70ch]">{t.ctaQuestion}</p>
                     <Link
                         href={t.ctaHref}
                         onClick={(e) => {
@@ -152,7 +149,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
                                 window.history.pushState(null, "", t.ctaHref)
                             }
                         }}
-                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                        className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 cursor-pointer"
                     >
                         {t.ctaButton}
                         <ArrowRight className="ml-2 w-5 h-5" />

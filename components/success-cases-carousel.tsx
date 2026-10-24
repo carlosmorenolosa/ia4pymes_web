@@ -198,10 +198,10 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                     >
                       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 relative z-10 gap-4">
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2 break-words group-hover:text-slate-900 transition-colors duration-300">
+                          <h3 className="text-xl sm:text-3xl font-bold text-slate-800 mb-2 break-words group-hover:text-slate-900 transition-colors duration-300">
                             {case_.title}
                           </h3>
-                          <p className="text-lg sm:text-xl font-semibold text-slate-600 break-words group-hover:text-slate-700 transition-colors duration-300">
+                          <p className="text-xl sm:text-xl font-semibold text-slate-600 break-words group-hover:text-slate-700 transition-colors duration-300">
                             {case_.company}
                           </p>
                         </div>
@@ -211,7 +211,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                           <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
                         </div>
                       </div>
-                      <p className="text-gray-700 leading-relaxed flex-grow mb-6 sm:mb-8 text-base sm:text-lg relative z-10 group-hover:text-gray-800 transition-colors duration-300 whitespace-pre-line">
+                      <p className="text-gray-700 leading-relaxed flex-grow mb-6 sm:mb-8 text-base sm:text-xl relative z-10 group-hover:text-gray-800 transition-colors duration-300 whitespace-pre-line">
                         {case_.description}
                       </p>
                       <div className="mt-auto pt-6 sm:pt-8 border-t border-gray-200/80 relative z-10 group-hover:border-gray-300/80 transition-colors duration-300">
@@ -226,7 +226,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
                                   : "text-purple-600 group-hover:text-purple-700"
                               }`}
                           />
-                          <p className="text-base sm:text-lg font-semibold text-slate-700 break-words group-hover:text-slate-800 transition-colors duration-300">
+                          <p className="text-base sm:text-xl font-semibold text-slate-700 break-words group-hover:text-slate-800 transition-colors duration-300">
                             {case_.benefit}
                           </p>
                         </div>
@@ -283,7 +283,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
         </div>
       </div>
       {/* Case Counter */}
-      <div className="text-center mt-4 text-sm text-gray-600" style={{ zIndex: 1001 }}>
+      <div className="text-center mt-4 text-base text-gray-600" style={{ zIndex: 1001 }}>
         <span className="font-semibold text-blue-600">{currentSlide + 1}</span>{" "}
         {counterLabel}{" "}
         <span className="font-semibold">{successCases.length}</span> {counterSuffix}

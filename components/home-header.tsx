@@ -20,11 +20,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
 
 
       <header
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${
-          isScrolled
-            ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm"
-            : "py-6 md:py-10 bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 w-full ${ isScrolled ? "py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-sm" : "py-6 md:py-10 bg-transparent" }`}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between md:justify-center relative">
           {/* Logo */}
@@ -41,15 +37,15 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
               aria-label="Ir al inicio de IA4PYMES"
             >
               <div className="flex items-center relative tracking-[-0.04em]">
-                <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-600">IA</span>
-                <span className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900">4</span>
+                <span className="text-3xl sm:text-3xl md:text-6xl font-extrabold text-blue-600">IA</span>
+                <span className="text-3xl sm:text-3xl md:text-6xl font-black text-slate-900">4</span>
               </div>
             </Link>
           </div>
 
           {/* Centered Navigation Pill */}
           <nav
-            className="flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-full p-1.5 sm:p-2 shadow-lg shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
+            className="flex items-center bg-white/70 backdrop-blur-xl border-slate-200/60 rounded-lg p-1.5 sm:p-2 shadow-slate-200/50 hover:bg-white/90 transition-all duration-300 pointer-events-auto z-10"
             aria-label="Navegación principal"
           >
             {/* Desktop Navigation */}
@@ -64,23 +60,23 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
                 <Link
                   key={href}
                   href={href}
-                  className="group relative text-slate-700 text-sm md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full hover:bg-slate-100/50 whitespace-nowrap"
+                  className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   {label}
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
                 </Link>
               ))}
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="flex items-center gap-1 px-2">
-                <span className="text-sm font-bold text-blue-600 cursor-default">ES</span>
+                <span className="text-base font-bold text-blue-600 cursor-default">ES</span>
                 <span className="text-slate-300 text-xs">|</span>
-                <Link href="/en" className="text-sm font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+                <Link href="/en" className="text-base font-semibold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
                 <Link
                   href="/#consultoria"
-                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-full text-sm md:text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   Reservar Consultoría
                 </Link>
@@ -106,7 +102,7 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
         <div className="md:hidden fixed inset-0 bg-white z-[99999] animate-in fade-in slide-in-from-top-4 duration-300 pt-32 px-6 flex flex-col gap-6 items-center pointer-events-auto overflow-y-auto">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-full hover:bg-slate-200 transition-colors active:scale-95"
+            className="absolute top-8 right-8 p-3 text-slate-800 bg-slate-100/80 rounded-lg hover:bg-slate-200 transition-colors active:scale-95"
             aria-label="Cerrar menú"
           >
             <X className="w-7 h-7" />
@@ -131,15 +127,15 @@ export function HomeHeader({ splashFinished }: { splashFinished: boolean }) {
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <div className="flex items-center gap-4">
-            <span className="text-2xl font-bold text-blue-600">ES</span>
+            <span className="text-xl font-bold text-blue-600">ES</span>
             <span className="text-slate-300">|</span>
-            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
+            <Link href="/en" onClick={() => setMobileMenuOpen(false)} className="text-xl font-bold text-slate-600 hover:text-slate-700 transition-colors">EN</Link>
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
           <Link
             href="/#consultoria"
             onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center gap-2 rounded-full text-lg font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
+            className="inline-flex items-center justify-center gap-2 rounded-lg text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
           >
             Reservar Consultoría
           </Link>

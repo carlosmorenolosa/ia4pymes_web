@@ -13,54 +13,49 @@ colors:
   border: "#e2e8f0"
   accent-signal: "#ef4444"
 typography:
-  display-xl:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)"
-    fontWeight: 800
-    lineHeight: 1.05
-    letterSpacing: "-0.035em"
-  display-lg:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "clamp(1.9rem, 4vw, 3rem)"
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "-0.03em"
-  heading:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "-0.02em"
-  stat:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 5vw, 3.5rem)"
-    fontWeight: 800
-    lineHeight: 1
-    letterSpacing: "-0.04em"
-  body:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.65
-    letterSpacing: "normal"
-  body-lg:
-    fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "1.1875rem"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
+  # Five roles, in force across the home. A component inherits one of these; it does
+  # not pick a size of its own. Measured on the served page after applying them:
+  # 6 distinct values (12, 16, 20, 30, 48, 60), where 48 and 60 are the display role
+  # at two breakpoints rather than two roles. Before: 12 values, six of them under
+  # 1.15x apart, which reads as indecision rather than hierarchy.
   label:
     fontFamily: "Inter, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontSize: "0.75rem"
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: "0.01em"
+  body:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: "normal"
+  lead:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: "normal"
+  heading:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: "-0.03em"
+  display:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: "clamp(3rem, 5.5vw, 3.75rem)"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "-0.035em"
   mono:
     fontFamily: "Geist Mono, ui-monospace, monospace"
     fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.5
-    letterSpacing: "normal"
+  # Inter is kept deliberately, against the detector's overused-font finding.
+  # The reasoning: a B2B site read on a phone in poor light benefits from a face
+  # designed for small screen text, with tabular figures for the calculator, and
+  # distinctiveness here comes from the scale, the colour and the layout rather than
+  # from the letterforms. Recorded as an accepted exception, not an oversight.
 rounded:
   sm: "0.75rem"
   md: "1rem"
