@@ -2,8 +2,7 @@
 @import "tw-animate-css";
 
 :root {
-  --font-instrument: var(--font-instrument);
-  --font-bricolage: var(--font-bricolage);
+  --font-schibsted: var(--font-schibsted);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -75,8 +74,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-instrument);
-  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-schibsted);
+  --font-display: var(--font-schibsted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -289,7 +288,7 @@ body.calendly-hover .custom-cursor {
   line-height: 1.85 !important;
   color: #cbd5e1 !important;
   /* slate-300 */
-  font-family: var(--font-instrument);
+  font-family: var(--font-schibsted);
 }
 
 /* Paragraphs */
@@ -310,7 +309,7 @@ body.calendly-hover .custom-cursor {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #f8fafc !important;
   /* slate-50 */
-  font-family: var(--font-bricolage) !important;
+  font-family: var(--font-schibsted) !important;
   letter-spacing: -0.02em !important;
 }
 
@@ -321,7 +320,7 @@ body.calendly-hover .custom-cursor {
   margin-bottom: 1rem !important;
   color: #f8fafc !important;
   /* slate-50 */
-  font-family: var(--font-bricolage) !important;
+  font-family: var(--font-schibsted) !important;
 }
 
 /* Lists */

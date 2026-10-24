@@ -14,43 +14,43 @@ colors:
   accent-signal: "#ef4444"
 typography:
   display-xl:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)"
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   display-lg:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "clamp(1.9rem, 4vw, 3rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.03em"
   heading:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.02em"
   stat:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "clamp(2.5rem, 5vw, 3.5rem)"
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "-0.04em"
   body:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "normal"
   body-lg:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.4
@@ -129,14 +129,17 @@ One blue, one signal red, and a slate neutral ramp. Nothing else.
 
 ## Typography
 
-Two families with clearly separate jobs.
+One family, one voice: **Schibsted Grotesk**, for headings, body copy,
+navigation, buttons, forms, labels and numerals alike. Hierarchy comes from size,
+weight and spacing, never from switching typeface. It is a Scandinavian grotesque:
+precise, low-contrast and quiet, which is the right register for an engineering
+company and separates the site from the default Inter/Geist look.
 
-- **Bricolage Grotesque** carries display and headings only (h1, h2, h3, stat
-  numerals). Its slightly quirky construction is the personality of the site.
-- **Instrument Sans** carries everything that is read or operated: body copy,
-  navigation, buttons, forms, labels, captions.
-- No third family on web surfaces. `Geist Mono` exists only for code inside blog
-  articles.
+- Weights in use: 400 body, 500 UI labels, 600 emphasis, 700 headings, 800 display
+  and statistics. Do not introduce intermediate weights.
+- `Geist Mono` exists only for code inside blog articles.
+- Because a single family flattens tone, the weight and size steps must stay
+  clearly separated: a heading is never the same weight as the paragraph below it.
 - Headings use `text-wrap: balance`; paragraphs use `text-wrap: pretty`. A heading
   whose last line is a single word must be rewrapped, not left.
 - Body copy sits between 65 and 75 characters per line. Never below 16px for body
@@ -182,8 +185,8 @@ Two families with clearly separate jobs.
   flow without a container — never stacked above the heading as a standalone tile.
 - **Input**: `rounded.md`, `border`, white; placeholder text uses `muted` at 4.5:1
   minimum against white, never a lighter grey.
-- **Statistic**: Bricolage numeral in `ink` or `primary`, an Instrument Sans label
-  in `body`, no decorative dot, no coloured variant per stat.
+- **Statistic**: Schibsted numeral at 800 in `ink` or `primary`, label in `body`
+  at 500, no decorative dot, no coloured variant per stat.
 
 ## Do's and Don'ts
 
@@ -196,6 +199,7 @@ Two families with clearly separate jobs.
 
 **Don't**
 - Don't use Inter, Roboto or Geist as the interface font.
+- Don't pair Schibsted Grotesk with a second display family on a web surface.
 - Don't put an icon tile above a heading.
 - Don't animate a status dot to imply liveness.
 - Don't use gradient text, glow, glassmorphism, or radial halos.
