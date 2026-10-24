@@ -312,7 +312,7 @@ export default function RootLayout({
                   name: "¿Cuánto cuesta automatizar mi negocio con IA?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "El coste depende del proyecto específico. Ofrecemos una consulta gratuita de 30 minutos para analizar tus necesidades y darte un presupuesto personalizado sin compromiso. Antes de desarrollar nada, calculamos el ROI esperado: si los números no te benefician, no avanzamos.",
+                    text: "Empezamos con una sesión de consultoría de 60 minutos (299€ + IVA) donde analizamos tus necesidades y calculamos el ROI esperado antes de desarrollar. Si en los primeros 15 minutos vemos que la IA no encaja con tu negocio, te reembolsamos el importe íntegro. Si desarrollas el proyecto con nosotros, la consultoría se descuenta del presupuesto final.",
                   },
                 },
                 {
