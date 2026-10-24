@@ -27,7 +27,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
               >
-                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Software a medida</span> con{" "}
+                Software a medida con{" "}
                 <span className="text-blue-600">IA</span> para PYMES
               </h1>
 
