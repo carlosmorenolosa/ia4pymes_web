@@ -215,8 +215,8 @@ export default function RootLayout({
               offers: {
                 "@type": "Offer",
                 name: "Consultoría de Inteligencia Artificial para PYMEs",
-                description: "Sesión estratégica para auditar procesos y calcular el ROI esperado antes de desarrollar",
-                price: "0",
+                description: "Sesión estratégica de 60 minutos para auditar procesos y calcular el ROI esperado antes de desarrollar. Se descuenta íntegra del presupuesto si se contrata el desarrollo.",
+                price: "299",
                 priceCurrency: "EUR",
               },
             }),
