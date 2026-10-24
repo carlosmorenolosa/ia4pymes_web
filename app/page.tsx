@@ -379,7 +379,7 @@ export default function Home() {
                       </Link>
                     </div>
                     
-                    <p className="text-slate-500 text-base mt-6 text-center italic max-w-[70ch]">
+                    <p className="text-slate-500 text-base mt-6 text-center italic max-w-[70ch] mx-auto">
                       * Sin spam, solo contenido de alto valor<br className="hidden sm:block" /> técnico y estratégico.
                     </p>
                   </div>

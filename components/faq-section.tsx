@@ -138,7 +138,7 @@ export function FaqSection({ lang = "es" }: { lang?: "es" | "en" }) {
 
                 {/* CTA */}
                 <div className="text-center">
-                    <p className="text-slate-600 mb-6 font-medium max-w-[70ch]">{t.ctaQuestion}</p>
+                    <p className="text-slate-600 mb-6 font-medium max-w-[70ch] mx-auto">{t.ctaQuestion}</p>
                     <Link
                         href={t.ctaHref}
                         onClick={(e) => {
