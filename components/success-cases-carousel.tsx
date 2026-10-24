@@ -177,7 +177,7 @@ export const SuccessCasesCarousel = ({ lang = "es" }: { lang?: "es" | "en" }) =>
 
   return (
     <div className="relative max-w-5xl mx-auto py-12 sm:py-16 px-4 sm:px-8" style={{ zIndex: 100 }}>
-      <div className="relative" style={{ zIndex: 100 }}>
+      <div className="relative overflow-hidden" style={{ zIndex: 100 }}>
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
