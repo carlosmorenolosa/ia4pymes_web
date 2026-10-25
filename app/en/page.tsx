@@ -293,8 +293,8 @@ export default function HomeEN() {
                     className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900 text-balance"
                   >
                     <span className="block uppercase">
-                      <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Cut</span> costs and{" "}
-                      <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">multiply</span> margins
+                      <span className="underline decoration-red-500 decoration-[5px] underline-offset-[1px] text-[1.08em]">Cut</span> costs and{" "}
+                      <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiply</span> margins
                     </span>
                     <span className="block text-xl sm:text-2xl lg:text-3xl font-medium text-slate-600 mt-5 leading-snug tracking-normal max-w-2xl">
                       We build <span className="font-semibold text-slate-900">custom software for SMEs</span>, with AI where it genuinely helps.
