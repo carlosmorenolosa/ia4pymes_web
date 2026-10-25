@@ -122,8 +122,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-        <link rel="dns-prefetch" href="https://faves.grow.me" />
-        <link rel="preconnect" href="https://faves.grow.me" crossOrigin="anonymous" />
 
         {/* Google AdSense Script */}
         <script
@@ -132,13 +130,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Mediavine Grow Script (Raw script tag required for Mediavine crawler verification) */}
-        <script
-          data-grow-initializer=""
-          dangerouslySetInnerHTML={{
-            __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpmNzQ4ZTQzZC1iMmYyLTQ5NGQtYmQ0Yi04MmZmNjAwMzE3OTE=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
-          }}
-        />
 
         {/* Agentic Web & WebMCP Declarations */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM documentation" />

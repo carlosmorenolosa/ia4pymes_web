@@ -58,11 +58,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu https://ddwl4m2hdecbv.cloudfront.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.adtrafficquality.google https://*.doubleclick.net https://faves.grow.me https://*.grow.me https://*.google.com",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.google-analytics.com https://r2.leadsy.ai https://assets.calendly.com https://calendly.com https://cal.eu https://www.cal.eu https://ddwl4m2hdecbv.cloudfront.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.adtrafficquality.google https://*.doubleclick.net https://*.google.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://www.googletagmanager.com https://r2.leadsy.ai https://calendly.com https://cal.eu https://www.cal.eu https://api.resend.com https://*.instantly.ai https://*.adtrafficquality.google https://*.doubleclick.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://faves.grow.me https://*.grow.me",
+              "connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://www.googletagmanager.com https://r2.leadsy.ai https://calendly.com https://cal.eu https://www.cal.eu https://api.resend.com https://*.instantly.ai https://*.adtrafficquality.google https://*.doubleclick.net https://pagead2.googlesyndication.com https://*.googlesyndication.com",
               "frame-src https://www.youtube.com https://calendly.com https://assets.calendly.com https://cal.eu https://www.cal.eu https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net",
               "frame-ancestors 'none'",
               "base-uri 'self'",
