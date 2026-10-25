@@ -327,7 +327,7 @@ export default function HomeEN() {
                 </div>
 
                 <div
-                  className="mt-14 flex items-center justify-center lg:justify-start w-full perspective-[1000px]"
+                  className="mt-14 flex items-center justify-center w-full perspective-[1000px]"
                 >
                   <div className="w-full max-w-sm sm:max-w-md">
                     {typeof window !== "undefined" && (window as any).__IS_BOT ? (

@@ -61,7 +61,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </div>
             </div>
 
-            <div className="mt-14 flex items-center justify-center lg:justify-start w-full perspective-[1000px]">
+            <div className="mt-14 flex items-center justify-center w-full perspective-[1000px]">
               <div className="w-full max-w-sm sm:max-w-md min-h-[360px]">
                 {isBot ? (
                   <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] mx-auto flex items-center justify-center text-slate-400 font-semibold">
