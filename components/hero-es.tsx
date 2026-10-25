@@ -27,9 +27,13 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
               >
-                Software a medida para PYMES:{" "}
-                <span className="text-blue-600">reduce</span> costes y{" "}
-                <span className="text-blue-600">multiplica</span> tus márgenes con IA
+                <span className="block">
+                  Software a medida para PYMES<span className="text-blue-600">.</span>
+                </span>
+                <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-4 leading-[1.2] tracking-normal">
+                  <span className="text-blue-600">Reduce</span> costes y{" "}
+                  <span className="text-blue-600">multiplica</span> tus márgenes con IA
+                </span>
               </h1>
 
               <p 
