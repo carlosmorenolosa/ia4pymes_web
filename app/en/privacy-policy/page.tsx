@@ -204,11 +204,7 @@ export default function PrivacyPolicyEN() {
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
                   AI automation agency for SMEs focused on tangible business outcomes and guaranteed ROI. Turning inefficiency into profit.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-600 uppercase tracking-widest">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Built with ❤️ in Spain
                 </div>
-              </div>
 
               {/* Column 2: Solutions */}
               <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">

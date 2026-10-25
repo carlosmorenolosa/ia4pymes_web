@@ -732,10 +732,6 @@ export default function HomeEN() {
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
                   AI software development company for SMEs: we design, build and integrate the software that cuts your operational costs. Real results and measurable ROI.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-lg text-xs font-semibold text-slate-500 tracking-wide">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Built with ❤️ in Spain
-                </div>
                 <div className="pt-1">
                   <a
                     href="https://kribaia.com/proveedor/ia4pymes-tech"
