@@ -279,11 +279,11 @@ export default function HomeEN() {
           <div className="absolute inset-0 bg-transparent pointer-events-none z-0"></div>
           <div className="relative z-10 flex-col flex h-full">
             <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 md:pt-32 pb-12 max-w-7xl">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
-                <div className="flex flex-col justify-center text-center lg:text-left order-1 lg:order-1 relative z-10">
+              <div className="w-full flex flex-col items-center">
+                <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
                   <h1
                     id="hero-heading"
-                    className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
+                    className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900 text-balance"
                   >
                     <span className="block uppercase">
                       Custom software for SMEs<span className="text-blue-600">.</span>
@@ -295,7 +295,7 @@ export default function HomeEN() {
                   </h1>
 
                   <p
-                    className="text-xl md:text-xl lg:text-[1.35rem] mb-8 text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-[1.5] tracking-tight text-pretty"
+                    className="text-xl md:text-xl lg:text-[1.35rem] mb-10 text-slate-600 font-medium max-w-3xl mx-auto leading-[1.5] tracking-tight text-pretty"
                   >
                     <strong className="font-bold text-slate-900">IA4PYMES</strong> is a software development company specialized in artificial intelligence: we design and build custom software, private AI agents, and process automation for small and medium-sized businesses in Spain.{" "}
                     <strong className="font-bold text-slate-900 border-b-2 border-blue-600/30">
@@ -304,7 +304,7 @@ export default function HomeEN() {
                   </p>
 
                   <div
-                    className="flex flex-col sm:flex-row gap-4 self-center lg:self-start relative z-30"
+                    className="flex flex-col sm:flex-row gap-4 justify-center relative z-30"
                   >
                     <Link
                       href="/en#consultoria"
@@ -327,9 +327,9 @@ export default function HomeEN() {
                 </div>
 
                 <div
-                  className="flex items-center justify-center p-2 sm:p-4 order-2 lg:order-2 w-full lg:mb-12 perspective-[1000px]"
+                  className="mt-14 flex items-center justify-center w-full perspective-[1000px]"
                 >
-                  <div className="w-full max-w-lg sm:max-w-xl">
+                  <div className="w-full max-w-sm sm:max-w-md">
                     {typeof window !== "undefined" && (window as any).__IS_BOT ? (
                       <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-700 font-semibold">
                         IA4PYMES Chatbot
