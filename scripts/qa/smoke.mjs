@@ -245,9 +245,21 @@ async function checkDesktopWidgets(browser, base) {
   const cta = page.locator('a[href*="#consultoria"]').first()
   record((await cta.count()) > 0, "el CTA de la cabecera apunta a consultoría")
   if (await cta.count()) {
+    const llega = async () => {
+      const box = await page.locator("#consultoria").boundingBox()
+      return !!box && box.y < (await page.evaluate(() => window.innerHeight)) * 0.8 && box.y + box.height > 0
+    }
     await cta.click()
     await page.waitForTimeout(1200)
-    record(await page.locator("#consultoria").isVisible(), "al pulsarlo se ve la sección de consultoría")
+    record(await llega(), "al pulsarlo se ve la sección de consultoría")
+    // Second click from far away: the hash is already set, and that is exactly
+    // the case where a plain anchor stops working.
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(400)
+    await cta.scrollIntoViewIfNeeded()
+    await cta.click()
+    await page.waitForTimeout(1200)
+    record(await llega(), "y también la segunda vez que se pulsa")
   }
   await page.goto(base + "/", { waitUntil: "domcontentloaded" })
   await page.waitForTimeout(500)

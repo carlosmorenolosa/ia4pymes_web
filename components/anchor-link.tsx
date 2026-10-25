@@ -18,19 +18,25 @@ export function AnchorLink({
   className,
   children,
   ariaLabel,
+  onClick,
 }: {
   href: string
   className?: string
   children: ReactNode
   ariaLabel?: string
+  onClick?: () => void
 }) {
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const id = href.split("#")[1]
     const target = id ? document.getElementById(id) : null
-    if (!target) return
+    if (!target) {
+      onClick?.()
+      return
+    }
     event.preventDefault()
     target.scrollIntoView({ behavior: "smooth", block: "start" })
     window.history.pushState(null, "", href.startsWith("#") ? href : `${window.location.pathname}${href.slice(href.indexOf("#"))}`)
+    onClick?.()
   }
 
   return (

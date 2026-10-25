@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { AnchorLink } from "@/components/anchor-link"
 
 type Lang = "es" | "en"
 
@@ -93,14 +94,14 @@ export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: bo
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               {t.nav.map(({ href, label }) => (
-                <Link
+                <AnchorLink
                   key={href}
                   href={href}
                   className="group relative text-slate-700 text-base md:text-base font-semibold hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-lg hover:bg-slate-100/50 whitespace-nowrap"
                 >
                   {label}
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                </Link>
+                </AnchorLink>
               ))}
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="flex items-center gap-1 px-2">
@@ -110,12 +111,12 @@ export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: bo
               </div>
               <div className="w-px h-6 bg-slate-200 mx-2" />
               <div className="hover:scale-105 active:scale-95 transition-transform duration-300">
-                <Link
+                <AnchorLink
                   href={t.cta.href}
                   className="hidden lg:inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base md:text-base font-bold transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-[0_4px_12px_rgba(37,99,235,0.3)] px-6 py-2"
                 >
                   {t.cta.label}
-                </Link>
+                </AnchorLink>
               </div>
             </div>
 
@@ -145,14 +146,14 @@ export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: bo
           </button>
           <div className="w-full flex flex-col gap-4 items-center">
             {t.nav.map(({ href, mobile }) => (
-              <Link
+              <AnchorLink
                 key={href}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-3xl font-bold text-slate-900 tracking-tight py-2 hover:text-blue-600 transition-colors"
               >
                 {mobile}
-              </Link>
+              </AnchorLink>
             ))}
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
@@ -162,13 +163,13 @@ export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: bo
             <Link href={t.switchTo.href} onClick={() => setMobileMenuOpen(false)} className="text-xl font-bold text-slate-600 hover:text-slate-700 transition-colors">{t.switchTo.label}</Link>
           </div>
           <div className="w-full h-px bg-slate-100 my-4 max-w-xs" />
-          <Link
+          <AnchorLink
             href={t.cta.href}
             onClick={() => setMobileMenuOpen(false)}
             className="inline-flex items-center justify-center gap-2 rounded-lg text-xl font-bold transition-all text-white bg-blue-600 px-8 py-4 w-full max-w-xs shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95"
           >
             {t.cta.label}
-          </Link>
+          </AnchorLink>
         </div>
       )}
     </>
