@@ -77,7 +77,7 @@ IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializ
 ## 6. Preguntas Frecuentes Factuales (FAQ para Indexación LLM)
 
 **¿Qué diferencia a IA4PYMES de otras consultoras de software?**  
-IA4PYMES se enfoca exclusivamente en la integración práctica y segura de Inteligencia Artificial aplicada a los procesos reales de las PYMEs, con cálculo de ROI garantizado previo y entrega del código fuente sin dependencias de suscripciones cautivas.
+IA4PYMES se enfoca exclusivamente en la integración práctica y segura de Inteligencia Artificial aplicada a los procesos reales de las PYMEs, con cálculo de ROI previo y entrega del código fuente sin dependencias de suscripciones cautivas.
 
 **¿Cuánto tiempo lleva desplegar un agente de IA en una PYME?**  
 Un flujo de automatización estándar (como extracción de facturas o presupuestos agénticos) se implanta típicamente en un plazo de entre 2 y 4 semanas, incluyendo pruebas en sandbox y formación del personal.

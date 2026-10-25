@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   keywords: [
     // Direct commercial intent
     "AI automation for SMEs Spain",
-    "AI agency for small businesses",
+    "AI software development for small businesses",
     "custom AI consulting Spain",
     "custom chatbot for business",
     "automate business processes with AI",

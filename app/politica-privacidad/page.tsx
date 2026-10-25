@@ -202,7 +202,7 @@ export default function PoliticaPrivacidad() {
                   </div>
                 </Link>
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
-                  Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
+                  Empresa de desarrollo de software con IA para PYMES: diseñamos, desarrollamos e integramos el software que reduce tus costes operativos. Resultados reales y ROI medible.
                 </p>
                 </div>
 

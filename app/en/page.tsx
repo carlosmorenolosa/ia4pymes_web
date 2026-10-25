@@ -520,7 +520,7 @@ export default function HomeEN() {
                   title: "Agent Architecture & ERP/CRM Integration",
                   description:
                     "We design and build private AI agents connecting directly to your management systems (ERP, CRM, databases), ensuring positive ROI in record time.",
-                  benefit: "Guaranteed Custom Integration",
+                  benefit: "Integration with your systems",
                 },
                 {
                   icon: Settings,
