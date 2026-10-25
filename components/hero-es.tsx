@@ -35,8 +35,14 @@ export function HeroES({ splashFinished }: HeroESProps) {
                   <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiplica</span> márgenes
                 </span>
                 <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-5 leading-[1.25] tracking-normal max-w-2xl">
-                  <span className="block">Tu negocio no necesita más IA.</span>
-                  <span className="block">Necesita mejor software<span className="text-blue-600">.</span></span>
+                  <span className="block">
+                    Tu negocio{" "}
+                    <span className="underline decoration-red-500 decoration-2 underline-offset-[3px]">no necesita más IA</span>.
+                  </span>
+                  <span className="block">
+                    Necesita{" "}
+                    <span className="underline decoration-blue-600 decoration-2 underline-offset-[3px] text-blue-600">mejor software</span>.
+                  </span>
                 </span>
               </h1>
 

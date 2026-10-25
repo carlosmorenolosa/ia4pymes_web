@@ -297,8 +297,14 @@ export default function HomeEN() {
                       <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiply</span> margins
                     </span>
                     <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-5 leading-[1.25] tracking-normal max-w-2xl">
-                      <span className="block">Your business does not need more AI.</span>
-                      <span className="block">It needs better software<span className="text-blue-600">.</span></span>
+                      <span className="block">
+                        Your business{" "}
+                        <span className="underline decoration-red-500 decoration-2 underline-offset-[3px]">does not need more AI</span>.
+                      </span>
+                      <span className="block">
+                        It needs{" "}
+                        <span className="underline decoration-blue-600 decoration-2 underline-offset-[3px] text-blue-600">better software</span>.
+                      </span>
                     </span>
                   </h1>
 
