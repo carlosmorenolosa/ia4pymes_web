@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IA4PYMES | Software y Automatización con IA para PYMES",
   description:
-    "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. ROI calculado antes de desarrollar.",
+    "Empresa de desarrollo de software con IA para PYMES: reducimos costes y multiplicamos márgenes con software a medida.",
   keywords: [
     // Intención comercial y entidad corporativa
     "IA4PYMES",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IA4PYMES | Software y Automatización con IA para PYMES",
     description:
-      "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos. +1.000h ahorradas/mes.",
+      "Empresa de desarrollo de software con IA para PYMES: reducimos costes y multiplicamos márgenes con software a medida.",
     url: "https://ia4pymes.tech",
     siteName: "IA4PYMES",
     images: [
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IA4PYMES | Software y Automatización con IA para PYMES",
     description:
-      "Empresa de desarrollo de software con IA para pymes en España. Agentes de IA privados, automatización de procesos y software a medida que reducen costes operativos.",
+      "Empresa de desarrollo de software con IA para PYMES: reducimos costes y multiplicamos márgenes con software a medida.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },

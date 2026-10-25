@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "IA4PYMES | Custom AI Software Development for SMEs in Spain",
   description:
-    "Software development company specialized in AI for SMEs in Spain. We design, build and integrate custom software, private AI agents and process automation that cut operational costs. ROI calculated before we write code.",
+    "AI software development company for SMEs: we cut costs and multiply margins with custom software and AI.",
   keywords: [
     // Direct commercial intent
     "AI automation for SMEs Spain",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IA4PYMES - AI Automation for SMEs",
     description:
-      "Automate your SME with custom Artificial Intelligence. Chatbots, sales agents and process optimization. Save time and costs today.",
+      "AI software development company for SMEs: we cut costs and multiply margins with custom software and AI.",
     url: "https://ia4pymes.tech/en",
     siteName: "IA4PYMES",
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IA4PYMES - AI Automation for SMEs",
     description:
-      "Automate your SME with custom Artificial Intelligence. Chatbots, sales agents and process optimization.",
+      "AI software development company for SMEs: we cut costs and multiply margins with custom software and AI.",
     images: ["/og-image.png"],
     creator: "@ia4pymes",
   },

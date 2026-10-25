@@ -165,7 +165,11 @@ async function visitEachPage(browser, base) {
         .map((a) => a.getAttribute("href"))
         .filter(Boolean)
       const hashIds = anchors.filter((h) => h.startsWith("#")).map((h) => h.slice(1))
+      const metaDescription = document.querySelector('meta[name="description"]')
+      const title = document.title
       return {
+        desc: metaDescription ? metaDescription.getAttribute("content") || "" : "",
+        titleLength: title.length,
         h1: h1 ? h1.innerText.replace(/\s+/g, " ").trim() : "",
         sections: [...document.querySelectorAll("section[id]")].map((s) => s.id),
         body: (document.body.innerText || "").trim(),
@@ -183,6 +187,13 @@ async function visitEachPage(browser, base) {
       record(info.body.length > 400, `${path} entrega contenido en el HTML`, `${info.body.length} caracteres`)
     }
     record(info.missingHash.length === 0, `${path} no tiene anclas rotas`, info.missingHash.join(", "))
+    // Google truncates around 155-160 characters, so a longer one is wasted text.
+    record(
+      info.desc.length >= 70 && info.desc.length <= 160,
+      `${path} tiene una meta descripción que Google no corta`,
+      `${info.desc.length} caracteres`,
+    )
+    record(info.titleLength <= 65, `${path} tiene un título que no se corta`, `${info.titleLength} caracteres`)
     record(errors.length === 0, `${path} sin errores de consola`, errors[0] || "")
     collected.sections[path] = info.sections
     for (const href of info.internal) {

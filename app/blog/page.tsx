@@ -5,8 +5,8 @@ import { getAllPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowRight, BookOpen, Sparkles, Terminal } from "lucide-react"
 
 export const metadata: Metadata = {
-    title: "Blog de IA para PYMES | Casos de Uso, Herramientas y Análisis · IA4PYMES",
-    description: "Artículos semanales sobre cómo aplicar IA en tu empresa hoy mismo. Casos reales, comparativas de herramientas, automatizaciones paso a paso y análisis de los últimos modelos de IA.",
+    title: "Blog de IA para PYMES | IA4PYMES",
+    description: "Guías prácticas de IA para PYMES: casos reales, cálculos y pasos concretos para automatizar procesos.",
     keywords: [
         "blog inteligencia artificial empresas",
         "casos de uso IA para PYMES",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Blog de IA para PYMES | Casos Reales y Herramientas · IA4PYMES",
-        description: "Artículos semanales sobre cómo aplicar IA en tu empresa. Casos reales, herramientas y automatizaciones paso a paso.",
+        title: "Blog de IA para PYMES | IA4PYMES",
+        description: "Guías prácticas de IA para PYMES: casos reales, cálculos y pasos concretos para automatizar procesos.",
         url: "https://ia4pymes.tech/blog",
         type: "website",
         images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Blog IA4PYMES" }],
