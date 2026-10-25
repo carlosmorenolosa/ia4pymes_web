@@ -202,7 +202,7 @@ export default function PrivacyPolicyEN() {
                   </div>
                 </Link>
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
-                  AI automation agency for SMEs focused on tangible business outcomes and guaranteed ROI. Turning inefficiency into profit.
+                  AI software development company for SMEs: we design, build and integrate the software that cuts your operational costs. Real results and measurable ROI.
                 </p>
                 </div>
 

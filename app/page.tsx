@@ -434,7 +434,7 @@ export default function Home() {
                     title: "Arquitectura de Agentes e Integración ERP/CRM",
                     description:
                       "Diseñamos y desarrollamos agentes de IA privados conectando directamente con tus sistemas de gestión (ERP, CRM, bases de datos), garantizando un ROI positivo en tiempo récord.",
-                    benefit: "Integración a Medida Garantizada",
+                    benefit: "Integración con tus sistemas",
                   },
                   {
                     icon: Settings,
