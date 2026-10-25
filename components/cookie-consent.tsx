@@ -78,7 +78,7 @@ export function CookieConsent() {
                     style={{ cursor: "default" }}
                 >
                     <div className="container mx-auto max-w-4xl">
-                        <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 pr-14 sm:p-6 sm:pr-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                             {/* Icon */}
                             <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full flex-shrink-0">
                                 <Cookie className="w-6 h-6 text-blue-600" />
@@ -118,7 +118,7 @@ export function CookieConsent() {
                             {/* Close button for mobile */}
                             <button
                                 onClick={handleReject}
-                                className="absolute top-2 right-2 sm:hidden p-1 text-gray-400 hover:text-gray-600"
+                                className="absolute top-2 right-2 sm:hidden flex items-center justify-center size-10 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 active:scale-95 transition-colors"
                                 aria-label="Cerrar"
                             >
                                 <X className="w-5 h-5" />
