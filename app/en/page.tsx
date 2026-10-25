@@ -73,6 +73,13 @@ export default function HomeEN() {
     setIsBot(!!(window as any).__IS_BOT)
   }, [])
 
+  const goToSection = (id: string) => (e?: React.MouseEvent) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    if (e) e.preventDefault()
+    target.scrollIntoView({ behavior: "smooth", block: "start" })
+    window.history.pushState(null, "", `/en#${id}`)
+  }
   const scrollToConsulting = (e?: React.MouseEvent) => {
     const target = document.getElementById("consultoria") || document.getElementById("consulting")
     if (target) {
@@ -323,7 +330,7 @@ export default function HomeEN() {
                     <Link
                       href="/en#consultoria"
                       onClick={scrollToConsulting}
-                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 active:scale-95 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg font-bold transition-all duration-300 text-white bg-blue-600 border-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 sm:py-4 text-base group"
                     >
                       Design AI Roadmap
                     </Link>
@@ -602,7 +609,7 @@ export default function HomeEN() {
                 <Link
                   href="/en#consultoria"
                   onClick={scrollToConsulting}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border border-blue-600 bg-blue-600 shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:bg-blue-700 px-8 py-4 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg font-bold transition-all duration-300 text-white bg-blue-600 border-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 sm:py-4 text-base group"
                 >
                   <span>Book Consultation</span>
                   <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -664,7 +671,7 @@ export default function HomeEN() {
                 <Link
                   href="/en#consultoria"
                   onClick={scrollToConsulting}
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg text-base sm:text-xl hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg font-bold transition-all duration-300 text-white bg-blue-600 border-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 sm:py-4 text-base group"
                   aria-label="Book Consultation"
                 >
                   <span>Book Consultation</span>
@@ -790,10 +797,10 @@ export default function HomeEN() {
               >
                 <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
-                  <li><ScrollTopLink href="/en" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">About Us</ScrollTopLink></li>
+                  <li><Link href="/en#what-we-do" onClick={goToSection("what-we-do")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">About Us</Link></li>
                   <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium cursor-pointer">Book Consultation</Link></li>
-                  <li><Link href="/en#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Weekly Newsletter</Link></li>
+                  <li><Link href="/en#newsletter" onClick={goToSection("newsletter")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Weekly Newsletter</Link></li>
                 </ul>
               </div>
 

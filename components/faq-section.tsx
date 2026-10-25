@@ -29,7 +29,7 @@ const i18n = {
       },
       {
         question: "¿Mis empleados necesitan entender de Inteligencia Artificial?",
-        answer: "Cero. Al ser proyectos a medida, me encargo de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
+        answer: "Cero. Al ser proyectos a medida, nos encargamos de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
       },
       {
         question: "¿Qué pasa si la inversión no sale a cuenta?",

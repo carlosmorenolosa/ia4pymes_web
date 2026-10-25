@@ -18,6 +18,7 @@ import { HomeHeader } from "@/components/home-header"
 import { HeroES } from "@/components/hero-es"
 import { FadeIn } from "@/components/fade-in"
 import { Counter } from "@/components/counter"
+import { AnchorLink } from "@/components/anchor-link"
 import { ScrollTopLink } from "@/components/scroll-top-link"
 import {
   SuccessCasesCarousel,
@@ -41,6 +42,7 @@ const ReviewsSection = dynamic(() =>
 )
 
 export default function Home() {
+
   const homeFaqs = [
     {
       question: "¿Qué es IA4PYMES?",
@@ -56,7 +58,7 @@ export default function Home() {
     },
     {
       question: "¿Mis empleados necesitan entender de Inteligencia Artificial?",
-      answer: "Cero. Al ser proyectos a medida, me encargo de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
+      answer: "Cero. Al ser proyectos a medida, nos encargamos de explicarles todo el funcionamiento de viva voz, paso a paso y de forma muy clara para que lo manejen sin problema.",
     },
     {
       question: "¿Qué pasa si la inversión no sale a cuenta?",
@@ -500,16 +502,16 @@ export default function Home() {
               {/* Added CTA button here as requested */}
               <FadeIn delay={0.6}>
                 <div className="mt-12 sm:mt-16 text-center">
-                  <Link
+                  <AnchorLink
                     href="/#consultoria"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg font-bold transition-all duration-300 text-white bg-blue-600 border-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 sm:py-4 text-base group"
                   >
                     <span>Reservar Consultoría</span>
                     <ArrowRight
                       className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden="true"
                     />
-                  </Link>
+                  </AnchorLink>
                 </div>
               </FadeIn>
             </div>
@@ -565,9 +567,9 @@ export default function Home() {
 
               {/* CTA Button for Success Cases */}
               <div className="mt-12 sm:mt-16 text-center">
-                <Link
+                <AnchorLink
                   href="/#consultoria"
-                  className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 group"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg font-bold transition-all duration-300 text-white bg-blue-600 border-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 sm:py-4 text-base group"
                   aria-label="Reservar Consultoría"
                 >
                   <span>Reservar Consultoría</span>
@@ -575,7 +577,7 @@ export default function Home() {
                     className="w-4 sm:w-5 h-4 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
                     aria-hidden="true"
                   />
-                </Link>
+                </AnchorLink>
               </div>
             </div>
           </FadeIn>
@@ -709,16 +711,16 @@ export default function Home() {
                   <h4 className="text-base font-black text-slate-900st">Explorar</h4>
                 <ul className="space-y-4">
                   <li>
-                    <ScrollTopLink href="/" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Sobre nosotros</ScrollTopLink>
+                    <AnchorLink href="/#que-hacemos" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Sobre nosotros</AnchorLink>
                   </li>
                   <li>
-                    <Link href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Preguntas Frecuentes</Link>
+                    <AnchorLink href="#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Preguntas Frecuentes</AnchorLink>
                   </li>
                   <li>
-                    <Link href="/#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Reservar Consultoría</Link>
+                    <AnchorLink href="/#consultoria" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Reservar Consultoría</AnchorLink>
                   </li>
                   <li>
-                    <Link href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Newsletter Semanal</Link>
+                    <AnchorLink href="#newsletter" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Newsletter Semanal</AnchorLink>
                   </li>
                 </ul>
                 </div>
