@@ -867,7 +867,7 @@ To successfully secure technical integration grants—or to deploy automation pr
 
 ### Prerequisite 1: Quantified Operational Workflows
 Organizations cannot automate undocumented or unmeasured operations. To qualify for workflow integration funding, technical project briefs must provide concrete operational metrics:
-* How many hours per month does accounting spend reconciling vendor invoices and delivery notes to comply with [VeriFactu electronic invoicing rules](/en/blog/verifactu-electronic-invoicing-spain-ai-automation-2026)?
+* How many hours per month does accounting spend reconciling vendor invoices and delivery notes to comply with [VeriFactu electronic invoicing rules](/en/blog/verifactu-electronic-invoicing-ai-smes-accounting-automation-2026)?
 * What is the hourly cost of senior engineering talent consumed by mechanical drawing tasks, as examined in our guide on [AI in CAD design and mechanical engineering](/en/blog/ai-for-cad-mechanical-engineering-nx-inventor-generative-design)?
 * What are the scrap rates and unplanned downtime costs experienced by shop-floor teams, as seen in [small manufacturing plants](/en/blog/ai-for-small-manufacturing-plants-predictive-maintenance-scrap-reduction)?
 
@@ -7212,7 +7212,7 @@ While the raw scale of the model remains anchored at 1.5 trillion parameters, xA
 
 In the frontier AI landscape of late 2026, Grok 4.6 competes directly with top-tier models like Claude Opus 4.8 and Kimi K3, particularly in long-context reasoning and autonomous software engineering tasks.
 
-| Parameter / Metric | Grok 4.6 (xAI) | [Claude Opus 4.8](/en/blog/claude-opus-5-anthropic-lanzamiento-rendimiento-pymes) | [Kimi K3](/en/blog/kimi-k3-hugging-face-deployment-2-8t-hardware-requirements-smes) | [Qwen 3.8-27B (Local)](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026) |
+| Parameter / Metric | Grok 4.6 (xAI) | [Claude Opus 4.8](/en/blog/claude-opus-5-anthropic-launch-performance-smes) | [Kimi K3](/en/blog/kimi-k3-hugging-face-deployment-2-8t-hardware-requirements-smes) | [Qwen 3.8-27B (Local)](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Total Parameters** | 1.5T | Proprietary MoE | 2.8T MoE | 27B Dense |
 | **Deployment Model** | Cloud API / SaaS | Cloud API / SaaS | Cloud / Open Weights | **Sovereign Local Server** |
@@ -15225,7 +15225,7 @@ While closed-source models retain a slight global edge in overall average scores
 ---
 
 > ### 🔒 Adopt Frontier AI Without Vendor Lock-in
-> Closed-source software exposes your business to arbitrary price hikes and data privacy risks. At **IA4PYMES**, we help you integrate frontier-level open-source models into your workflows (such as dynamic media generation using [HyperFrames](/en/blog/heygen-hyperframes-video-programatico-html-css-javascript)).
+> Closed-source software exposes your business to arbitrary price hikes and data privacy risks. At **IA4PYMES**, we help you integrate frontier-level open-source models into your workflows (such as dynamic media generation using [HyperFrames](/en/blog/heygen-hyperframes-programmatic-video-html-css-javascript)).
 > 
 > [**Book your 60-minute technical consultation here**](/en#consultoria) (100% refundable if the project is not feasible, or fully credited against final development costs on hire).
 
@@ -15411,7 +15411,7 @@ While the underlying hardware is proprietary to NVIDIA, the software stack to pa
 
 ## Key Benefits for SMEs and Startups
 
-* **Bye-Bye SaaS Middlemen:** Hosting a Llama 3 70B locally with near-FP16 accuracy allows you to build private, high-fidelity media pipelines (like generating videos programmatically with [HyperFrames](/en/blog/heygen-hyperframes-video-programatico-html-css-javascript)) without paying high monthly API subscription fees or risking customer data privacy.
+* **Bye-Bye SaaS Middlemen:** Hosting a Llama 3 70B locally with near-FP16 accuracy allows you to build private, high-fidelity media pipelines (like generating videos programmatically with [HyperFrames](/en/blog/heygen-hyperframes-programmatic-video-html-css-javascript)) without paying high monthly API subscription fees or risking customer data privacy.
 * **Single-Node Model Density:** Instead of needing 4 to 8 GPUs to serve large models, NVFP4 compression allows you to fit enterprise-grade intelligence into compact, single-node workstation setups.
 * **Lower Energy Costs:** By moving fewer bits between VRAM and Tensor Cores, the GPUs consume less electricity per generated token, significantly lowering the daily operational costs of your physical servers.
 
