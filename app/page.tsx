@@ -660,10 +660,6 @@ export default function Home() {
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
                   Empresa de desarrollo de software con IA para PYMES: diseñamos, desarrollamos e integramos el software que reduce tus costes operativos. Resultados reales y ROI medible.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-xs font-semibold text-slate-600 tracking-wide">
-                  <span className="w-2 h-2 bg-blue-600 rounded-lg"></span>
-                  Built with ❤️ in Spain
-                </div>
                 <div className="pt-1">
                   <a
                     href="https://kribaia.com/proveedor/ia4pymes-tech"

@@ -204,11 +204,7 @@ export default function PoliticaPrivacidad() {
                 <p className="text-slate-500 text-base leading-relaxed max-w-xs">
                   Agencia de automatización con IA para PYMES enfocada en resultados reales y ROI garantizado. Transformamos el despilfarro en rentabilidad.
                 </p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-600 uppercase tracking-widest">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Built with ❤️ in Spain
                 </div>
-              </div>
 
               {/* Column 2: Soluciones */}
               <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
