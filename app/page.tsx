@@ -458,7 +458,7 @@ export default function Home() {
                       <meta itemProp="name" content={process.title} />
                       <meta itemProp="text" content={process.description} />
 
-                      <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+                      <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start text-center md:text-left">
                         {/* Step Indicator & Icon */}
                         <div className="flex flex-col items-center md:items-start shrink-0">
                           <span aria-hidden="true" className="text-6xl sm:text-6xl font-black text-blue-600 mb-2 leading-none group-hover:text-blue-700 transition-colors duration-500">

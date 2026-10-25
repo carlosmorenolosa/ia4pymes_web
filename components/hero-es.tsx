@@ -22,10 +22,10 @@ export function HeroES({ splashFinished }: HeroESProps) {
       <div className="absolute inset-0 bg-transparent pointer-events-none z-0"></div>
       
       <div className="relative z-10 flex-col flex h-full">
-        <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-40 md:pt-48 pb-16 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-6 min-h-[calc(100vh-120px)] flex items-center pt-24 sm:pt-32 md:pt-48 pb-16 max-w-7xl">
           <div className="w-full flex flex-col items-center">
             
-            <div className="w-full max-w-4xl flex flex-col items-start text-left relative z-10">
+            <div className="w-full max-w-4xl flex flex-col items-center text-center md:items-start md:text-left relative z-10">
               <h1
                 id="hero-heading"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900 text-balance"
@@ -47,7 +47,7 @@ export function HeroES({ splashFinished }: HeroESProps) {
               </p>
 
               <div 
-                className="flex flex-col sm:flex-row gap-4 justify-start relative z-30"
+                className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start relative z-30"
               >
                 <Link
                   href="/#consultoria"

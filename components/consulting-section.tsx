@@ -108,14 +108,14 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start text-center lg:text-left">
           
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
                 {t.heading}<span className="text-blue-600">{t.headingHighlight}</span>{t.headingSuffix}
               </h2>
-              <p className="text-xl sm:text-xl text-slate-600 leading-relaxed text-justify max-w-[70ch]">
+              <p className="text-xl sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] mx-auto lg:mx-0">
                 {t.subtitle}
               </p>
             </div>
@@ -127,7 +127,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
               </h3>
               
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-center lg:justify-start text-left">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
@@ -136,7 +136,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                     <span className="text-slate-600 text-base">{t.included1Desc}</span>
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-center lg:justify-start text-left">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
@@ -145,7 +145,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                     <span className="text-slate-600 text-base">{t.included2Desc}</span>
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-center lg:justify-start text-left">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 mt-0.5">
                     <Check className="w-4 h-4" />
                   </span>
@@ -158,7 +158,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
             </div>
 
             <div className="space-y-4">
-              <div className="flex gap-4 items-start bg-blue-50/50 border-blue-100/60 rounded-2xl p-5">
+              <div className="flex gap-4 items-start text-center lg:text-left bg-blue-50/50 border-blue-100/60 rounded-2xl p-5">
                 <ShieldCheck className="w-8 h-8 text-blue-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee1Title}</h4>
@@ -168,7 +168,7 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start bg-slate-50 border-slate-200/60 rounded-2xl p-5">
+              <div className="flex gap-4 items-start text-center lg:text-left bg-slate-50 border-slate-200/60 rounded-2xl p-5">
                 <HelpCircle className="w-8 h-8 text-slate-500 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-900 text-base">{t.guarantee2Title}</h4>
