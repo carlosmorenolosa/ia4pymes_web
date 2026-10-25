@@ -285,7 +285,7 @@ export default function HomeEN() {
                     id="hero-heading"
                     className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-6 text-slate-900 text-balance"
                   >
-                    <span className="block">
+                    <span className="block uppercase">
                       Custom software for SMEs<span className="text-blue-600">.</span>
                     </span>
                     <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-4 leading-[1.2] tracking-normal">
