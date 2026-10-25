@@ -288,7 +288,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
                     {/* Meta badges */}
                     <div className="flex flex-wrap items-center gap-4 mb-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-full">
                             <Terminal className="w-3.5 h-3.5" />
                             {post.category}
                         </div>
@@ -299,12 +299,12 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter drop-shadow-[0_0_30px_rgba(37,99,235,0.3)] mb-6">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter mb-6">
                         {post.title}
                     </h1>
 
                     {/* Author & Date Card */}
-                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
+                    <div className="inline-flex flex-wrap items-center gap-8 p-6 rounded-3xl bg-white/5 border border-white/10">
                         <div className="flex items-center gap-4">
                             <BlogAuthorAvatar />
                             <div>
@@ -325,14 +325,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                         </div>
                     </div>
                 </div>
-                
-                {/* Accent Glow */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </header>
 
             {/* Reading Area - Clean & High Readability */}
             <article className="py-20 sm:py-32 bg-[#020617] relative border-t border-white/5">
-                <div className="container mx-auto px-4 sm:px-6 max-w-[820px]">
+                <div className="container mx-auto px-4 sm:px-6 max-w-[75ch]">
                     {/* Contenedor principal con estilos de lectura refinados */}
                     <div className="blog-article-content prose prose-lg md:prose-xl max-w-none 
                         prose-headings:text-white prose-headings:font-black prose-headings:tracking-tighter
@@ -411,22 +408,18 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* CTA Section */}
             <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-black uppercase tracking-[0.3em] mb-10 mx-auto shadow-lg shadow-blue-600/20">
-                        <Terminal className="w-4 h-4" />
-                        initiating_deployment...
-                    </div>
 
                     <h2 className="text-4xl sm:text-6xl font-black mb-8 tracking-tighter leading-tight">
                         Pasa de la teoría a la <span className="text-blue-500">ejecución</span>
                     </h2>
 
-                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-justify text-pretty">
+                    <p className="text-xl text-slate-400 mb-14 leading-relaxed font-medium max-w-3xl mx-auto text-pretty">
                         El conocimiento sin implementación técnica es solo entretenimiento. Agenda tu <strong className="font-bold text-white">consultoría de 60 minutos</strong>: te devolvemos el <strong className="font-bold text-white">100% del importe</strong> si en los primeros 15 minutos vemos que la IA no es viable para tu caso, y si decides contratar el proyecto con nosotros, te <strong className="font-bold text-white">descontamos el coste total</strong> de la sesión del presupuesto final.
                     </p>
 
                     <Link
                         href="/#consultoria"
-                        className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
+                        className="inline-flex items-center gap-4 bg-blue-600 text-white px-10 py-5 rounded-full font-black hover:bg-blue-700 hover:scale-[1.05] active:scale-[0.98] transition-all duration-300 shadow-blue-600/30 cursor-pointer text-lg uppercase tracking-wide"
                     >
                         Reservar Consultoría
                         <ArrowRight className="w-6 h-6" />
