@@ -35,7 +35,8 @@ export function HeroES({ splashFinished }: HeroESProps) {
                   <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiplica</span> márgenes
                 </span>
                 <span className="block text-xl sm:text-2xl lg:text-3xl font-medium text-slate-600 mt-5 leading-snug tracking-normal max-w-2xl">
-                  Desarrollamos <span className="font-semibold text-slate-900">software a medida para PYMES</span>, con IA donde de verdad aporta.
+                  Desarrollamos <span className="font-semibold text-slate-900">software a medida para PYMES</span>, con IA{" "}
+                  <span className="font-semibold text-slate-900">donde aporta, no donde decora</span>.
                 </span>
               </h1>
 

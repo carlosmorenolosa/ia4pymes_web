@@ -297,7 +297,8 @@ export default function HomeEN() {
                       <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiply</span> margins
                     </span>
                     <span className="block text-xl sm:text-2xl lg:text-3xl font-medium text-slate-600 mt-5 leading-snug tracking-normal max-w-2xl">
-                      We build <span className="font-semibold text-slate-900">custom software for SMEs</span>, with AI where it genuinely helps.
+                      We build <span className="font-semibold text-slate-900">custom software for SMEs</span>, with AI{" "}
+                      <span className="font-semibold text-slate-900">where it earns its keep, not where it decorates</span>.
                     </span>
                   </h1>
 
