@@ -66,6 +66,13 @@ import { Counter } from "@/components/counter"
 
 export default function HomeEN() {
 
+  // decided after mount so server and client agree on the first paint
+  const [isBot, setIsBot] = useState(false)
+
+  useEffect(() => {
+    setIsBot(!!(window as any).__IS_BOT)
+  }, [])
+
   const scrollToConsulting = (e?: React.MouseEvent) => {
     const target = document.getElementById("consultoria") || document.getElementById("consulting")
     if (target) {
@@ -285,13 +292,8 @@ export default function HomeEN() {
                     id="hero-heading"
                     className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900 text-balance"
                   >
-                    <span className="block uppercase">
-                      Custom software for SMEs<span className="text-blue-600">.</span>
-                    </span>
-                    <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-4 leading-[1.2] tracking-normal">
-                      <span className="text-blue-600">Cut</span> costs and{" "}
-                      <span className="text-blue-600">multiply</span> your margins with AI
-                    </span>
+                    <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Cut</span> costs and{" "}
+                    <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">multiply</span> your margins with AI and custom software for SMEs
                   </h1>
 
                   <p
@@ -330,7 +332,7 @@ export default function HomeEN() {
                   className="mt-14 flex items-center justify-center w-full perspective-[1000px]"
                 >
                   <div className="w-full max-w-sm sm:max-w-md">
-                    {typeof window !== "undefined" && (window as any).__IS_BOT ? (
+                    {isBot ? (
                       <div className="w-full max-w-sm aspect-[380/540] bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-200/80 rounded-[40px] shadow-sm mx-auto flex items-center justify-center text-slate-700 font-semibold">
                         IA4PYMES Chatbot
                       </div>

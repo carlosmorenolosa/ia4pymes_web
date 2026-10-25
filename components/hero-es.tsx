@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { ThreeAnimatedChip } from "./hero-chip-client"
@@ -6,13 +9,13 @@ interface HeroESProps {
   splashFinished: boolean
 }
 
-function checkIsBot() {
-  if (typeof window === "undefined") return false
-  return !!(window as any).__IS_BOT
-}
-
 export function HeroES({ splashFinished }: HeroESProps) {
-  const isBot = checkIsBot()
+  // decided after mount: the server cannot know the user agent, and a mismatch here
+  // makes React throw a hydration error instead of just swapping the visual
+  const [isBot, setIsBot] = useState(false)
+  useEffect(() => {
+    setIsBot(!!(window as any).__IS_BOT)
+  }, [])
 
   return (
     <section id="inicio" className="relative overflow-hidden min-h-screen flex flex-col justify-start" aria-labelledby="hero-heading">
@@ -27,13 +30,8 @@ export function HeroES({ splashFinished }: HeroESProps) {
                 id="hero-heading"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900 text-balance"
               >
-                <span className="block uppercase">
-                  Software a medida para PYMES<span className="text-blue-600">.</span>
-                </span>
-                <span className="block text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-4 leading-[1.2] tracking-normal">
-                  <span className="text-blue-600">Reduce</span> costes y{" "}
-                  <span className="text-blue-600">multiplica</span> tus márgenes con IA
-                </span>
+                <span className="underline decoration-red-500 decoration-4 underline-offset-[2px]">Reduce</span> costes y{" "}
+                <span className="underline decoration-blue-600 decoration-4 underline-offset-[2px] text-blue-600">multiplica</span> tus márgenes con IA y software a medida para PYMES
               </h1>
 
               <p 

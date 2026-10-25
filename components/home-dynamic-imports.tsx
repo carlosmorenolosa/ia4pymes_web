@@ -15,17 +15,15 @@ export const AnimatedChip = dynamic(
 )
 
 export const ContactForm = dynamic(
-  () => import("@/components/contact-form").then((mod) => mod.ContactForm),
-  { ssr: false }
+  () => import("@/components/contact-form").then((mod) => mod.ContactForm)
 )
 
 export const CostCalculator = dynamic(
-  () => import("@/components/cost-calculator").then((mod) => mod.CostCalculator),
-  { ssr: false }
+  () => import("@/components/cost-calculator").then((mod) => mod.CostCalculator)
 )
 
 export const ConsultingSection = dynamic(
   () => import("@/components/consulting-section").then((mod) => mod.ConsultingSection),
-  { ssr: false, loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
+  { loading: () => <div className="h-[600px] bg-slate-50/50 rounded-3xl animate-pulse" /> }
 )
 

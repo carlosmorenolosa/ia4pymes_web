@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyEN() {
   return (
     <>
-      <HomeHeader splashFinished={true} />
+      <HomeHeader splashFinished={true} lang="en" />
 
       <main className="min-h-screen bg-white text-slate-800 pt-28 sm:pt-36">
         {/* Hero Section */}
@@ -211,13 +211,13 @@ export default function PrivacyPolicyEN() {
                 <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Solutions</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/en#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Our Process</Link>
+                    <Link href="/en#process" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Our Process</Link>
                   </li>
                   <li>
-                    <Link href="/en#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Case Studies</Link>
+                    <Link href="/en#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Case Studies</Link>
                   </li>
                   <li>
-                    <Link href="/en#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">ROI Calculator</Link>
+                    <Link href="/en#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">ROI Calculator</Link>
                   </li>
                   <li>
                     <Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">AI Insights Blog</Link>

@@ -34718,7 +34718,7 @@ En IA4PYMES no solo hablamos de estas tecnologías — **las usamos a diario par
 
 ¿Quieres saber cómo podemos aplicar esta revolución tecnológica a tu caso concreto?
 
-**[Solicita un análisis gratuito de tu negocio](#contacto)** — Te decimos exactamente qué procesos puedes automatizar y cuánto podrías ahorrar.
+**[Solicita un análisis gratuito de tu negocio](/#contacto)** — Te decimos exactamente qué procesos puedes automatizar y cuánto podrías ahorrar.
         `.trim(),
     },
     {
@@ -34955,7 +34955,7 @@ En IA4PYMES diseñamos e implementamos soluciones de IA que se integran con las 
 
 ¿Quieres saber qué procesos de tu empresa se pueden automatizar conectando la IA con tus sistemas?
 
-**[Solicita un diagnóstico gratuito de integración IA](#contacto)** — Analizamos tu ecosistema de herramientas y te proponemos un plan de automatización realista.
+**[Solicita un diagnóstico gratuito de integración IA](/#contacto)** — Analizamos tu ecosistema de herramientas y te proponemos un plan de automatización realista.
         `.trim(),
     },
     {
@@ -35163,7 +35163,7 @@ Aprender la herramienta es el primer paso. Aplicarla a tu negocio concreto es do
 
 En IA4PYMES te ayudamos a pasar de "sé usar Claude Code" a "mi empresa funciona mejor gracias a Claude Code".
 
-**[Cuéntanos tu caso](#contacto)** — Te ayudamos a diseñar la estrategia de IA que mejor encaje con tu negocio.
+**[Cuéntanos tu caso](/#contacto)** — Te ayudamos a diseñar la estrategia de IA que mejor encaje con tu negocio.
         `.trim(),
     },
     {
