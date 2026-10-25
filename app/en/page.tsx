@@ -296,9 +296,8 @@ export default function HomeEN() {
                       <span className="underline decoration-red-500 decoration-[5px] underline-offset-[1px] text-[1.08em]">Cut</span> costs and{" "}
                       <span className="underline decoration-blue-600 decoration-[5px] underline-offset-[1px] text-[1.08em] text-blue-600">multiply</span> margins
                     </span>
-                    <span className="block text-xl sm:text-2xl lg:text-3xl font-medium text-slate-600 mt-5 leading-snug tracking-normal max-w-2xl">
-                      We build <span className="font-semibold text-slate-900">custom software for SMEs</span>, with AI{" "}
-                      <span className="font-semibold text-slate-900">where it earns its keep, not where it decorates</span><span className="text-blue-600">.</span>
+                    <span className="block text-xl sm:text-2xl lg:text-3xl font-medium text-slate-700 mt-5 leading-snug tracking-normal max-w-2xl">
+                      Your business does not need more AI. It needs better software<span className="text-blue-600">.</span>
                     </span>
                   </h1>
 
