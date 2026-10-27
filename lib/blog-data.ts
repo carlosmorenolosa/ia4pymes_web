@@ -117,7 +117,7 @@ Si la IA nombra a tus competidores y a ti no, tienes un problema de visibilidad 
 
 El 47% de los consumidores ya pregunta a la IA y solo entre el 1% y el 11% de los negocios aparece en las respuestas. Esa distancia entre uso y oferta significa volumen de ventas que hoy se reparten tus competidores o que simplemente se pierde. Las acciones para aparecer son las de siempre hechas bien: datos coherentes, reseñas vivas, ficha al día y una web que conteste preguntas concretas. Lo nuevo es que ahora hay una lista corta, y hacer la prueba cuesta diez minutos.
 
-**[Reserva tu Auditoría de Visibilidad IA gratuita](https://calendly.com/ia4pymes/30min)** y te decimos si ChatGPT, Gemini y Perplexity recomiendan tu empresa o a tu competencia, qué señales te faltan y qué corregir primero.
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y te decimos si ChatGPT, Gemini y Perplexity recomiendan tu empresa o a tu competencia, qué señales te faltan y qué corregir primero.
 
 ---
 
@@ -245,7 +245,7 @@ If the AI names your competitors and not you, you have a visibility problem with
 
 47% of consumers already ask AI, and only 1% to 11% of businesses appear in the answers. That distance between usage and supply means sales volume that your competitors are taking, or that simply disappears. The actions to show up are the old ones done right: consistent data, live reviews, an updated profile, and a website that answers specific questions. What's new is that there is now a short list, and running the test takes ten minutes.
 
-**[Book your free AI Visibility Audit here](https://calendly.com/ia4pymes/30min)** and we will tell you whether ChatGPT, Gemini, and Perplexity recommend your company or your competitors, which signals you are missing, and what to fix first.
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will tell you whether ChatGPT, Gemini, and Perplexity recommend your company or your competitors, which signals you are missing, and what to fix first.
 
 ---
 
