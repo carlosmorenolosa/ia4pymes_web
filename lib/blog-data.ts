@@ -16,6 +16,262 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: El 47% de los consumidores pregunta a la IA qué negocio elegir (27 OCTUBRE 2026)
+    {
+        slug: "clientes-preguntan-ia-que-negocio-elegir-2026",
+        title: "El 47% de los Clientes ya Pregunta a la IA qué Negocio Elegir",
+        description: "El 47% de los consumidores ya pregunta a la IA qué negocio elegir y solo el 1-11% aparece en sus respuestas. Cómo lograr que ChatGPT recomiende tu empresa.",
+        date: "2026-10-27",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Marketing",
+        image: "/images/asistente_ia_selecciona_negocios_visibilidad_2026.png",
+        lang: "es",
+        translationSlug: "customers-ask-ai-which-business-to-choose-2026",
+        content: `
+Durante dos décadas, la pregunta clave para conseguir clientes fue una: ¿apareces en Google cuando alguien busca lo que vendes? En 2026 esa pregunta tiene una segunda mitad, y es la que está decidiendo ventas: ¿apareces cuando un cliente le pregunta a ChatGPT, Gemini o Perplexity qué negocio elegir?
+
+Los datos publicados este año lo dejan claro:
+
+* El **47% de los consumidores estadounidenses usó la IA para encontrar un negocio local en el último mes**, según el informe Consumer Search Behaviors 2026 de Yext, basado en 3.848 encuestas. El uso se repite en todos los sectores, con diferencias de apenas 15 puntos entre el primero y el último: desde restaurantes hasta talleres, ningún nicho se libra.
+* Entre los hogares de mayores ingresos, **la IA ya superó a Google como punto de partida** para buscar negocios locales: 53% frente a 49% en el tramo de 150.000 a 175.000 dólares anuales, y 61% frente a 57% en el siguiente (Yext, 2026).
+* Solo **entre el 1% y el 11% de los negocios aparecen en las recomendaciones de ChatGPT, Gemini o Perplexity**, según el índice de visibilidad local 2026 de SOCi. Aparecer en esas respuestas es hasta 30 veces más difícil que posicionar una web en Google.
+
+La lectura para tu PYME: una parte creciente de tus clientes pide recomendaciones a la IA, y la inmensa mayoría de las empresas todavía no aparecen en las respuestas. Esa brecha es una ventana: quien aparezca primero se llevará la venta sin competir por el clic.
+
+---
+
+## 1. La IA responde con una lista corta: no hay segunda página
+
+En Google, el cliente ve una lista de enlaces y compara pestañas. Con la IA, el proceso cambia de forma: el cliente describe lo que necesita en lenguaje normal ("¿qué gestoría de mi ciudad trabaja con autónomos?") y recibe una respuesta directa con una lista corta de nombres y los motivos.
+
+Tres consecuencias directas para tu negocio:
+
+* En Google, estar en la página 2 todavía te trae alguna visita. En la IA, estás dentro de la respuesta o fuera: no hay segunda página.
+* La lista es corta. Si la IA recomienda tres gestorías y la tuya no está, el cliente ni se entera de que existes.
+* Y cuando Google muestra su propio resumen de IA en los resultados, los clics a los enlaces tradicionales caen del 15% al 8% de las visitas (Pew Research Center, 2025). La respuesta, y no la lista de enlaces, es lo que el cliente usa para decidir.
+
+---
+
+## 2. Qué mira la IA cuando decide a quién recomendar
+
+Los asistentes de IA se apoyan en señales públicas sobre tu negocio. Estas son las principales, traducidas a tu día a día:
+
+| Señal que lee la IA | Dónde vive | Acción concreta |
+| :--- | :--- | :--- |
+| Tu ficha de Google Business Profile | Google Maps y búsqueda | Categorías correctas, horarios al día, servicios con nombre concreto, fotos recientes |
+| Tus reseñas | Google, y directorios de tu sector | Reseñas recientes que mencionen el servicio concreto ("me arregló la caldera"), y respuestas del negocio |
+| Menciones externas | Directorios locales, prensa, asociaciones, foros | Estar listado donde hable tu sector y tu ciudad |
+| Coherencia de datos | Todas las plataformas | Mismo nombre, dirección, teléfono y horario en todas partes |
+| Tu web | Tu dominio | Una página por servicio y por zona, con precios orientativos y preguntas frecuentes |
+
+Y aquí llega el dato que cambia la estrategia: la IA valora más lo que otros dicen de ti que lo que dices tú en tu propia web. Una web perfecta con datos incoherentes en directorios y pocas reseñas recientes tiene las de perder frente a un competidor con señales consistentes en todas partes.
+
+---
+
+## 3. El 93% verifica la recomendación (y ahí se gana o se pierde)
+
+La segunda parte del informe de Yext es la que más importa para una PYME: los consumidores confían en la IA, pero comprueban. Más del 93% da al menos un paso de verificación antes de decidir:
+
+* **El 62% busca el negocio en Google** justo después de la recomendación.
+* **El 58% visita directamente la web del negocio** recomendado.
+* **El 52% abre las fuentes** que la IA cita en su respuesta.
+* **El 48% contrasta** la respuesta en varias plataformas antes de actuar.
+
+Y al verificar, lo primero que miran son las reseñas. En la cadena de decisión tras una recomendación de IA, la valoración por estrellas es la señal de compra número uno (34%), seguida del boca a boca (30%), la antigüedad de las reseñas (29%), su tono (28%) y su cantidad (28%).
+
+La consecuencia práctica: una recomendación de IA con tu ficha desactualizada, tu horario equivocado o tus reseñas paradas desde hace meses se convierte en un cliente perdido. Aparecer es el primer paso; que la verificación confirme lo que dijo la IA es lo que cierra la venta.
+
+Un matiz importante: para temas delicados (salud, finanzas, gestoría) el 57% de los consumidores sigue prefiriendo los buscadores tradicionales (Yext, 2025). Google sigue en el recorrido del cliente y ahora trabaja en equipo con la IA: tu negocio tiene que estar bien en los dos.
+
+---
+
+## 4. Plan de 7 pasos para que la IA recomiende tu negocio
+
+Este es el orden de trabajo que aplicamos con PYMEs, sin necesidad de conocimientos técnicos:
+
+1. **Escribe las preguntas de tus clientes.** Entre 10 y 20, en su lenguaje y con su ciudad: "¿qué taller en [ciudad] arregla coches antiguos?", "¿qué asesoría para autónomos responde rápido por WhatsApp?".
+2. **Haz la prueba en los tres asistentes.** Pregúntale lo mismo a ChatGPT, Gemini y Perplexity, y anota quién aparece y con qué argumentos.
+3. **Pon tu ficha de Google Business Profile al día.** Categorías exactas, servicios con nombre concreto, horarios reales (incluidos los especiales de festivos) y fotos del último trimestre.
+4. **Consigue reseñas que mencionen servicios.** Pide al cliente que diga qué le hiciste, no un simple "muy bien". Responde todas, también las negativas.
+5. **Unifica tus datos en todas partes.** Nombre, dirección, teléfono y horarios idénticos en tu web, Google, directorios y redes. La coherencia es lo que da a la IA confianza para citarte.
+6. **Crea páginas concretas en tu web.** Una por servicio y zona, con precios orientativos, a quién sirve y preguntas frecuentes. Una página genérica de "Servicios" no da nada a lo que agarrarse.
+7. **Repite la prueba cada mes.** Las reseñas nuevas y las páginas nuevas cambian las respuestas. Anota tu posición y la de tu competencia.
+
+---
+
+## 5. La prueba de los 10 minutos: hazla hoy
+
+Antes de contratar nada, dedica diez minutos a comprobar dónde estás:
+
+1. Abre ChatGPT (es gratis) y escribe: "Recomiéndame un [tu sector] en [tu ciudad]".
+2. Añade dos variantes como las que haría un cliente real: con una necesidad concreta ("para una avería urgente") y con un perfil ("para un negocio pequeño").
+3. Anota tres cosas: si apareces, qué competidores aparecen y qué razones da la IA para recomendarlos.
+4. Si apareces, haz clic en tu propia ficha: ¿el horario es correcto? ¿la web funciona? ¿las reseñas son recientes?
+
+Si la IA nombra a tus competidores y a ti no, tienes un problema de visibilidad con solución. Si no nombra a nadie de tu zona, el canal está por construir y el primero en trabajarlo tiene ventaja de meses.
+
+---
+
+## Conclusión: la ventana está abierta ahora
+
+El 47% de los consumidores ya pregunta a la IA y solo entre el 1% y el 11% de los negocios aparece en las respuestas. Esa distancia entre uso y oferta significa volumen de ventas que hoy se reparten tus competidores o que simplemente se pierde. Las acciones para aparecer son las de siempre hechas bien: datos coherentes, reseñas vivas, ficha al día y una web que conteste preguntas concretas. Lo nuevo es que ahora hay una lista corta, y hacer la prueba cuesta diez minutos.
+
+**[Reserva tu Auditoría de Visibilidad IA gratuita](https://calendly.com/ia4pymes/30min)** y te decimos si ChatGPT, Gemini y Perplexity recomiendan tu empresa o a tu competencia, qué señales te faltan y qué corregir primero.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Se puede pagar a ChatGPT para que recomiende mi negocio?
+
+No existe un equivalente a Google Ads para aparecer en las recomendaciones de los asistentes de IA. Las respuestas se apoyan en señales de reputación y relevancia: reseñas, directorios, menciones externas y datos coherentes. Por eso trabajar esas señales es la única vía, y es la que hacen también tus competidores si se mueven primero.
+
+### ¿Qué es exactamente el GEO?
+
+Son las siglas de Generative Engine Optimization: el conjunto de acciones para aparecer en las respuestas generadas por asistentes de IA. Comparte fundamentos con el SEO (datos claros, contenido concreto, reputación) pero premia especialmente la coherencia de tus datos en todas las plataformas y las menciones en fuentes de terceros.
+
+### ¿Google deja de importar?
+
+No. Tras una recomendación de IA, el 62% de los consumidores busca el negocio en Google y el 58% visita su web directamente (Yext, 2026). Para temas delicados como salud o finanzas, el 57% sigue prefiriendo el buscador tradicional. Google y la IA funcionan juntos en el recorrido del cliente: tu negocio necesita estar bien en los dos.
+
+### ¿Estos datos valen para España?
+
+Las encuestas citadas (Yext, Pew Research Center, SOCi) son mayoritariamente de Estados Unidos, donde la adopción va por delante. El patrón de conducta es el mismo en Europa, con unos meses de retraso, y las acciones del plan de 7 pasos aplican igual para un negocio español.
+
+### ¿Cada cuánto reviso si la IA me recomienda?
+
+Una vez al mes es un buen punto de partida. Las respuestas de los asistentes cambian con las reseñas nuevas, las páginas nuevas y las menciones externas, así que conviene repetir las mismas preguntas y anotar los cambios frente a tu competencia.
+        `.trim(),
+    },
+    // ARTÍCULO EN: 47% of consumers ask AI which business to choose (27 OCTOBER 2026)
+    {
+        slug: "customers-ask-ai-which-business-to-choose-2026",
+        title: "47% of Customers Now Ask AI Which Business to Choose",
+        description: "47% of consumers now ask AI to find local businesses, yet only 1-11% of companies appear in its answers. A practical guide to getting recommended by ChatGPT.",
+        date: "2026-10-27",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Marketing",
+        image: "/images/asistente_ia_selecciona_negocios_visibilidad_2026.png",
+        lang: "en",
+        translationSlug: "clientes-preguntan-ia-que-negocio-elegir-2026",
+        content: `
+For two decades, getting customers came down to one question: do you show up on Google when someone searches for what you sell? In 2026, that question has a second half, and it is the one closing sales: do you show up when a customer asks ChatGPT, Gemini, or Perplexity which business to choose?
+
+The data published this year settles it:
+
+* **47% of US consumers used AI to find a local business in the past month**, according to Yext's Consumer Search Behaviors 2026 report, based on 3,848 surveys. Usage spans every category, with only a 15-point spread between the highest and lowest verticals: from restaurants to repair shops, no niche is exempt.
+* Among higher-income households, **AI has already overtaken Google as the starting point** for local business searches: 53% vs 49% in the $150k-$175k bracket, and 61% vs 57% in the next one (Yext, 2026).
+* Only **1% to 11% of businesses appear in ChatGPT, Gemini, or Perplexity recommendations**, according to SOCi's 2026 local visibility index. Earning a spot in those answers is up to 30 times harder than ranking a website on Google.
+
+The takeaway for your SME: a growing share of your customers is asking AI for recommendations, and the vast majority of businesses are missing from the answers. That gap is a window: whoever shows up first takes the sale without competing for the click.
+
+---
+
+## 1. AI answers with a short list: there is no page two
+
+On Google, the customer sees a list of links and compares tabs. With AI, the process changes shape: the customer describes the need in plain language ("which bookkeeping firm in my city works with freelancers?") and gets a direct answer with a short list of names and the reasons behind each one.
+
+Three direct consequences for your business:
+
+* On Google, page 2 still brings some visits. In an AI answer, you are either in the response or out of the game: there is no page two.
+* The list is short. If the AI recommends three accounting firms and yours is not one of them, the customer never learns you exist.
+* And when Google shows its own AI summary in the results, clicks on traditional links drop from 15% to 8% of visits (Pew Research Center, 2025). The answer, not the list of links, is what customers act on.
+
+---
+
+## 2. What AI looks at when deciding whom to recommend
+
+AI assistants rely on public signals about your business. These are the main ones, translated into your daily routine:
+
+| Signal the AI reads | Where it lives | Concrete action |
+| :--- | :--- | :--- |
+| Your Google Business Profile | Google Maps and Search | Correct categories, current hours, services with specific names, recent photos |
+| Your reviews | Google, and industry directories | Recent reviews mentioning the specific service ("fixed my boiler"), plus replies from the business |
+| External mentions | Local directories, press, associations, forums | Get listed wherever your sector and your city are discussed |
+| Data consistency | Every platform | Same name, address, phone, and hours everywhere |
+| Your website | Your domain | One page per service and area, with indicative pricing and FAQs |
+
+Here is the finding that changes the strategy: AI weighs what others say about you more heavily than what you say on your own website. A perfect website with inconsistent directory data and few recent reviews loses to a competitor with consistent signals everywhere.
+
+---
+
+## 3. 93% verify the recommendation (and that's where you win or lose)
+
+The second half of the Yext report matters most for an SME: consumers trust AI, but they check. More than 93% take at least one verification step before deciding:
+
+* **62% search the business on Google** right after the recommendation.
+* **58% visit the recommended business's website** directly.
+* **52% open the sources** the AI cites in its answer.
+* **48% cross-check** the answer across multiple platforms before acting.
+
+And when they verify, reviews come first. In the decision chain after an AI recommendation, star rating is the number one purchase signal (34%), followed by word of mouth (30%), review recency (29%), review sentiment (28%), and review count (28%).
+
+The practical consequence: an AI recommendation paired with an outdated profile, wrong hours, or reviews that stopped months ago becomes a lost customer. Showing up is step one; verification confirming what the AI said is what closes the sale.
+
+One important nuance: for sensitive topics (health, finance, professional services), 57% of consumers still prefer traditional search engines (Yext, 2025). Google remains part of the customer journey and now works alongside AI: your business needs to be solid in both.
+
+---
+
+## 4. A 7-step plan to get your business recommended
+
+Here is the working order we apply with SMEs, with no technical background required:
+
+1. **Write your customers' questions.** 10 to 20 of them, in their words and with their city: "which shop in [city] repairs vintage cars?", "which advisor for freelancers answers fast on WhatsApp?".
+2. **Run the test on the three assistants.** Ask ChatGPT, Gemini, and Perplexity the same questions, and note who shows up and with what arguments.
+3. **Bring your Google Business Profile up to date.** Exact categories, named services, real hours (including holiday schedules), and photos from the last quarter.
+4. **Earn reviews that mention services.** Ask customers to say what you did for them, not just "great". Reply to all of them, including the negative ones.
+5. **Unify your data everywhere.** Identical name, address, phone, and hours on your website, Google, directories, and social profiles. Consistency is what gives AI the confidence to cite you.
+6. **Create specific pages on your website.** One per service and area, with indicative pricing, who you serve, and FAQs. A generic "Services" page gives the AI nothing to hold on to.
+7. **Repeat the test monthly.** New reviews and new pages change the answers. Track your position and your competitors'.
+
+---
+
+## 5. The 10-minute test: run it today
+
+Before hiring anyone, spend ten minutes finding out where you stand:
+
+1. Open ChatGPT (it's free) and type: "Recommend a [your trade] in [your city]".
+2. Add two variants the way a real customer would ask: with a specific need ("for an urgent repair") and with a profile ("for a small business").
+3. Write down three things: whether you appear, which competitors appear, and what reasons the AI gives for recommending them.
+4. If you appear, click through to your own profile: are the hours correct? Does the website work? Are the reviews recent?
+
+If the AI names your competitors and not you, you have a visibility problem with a solution. If it names nobody in your area, the channel is still up for grabs and the first to work it gains a head start of months.
+
+---
+
+## Conclusion: the window is open now
+
+47% of consumers already ask AI, and only 1% to 11% of businesses appear in the answers. That distance between usage and supply means sales volume that your competitors are taking, or that simply disappears. The actions to show up are the old ones done right: consistent data, live reviews, an updated profile, and a website that answers specific questions. What's new is that there is now a short list, and running the test takes ten minutes.
+
+**[Book your free AI Visibility Audit here](https://calendly.com/ia4pymes/30min)** and we will tell you whether ChatGPT, Gemini, and Perplexity recommend your company or your competitors, which signals you are missing, and what to fix first.
+
+---
+
+## Frequently asked questions
+
+### Can you pay ChatGPT to recommend your business?
+
+There is no equivalent to Google Ads for appearing in AI assistant recommendations. Answers rely on reputation and relevance signals: reviews, directories, external mentions, and consistent data. Working on those signals is the only path, and it's the same one your competitors will take if they move first.
+
+### What exactly is GEO?
+
+GEO stands for Generative Engine Optimization: the set of actions to appear in answers generated by AI assistants. It shares foundations with SEO (clear data, specific content, reputation) but it especially rewards data consistency across platforms and mentions in third-party sources.
+
+### Is Google no longer important?
+
+It is. After an AI recommendation, 62% of consumers search the business on Google and 58% visit its website directly (Yext, 2026). For sensitive topics like health or finance, 57% still prefer traditional search. Google and AI work together along the customer journey: your business needs to be solid in both.
+
+### Do these figures apply outside the US?
+
+The cited surveys (Yext, Pew Research Center, SOCi) mostly cover the United States, where adoption runs ahead. The behavioral pattern is the same in Europe with a few months of lag, and the actions in the 7-step plan apply just as well to a Spanish business.
+
+### How often should I check whether AI recommends me?
+
+Once a month is a good starting point. Assistant answers shift with new reviews, new pages, and external mentions, so it's worth repeating the same questions and tracking the changes against your competitors.
+        `.trim(),
+    },
     // ARTÍCULO ES: Eurobarómetro 2026 IA y gestión algorítmica en PYMEs europeas (21 OCTUBRE 2026)
     {
         slug: "eurobarometro-2026-ia-pymes-europeas-adopcion-datos",
