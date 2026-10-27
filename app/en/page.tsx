@@ -636,7 +636,7 @@ export default function HomeEN() {
                   Case Studies: <span className="text-blue-600">Real-World AI & Automation for SMEs</span>
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-xl lg:text-xl text-slate-600 px-4">
-                  Audited results across clinics, logistics, law firms, and construction: error reduction and ROIs exceeding +200%.
+                  Clinics, logistics, law firms, and construction: we define the expected return before starting and measure it afterward.
                 </p>
               </header>
 

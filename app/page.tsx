@@ -534,7 +534,7 @@ export default function Home() {
                   Casos de Éxito: <span className="text-blue-600">Automatización e IA en Empresas Reales</span>
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-xl lg:text-xl text-slate-600 px-4">
-                  Resultados auditados en clínicas, logística, despachos de abogados y construcción: reducción de errores y retornos de inversión superiores al +200%.
+                  Clínicas, logística, despachos de abogados y construcción: definimos el retorno esperado antes de empezar y lo medimos después.
                 </p>
               </header>
 
