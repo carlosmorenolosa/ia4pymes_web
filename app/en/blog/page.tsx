@@ -160,7 +160,7 @@ export default function EnBlogPage() {
                                             </div>
 
                                             {/* Title */}
-                                            <h2 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors leading-tight line-clamp-3 tracking-tight">
+                                            <h2 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors leading-tight line-clamp-3 tracking-tight text-pretty">
                                                 {post.title}
                                             </h2>
 
