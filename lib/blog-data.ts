@@ -42,7 +42,7 @@ En la Apsara Conference de Hangzhou (22 de septiembre de 2026), Alibaba anunció
 Dos señales más sobre el calendario:
 
 * La agencia de noticias 36Kr recogió del evento que el **Qwen4-27B es la prioridad del lado open-weights**, el primero en publicarse con pesos descargables.
-* La nota de investigación de CSC Financial (中信建投) del 28 de septiembre concluyó "Qwen4发布在即": lanzamiento inminente. Es una valoración de analistas, sin fecha concreta.
+* La nota de investigación de CSC Financial, uno de los mayores brókeres de China, del 28 de septiembre concluyó que el lanzamiento de Qwen 4 era inminente. Es una valoración de analistas, sin fecha concreta.
 
 El 10 de octubre, la cuenta oficial de desarrollo en X (@QwenDevs) publicó un teaser con la pregunta "big or small?". Anuncio publicitario, no fecha.
 
@@ -173,7 +173,7 @@ At the Apsara Conference in Hangzhou (September 22, 2026), Alibaba announced tha
 Two more signals about timing:
 
 * News agency 36Kr reported from the event that **Qwen4-27B is the open-weights priority**, first in line for downloadable weights.
-* A CSC Financial (中信建投) research note from September 28 concluded "Qwen4发布在即": the release is imminent. It is an analyst assessment, without a specific date.
+* A research note from CSC Financial, one of China's largest brokers, dated September 28 concluded that the Qwen 4 release was imminent. It is an analyst assessment, without a specific date.
 
 On October 10, the official developer account on X (@QwenDevs) posted a teaser asking "big or small?". An announcement, not a date.
 
