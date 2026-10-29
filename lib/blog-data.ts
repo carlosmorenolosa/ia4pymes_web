@@ -16,6 +16,268 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Qwen 4, el modelo fantasma Kalmia y los bulos (29 OCTUBRE 2026)
+    {
+        slug: "qwen-4-modelo-fantasma-kalmia-confirmado-bulos-2026",
+        title: "Qwen 4 se Prueba de Incógnito: lo Confirmado y los Bulos",
+        description: "Qwen 4 se prueba de incógnito: 'Kalmia' pasa el test del tokenizer y los kernels delatan el lanzamiento. Lo confirmado, los bulos y qué significa para pymes.",
+        date: "2026-10-29",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/images/qwen4_kalmia_modelo_fantasma_bulos_2026.jpg",
+        lang: "es",
+        translationSlug: "qwen-4-codename-kalmia-confirmed-facts-rumors-2026",
+        content: `
+Si has leído que Qwen 4 ya ha salido con otro nombre, has leído la mitad de la verdad. Alibaba confirmó el 22 de septiembre que su nueva generación de modelos está en entrenamiento, sin fecha de lanzamiento oficial. Desde entonces han aparecido tres pruebas de ingeniería fechadas y un modelo anónimo en evaluación que apuntan en la misma dirección: el lanzamiento está cerca y hay un Qwen sin anunciar testeándose bajo nombre en clave.
+
+Este artículo separa lo confirmado de los bulos. Cada afirmación lleva su fuente y su fecha, para que puedas comprobarlas tú mismo.
+
+---
+
+## 1. Lo confirmado: cuatro nombres y ninguna fecha
+
+En la Apsara Conference de Hangzhou (22 de septiembre de 2026), Alibaba anunció que Qwen 4 está en entrenamiento y proyectó en pantalla la futura familia: **Qwen4-Max, Qwen4-Flash, Qwen4-Plus y Qwen4-27B**. La diapositiva decía "Qwen4 Series Coming Soon" y no daba especificaciones, licencia ni fecha.
+
+Dos señales más sobre el calendario:
+
+* La agencia de noticias 36Kr recogió del evento que el **Qwen4-27B es la prioridad del lado open-weights**, el primero en publicarse con pesos descargables.
+* La nota de investigación de CSC Financial (中信建投) del 28 de septiembre concluyó "Qwen4发布在即": lanzamiento inminente. Es una valoración de analistas, sin fecha concreta.
+
+El 10 de octubre, la cuenta oficial de desarrollo en X (@QwenDevs) publicó un teaser con la pregunta "big or small?". Anuncio publicitario, no fecha.
+
+---
+
+## 2. El "Qwen 4 con otro nombre" que ya puedes descargar
+
+La parte del rumor que es oficial: el **26 de agosto** Qwen lanzó **Qwen3.8-Flash-Next**, y en sus propios materiales lo describe como "una vista previa de la arquitectura de Qwen 4". Lo detallamos en su momento en [nuestro análisis de Qwen 3.8 Flash Next](/blog/qwen-3-8-flash-next-arquitectura-hibrida-moe-125b-pymes-2026): un MoE de 125B parámetros totales con solo 6B activos por token, 512 expertos (10 enrutados + 1 compartido), una tabla de embeddings n-gram de 51B y atención híbrida GDN+QSA.
+
+Este modelo es un anticipo de arquitectura: muestra la tecnología que llevará la nueva generación, y la familia Qwen 4 llegará después con sus propios modelos. Junto a él, el Qwen3.8-27B denso (licencia Apache) sigue siendo el open-weights de la generación actual.
+
+---
+
+## 3. Kalmia: el modelo fantasma que delató su familia
+
+La prueba más interesante del rumor llegó el **22 de octubre**: apareció un modelo anónimo, con el nombre en clave **"Kalmia"**, en un arena de evaluación a ciegas donde laboratorios prueban modelos sin anunciar antes de lanzarlos.
+
+Un investigador le aplicó un test de tokenizer con resultados contundentes:
+
+* **Kalmia falló 6 de 8 tokens** que sistemáticamente fallan los modelos de la familia Qwen.
+* Falló **0 de 40 tokens** característicos de otros laboratorios.
+
+La conclusión del test marca la familia, no un modelo concreto: otros proveedores también construyen sobre el tokenizer de Qwen. Aun así, combinado con el resto de la ingeniería que veremos ahora, la lectura razonable es que un Qwen sin anunciar está en fase de evaluación pública. El nombre en clave es práctica estándar del sector: OpenAI y Google hacen lo mismo antes de cada lanzamiento.
+
+---
+
+## 4. La ingeniería delata el calendario
+
+Las preparaciones técnicas dejan rastros públicos, y en los últimos días han aparecido tres:
+
+| Fecha | Rastro | Qué dice |
+| :--- | :--- | :--- |
+| 23 oct 2026 | Pull request de Intel a un fork de kernels vLLM para GPU Intel | Añade rutas INT4 (1-2 GPUs) y FP8 (2 GPUs) para "Qwen4-27B dense". Precisa que no se completó ninguna ejecución de extremo a extremo con un checkpoint real |
+| 23 oct 2026 | Issue de T-Head, la división de chips de Alibaba | Añade una configuración Gated DeltaNet "necesaria para workloads de prefill tensor-parallel de Qwen4.0-Max" (cerrada el 26 sin fusionar) |
+| 26 ago 2026 | Integración en Transformers | Documenta rutas residuales gated, atención dispersa y features n-gram bajo el nombre experimental Qwen4-Exp |
+
+Estos rastros nombran identificadores finales de modelo, y eso los distingue de los rumores: los equipos de despliegue no preparan kernels para modelos que no van a lanzar. Varios sitios de cuentas atrás estiman el lanzamiento para el 30 de octubre, aunque no hay fecha oficial y esa cifra es una extrapolación.
+
+---
+
+## 5. Los bulos que circulan (y cómo verificarlos)
+
+Con cada lanzamiento grande circulan benchmarks falsos. Esta semana nos toca en la familia Qwen:
+
+| Bulo circulante | Qué dice la verificación |
+| :--- | :--- |
+| "Qwen 4 Max (Preview) puntúa 53 en Artificial Analysis" | No aparece en el leaderboard ni en las publicaciones del evaluador; la captura que circula tiene la flecha dibujada a mano |
+| "Qwen4-Coder logra 82% en SWE-bench Verified" | La propia página que lo publicó lo declara ilustrativo y no cita fuente primaria |
+| "Repos filtrados de Qwen 4 en ModelScope" | Las tablas filtradas se contradicen en tamaño e identificador, sin enlaces primarios |
+| "Los test internos lo sitúan cerca de Opus 5.5" | Un post subjetivo de foro republicado con marcas de agua de Tieba |
+| "Sale esta semana" / "sale a final de octubre" | Un post de X sin fuente, repetido por medios sin verificación |
+
+La regla práctica para cualquier benchmark: si la afirmación no enlaza a un leaderboard público, a un repositorio oficial o a un model card con fecha, no existe. Un número suelto en una captura no es un benchmark.
+
+---
+
+## 6. Qué significa para una pyme que usa IA open-source
+
+Más allá del circo mediático, este lanzamiento importa por una razón: Qwen es hoy la familia open-weights que ofrece mejor relación capacidad-precio para automatización empresarial, y Qwen 4 moverá esa frontera. Las estimaciones editoriales sitúan a Qwen4-Max en torno a 55 puntos en el índice de Artificial Analysis (frente a los 45 medidos de Qwen3.8-Max), en un frente donde el mejor modelo medido está en 58 (Opus 5.5). Son pronósticos, no medidas: el dato real llegará con el modelo en la mano.
+
+Nuestra recomendación operativa:
+
+1. **No migres nada todavía.** Tus automatizaciones sobre Qwen3.8 siguen funcionando y el lanzamiento no las afecta.
+2. **Vigila el Qwen4-27B open-weights.** Es el candidato a modelo barato para servidores locales; con sus pesos publicados habrá que medirlo contra el 27B actual y contra GLM en los casos de uso reales de tu negocio, como hicimos en [nuestra comparativa de modelos abiertos](/blog/qwen-3-8-flash-vs-glm-5-3-flash-comparativa-modelos-abiertos-empresas).
+3. **Espera benchmarks verificados antes de gastar.** La fase de pruebas de incógnito (Kalmia) y los kernels preparados indican que la espera es corta, probablemente cuestión de semanas.
+4. **Ignora los benchmarks filtrados.** Ninguno de los que circulan supera la verificación de fuente primaria.
+
+Una precisión que ahorra malentendidos: los 5-10 billones de parámetros que Alibaba menciona en su hoja de ruta pertenecen a Qwen4.5 y Qwen5, según la propia presentación de Apsara. Esa cifra no describe esta generación.
+
+---
+
+## Conclusión: tres señales que dirán que Qwen 4 está aquí
+
+La verificación deja tres hechos y una expectativa. Confirmado: cuatro modelos anunciados el 22 de septiembre, un modelo anónimo con huella de tokenizer Qwen evaluándose desde el 22 de octubre y kernels de Intel y T-Head nombrando Qwen4-27B y Qwen4.0-Max desde el 23. Expectativa: lanzamiento en cuestión de semanas, con el 27B open-weights como cabeza de lanza.
+
+Las señales definitivas serán públicas y verificables: un repositorio Qwen/Qwen4-* en Hugging Face, un identificador en el catálogo de Qwen o el desenmascaramiento del modelo de la arena. Cuando aparezcan, mediremos con datos reales; mientras tanto, los benchmarks filtrados son ruido.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y evaluamos si tu automatización actual debería esperar a Qwen 4 o si ya hay ahorros disponibles con la generación 3.8 en tu propio servidor.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Cuándo sale Qwen 4?
+
+Alibaba no ha anunciado fecha. Los rastros de ingeniería (kernels de Intel para Qwen4-27B del 23 de octubre, configuración de T-Head para Qwen4.0-Max) y la evaluación del modelo anónimo Kalmia apuntan a un lanzamiento inminente, y alguna estimación apunta al 30 de octubre, pero ninguna fecha está confirmada por Alibaba.
+
+### ¿Qué es el modelo "Kalmia"?
+
+Un modelo anónimo detectado el 22 de octubre en un arena de evaluación a ciegas. Un test de tokenizer mostró que falla 6 de 8 tokens característicos de la familia Qwen y 0 de 40 de otros laboratorios, lo que indica que pertenece a esa familia. Alibaba no lo ha confirmado; la evidencia es forense, no oficial.
+
+### ¿Es verdad que Qwen 4 ya está disponible con otro nombre?
+
+A medias. Lo disponible oficialmente es Qwen3.8-Flash-Next, que Qwen describe como vista previa de la arquitectura de Qwen 4, y el Qwen3.8-27B de la generación actual. Qwen 4 como familia (Max, Flash, Plus, 27B) sigue sin lanzar. El modelo anónimo en pruebas sugiere que Qwen 4 real se está evaluando, pero no está disponible.
+
+### ¿Es cierto que Qwen 4 Max puntúa 53 en Artificial Analysis?
+
+No hay fuente primaria para esa cifra. No aparece en el leaderboard del evaluador ni en sus publicaciones, y la gráfica que circula tiene ediciones manuales. Hasta que Artificial Analysis publique la medición, ese número es un rumor.
+
+### ¿Debería esperar a Qwen 4 para montar IA local en mi empresa?
+
+Depende del caso de uso. Si necesitas capacidad local ahora, el Qwen3.8-27B (Apache) y el Qwen3.8-Flash-Next funcionan hoy en hardware modesto. Si tu proyecto admite unas semanas de espera, el Qwen4-27B open-weights puede mejorar la relación capacidad-coste, y el momento de decidir será con benchmarks verificados y pesos descargables sobre la mesa.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Qwen 4, the ghost model Kalmia and the hoaxes (29 OCTOBER 2026)
+    {
+        slug: "qwen-4-codename-kalmia-confirmed-facts-rumors-2026",
+        title: "Qwen 4 Is Being Tested Under a Codename: Facts vs Rumors",
+        description: "Qwen 4 is being tested under a codename: 'Kalmia' passes the tokenizer test and kernel code points to an imminent launch. Facts, hoaxes, and what SMEs should expect.",
+        date: "2026-10-29",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/images/qwen4_kalmia_modelo_fantasma_bulos_2026.jpg",
+        lang: "en",
+        translationSlug: "qwen-4-modelo-fantasma-kalmia-confirmado-bulos-2026",
+        content: `
+If you have read that Qwen 4 already shipped under a different name, you read half the truth. Alibaba confirmed on September 22 that its next model generation is in training, with no official release date. Since then, three dated pieces of engineering evidence and one anonymous model in evaluation have pointed the same direction: the launch is close, and an unannounced Qwen is being tested under a codename.
+
+This article separates confirmed facts from hoaxes. Every claim carries its source and date so you can check them yourself.
+
+---
+
+## 1. What's confirmed: four names, no date
+
+At the Apsara Conference in Hangzhou (September 22, 2026), Alibaba announced that Qwen 4 is in training and projected the upcoming family on screen: **Qwen4-Max, Qwen4-Flash, Qwen4-Plus, and Qwen4-27B**. The slide read "Qwen4 Series Coming Soon" and gave no specs, license, or date.
+
+Two more signals about timing:
+
+* News agency 36Kr reported from the event that **Qwen4-27B is the open-weights priority**, first in line for downloadable weights.
+* A CSC Financial (中信建投) research note from September 28 concluded "Qwen4发布在即": the release is imminent. It is an analyst assessment, without a specific date.
+
+On October 10, the official developer account on X (@QwenDevs) posted a teaser asking "big or small?". An announcement, not a date.
+
+---
+
+## 2. The "Qwen 4 under another name" you can download today
+
+The part of the rumor that is official: on **August 26**, Qwen released **Qwen3.8-Flash-Next**, and its own materials describe it as "an early preview of the Qwen 4 architecture". We covered it in [our Qwen 3.8 Flash Next analysis](/en/blog/qwen-3-8-flash-next-hybrid-moe-125b-architecture-smes-2026): a 125B-parameter MoE with only 6B active parameters per token, 512 experts (10 routed + 1 shared), a 51B n-gram embedding table, and GDN+QSA hybrid attention.
+
+That model is an architecture preview, a rehearsal of the technology the new generation will carry. It is not Qwen 4 and it does not replace Qwen 4: it is the public signal of where the family is heading. Alongside it, the dense Qwen3.8-27B (Apache license) remains the current generation's open-weights workhorse.
+
+---
+
+## 3. Kalmia: the ghost model that exposed its family
+
+Here is the most interesting piece of evidence. On **October 22**, an anonymous model with the codename **"Kalmia"** appeared on a blind evaluation arena where labs test unannounced models before release.
+
+A researcher ran a tokenizer test with conclusive results:
+
+* **Kalmia garbled 6 of 8 tokens** that systematically trip up Qwen-family models.
+* It garbled **0 of 40 tokens** characteristic of other labs.
+
+The test marks the family, not a specific model: other providers also build on Qwen's tokenizer. Still, combined with the engineering evidence below, the reasonable reading is that an unannounced Qwen is in public evaluation. The codename is standard industry practice: OpenAI and Google do the same before every launch.
+
+---
+
+## 4. Engineering gives away the calendar
+
+Technical preparations leave public traces, and three have surfaced in recent weeks:
+
+| Date | Trace | What it says |
+| :--- | :--- | :--- |
+| Oct 23, 2026 | Intel-side pull request to a fork of vLLM Intel GPU kernels | Adds INT4 paths (1-2 GPUs) and FP8 (2 GPUs) for "Qwen4-27B dense". States that no end-to-end run on a real Qwen4 checkpoint was completed |
+| Oct 23, 2026 | T-Head (Alibaba's chip unit) issue | Adds a Gated DeltaNet head configuration "needed for Qwen4.0-Max tensor-parallel prefill workloads" (closed Oct 26, not merged) |
+| Aug 26, 2026 | Transformers integration | Documents gated residual paths, sparse attention, and n-gram features under the experimental Qwen4-Exp name |
+
+These traces name final model identifiers, which is what distinguishes them from rumors: deployment teams do not prepare kernels for models they do not plan to launch. Several countdown sites estimate an October 30 launch, but there is no official date and that figure is an extrapolation.
+
+---
+
+## 5. The hoaxes circulating (and how to verify them)
+
+Every big launch attracts fake benchmarks. This week it's the Qwen family's turn:
+
+| Circulating hoax | What verification says |
+| :--- | :--- |
+| "Qwen 4 Max (Preview) scores 53 on Artificial Analysis" | Absent from the evaluator's leaderboard and posts; the circulating chart has a hand-drawn arrow |
+| "Qwen4-Coder reaches 82% on SWE-bench Verified" | The page that published it calls the figure illustrative and cites no primary source |
+| "Leaked Qwen 4 repos on ModelScope" | The leaked tables contradict each other on size and ID, with no primary links |
+| "Internal testers put it near Opus 5.5" | A subjective forum post reposted with Tieba watermarks |
+| "Ships this week" / "lands end of October" | One unsourced X post, repeated by news sites without verification |
+
+The practical rule for any benchmark: if the claim does not link to a public leaderboard, an official repository, or a dated model card, it does not exist. A loose number in a screenshot is not a benchmark.
+
+---
+
+## 6. What it means for a business running open-source AI
+
+Beyond the media circus, this launch matters for one reason: Qwen is today the open-weights family with the best capability-per-euro ratio for business automation, and Qwen 4 will move that frontier. Editorial estimates place Qwen4-Max around 55 points on the Artificial Analysis index (versus 45 measured for Qwen3.8-Max), on a leaderboard where the best measured model sits at 58 (Opus 5.5). These are forecasts, not measurements: the real data arrives with the model in hand.
+
+Our operational recommendation:
+
+1. **Don't migrate anything yet.** Your automations on Qwen3.8 keep working, and the launch does not affect them.
+2. **Watch the Qwen4-27B open-weights.** It is the leading candidate for cheap local-server models; once its weights publish, measure it against the current 27B and GLM on your actual business use cases, as we did in [our open-model comparison](/en/blog/qwen-3-8-flash-vs-glm-5-3-flash-technical-comparison-enterprise-models).
+3. **Wait for verified benchmarks before spending.** The stealth-testing phase (Kalmia) and the prepared kernels indicate a short wait, likely a matter of weeks.
+4. **Ignore leaked benchmarks.** None of the circulating ones survives primary-source verification.
+
+One clarification that saves confusion: the 5-10 trillion parameters Alibaba mentions in its roadmap belong to Qwen4.5 and Qwen5, per the Apsara presentation itself. That figure does not describe this generation.
+
+---
+
+## Conclusion: three signals that will tell you Qwen 4 is here
+
+Verification leaves three facts and one expectation. Confirmed: four models announced on September 22, an anonymous model with a Qwen tokenizer fingerprint in evaluation since October 22, and Intel and T-Head kernels naming Qwen4-27B and Qwen4.0-Max since October 23. Expected: a launch within weeks, with the open-weights 27B leading.
+
+The definitive signals will be public and checkable: a Qwen/Qwen4-* repository on Hugging Face, a model ID in Qwen's catalog, or the arena model being unmasked. When they appear, we will measure with real data; until then, leaked benchmarks are noise.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will assess whether your current automation should wait for Qwen 4 or whether savings are already available with the 3.8 generation on your own server.
+
+---
+
+## Frequently asked questions
+
+### When does Qwen 4 come out?
+
+Alibaba has not announced a date. The engineering traces (Intel kernels for Qwen4-27B dated October 23, T-Head's configuration for Qwen4.0-Max) and the evaluation of the anonymous Kalmia model point to an imminent launch, and one estimate targets October 30, but Alibaba has confirmed no date.
+
+### What is the "Kalmia" model?
+
+An anonymous model detected on October 22 on a blind evaluation arena. A tokenizer test showed it garbles 6 of 8 tokens characteristic of the Qwen family and 0 of 40 from other labs, indicating it belongs to that family. Alibaba has not confirmed it; the evidence is forensic, not official.
+
+### Is Qwen 4 already available under another name?
+
+Partly. What is officially available is Qwen3.8-Flash-Next, which Qwen describes as a preview of the Qwen 4 architecture, plus the current generation's Qwen3.8-27B. The Qwen 4 family (Max, Flash, Plus, 27B) has not launched. The anonymous model in testing suggests the real Qwen 4 is being evaluated, but it is not available.
+
+### Is it true that Qwen 4 Max scores 53 on Artificial Analysis?
+
+There is no primary source for that figure. It does not appear on the evaluator's leaderboard or posts, and the circulating chart contains manual edits. Until Artificial Analysis publishes the measurement, that number is a rumor.
+
+### Should I wait for Qwen 4 to set up local AI in my business?
+
+It depends on the use case. If you need local capability now, the Qwen3.8-27B (Apache) and Qwen3.8-Flash-Next run today on modest hardware. If your project can wait a few weeks, the open-weights Qwen4-27B may improve the capability-cost ratio, and the moment to decide will be with verified benchmarks and downloadable weights on the table.
+        `.trim(),
+    },
     // ARTÍCULO ES: El 47% de los consumidores pregunta a la IA qué negocio elegir (27 OCTUBRE 2026)
     {
         slug: "clientes-preguntan-ia-que-negocio-elegir-2026",
