@@ -16,6 +16,276 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Filtración GLM 5.5, modelos 32B/122B/256B y la GPU local (31 OCTUBRE 2026)
+    {
+        slug: "glm-5-5-filtracion-32b-122b-256b-gpu-local-2026",
+        title: "GLM 5.5 y el Modelo de 32B que Corre en una GPU",
+        description: "La filtración sitúa GLM-5.5 en post-entrenamiento con modelos internos de 32B, 122B y 256B. Qué está confirmado, qué es interpretación y qué puede ejecutar una pyme en su GPU.",
+        date: "2026-10-31",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Tecnología",
+        image: "/images/glm5_5_filtracion_32b_gpu_local_2026.jpg",
+        lang: "es",
+        translationSlug: "glm-5-5-leak-32b-122b-256b-local-gpu-2026",
+        content: `
+Esta semana circula una filtración jugosa: Zhipu (Z.ai) estaría entrenando modelos internos de **32B, 122B y 256B parámetros** para fusionarlos en la base de GLM-5.5, y a 4 bits el de 32B ocupa unos 16 GB, es decir, cabe en una sola GPU de consumo. La conclusión que se repite en redes: GLM 5.5 podría llegar en tamaños que una pyme puede ejecutar en casa.
+
+La filtración existe, es reciente y apunta a una fase avanzada de desarrollo. Pero conviene separar tres cosas que los titulares mezclan: lo que dice la filtración, lo que es interpretación de quien la difunde y lo que Z.ai ha confirmado oficialmente (que, de momento, es nada). Este artículo hace ese ejercicio con fechas y fuentes, porque la historia de GLM-5.5 ya acumula rumores fallidos.
+
+---
+
+## 1. Qué dice la filtración, exactamente
+
+Los posts que han puesto el tema sobre la mesa (30 y 31 de octubre de 2026) coinciden en lo esencial:
+
+* Zhipu tendría **modelos internos de 32B, 122B y 256B parámetros en entrenamiento**, destinados a fusionarse (model merging) en la base de la siguiente generación, GLM-5.5.
+* El proyecto estaría **en fase avanzada de post-entrenamiento**, la etapa donde se pulen las capacidades antes del lanzamiento.
+* Según el análisis que amplificó la filtración, el foco estaría en **programación y finanzas cuantitativas**, con entornos de refuerzo para sandboxes de código y finanzas.
+* El dato que ha vuelto viral el asunto es aritmético: **un modelo de 32B en cuantización de 4 bits ocupa unos 16 GB**, el terreno natural de una GPU doméstica.
+
+Dos precisiones importantes que los titulares se saltan. Primera: los tamaños filtrados son **modelos internos de entrenamiento**, y que existan para fusionar en la base no garantiza que Zhipu publique ninguno de ellos con pesos descargables. Segunda: "fusionar modelos" (model merging) es una técnica de combinación de capacidades; el resultado de fusionar tres modelos no rinde automáticamente como uno entrenado desde cero de ese tamaño.
+
+---
+
+## 2. La aritmética: qué se puede ejecutar en casa
+
+Si esos tamaños acabaran publicándose como pesos abiertos, el mapa de hardware quedaría así. La cuantización a 4 bits usa aproximadamente medio byte por parámetro, y a eso hay que sumar memoria para el contexto (KV cache) y activaciones:
+
+| Modelo | Parámetros | RAM de GPU a 4 bits (aprox.) | Hardware mínimo realista |
+| :--- | :--- | :--- | :--- |
+| GLM 5.5 pequeño | 32B | ~16 GB + overhead | Una GPU de 24 GB (RTX 3090/4090) con margen para contexto |
+| GLM 5.5 medio | 122B | ~61 GB + overhead | Dos GPUs de 24 GB, o un Mac Studio de 64-96 GB unificada |
+| GLM 5.5 grande | 256B | ~128 GB + overhead | Servidor multi-GPU o Mac de memoria unificada de 128-192 GB |
+
+El titular "una GPU" es cierto para el 32B y solo a partir de tarjetas de 24 GB; en una de 16 GB el margen para contexto largo es mínimo. Aun así, la diferencia con la generación anterior es sustancial: el GLM-5.3 actual son 744B totales (40B activos), nada ejecutable en casa sin un clúster.
+
+Una referencia útil del mercado: el modelo abierto más grande publicado este año es el Qwen3.8-2.4T-A95B, de Alibaba. Un 256B de Zhipu no sería el mayor open-weights histórico, pero un 32B del linaje GLM-5.5 sí sería el modelo más pequeño y capaz de esa familia, que es justo lo que interesa a quien monta IA en su propio servidor.
+
+---
+
+## 3. Historial: por qué hay que tomarlo con cautela
+
+GLM-5.5 acumula una temporada de rumores, y el registro fechado es revelador:
+
+* **20 de julio**: un post afirma que Z.ai se saltaría GLM-5.3 y lanzaría GLM-5.5 en agosto con más de 1T de parámetros. **Falló dos veces**: Z.ai publicó GLM-5.3 el 14 de agosto y agosto cerró sin 5.5.
+* El tamaño creció con la distancia de la fuente: de "1T+" a "3T+" en nueve días, sin fuente primaria en ningún paso. "Mythos 5.1", el rival que supuestamente batía, corresponde a un modelo de Anthropic que existe con otro nombre.
+* **Z.ai nunca se ha saltado un número** en esta línea: 4.5, 4.6, 4.7, 5, 5.1, 5.2 y 5.3, con intervalos de 51 a 83 días (mediana de 65). Por ese ritmo, la siguiente versión cae entre el 8 de octubre y el 9 de noviembre, y por patrón de nombre sería GLM-5.4.
+* En OpenRouter y en la organización zai-org de Hugging Face **no existe ningún identificador glm-5.5** en la última comprobación. Hasta que aparezca, GLM-5.5 es un nombre de rumor.
+
+La lectura honesta: la filtración de esta semana es más específica (tamaños concretos, fase de post-entrenamiento) que los rumores de julio, y la ventana de calendario encaja con el ritmo histórico de Z.ai. Pero el escepticismo se lo ganó a pulso la cadena anterior, y Zhipu no ha confirmado nada.
+
+---
+
+## 4. Lo que sí está confirmado de Z.ai
+
+Fuera del rumor, la foto oficial:
+
+| Modelo | Tamaño | Contexto | Pesos | Precio API (por 1M tokens) |
+| :--- | :--- | :--- | :--- | :--- |
+| GLM-5.3 | 744B totales, 40B activos | 1M entrada, 128K salida | Abiertos (28 de agosto) | $1,40 entrada / $4,40 salida |
+| GLM-5.3-Flash | 320B totales, 18B activos | 1M entrada, multimodal | Abiertos, licencia MIT | $0,15 / $0,50 |
+
+Y una señal corporativa relevante: el **13 de septiembre**, Z.ai comunicó a la bolsa de Hong Kong una **capitación de 5.000 millones de dólares**, con cerca del 60% destinado a modelos de próxima generación y a su sistema de autoentrenamiento (Reuters, a partir del registro bursátil). Sea cual sea el nombre final del próximo modelo, hay presupuesto confirmado detrás.
+
+El precedente más interesante para esta filtración es el de **Ox Alpha**: GLM-5.3-Flash pasó dos semanas corriendo de forma anónima en OpenRouter antes de revelar su nombre. Un checkpoint de prueba con huella de tokenizer de Z.ai sería, según el historial, la señal más fiable de que algo se acerca.
+
+---
+
+## 5. Las señales que convertirán el rumor en hecho
+
+Para saber si GLM-5.5 (o GLM-5.4) es real, hay cinco sitios concretos con más señal que cualquier hilo de X:
+
+1. Un repositorio nuevo en la organización **zai-org de Hugging Face** o en ModelScope.
+2. Un identificador **glm-5.4 o glm-5.5** en los docs de la API de Z.ai o en OpenRouter.
+3. Una nota de lanzamiento en **docs.z.ai** (históricamente anuncian a sus suscriptores del Coding Plan días antes de la API).
+4. Un **nombre en clave** en OpenRouter o en algún arena con contexto de 1M tokens y huella de tokenizer de Z.ai, el patrón Ox Alpha.
+5. Los **alias rodantes** de OpenRouter (~z-ai/glm-latest): a qué modelo apuntan el día del lanzamiento.
+
+Cuando cualquiera de esas cinco señales se active, este artículo tendrá continuidad con benchmarks medidos. Mientras tanto, cualquier cifra de rendimiento de GLM-5.5 que circule es, por definición, inventada.
+
+---
+
+## 6. Qué significa para las pymes que montan IA local
+
+Más allá del circo de filtraciones, la dirección de viaje es la que interesa a una empresa con servidores propios:
+
+**La frontera de los modelos pequeños se desplaza hacia arriba.** La generación actual ya trae modelos abiertos con muy pocos parámetros activos por token: el Qwen3.8-Flash-Next de Alibaba son 125B con 6B activos, y el GLM-5.3-Flash de Zhipu son 320B con 18B activos y licencia MIT. Si la filtración se cumple y la familia GLM-5.5 baja a un 32B, una pyme podría ejecutar en una sola GPU de 2.000 euros un modelo descendiente directo de un flagship de primer nivel. Ese es el camino para automatizar con datos que no salen del edificio: atención al cliente, extracción de datos de facturas, clasificación documental.
+
+**El coste de espera es bajo, el coste de decidir mal es alto.** GLM-5.3 y su Flash ya están disponibles, abiertos y baratos, y cubren los casos de uso actuales. Esperar unas semanas a que los pesos de la nueva generación lleguen con benchmarks medidos no cuesta nada; montar sobre rumores, sí.
+
+**El patrón del sector es claro.** Alibaba con Qwen 4 y Zhipu con GLM-5.5 están en la misma fase: post-entrenamiento avanzado, kernels preparándose, modelos anónimos en arenas. Los próximos dos meses concentran la mayor renovación de modelos abiertos del año, y quien tenga claro su caso de uso podrá elegir con números en la mano en lugar de con titulares.
+
+---
+
+## Conclusión: qué está confirmado y qué no
+
+Confirmado: GLM-5.3 (744B) y GLM-5.3-Flash (320B) son hoy los modelos abiertos de Zhipu, con pesos publicados y precios públicos, y Z.ai ha recaudado 5.000 millones de dólares con el 60% destinado a la próxima generación. Filtrado, sin confirmar: modelos internos de 32B, 122B y 256B en post-entrenamiento para fusionar en la base de GLM-5.5, con el 32B como candidato a correr en una GPU doméstica. Inexistente a fecha de hoy: cualquier benchmark, fecha o identificador oficial de GLM-5.5.
+
+Las cinco señales del artículo dirán la verdad antes que ningún tuit. Cuando lleguen los pesos y los benchmarks medidos, haremos el análisis de rendimiento y coste real por caso de uso.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y dimensionamos qué hardware necesita tu caso de uso hoy, con los modelos que ya están publicados, sin apostar por filtraciones.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Es verdad que GLM 5.5 llegará en versión de 32B?
+
+Es una interpretación de una filtración, no un anuncio. La filtración indica que Zhipu entrena modelos internos de 32B, 122B y 256B para fusionarlos en la base de GLM-5.5. Que esos tamaños se publiquen como pesos abiertos es posible (la línea GLM tiene tradición open-weights) pero no está confirmado por Zhipu.
+
+### ¿De verdad cabe un modelo de 32B en una sola GPU?
+
+Sí, con matices. A cuantización de 4 bits, 32.000 millones de parámetros ocupan unos 16 GB de memoria de pesos. A eso hay que sumar el KV cache y las activaciones, así que el montaje realista es una GPU de 24 GB (RTX 3090 o 4090) con contexto moderado. En una tarjeta de 16 GB el margen se queda muy justo.
+
+### ¿Cuándo sale GLM-5.5?
+
+No hay fecha oficial. Z.ai nunca se ha saltado un número en esta línea y publica cada 51-83 días (mediana 65), lo que sitúa la próxima versión entre el 8 de octubre y el 9 de noviembre de 2026. Por patrón de nombre sería GLM-5.4; el salto a 5.5 rompería la serie por primera vez. El anuncio definitivo llegará por los canales oficiales: docs.z.ai, la organización zai-org en Hugging Face o OpenRouter.
+
+### ¿GLM-5.5 será de pesos abiertos?
+
+Desconocido. GLM-5.3 y GLM-5.3-Flash son abiertos (este último con licencia MIT), lo que hace probable la continuidad, pero Z.ai no ha dicho nada sobre la licencia de su siguiente modelo.
+
+### ¿Debería esperar a GLM-5.5 para montar IA en mi empresa?
+
+No hace falta. GLM-5.3 y GLM-5.3-Flash ya cubren hoy los casos habituales (1M de contexto, pesos abiertos, precios desde $0,15 por millón de tokens de entrada) y se pueden ejecutar en servidor propio. La recomendación práctica: empieza con lo publicado, mide resultados y evalúa la nueva generación cuando tenga pesos y benchmarks verificados; migrar entre versiones de la misma familia es el problema más sencillo de esta historia.
+        `.trim(),
+    },
+    // ARTÍCULO EN: GLM 5.5 leak, 32B/122B/256B models and the local GPU (31 OCTOBER 2026)
+    {
+        slug: "glm-5-5-leak-32b-122b-256b-local-gpu-2026",
+        title: "GLM 5.5 and the 32B Model Leak That Fits on One GPU",
+        description: "The leak places GLM-5.5 in post-training with internal 32B, 122B, and 256B models. What is confirmed, what is interpretation, and what an SME can run on its own GPU.",
+        date: "2026-10-31",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Technology",
+        image: "/images/glm5_5_filtracion_32b_gpu_local_2026.jpg",
+        lang: "en",
+        translationSlug: "glm-5-5-filtracion-32b-122b-256b-gpu-local-2026",
+        content: `
+A juicy leak is circulating this week: Zhipu (Z.ai) is reportedly training internal **32B, 122B, and 256B-parameter models** to merge into the GLM-5.5 base, and at 4-bit quantization the 32B fits in about 16 GB, which means one consumer GPU. The conclusion repeated across social media: GLM 5.5 could arrive in sizes a small business can run at home.
+
+The leak is real, recent, and points to a late development stage. But headlines mix three different things: what the leak says, what the people amplifying it are interpreting, and what Z.ai has officially confirmed (which, so far, is nothing). This article makes that separation with dates and sources, because the GLM-5.5 story already has a record of failed rumors.
+
+---
+
+## 1. What the leak actually says
+
+The posts that put this on the map (October 30-31, 2026) agree on the essentials:
+
+* Zhipu has **internal 32B, 122B, and 256B-parameter models in training**, destined to be merged (model merging) into the next-generation base, GLM-5.5.
+* The project is reportedly **deep into post-training**, the stage where capabilities get polished before release.
+* According to the analysis amplifying the leak, the focus is on **coding and quantitative finance**, with reinforcement environments for code sandboxes and finance.
+* The detail that went viral is arithmetic: **a 32B model at 4-bit quantization takes about 16 GB**, the natural territory of a consumer GPU.
+
+Two precisions the headlines skip. First: the leaked sizes are **internal training models**, and their existence for merging into the base does not guarantee Zhipu will publish any of them as downloadable weights. Second: "model merging" is a technique for combining capabilities; the result of merging three models does not automatically perform like one trained from scratch at that size.
+
+---
+
+## 2. The arithmetic: what you can run at home
+
+If those sizes end up published as open weights, the hardware map looks like this. 4-bit quantization uses roughly half a byte per parameter, plus memory for context (KV cache) and activations:
+
+| Model | Parameters | GPU RAM at 4-bit (approx.) | Realistic minimum hardware |
+| :--- | :--- | :--- | :--- |
+| GLM 5.5 small | 32B | ~16 GB + overhead | One 24 GB GPU (RTX 3090/4090) with headroom for context |
+| GLM 5.5 medium | 122B | ~61 GB + overhead | Two 24 GB GPUs, or a 64-96 GB unified-memory Mac Studio |
+| GLM 5.5 large | 256B | ~128 GB + overhead | Multi-GPU server or a 128-192 GB unified-memory Mac |
+
+The "one GPU" headline is true for the 32B and only on 24 GB cards; on a 16 GB card the headroom for long context is minimal. Even so, the gap with the previous generation is substantial: today's GLM-5.3 is 744B total (40B active), not something you can run at home without a cluster.
+
+A useful market reference: the largest open model published this year is Alibaba's Qwen3.8-2.4T-A95B. A 256B from Zhipu would not be the largest open-weights release ever, but a 32B from the GLM-5.5 lineage would be the smallest and most capable model of that family, which is exactly what matters to anyone running AI on their own server.
+
+---
+
+## 3. Track record: why caution is warranted
+
+GLM-5.5 has accumulated a season of rumors, and the dated record is revealing:
+
+* **July 20**: a post claimed Z.ai would skip GLM-5.3 and ship GLM-5.5 in August with over 1T parameters. **It failed twice**: Z.ai shipped GLM-5.3 on August 14 and August closed without a 5.5.
+* The size grew with distance from the source: from "1T+" to "3T+" in nine days, with no primary source at any step. "Mythos 5.1", the rival it supposedly beat, matches an Anthropic model that exists under a different name.
+* **Z.ai has never skipped a number** in this line: 4.5, 4.6, 4.7, 5, 5.1, 5.2, and 5.3, spaced 51 to 83 days apart (median 65). On that cadence, the next release falls between October 8 and November 9, and by naming pattern it would be GLM-5.4.
+* On OpenRouter and the zai-org Hugging Face organization, **no glm-5.5 identifier exists** as of the last check. Until one appears, GLM-5.5 is a rumor's name.
+
+The honest reading: this week's leak is more specific (concrete sizes, post-training stage) than July's rumors, and the calendar window fits Z.ai's historical rhythm. But the previous chain earned its skepticism, and Zhipu has confirmed nothing.
+
+---
+
+## 4. What is actually confirmed about Z.ai
+
+Outside the rumor, the official picture:
+
+| Model | Size | Context | Weights | API price (per 1M tokens) |
+| :--- | :--- | :--- | :--- | :--- |
+| GLM-5.3 | 744B total, 40B active | 1M in, 128K out | Open (August 28) | $1.40 in / $4.40 out |
+| GLM-5.3-Flash | 320B total, 18B active | 1M in, multimodal | Open, MIT license | $0.15 / $0.50 |
+
+And one relevant corporate signal: on **September 13**, Z.ai told the Hong Kong stock exchange it had **raised $5 billion**, with about 60% earmarked for next-generation models and its self-training system (Reuters, from the filing). Whatever the next model ends up being called, there is confirmed budget behind it.
+
+The most interesting precedent for this leak is **Ox Alpha**: GLM-5.3-Flash spent two weeks running anonymously on OpenRouter before its name was revealed. A test checkpoint with Z.ai's tokenizer fingerprint would be, per the record, the most reliable signal that something is coming.
+
+---
+
+## 5. The signals that will turn rumor into fact
+
+To know whether GLM-5.5 (or GLM-5.4) is real, skip the X threads and watch five specific places:
+
+1. A new repository in the **zai-org organization on Hugging Face** or on ModelScope.
+2. A **glm-5.4 or glm-5.5 identifier** in Z.ai's API docs or on OpenRouter.
+3. A release note on **docs.z.ai** (historically, Coding Plan subscribers hear about launches days before the API).
+4. A **codename** on OpenRouter or an arena with 1M context and Z.ai's tokenizer fingerprint, the Ox Alpha pattern.
+5. OpenRouter's **rolling aliases** (~z-ai/glm-latest): which model they resolve to on launch day.
+
+When any of those five signals fires, this article gets a follow-up with measured benchmarks. Until then, any GLM-5.5 performance number in circulation is, by definition, invented.
+
+---
+
+## 6. What it means for SMEs running local AI
+
+Beyond the leak circus, the direction of travel is what matters to a company with its own servers:
+
+**The small-model frontier moves up.** The current generation already ships open models with very few active parameters per token: Alibaba's Qwen3.8-Flash-Next is 125B with 6B active, and Zhipu's GLM-5.3-Flash is 320B with 18B active under an MIT license. If the leak holds and the GLM-5.5 family comes down to a 32B, a small business could run a direct descendant of a top-tier flagship on a single €2,000 GPU. That is the path to automating with data that never leaves the building: customer service, invoice data extraction, document classification.
+
+**The cost of waiting is low; the cost of deciding wrong is high.** GLM-5.3 and its Flash variant are available today, open and cheap, covering current use cases. Waiting a few weeks for the new generation's weights and measured benchmarks costs nothing; building on rumors does.
+
+**The industry pattern is clear.** Alibaba with Qwen 4 and Zhipu with GLM-5.5 are in the same phase: advanced post-training, kernels being prepared, anonymous models on arenas. The next two months concentrate the biggest open-model refresh of the year, and anyone with a clear use case will be able to choose with numbers in hand instead of headlines.
+
+---
+
+## Conclusion: what is confirmed and what is not
+
+Confirmed: GLM-5.3 (744B) and GLM-5.3-Flash (320B) are Zhipu's open models today, with published weights and public prices, and Z.ai has raised $5 billion with 60% earmarked for the next generation. Leaked, unconfirmed: internal 32B, 122B, and 256B models in post-training to merge into the GLM-5.5 base, with the 32B as the candidate to run on a consumer GPU. Nonexistent as of today: any official GLM-5.5 benchmark, date, or identifier.
+
+The five signals above will tell the truth before any tweet does. When the weights and measured benchmarks arrive, we will publish the real performance and cost analysis per use case.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will size the hardware your use case needs today, with the models already published, instead of betting on leaks.
+
+---
+
+## Frequently asked questions
+
+### Is it true that GLM 5.5 will come in a 32B version?
+
+It is an interpretation of a leak, not an announcement. The leak indicates Zhipu is training internal 32B, 122B, and 256B models to merge into the GLM-5.5 base. Whether those sizes ship as open weights is plausible (the GLM line has an open-weights tradition) but unconfirmed by Zhipu.
+
+### Does a 32B model really fit on one GPU?
+
+Yes, with caveats. At 4-bit quantization, 32 billion parameters take about 16 GB of weight memory. Add the KV cache and activations, so the realistic setup is a 24 GB GPU (RTX 3090 or 4090) with moderate context. On a 16 GB card the headroom gets very tight.
+
+### When does GLM-5.5 come out?
+
+There is no official date. Z.ai has never skipped a number in this line and ships every 51-83 days (median 65), which places the next release between October 8 and November 9, 2026. By naming pattern it would be GLM-5.4; a jump to 5.5 would break the series for the first time. The definitive announcement will come through official channels: docs.z.ai, the zai-org organization on Hugging Face, or OpenRouter.
+
+### Will GLM-5.5 be open-weights?
+
+Unknown. GLM-5.3 and GLM-5.3-Flash are open (the latter under an MIT license), which makes continuity likely, but Z.ai has said nothing about its next model's license.
+
+### Should I wait for GLM-5.5 before deploying AI in my business?
+
+You don't have to. GLM-5.3 and GLM-5.3-Flash already cover the usual cases today (1M context, open weights, prices from $0.15 per million input tokens) and run on your own server. The practical recommendation: start with what is published, measure results, and evaluate the new generation when it has weights and verified benchmarks; migrating between versions of the same family is the easiest problem in this story.
+        `.trim(),
+    },
     // ARTÍCULO ES: Qwen 4, el modelo fantasma Kalmia y los bulos (29 OCTUBRE 2026)
     {
         slug: "qwen-4-modelo-fantasma-kalmia-confirmado-bulos-2026",
