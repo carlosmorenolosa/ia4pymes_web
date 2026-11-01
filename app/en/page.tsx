@@ -784,9 +784,9 @@ export default function HomeEN() {
               >
                 <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Solutions</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/en#process" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Our Process</Link></li>
-                  <li><Link href="/en#cases" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Success Cases</Link></li>
-                  <li><Link href="/en#calculator" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">ROI Calculator</Link></li>
+                  <li><Link href="/en#process" onClick={goToSection("process")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Our Process</Link></li>
+                  <li><Link href="/en#cases" onClick={goToSection("cases")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Success Cases</Link></li>
+                  <li><Link href="/en#calculator" onClick={goToSection("calculator")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">ROI Calculator</Link></li>
                   <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">News Blog</Link></li>
                 </ul>
               </div>
@@ -798,7 +798,7 @@ export default function HomeEN() {
                 <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Explore</h4>
                 <ul className="space-y-4">
                   <li><Link href="/en#what-we-do" onClick={goToSection("what-we-do")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">About Us</Link></li>
-                  <li><Link href="/en#faq" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">FAQ</Link></li>
+                  <li><Link href="/en#faq" onClick={goToSection("faq")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">FAQ</Link></li>
                   <li><Link href="/en#consultoria" onClick={scrollToConsulting} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium cursor-pointer">Book Consultation</Link></li>
                   <li><Link href="/en#newsletter" onClick={goToSection("newsletter")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Weekly Newsletter</Link></li>
                 </ul>

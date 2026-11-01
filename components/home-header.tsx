@@ -73,6 +73,8 @@ export function HomeHeader({ splashFinished, lang = "es" }: { splashFinished: bo
               onClick={(e) => {
                 if (window.location.pathname === t.home) {
                   e.preventDefault()
+                  // Clear any section hash so section links work again after scrolling up
+                  window.history.pushState(null, "", window.location.pathname)
                   window.scrollTo({ top: 0, behavior: "smooth" })
                 }
               }}

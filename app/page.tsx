@@ -690,13 +690,13 @@ export default function Home() {
                   <h4 className="text-base font-black text-slate-900st">Soluciones</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Nuestro Proceso</Link>
+                    <AnchorLink href="/#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Nuestro Proceso</AnchorLink>
                   </li>
                   <li>
-                    <Link href="/#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Casos de Éxito</Link>
+                    <AnchorLink href="/#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Casos de Éxito</AnchorLink>
                   </li>
                   <li>
-                    <Link href="/#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Calculadora ROI</Link>
+                    <AnchorLink href="/#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Calculadora ROI</AnchorLink>
                   </li>
                   <li>
                     <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Blog de Noticias</Link>
@@ -794,7 +794,7 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="#contacto" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Contacto</Link>
-                <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Reservar Consultoría</Link>
+                <AnchorLink href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Reservar Consultoría</AnchorLink>
               </div>
             </div>
           </div>

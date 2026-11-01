@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { AnchorLink } from "./anchor-link"
 import { ThreeAnimatedChip } from "./hero-chip-client"
 
 interface HeroESProps {
@@ -55,19 +55,19 @@ export function HeroES({ splashFinished }: HeroESProps) {
               <div 
                 className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start relative z-30"
               >
-                <Link
+                <AnchorLink
                   href="/#consultoria"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-white border-blue-600 bg-blue-600 hover:bg-blue-700 px-8 py-4 active:scale-95"
                 >
                   Diseñar Hoja de Ruta
-                </Link>
-                <Link
+                </AnchorLink>
+                <AnchorLink
                   href="/#casos-exito"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap tracking-tight rounded-lg text-base font-bold transition-all text-slate-700 bg-slate-50 hover:bg-slate-50 px-8 py-4 group active:scale-95"
                 >
                   Explorar casos reales
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </AnchorLink>
               </div>
             </div>
 
