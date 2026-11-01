@@ -161,7 +161,7 @@ export default function PoliticaCookies() {
               </p>
               <ul className="space-y-2 pl-13 max-w-[70ch] text-base text-slate-600 list-disc list-inside">
                 <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Google Chrome</a></li>
-                <li><a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-tu-equipo" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Mozilla Firefox</a></li>
+                <li><a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Mozilla Firefox</a></li>
                 <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Safari</a></li>
                 <li><a href="https://support.microsoft.com/es-es/microsoft-edge" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Microsoft Edge</a></li>
               </ul>
