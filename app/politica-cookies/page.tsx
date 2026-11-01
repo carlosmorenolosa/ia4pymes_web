@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Cookie, BarChart3, Users, CalendarClock, Settings, ShieldCheck, RefreshCw } from "lucide-react"
+import { Cookie, BarChart3, CalendarClock, Settings, ShieldCheck, RefreshCw } from "lucide-react"
 import { HomeHeader } from "@/components/home-header"
 import { LegalFooter } from "@/components/legal-footer"
 
@@ -134,46 +134,27 @@ export default function PoliticaCookies() {
             <div className="space-y-4">
               <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
                 <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
-                  <Users className="w-5 h-5" />
+                  <CalendarClock className="w-5 h-5" />
                 </span>
-                4. Herramienta de análisis de audiencias empresariales (LeaDSY)
+                4. Widget de reserva de consultorías (Cal.com)
               </h2>
               <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
-                Utilizamos la herramienta de analítica LeaDSY (Leadsy.ai), que únicamente se activa si el usuario ha aceptado las cookies no esenciales a través del banner de cookies y permite analizar de forma agregada qué tipo de empresa visitante muestra interés en nuestros servicios, con fines de prospección comercial B2B. Esta herramienta puede almacenar identificadores de navegación en su dispositivo.
+                La sección de reserva de consultorías incorpora un widget de terceros (Cal.com) que se carga únicamente cuando el usuario accede a dicha sección. Este servicio puede establecer sus propias cookies necesarias para el funcionamiento del calendario y del proceso de reserva, conforme a su política:
               </p>
-              <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
-                Puede conocer el tratamiento de datos de este proveedor en su política de privacidad: https://leadsy.ai. Si desea oponerse a este tratamiento, puede rechazar las cookies no esenciales desde el banner o borrar el almacenamiento local del sitio desde su navegador.
-              </p>
+              <ul className="space-y-2 pl-13 max-w-[70ch] text-base text-slate-600 list-disc list-inside">
+                <li>
+                  <a href="https://cal.com/policies/cookies" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Política de cookies de Cal.com</a>
+                </li>
+              </ul>
             </div>
 
             {/* Section 5 */}
             <div className="space-y-4">
               <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
                 <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
-                  <CalendarClock className="w-5 h-5" />
-                </span>
-                5. Widgets de reserva de consultorías (Cal.com / Calendly)
-              </h2>
-              <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
-                La sección de reserva de consultorías incorpora widgets de terceros (Cal.com y Calendly) que se cargan únicamente cuando el usuario accede a dicha sección. Estos servicios pueden establecer sus propias cookies necesarias para el funcionamiento del calendario y del proceso de reserva, conforme a sus respectivas políticas:
-              </p>
-              <ul className="space-y-2 pl-13 max-w-[70ch] text-base text-slate-600 list-disc list-inside">
-                <li>
-                  <a href="https://cal.com/policies/cookies" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Política de cookies de Cal.com</a>
-                </li>
-                <li>
-                  <a href="https://calendly.com/pages/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Política de privacidad de Calendly</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Section 6 */}
-            <div className="space-y-4">
-              <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
-                <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                   <Settings className="w-5 h-5" />
                 </span>
-                6. Cómo gestionar o desactivar las cookies
+                5. Cómo gestionar o desactivar las cookies
               </h2>
               <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
                 Al acceder por primera vez a este sitio web, se muestra un banner que le permite aceptar o rechazar las cookies no esenciales. Si rechaza, no se cargarán las cookies analíticas de terceros. Puede cambiar su decisión en cualquier momento borrando el almacenamiento local del sitio desde su navegador, y configurar u obtener más información sobre las cookies desde las opciones del mismo:
@@ -186,26 +167,26 @@ export default function PoliticaCookies() {
               </ul>
             </div>
 
-            {/* Section 7 */}
+            {/* Section 6 */}
             <div className="space-y-4">
               <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
                 <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                   <ShieldCheck className="w-5 h-5" />
                 </span>
-                7. Base jurídica y cesión de datos
+                6. Base jurídica y cesión de datos
               </h2>
               <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
                 La instalación de cookies no esenciales se realiza sobre la base del consentimiento del usuario (art. 6.1.a RGPD y art. 22.2 LSSI). Los proveedores de terceros mencionados actúan como encargados del tratamiento o responsables independientes según el servicio, pudiendo realizar transferencias internacionales de datos amparadas en las cláusulas contractuales tipo de la Comisión Europea o en el Marco de Privacidad de Datos UE-EE. UU. Puede obtener más información en nuestra <Link href="/politica-privacidad" className="text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 transition-colors">Política de Privacidad</Link>.
               </p>
             </div>
 
-            {/* Section 8 */}
+            {/* Section 7 */}
             <div className="space-y-4">
               <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
                 <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                   <RefreshCw className="w-5 h-5" />
                 </span>
-                8. Actualización de esta política
+                7. Actualización de esta política
               </h2>
               <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-[70ch] pl-13">
                 Esta Política de Cookies puede actualizarse en función de cambios normativos o de las cookies utilizadas en el sitio. Le recomendamos revisarla cada vez que acceda al sitio web.

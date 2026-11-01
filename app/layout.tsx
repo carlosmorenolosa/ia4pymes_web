@@ -5,7 +5,6 @@ import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { CookieConsent } from "@/components/cookie-consent"
 import { Analytics } from "@vercel/analytics/next"
-import { LeadsyScript } from "@/components/leadsy-script"
 import Script from "next/script"
 
 const inter = Inter({
@@ -117,10 +116,7 @@ export default function RootLayout({
           }}
         />
         {/* DNS prefetch y Preconnect para recursos externos */}
-        <link rel="dns-prefetch" href="https://calendly.com" />
-        <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
 
 
 
@@ -283,7 +279,6 @@ export default function RootLayout({
         <Analytics />
         <CookieConsent />
         <CustomCursor />
-        <LeadsyScript />
       </body>
     </html>
   )
