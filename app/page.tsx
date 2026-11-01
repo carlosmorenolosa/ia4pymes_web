@@ -647,7 +647,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-white pt-20 pb-12 relative overflow-hidden border-t border-slate-100">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
               
               {/* Column 1: Brand */}
               <FadeIn delay={0.2}>
@@ -726,7 +726,28 @@ export default function Home() {
                 </div>
               </FadeIn>
 
-              {/* Column 4: Conecta */}
+              {/* Column 4: Legal */}
+              <FadeIn delay={0.5}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <h4 className="text-base font-black text-slate-900st">Legal</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="/aviso-legal" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Aviso Legal</Link>
+                  </li>
+                  <li>
+                    <Link href="/politica-privacidad" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Privacidad</Link>
+                  </li>
+                  <li>
+                    <Link href="/politica-cookies" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Cookies</Link>
+                  </li>
+                  <li>
+                    <Link href="/terminos" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Términos</Link>
+                  </li>
+                </ul>
+                </div>
+              </FadeIn>
+
+              {/* Column 5: Conecta */}
               <FadeIn delay={0.5}>
                 <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
                   <h4 className="text-base font-black text-slate-900st">Conecta</h4>
@@ -772,12 +793,7 @@ export default function Home() {
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
-                <Link href="/" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Inicio</Link>
                 <Link href="#contacto" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Contacto</Link>
-                <Link href="/aviso-legal" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Aviso Legal</Link>
-                <Link href="/politica-privacidad" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacidad</Link>
-                <Link href="/politica-cookies" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
-                <Link href="/terminos" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Términos</Link>
                 <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Reservar Consultoría</Link>
               </div>
             </div>

@@ -14,8 +14,8 @@ const COPY: Record<
         exploreTitle: string
         explore: { href: string; label: string; scrollTop?: boolean }[]
         connectTitle: string
+        legalTitle: string
         legalLinks: { href: string; label: string }[]
-        homeLabel: string
     }
 > = {
     es: {
@@ -37,13 +37,13 @@ const COPY: Record<
             { href: "/#newsletter", label: "Newsletter Semanal" },
         ],
         connectTitle: "Conecta",
+        legalTitle: "Legal",
         legalLinks: [
             { href: "/aviso-legal", label: "Aviso Legal" },
             { href: "/politica-privacidad", label: "Privacidad" },
             { href: "/politica-cookies", label: "Cookies" },
             { href: "/terminos", label: "Términos" },
         ],
-        homeLabel: "Inicio",
     },
     en: {
         homeHref: "/en",
@@ -64,13 +64,13 @@ const COPY: Record<
             { href: "/en#newsletter", label: "Weekly Newsletter" },
         ],
         connectTitle: "Connect",
+        legalTitle: "Legal",
         legalLinks: [
             { href: "/en/legal-notice", label: "Legal Notice" },
             { href: "/en/privacy-policy", label: "Privacy" },
             { href: "/en/cookie-policy", label: "Cookies" },
             { href: "/en/terms", label: "Terms" },
         ],
-        homeLabel: "Home",
     },
 }
 
@@ -80,7 +80,7 @@ export function LegalFooter({ lang = "es" }: { lang?: LegalFooterLang }) {
     return (
         <footer className="bg-white border-t border-slate-200/60 pt-20 pb-12 relative z-10">
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
                     {/* Column 1: Brand */}
                     <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
                         <Link href={t.homeHref} className="inline-flex items-center group">
@@ -127,7 +127,21 @@ export function LegalFooter({ lang = "es" }: { lang?: LegalFooterLang }) {
                         </ul>
                     </div>
 
-                    {/* Column 4: Connect */}
+                    {/* Column 4: Legal */}
+                    <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                        <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">{t.legalTitle}</h4>
+                        <ul className="space-y-4">
+                            {t.legalLinks.map((item) => (
+                                <li key={item.href}>
+                                    <Link href={item.href} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Column 5: Connect */}
                     <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
                         <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">{t.connectTitle}</h4>
                         <div className="space-y-4">
@@ -209,16 +223,6 @@ export function LegalFooter({ lang = "es" }: { lang?: LegalFooterLang }) {
                     <p className="text-slate-600 text-xs font-semibold max-w-[70ch]">
                         © 2026 IA4PYMES. {lang === "es" ? "Todos los derechos reservados." : "All rights reserved."}
                     </p>
-                    <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
-                        <Link href={t.homeHref} className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">
-                            {t.homeLabel}
-                        </Link>
-                        {t.legalLinks.map((item) => (
-                            <Link key={item.href} href={item.href} className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">
-                                {item.label}
-                            </Link>
-                        ))}
-                    </div>
                 </div>
             </div>
         </footer>

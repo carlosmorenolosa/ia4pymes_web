@@ -741,7 +741,7 @@ export default function HomeEN() {
         {/* Footer */}
         <footer className="bg-white pt-20 pb-12 relative overflow-hidden border-t border-slate-100">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
 
               {/* Column 1: Brand */}
               <div
@@ -804,7 +804,28 @@ export default function HomeEN() {
                 </ul>
               </div>
 
-              {/* Column 4: Connect */}
+              {/* Column 4: Legal */}
+              <FadeIn delay={0.5}>
+                <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
+                  <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Legal</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="/en/legal-notice" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Legal Notice</Link>
+                  </li>
+                  <li>
+                    <Link href="/en/privacy-policy" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Privacy</Link>
+                  </li>
+                  <li>
+                    <Link href="/en/cookie-policy" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Cookies</Link>
+                  </li>
+                  <li>
+                    <Link href="/en/terms" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Terms</Link>
+                  </li>
+                </ul>
+                </div>
+              </FadeIn>
+
+              {/* Column 5: Connect */}
               <div
                 className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left"
               >
@@ -851,10 +872,6 @@ export default function HomeEN() {
               </p>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="#contact" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Contact</Link>
-                <Link href="/en/legal-notice" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Legal Notice</Link>
-                <Link href="/en/privacy-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacy</Link>
-                <Link href="/en/cookie-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
-                <Link href="/en/terms" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Terms</Link>
                 <Link href="/en#consultoria" onClick={scrollToConsulting} className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors cursor-pointer">Book Consultation</Link>
               </div>
             </div>
