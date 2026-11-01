@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react"
 
+const CONSENT_KEY = "cookie-consent"
+const CONSENT_EVENT = "cookie-consent-change"
+
 export function LeadsyScript() {
   const [shouldLoad, setShouldLoad] = useState(false)
 
@@ -14,27 +17,52 @@ export function LeadsyScript() {
       return // Don't load for bots to keep performance and best practices scores clean
     }
 
+    const getConsent = () => {
+      try {
+        return localStorage.getItem(CONSENT_KEY)
+      } catch (e) {
+        console.warn("localStorage is not accessible:", e)
+        return null
+      }
+    }
+
+    const cleanup = () => {
+      window.removeEventListener(CONSENT_EVENT, onConsentChange)
+      window.removeEventListener("storage", onStorage)
+    }
+
     const loadScript = () => {
       setShouldLoad(true)
-      removeListeners()
+      cleanup()
     }
 
-    const removeListeners = () => {
-      window.removeEventListener("scroll", loadScript)
-      window.removeEventListener("mousemove", loadScript)
-      window.removeEventListener("touchstart", loadScript)
-      window.removeEventListener("keydown", loadScript)
+    const onConsentChange = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail
+      if (detail === "accepted") {
+        loadScript()
+      }
     }
 
-    // Load on first interaction
-    window.addEventListener("scroll", loadScript, { passive: true })
-    window.addEventListener("mousemove", loadScript, { passive: true })
-    window.addEventListener("touchstart", loadScript, { passive: true })
-    window.addEventListener("keydown", loadScript, { passive: true })
-
-    return () => {
-      removeListeners()
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === CONSENT_KEY && e.newValue === "accepted") {
+        loadScript()
+      }
     }
+
+    // LSSI/GDPR: only load after explicit cookie consent
+    const consent = getConsent()
+    if (consent === "accepted") {
+      loadScript()
+      return cleanup
+    }
+    if (consent === "rejected") {
+      return
+    }
+
+    // No decision yet: wait until the user accepts (same tab or another tab)
+    window.addEventListener(CONSENT_EVENT, onConsentChange)
+    window.addEventListener("storage", onStorage)
+    return cleanup
   }, [])
 
   if (!shouldLoad) return null

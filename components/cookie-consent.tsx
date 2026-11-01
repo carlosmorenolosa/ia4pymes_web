@@ -31,6 +31,7 @@ export function CookieConsent() {
     const handleAccept = () => {
         try {
             localStorage.setItem("cookie-consent", "accepted")
+            window.dispatchEvent(new CustomEvent("cookie-consent-change", { detail: "accepted" }))
         } catch (e) {
             console.warn("localStorage write blocked:", e)
         }
@@ -42,6 +43,7 @@ export function CookieConsent() {
     const handleReject = () => {
         try {
             localStorage.setItem("cookie-consent", "rejected")
+            window.dispatchEvent(new CustomEvent("cookie-consent-change", { detail: "rejected" }))
         } catch (e) {
             console.warn("localStorage write blocked:", e)
         }
@@ -92,9 +94,9 @@ export function CookieConsent() {
                                         : "Utilizamos cookies para analizar el tráfico y mejorar tu experiencia. Al aceptar, nos ayudas a entender cómo usas la web. "}
                                     <button
                                         className="text-blue-600 hover:underline font-medium"
-                                        onClick={() => window.open(isEnglish ? "/en/privacy-policy" : "/politica-privacidad", "_blank")}
+                                        onClick={() => window.open(isEnglish ? "/en/cookie-policy" : "/politica-cookies", "_blank")}
                                     >
-                                        {isEnglish ? "More information" : "Más información"}
+                                        {isEnglish ? "Cookie Policy" : "Política de Cookies"}
                                     </button>
                                 </p>
                             </div>
