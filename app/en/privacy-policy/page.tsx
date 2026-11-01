@@ -34,7 +34,7 @@ export default function PrivacyPolicyEN() {
               At IA4PYMES, we ensure data confidentiality, strict GDPR compliance, and maximum transparency in accordance with the European Union Artificial Intelligence Act (EU AI Act).
             </p>
             <p className="text-xs font-bold text-slate-600 max-w-[70ch]">
-              Last updated: August 2026
+              Last updated: November 2026
             </p>
           </div>
         </section>
@@ -288,9 +288,12 @@ export default function PrivacyPolicyEN() {
               <p className="text-slate-600 text-xs font-semibold max-w-[70ch]">
                 © 2026 IA4PYMES. All rights reserved.
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="/en" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Home</Link>
+                <Link href="/en/legal-notice" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Legal Notice</Link>
                 <Link href="/en/privacy-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacy</Link>
+                <Link href="/en/cookie-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
+                <Link href="/en/terms" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Terms</Link>
                 <Link href="/en#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Book Consulting</Link>
               </div>
             </div>

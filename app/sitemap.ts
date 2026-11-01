@@ -62,6 +62,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        {
+            url: `${baseUrl}/aviso-legal`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/en/legal-notice`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/politica-cookies`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/en/cookie-policy`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/terminos`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/en/terms`,
+            lastModified: latestDate,
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
         ...blogUrls,
         ...enBlogUrls,
     ]

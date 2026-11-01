@@ -34,7 +34,7 @@ export default function PoliticaPrivacidad() {
               En IA4PYMES garantizamos la confidencialidad, el cumplimiento estricto del RGPD y la máxima transparencia según el Reglamento de Inteligencia Artificial de la Unión Europea (EU AI Act).
             </p>
             <p className="text-xs font-bold text-slate-600 max-w-[70ch]">
-              Última actualización: Agosto de 2026
+              Última actualización: Noviembre de 2026
             </p>
           </div>
         </section>
@@ -288,9 +288,12 @@ export default function PoliticaPrivacidad() {
               <p className="text-slate-600 text-xs font-semibold max-w-[70ch]">
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="/" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Inicio</Link>
+                <Link href="/aviso-legal" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Aviso Legal</Link>
                 <Link href="/politica-privacidad" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacidad</Link>
+                <Link href="/politica-cookies" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
+                <Link href="/terminos" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Términos</Link>
                 <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Reservar Consultoría</Link>
               </div>
             </div>

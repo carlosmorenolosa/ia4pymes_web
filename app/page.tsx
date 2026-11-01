@@ -771,9 +771,13 @@ export default function Home() {
               <p className="text-slate-600 text-xs font-semibold max-w-[70ch]">
                 © 2026 IA4PYMES. Todos los derechos reservados.
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="/" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Inicio</Link>
                 <Link href="#contacto" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Contacto</Link>
+                <Link href="/aviso-legal" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Aviso Legal</Link>
+                <Link href="/politica-privacidad" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacidad</Link>
+                <Link href="/politica-cookies" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
+                <Link href="/terminos" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Términos</Link>
                 <Link href="/#consultoria" className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors">Reservar Consultoría</Link>
               </div>
             </div>

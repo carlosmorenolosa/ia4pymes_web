@@ -849,8 +849,12 @@ export default function HomeEN() {
               <p className="text-slate-600 text-xs font-semibold">
                 © 2026 IA4PYMES. All rights reserved.
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
                 <Link href="#contact" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Contact</Link>
+                <Link href="/en/legal-notice" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Legal Notice</Link>
+                <Link href="/en/privacy-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Privacy</Link>
+                <Link href="/en/cookie-policy" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Cookies</Link>
+                <Link href="/en/terms" className="text-slate-600 hover:text-blue-600 text-xs font-semibold transition-colors">Terms</Link>
                 <Link href="/en#consultoria" onClick={scrollToConsulting} className="text-blue-600 hover:text-blue-700 text-xs font-bold transition-colors cursor-pointer">Book Consultation</Link>
               </div>
             </div>
