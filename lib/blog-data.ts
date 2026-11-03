@@ -16,6 +16,245 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Programación en el espacio de pesos, una IA edita los pesos de Qwen3.5-0.8B (3 NOVIEMBRE 2026)
+    {
+        slug: "programacion-espacio-de-pesos-ia-edita-pesos-qwen-pymes-2026",
+        title: "Una IA Edita los Pesos de Otra: del 7,9% al 48,1% en MATH-500",
+        description: "Un LLM editó el 0,016% de los pesos de Qwen3.5-0.8B y subió MATH-500 del 7,9% al 48,1%. Qué demuestra el experimento del MIT y qué cambia para una pyme.",
+        date: "2026-11-03",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/images/programacion_espacio_pesos_ia_edita_modelo_2026_es.jpg",
+        lang: "es",
+        translationSlug: "weight-space-programming-ai-edits-qwen-weights-smes-2026",
+        content: `
+Un modelo de lenguaje abrió los pesos de otro modelo, encontró la dirección que lo hacía entrar en bucles y la restó. En total cambió 131.072 pesos, el 0,016% de Qwen3.5-0.8B, y la nota del modelo en MATH-500 pasó del 7,9% al 48,1%. No hubo entrenamiento ni gradientes.
+
+El resultado viene del post "Sparks of Weight-Space Programming", firmado por Rikiya Takehi, Jayden Teoh, Alex Zhang y Omar Khattab, de MIT CSAIL, y publicado el 2 de noviembre de 2026. El tweet que lo resume superó los 5 millones de visualizaciones en su primer día. Las cifras de este artículo son las de los autores: no las hemos replicado y el propio post las describe como resultados tempranos.
+
+---
+
+## 1. ¿Qué es la programación en el espacio de pesos?
+
+Es la idea de que un modelo de lenguaje general lea y escriba directamente los pesos de otra red neuronal, guiado por un objetivo en lenguaje natural y sin optimizador. Los autores la llaman Weight-Space Programming. El modelo que usaron aparece en el post como GPT-6 Astra.
+
+El post recoge ocho experimentos. Cuatro leen pesos (identificar a qué juega una red o en qué idioma escribe) y cuatro los escriben o los corrigen. El más citado es el de Qwen3.5-0.8B, que es el que importa a una empresa que ejecuta modelos pequeños en sus propios servidores.
+
+---
+
+## 2. Qué hicieron con Qwen3.5-0.8B
+
+El modelo de partida tiene 24 capas y 0.8B de parámetros, con el modo de razonamiento activado. Astra trabajó en un kernel de Python sobre los pesos, sin GPU, con problemas de práctica de los conjuntos de entrenamiento de GSM8K (7.469) y MATH (7.275). Tenía un presupuesto de 10, 25 o 50 pasadas hacia delante, y cada pasada permitía al modelo responder hasta 512 problemas.
+
+El modelo base entra en bucles: de sus primeras 96 respuestas de práctica, 85 llegaron al límite de 32.768 tokens. Astra rastreó el bucle hasta una dirección que escriben las MLP de las capas 15 y 19, y la restó de 64 columnas de salida en cada una. Son 131.072 pesos de un total de 0.8B.
+
+El post cita además que la ficha del modelo de Qwen ya avisa de este comportamiento de bucles en razonamiento.
+
+---
+
+## 3. Los resultados, con su presupuesto de pasadas
+
+Mismos ajustes de muestreo en todas las filas (temperatura 0,6, top-p 0,95, top-k 20, hasta 32.768 tokens):
+
+| Qwen3.5-0.8B | MATH-500 (%) | GSM8K (%) | IFEval (%) | Respuestas que agotan el límite (%) |
+| :--- | :--- | :--- | :--- | :--- |
+| Base | 7,9 | 13,8 | 21,0 | 93,0 |
+| Editado, 10 pasadas | 12,3 | 25,7 | 49,0 | 87,2 |
+| Editado, 25 pasadas | 14,1 | 25,1 | 39,9 | 86,4 |
+| Editado, 50 pasadas | 48,1 | 67,1 | 62,3 | 33,1 |
+
+La mejora grande llega con 50 pasadas. Con 10 y 25, MATH-500 sube a 12,3% y 14,1%. IFEval, que mide seguimiento de instrucciones, mejora más de tres veces sin que la edición apuntara a él, porque los bucles afectan a cualquier tarea.
+
+---
+
+## 4. Qué no demuestra el experimento
+
+Los autores son claros sobre los límites, y conviene leerlos antes de sacar conclusiones:
+
+* Arreglar bucles no es lo mismo que mejorar el razonamiento matemático. La edición deja que el modelo termine respuestas que ya sabía resolver.
+* En Gemma 3 270M, que casi no entra en bucles (el 8,5% de sus respuestas llega al límite, frente al 93% de Qwen), Astra no consiguió mejorar nada. MATH-500 pasó de 6,8% a entre 7,0% y 7,7% según el presupuesto, una variación de menos de un punto.
+* Los fallos de Gemma eran errores de cálculo y pasos algebraicos inválidos, sin un componente concreto que apagar. De ahí la conclusión del post: editar pesos puede quitar un obstáculo que esconde una capacidad, pero no crea una capacidad que el modelo no tiene.
+* Varios experimentos son de un solo intento o una sola respuesta, como la corrección de la política de control (Kinetix) y la escritura de pesos desde cero.
+* Los autores preparan un benchmark y un arnés para el método. Todavía no están publicados.
+
+---
+
+## 5. Otros resultados del post
+
+Tres experimentos ayudan a calibrar hasta dónde llega la idea:
+
+* **Escribir pesos desde cero:** con una red 600→32→32→6 inicializada a cero, Astra escribió los pesos en una sola respuesta para jugar a MinAtar Breakout. Obtuvo 517,4 puntos, frente a 25,3 de PPO entrenado durante 500 millones de pasos. En Seaquest (53,1 frente a 88,9) y Asterix (53,2 frente a 55,2) quedó por debajo o a la par de PPO a 500M.
+* **Leer pesos:** a partir de las capas centrales de tres transformers de 7,16M de pesos, sin etiquetas, Astra acertó el idioma (Python, romaji, inglés) y señaló las cabezas de copia que luego se confirmaron ejecutando el modelo.
+* **Detectar adulación:** solo con los pesos de dos copias de Gemma 3 270M, una honesta y otra aduladora, Astra falló en los cuatro intentos. Cuando pudo ver patrones de atención sobre textos que escribió él mismo, identificó la aduladora en los tres pares.
+
+---
+
+## 6. Qué significa para una pyme
+
+Lo que sigue es nuestra lectura, no una conclusión del post.
+
+Primero, el diagnóstico antes que la compra. Si tu modelo local da respuestas malas, mide qué porcentaje de ellas llega al límite de tokens. En Qwen ese número (93%) explicaba casi todo. Un modelo cuyo problema son los bucles necesita una corrección, no un modelo más grande ni un servidor nuevo.
+
+Segundo, el coste cambia de naturaleza. El flujo del post no entrena ni usa GPU para editar, pero sí ejecuta el modelo decenas de veces para comprobar los cambios. El gasto pasa del entrenamiento a la inferencia y a un modelo de razonamiento potente que dirija el proceso. Ese modelo es de pago, y el post no indica cómo acceder a GPT-6 Astra.
+
+Tercero, hoy no hay herramienta que puedas instalar. Código y logs de los experimentos son públicos, pero el arnés y el benchmark no, y los resultados dependen de un modelo que quizá no puedas usar. Para un proyecto de producción esta semana, la opción realista sigue siendo elegir bien el modelo, ajustar el muestreo y medir.
+
+Cuarto, la dirección merece seguimiento. Si editar pesos con un modelo general se vuelve fiable, un modelo pequeño con un defecto concreto podría arreglarse en horas y sin repetir un fine-tuning. Con datos propios y modelos que corren dentro de tu red, eso reduciría el coste de mantener IA local. Hoy es una hipótesis que los autores también describen como creencia, no como resultado.
+
+---
+
+## Qué hacer esta semana
+
+Mide en tus pruebas actuales el porcentaje de respuestas que se cortan por límite de tokens y las que repiten texto. Si una parte relevante de las respuestas se corta o se repite, revisa primero los ajustes de muestreo que indica la ficha del modelo y el límite de tokens. Si el problema persiste en un modelo concreto, guarda ese caso con ejemplos: es el tipo de fallo que este método podría atacar cuando el arnés esté disponible.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y revisamos qué modelo, qué hardware y qué ajustes encajan con tu caso de uso hoy, con herramientas que ya existen.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Es cierto que una IA mejoró otra IA sin entrenarla?
+
+Según los autores, sí: Astra editó 131.072 pesos de Qwen3.5-0.8B (0,016%) sin gradientes ni entrenamiento, y MATH-500 pasó de 7,9% a 48,1% con 50 pasadas hacia delante. Es un resultado de un solo grupo, descrito como temprano. Los logs completos están publicados en GitHub para que otros lo revisen.
+
+### ¿Puedo hacer esto con el modelo de mi empresa?
+
+Hoy no. El método usa un modelo de razonamiento muy potente (GPT-6 Astra en el post) y un arnés que los autores todavía no han publicado. Sí puedes aplicar la idea de diagnóstico: medir cuántas respuestas de tu modelo acaban en bucle o cortadas por límite de tokens.
+
+### ¿Sirve para modelos que ya funcionan bien?
+
+El post indica que no. En Gemma 3 270M, que rara vez entra en bucles, Astra no mejoró las matemáticas. La edición de pesos resolvió un defecto concreto de Qwen, no añadió capacidad.
+
+### ¿Qué es un bucle de razonamiento?
+
+Es cuando un modelo con modo de razonamiento repite el mismo texto y no llega a una respuesta final. En Qwen3.5-0.8B, 85 de las primeras 96 respuestas de práctica agotaron los 32.768 tokens permitidos. La ficha del modelo ya advierte de este comportamiento.
+
+### ¿Debo cambiar mi estrategia de IA por este resultado?
+
+No. Es una línea de investigación que conviene seguir, con resultados prometedores y límites declarados. Para decidir hoy, usa modelos publicados, mide con tus propios casos y revisa la estrategia cuando el método esté disponible y alguien lo haya replicado.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Weight-Space Programming, an AI edits the weights of Qwen3.5-0.8B (3 NOVEMBER 2026)
+    {
+        slug: "weight-space-programming-ai-edits-qwen-weights-smes-2026",
+        title: "An AI Edits Another AI's Weights: 7.9% to 48.1% on MATH-500",
+        description: "An LLM edited 0.016% of Qwen3.5-0.8B's weights and lifted MATH-500 from 7.9% to 48.1%. What the MIT experiment shows and what it means for a small business.",
+        date: "2026-11-03",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/images/programacion_espacio_pesos_ia_edita_modelo_2026_en.jpg",
+        lang: "en",
+        translationSlug: "programacion-espacio-de-pesos-ia-edita-pesos-qwen-pymes-2026",
+        content: `
+A language model opened another model's weights, found the direction that made it loop, and subtracted it. It changed 131,072 weights, 0.016% of Qwen3.5-0.8B, and the model's MATH-500 score went from 7.9% to 48.1%. There was no training and no gradients.
+
+The result comes from the post "Sparks of Weight-Space Programming", by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab at MIT CSAIL, published on November 2, 2026. The tweet summarizing it passed 5 million views on its first day. The figures in this article are the authors': we have not replicated them, and the post itself calls them early results.
+
+---
+
+## 1. What is weight-space programming?
+
+It is the idea that a general-purpose language model reads and writes another neural network's weights directly, guided by a goal in natural language and with no optimizer. The authors call it Weight-Space Programming. The model they used appears in the post as GPT-6 Astra.
+
+The post covers eight experiments. Four read weights (identifying which game a network plays or which language it writes) and four write or fix them. The most quoted one is Qwen3.5-0.8B, which is the one that matters to a company running small models on its own servers.
+
+---
+
+## 2. What they did with Qwen3.5-0.8B
+
+The starting model has 24 layers and 0.8B parameters, with thinking mode on. Astra worked in a Python kernel over the weights, with no GPU, using practice problems from the GSM8K (7,469) and MATH (7,275) training sets. It had a budget of 10, 25, or 50 forward passes, and each pass let the model answer up to 512 problems.
+
+The base model loops: of its first 96 practice answers, 85 ran to the 32,768-token limit. Astra traced the looping to one direction written by the MLPs in layers 15 and 19, and subtracted it from 64 output columns in each. That is 131,072 weights out of 0.8B.
+
+The post also notes that Qwen's own model card already warns about this looping behavior in reasoning mode.
+
+---
+
+## 3. The results, by pass budget
+
+Same sampling settings in every row (temperature 0.6, top-p 0.95, top-k 20, up to 32,768 tokens):
+
+| Qwen3.5-0.8B | MATH-500 (%) | GSM8K (%) | IFEval (%) | Answers hitting the token limit (%) |
+| :--- | :--- | :--- | :--- | :--- |
+| Base | 7.9 | 13.8 | 21.0 | 93.0 |
+| Edited, 10 passes | 12.3 | 25.7 | 49.0 | 87.2 |
+| Edited, 25 passes | 14.1 | 25.1 | 39.9 | 86.4 |
+| Edited, 50 passes | 48.1 | 67.1 | 62.3 | 33.1 |
+
+The big gain arrives at 50 passes. At 10 and 25, MATH-500 only reaches 12.3% and 14.1%. IFEval, which measures instruction following, improves by more than 3x even though the edit did not target it, because looping hurts every task.
+
+---
+
+## 4. What the experiment does not show
+
+The authors are clear about the limits, and they are worth reading before drawing conclusions:
+
+* Fixing loops is not the same as improving math reasoning. The edit lets the model finish answers it could already solve.
+* On Gemma 3 270M, which rarely loops (8.5% of its answers hit the limit, against 93% for Qwen), Astra could not improve anything. MATH-500 moved from 6.8% to between 7.0% and 7.7% depending on budget, a change of under one point.
+* Gemma's failures were arithmetic mistakes and invalid algebra steps, with no single component to switch off. Hence the post's conclusion: editing weights can remove an obstacle that hides an ability, but it cannot add an ability the model lacks.
+* Several experiments are single attempts or single replies, such as the control-policy fix (Kinetix) and the from-scratch weight writing.
+* The authors are building a benchmark and a harness for the method. Neither is released yet.
+
+---
+
+## 5. Other results in the post
+
+Three experiments help calibrate how far the idea goes:
+
+* **Writing weights from scratch:** with a zero-initialized 600→32→32→6 network, Astra wrote the weights in a single reply to play MinAtar Breakout. It scored 517.4, against 25.3 for PPO trained for 500 million steps. On Seaquest (53.1 vs 88.9) and Asterix (53.2 vs 55.2) it landed below or on par with PPO at 500M.
+* **Reading weights:** from the middle layers of three 7.16M-weight transformers, with no labels, Astra got the language right (Python, romaji, English) and flagged the copying heads that were later confirmed by running the model.
+* **Detecting sycophancy:** from the weights alone of two Gemma 3 270M copies, one honest and one sycophantic, Astra failed in all four attempts. Once it could see attention patterns on texts it wrote itself, it identified the sycophantic model in all three pairs.
+
+---
+
+## 6. What it means for a small business
+
+What follows is our reading, not a conclusion of the post.
+
+First, diagnose before you buy. If your local model gives bad answers, measure what share of them hit the token limit. In Qwen that number (93%) explained most of the problem. A model whose issue is looping needs a fix, not a bigger model or a new server.
+
+Second, the cost changes nature. The workflow in the post does not train and uses no GPU to edit, but it runs the model dozens of times to check the changes. Spending moves from training to inference and to a strong reasoning model directing the process. That model is a paid one, and the post does not say how to access GPT-6 Astra.
+
+Third, there is no tool you can install today. Code and logs from the experiments are public, but the harness and benchmark are not, and the results depend on a model you may not be able to use. For a production project this week, the realistic path is still to choose the model well, tune sampling, and measure.
+
+Fourth, the direction is worth tracking. If editing weights with a general model becomes reliable, a small model with one specific defect could be fixed in hours without repeating a fine-tune. With your own data and models running inside your network, that would lower the cost of maintaining local AI. Today it is a hypothesis that the authors also describe as a belief, not a result.
+
+---
+
+## What to do this week
+
+In your current tests, measure the share of answers cut off by the token limit and the share that repeat text. If a meaningful share of answers gets cut off or repeats, first check the sampling settings in the model card and the token limit. If the problem persists in one specific model, keep that case with examples: it is the kind of failure this method could target once the harness is available.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will review which model, hardware, and settings fit your use case today, with tools that already exist.
+
+---
+
+## Frequently asked questions
+
+### Is it true that an AI improved another AI without training it?
+
+According to the authors, yes: Astra edited 131,072 weights of Qwen3.5-0.8B (0.016%) with no gradients or training, and MATH-500 went from 7.9% to 48.1% with 50 forward passes. It is a single group's result, described as early. The full logs are published on GitHub so others can check them.
+
+### Can I do this with my company's model?
+
+Not today. The method uses a very strong reasoning model (GPT-6 Astra in the post) and a harness the authors have not yet released. You can apply the diagnostic idea: measure how many of your model's answers end in a loop or get cut off by the token limit.
+
+### Does it work on models that already perform well?
+
+The post says no. On Gemma 3 270M, which rarely loops, Astra did not improve math. Weight editing fixed a specific Qwen defect and did not add capability.
+
+### What is a reasoning loop?
+
+It happens when a model in reasoning mode repeats the same text and never reaches a final answer. In Qwen3.5-0.8B, 85 of the first 96 practice answers used up the 32,768 allowed tokens. The model card already warns about this behavior.
+
+### Should I change my AI strategy because of this result?
+
+No. It is a line of research worth following, with promising results and stated limits. To decide today, use published models, measure with your own cases, and revisit your strategy once the method is available and someone has replicated it.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Filtración GLM 5.5, modelos 32B/122B/256B y la GPU local (31 OCTUBRE 2026)
     {
         slug: "glm-5-5-filtracion-32b-122b-256b-gpu-local-2026",
