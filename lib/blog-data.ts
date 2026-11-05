@@ -16,6 +16,313 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: ¿Montar la IA tú mismo o con un especialista? Cómo decidirlo con números (5 NOVIEMBRE 2026)
+    {
+        slug: "montar-ia-por-tu-cuenta-o-con-especialista-como-decidir-pymes",
+        title: "¿Montar la IA tú mismo o con un especialista? Cómo decidirlo",
+        description: "Datos del INE, MIT y Gartner sobre proyectos de IA propios frente a proveedores especializados, y un método para que una pyme decida con números.",
+        date: "2026-11-05",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Estrategia e Inteligencia de Negocio",
+        image: "/images/montar_ia_propia_o_con_especialista_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "build-ai-yourself-or-hire-a-specialist-how-smes-decide",
+        content: `
+El 33,6% de las empresas españolas de 10 o más empleados usó inteligencia artificial en el primer trimestre de 2026, según el INE. Entre las de menos de 10 empleados fue el 21,4%. La pregunta que sigue en cualquier dirección es si montarlo con el equipo propio o contratar a quien lo hace a diario.
+
+Los datos disponibles indican que la respuesta depende del caso, y por eso conviene decidirla con números. Este artículo reúne lo que dicen el INE, la Comisión Europea, el MIT y Gartner, y termina con un método para decidir. Somos IA4PYMES, una empresa que desarrolla IA para pymes, así que una de las dos respuestas nos conviene. Por eso citamos cada cifra con su fuente y explicamos cuándo no hace falta ayuda externa.
+
+---
+
+## 1. ¿Cuántas empresas españolas usan ya IA?
+
+El [INE publicó el 22 de octubre de 2026](https://www.ine.es/dyngs/Prensa/ETICCE20251T2026.htm) los datos de su encuesta sobre uso de TIC en empresas:
+
+* El 33,6% de las empresas de 10 o más empleados utilizó IA en el primer trimestre de 2026.
+* En las de menos de 10 empleados, el 21,4%.
+* Por sectores: servicios 38,2%, industria 29,1% y construcción 22,6%.
+
+El propio INE avisa de que los datos de este año no son estrictamente comparables con los de años anteriores, así que no calculamos aquí una tasa de crecimiento.
+
+La Comisión Europea publicó el 14 de octubre de 2026 un [Eurobarómetro Flash](https://remoteworkeurope.eu/news/2026/eu-eurobarometer-578-ai-algorithmic-management-smes/) con 12.826 entrevistas a responsables de empresas de entre 1 y 749 empleados en los 27 Estados miembros (trabajo de campo en marzo y abril de 2026). El 42% usa IA o gestión algorítmica, aunque solo el 12% de forma extensiva y el 30% de forma limitada o experimental. Otro 21% planea hacerlo y el 35% no tiene planes. Las tres barreras más citadas son el coste de la inversión (50%), la incertidumbre legal (49%) y la falta de expertos (48%). Analizamos ese estudio en nuestro [artículo sobre el Eurobarómetro 2026](/blog/eurobarometro-2026-ia-pymes-europeas-adopcion-datos).
+
+Con un tercio de las empresas de 10 o más empleados ya usando IA, probarla ha dejado de ser lo difícil. Lo difícil es que el resultado llegue a la cuenta de resultados.
+
+---
+
+## 2. ¿Qué dice la evidencia sobre hacerlo solo o con un proveedor?
+
+El informe *The GenAI Divide: State of AI in Business 2025*, del proyecto NANDA del MIT, se basó en 150 entrevistas con directivos, una encuesta a 350 empleados y el análisis de 300 despliegues públicos. Según la [cobertura de Fortune del 18 de agosto de 2025](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/):
+
+* Cerca del 5% de los pilotos de IA generativa logra una aceleración rápida de ingresos. La mayoría se queda sin impacto medible en la cuenta de resultados.
+* Las herramientas compradas a proveedores especializados y las alianzas tienen éxito alrededor del 67% de las veces. Los desarrollos internos tienen éxito la tercera parte de esas veces.
+* El informe atribuye los fallos a una brecha de aprendizaje de herramientas y organizaciones y a una integración deficiente, y no a la calidad de los modelos.
+* Más de la mitad de los presupuestos de IA generativa iba a ventas y marketing, mientras que el mayor retorno apareció en la automatización de procesos internos.
+
+Tres cautelas. Citamos la cobertura periodística y no el informe original. "Fracaso" significa aquí no alcanzar una aceleración rápida de ingresos, y no que no ocurriera nada. Y no hemos encontrado una medición equivalente para pymes españolas.
+
+Gartner publicó el 25 de junio de 2025 una [previsión](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027): más del 40% de los proyectos de IA con agentes se cancelarán antes de que acabe 2027 por costes crecientes, valor poco claro y controles de riesgo inadecuados. La consultora también calcula que, de los miles de proveedores que se presentan como "agénticos", solo unos 130 lo son de verdad, porque muchos han renombrado chatbots y herramientas de automatización. Es una previsión, no una medición.
+
+Nuestra lectura de ambas fuentes: los proyectos se tuercen más por la integración con los sistemas de la empresa y por la falta de una métrica de valor que por el modelo elegido.
+
+---
+
+## 3. El modelo y el precio cambian mientras decides
+
+El 16 de agosto de 2026, DeepSeek sustituyó sus tarifas planas por precios de hora punta y hora valle. Según [Engadget](https://www.engadget.com/2236912/deepseek-ai-models-get-fourtimes-pricier/) y [HWBusters](https://hwbusters.com/news/deepseek-api-prices-rise-up-to-1100-on-sunday-and-peak-hours-come-with-them/), la salida de V4-Pro en hora punta pasó de 0,87 a 3,96 dólares por millón de tokens, más de cuatro veces. Lo analizamos en nuestro artículo sobre la [subida de precios de DeepSeek V4-Pro](/blog/deepseek-v4-pro-subida-precios-tarifas-dinamicas-pico-valle-pymes-2026).
+
+Un sistema que depende de un único modelo hereda cada cambio de tarifa, de política o de disponibilidad. Quien monta IA por su cuenta necesita a alguien que siga esos movimientos y mantenga una alternativa preparada. Las tres protecciones básicas son una capa que permita cambiar de modelo sin reescribir el sistema, el coste medido por tarea y no por token, y una segunda opción probada.
+
+---
+
+## 4. ¿Cuándo puedes hacerlo tú?
+
+Este cuadro recoge nuestro criterio, no una norma:
+
+| Situación | Hacerlo tú | Con apoyo |
+| :--- | :--- | :--- |
+| Redactar textos, resumir reuniones, traducir | Sí, con una herramienta comercial | No hace falta |
+| Tarea acotada, una persona responsable, sin datos personales | Sí | Opcional, para revisar |
+| Atención a clientes por web o WhatsApp | Posible, con alcance limitado y paso a una persona | Recomendable si toca pedidos o datos de clientes |
+| Facturas, albaranes, conciliación | Solo con validación humana y pruebas | Recomendable: se integra con el ERP y un error cuesta dinero |
+| Datos personales de clientes o empleados | Solo si sabes cumplir el RGPD | Recomendable |
+| Modelos en tu propio servidor | Solo con perfil técnico en plantilla | Recomendable |
+
+Para hacerlo tú con garantías hacen falta tres cosas: una persona con tiempo asignado, una métrica de éxito definida antes de empezar y un plan para cuando cambie el modelo o su precio. Si falta alguna, el riesgo sube. El 49% de las pymes europeas cita la incertidumbre legal como barrera. Antes de introducir datos de clientes en cualquier herramienta, revisa las condiciones de tratamiento de datos de tu plan.
+
+---
+
+## 5. Cómo decidir con números
+
+La cuenta cabe en una hoja de cálculo:
+
+* Ahorro mensual = horas al mes de la tarea × coste por hora × porcentaje automatizable.
+* Coste mensual = licencias o consumo de modelo + mantenimiento.
+* Retorno en meses = coste del proyecto / (ahorro mensual − coste mensual).
+
+Un ejemplo ilustrativo, con supuestos nuestros que no corresponden a un cliente real: un proyecto de 9.000 €, 22 €/hora, un 70% automatizable y 150 €/mes de mantenimiento.
+
+| Tarea | Horas al mes | Ahorro mensual | Neto tras mantenimiento | Retorno |
+| :--- | :--- | :--- | :--- | :--- |
+| Entrada de facturas y albaranes | 60 | 924 € | 774 € | unos 12 meses |
+| Informe semanal | 15 | 231 € | 81 € | más de 9 años |
+
+La misma inversión sale a cuenta en un caso y no en el otro. Antes de programar, calculamos ese número con cada cliente. Si no sale, no seguimos.
+
+---
+
+## 6. Qué hacemos y qué puedes llevarte aunque no nos contrates
+
+Según lo que publicamos en nuestra web:
+
+* **Consultoría de 60 minutos** con ingenieros: viabilidad, arquitectura técnica, componentes recomendados (APIs, modelos locales o en la nube) y una hoja de ruta por fases con costes. Cuesta 299 € + IVA.
+* **Descuento íntegro** de esa cantidad si después desarrollas con nosotros.
+* **Reembolso completo** si en los primeros 15 minutos no se ve ningún beneficio posible.
+* **Decisión tuya:** puedes llevarte la hoja de ruta y hacerlo por tu cuenta.
+* **Desarrollo:** un diagnóstico de 2 a 3 semanas y entre 1 y 4 meses de construcción y puesta en marcha. El código es del cliente.
+* **Datos:** RGPD, acuerdo de confidencialidad y ningún entrenamiento de modelos públicos con tu información.
+
+---
+
+## 7. Seis preguntas para cualquier proveedor, incluidos nosotros
+
+1. ¿De quién es el código y los datos, y qué te llevas si termina la relación?
+2. ¿Dónde se alojan los datos y se usan para entrenar modelos?
+3. ¿Cómo y cuándo se mide el retorno, y qué pasa si no sale?
+4. ¿Qué parte es un producto real y qué parte es un chatbot rebautizado?
+5. ¿Qué ocurre cuando cambia el modelo o su precio?
+6. ¿Quién valida las respuestas y cómo interviene una persona?
+
+Para comprobar a un proveedor por una vía independiente, mira nuestra guía sobre el [sello Kriterion de Kribaia](/blog/sello-kribaia-kriterion-proveedores-ia-espana-como-elegir). Si además buscas financiación, revisa el [Plan IA360 y el bono de IA](/blog/plan-ia360-bono-inteligencia-artificial-pymes-ayudas-gobierno).
+
+---
+
+## Qué hacer esta semana
+
+Haz una lista de tres tareas repetitivas de tu empresa y apunta las horas que consumen al mes. Aplica la fórmula del apartado 5 a cada una. Descarta las que no se pagan en un plazo que te resulte razonable y empieza por la que más ahorra con menos datos personales en juego. Si esa tarea toca facturas, clientes o tu ERP, valora hacerla con apoyo.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y calculamos contigo el retorno de tu caso antes de escribir una línea de código.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Es mejor desarrollar IA internamente o contratar a un proveedor?
+
+Depende del caso. En el estudio del MIT, las herramientas compradas a proveedores especializados tuvieron éxito alrededor del 67% de las veces y los desarrollos internos, la tercera parte de esas veces, según la cobertura de Fortune. Para tareas acotadas sin datos personales, una herramienta comercial puede bastar. Para integrar con el ERP o tratar datos de clientes, el apoyo especializado reduce riesgos.
+
+### ¿Qué porcentaje de empresas españolas usa IA?
+
+Según el INE, el 33,6% de las empresas de 10 o más empleados usó IA en el primer trimestre de 2026 y el 21,4% de las de menos de 10. Por sectores, servicios lidera con el 38,2%, seguido de industria (29,1%) y construcción (22,6%). El INE advierte de que los datos no son estrictamente comparables con años anteriores.
+
+### ¿Por qué fallan tantos proyectos de IA en las empresas?
+
+Las fuentes citadas apuntan a causas parecidas. El MIT señala una brecha de aprendizaje y una integración deficiente, y no la calidad del modelo. Gartner prevé que más del 40% de los proyectos de IA con agentes se cancelen antes de que acabe 2027 por costes crecientes, valor poco claro y controles de riesgo inadecuados.
+
+### ¿Puedo usar ChatGPT en mi empresa sin contratar a nadie?
+
+Para tareas como redactar, resumir o traducir, sí. Antes de introducir datos de clientes o empleados, revisa las condiciones de tratamiento de datos de tu plan y comprueba que cumples el RGPD. Para conectar la IA con tu ERP o automatizar procesos con dinero de por medio, conviene un diseño con pruebas y validación humana.
+
+### ¿Cómo sé si un proveedor de IA es fiable?
+
+Pregunta quién es dueño del código, dónde se alojan los datos, cómo se mide el retorno y qué ocurre si cambia el modelo. Gartner estima que solo unos 130 de los miles de proveedores que se presentan como "agénticos" lo son de verdad, así que pide una demostración con tus propios datos antes de firmar.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Build AI yourself or hire a specialist? How to decide with numbers (5 NOVEMBER 2026)
+    {
+        slug: "build-ai-yourself-or-hire-a-specialist-how-smes-decide",
+        title: "Build AI Yourself or Hire a Specialist? How SMEs Decide",
+        description: "Data from INE, MIT, and Gartner on in-house AI projects versus specialist providers, and a method for SMEs to decide with numbers.",
+        date: "2026-11-05",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "AI Strategy & Business Intelligence",
+        image: "/images/montar_ia_propia_o_con_especialista_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "montar-ia-por-tu-cuenta-o-con-especialista-como-decidir-pymes",
+        content: `
+In the first quarter of 2026, 33.6% of Spanish companies with 10 or more employees used artificial intelligence, according to INE, Spain's national statistics institute. Among companies with fewer than 10 employees, the figure was 21.4%. The next question for any owner is whether to build it with the team they have or hire someone who does it every day.
+
+The available data suggests the answer depends on the case, which is why it is worth deciding with numbers. This article gathers what INE, the European Commission, MIT, and Gartner say, and ends with a method for deciding. We are IA4PYMES, a company that develops AI for SMEs, so one of the two answers benefits us. That is why we cite every figure with its source and explain when you do not need outside help.
+
+---
+
+## 1. How many Spanish companies already use AI?
+
+[INE published its ICT-in-business survey on October 22, 2026](https://www.ine.es/dyngs/Prensa/ETICCE20251T2026.htm):
+
+* 33.6% of companies with 10 or more employees used AI in the first quarter of 2026.
+* Among companies with fewer than 10 employees, 21.4%.
+* By sector: services 38.2%, industry 29.1%, and construction 22.6%.
+
+INE itself warns that this year's data is not strictly comparable with earlier years, so we do not calculate a growth rate here.
+
+On October 14, 2026, the European Commission published a [Flash Eurobarometer](https://remoteworkeurope.eu/news/2026/eu-eurobarometer-578-ai-algorithmic-management-smes/) based on 12,826 interviews with heads of companies with 1 to 749 employees across the 27 member states (fieldwork in March and April 2026). 42% use AI or algorithmic management, though only 12% extensively and 30% in a limited or experimental way. Another 21% plan to, and 35% have no plans. The three most cited barriers are investment cost (50%), legal uncertainty (49%), and lack of expertise (48%). We analyzed that study in our [article on the 2026 Eurobarometer](/en/blog/eurobarometer-2026-ai-european-smes-adoption-data).
+
+With a third of companies with 10 or more employees already using AI, trying it is no longer the hard part. The hard part is getting the result to the bottom line.
+
+---
+
+## 2. What does the evidence say about building in-house versus using a provider?
+
+The report *The GenAI Divide: State of AI in Business 2025*, from MIT's NANDA project, drew on 150 interviews with leaders, a survey of 350 employees, and an analysis of 300 public deployments. According to [Fortune's coverage of August 18, 2025](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/):
+
+* About 5% of generative AI pilots achieve rapid revenue acceleration. Most deliver no measurable impact on the profit and loss statement.
+* Tools bought from specialized vendors and partnerships succeed about 67% of the time. Internal builds succeed one-third as often.
+* The report attributes failures to a learning gap in both tools and organizations and to flawed integration, not to model quality.
+* More than half of generative AI budgets went to sales and marketing, while the biggest return appeared in back-office automation.
+
+Three caveats. We cite press coverage, not the original report. "Failure" here means not achieving rapid revenue acceleration, not that nothing happened. And we have not found an equivalent measurement for Spanish SMEs.
+
+On June 25, 2025, Gartner published a [forecast](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027): more than 40% of agentic AI projects will be canceled by the end of 2027 because of rising costs, unclear business value, and inadequate risk controls. The firm also estimates that of the thousands of vendors presenting themselves as "agentic", only about 130 are genuine, because many have rebranded chatbots and automation tools. It is a forecast, not a measurement.
+
+Our reading of both sources: projects go wrong more often because of integration with company systems and the lack of a value metric than because of the model chosen.
+
+---
+
+## 3. The model and the price change while you decide
+
+On August 16, 2026, DeepSeek replaced its flat rates with peak and off-peak pricing. According to [Engadget](https://www.engadget.com/2236912/deepseek-ai-models-get-fourtimes-pricier/) and [HWBusters](https://hwbusters.com/news/deepseek-api-prices-rise-up-to-1100-on-sunday-and-peak-hours-come-with-them/), V4-Pro output at peak hours went from $0.87 to $3.96 per million tokens, more than four times. We covered it in our article on the [DeepSeek V4-Pro price hike](/en/blog/deepseek-v4-pro-price-hike-dynamic-peak-pricing-smes-2026).
+
+A system that depends on a single model inherits every change in pricing, policy, or availability. Whoever builds AI alone needs someone to follow those moves and keep an alternative ready. The three basic protections are a layer that lets you switch models without rewriting the system, cost measured per task rather than per token, and a tested second option.
+
+---
+
+## 4. When can you do it yourself?
+
+This table reflects our judgment, not a rule:
+
+| Situation | Do it yourself | With support |
+| :--- | :--- | :--- |
+| Drafting text, summarizing meetings, translating | Yes, with a commercial tool | Not needed |
+| Bounded task, one responsible person, no personal data | Yes | Optional, for review |
+| Customer service on web or WhatsApp | Possible, with limited scope and handoff to a person | Advisable if it touches orders or customer data |
+| Invoices, delivery notes, reconciliation | Only with human validation and testing | Advisable: it connects to the ERP and an error costs money |
+| Personal data of customers or employees | Only if you know how to comply with GDPR | Advisable |
+| Models on your own server | Only with a technical profile on staff | Advisable |
+
+Doing it yourself safely takes three things: a person with assigned time, a success metric defined before you start, and a plan for when the model or its price changes. If one is missing, the risk goes up. 49% of European SMEs cite legal uncertainty as a barrier. Before entering customer data into any tool, review the data processing terms of your plan.
+
+---
+
+## 5. How to decide with numbers
+
+The calculation fits in a spreadsheet:
+
+* Monthly savings = hours per month on the task × hourly cost × share that can be automated.
+* Monthly cost = licenses or model usage + maintenance.
+* Payback in months = project cost / (monthly savings − monthly cost).
+
+An illustrative example, with our own assumptions and not a real client: a €9,000 project, €22 per hour, 70% automatable, and €150 per month in maintenance.
+
+| Task | Hours per month | Monthly savings | Net after maintenance | Payback |
+| :--- | :--- | :--- | :--- | :--- |
+| Invoice and delivery note entry | 60 | €924 | €774 | about 12 months |
+| Weekly report | 15 | €231 | €81 | over 9 years |
+
+The same investment pays off in one case and not in the other. Before programming anything, we calculate that number with each client. If it does not work out, we do not proceed.
+
+---
+
+## 6. What we do and what you can take away even if you do not hire us
+
+According to what we publish on our website:
+
+* **A 60-minute consultation** with engineers: feasibility, technical architecture, recommended components (APIs, local or cloud models), and a phased roadmap with costs. It costs €299 + VAT.
+* **Full deduction** of that amount if you later develop with us.
+* **Full refund** if no possible benefit shows up in the first 15 minutes.
+* **Your decision:** you can take the roadmap and build it yourself.
+* **Development:** a diagnosis of 2 to 3 weeks and 1 to 4 months of build and launch. The code belongs to the client.
+* **Data:** GDPR, a confidentiality agreement, and no training of public models with your information.
+
+---
+
+## 7. Six questions for any provider, including us
+
+1. Who owns the code and the data, and what do you keep if the relationship ends?
+2. Where is the data hosted, and is it used to train models?
+3. How and when is the return measured, and what happens if it does not materialize?
+4. Which part is a real product and which part is a rebranded chatbot?
+5. What happens when the model or its price changes?
+6. Who validates the answers, and how does a person step in?
+
+For an independent way to check a provider, see our guide to the [Kribaia Kriterion seal](/en/blog/kribaia-kriterion-seal-ai-providers-spain-how-to-choose). If you are also looking for funding, review the [AI360 Plan and the AI voucher](/en/blog/spain-ai360-plan-sme-ai-voucher-grant-operations).
+
+---
+
+## What to do this week
+
+List three repetitive tasks in your company and note the hours each takes per month. Apply the formula from section 5 to each. Drop the ones that do not pay back within a timeframe you find reasonable, and start with the one that saves the most with the least personal data involved. If that task touches invoices, customers, or your ERP, consider doing it with support.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will calculate the return on your case before writing a line of code.
+
+---
+
+## Frequently asked questions
+
+### Is it better to build AI in-house or hire a provider?
+
+It depends on the case. In the MIT study, tools bought from specialized vendors succeeded about 67% of the time and internal builds one-third as often, according to Fortune's coverage. For bounded tasks without personal data, a commercial tool may be enough. For ERP integration or customer data, specialist support reduces risk.
+
+### What percentage of Spanish companies use AI?
+
+According to INE, 33.6% of companies with 10 or more employees used AI in the first quarter of 2026, and 21.4% of those with fewer than 10. By sector, services leads with 38.2%, followed by industry (29.1%) and construction (22.6%). INE warns that the data is not strictly comparable with earlier years.
+
+### Why do so many AI projects fail in companies?
+
+The sources cited point to similar causes. MIT identifies a learning gap and flawed integration, not model quality. Gartner forecasts that more than 40% of agentic AI projects will be canceled by the end of 2027 because of rising costs, unclear value, and inadequate risk controls.
+
+### Can I use ChatGPT in my company without hiring anyone?
+
+For tasks like drafting, summarizing, or translating, yes. Before entering customer or employee data, review the data processing terms of your plan and confirm you comply with GDPR. To connect AI to your ERP or automate processes that involve money, a design with testing and human validation is advisable.
+
+### How do I know if an AI provider is reliable?
+
+Ask who owns the code, where the data is hosted, how the return is measured, and what happens if the model changes. Gartner estimates that only about 130 of the thousands of vendors presenting themselves as "agentic" are genuine, so ask for a demonstration with your own data before signing.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Programación en el espacio de pesos, una IA edita los pesos de Qwen3.5-0.8B (3 NOVIEMBRE 2026)
     {
         slug: "programacion-espacio-de-pesos-ia-edita-pesos-qwen-pymes-2026",
