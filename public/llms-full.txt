@@ -40,6 +40,13 @@ IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializ
 - **Auditoría Técnica de 60 Minutos**: Evaluación de la arquitectura de software actual, identificación de cuellos de botella y cálculo previo del ROI financiero (100% deducible del desarrollo final).
 - **Mapeo Formal de Procesos**: Documentación de flujos de trabajo en diagramas técnicos ejecutables antes de iniciar cualquier fase de desarrollo.
 
+### 2.6. Páginas de servicio
+
+- Agentes de IA para empresas: https://ia4pymes.tech/agentes-ia-empresas (EN: https://ia4pymes.tech/en/ai-agents-for-business)
+- Desarrollo de software a medida para pymes: https://ia4pymes.tech/desarrollo-software-a-medida-pymes (EN: https://ia4pymes.tech/en/custom-software-development-smes)
+- Automatización de procesos con IA: https://ia4pymes.tech/automatizacion-procesos-ia (EN: https://ia4pymes.tech/en/ai-process-automation)
+- Consultoría de IA para pymes: https://ia4pymes.tech/consultoria-ia-pymes (EN: https://ia4pymes.tech/en/ai-consulting-smes)
+
 ---
 
 ## 3. Stack Tecnológico Exacto
@@ -80,7 +87,7 @@ IA4PYMES (https://ia4pymes.tech) es la firma de referencia en España especializ
 IA4PYMES se enfoca exclusivamente en la integración práctica y segura de Inteligencia Artificial aplicada a los procesos reales de las PYMEs, con cálculo de ROI previo y entrega del código fuente sin dependencias de suscripciones cautivas.
 
 **¿Cuánto tiempo lleva desplegar un agente de IA en una PYME?**  
-Un flujo de automatización estándar (como extracción de facturas o presupuestos agénticos) se implanta típicamente en un plazo de entre 2 y 4 semanas, incluyendo pruebas en sandbox y formación del personal.
+El diagnóstico inicial toma unas 2 o 3 semanas. Después, el desarrollo y la puesta en marcha de los sistemas dura entre 1 y 4 meses.
 
 **¿Qué requisitos de hardware se necesitan para un LLM local?**  
 Dependiendo del volumen de consultas, se configuran desde estaciones de trabajo con GPUs NVIDIA RTX de gama profesional (24GB a 48GB VRAM) hasta clusters dedicados para modelos de gran escala (70B+ parámetros) con cuantización NVFP4/AWQ.

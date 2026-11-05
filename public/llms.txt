@@ -36,6 +36,17 @@
 
 ---
 
+## Servicios
+
+- [Agentes de IA para empresas](https://ia4pymes.tech/agentes-ia-empresas): agentes de IA que atienden WhatsApp, web, correo y teléfono con los datos de tu empresa, en nube europea u on-premise.
+- [Desarrollo de software a medida para pymes](https://ia4pymes.tech/desarrollo-software-a-medida-pymes): aplicaciones web, herramientas internas y sistemas conectados a Holded, Sage u Odoo; el código es del cliente, sin lock-in.
+- [Automatización de procesos con IA](https://ia4pymes.tech/automatizacion-procesos-ia): facturas, albaranes, presupuestos y correos procesados con validación en un clic y registrados en el ERP.
+- [Consultoría de IA para pymes](https://ia4pymes.tech/consultoria-ia-pymes): sesión de 60 minutos con viabilidad, arquitectura y hoja de ruta con fases y costes; 299 € + IVA, descontados si desarrollamos el proyecto.
+
+English versions: https://ia4pymes.tech/en/ai-agents-for-business, https://ia4pymes.tech/en/custom-software-development-smes, https://ia4pymes.tech/en/ai-process-automation, https://ia4pymes.tech/en/ai-consulting-smes
+
+---
+
 ## Stack Técnico Exacto
 
 - **Orquestación y Frameworks de Agentes**: LangGraph, LangChain, LlamaIndex, Claude Code, Temporal.io, CrewAI.

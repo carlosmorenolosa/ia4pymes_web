@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Calendar, Clock, ShieldCheck, HelpCircle, Check, Sparkles } from "lucide-react"
+import Link from "next/link"
 import { CalIframeEmbed } from "./cal-iframe-embed"
 
 const i18n = {
@@ -33,6 +34,8 @@ const i18n = {
     titleIframe: "Reserva tu Consultoría con IA4PYMES",
     calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?embed=true&locale=es",
     secureText: "Pasarela de pago y reserva segura",
+    detailsLabel: "Qué incluye la sesión",
+    detailsHref: "/consultoria-ia-pymes",
   },
   en: {
     heading: "AI Consulting: Design Your ",
@@ -61,6 +64,8 @@ const i18n = {
     titleIframe: "Book your Consultation with IA4PYMES",
     calUrl: "https://cal.eu/ia4pymes.tech/consultoria-diagnostica-y-roadmap-de-ia?embed=true&locale=en",
     secureText: "Secure checkout and booking",
+    detailsLabel: "What the session includes",
+    detailsHref: "/en/ai-consulting-smes",
   }
 }
 
@@ -155,6 +160,9 @@ export function ConsultingSection({ lang = "es" }: { lang?: "es" | "en" }) {
                   </div>
                 </li>
               </ul>
+              <Link href={t.detailsHref} className="inline-block text-blue-600 hover:text-blue-700 text-base font-bold transition-colors">
+                {t.detailsLabel}
+              </Link>
             </div>
 
             <div className="space-y-4">

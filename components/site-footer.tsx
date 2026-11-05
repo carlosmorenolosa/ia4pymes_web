@@ -23,9 +23,10 @@ const COPY = {
     socialExtraClass: "",
     solutionsTitle: "Soluciones",
     solutions: [
-      { href: "/#proceso", label: "Nuestro Proceso" },
-      { href: "/#casos-exito", label: "Casos de Éxito" },
-      { href: "/#calculadora", label: "Calculadora ROI" },
+      { href: "/agentes-ia-empresas", label: "Agentes de IA para empresas" },
+      { href: "/desarrollo-software-a-medida-pymes", label: "Software a medida" },
+      { href: "/automatizacion-procesos-ia", label: "Automatización de procesos" },
+      { href: "/consultoria-ia-pymes", label: "Consultoría de IA" },
     ],
     blog: { href: "/blog", label: "Blog de Noticias" },
     exploreTitle: "Explorar",
@@ -57,9 +58,10 @@ const COPY = {
     socialExtraClass: " shadow-sm",
     solutionsTitle: "Solutions",
     solutions: [
-      { href: "/en#process", label: "Our Process" },
-      { href: "/en#cases", label: "Success Cases" },
-      { href: "/en#calculator", label: "ROI Calculator" },
+      { href: "/en/ai-agents-for-business", label: "AI Agents for Business" },
+      { href: "/en/custom-software-development-smes", label: "Custom Software" },
+      { href: "/en/ai-process-automation", label: "Process Automation" },
+      { href: "/en/ai-consulting-smes", label: "AI Consulting" },
     ],
     blog: { href: "/en/blog", label: "News Blog" },
     exploreTitle: "Explore",
@@ -133,9 +135,9 @@ export function SiteFooter({ lang = "es" }: { lang?: FooterLang }) {
             <ul className="space-y-4">
               {t.solutions.map((item) => (
                 <li key={item.href}>
-                  <AnchorLink href={item.href} className={LINK_CLASS}>
+                  <Link href={item.href} className={LINK_CLASS}>
                     {item.label}
-                  </AnchorLink>
+                  </Link>
                 </li>
               ))}
               <li>
