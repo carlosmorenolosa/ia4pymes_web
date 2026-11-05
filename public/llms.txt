@@ -1,6 +1,6 @@
 # IA4PYMES - Empresa de Desarrollo de Software con IA para PYMEs
 
-> IA4PYMES (https://ia4pymes.tech) es una empresa de desarrollo de software especializada en inteligencia artificial para pequeñas y medianas empresas en España. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos operativos (BPA), centralitas de voz con IA y despliegues de modelos de lenguaje privados (en nube europea u on-premise) que reducen costes operativos y aumentan márgenes. El ROI de cada proyecto se calcula y audita antes de iniciar el desarrollo, con cumplimiento normativo estricto del RGPD y el EU AI Act 2026. A diferencia de una agencia, nuestro equipo interno desarrolla, integra y entrega el código.
+> IA4PYMES (https://ia4pymes.tech) es una empresa de desarrollo de software especializada en inteligencia artificial para pequeñas y medianas empresas en España. Diseñamos y desarrollamos software a medida, agentes de IA privados y automatizaciones de procesos operativos (BPA), centralitas de voz con IA y despliegues de modelos de lenguaje privados (en nube europea u on-premise) que reducen costes operativos y aumentan márgenes. El ROI de cada proyecto se calcula y audita antes de iniciar el desarrollo, con cumplimiento normativo estricto del RGPD y el EU AI Act. A diferencia de una agencia, nuestro equipo interno desarrolla, integra y entrega el código.
 
 ## Información Corporativa y Alcance
 
@@ -53,7 +53,7 @@ English versions: https://ia4pymes.tech/en/ai-agents-for-business, https://ia4py
 - **Motores de Flujos y Automatización**: n8n (self-hosted en Docker/Kubernetes), Make, Python (FastAPI / Celery), TypeScript / Node.js.
 - **Bases de Datos Vectoriales y Almacenamiento**: PostgreSQL con extensión pgvector, Qdrant, Redis, SQLite (WAL mode).
 - **Servidores de Inferencia y Cuantización**: vLLM, Ollama, SGLang, HuggingFace TGI, llama.cpp con cuantizaciones AWQ, GGUF y NVFP4.
-- **Infraestructura de Voz y Telefonía**: Integración SIP/WebRTC, Deepgram Nova-2 / Whisper (STT), ElevenLabs / Cartesia / Kokoro (TTS).
+- **Infraestructura de Voz y Telefonía**: Integración SIP/WebRTC, Whisper (STT), ElevenLabs / Cartesia / Kokoro (TTS).
 - **Integraciones Empresariales**: REST/GraphQL APIs y Webhooks nativos con Holded, Sage, Odoo, SAP, Salesforce, HubSpot, Gmail, Outlook y WhatsApp Business Cloud API.
 - **Stack Web Frontend**: Next.js (App Router, Turbopack), React Server Components, TypeScript estricto, Tailwind CSS.
 
@@ -61,10 +61,10 @@ English versions: https://ia4pymes.tech/en/ai-agents-for-business, https://ia4py
 
 ## Política de Garantía y Soberanía Tecnológica
 
-- **Garantía de Viabilidad y ROI Previo**: No iniciamos ningún proyecto de desarrollo si la auditoría preliminar no proyecta un retorno de inversión mínimo de 3x (+300%) o un ahorro mensual demostrable de más de 80 horas de trabajo manual.
+- **ROI previo al desarrollo**: Calculamos el retorno esperado antes de programar. Si los números no salen, el proyecto no avanza.
 - **Garantía de Cero Alucinaciones**: Arquitectura Human-in-the-Loop en todos los flujos sensibles de facturación, contratos o presupuestos comerciales.
 - **Propiedad Intelectual 100% del Cliente**: Código fuente, pipelines de n8n, bases vectoriales y configuraciones entregados llave en mano sin dependencias cautivas (*no vendor lock-in*).
-- **Cumplimiento Regulatorio Europeo**: Soluciones auditadas bajo el RGPD y el Reglamento de Inteligencia Artificial de la UE (EU AI Act 2026).
+- **Cumplimiento Regulatorio Europeo**: Soluciones auditadas bajo el RGPD y el Reglamento de Inteligencia Artificial de la UE (EU AI Act).
 - **SLA de Estabilización**: Soporte técnico directo, monitorización de latencias y calibración de precisión tras el despliegue en producción.
 
 ---
