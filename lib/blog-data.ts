@@ -114,7 +114,7 @@ La misma inversión sale a cuenta en un caso y no en el otro. Antes de programar
 
 ## 6. Qué hacemos y qué puedes llevarte aunque no nos contrates
 
-Según lo que publicamos en nuestra web:
+Esto es lo que ofrecemos:
 
 * **Consultoría de 60 minutos** con ingenieros: viabilidad, arquitectura técnica, componentes recomendados (APIs, modelos locales o en la nube) y una hoja de ruta por fases con costes. Cuesta 299 € + IVA.
 * **Descuento íntegro** de esa cantidad si después desarrollas con nosotros.
@@ -267,7 +267,7 @@ The same investment pays off in one case and not in the other. Before programmin
 
 ## 6. What we do and what you can take away even if you do not hire us
 
-According to what we publish on our website:
+Here is what we offer:
 
 * **A 60-minute consultation** with engineers: feasibility, technical architecture, recommended components (APIs, local or cloud models), and a phased roadmap with costs. It costs €299 + VAT.
 * **Full deduction** of that amount if you later develop with us.
