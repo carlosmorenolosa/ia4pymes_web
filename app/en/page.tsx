@@ -386,6 +386,8 @@ export default function HomeEN() {
                     description:
                       "Web applications, internal tools and management systems connected to your ERP or CRM (Holded, Sage, Odoo). Your own codebase, evolving with your business, with no dependency on closed platforms.",
                     benefit: "Your own code, no lock-in",
+                    href: "/en/custom-software-development-smes",
+                    linkSr: "about custom software development for SMEs",
                   },
                   {
                     icon: Settings,
@@ -393,6 +395,8 @@ export default function HomeEN() {
                     description:
                       "Invoices, delivery notes, quotes and email processed automatically with one-click human validation. Every automation starts with the hours saved quantified in euros.",
                     benefit: "Savings quantified in euros",
+                    href: "/en/ai-process-automation",
+                    linkSr: "about AI process automation",
                   },
                   {
                     icon: Bot,
@@ -400,6 +404,8 @@ export default function HomeEN() {
                     description:
                       "Chatbots and voice agents connected to your knowledge base, deployed on European cloud or on your own servers, always with isolated and encrypted data: your data never trains public models.",
                     benefit: "European cloud or on-premise",
+                    href: "/en/ai-agents-for-business",
+                    linkSr: "about AI agents for business",
                   },
                 ].map((service) => {
                   const IconComponent = service.icon
@@ -416,6 +422,12 @@ export default function HomeEN() {
                       <div className="inline-flex items-center gap-2 mt-auto">
                         <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
                         <span className="text-base font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
+                      </div>
+                      <div className="mt-4">
+                        <Link href={service.href} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-base font-bold transition-colors group/link">
+                          Learn more<span className="sr-only"> {service.linkSr}</span>
+                          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
+                        </Link>
                       </div>
                     </div>
                   )
@@ -784,9 +796,10 @@ export default function HomeEN() {
               >
                 <h4 className="text-base font-black text-slate-900 uppercase tracking-widest">Solutions</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/en#process" onClick={goToSection("process")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Our Process</Link></li>
-                  <li><Link href="/en#cases" onClick={goToSection("cases")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Success Cases</Link></li>
-                  <li><Link href="/en#calculator" onClick={goToSection("calculator")} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">ROI Calculator</Link></li>
+                  <li><Link href="/en/ai-agents-for-business" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">AI Agents for Business</Link></li>
+                  <li><Link href="/en/custom-software-development-smes" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Custom Software</Link></li>
+                  <li><Link href="/en/ai-process-automation" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Process Automation</Link></li>
+                  <li><Link href="/en/ai-consulting-smes" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">AI Consulting</Link></li>
                   <li><Link href="/en/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">News Blog</Link></li>
                 </ul>
               </div>

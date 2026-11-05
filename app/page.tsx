@@ -265,6 +265,8 @@ export default function Home() {
                     description:
                       "Aplicaciones web, herramientas internas y sistemas de gestión conectados a tu ERP o CRM (Holded, Sage, Odoo). Código propio que evoluciona con tu negocio, sin dependencia de plataformas cerradas.",
                     benefit: "Código propio, sin lock-in",
+                    href: "/desarrollo-software-a-medida-pymes",
+                    linkSr: "sobre el desarrollo de software a medida para pymes",
                   },
                   {
                     icon: Settings,
@@ -272,6 +274,8 @@ export default function Home() {
                     description:
                       "Facturas, albaranes, presupuestos y correos procesados automáticamente con validación humana en un clic. Cada automatización arranca con el ahorro en horas cuantificado en euros.",
                     benefit: "Ahorro cuantificado en euros",
+                    href: "/automatizacion-procesos-ia",
+                    linkSr: "sobre la automatización de procesos con IA",
                   },
                   {
                     icon: Bot,
@@ -279,6 +283,8 @@ export default function Home() {
                     description:
                       "Chatbots y agentes de voz conectados a tu base de conocimiento, desplegados en la nube europea o en tus propios servidores, siempre con datos aislados y cifrados: tus datos nunca entrenan modelos públicos.",
                     benefit: "Nube europea u on-premise",
+                    href: "/agentes-ia-empresas",
+                    linkSr: "sobre los agentes de IA para empresas",
                   },
                 ].map((service) => {
                   const IconComponent = service.icon
@@ -295,6 +301,12 @@ export default function Home() {
                       <div className="inline-flex items-center gap-2 mt-auto">
                         <CheckCircle className="w-4 h-4 text-blue-600" aria-hidden="true" />
                         <span className="text-base font-semibold text-slate-700 group-hover:text-blue-700">{service.benefit}</span>
+                      </div>
+                      <div className="mt-4">
+                        <Link href={service.href} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-base font-bold transition-colors group/link">
+                          Saber más<span className="sr-only"> {service.linkSr}</span>
+                          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
+                        </Link>
                       </div>
                     </div>
                   )
@@ -690,13 +702,16 @@ export default function Home() {
                   <h4 className="text-base font-black text-slate-900st">Soluciones</h4>
                 <ul className="space-y-4">
                   <li>
-                    <AnchorLink href="/#proceso" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Nuestro Proceso</AnchorLink>
+                    <Link href="/agentes-ia-empresas" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Agentes de IA para empresas</Link>
                   </li>
                   <li>
-                    <AnchorLink href="/#casos-exito" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Casos de Éxito</AnchorLink>
+                    <Link href="/desarrollo-software-a-medida-pymes" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Software a medida</Link>
                   </li>
                   <li>
-                    <AnchorLink href="/#calculadora" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Calculadora ROI</AnchorLink>
+                    <Link href="/automatizacion-procesos-ia" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Automatización de procesos</Link>
+                  </li>
+                  <li>
+                    <Link href="/consultoria-ia-pymes" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Consultoría de IA</Link>
                   </li>
                   <li>
                     <Link href="/blog" className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">Blog de Noticias</Link>

@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts, getEnPosts } from '@/lib/blog-data'
 
+// Fixed date of the last substantive edit to the service pages; update when their content changes.
+const SERVICES_LAST_MODIFIED = '2026-11-05'
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://ia4pymes.tech'
     const posts = getAllPosts()
@@ -24,6 +27,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const latestDate = posts.length > 0 
         ? new Date(posts.reduce((latest, post) => new Date(post.date) > new Date(latest.date) ? post : latest).date) 
         : new Date()
+
+    const servicesLastModified = new Date(SERVICES_LAST_MODIFIED)
+    const servicePaths = [
+        '/agentes-ia-empresas',
+        '/desarrollo-software-a-medida-pymes',
+        '/automatizacion-procesos-ia',
+        '/consultoria-ia-pymes',
+        '/en/ai-agents-for-business',
+        '/en/custom-software-development-smes',
+        '/en/ai-process-automation',
+        '/en/ai-consulting-smes',
+    ]
+    const serviceUrls = servicePaths.map((path) => ({
+        url: `${baseUrl}${path}`,
+        lastModified: servicesLastModified,
+        changeFrequency: 'monthly' as const,
+        priority: 0.9,
+    }))
 
     return [
         {
@@ -98,6 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        ...serviceUrls,
         ...blogUrls,
         ...enBlogUrls,
     ]
