@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import ReadingProgressBar from "@/components/reading-progress-bar"
 import { BlogAuthorAvatar } from "@/components/blog-author-avatar"
+import { RelatedService } from "@/components/related-service"
 
 interface PageProps {
     params: Promise<{ slug: string }>
@@ -405,6 +406,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
             </article>
 
+            <RelatedService post={post} lang="es" />
+
             {/* CTA Section */}
             <section className="py-32 bg-slate-900 text-white relative overflow-hidden border-t border-white/5">
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
@@ -438,10 +441,10 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
                     <div className="flex items-center gap-10">
                         <Link href="/blog" className="text-sm font-black text-slate-400 hover:text-blue-500 transition-colors cursor-pointer uppercase tracking-widest">
-                            Documentación
+                            Blog de IA para pymes
                         </Link>
                         <Link href="/" className="text-sm font-black text-slate-400 hover:text-blue-400 transition-colors cursor-pointer uppercase tracking-widest">
-                            Retornar al sistema
+                            Inicio
                         </Link>
                     </div>
                 </div>
