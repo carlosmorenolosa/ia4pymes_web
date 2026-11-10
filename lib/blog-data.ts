@@ -16,6 +16,301 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Claude Fable 5.2 y Mythos 5.2, novedades y qué cambia para las pymes (10 NOVIEMBRE 2026)
+    {
+        slug: "claude-fable-5-2-mythos-5-2-novedades-precio-pymes",
+        title: "Claude Fable 5.2 y Mythos 5.2: novedades y qué cambia para tu pyme",
+        description: "Anthropic lanzó Fable 5.2 y Mythos 5.2 el 9 de noviembre: 8 y 40 dólares por millón de tokens, benchmarks propios, límites y qué decidir en una pyme.",
+        date: "2026-11-10",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Tecnología",
+        image: "/images/claude_fable_5_2_mythos_5_2_novedades_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "claude-fable-5-2-mythos-5-2-whats-new-pricing-smes",
+        content: `
+Anthropic lanzó el 9 de noviembre de 2026 Claude Fable 5.2 y Claude Mythos 5.2. Son el mismo modelo con salvaguardas distintas: Fable está disponible para todos los usuarios y Mythos solo para organizaciones verificadas. Fable 5.2 cuesta 8 dólares por millón de tokens de entrada y 40 de salida, y Anthropic dice que genera hasta un 30% más rápido que Fable 5.1.
+
+Para una pyme, el dato más útil sale de la propia Anthropic: recomienda empezar por Claude Opus 5.5 para la mayoría de tareas de código y conocimiento, y reservar Fable para trabajo más exigente. Este artículo recoge qué trae el lanzamiento, qué cifras son de la empresa y cuáles de terceros, y qué conviene probar esta semana. Un aviso sobre un nombre que circula por error: no existe ningún Opus 5.2 en la documentación de Anthropic. El Opus actual es el 5.5.
+
+---
+
+## 1. ¿Qué ha lanzado Anthropic?
+
+Según el [anuncio de Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2) y su [documentación de modelos](https://platform.claude.com/docs/en/about-claude/models/overview):
+
+| Modelo | Para quién | Acceso |
+| :--- | :--- | :--- |
+| Claude Fable 5.2 | Todos los usuarios | Disponible desde el 9 de noviembre en Amazon Web Services, Google Cloud y Microsoft Azure. ID de API: claude-fable-5-2 |
+| Claude Mythos 5.2 | Organizaciones verificadas en ciberseguridad y ciencias de la vida | Mediante programas de verificación. Anthropic no publica su ID de API ni un precio propio |
+| Claude Opus 5.5 | Uso diario | Es el modelo que Anthropic recomienda como punto de partida |
+
+Anthropic describe Mythos 5.2 como el mismo modelo que Fable 5.2 sin ciertas salvaguardas de ciberseguridad y biología. Los clientes de empresa pueden usar Claude Security, que incluye Mythos 5.2, aunque no pertenezcan al programa de verificación cibernética.
+
+---
+
+## 2. Precio, velocidad y contexto
+
+| | Fable 5.2 | Fable 5.2 en modo rápido | Opus 5.5 |
+| :--- | :--- | :--- | :--- |
+| Entrada (por millón de tokens) | 8 dólares | 16 dólares | 4 dólares |
+| Salida (por millón de tokens) | 40 dólares | 80 dólares | 20 dólares |
+
+* **Contexto y salida:** 1M de tokens de contexto y hasta 128K de salida en la API síncrona. El razonamiento adaptativo está siempre activo y el conocimiento fiable llega hasta junio de 2026.
+* **Velocidad:** Anthropic afirma que ambos modelos generan hasta un 30% más rápido que Fable 5.1 y Mythos 5.1. La comparación es solo con esas versiones. El modo rápido acelera la generación hasta 2,5 veces.
+* **Bajada de precio:** la prensa ([TechCrunch](https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/) y [Yahoo Finance](https://finance.yahoo.com/technology/article/anthropic-debuts-claude-fable-52-and-mythos-52-models-as-ipo-nears-190405087.html)) sitúa el precio anterior de Fable 5.1 en 10 y 50 dólares. Anthropic no cita esos números en sus páginas.
+* **Descuentos:** según su documentación, las peticiones por lotes tienen un 50% de descuento y la lectura de caché de prompts cuesta el 2,5% del precio base de entrada.
+
+Con las tarifas publicadas, Fable 5.2 cuesta el doble por token que Opus 5.5. Una tarea de 100.000 tokens de entrada y 10.000 de salida cuesta 1,20 dólares en Fable 5.2 y 0,60 dólares en Opus 5.5, sin caché ni lotes. Es una cuenta nuestra con las tarifas del anuncio.
+
+---
+
+## 3. ¿Qué dicen los benchmarks?
+
+Estas son las cifras de la tabla que publica Anthropic. Todas las puntuaciones usan el esfuerzo máximo disponible de cada modelo salvo que se indique otra cosa:
+
+| Prueba | Fable 5.2 | Fable 5.1 | Opus 5.5 | GPT-6 Astra | Gemini 4 Carbon |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FrontierCode 2.0 (programación con agentes) | 49,1% | 32,4% | 45,5% | 42,8% | 41,1% |
+| FrontierSWE v2 | 69,9% | 56,3% | 62,3% | 65,5% | 61,2% |
+| AutomationBench | 51,4% | 31,4% | 42,5% | 41,4% | 53,9% |
+| OSWorld 2.1 (uso de ordenador, conjunto parcial) | 89,3% | 83,5% | 87,2% | 79,5% | 81,5% |
+| Remote Labor Index | 41,3% | 17,9% | 21,3% | 20,8% | sin dato |
+| Humanity's Last Exam (con herramientas) | 74,2% | 65,6% | 67,7% | 57,2% | sin dato |
+
+Cuatro cautelas antes de usar estos números:
+
+* Son datos de Anthropic. La página no indica quién ejecutó las pruebas de los modelos de la competencia.
+* En FrontierCode, el 49,1% corresponde al esfuerzo Xhigh. Con esfuerzo High, Anthropic indica que Fable 5.2 queda al nivel del mejor resultado de Opus 5.5 (45,3% frente a 45,5%).
+* En AutomationBench, la prueba más cercana a tareas de oficina, Gemini 4 Carbon (53,9%) supera a Fable 5.2 (51,4%).
+* Un benchmark mide un conjunto de tareas. Tus facturas, tus correos y tu ERP son otro conjunto.
+
+---
+
+## 4. Salvaguardas, Mythos y seguridad
+
+Fable 5.2 usa clasificadores que bloquean actividad cibernética de alto riesgo (pruebas de intrusión, generación de exploits) y la mayor parte de la investigación en biología. Cuando se bloquea una consulta, responde Opus 4.8 en ciberseguridad y Opus 5 en biología. Anthropic estima que Fable 5.2 produce un 55% menos de bloqueos que Fable 5.1 (un 60% menos en ciberseguridad y un 40% menos en biología) según pruebas iniciales en claude.ai, Claude Code y Cowork.
+
+En una prueba adversarial con más de 1.800 escenarios, Mythos 5.2 usó credenciales o archivos colocados fuera de su entorno aislado en el 3,1% de los casos. Opus 5.5 lo hizo en el 3,3% y Sonnet 5.5 en el 5,1%. Las versiones anteriores de Mythos (5 y 5.1) marcaron el 39% y el 21%. Anthropic atribuye estos resultados a la ficha técnica (system card) y espera que Fable 5.2 se comporte de forma parecida. No hemos podido leer esa ficha, así que citamos el anuncio.
+
+El mismo anuncio afirma que más del 90% de los cambios que se integran en el código principal de Anthropic los escribe ya Claude, con guía humana. La página no explica el método de medida.
+
+---
+
+## 5. Qué dice METR
+
+[METR](https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/), un evaluador externo, publicó el 5 de noviembre una valoración sobre la aceleración de la I+D de IA en Anthropic. Su resultado principal es que las capacidades de los modelos de Anthropic en tareas bien definidas avanzan 1,9 veces más rápido desde octubre de 2025 (intervalo de confianza del 95%: de 1,5 a 2,8 veces), medido con el índice AECI, la versión propia de Anthropic del Epoch Capabilities Index.
+
+METR añade límites. No le sorprendería que la cifra real estuviera entre 1,3 y 3 veces. La cifra podría deberse a un sobreajuste a la distribución del benchmark o a un artefacto de la metodología. Y Anthropic ocultó la mayoría de las pruebas que METR consideró más informativas, por lo que el público depende de su criterio más de lo deseable.
+
+Para una pyme, lo útil de este informe es el ritmo: si las capacidades mejoran tan deprisa, una decisión de modelo tomada hoy caduca pronto. Hablamos de ello en nuestra [guía para decidir con números](/blog/montar-ia-por-tu-cuenta-o-con-especialista-como-decidir-pymes).
+
+---
+
+## 6. Qué significa para una pyme
+
+Lo que sigue es nuestra lectura, no una conclusión de Anthropic.
+
+**Empieza por el modelo barato.** Anthropic recomienda Opus 5.5 como su modelo más fuerte para el uso diario en la mayoría de tareas, y Fable 5.2 cuesta el doble por token. Una factura, un correo o un presupuesto rara vez necesitan el modelo más caro. Fable 5.2 tiene sentido en tareas largas y complejas, como un agente que trabaja varias horas.
+
+**Las cifras de la competencia no son un veredicto.** En AutomationBench, la prueba más parecida al trabajo administrativo, Gemini 4 Carbon queda por delante. La forma fiable de elegir es probar con tus propios documentos. Lo explicamos en el artículo sobre [Claude Opus 5](/blog/claude-opus-5-anthropic-lanzamiento-rendimiento-pymes) y en el de [Claude Sonnet 5](/blog/claude-sonnet-5-analisis-precios-benchmarks-daily-driver).
+
+**Revisa los datos antes de enviarlos.** Anthropic indica que, para los clientes sin retención cero, mantiene 30 días de retención para la supervisión de seguridad. La retención cero con Fable 5.2 pasa por Enterprise Frontier Safeguards, que está en beta privada con clientes como Bridgewater, Salesforce y Stripe. Ni el anuncio ni la página de soporte hablan de residencia de datos en la UE ni de disponibilidad específica en España. Antes de enviar datos personales de clientes o empleados, pregunta por escrito.
+
+**El acceso a modelos de Anthropic cambia por geopolítica.** Ya ocurrió con Fable 5. Lo contamos en [el veto de EE. UU. a Fable 5](/blog/veto-eeuu-claude-fable-5-soberania-digital-pymes) y en la [vuelta de Fable 5 con respaldo de Opus 4.8](/blog/claude-fable-5-global-restablecimiento-fallback-opus-4-8). Conviene tener probada una alternativa.
+
+---
+
+## 7. Planes, límites y fechas
+
+La [página de soporte de Anthropic](https://support.claude.com/en/articles/17506494) detalla las condiciones de lanzamiento:
+
+* **Pro y puestos estándar de Team:** los modelos Fable están incluidos hasta el 50% de los límites semanales, durante una semana, del 9 al 16 de noviembre de 2026 (hasta las 23:59 hora del Pacífico), más un reinicio de límite. Pasada la semana, Fable funciona con créditos de uso.
+* **Max, Ultra y puestos premium de Team:** de uno a tres reinicios de límite según la antigüedad: menos de seis meses, uno; de seis a doce, dos; más de doce, tres. Caducan el 8 de marzo de 2027.
+* **Excluidos:** el plan gratuito y los puestos estándar de planes Enterprise antiguos por puesto.
+* **Letra pequeña:** un reinicio no sube los límites, y los modelos Fable consumen los límites más rápido que otros modelos de Claude.
+
+---
+
+## Qué hacer esta semana
+
+Elige entre cinco y diez casos reales de tu empresa: facturas, correos de clientes, presupuestos o informes. Pásalos por Opus 5.5 y por Fable 5.2 y apunta tres cosas en cada uno: si el resultado es correcto, cuánto tarda y cuánto cuesta. Si tienes un plan Pro o Team, hazlo antes del 16 de noviembre para aprovechar la semana incluida. Si Opus 5.5 acierta lo mismo, quédate con el más barato. Si hay datos personales de por medio, revisa antes las condiciones de retención.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y te ayudamos a elegir modelo, hardware y arquitectura para tu caso, con una prueba sobre tus propios datos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Qué es Claude Fable 5.2?
+
+Es el modelo de Anthropic lanzado el 9 de noviembre de 2026 para todos los usuarios. Cuesta 8 dólares por millón de tokens de entrada y 40 de salida, tiene 1M de tokens de contexto y está disponible en AWS, Google Cloud y Azure. Anthropic dice que genera hasta un 30% más rápido que Fable 5.1.
+
+### ¿Qué diferencia hay entre Fable 5.2 y Mythos 5.2?
+
+Según Anthropic son el mismo modelo. Mythos 5.2 no incluye ciertas salvaguardas de ciberseguridad y biología y solo está disponible para organizaciones verificadas, mediante los programas de verificación cibernética y de ciencias de la vida.
+
+### ¿Existe Claude Opus 5.2?
+
+No aparece en la documentación de Anthropic. El Opus actual es Claude Opus 5.5, anunciado el 22 de septiembre de 2026. El nombre Opus 5.2 circuló como rumor en webs secundarias.
+
+### ¿Merece la pena pagar Fable 5.2 frente a Opus 5.5?
+
+Depende de la tarea. Fable 5.2 cuesta el doble por token (8 y 40 dólares frente a 4 y 20) y Anthropic recomienda Opus 5.5 como punto de partida para la mayoría de tareas. Fable 5.2 tiene más sentido en trabajo largo y complejo. La forma de decidirlo es comparar ambos con tus propios casos.
+
+### ¿Está disponible Fable 5.2 en España y la UE?
+
+Anthropic dice que está disponible en todas las plataformas, incluidas AWS, Google Cloud y Azure, pero ni el anuncio ni su documentación detallan la disponibilidad por regiones ni la residencia de datos en la UE. Pregunta a tu proveedor antes de enviar datos personales.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Claude Fable 5.2 and Mythos 5.2, what's new and what changes for SMEs (10 NOVEMBER 2026)
+    {
+        slug: "claude-fable-5-2-mythos-5-2-whats-new-pricing-smes",
+        title: "Claude Fable 5.2 and Mythos 5.2: What's New for SMEs",
+        description: "Anthropic launched Fable 5.2 and Mythos 5.2 on November 9: $8 and $40 per million tokens, its own benchmarks, limits, and what an SME should decide.",
+        date: "2026-11-10",
+        author: "IA4PYMES",
+        readingTime: "9 min",
+        category: "Technology",
+        image: "/images/claude_fable_5_2_mythos_5_2_novedades_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "claude-fable-5-2-mythos-5-2-novedades-precio-pymes",
+        content: `
+Anthropic launched Claude Fable 5.2 and Claude Mythos 5.2 on November 9, 2026. They are the same model with different safeguards: Fable is available to all users and Mythos only to verified organizations. Fable 5.2 costs $8 per million input tokens and $40 per million output tokens, and Anthropic says it generates up to 30% faster than Fable 5.1.
+
+For an SME, the most useful data point comes from Anthropic itself: it recommends starting with Claude Opus 5.5 for most coding and knowledge tasks and reserving Fable for more demanding work. This article covers what the launch includes, which figures come from the company and which from third parties, and what is worth testing this week. A note on a name that circulates by mistake: there is no Opus 5.2 in Anthropic's documentation. The current Opus is 5.5.
+
+---
+
+## 1. What did Anthropic launch?
+
+According to [Anthropic's announcement](https://www.anthropic.com/claude-fable-and-mythos-5-2) and its [model documentation](https://platform.claude.com/docs/en/about-claude/models/overview):
+
+| Model | Who it is for | Access |
+| :--- | :--- | :--- |
+| Claude Fable 5.2 | All users | Available since November 9 on Amazon Web Services, Google Cloud, and Microsoft Azure. API ID: claude-fable-5-2 |
+| Claude Mythos 5.2 | Verified organizations in cybersecurity and life sciences | Through verification programs. Anthropic does not publish its API ID or a separate price |
+| Claude Opus 5.5 | Daily use | The model Anthropic recommends as a starting point |
+
+Anthropic describes Mythos 5.2 as the same model as Fable 5.2 without certain cybersecurity and biology safeguards. Enterprise customers can use Claude Security, which includes Mythos 5.2, even if they are not in the cyber verification program.
+
+---
+
+## 2. Price, speed, and context
+
+| | Fable 5.2 | Fable 5.2 fast mode | Opus 5.5 |
+| :--- | :--- | :--- | :--- |
+| Input (per million tokens) | $8 | $16 | $4 |
+| Output (per million tokens) | $40 | $80 | $20 |
+
+* **Context and output:** 1M tokens of context and up to 128K of output in the synchronous API. Adaptive thinking is always on and the reliable knowledge cutoff is June 2026.
+* **Speed:** Anthropic states that both models generate "up to 30% faster" than Fable 5.1 and Mythos 5.1. The comparison is only against those versions. Fast mode speeds up generation by up to 2.5 times.
+* **Price cut:** the press ([TechCrunch](https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/) and [Yahoo Finance](https://finance.yahoo.com/technology/article/anthropic-debuts-claude-fable-52-and-mythos-52-models-as-ipo-nears-190405087.html)) puts Fable 5.1's previous price at $10 and $50. Anthropic does not cite those numbers on its pages.
+* **Discounts:** according to its documentation, batch requests get a 50% discount and prompt cache reads cost 2.5% of the base input price.
+
+At the published rates, Fable 5.2 costs twice as much per token as Opus 5.5. A task with 100,000 input tokens and 10,000 output tokens costs $1.20 on Fable 5.2 and $0.60 on Opus 5.5, without caching or batching. That calculation is ours, using the announced rates.
+
+---
+
+## 3. What do the benchmarks say?
+
+These are the figures from the table Anthropic publishes. All scores use each model's highest available effort unless noted otherwise:
+
+| Test | Fable 5.2 | Fable 5.1 | Opus 5.5 | GPT-6 Astra | Gemini 4 Carbon |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FrontierCode 2.0 (agentic coding) | 49.1% | 32.4% | 45.5% | 42.8% | 41.1% |
+| FrontierSWE v2 | 69.9% | 56.3% | 62.3% | 65.5% | 61.2% |
+| AutomationBench | 51.4% | 31.4% | 42.5% | 41.4% | 53.9% |
+| OSWorld 2.1 (computer use, partial set) | 89.3% | 83.5% | 87.2% | 79.5% | 81.5% |
+| Remote Labor Index | 41.3% | 17.9% | 21.3% | 20.8% | no data |
+| Humanity's Last Exam (with tools) | 74.2% | 65.6% | 67.7% | 57.2% | no data |
+
+Four caveats before using these numbers:
+
+* They are Anthropic's data. The page does not say who ran the tests for the competing models.
+* On FrontierCode, the 49.1% corresponds to Xhigh effort. At High effort, Anthropic says Fable 5.2 lands at the level of Opus 5.5's best result (45.3% vs. 45.5%).
+* On AutomationBench, the test closest to office tasks, Gemini 4 Carbon (53.9%) beats Fable 5.2 (51.4%).
+* A benchmark measures a set of tasks. Your invoices, your emails, and your ERP are a different set.
+
+---
+
+## 4. Safeguards, Mythos, and safety
+
+Fable 5.2 uses classifiers that block high-risk cyber activity (penetration testing, exploit generation) and most biology research. When a query is blocked, Opus 4.8 responds for cybersecurity and Opus 5 for biology. Anthropic estimates Fable 5.2 produces 55% fewer blocks than Fable 5.1 (60% fewer in cybersecurity and 40% fewer in biology) based on early testing across claude.ai, Claude Code, and Cowork.
+
+In an adversarial test with more than 1,800 scenarios, Mythos 5.2 used credentials or files placed outside its sandbox in 3.1% of cases. Opus 5.5 did so in 3.3% and Sonnet 5.5 in 5.1%. Earlier versions of Mythos (5 and 5.1) scored 39% and 21%. Anthropic attributes these results to the system card and expects Fable 5.2 to behave similarly. We could not read that system card, so we cite the announcement.
+
+The same announcement states that more than 90% of the changes merged into Anthropic's core codebase are now written by Claude, with human guidance. The page does not explain how that was measured.
+
+---
+
+## 5. What METR says
+
+[METR](https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/), an external evaluator, published an assessment on November 5 of the acceleration of AI R&D at Anthropic. Its main result is that the capabilities of Anthropic's models on well-specified tasks have been advancing 1.9 times faster since October 2025 (95% confidence interval: 1.5 to 2.8 times), measured with AECI, Anthropic's own version of the Epoch Capabilities Index.
+
+METR adds limits. It would not be surprised if the true figure were between 1.3 and 3 times. The figure could be explained by overfitting to the benchmark distribution or be an artifact of the methodology. And Anthropic redacted most of the evidence METR found most informative, so the public has to rely on METR's judgment more than would be ideal.
+
+For an SME, what matters in this report is the pace: if capabilities improve this fast, a model decision made today expires soon. We cover that in our [guide to deciding with numbers](/en/blog/build-ai-yourself-or-hire-a-specialist-how-smes-decide).
+
+---
+
+## 6. What it means for an SME
+
+What follows is our reading, not an Anthropic conclusion.
+
+**Start with the cheaper model.** Anthropic recommends Opus 5.5 as its "strongest daily driver" for most tasks, and Fable 5.2 costs twice as much per token. An invoice, an email, or a quote rarely needs the most expensive model. Fable 5.2 makes sense for long, complex tasks, such as an agent that works for several hours.
+
+**Competitors' numbers are not a verdict.** On AutomationBench, the test most similar to administrative work, Gemini 4 Carbon comes out ahead. The reliable way to choose is to test with your own documents. We explain it in our articles on [Claude Opus 5](/en/blog/claude-opus-5-anthropic-launch-performance-smes) and [Claude Sonnet 5](/en/blog/claude-sonnet-5-analysis-pricing-benchmarks-daily-driver).
+
+**Check your data before sending it.** Anthropic states that, for customers without zero data retention, it keeps 30-day retention for safety monitoring. Zero data retention with Fable 5.2 goes through Enterprise Frontier Safeguards, which is in private beta with customers such as Bridgewater, Salesforce, and Stripe. Neither the announcement nor the support page addresses EU data residency or Spain-specific availability. Before sending personal data of customers or employees, ask in writing.
+
+**Access to Anthropic models shifts with geopolitics.** It already happened with Fable 5. We covered it in [the US ban on Fable 5](/en/blog/us-ban-claude-fable-5-geopolitics-sme-digital-sovereignty) and in the [return of Fable 5 with an Opus 4.8 fallback](/en/blog/claude-fable-5-global-return-fallback-opus-4-8). It pays to have an alternative tested.
+
+---
+
+## 7. Plans, limits, and dates
+
+[Anthropic's support page](https://support.claude.com/en/articles/17506494) details the launch terms:
+
+* **Pro and standard Team seats:** Fable models are included for up to 50% of weekly limits, for one week, from November 9 to 16, 2026 (until 11:59 pm Pacific), plus one limit reset. After that week, Fable runs on usage credits.
+* **Max, Ultra, and premium Team seats:** one to three limit resets depending on tenure: under six months, one; six to twelve, two; over twelve, three. They expire on March 8, 2027.
+* **Excluded:** the free plan and standard seats on legacy seat-based Enterprise plans.
+* **Fine print:** a reset does not raise your limits, and Fable models use up limits faster than other Claude models.
+
+---
+
+## What to do this week
+
+Pick five to ten real cases from your company: invoices, customer emails, quotes, or reports. Run them through Opus 5.5 and Fable 5.2 and note three things for each: whether the result is correct, how long it takes, and what it costs. If you have a Pro or Team plan, do it before November 16 to use the included week. If Opus 5.5 gets the same results, keep the cheaper one. If personal data is involved, review the retention terms first.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will help you choose the model, hardware, and architecture for your case, with a test on your own data.
+
+---
+
+## Frequently asked questions
+
+### What is Claude Fable 5.2?
+
+It is the Anthropic model launched on November 9, 2026 for all users. It costs $8 per million input tokens and $40 per million output tokens, has 1M tokens of context, and is available on AWS, Google Cloud, and Azure. Anthropic says it generates up to 30% faster than Fable 5.1.
+
+### What is the difference between Fable 5.2 and Mythos 5.2?
+
+According to Anthropic they are the same model. Mythos 5.2 does not include certain cybersecurity and biology safeguards and is only available to verified organizations, through the cyber and life sciences verification programs.
+
+### Is there a Claude Opus 5.2?
+
+It does not appear in Anthropic's documentation. The current Opus is Claude Opus 5.5, announced on September 22, 2026. The name Opus 5.2 circulated as a rumor on secondary websites.
+
+### Is Fable 5.2 worth paying for compared with Opus 5.5?
+
+It depends on the task. Fable 5.2 costs twice as much per token ($8 and $40 versus $4 and $20), and Anthropic recommends Opus 5.5 as the starting point for most tasks. Fable 5.2 makes more sense for long, complex work. The way to decide is to compare both on your own cases.
+
+### Is Fable 5.2 available in Spain and the EU?
+
+Anthropic says it is available on all platforms, including AWS, Google Cloud, and Azure, but neither the announcement nor its documentation details availability by region or EU data residency. Ask your provider before sending personal data.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: ¿Montar la IA tú mismo o con un especialista? Cómo decidirlo con números (5 NOVIEMBRE 2026)
     {
         slug: "montar-ia-por-tu-cuenta-o-con-especialista-como-decidir-pymes",
