@@ -133,7 +133,7 @@ Pagar por token da una factura que varía con el uso. Una tarifa plana la fija d
 
 Una tarifa plana compensa cuando el volumen es alto o difícil de prever y los límites de uso del plan no te frenan. Para decidir si te compensa, haz la prueba del apartado 4 con su API y compara el coste por tarea con el de pagar por token.
 
-Transparencia: este es un enlace de recomendación de IA4PYMES. Si te suscribes con [este enlace de invitación a NaN Builders](https://cloud.nan.builders/r/KFR0JS04), tienes 5 € de descuento en la primera mensualidad. Revisa las condiciones en su web antes de pagar. Hicimos un análisis más amplio del servicio en nuestro artículo sobre [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026).
+Queremos ser transparentes: este es un enlace de recomendación de IA4PYMES. Hemos probado NaN Builders y lo recomendamos muchísimo por su calidad. Si te suscribes con [este enlace de invitación a NaN Builders](https://cloud.nan.builders/r/KFR0JS04), tienes 5 € de descuento en la primera mensualidad. Revisa las condiciones en su web antes de pagar. Hicimos un análisis más amplio del servicio en nuestro artículo sobre [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026).
 
 Una consideración de privacidad vale para cualquier opción. Antes de enviar datos personales de clientes o empleados a la API de un proveedor, comprueba dónde se procesan y cuánto tiempo se conservan.
 
@@ -287,7 +287,7 @@ Paying per token gives a bill that varies with use. A flat rate fixes it in adva
 
 A flat rate pays off when volume is high or hard to predict and the plan's usage limits do not hold you back. To decide whether it pays off for you, run the test from section 4 against its API and compare the cost per task with pay-per-token pricing.
 
-Transparency: this is an IA4PYMES referral link. If you subscribe with [this NaN Builders invitation link](https://cloud.nan.builders/r/KFR0JS04), you get €5 off your first month. Check the terms on their website before paying. We published a broader analysis of the service in our article on [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026).
+We want to be transparent: this is an IA4PYMES referral link. We have tested NaN Builders and highly recommend it for its quality. If you subscribe with [this NaN Builders invitation link](https://cloud.nan.builders/r/KFR0JS04), you get €5 off your first month. Check the terms on their website before paying. We published a broader analysis of the service in our article on [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026).
 
 One privacy consideration applies to any option. Before sending personal data of customers or employees to a provider's API, check where it is processed and how long it is kept.
 
