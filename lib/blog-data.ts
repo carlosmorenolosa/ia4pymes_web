@@ -16,6 +16,315 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Repartir tareas entre modelos de IA (enrutado) para reducir la factura (13 NOVIEMBRE 2026)
+    {
+        slug: "repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes",
+        title: "Cómo repartir tareas entre modelos de IA y reducir tu factura",
+        description: "Fable 5.2 cuesta unas 53 veces más por token de entrada que DeepSeek Flash. Cómo repartir tareas entre modelos, con precios oficiales y un cálculo de factura.",
+        date: "2026-11-13",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "Estrategia e Inteligencia de Negocio",
+        image: "/images/repartir_tareas_entre_modelos_ia_factura_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "route-tasks-between-ai-models-cut-bill-smes",
+        content: `
+Claude Fable 5.2 cuesta 8 dólares por millón de tokens de entrada y 40 de salida. DeepSeek Flash cuesta 0,15 y 0,60 en horario valle, y GLM-5.3-Flash, 0,15 y 0,50. Por token de entrada, Fable 5.2 es unas 53 veces más caro que cualquiera de los dos, y por token de salida, entre 67 y 80 veces.
+
+Esa diferencia no significa que un modelo barato valga para todo. Significa que pagar siempre el modelo más caro, para cualquier tarea, es una decisión que conviene medir. La alternativa se llama enrutado de modelos: cada tarea va primero a un modelo barato y solo sube a uno caro cuando hace falta. Este artículo recoge los precios oficiales, lo que dice la investigación sobre el enrutado, un ejemplo de factura y un método para aplicarlo. Casi al final mencionamos un servicio de tarifa plana con un enlace de recomendación de IA4PYMES, y lo señalamos donde aparece.
+
+---
+
+## 1. ¿Cuánto cuesta cada modelo?
+
+Precios por millón de tokens, tomados de las páginas oficiales de cada proveedor:
+
+| Modelo | Entrada | Salida | Fuente |
+| :--- | :--- | :--- | :--- |
+| Claude Fable 5.2 | 8 $ | 40 $ | [Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2) |
+| Claude Opus 5.5 | 4 $ | 20 $ | [Documentación de Anthropic](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| DeepSeek Flash, horario valle | 0,15 $ | 0,60 $ | [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) |
+| DeepSeek Flash, horario punta | 0,30 $ | 1,20 $ | [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) |
+| GLM-5.3-Flash | 0,15 $ | 0,50 $ | [Z.ai](https://docs.z.ai/guides/overview/pricing) |
+
+Tres detalles que cambian la cuenta:
+
+* **DeepSeek cobra el doble en horas punta.** Según su documentación, son de 01:00 a 04:00 y de 06:00 a 10:00 UTC, de lunes a viernes y excepto festivos públicos chinos. En hora peninsular de invierno equivale a de 02:00 a 05:00 y de 07:00 a 11:00. Las tareas por lotes que se ejecutan de noche o en fin de semana se benefician del precio valle. Analizamos el cambio de tarifas en nuestro artículo sobre la [subida de precios de DeepSeek V4-Pro](/blog/deepseek-v4-pro-subida-precios-tarifas-dinamicas-pico-valle-pymes-2026).
+* **El nombre del modelo de DeepSeek varía.** La documentación de DeepSeek usa el identificador deepseek-flash y lista la versión DeepSeek-V4.1-Flash-1017. Los nombres antiguos, como deepseek-v4-flash, siguen aceptándose, pero DeepSeek indica que los modelos correspondientes están retirados. Contexto de 1M de tokens y hasta 384K de salida.
+* **GLM-5.3-Flash tiene 320.000 millones de parámetros, 18.000 millones activos, 1M de contexto y hasta 128K de salida**, según la documentación de Z.ai. En Hugging Face figura con licencia MIT. Antes de redistribuirlo o usarlo en un producto, lee el archivo de licencia del repositorio.
+
+Estos son precios de lista de la API de cada proveedor. No incluyen descuentos por caché ni por lotes, que existen en varios de ellos.
+
+---
+
+## 2. ¿Qué dicen los datos sobre la calidad?
+
+La respuesta honesta es que no hay una comparación independiente y limpia de estos modelos en tareas de oficina. Lo que existe son cifras de cada proveedor:
+
+* Z.ai informa de que GLM-5.3-Flash obtiene 63,4 en DeepSWE v1.1 (frente a 46,2 de GLM-5.2) y 48,8 en AutomationBench (frente a 26,2 de GLM-5.2).
+* La tabla de Anthropic lista en AutomationBench un 51,4% para Fable 5.2, un 42,5% para Opus 5.5 y un 53,9% para Gemini 4 Carbon.
+
+Tomadas a la vez, esas cifras sugieren que un modelo Flash puede quedar cerca de un modelo de frontera en esa prueba. Dos cautelas lo limitan: cada número lo publica un proveedor distinto y no podemos confirmar que usen la misma versión ni la misma configuración de AutomationBench. No incluimos cifras de DeepSeek Flash porque no hemos contrastado ninguna en una fuente oficial.
+
+La conclusión práctica es la misma de siempre: la única comparación que vale es la que haces con tus propios documentos.
+
+---
+
+## 3. Qué dice la investigación sobre el enrutado
+
+Dos trabajos académicos miden cuánto se ahorra cuando una pasarela decide qué modelo usar para cada consulta:
+
+* **RouteLLM** (LMSYS, 2024) enruta entre GPT-4 Turbo como modelo fuerte y Mixtral 8x7B como modelo débil. Según su [blog](https://lmsys.org/blog/2024-07-01-routellm/), logra reducciones de coste de más del 85% en MT Bench, del 45% en MMLU y del 35% en GSM8K frente a usar solo GPT-4, conservando el 95% de su rendimiento. Con otro baseline, un enrutador aleatorio, el mejor enrutador alcanza el 95% del rendimiento llamando a GPT-4 en el 26% de los casos, con un coste cerca de un 48% menor.
+* **FrugalGPT** (2023) afirma en su [resumen](https://arxiv.org/abs/2305.05176) que puede igualar el rendimiento del mejor modelo individual con una reducción de coste de hasta el 98%, o mejorar la precisión de GPT-4 un 4% al mismo coste.
+
+Las cautelas pesan tanto como las cifras. Son estudios de 2023 y 2024 con modelos anteriores. En RouteLLM, los enrutadores entrenados solo con datos de Arena rindieron casi al azar en MMLU, y hizo falta aumentar los datos con etiquetas correctas. El coste se mide por número de llamadas al modelo caro. Y el 85% de MT Bench no se repite en las otras pruebas.
+
+Lo que sí demuestran es el mecanismo: cuando las consultas varían en dificultad, repartirlas ahorra dinero. Cuánto ahorra en tu caso solo lo sabes midiendo.
+
+---
+
+## 4. Cómo repartir las tareas
+
+Este cuadro recoge nuestro criterio de partida, no una norma:
+
+| Tipo de tarea | Modelo de partida | Cuándo subir de modelo |
+| :--- | :--- | :--- |
+| Clasificar correos, extraer campos de facturas, formatear datos | Flash | Si falla la validación de campos |
+| Resumir documentos y reuniones | Flash | Si el documento es largo o ambiguo |
+| Redactar respuestas a clientes | Flash, con revisión humana | Si el tono o el contexto son delicados |
+| Analizar contratos o documentos con matices | Opus 5.5 | Casos de alto impacto, con revisión de una persona |
+| Agentes que trabajan durante horas, código complejo | Opus 5.5 o Fable 5.2 | Anthropic recomienda empezar por Opus 5.5 |
+
+El método tiene tres pasos:
+
+1. **Etiqueta tus tareas** por dificultad y por coste de un error. Un correo mal clasificado cuesta poco, una factura mal contabilizada, bastante más.
+2. **Prueba entre 20 y 50 casos reales** con un modelo barato y con uno caro. Puntúa si el resultado es correcto, cuánto tarda y cuánto cuesta.
+3. **Define la regla de subida.** El modelo barato responde primero y la tarea sube al caro cuando falla una validación automática (formato, importes, campos obligatorios), cuando el modelo indica baja confianza o cuando el tipo de tarea lo exige.
+
+Las validaciones automáticas son la parte más barata y más útil del sistema. Una factura cuyo total no cuadra con la suma de sus líneas no necesita un modelo más caro para detectar el error. Necesita una regla.
+
+---
+
+## 5. Un ejemplo de factura
+
+Cálculo ilustrativo con supuestos nuestros: 20.000 documentos al mes, 3.000 tokens de entrada y 500 de salida cada uno, es decir, 60 millones de tokens de entrada y 10 millones de salida. Sin caché ni lotes.
+
+| Estrategia | Coste mensual |
+| :--- | :--- |
+| Todo con Fable 5.2 | 880 $ |
+| Todo con Opus 5.5 | 440 $ |
+| Todo con DeepSeek Flash (valle / punta) | 15 $ / 30 $ |
+| Todo con GLM-5.3-Flash | 14 $ |
+| Enrutado: 90% a DeepSeek Flash y 10% a Opus 5.5 | entre 57,50 $ y 71 $ |
+
+El enrutado del ejemplo cuesta más de un 80% menos que enviar todo a Opus 5.5 y más de un 90% menos que enviar todo a Fable 5.2. El reparto 90/10 es un supuesto, no un dato. Si en tus pruebas el modelo barato resuelve el 70% de los casos, la factura sube. El cálculo tampoco incluye el tiempo de montar y mantener el enrutado, ni las llamadas repetidas cuando una tarea sube de modelo. Con esos costes, el ahorro sigue pesando, pero menos que la cifra bruta.
+
+La misma lógica aparece en nuestro artículo anterior sobre el [FOMO del modelo más caro](/blog/gpt-5-6-sol-terra-luna-evita-fomo-ia-pymes). Aquí añadimos precios actuales y un método de reparto.
+
+---
+
+## 6. La alternativa de la tarifa plana: NaN Builders
+
+Pagar por token da una factura que varía con el uso. Una tarifa plana la fija de antemano. NaN Builders es un servicio de inferencia de modelos abiertos con cuota mensual. Según su página oficial:
+
+* **Cuota mensual fija:** el plan con inferencia incluida cuesta 70 € al mes, IVA incluido, y da una clave de API personal compatible con OpenAI, así que basta con cambiar la dirección base en tus herramientas.
+* **Modelos abiertos:** entre otros, DeepSeek V4.1 Flash y GLM-5.3-Flash, además de modelos de embeddings, reranking y voz.
+* **Privacidad:** su política de privacidad, actualizada el 14 de octubre de 2026, afirma que el clúster no guarda ni los prompts ni las respuestas, que el procesamiento ocurre en la Unión Europea y que tu código no entrena modelos. Son declaraciones de la propia empresa.
+
+Una tarifa plana compensa cuando el volumen es alto o difícil de prever y los límites de uso del plan no te frenan. Para decidir si te compensa, haz la prueba del apartado 4 con su API y compara el coste por tarea con el de pagar por token.
+
+Transparencia: este es un enlace de recomendación de IA4PYMES. Si te suscribes con [este enlace de invitación a NaN Builders](https://cloud.nan.builders/r/KFR0JS04), tienes 5 € de descuento en la primera mensualidad. Revisa las condiciones en su web antes de pagar. Hicimos un análisis más amplio del servicio en nuestro artículo sobre [NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026).
+
+Una consideración de privacidad vale para cualquier opción. Antes de enviar datos personales de clientes o empleados a la API de un proveedor, comprueba dónde se procesan y cuánto tiempo se conservan.
+
+---
+
+## Qué hacer esta semana
+
+Elige tres tareas que hoy ejecutes con un modelo de frontera: la que más tokens consume, la más sencilla y la más delicada. Pásalas con 20 casos reales por un modelo Flash y por el modelo que usas ahora, y puntúa acierto, tiempo y coste. Si el modelo barato acierta en las dos primeras, enruta esas tareas y deja el modelo caro para la tercera. Y añade una validación automática antes de cada paso para detectar errores sin pagar más.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y diseñamos contigo el reparto de modelos para tu caso, con una prueba sobre tus propios datos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Qué es el enrutado de modelos de IA?
+
+Es un sistema que decide, para cada tarea o consulta, qué modelo la procesa. Lo habitual es que un modelo barato responda primero y que la tarea suba a uno más caro cuando falla una validación, la confianza es baja o el tipo de tarea lo exige. Estudios como RouteLLM y FrugalGPT miden el ahorro que se consigue.
+
+### ¿Cuánto más barato es DeepSeek Flash que Claude Fable 5.2?
+
+Según los precios de lista, Fable 5.2 cuesta 8 dólares de entrada y 40 de salida por millón de tokens. DeepSeek Flash cuesta 0,15 y 0,60 en horario valle y el doble en horas punta. Por token de entrada, la diferencia es de unas 53 veces en horario valle y unas 27 en horas punta. La diferencia de precio no mide la diferencia de calidad.
+
+### ¿Es GLM-5.3-Flash de código abierto?
+
+En Hugging Face figura con licencia MIT y pesos descargables, con 320.000 millones de parámetros y 18.000 millones activos. Lee el archivo de licencia del repositorio antes de usarlo en un producto. La API de Z.ai cuesta 0,15 dólares de entrada y 0,50 de salida por millón de tokens.
+
+### ¿Sirve un modelo barato para tareas reales de una empresa?
+
+Para muchas tareas acotadas, como clasificar, extraer campos o resumir, es razonable probarlo primero. No hay una comparación independiente concluyente para tareas de oficina, así que la decisión se toma con tus propios documentos, con un conjunto de 20 a 50 casos y una validación automática del resultado.
+
+### ¿Merece la pena una tarifa plana de inferencia?
+
+Depende de tu volumen y de lo previsible que sea. Una cuota fija da una factura conocida, pero el plan tiene límites de uso. Compara el coste por tarea de tus pruebas con el de pagar por token antes de decidir.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Route tasks between AI models to cut your bill (13 NOVEMBER 2026)
+    {
+        slug: "route-tasks-between-ai-models-cut-bill-smes",
+        title: "How to Route Tasks Between AI Models and Cut Your Bill",
+        description: "Fable 5.2 costs about 53 times more per input token than DeepSeek Flash. How to route tasks between models, with official prices and a bill estimate.",
+        date: "2026-11-13",
+        author: "IA4PYMES",
+        readingTime: "10 min",
+        category: "AI Strategy & Business Intelligence",
+        image: "/images/repartir_tareas_entre_modelos_ia_factura_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes",
+        content: `
+Claude Fable 5.2 costs $8 per million input tokens and $40 per million output tokens. DeepSeek Flash costs $0.15 and $0.60 off-peak, and GLM-5.3-Flash costs $0.15 and $0.50. Per input token, Fable 5.2 is about 53 times more expensive than either, and per output token, between 67 and 80 times.
+
+That gap does not mean a cheap model is enough for everything. It means that always paying for the most expensive model, on every task, is a decision worth measuring. The alternative is called model routing: each task goes first to a cheap model and moves up to an expensive one only when needed. This article covers official prices, what research says about routing, a bill example, and a method to apply it. Near the end we mention a flat-rate service with an IA4PYMES referral link, and we flag it where it appears.
+
+---
+
+## 1. How much does each model cost?
+
+Prices per million tokens, taken from each provider's official pages:
+
+| Model | Input | Output | Source |
+| :--- | :--- | :--- | :--- |
+| Claude Fable 5.2 | $8 | $40 | [Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2) |
+| Claude Opus 5.5 | $4 | $20 | [Anthropic documentation](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| DeepSeek Flash, off-peak | $0.15 | $0.60 | [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) |
+| DeepSeek Flash, peak | $0.30 | $1.20 | [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing) |
+| GLM-5.3-Flash | $0.15 | $0.50 | [Z.ai](https://docs.z.ai/guides/overview/pricing) |
+
+Three details that change the math:
+
+* **DeepSeek charges double at peak hours.** According to its documentation, peak hours are 01:00 to 04:00 and 06:00 to 10:00 UTC, Monday through Friday, excluding Chinese public holidays. In Spanish mainland winter time that is 02:00 to 05:00 and 07:00 to 11:00. Batch jobs that run at night or on weekends get the off-peak price. We analyzed the pricing change in our article on the [DeepSeek V4-Pro price hike](/en/blog/deepseek-v4-pro-price-hike-dynamic-peak-pricing-smes-2026).
+* **DeepSeek's model name varies.** DeepSeek's documentation uses the identifier deepseek-flash and lists the version DeepSeek-V4.1-Flash-1017. The older names, such as deepseek-v4-flash, are still accepted, but DeepSeek states that the corresponding models have been retired. Context is 1M tokens with up to 384K of output.
+* **GLM-5.3-Flash has 320 billion parameters, 18 billion active, 1M of context, and up to 128K of output**, according to Z.ai's documentation. On Hugging Face it is listed under the MIT license. Before redistributing it or using it in a product, read the license file in the repository.
+
+These are list prices for each provider's API. They do not include caching or batch discounts, which several of them offer.
+
+---
+
+## 2. What does the data say about quality?
+
+The honest answer is that there is no clean, independent comparison of these models on office tasks. What exists are figures from each provider:
+
+* Z.ai reports that GLM-5.3-Flash scores 63.4 on DeepSWE v1.1 (versus 46.2 for GLM-5.2) and 48.8 on AutomationBench (versus 26.2 for GLM-5.2).
+* Anthropic's table lists on AutomationBench 51.4% for Fable 5.2, 42.5% for Opus 5.5, and 53.9% for Gemini 4 Carbon.
+
+Taken together, those figures suggest a Flash model can land close to a frontier model on that test. Two caveats limit that reading: each number is published by a different provider, and we cannot confirm they use the same version or configuration of AutomationBench. We do not include figures for DeepSeek Flash because we have not checked any against an official source.
+
+The practical conclusion is the same as always: the only comparison that counts is the one you run on your own documents.
+
+---
+
+## 3. What research says about routing
+
+Two academic papers measure how much is saved when a gateway decides which model to use for each query:
+
+* **RouteLLM** (LMSYS, 2024) routes between GPT-4 Turbo as the strong model and Mixtral 8x7B as the weak model. According to its [blog](https://lmsys.org/blog/2024-07-01-routellm/), it achieves cost reductions of over 85% on MT Bench, 45% on MMLU, and 35% on GSM8K versus using only GPT-4, while keeping 95% of its performance. Against another baseline, a random router, the best router reaches 95% of the performance by calling GPT-4 in 26% of cases, at a cost about 48% lower.
+* **FrugalGPT** (2023) states in its [abstract](https://arxiv.org/abs/2305.05176) that it can match the performance of the best individual model with up to a 98% cost reduction, or improve GPT-4's accuracy by 4% at the same cost.
+
+The caveats weigh as much as the figures. These are 2023 and 2024 studies with older models. In RouteLLM, routers trained only on Arena data performed near random on MMLU, and the data had to be augmented with golden labels. Cost is measured by the number of calls to the expensive model. And the 85% from MT Bench does not repeat on the other tests.
+
+What they do show is the mechanism: when queries vary in difficulty, splitting them saves money. How much it saves in your case you only learn by measuring.
+
+---
+
+## 4. How to split the tasks
+
+This table reflects our starting criteria, not a rule:
+
+| Task type | Starting model | When to move up |
+| :--- | :--- | :--- |
+| Classifying emails, extracting invoice fields, formatting data | Flash | If field validation fails |
+| Summarizing documents and meetings | Flash | If the document is long or ambiguous |
+| Drafting customer replies | Flash, with human review | If tone or context is sensitive |
+| Analyzing contracts or documents with nuance | Opus 5.5 | High-impact cases, with human review |
+| Agents that work for hours, complex code | Opus 5.5 or Fable 5.2 | Anthropic recommends starting with Opus 5.5 |
+
+The method has three steps:
+
+1. **Label your tasks** by difficulty and by the cost of an error. A misclassified email costs little, a misposted invoice quite a bit more.
+2. **Test 20 to 50 real cases** with a cheap model and an expensive one. Score whether the result is correct, how long it takes, and what it costs.
+3. **Define the escalation rule.** The cheap model answers first, and the task moves to the expensive one when an automatic validation fails (format, amounts, required fields), when the model reports low confidence, or when the task type demands it.
+
+Automatic validations are the cheapest and most useful part of the system. An invoice whose total does not match the sum of its lines does not need a more expensive model to catch the error. It needs a rule.
+
+---
+
+## 5. A bill example
+
+An illustrative calculation with our own assumptions: 20,000 documents per month, 3,000 input tokens and 500 output tokens each, which is 60 million input tokens and 10 million output tokens. No caching or batching.
+
+| Strategy | Monthly cost |
+| :--- | :--- |
+| Everything on Fable 5.2 | $880 |
+| Everything on Opus 5.5 | $440 |
+| Everything on DeepSeek Flash (off-peak / peak) | $15 / $30 |
+| Everything on GLM-5.3-Flash | $14 |
+| Routed: 90% to DeepSeek Flash and 10% to Opus 5.5 | between $57.50 and $71 |
+
+The routed setup in the example costs more than 80% less than sending everything to Opus 5.5 and more than 90% less than sending everything to Fable 5.2. The 90/10 split is an assumption, not data. If in your tests the cheap model solves 70% of cases, the bill goes up. The calculation also leaves out the time to build and maintain the routing, and the repeated calls when a task moves up a model. With those costs included, the savings still count, but less than the raw figure.
+
+The same logic appears in our earlier article on the [FOMO for the most expensive model](/en/blog/gpt-5-6-sol-terra-luna-avoiding-ai-fomo-smes). Here we add current prices and a splitting method.
+
+---
+
+## 6. The flat-rate alternative: NaN Builders
+
+Paying per token gives a bill that varies with use. A flat rate fixes it in advance. NaN Builders is an open-model inference service with a monthly fee. According to its official page:
+
+* **Fixed monthly fee:** the plan with inference included costs €70 per month, VAT included, and provides a personal OpenAI-compatible API key, so you only need to change the base URL in your tools.
+* **Open models:** among others, DeepSeek V4.1 Flash and GLM-5.3-Flash, plus embedding, reranking, and voice models.
+* **Privacy:** its privacy policy, updated on October 14, 2026, states that the cluster stores neither prompts nor responses, that processing happens in the European Union, and that your code trains no models. These are the company's own statements.
+
+A flat rate pays off when volume is high or hard to predict and the plan's usage limits do not hold you back. To decide whether it pays off for you, run the test from section 4 against its API and compare the cost per task with pay-per-token pricing.
+
+Transparency: this is an IA4PYMES referral link. If you subscribe with [this NaN Builders invitation link](https://cloud.nan.builders/r/KFR0JS04), you get €5 off your first month. Check the terms on their website before paying. We published a broader analysis of the service in our article on [NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026).
+
+One privacy consideration applies to any option. Before sending personal data of customers or employees to a provider's API, check where it is processed and how long it is kept.
+
+---
+
+## What to do this week
+
+Pick three tasks you currently run on a frontier model: the one that uses the most tokens, the simplest one, and the most sensitive one. Run them with 20 real cases through a Flash model and through the model you use today, and score accuracy, time, and cost. If the cheap model gets the first two right, route those tasks and keep the expensive model for the third. And add an automatic validation before each step to catch errors without paying more.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will design the model split for your case, with a test on your own data.
+
+---
+
+## Frequently asked questions
+
+### What is AI model routing?
+
+It is a system that decides, for each task or query, which model processes it. The usual pattern is that a cheap model answers first and the task moves to a more expensive one when a validation fails, confidence is low, or the task type demands it. Studies such as RouteLLM and FrugalGPT measure the savings it delivers.
+
+### How much cheaper is DeepSeek Flash than Claude Fable 5.2?
+
+At list prices, Fable 5.2 costs $8 for input and $40 for output per million tokens. DeepSeek Flash costs $0.15 and $0.60 off-peak and double at peak hours. Per input token, the gap is about 53 times off-peak and about 27 times at peak. A price gap does not measure a quality gap.
+
+### Is GLM-5.3-Flash open source?
+
+On Hugging Face it is listed under the MIT license with downloadable weights, with 320 billion parameters and 18 billion active. Read the repository's license file before using it in a product. Z.ai's API costs $0.15 for input and $0.50 for output per million tokens.
+
+### Is a cheap model good enough for real business tasks?
+
+For many bounded tasks, such as classifying, extracting fields, or summarizing, it is reasonable to test it first. There is no conclusive independent comparison for office tasks, so the decision is made with your own documents, a set of 20 to 50 cases, and an automatic validation of the result.
+
+### Is a flat-rate inference plan worth it?
+
+It depends on your volume and how predictable it is. A fixed fee gives a known bill, but the plan has usage limits. Compare the cost per task from your tests with pay-per-token pricing before deciding.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Claude Fable 5.2 y Mythos 5.2, novedades y qué cambia para las pymes (10 NOVIEMBRE 2026)
     {
         slug: "claude-fable-5-2-mythos-5-2-novedades-precio-pymes",
