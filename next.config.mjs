@@ -63,7 +63,7 @@ const nextConfig = {
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self' https://*.google-analytics.com https://www.google-analytics.com https://www.googletagmanager.com https://r2.leadsy.ai https://calendly.com https://cal.eu https://www.cal.eu https://api.resend.com https://*.instantly.ai",
-              "frame-src https://www.youtube.com https://calendly.com https://assets.calendly.com https://cal.eu https://www.cal.eu",
+              "frame-src https://www.youtube.com https://calendly.com https://assets.calendly.com https://cal.eu https://www.cal.eu https://app.eu.cal.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
