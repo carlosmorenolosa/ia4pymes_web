@@ -16,6 +16,337 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Qwen4-Max de Alibaba, precio, contexto de 1M y qué significa para una pyme (17 NOVIEMBRE 2026)
+    {
+        slug: "qwen-4-max-alibaba-precio-contexto-1m-que-significa-para-pymes",
+        title: "Qwen4-Max de Alibaba: precio, contexto de 1M y qué significa para una pyme",
+        description: "Alibaba abrió Qwen4-Max el 16 de noviembre: 71.000 M de parámetros activos, 1M de contexto y 1,50 $ por millón de tokens. Qué ofrece y cuándo encaja en una pyme.",
+        date: "2026-11-17",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Tecnología",
+        image: "/images/qwen4_max_alibaba_precio_contexto_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "qwen-4-max-alibaba-price-1m-context-what-it-means-for-smes",
+        content: `
+Alibaba abrió el 16 de noviembre de 2026 el acceso general a Qwen4-Max. Según el anuncio de Alibaba Cloud, el modelo tiene 2,4 billones de parámetros y activa 71.000 millones por token. Admite hasta 1 millón de tokens de contexto y cuesta 1,50 dólares por millón de tokens de entrada y 4,50 de salida en la región de Singapur. Los pesos no se publican: solo se usa a través de la API de Alibaba.
+
+Este artículo separa lo que Alibaba afirma en su documentación de lo que cuentan terceros, calcula qué supone el precio para una factura típica de pyme y analiza dos cuestiones que cualquier empresa española debería mirar antes de probarlo: dónde se procesan los datos y para qué tareas puede tener sentido. Cuando una cifra viene de una fuente secundaria, lo indicamos en la misma frase.
+
+---
+
+## 1. ¿Qué ha lanzado Alibaba exactamente?
+
+Estos datos salen de la [documentación de Alibaba Cloud sobre qwen4-max](https://www.alibabacloud.com/help/en/model-studio/qwen4-max), de su [registro de lanzamientos](https://www.alibabacloud.com/help/en/model-studio/newly-released-models) y del [anuncio oficial](https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783):
+
+| Dato | Valor |
+| :--- | :--- |
+| Fechas | Vista previa el 11 de noviembre (solo mediante Token Plan). Disponibilidad general el 16 de noviembre, con el identificador qwen4-max |
+| Parámetros | 2,4 billones en total, 71.000 millones activos por token. Alibaba indica un 25% menos de parámetros activos que Qwen3.8-Max |
+| Contexto | 1.000.000 de tokens. Entrada máxima de 991.808 sin razonamiento y 983.616 con razonamiento |
+| Salida máxima | 131.072 tokens sin razonamiento y 262.144 con razonamiento |
+| Entradas y salidas | Entra texto, imagen y vídeo. Sale texto |
+| Funciones | Razonamiento, búsqueda web, llamadas a funciones, salida estructurada y caché de contexto |
+| No admite | Inferencia por lotes ni ajuste fino |
+| Pesos | Cerrados. Alibaba dice que pronto publicará modelos de la serie Qwen4 de menor tamaño con pesos abiertos, sin fecha ni tamaños |
+
+Un matiz de nomenclatura: el nombre oficial es Qwen4-Max. En la prensa aparece también como Qwen 4 Max. Es un modelo distinto del Qwen3.8-2.4T-A95B, que Alibaba publicó en agosto con pesos abiertos.
+
+---
+
+## 2. ¿Cuánto cuesta?
+
+La página de precios de Alibaba Model Studio lista una sola franja de precio, hasta 1M de tokens, sin tramos por longitud de contexto. Precios por millón de tokens, según la [página oficial de precios](https://www.alibabacloud.com/help/en/model-studio/model-pricing):
+
+| Región | Entrada | Salida | Lectura de caché |
+| :--- | :--- | :--- | :--- |
+| Singapur (internacional) | 1,50 $ | 4,50 $ | 0,075 $ |
+| Frankfurt, Pekín, Hong Kong, EE. UU. (Virginia), Tokio | 1,413 $ | 4,24 $ | 0,071 $ |
+
+La lectura de caché cuesta el 5% del precio normal de entrada. Si haces muchas preguntas sobre el mismo documento largo, ese detalle pesa más que la tarifa base. Alibaba ofrece además 1 millón de tokens gratis durante 90 días en la región de Singapur.
+
+Para ponerlo en perspectiva, la tabla compara el precio con los modelos de nuestro [artículo sobre enrutado de modelos](/blog/repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes), todos a precio de lista:
+
+| Modelo | Entrada | Salida |
+| :--- | :--- | :--- |
+| Claude Fable 5.2 | 8 $ | 40 $ |
+| Claude Opus 5.5 | 4 $ | 20 $ |
+| Qwen4-Max (Singapur) | 1,50 $ | 4,50 $ |
+| DeepSeek Flash (valle) | 0,15 $ | 0,60 $ |
+| GLM-5.3-Flash | 0,15 $ | 0,50 $ |
+
+Por token de entrada, Qwen4-Max cuesta alrededor de un 81% menos que Fable 5.2 y un 63% menos que Opus 5.5. Es unas diez veces más caro que los modelos Flash. Por token de salida, la diferencia con Fable 5.2 es de casi nueve veces.
+
+### Un ejemplo de factura
+
+Aplicamos el mismo supuesto de aquel artículo: 20.000 documentos al mes, 3.000 tokens de entrada y 500 de salida cada uno, es decir, 60 millones de tokens de entrada y 10 millones de salida, sin caché ni lotes.
+
+| Estrategia | Coste mensual |
+| :--- | :--- |
+| Todo con Fable 5.2 | 880 $ |
+| Todo con Opus 5.5 | 440 $ |
+| Todo con Qwen4-Max (Singapur) | 135 $ |
+| Todo con Qwen4-Max (Frankfurt) | 127,18 $ |
+| Todo con DeepSeek Flash (valle) | 15 $ |
+
+El cálculo tiene un límite importante. Alibaba documenta hasta 262.144 tokens de razonamiento por respuesta, y no hemos verificado cómo se facturan. Si activas el razonamiento y el modelo genera miles de tokens por tarea, la salida real será mucho mayor que los 500 tokens del ejemplo. Mide el coste de una llamada real con el razonamiento activado antes de extrapolar.
+
+---
+
+## 3. ¿Qué dicen los datos sobre su calidad?
+
+Aquí hay que ser prudentes. El anuncio de Alibaba no incluye cifras de benchmarks ni compara el modelo con Claude, GPT o Gemini. Lo que sí afirma:
+
+* **Menor coste por tarea.** En Work360, un benchmark propietario de Alibaba con 721 campos profesionales, el coste medio por tarea baja alrededor de un 60% frente a Qwen3.8-Max, y usa un 35% menos de tokens con esfuerzo alto. La comparación es contra el modelo anterior de la propia Alibaba y sobre una prueba que no es pública.
+* **Posición en Code Arena.** Alibaba dice que queda sexto.
+
+Las cifras con competidores salen de [DataCamp](https://www.datacamp.com/blog/qwen4-max), que reproduce la gráfica de Alibaba (no pudimos leer la imagen original). Según DataCamp, en Terminal-Bench 4.0 Qwen4-Max marca 48,5 y Kimi K3.1 marca 67,2. Cita también dos clasificaciones independientes: el Artificial Analysis Intelligence Index lo sitúa novena, con 43 puntos, y Vals AI lo sitúa en el puesto 11 de 38. Son cifras de una fuente secundaria que no hemos contrastado con las páginas originales.
+
+Los datos de DataCamp difieren en detalles de lo que publica Alibaba. Por ejemplo, DataCamp habla de una reducción del 62% en el coste por tarea y Alibaba habla de alrededor del 60%. Cuando hay diferencias, nos quedamos con la cifra de Alibaba.
+
+Como en otros lanzamientos, hay un modelo nuevo con cifras favorables publicadas por su fabricante y pocas comparaciones independientes. Para una tarea concreta de tu empresa, la única referencia fiable es una prueba con tus propios documentos.
+
+---
+
+## 4. ¿Qué cambia para una pyme?
+
+### Un candidato para el escalón intermedio
+
+Con un enrutado de modelos, cada tarea va primero a un modelo barato y sube a uno caro cuando falla una validación. Qwen4-Max cuesta menos de la mitad que Opus 5.5 y diez veces más que un modelo Flash. Usarlo como escalón intermedio es una hipótesis razonable: para las tareas que un Flash no resuelve y que no justifican pagar el precio de Opus o Fable. Nadie ha publicado una comparación independiente sobre tareas de oficina, y por eso la prueba del apartado 6 es obligatoria.
+
+### Documentos largos y entrada multimodal
+
+Con 1 millón de tokens de contexto y entrada de imagen y vídeo, cabe en una sola llamada un contrato extenso con anexos, un manual técnico o un conjunto de facturas escaneadas. Una llamada con el contexto lleno cuesta 1,50 dólares de entrada en Singapur. Con la caché, las preguntas siguientes sobre el mismo documento cuestan una fracción. Antes de enviar un documento así, comprueba la calidad de las respuestas: un contexto largo permite meter mucho texto, y la precisión sobre él hay que medirla.
+
+### Lo que no tiene
+
+La API no admite inferencia por lotes ni ajuste fino. El primero es el descuento habitual en procesos nocturnos, y el segundo es una vía para adaptar un modelo a tu terminología. Si tu caso depende de alguno, Qwen4-Max hoy no lo cubre.
+
+### Pesos cerrados y modelos pequeños en camino
+
+Qwen4-Max no se puede descargar ni ejecutar en tus servidores. Alibaba anuncia modelos abiertos de la serie Qwen4 de menor tamaño sin dar fecha. Si tu prioridad es ejecutar IA en local, esa es la noticia relevante y todavía no existe. Mientras tanto, tienes opciones abiertas actuales, como Qwen3.8 27B, que explicamos en nuestro artículo para [descargarlo y ejecutarlo en local](/blog/qwen-3-8-27b-hugging-face-descargar-ejecutar-local-pymes-2026). Sobre qué sabíamos antes del lanzamiento, tienes nuestro análisis de [Qwen 4 y el nombre en clave Kalmia](/blog/qwen-4-modelo-fantasma-kalmia-confirmado-bulos-2026).
+
+---
+
+## 5. Privacidad: dónde se procesan tus datos
+
+Es la pregunta que más importa a una empresa española y la que la documentación deja menos clara.
+
+* **Frankfurt aparece como región con precio propio**, pero en la documentación de Alibaba su alcance de despliegue figura como Global. Otros modelos de Alibaba, como qwen-plus, tienen una fila separada de alcance UE. No encontramos una declaración de residencia de datos para qwen4-max.
+* **La región de Singapur, la que da la cuota gratuita, procesa fuera de la UE.**
+* **Los pesos son cerrados**, así que no puedes llevarte el modelo a tu infraestructura para controlar el tratamiento.
+
+Antes de enviar datos personales de clientes o empleados, pide por escrito a Alibaba Cloud dónde se procesan, cuánto tiempo se conservan y qué contrato de encargado de tratamiento ofrecen. Mientras tanto, usa solo datos sin información personal en las pruebas. Sobre cómo valorar el envío de datos a un proveedor de IA, tienes nuestra [guía de RGPD para subir datos de clientes a un modelo](/blog/es-legal-subir-datos-clientes-chatgpt-guia-rgpd-pymes).
+
+---
+
+## 6. Cómo probarlo esta semana
+
+1. **Elige tres tareas** que hoy hagas con un modelo de frontera: la que más tokens consume, la más sencilla y la más delicada.
+2. **Prepara entre 20 y 50 casos reales sin datos personales.** Anonimízalos o usa ejemplos sintéticos.
+3. **Pásalos por tres modelos:** el que usas ahora, un modelo Flash y Qwen4-Max. Puedes usar la cuota gratuita de 1 millón de tokens, solo con esos datos no personales.
+4. **Puntúa tres cosas:** si el resultado es correcto, cuánto tarda y cuánto cuesta cada tarea, con el razonamiento activado y sin él.
+5. **Añade validaciones automáticas** (formato, importes, campos obligatorios) antes de decidir cuándo sube una tarea de modelo.
+
+Si Qwen4-Max acierta donde el Flash falla, y lo hace por menos dinero que tu modelo actual, tienes el escalón intermedio. Si no, la prueba te habrá costado unas pocas llamadas.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y montamos contigo la prueba con tus propios documentos, con el reparto de modelos y la revisión de privacidad incluidos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Qué es Qwen4-Max?
+
+Es un modelo de lenguaje multimodal de Alibaba, con 2,4 billones de parámetros totales y 71.000 millones activos por token, que admite 1 millón de tokens de contexto y entrada de texto, imagen y vídeo. Alibaba abrió el acceso general por API el 16 de noviembre de 2026.
+
+### ¿Cuánto cuesta Qwen4-Max?
+
+En la región de Singapur, 1,50 dólares por millón de tokens de entrada y 4,50 de salida. En Frankfurt, Pekín, Hong Kong, EE. UU. (Virginia) y Tokio, 1,413 y 4,24 dólares. La lectura de caché cuesta 0,075 y 0,071 dólares respectivamente. No hay tramos por longitud de contexto.
+
+### ¿Es de código abierto?
+
+No. Qwen4-Max es un modelo cerrado que solo se usa por API. Alibaba ha dicho que publicará pronto modelos de la serie Qwen4 de menor tamaño con pesos abiertos, sin fechas ni tamaños.
+
+### ¿Se procesan los datos en Europa?
+
+La documentación lista una región de Frankfurt con precio propio, pero con alcance Global, y no encontramos una declaración de residencia de datos para este modelo. Antes de enviar datos personales, pide a Alibaba Cloud confirmación escrita del lugar de procesamiento y del contrato de tratamiento.
+
+### ¿Es mejor que Claude, GPT o Gemini?
+
+No hay datos suficientes para decirlo. El anuncio de Alibaba no compara el modelo con esos competidores. Según DataCamp, un modelo de la competencia puntúa más alto en Terminal-Bench 4.0, y Artificial Analysis lo sitúa novena en su índice. Tus propios documentos son la prueba válida.
+
+### ¿Para qué tareas de una pyme puede servir?
+
+Para tareas que un modelo Flash no resuelve y que no justifican el precio de un modelo de frontera, como analizar documentos largos o resolver casos ambiguos. Es una hipótesis que hay que comprobar con una prueba propia.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Alibaba Qwen4-Max, price, 1M context and what it means for SMEs (17 NOVEMBER 2026)
+    {
+        slug: "qwen-4-max-alibaba-price-1m-context-what-it-means-for-smes",
+        title: "Alibaba Qwen4-Max: Price, 1M Context and What It Means for SMEs",
+        description: "Alibaba opened Qwen4-Max on November 16: 71B active parameters, 1M context and $1.50 per million tokens. What it offers and where it fits in a small business.",
+        date: "2026-11-17",
+        author: "IA4PYMES",
+        readingTime: "11 min",
+        category: "Technology",
+        image: "/images/qwen4_max_alibaba_precio_contexto_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "qwen-4-max-alibaba-precio-contexto-1m-que-significa-para-pymes",
+        content: `
+Alibaba opened general access to Qwen4-Max on November 16, 2026. According to Alibaba Cloud's announcement, the model has 2.4 trillion parameters and activates 71 billion per token. It supports up to 1 million tokens of context and costs $1.50 per million input tokens and $4.50 per million output tokens in the Singapore region. The weights are not published: you can only use it through Alibaba's API.
+
+This article separates what Alibaba states in its documentation from what third parties report, works out what the price means for a typical small-business bill, and covers two questions any European company should check before trying it: where the data is processed and which tasks it might suit. When a figure comes from a secondary source, we say so in the same sentence.
+
+---
+
+## 1. What exactly did Alibaba launch?
+
+These facts come from [Alibaba Cloud's qwen4-max documentation](https://www.alibabacloud.com/help/en/model-studio/qwen4-max), its [release log](https://www.alibabacloud.com/help/en/model-studio/newly-released-models) and the [official announcement](https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783):
+
+| Item | Value |
+| :--- | :--- |
+| Dates | Preview on November 11 (Token Plan only). General availability on November 16, under the ID qwen4-max |
+| Parameters | 2.4 trillion total, 71 billion active per token. Alibaba says 25% fewer active parameters than Qwen3.8-Max |
+| Context | 1,000,000 tokens. Maximum input of 991,808 without thinking and 983,616 with thinking |
+| Maximum output | 131,072 tokens without thinking and 262,144 with thinking |
+| Inputs and outputs | Text, image and video in. Text out |
+| Features | Thinking, web search, function calling, structured output and context caching |
+| Not supported | Batch inference and fine-tuning |
+| Weights | Closed. Alibaba says smaller Qwen4 models with open weights will be released soon, with no date or sizes |
+
+A naming note: the official name is Qwen4-Max. Press coverage also writes it as Qwen 4 Max. It is a different model from Qwen3.8-2.4T-A95B, which Alibaba released in August with open weights.
+
+---
+
+## 2. How much does it cost?
+
+The Alibaba Model Studio pricing page lists a single price band, up to 1M tokens, with no tiers by context length. Prices per million tokens, from the [official pricing page](https://www.alibabacloud.com/help/en/model-studio/model-pricing):
+
+| Region | Input | Output | Cache read |
+| :--- | :--- | :--- | :--- |
+| Singapore (international) | $1.50 | $4.50 | $0.075 |
+| Frankfurt, Beijing, Hong Kong, US (Virginia), Tokyo | $1.413 | $4.24 | $0.071 |
+
+A cache read costs 5% of the normal input price. If you ask many questions about the same long document, that detail matters more than the base rate. Alibaba also offers 1 million free tokens for 90 days in the Singapore region.
+
+For perspective, the table compares the price with the models in our [article on model routing](/en/blog/route-tasks-between-ai-models-cut-bill-smes), all at list price:
+
+| Model | Input | Output |
+| :--- | :--- | :--- |
+| Claude Fable 5.2 | $8 | $40 |
+| Claude Opus 5.5 | $4 | $20 |
+| Qwen4-Max (Singapore) | $1.50 | $4.50 |
+| DeepSeek Flash (off-peak) | $0.15 | $0.60 |
+| GLM-5.3-Flash | $0.15 | $0.50 |
+
+Per input token, Qwen4-Max costs about 81% less than Fable 5.2 and 63% less than Opus 5.5. It is about ten times more expensive than the Flash models. Per output token, the gap with Fable 5.2 is almost ninefold.
+
+### A bill example
+
+We apply the same assumption as that article: 20,000 documents a month, 3,000 input tokens and 500 output tokens each, that is, 60 million input tokens and 10 million output tokens, with no caching or batching.
+
+| Strategy | Monthly cost |
+| :--- | :--- |
+| Everything on Fable 5.2 | $880 |
+| Everything on Opus 5.5 | $440 |
+| Everything on Qwen4-Max (Singapore) | $135 |
+| Everything on Qwen4-Max (Frankfurt) | $127.18 |
+| Everything on DeepSeek Flash (off-peak) | $15 |
+
+The calculation has one important limit. Alibaba documents up to 262,144 thinking tokens per answer, and we have not verified how they are billed. If you turn thinking on and the model generates thousands of tokens per task, real output will be far higher than the 500 tokens in the example. Measure the cost of a real call with thinking enabled before extrapolating.
+
+---
+
+## 3. What does the data say about quality?
+
+Caution is needed here. Alibaba's announcement includes no benchmark scores and does not compare the model with Claude, GPT or Gemini. What it does claim:
+
+* **Lower cost per task.** On Work360, an Alibaba proprietary benchmark covering 721 professional fields, average cost per task drops by around 60% against Qwen3.8-Max, and it uses 35% fewer tokens at high effort. The comparison is against Alibaba's own earlier model on a test that is not public.
+* **Code Arena position.** Alibaba says it ranks sixth.
+
+The figures against competitors come from [DataCamp](https://www.datacamp.com/blog/qwen4-max), which reproduces Alibaba's chart (we could not read the original image). According to DataCamp, on Terminal-Bench 4.0 Qwen4-Max scores 48.5 and Kimi K3.1 scores 67.2. It also cites two independent rankings: the Artificial Analysis Intelligence Index places it ninth with 43 points, and Vals AI places it 11th of 38. These come from a secondary source that we have not checked against the original pages.
+
+DataCamp's numbers differ in details from what Alibaba publishes. For example, DataCamp reports a 62% cut in cost per task and Alibaba says around 60%. Where they differ, we use Alibaba's figure.
+
+As in other launches, there is a new model with favorable figures published by its maker and few independent comparisons. For a specific task in your company, the only reliable reference is a test with your own documents.
+
+---
+
+## 4. What changes for a small business?
+
+### A candidate for the middle tier
+
+With model routing, each task goes first to a cheap model and moves up to an expensive one when a validation fails. Qwen4-Max costs less than half of Opus 5.5 and ten times a Flash model. Using it as a middle tier is a reasonable hypothesis, for the tasks a Flash model cannot solve that do not justify paying Opus or Fable prices. Nobody has published an independent comparison on office tasks, which is why the test in section 6 is required.
+
+### Long documents and multimodal input
+
+With 1 million tokens of context and image and video input, one call can hold a long contract with annexes, a technical manual or a batch of scanned invoices. A call with a full context costs $1.50 of input in Singapore. With caching, follow-up questions on the same document cost a fraction. Before sending a document like that, check the quality of the answers: a long context lets you fit a lot of text, and accuracy over it has to be measured.
+
+### What it lacks
+
+The API does not support batch inference or fine-tuning. The first is the usual discount for overnight jobs, and the second is a way to adapt a model to your terminology. If your use case depends on either, Qwen4-Max does not cover it today.
+
+### Closed weights and smaller models on the way
+
+You cannot download Qwen4-Max or run it on your servers. Alibaba announces smaller Qwen4 models with open weights, with no date. If your priority is running AI locally, that is the relevant news and it does not exist yet. In the meantime, there are current open options such as Qwen3.8 27B, which we cover in our article on [downloading and running it locally](/en/blog/qwen-3-8-27b-hugging-face-download-run-local-smes-2026). For what we knew before the launch, see our analysis of [Qwen 4 and the Kalmia codename](/en/blog/qwen-4-codename-kalmia-confirmed-facts-rumors-2026).
+
+---
+
+## 5. Privacy: where your data is processed
+
+This is the question that matters most to a European company and the one the documentation leaves least clear.
+
+* **Frankfurt appears as a region with its own price**, but Alibaba's documentation lists its deployment scope as Global. Other Alibaba models, such as qwen-plus, have a separate row with an EU scope. We found no data residency statement for qwen4-max.
+* **The Singapore region, which has the free quota, processes outside the EU.**
+* **The weights are closed**, so you cannot take the model to your own infrastructure to control the processing.
+
+Before sending personal data about customers or employees, ask Alibaba Cloud in writing where it is processed, how long it is kept and which data processing agreement they offer. Until then, use only data without personal information in tests. On how to assess sending data to an AI provider, see our [GDPR guide to uploading client data to a model](/en/blog/is-it-legal-to-upload-client-data-to-chatgpt-gdpr-guide).
+
+---
+
+## 6. How to test it this week
+
+1. **Pick three tasks** you currently run on a frontier model: the one that uses the most tokens, the simplest and the most sensitive.
+2. **Prepare 20 to 50 real cases with no personal data.** Anonymize them or use synthetic examples.
+3. **Run them through three models:** the one you use now, a Flash model and Qwen4-Max. You can use the free 1-million-token quota, with that non-personal data only.
+4. **Score three things:** whether the result is correct, how long it takes and what each task costs, with thinking on and off.
+5. **Add automatic validations** (format, amounts, required fields) before deciding when a task moves up a model.
+
+If Qwen4-Max gets right what the Flash model gets wrong, and does it for less money than your current model, you have your middle tier. If not, the test will have cost you a few calls.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will set up the test with your own documents, including the model split and the privacy review.
+
+---
+
+## Frequently asked questions
+
+### What is Qwen4-Max?
+
+It is a multimodal language model from Alibaba, with 2.4 trillion total parameters and 71 billion active per token, supporting 1 million tokens of context and text, image and video input. Alibaba opened general API access on November 16, 2026.
+
+### How much does Qwen4-Max cost?
+
+In the Singapore region, $1.50 per million input tokens and $4.50 per million output tokens. In Frankfurt, Beijing, Hong Kong, US (Virginia) and Tokyo, $1.413 and $4.24. Cache reads cost $0.075 and $0.071 respectively. There are no tiers by context length.
+
+### Is it open source?
+
+No. Qwen4-Max is a closed model used only through the API. Alibaba has said it will soon release smaller Qwen4 models with open weights, with no dates or sizes.
+
+### Is data processed in Europe?
+
+The documentation lists a Frankfurt region with its own price but with Global scope, and we found no data residency statement for this model. Before sending personal data, ask Alibaba Cloud for written confirmation of the processing location and the data processing agreement.
+
+### Is it better than Claude, GPT or Gemini?
+
+There is not enough data to say. Alibaba's announcement does not compare the model with those competitors. According to DataCamp, a competing model scores higher on Terminal-Bench 4.0, and Artificial Analysis places it ninth on its index. Your own documents are the valid test.
+
+### What small-business tasks could it suit?
+
+Tasks a Flash model cannot solve that do not justify a frontier model's price, such as analyzing long documents or resolving ambiguous cases. It is a hypothesis that needs your own test.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Repartir tareas entre modelos de IA (enrutado) para reducir la factura (13 NOVIEMBRE 2026)
     {
         slug: "repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes",
