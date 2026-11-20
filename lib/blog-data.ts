@@ -16,6 +16,273 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Anthropic sale a bolsa, qué dice el prospecto y qué supone para una pyme (20 NOVIEMBRE 2026)
+    {
+        slug: "anthropic-sale-a-bolsa-prospecto-ant-que-supone-para-pymes-claude",
+        title: "Anthropic sale a bolsa: qué dice el prospecto y qué supone para una pyme",
+        description: "Anthropic cotiza como ANT desde el 19 de noviembre. Qué dice su prospecto sobre precios, límites y retirada de modelos, y qué hacer si tu pyme usa Claude.",
+        date: "2026-11-20",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "Estrategia e Inteligencia de Negocio",
+        image: "/images/anthropic_sale_a_bolsa_prospecto_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "anthropic-ipo-prospectus-ant-what-it-means-for-smes-using-claude",
+        content: `
+Anthropic empezó a cotizar en Nasdaq el 19 de noviembre de 2026 con el símbolo ANT. Vendió 980 millones de acciones Clase A a 83 dólares, según su [comunicado de precio](https://www.anthropic.com/news/anthropic-prices-initial-public-offering), y la primera jornada cerró a 97,17 dólares, un 17% por encima del precio de salida, según [Bloomberg](https://www.bloomberg.com/news/live-blog/2026-11-19/anthropic-trading-debut-live-updates) y [CBS News](https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/).
+
+Para una pyme que usa Claude, lo útil de una salida a bolsa es el prospecto. Es un documento que la empresa registra en la SEC y donde tiene que describir sus riesgos. Hemos leído el prospecto definitivo (formulario 424B4, registrado el 19 de noviembre) y este artículo recoge lo que afecta a un cliente: precios, límites de uso, retirada de modelos y dependencia de la capacidad de cómputo. Aviso: esto es análisis de proveedor, no una recomendación de inversión.
+
+---
+
+## 1. La operación en cifras
+
+Datos del [comunicado de Anthropic](https://www.anthropic.com/news/anthropic-prices-initial-public-offering) y de la portada del prospecto:
+
+| Dato | Valor |
+| :--- | :--- |
+| Precio de salida | 83 $ por acción |
+| Acciones | 980.000.000 de Clase A: 956.351.354 las vende Anthropic y 23.648.646 los accionistas vendedores |
+| Importe bruto | Unos 81.300 millones de dólares (980 millones por 83 $, cálculo nuestro). Anthropic no recibe nada por las acciones de los accionistas vendedores |
+| Opción adicional | Hasta 147.000.000 de acciones más en 30 días |
+| Mercado | Nasdaq Global Select, símbolo ANT |
+| Bancos colocadores | Goldman Sachs y Morgan Stanley |
+
+La estructura de voto es poco habitual. Las acciones Clase F tienen un 50,1% fijo de los votos, así que las Clase A, las que compra el público, suman como máximo el 49,9%. Anthropic es además una sociedad de beneficio público de Delaware, con la obligación de equilibrar el interés de los accionistas con el de las personas afectadas por su actividad y con un propósito público definido en sus estatutos.
+
+---
+
+## 2. El negocio según el prospecto
+
+Cifras del prospecto, en millones de dólares salvo que se indique:
+
+| | 2023 | 2024 | 2025 | 9 meses de 2026 |
+| :--- | :--- | :--- | :--- | :--- |
+| Ingresos | 41 | 386 | 4.585 | 33.242 |
+| Cómputo e infraestructura | 433 | 2.522 | 7.326 | 18.808 |
+| Pérdida operativa | 551 | 2.980 | 8.060 | 1.260 |
+
+Tres lecturas, todas con la cautela de que el propio documento advierte de que este crecimiento no es indicativo del futuro:
+
+* **El cómputo se come más de la mitad de los ingresos.** En los nueve primeros meses de 2026, el gasto en cómputo e infraestructura fue de 18.808 millones frente a 33.242 de ingresos, el 57%.
+* **La pérdida neta de 104.039 millones tiene un origen contable.** De esa cifra, 94.324 millones proceden del cambio en el valor razonable de bonos convertibles, derivados y SAFEs. La pérdida operativa del periodo fue de 1.260 millones.
+* **El ritmo anualizado de ingresos era de unos 81.000 millones de dólares a 31 de octubre de 2026**, 10.000 millones más que a 30 de septiembre. Es una métrica operativa que el propio prospecto define como la suma de los ingresos por consumo de los últimos 28 días multiplicados por 13 y las cuotas mensuales de suscripción multiplicadas por 12. No equivale a ingresos contables.
+
+El número de clientes con más de 100.000 dólares de ingresos en los últimos doce meses pasó de más de 950 a más de 11.900 entre septiembre de 2025 y septiembre de 2026. El prospecto también indica que una parte importante de su base son empresas emergentes y empresas tecnológicas, y que ningún cliente supuso más del 10% de los ingresos, aunque los cinco mayores sumaron alrededor del 25%.
+
+---
+
+## 3. Lo que el prospecto dice que puede afectar a un cliente
+
+Los factores de riesgo son texto jurídico que describe escenarios posibles. No son planes ni anuncios. Aun así, varios pasajes tocan decisiones de una pyme que depende de Claude.
+
+### Precios
+
+El prospecto dice que Anthropic ha cambiado en el pasado sus modelos de precios y que puede volver a hacerlo. Entre los escenarios que contempla figuran reducir precios, ofrecer contratos de menor duración o pasar a precios por resultado o por tarea. También afirma que los clientes empresariales pueden pedir otras estructuras de precio, descuentos o más funcionalidad al mismo precio, y que los modelos abiertos pueden presionar los precios en algunos usos.
+
+En sentido contrario, señala que sus ofertas con agentes consumen estructuralmente más cómputo que las demás, y que si no logra fijar precios que reflejen ese coste, su rentabilidad podría verse afectada. El documento no anuncia ninguna subida. Describe un problema de costes en los agentes que el proveedor tiene que resolver con precios, con eficiencia o con ambos.
+
+### Límites de uso
+
+Anthropic reconoce en el prospecto que ha cambiado y puede volver a cambiar los límites de uso, los límites de tasa y las capacidades de modelos y productos, y que esos cambios pueden perjudicar su reputación y el valor percibido de su oferta. Añade que algunos han dado lugar a reclamaciones por información insuficiente o engañosa sobre el acceso a los modelos o sus capacidades. Si tu proceso depende de un volumen concreto de llamadas por minuto, ese es un riesgo operativo.
+
+### Retirada de modelos
+
+El prospecto indica que consideraciones de seguridad y alineamiento pueden llevar a la empresa a retrasar la retirada de modelos antiguos y a mantener versiones heredadas junto a las nuevas. También reconoce que los clientes que integraron modelos antiguos pueden resistirse a migrar y que una retirada forzada podría provocar pérdida de clientes y disputas contractuales. Para una pyme, la conclusión práctica es una pregunta: ¿cuántos meses de aviso te dan antes de retirar el modelo que usas hoy?
+
+### Capacidad de cómputo y dependencia de nubes
+
+* **Compromisos de cómputo de unos 900.900 millones de dólares** en total, según el prospecto, de los que unos 451.600 millones se incurrirían antes del 31 de diciembre de 2030 y unos 70.700 millones vencen en los doce meses posteriores al 30 de septiembre de 2026.
+* **Ingresos sin compromiso a largo plazo.** El prospecto describe los ingresos como principalmente por consumo y en gran parte sin contratos de larga duración, frente a compromisos de cómputo que se extienden varios años.
+* **Dependencia de proveedores de nube.** Los marketplaces de nubes públicas generaron el 47% de los ingresos de 2025 y el 44% en los nueve primeros meses de 2026. El documento advierte de que esas nubes pueden sufrir caídas, incidentes de seguridad o falta de capacidad, y de que migrar cargas a otros proveedores sería costoso y lento.
+
+### Clientes que pueden irse con poco aviso
+
+Según el prospecto, muchos contratos permiten a los clientes reducir el uso o terminar con poco o ningún aviso, y los mayores clientes pueden gastar menos en cualquier momento. Es una cláusula en favor del cliente. Para una pyme significa que tiene margen para cambiar de proveedor sin penalización, si ha preparado antes la alternativa.
+
+### Regulación
+
+El prospecto cita el Reglamento europeo de IA (2024/1689) como una fuente de obligaciones de transparencia, gestión de riesgos y gobernanza, con sanciones elevadas por incumplimiento.
+
+---
+
+## 4. Qué se puede deducir y qué no
+
+El prospecto no anuncia subidas de precio, ni recortes, ni cambios en los modelos que usas. Lo que permite afirmar es otra cosa: un proveedor con compromisos de cómputo de cientos de miles de millones, ingresos que los clientes pueden reducir con poco aviso y agentes más caros de servir tiene motivos para ajustar precios, límites y catálogo de modelos, y su propio documento dice que ya lo ha hecho antes.
+
+Para una pyme, eso se traduce en gestionar un riesgo de proveedor, que es algo que ya hacemos con el banco, la nube o el software de gestión. Lo hemos tratado antes en nuestro artículo sobre el [veto de EE. UU. a Claude Fable 5 y la soberanía digital](/blog/veto-eeuu-claude-fable-5-soberania-digital-pymes) y en la [guía de Claude Fable 5.2 y Mythos 5.2](/blog/claude-fable-5-2-mythos-5-2-novedades-precio-pymes).
+
+---
+
+## 5. Qué hacer esta semana
+
+1. **Inventaría dónde usas Claude.** Anota qué modelo, qué tarea, cuántas llamadas al mes y qué pasa en tu negocio si deja de funcionar durante un día.
+2. **Revisa los términos que tienes firmados.** Busca la cláusula de cambio de precios, el plazo de aviso antes de retirar un modelo, los límites de uso y el tratamiento de datos.
+3. **Prepara una alternativa probada.** Guarda entre 20 y 50 casos reales sin datos personales y pásalos por otro modelo, por ejemplo uno de los que comparamos en nuestro [artículo de enrutado entre modelos](/blog/repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes) o [Qwen4-Max](/blog/qwen-4-max-alibaba-precio-contexto-1m-que-significa-para-pymes). Una alternativa que no has probado no sirve el día que la necesitas.
+4. **Separa el modelo de tu aplicación.** Si tus herramientas llaman a un único proveedor de forma directa, cambiar cuesta semanas. Con una capa intermedia, cuesta una configuración.
+5. **Presupuesta con escenarios.** Calcula tu factura con el precio actual, con un 30% más y con un 30% menos, y comprueba si tu proyecto sigue saliendo.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y revisamos contigo tu dependencia de proveedores de IA, con una prueba de alternativas sobre tus propios casos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Cuándo salió Anthropic a bolsa y a qué precio?
+
+Empezó a cotizar en Nasdaq el 19 de noviembre de 2026 con el símbolo ANT. El precio de salida fue de 83 dólares por acción, con 980 millones de acciones Clase A a la venta, según su comunicado. La primera sesión cerró a 97,17 dólares, según Bloomberg y CBS News.
+
+### ¿Va a subir Anthropic los precios de Claude?
+
+El prospecto no lo anuncia. Dice que la empresa ha cambiado sus modelos de precios en el pasado y que puede hacerlo de nuevo, con escenarios que incluyen bajar precios, contratos más cortos o precios por tarea. También señala que los agentes cuestan más de servir y que debe fijar precios que lo reflejen.
+
+### ¿Qué dice el prospecto sobre retirar modelos antiguos?
+
+Dice que consideraciones de seguridad pueden llevar a retrasar la retirada de modelos antiguos y a mantener versiones heredadas, y que una retirada forzada podría provocar pérdida de clientes y disputas contractuales. No fija un plazo de aviso. Conviene mirarlo en tu contrato.
+
+### ¿Debería cambiar de proveedor de IA por esta noticia?
+
+No hay en el prospecto una razón para cambiar hoy. Lo recomendable es tener una alternativa probada con tus propios casos y una arquitectura que permita cambiar de modelo sin rehacer la aplicación.
+
+### ¿Esto es consejo de inversión?
+
+No. Analizamos el prospecto desde el punto de vista de un cliente de Claude. No valoramos si las acciones son una buena inversión.
+        `.trim(),
+    },
+    // ARTÍCULO EN: Anthropic goes public, what the prospectus says and what it means for SMEs (20 NOVEMBER 2026)
+    {
+        slug: "anthropic-ipo-prospectus-ant-what-it-means-for-smes-using-claude",
+        title: "Anthropic Goes Public: What the Prospectus Says and What It Means for SMEs",
+        description: "Anthropic has traded as ANT since November 19. What its prospectus says about pricing, usage limits and model retirement, and what to do if your business uses Claude.",
+        date: "2026-11-20",
+        author: "IA4PYMES",
+        readingTime: "12 min",
+        category: "AI Strategy & Business Intelligence",
+        image: "/images/anthropic_sale_a_bolsa_prospecto_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "anthropic-sale-a-bolsa-prospecto-ant-que-supone-para-pymes-claude",
+        content: `
+Anthropic began trading on Nasdaq on November 19, 2026 under the symbol ANT. It sold 980 million Class A shares at $83, according to its [pricing announcement](https://www.anthropic.com/news/anthropic-prices-initial-public-offering), and the first session closed at $97.17, 17% above the offer price, according to [Bloomberg](https://www.bloomberg.com/news/live-blog/2026-11-19/anthropic-trading-debut-live-updates) and [CBS News](https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/).
+
+For a small business that uses Claude, the useful part of an IPO is the prospectus. It is a document the company files with the SEC, and it has to describe its risks. We read the final prospectus (form 424B4, filed on November 19), and this article covers what affects a customer: pricing, usage limits, model retirement and dependence on compute capacity. A note: this is supplier analysis, not investment advice.
+
+---
+
+## 1. The offering in numbers
+
+Data from [Anthropic's announcement](https://www.anthropic.com/news/anthropic-prices-initial-public-offering) and the prospectus cover page:
+
+| Item | Value |
+| :--- | :--- |
+| Offer price | $83 per share |
+| Shares | 980,000,000 Class A: 956,351,354 sold by Anthropic and 23,648,646 by selling stockholders |
+| Gross amount | About $81.3 billion (980 million times $83, our calculation). Anthropic receives nothing from the selling stockholders' shares |
+| Option | Up to 147,000,000 additional shares within 30 days |
+| Market | Nasdaq Global Select, symbol ANT |
+| Underwriters | Goldman Sachs and Morgan Stanley |
+
+The voting structure is unusual. Class F shares carry a fixed 50.1% of the votes, so Class A shares, the ones the public buys, add up to at most 49.9%. Anthropic is also a Delaware public benefit corporation, required to balance shareholders' interests with those of the people affected by its activity and with a public benefit purpose set in its charter.
+
+---
+
+## 2. The business according to the prospectus
+
+Figures from the prospectus, in millions of dollars unless stated:
+
+| | 2023 | 2024 | 2025 | First 9 months of 2026 |
+| :--- | :--- | :--- | :--- | :--- |
+| Revenue | 41 | 386 | 4,585 | 33,242 |
+| Compute and infrastructure | 433 | 2,522 | 7,326 | 18,808 |
+| Operating loss | 551 | 2,980 | 8,060 | 1,260 |
+
+Three readings, all with the caveat that the document itself warns this growth is not indicative of the future:
+
+* **Compute takes more than half of revenue.** In the first nine months of 2026, compute and infrastructure spending was 18,808 against 33,242 of revenue, 57%.
+* **The $104,039 million net loss has an accounting origin.** Of that figure, 94,324 million comes from the change in fair value of convertible notes, derivative liabilities and SAFEs. The operating loss for the period was 1,260 million.
+* **Annualized run-rate revenue was about $81 billion at October 31, 2026**, $10 billion more than at September 30. It is an operating metric that the prospectus defines as the last 28 days of consumption fees times 13 plus monthly subscription fees times 12. It is not accounting revenue.
+
+The number of customers with more than $100,000 of revenue over the trailing twelve months rose from more than 950 to more than 11,900 between September 2025 and September 2026. The prospectus also says a significant portion of its base is startups and technology-oriented enterprises, and that no single customer was more than 10% of revenue, although the top five made up about 25%.
+
+---
+
+## 3. What the prospectus says may affect a customer
+
+Risk factors are legal text describing possible scenarios. They are not plans or announcements. Even so, several passages touch decisions of a small business that depends on Claude.
+
+### Pricing
+
+The prospectus says Anthropic has changed its pricing models in the past and may do so again. The scenarios it considers include lowering prices, offering shorter contracts or moving to outcome-based or task-based pricing. It also says enterprise customers may ask for different pricing structures, price concessions or more functionality at the same price, and that open models may put pressure on prices in some uses.
+
+In the other direction, it notes that its agentic offerings use structurally more compute than the rest, and that if it cannot set prices that reflect that cost, its profitability could suffer. The document announces no increase. It describes a cost problem in agents that the supplier has to solve with pricing, with efficiency or with both.
+
+### Usage limits
+
+Anthropic acknowledges in the prospectus that it has changed and may again change usage limits, rate limits and model and product capabilities, and that those changes may hurt its reputation and the perceived value of its offering. It adds that some have led to claims that its disclosures about model access or capabilities were inadequate or misleading. If your process depends on a specific volume of calls per minute, that is an operational risk.
+
+### Model retirement
+
+The prospectus says safety and alignment considerations may lead the company to delay retiring older models and to keep legacy versions alongside new ones. It also acknowledges that customers who built on older models may resist migrating and that a forced retirement could lead to customer loss and contract disputes. For a small business, the practical takeaway is a question: how many months of notice do you get before the model you use today is retired?
+
+### Compute capacity and cloud dependence
+
+* **About $900.9 billion in compute commitments** in total, according to the prospectus, of which about $451.6 billion would be incurred before December 31, 2030 and about $70.7 billion falls due in the twelve months after September 30, 2026.
+* **Revenue with no long-term commitment.** The prospectus describes revenue as mainly consumption-based and largely without long contracts, against compute commitments that run for several years.
+* **Dependence on cloud providers.** Public cloud marketplaces generated 47% of 2025 revenue and 44% in the first nine months of 2026. The document warns those clouds may suffer outages, security incidents or capacity shortages, and that moving workloads to other providers would be costly and slow.
+
+### Customers who can leave on short notice
+
+According to the prospectus, many contracts let customers reduce usage or terminate with limited or no notice, and the largest customers can spend less at any time. It is a clause in the customer's favor. For a small business it means room to switch suppliers without penalty, if the alternative has been prepared beforehand.
+
+### Regulation
+
+The prospectus cites the EU AI Regulation (2024/1689) as a source of transparency, risk management and governance obligations, with significant penalties for non-compliance.
+
+---
+
+## 4. What can and cannot be inferred
+
+The prospectus announces no price increases, cuts or changes to the models you use. What it supports is something else: a supplier with compute commitments of hundreds of billions, revenue that customers can reduce on short notice and agents that cost more to serve has reasons to adjust prices, limits and its model catalog, and its own document says it has done so before.
+
+For a small business, that translates into managing a supplier risk, something we already do with the bank, the cloud or the management software. We covered it earlier in our article on the [US ban on Claude Fable 5 and digital sovereignty](/en/blog/us-ban-claude-fable-5-geopolitics-sme-digital-sovereignty) and in the [Claude Fable 5.2 and Mythos 5.2 guide](/en/blog/claude-fable-5-2-mythos-5-2-whats-new-pricing-smes).
+
+---
+
+## 5. What to do this week
+
+1. **Inventory where you use Claude.** Note which model, which task, how many calls a month and what happens to your business if it stops working for a day.
+2. **Review the terms you have signed.** Look for the price-change clause, the notice period before a model is retired, usage limits and data handling.
+3. **Prepare a tested alternative.** Keep 20 to 50 real cases with no personal data and run them through another model, for example one of those we compare in our [article on routing between models](/en/blog/route-tasks-between-ai-models-cut-bill-smes) or [Qwen4-Max](/en/blog/qwen-4-max-alibaba-price-1m-context-what-it-means-for-smes). An alternative you have not tested is no use the day you need it.
+4. **Separate the model from your application.** If your tools call a single supplier directly, switching takes weeks. With an intermediate layer, it takes a configuration change.
+5. **Budget with scenarios.** Calculate your bill at the current price, 30% higher and 30% lower, and check whether your project still works.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will review your dependence on AI suppliers with you, with a test of alternatives on your own cases.
+
+---
+
+## Frequently asked questions
+
+### When did Anthropic go public and at what price?
+
+It began trading on Nasdaq on November 19, 2026 under the symbol ANT. The offer price was $83 per share, with 980 million Class A shares for sale, according to its announcement. The first session closed at $97.17, according to Bloomberg and CBS News.
+
+### Will Anthropic raise Claude prices?
+
+The prospectus does not announce it. It says the company has changed its pricing models in the past and may do so again, with scenarios that include lowering prices, shorter contracts or per-task pricing. It also notes that agents cost more to serve and that it must set prices that reflect it.
+
+### What does the prospectus say about retiring older models?
+
+It says safety considerations may lead to delaying the retirement of older models and keeping legacy versions, and that a forced retirement could lead to customer loss and contract disputes. It sets no notice period. Check it in your contract.
+
+### Should I switch AI suppliers because of this news?
+
+The prospectus gives no reason to switch today. The sensible step is to have an alternative tested on your own cases and an architecture that lets you change models without rebuilding the application.
+
+### Is this investment advice?
+
+No. We analyze the prospectus from the point of view of a Claude customer. We do not assess whether the shares are a good investment.
+        `.trim(),
+    },
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Qwen4-Max de Alibaba, precio, contexto de 1M y qué significa para una pyme (17 NOVIEMBRE 2026)
     {
         slug: "qwen-4-max-alibaba-precio-contexto-1m-que-significa-para-pymes",
