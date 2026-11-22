@@ -16,6 +16,496 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Inkling 2 Mini, modelo abierto en local y guía de instalación (22 NOVIEMBRE 2026)
+    {
+        slug: "inkling-2-mini-thinking-machines-modelo-abierto-local-guia-instalar-pymes",
+        title: "Inkling 2 Mini: modelo abierto que corre en local y guía para instalarlo",
+        description: "Thinking Machines publicó Inkling 2 Mini el 20 de noviembre: 26,4 mil millones de parámetros, Apache 2.0 y 20 GB. Resultados frente a Qwen3.8-27B y tutorial con Ollama y GGUF.",
+        date: "2026-11-22",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Tecnología",
+        image: "/images/inkling_2_mini_thinking_machines_pymes_2026_es.jpg",
+        lang: "es",
+        translationSlug: "inkling-2-mini-thinking-machines-open-model-run-locally-install-guide-smes",
+        content: `
+Thinking Machines Lab publicó el 20 de noviembre de 2026 Inkling 2 Mini, un modelo multimodal con pesos abiertos y licencia Apache 2.0. Tiene 26,4 miles de millones de parámetros en total y 3,4 miles de millones activos por token. Admite hasta 1 millón de tokens de contexto, acepta texto e imagen y ocupa unos 20 GB. Según el laboratorio, funciona en cualquier Mac con 32 GB de RAM mediante Ollama.
+
+Este artículo repasa qué es el modelo, qué dicen realmente sus resultados frente a Qwen3.8-27B, qué supone para una pyme poder ejecutarlo en un equipo propio y cómo instalarlo paso a paso con Ollama y con llama.cpp en formato GGUF. Todas las cifras de rendimiento son del propio laboratorio y están marcadas como tales.
+
+---
+
+## 1. ¿Qué es Inkling 2 Mini?
+
+Datos de la [entrada oficial de Thinking Machines](https://thinkingmachines.ai/news/inkling-2-mini/), de su [ficha del modelo](https://thinkingmachines.ai/model-card/inkling-2-mini/) y del [artículo de Hugging Face](https://huggingface.co/blog/inkling2mini):
+
+| Dato | Valor |
+| :--- | :--- |
+| Fecha | 20 de noviembre de 2026 |
+| Licencia | Apache 2.0. La ficha enlaza además una política de uso aceptable que conviene leer |
+| Parámetros | 26,4 miles de millones en total y 3,4 miles de millones activos por token |
+| Parámetros efectivos | 5,4 miles de millones por token al contar las tres pasadas del bucle |
+| Arquitectura | Transformer con mezcla de expertos (MoE) y capas en bucle |
+| Expertos | 128, de los que se activan 8 por token |
+| Contexto | Hasta 1 millón de tokens |
+| Entrada y salida | Entra texto e imagen. Sale texto |
+| Tamaño del checkpoint | Unos 20 GB, en precisión mixta NVFP4 y MXFP8 |
+| Idiomas | La ficha indica inglés y soporte multilingüe general |
+
+### Qué significa "en bucle"
+
+El modelo tiene 24 capas. Las 12 capas centrales se ejecutan tres veces por token con los mismos pesos, de modo que cada token pasa por 48 aplicaciones de capa mientras que en disco solo hay pesos de 24. Por eso el modelo ocupa poco y calcula más de lo que su tamaño sugiere: cada pasada extra suma aproximadamente 1.000 millones de parámetros efectivos, hasta los 5.400 millones citados.
+
+Una confusión que verás en la prensa: según la fuente, los parámetros activos aparecen como 3 mil millones (artículo de Hugging Face), 3,4 mil millones (Thinking Machines) o 5,4 mil millones (Ollama y Unsloth). Son la misma cosa medida de forma distinta. Con la cifra más alta, el cómputo por token sigue siendo bastante menor que el de un modelo denso de 27.000 millones, como Qwen3.8-27B.
+
+### Cómo se entrenó
+
+Según el laboratorio, el entrenamiento empezó con 384 expertos y 8 activos por token. A mitad del proceso se podaron dos tercios de los expertos y se conservaron los 128 más usados en cada capa. Después se recuperó la calidad con un billón de tokens destilados de un modelo interno mayor, y se terminó con aprendizaje por refuerzo.
+
+### Hay una segunda variante
+
+Thinking Machines publicó también TML-d24-varloop-research, una variante de investigación con número de pasadas variable. Con 1 o 2 pasadas en lugar de 3 la inferencia es más rápida y la calidad algo menor. El propio artículo de Hugging Face indica que la probaron pero no la evaluaron a fondo, así que para trabajo real conviene usar Inkling 2 Mini.
+
+---
+
+## 2. ¿Es mejor que Qwen3.8-27B?
+
+En parte. Las cifras salen de las tablas que publica Thinking Machines, es decir, resultados del propio fabricante que aún no ha replicado nadie de forma independiente. El artículo de Hugging Face añade que hace falta más validación para afirmar que es al menos comparable a Qwen3.8-27B.
+
+La comparación de la entrada oficial, en las mismas condiciones para ambos:
+
+| Prueba | Inkling 2 Mini | Qwen3.8-27B |
+| :--- | :--- | :--- |
+| Índice de Artificial Analysis (v5.0) | 20,1 | 20,1 |
+| DeepSWE v1.1 | 48,2% | 42,2% |
+| SWE-bench Pro (Hard) | 77,9% | 73,8% |
+| SWE-bench Verified | 79,2% | 77,8% |
+| Terminal Bench v2.1 | 71,6% | 73,0% |
+| BrowseComp | 79,0% | 61,6% |
+| DeepSearchQA | 85,3% | 79,7% |
+| MCP Atlas | 82,7% | 77,3% |
+| JobBench | 49,6% | 33,4% |
+| AutomationBench-AA | 41,8% | 48,2% |
+| GDPVal-AA | 1319 | 1427 |
+| GPQA Diamond (ficha del modelo) | 86,6% | 90,5% |
+| MMMU Pro | 74,9% | 76,3% |
+| AA-Omniscience, tasa de no alucinación | 63,4% | 71,4% |
+
+Inkling 2 Mini empata en el índice agregado de Artificial Analysis y gana en programación con agentes, búsqueda y uso de herramientas. Qwen3.8-27B gana en razonamiento científico, en una de las pruebas de terminal, en tareas de automatización de oficina y en la tasa con la que evita inventar respuestas. Según Thinking Machines, Inkling 2 Mini lidera 32 de las 48 pruebas frente a cuatro modelos de su categoría, pero esa lista no incluye todos los modelos que podrías querer comparar.
+
+El laboratorio reconoce una limitación: Inkling 2 Mini no es el mejor modelo pequeño para conversaciones largas de varios turnos ni para instrucciones con muchas restricciones. Obtiene un 50,0% en MultiChallenge y un 33,4% en ComplexConstraints v1.1. También indica que reducir el esfuerzo de razonamiento al mínimo no desactiva el razonamiento por completo.
+
+Un dato más para quien trabaje en español: la ficha menciona "inglés y soporte multilingüe general" y no publica resultados por idioma. Prueba el modelo con tus propios textos en español antes de decidir.
+
+---
+
+## 3. Qué supone para una pyme
+
+Poder ejecutar un modelo así en un portátil con 32 GB afecta a tres costes y riesgos de una pyme.
+
+### Los datos se quedan en tu equipo
+
+Con una instalación local, los documentos no salen de tu red. Para una pyme que maneja contratos, nóminas o historiales de clientes, eso evita parte del trabajo con el reglamento de protección de datos: en principio no hay transferencia a un tercer proveedor ni acuerdo de encargado de tratamiento que negociar por el uso del modelo. El tratamiento sigue siendo tuyo y las obligaciones de seguridad del equipo también.
+
+### El coste deja de depender del consumo
+
+Un modelo abierto se paga una vez en hardware. Tu factura de API para esas tareas es cero, a cambio de que alguien instale, actualice y vigile el equipo. Para saber si compensa, compara el gasto mensual actual en API con el coste de un equipo y su mantenimiento. En [nuestro artículo sobre enrutado de modelos](/blog/repartir-tareas-entre-modelos-ia-enrutado-reducir-factura-pymes) explicamos cómo repartir tareas entre modelos para que este cálculo sea realista.
+
+### El proveedor no puede cambiarte las condiciones
+
+Un modelo descargado no sube de precio, no cambia sus límites de uso y no se retira. Si los cambios de condiciones de los proveedores en la nube te preocupan, lo analizamos en el [artículo sobre el prospecto de Anthropic](/blog/anthropic-sale-a-bolsa-prospecto-ant-que-supone-para-pymes-claude).
+
+### Tareas con sentido para probarlo
+
+Son hipótesis que hay que medir con tus datos:
+
+* **Programación y automatización interna:** los resultados en SWE-bench y DeepSWE lo sitúan entre los mejores de su tamaño, según el laboratorio.
+* **Búsqueda en documentos propios:** el contexto de 1 millón de tokens permite cargar manuales, contratos o catálogos largos. Los resultados de contexto largo publicados llegan hasta 256.000 a 512.000 tokens.
+* **Lectura de imágenes y documentos escaneados:** admite imagen como entrada y obtiene 92,8% en OmniDocBench frente a 91,5% de Qwen3.8-27B, según la entrada oficial.
+
+Dónde no encaja de entrada: asistentes de atención al cliente con conversaciones largas y muchas reglas de tono, por la limitación que reconoce el propio laboratorio.
+
+---
+
+## 4. Requisitos de hardware
+
+Lo que indican las fuentes oficiales:
+
+* **Thinking Machines y Ollama:** Mac con Apple Silicon y al menos 32 GB de memoria (MacBook, Mac mini, Mac Studio) o un NVIDIA DGX Spark. Para otras GPU, la ficha recomienda 32 GB de VRAM o más.
+* **Unsloth, versiones GGUF cuantizadas:** su tabla de memoria (RAM más VRAM, o memoria unificada) indica 9 GB para 1 bit, 10 a 11 GB para 2 bits, 13 a 15 GB para 3 bits, 17 a 18 GB para 4 bits y 24 GB para 8 bits. Añade que el contexto largo, las imágenes y otras aplicaciones abiertas consumen más.
+
+Tamaños de los archivos GGUF oficiales de [ggml-org](https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF): IQ4_NL 17,6 GB, Q8_0 27,8 GB y BF16 52,2 GB, más un proyector de visión de 346 a 642 MB. En las versiones de [Unsloth](https://unsloth.ai/docs/models/inkling-2-mini), la recomendada es UD-Q4_K_XL, de 17,63 GB.
+
+Según su ficha, ggml-org mide la pérdida de calidad frente al original en BF16: Q8_0 coincide con el token más probable en el 97,6% de los casos e IQ4_NL en el 95,5%. Unsloth publica una medición equivalente para sus propias versiones, con su referencia propia. Las dos tablas no son comparables entre sí.
+
+Un aviso del propio laboratorio: el soporte de modelos en bucle en los motores locales es nuevo y la velocidad varía según el motor y el equipo. No hemos encontrado cifras de velocidad en tokens por segundo para equipos de pyme, así que no damos ninguna. Mídela en tu equipo.
+
+---
+
+## 5. Tutorial: instalar y ejecutar Inkling 2 Mini
+
+Hay tres caminos. Empieza por el primero si tienes un Mac.
+
+### Opción A: Ollama (la más sencilla)
+
+La [página del modelo en Ollama](https://ollama.com/library/inkling-2-mini) indica que funciona en un Mac con 32 GB o más, o en un DGX Spark. Descarga el modelo, que ocupa 20 GB, y el contexto de 1M tokens.
+
+1. Instala o actualiza Ollama desde ollama.com. Las páginas no indican una versión mínima, así que usa la última.
+2. Abre una terminal y ejecuta:
+
+\`\`\`
+ollama run inkling-2-mini
+\`\`\`
+
+La primera vez descarga unos 20 GB. Después abre un chat en la terminal. Las etiquetas disponibles son latest, 26b-a5b y 26b-a5b-nvfp4, y las tres pesan 20 GB.
+
+3. Para usarlo desde tus propias aplicaciones, Ollama expone un servidor local compatible con la API de OpenAI en el puerto 11434 mientras esté en marcha.
+
+### Opción B: llama.cpp con los GGUF oficiales de ggml-org
+
+Sirve para Windows, Linux y Mac, con o sin GPU. Los comandos son los que muestra la [ficha de ggml-org](https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF):
+
+1. Instala llama.cpp. En Windows: 
+
+\`\`\`
+winget install llama.cpp
+\`\`\`
+
+En macOS y Linux:
+
+\`\`\`
+curl -LsSf https://llama.app/install.sh | sh
+\`\`\`
+
+2. Arranca el servidor con la versión de 4 bits (17,6 GB). La primera vez descarga el modelo desde Hugging Face:
+
+\`\`\`
+llama serve -hf ggml-org/Inkling-2-Mini-GGUF:IQ4_NL
+\`\`\`
+
+3. Para la versión de 8 bits, cambia el sufijo por Q8_0 (27,8 GB). Para chatear en la terminal en lugar de levantar el servidor, sustituye serve por cli.
+
+El servidor ofrece una API compatible con OpenAI y una interfaz web. La ficha no indica el puerto, así que mira la dirección que muestra la consola al arrancar. Estos comandos son los de la ficha; no los hemos ejecutado nosotros.
+
+### Opción C: llama.cpp con las versiones de Unsloth
+
+Unsloth ofrece más tamaños (desde 7,76 GB en 1 bit hasta 22,87 GB en 8 bits) y un compilado propio de llama.cpp. Es la opción para equipos con menos de 32 GB de memoria, a costa de algo de calidad en las versiones más pequeñas. Los archivos de la raíz del repositorio usan una disposición de capas en bucle propia, por lo que Unsloth indica que hace falta su compilado b12588-mix-c0c3de8 o los archivos de la carpeta Mainline_Support para llama.cpp estándar.
+
+En Windows con una GPU NVIDIA y CUDA 12, desde PowerShell:
+
+\`\`\`
+curl.exe -L -o llama.zip https://github.com/unslothai/llama.cpp/releases/download/b12588-mix-c0c3de8/app-b12588-mix-c0c3de8-windows-x64-cuda12-portable.zip
+Expand-Archive llama.zip -DestinationPath llama.cpp
+pip install -U huggingface_hub
+hf download unsloth/Inkling-2-Mini-GGUF Inkling-2-Mini-UD-Q4_K_XL.gguf --local-dir Inkling-2-Mini-GGUF
+.\\llama.cpp\\llama-server.exe --model Inkling-2-Mini-GGUF/Inkling-2-Mini-UD-Q4_K_XL.gguf --temp 1.0 --top-p 1.0 --top-k 0 --min-p 0.0 --host 127.0.0.1 --port 8080
+\`\`\`
+
+Abre http://127.0.0.1:8080 en el navegador para chatear. Para usar imágenes, descarga también mmproj-F16.gguf (639 MB) y añade --mmproj con su ruta. Si no tienes GPU, añade --n-gpu-layers 0. Si te quedas sin memoria, reduce --ctx-size. La página de Unsloth ofrece otros compilados: CUDA 13, AMD ROCm, Vulkan y solo CPU.
+
+Los parámetros de muestreo recomendados por Unsloth son temperatura 1,0, top-p 1,0, top-k 0 y min-p 0,0. La página incluye además un modelo borrador (DSpark) de 0,4 GB para acelerar la generación mediante decodificación especulativa, con los argumentos necesarios para activarlo.
+
+### Controlar cuánto razona
+
+Inkling 2 Mini admite el parámetro reasoning_effort, con valores none, minimal, low, medium, high (por defecto), xhigh y max, o un número entre 0,0 y 0,99. Un esfuerzo menor responde antes y gasta menos. Recuerda que el mínimo no apaga el razonamiento del todo.
+
+### Qué descargar y de dónde
+
+Descarga los archivos solo de los repositorios oficiales: thinkingmachines, ggml-org y unsloth. En Hugging Face circulan ya versiones de la comunidad con restricciones eliminadas, y esas versiones pueden seguir instrucciones que el modelo original rechaza. Para uso en una empresa, no las instales.
+
+---
+
+## 6. Cómo probarlo en tu empresa en una semana
+
+1. **Elige una tarea concreta.** Por ejemplo, resumir contratos o clasificar incidencias.
+2. **Prepara entre 20 y 50 casos reales.** Anonimízalos si vas a probar un modelo en la nube para comparar.
+3. **Mide tres cosas:** calidad de la respuesta frente a la que da hoy tu modelo, tiempo por respuesta en tu equipo y número de veces que inventa un dato.
+4. **Compara con tu coste actual.** Suma el equipo y el tiempo de mantenimiento y divídelo entre el uso real.
+
+Con Inkling 2 Mini ya instalado puedes comparar también con Qwen3.8-27B, para el que tenemos una [guía de instalación en GGUF](/blog/unsloth-qwen-3-8-27b-gguf-ejecutar-local-ram-pymes-2026). Si quieres comparar con la nube sin comprar equipo, [analizamos NaN Builders](/blog/nan-builders-tarifa-plana-inferencia-open-source-zero-logs-rgpd-2026), un servicio de inferencia con modelos abiertos. Y si planteas comprar un equipo dedicado, [esta guía sobre Mac Studio como servidor local](/blog/mac-studio-m5-max-m5-ultra-servidor-ia-local-512gb-ram-pymes-2026) recoge sus números.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y montamos la prueba con tus documentos, incluyendo el equipo adecuado y la revisión de protección de datos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Qué es Inkling 2 Mini?
+
+Es un modelo multimodal de Thinking Machines Lab con pesos abiertos y licencia Apache 2.0. Tiene 26,4 miles de millones de parámetros, 3,4 miles de millones activos por token y un contexto de 1 millón de tokens. Se publicó el 20 de noviembre de 2026.
+
+### ¿Se puede usar gratis en una empresa?
+
+La licencia es Apache 2.0, que permite el uso comercial. La ficha enlaza además una política de uso aceptable que conviene revisar. Descargarlo no tiene coste, pero ejecutarlo requiere un equipo adecuado.
+
+### ¿Qué hardware necesito?
+
+Según Ollama y Thinking Machines, un Mac con 32 GB de memoria o un DGX Spark. Unsloth indica entre 17 y 18 GB para su versión de 4 bits y 24 GB para la de 8 bits, y ofrece versiones desde 9 GB con más pérdida de calidad.
+
+### ¿Es mejor que Qwen3.8-27B?
+
+Según las tablas de Thinking Machines, empata en el índice de Artificial Analysis, gana en programación con agentes y búsqueda y pierde en razonamiento científico y en la tasa de respuestas inventadas. Son datos del propio fabricante sin replicar de forma independiente.
+
+### ¿Funciona bien en español?
+
+La ficha indica soporte multilingüe general y no publica resultados por idioma. Pruébalo con tus propios textos.
+
+### ¿Qué es un modelo en bucle?
+
+Es un modelo que reutiliza sus capas centrales varias veces por token con los mismos pesos. Inkling 2 Mini ejecuta tres veces 12 de sus 24 capas, lo que da más cómputo sin aumentar el tamaño en disco.
+
+### ¿Los datos salen de mi empresa?
+
+Con una instalación local, no. El modelo se ejecuta en tu equipo y no necesita conexión a ningún proveedor. La seguridad del equipo sigue siendo responsabilidad tuya.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
+    // ARTICLE EN: Inkling 2 Mini, open model run locally and install guide (NOVEMBER 22 2026)
+    {
+        slug: "inkling-2-mini-thinking-machines-open-model-run-locally-install-guide-smes",
+        title: "Inkling 2 Mini: an open model that runs locally, with an install guide",
+        description: "Thinking Machines released Inkling 2 Mini on November 20: 26.4 billion parameters, Apache 2.0 and 20 GB. Results against Qwen3.8-27B and a tutorial with Ollama and GGUF.",
+        date: "2026-11-22",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Technology",
+        image: "/images/inkling_2_mini_thinking_machines_pymes_2026_en.jpg",
+        lang: "en",
+        translationSlug: "inkling-2-mini-thinking-machines-modelo-abierto-local-guia-instalar-pymes",
+        content: `
+Thinking Machines Lab released Inkling 2 Mini on November 20, 2026, a multimodal model with open weights under the Apache 2.0 license. It has 26.4 billion parameters in total and 3.4 billion active per token. It supports up to 1 million tokens of context, accepts text and image input and takes up about 20 GB. According to the lab, it runs on any Mac with 32 GB of RAM through Ollama.
+
+This article covers what the model is, what its results actually say against Qwen3.8-27B, what it means for a small business to run it on its own hardware, and how to install it step by step with Ollama and with llama.cpp in GGUF format. All performance figures come from the lab itself and are labeled as such.
+
+---
+
+## 1. What is Inkling 2 Mini?
+
+Data from the [official Thinking Machines announcement](https://thinkingmachines.ai/news/inkling-2-mini/), its [model card](https://thinkingmachines.ai/model-card/inkling-2-mini/) and the [Hugging Face article](https://huggingface.co/blog/inkling2mini):
+
+| Item | Value |
+| :--- | :--- |
+| Date | November 20, 2026 |
+| License | Apache 2.0. The model card also links an acceptable use policy worth reading |
+| Parameters | 26.4 billion total and 3.4 billion active per token |
+| Effective parameters | 5.4 billion per token when counting the three passes of the loop |
+| Architecture | Mixture-of-experts (MoE) transformer with looped layers |
+| Experts | 128, of which 8 are active per token |
+| Context | Up to 1 million tokens |
+| Input and output | Text and image in. Text out |
+| Checkpoint size | About 20 GB, in mixed NVFP4 and MXFP8 precision |
+| Languages | The model card lists English and general multilingual support |
+
+### What "looped" means
+
+The model has 24 layers. The 12 middle layers run three times per token with the same weights, so each token goes through 48 layer applications while the disk holds the weights of only 24. That is why the model is small on disk and computes more than its size suggests: each extra pass adds roughly 1 billion effective parameters, up to the 5.4 billion cited.
+
+You will see a confusing set of numbers in the press. Depending on the source, active parameters appear as 3 billion (Hugging Face article), 3.4 billion (Thinking Machines) or 5.4 billion (Ollama and Unsloth). They describe the same thing measured in different ways. Even with the highest figure, the compute per token stays well below that of a dense 27-billion-parameter model such as Qwen3.8-27B.
+
+### How it was trained
+
+According to the lab, training started with 384 experts and 8 active per token. Midway through, two thirds of the experts were pruned, keeping the 128 most used in each layer. Quality was then recovered with one trillion tokens distilled from a larger internal model, and training finished with reinforcement learning.
+
+### There is a second variant
+
+Thinking Machines also published TML-d24-varloop-research, a research variant with a variable number of passes. With 1 or 2 passes instead of 3, inference is faster and quality slightly lower. The Hugging Face article says they tested it but did not evaluate it in depth, so for real work use Inkling 2 Mini.
+
+---
+
+## 2. Is it better than Qwen3.8-27B?
+
+In part. The figures below come from tables published by Thinking Machines, which are the manufacturer's own results and have not yet been independently replicated. The Hugging Face article adds that more validation is needed before saying it is at least comparable to Qwen3.8-27B.
+
+The comparison from the official announcement, under the same conditions for both:
+
+| Test | Inkling 2 Mini | Qwen3.8-27B |
+| :--- | :--- | :--- |
+| Artificial Analysis Index (v5.0) | 20.1 | 20.1 |
+| DeepSWE v1.1 | 48.2% | 42.2% |
+| SWE-bench Pro (Hard) | 77.9% | 73.8% |
+| SWE-bench Verified | 79.2% | 77.8% |
+| Terminal Bench v2.1 | 71.6% | 73.0% |
+| BrowseComp | 79.0% | 61.6% |
+| DeepSearchQA | 85.3% | 79.7% |
+| MCP Atlas | 82.7% | 77.3% |
+| JobBench | 49.6% | 33.4% |
+| AutomationBench-AA | 41.8% | 48.2% |
+| GDPVal-AA | 1319 | 1427 |
+| GPQA Diamond (model card) | 86.6% | 90.5% |
+| MMMU Pro | 74.9% | 76.3% |
+| AA-Omniscience, non-hallucination rate | 63.4% | 71.4% |
+
+Inkling 2 Mini ties on the Artificial Analysis aggregate index and wins on agentic coding, search and tool use. Qwen3.8-27B wins on scientific reasoning, on one of the terminal tests, on office automation tasks and on how often it avoids inventing answers. According to Thinking Machines, Inkling 2 Mini leads 32 of the 48 benchmarks against four models in its class, but that list does not include every model you might want to compare.
+
+The lab acknowledges a limitation: Inkling 2 Mini is not the strongest small model for long multi-turn conversations or for instructions with many constraints. It scores 50.0% on MultiChallenge and 33.4% on ComplexConstraints v1.1. It also states that setting reasoning effort to its minimum does not fully disable reasoning.
+
+One more point for anyone working in Spanish: the model card mentions English and general multilingual support and publishes no per-language results. Test the model on your own Spanish texts before deciding.
+
+---
+
+## 3. What it means for a small business
+
+Running a model like this on a laptop with 32 GB affects three costs and risks for a small business.
+
+### Data stays on your machine
+
+With a local install, documents do not leave your network. For a business handling contracts, payroll or customer histories, that removes part of the data protection work: in principle there is no transfer to a third-party provider and no data processing agreement to negotiate for using the model. Processing is still yours, and so are the security obligations for the machine.
+
+### Cost stops depending on usage
+
+An open model is paid for once, in hardware. Your API bill for those tasks is zero, in exchange for someone installing, updating and monitoring the machine. To see whether it pays off, compare your current monthly API spend with the cost of a machine and its upkeep. In [our article on model routing](/en/blog/route-tasks-between-ai-models-cut-bill-smes) we explain how to split tasks between models so this calculation is realistic.
+
+### The provider cannot change the terms on you
+
+A downloaded model does not rise in price, change its usage limits or get retired. If provider term changes in the cloud worry you, we cover them in the [article on the Anthropic prospectus](/en/blog/anthropic-ipo-prospectus-ant-what-it-means-for-smes-using-claude).
+
+### Tasks worth testing
+
+These are hypotheses to measure with your own data:
+
+* **Coding and internal automation:** the SWE-bench and DeepSWE results place it among the best at its size, according to the lab.
+* **Search across your own documents:** the 1-million-token context lets you load long manuals, contracts or catalogs. The published long-context results go up to 256,000 to 512,000 tokens.
+* **Reading images and scanned documents:** it accepts image input and scores 92.8% on OmniDocBench against 91.5% for Qwen3.8-27B, according to the official announcement.
+
+Where it does not fit at the start: customer service assistants with long conversations and many tone rules, because of the limitation the lab itself acknowledges.
+
+---
+
+## 4. Hardware requirements
+
+What the official sources say:
+
+* **Thinking Machines and Ollama:** a Mac with Apple Silicon and at least 32 GB of memory (MacBook, Mac mini, Mac Studio) or an NVIDIA DGX Spark. For other GPUs, the model card recommends 32 GB of VRAM or more.
+* **Unsloth, quantized GGUF versions:** its memory table (RAM plus VRAM, or unified memory) lists 9 GB for 1-bit, 10 to 11 GB for 2-bit, 13 to 15 GB for 3-bit, 17 to 18 GB for 4-bit and 24 GB for 8-bit. It adds that long context, images and other open applications use more.
+
+File sizes of the official GGUFs from [ggml-org](https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF): IQ4_NL 17.6 GB, Q8_0 27.8 GB and BF16 52.2 GB, plus a vision projector of 346 to 642 MB. Among the [Unsloth](https://unsloth.ai/docs/models/inkling-2-mini) versions, the recommended one is UD-Q4_K_XL at 17.63 GB.
+
+According to its model card, ggml-org measures quality loss against the original BF16: Q8_0 matches the most likely token in 97.6% of cases and IQ4_NL in 95.5%. Unsloth publishes an equivalent measurement for its own versions, with its own reference. The two tables are not comparable with each other.
+
+A warning from the lab itself: support for looped models in local engines is new, and speed varies by engine and hardware. We found no tokens-per-second figures for small-business machines, so we give none. Measure it on your own machine.
+
+---
+
+## 5. Tutorial: install and run Inkling 2 Mini
+
+There are three paths. Start with the first if you have a Mac.
+
+### Option A: Ollama (the simplest)
+
+The [model page on Ollama](https://ollama.com/library/inkling-2-mini) says it runs on a Mac with 32 GB or more, or on a DGX Spark. The download is 20 GB and includes the 1M-token context.
+
+1. Install or update Ollama from ollama.com. The pages state no minimum version, so use the latest.
+2. Open a terminal and run:
+
+\`\`\`
+ollama run inkling-2-mini
+\`\`\`
+
+The first time it downloads about 20 GB. Then it opens a chat in the terminal. The available tags are latest, 26b-a5b and 26b-a5b-nvfp4, and all three weigh 20 GB.
+
+3. To use it from your own applications, Ollama exposes a local OpenAI-compatible server on port 11434 while it is running.
+
+### Option B: llama.cpp with the official ggml-org GGUFs
+
+This works on Windows, Linux and Mac, with or without a GPU. The commands are the ones shown on the [ggml-org model card](https://huggingface.co/ggml-org/Inkling-2-Mini-GGUF):
+
+1. Install llama.cpp. On Windows:
+
+\`\`\`
+winget install llama.cpp
+\`\`\`
+
+On macOS and Linux:
+
+\`\`\`
+curl -LsSf https://llama.app/install.sh | sh
+\`\`\`
+
+2. Start the server with the 4-bit version (17.6 GB). The first time it downloads the model from Hugging Face:
+
+\`\`\`
+llama serve -hf ggml-org/Inkling-2-Mini-GGUF:IQ4_NL
+\`\`\`
+
+3. For the 8-bit version, change the suffix to Q8_0 (27.8 GB). To chat in the terminal instead of starting the server, replace serve with cli.
+
+The server offers an OpenAI-compatible API and a web interface. The model card does not state the port, so check the address the console prints at startup. These commands come from the model card; we have not run them ourselves.
+
+### Option C: llama.cpp with the Unsloth versions
+
+Unsloth offers more sizes (from 7.76 GB at 1-bit up to 22.87 GB at 8-bit) and its own llama.cpp build. It is the option for machines with less than 32 GB of memory, at the cost of some quality in the smallest versions. The files in the repository root use Unsloth's own looped-layer layout, so Unsloth states you need its b12588-mix-c0c3de8 build, or the files in the Mainline_Support folder for standard llama.cpp.
+
+On Windows with an NVIDIA GPU and CUDA 12, from PowerShell:
+
+\`\`\`
+curl.exe -L -o llama.zip https://github.com/unslothai/llama.cpp/releases/download/b12588-mix-c0c3de8/app-b12588-mix-c0c3de8-windows-x64-cuda12-portable.zip
+Expand-Archive llama.zip -DestinationPath llama.cpp
+pip install -U huggingface_hub
+hf download unsloth/Inkling-2-Mini-GGUF Inkling-2-Mini-UD-Q4_K_XL.gguf --local-dir Inkling-2-Mini-GGUF
+.\\llama.cpp\\llama-server.exe --model Inkling-2-Mini-GGUF/Inkling-2-Mini-UD-Q4_K_XL.gguf --temp 1.0 --top-p 1.0 --top-k 0 --min-p 0.0 --host 127.0.0.1 --port 8080
+\`\`\`
+
+Open http://127.0.0.1:8080 in your browser to chat. To use images, also download mmproj-F16.gguf (639 MB) and add --mmproj with its path. Without a GPU, add --n-gpu-layers 0. If you run out of memory, reduce --ctx-size. The Unsloth page offers other builds: CUDA 13, AMD ROCm, Vulkan and CPU only.
+
+The sampling parameters Unsloth recommends are temperature 1.0, top-p 1.0, top-k 0 and min-p 0.0. The page also includes a 0.4 GB draft model (DSpark) to speed up generation through speculative decoding, with the arguments needed to enable it.
+
+### Controlling how much it reasons
+
+Inkling 2 Mini supports the reasoning_effort parameter, with values none, minimal, low, medium, high (the default), xhigh and max, or a number between 0.0 and 0.99. Lower effort answers sooner and uses less. Remember that the minimum does not fully turn reasoning off.
+
+### What to download and from where
+
+Download files only from the official repositories: thinkingmachines, ggml-org and unsloth. Community versions with restrictions removed are already circulating on Hugging Face, and they may follow instructions the original model refuses. For business use, do not install them.
+
+---
+
+## 6. How to test it in your company in one week
+
+1. **Pick one concrete task.** For example, summarizing contracts or classifying incidents.
+2. **Prepare 20 to 50 real cases.** Anonymize them if you will test a cloud model for comparison.
+3. **Measure three things:** answer quality against what your current model gives, time per answer on your machine, and how often it invents a fact.
+4. **Compare with your current cost.** Add the machine and the upkeep time and divide by real usage.
+
+With Inkling 2 Mini installed you can also compare against Qwen3.8-27B, for which we have a [GGUF installation guide](/en/blog/unsloth-qwen-3-8-27b-gguf-run-local-ram-smes-2026). To compare against the cloud without buying hardware, [we reviewed NaN Builders](/en/blog/nan-builders-review-flat-rate-open-source-ai-inference-zero-logs-gdpr-2026), an inference service built on open models. And if you are considering a dedicated machine, [this guide on the Mac Studio as a local server](/en/blog/mac-studio-m5-max-m5-ultra-local-ai-server-512gb-ram-smes-2026) has its numbers.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will set up the test with your own documents, including the right machine and the data protection review.
+
+---
+
+## Frequently asked questions
+
+### What is Inkling 2 Mini?
+
+It is a multimodal model from Thinking Machines Lab with open weights and an Apache 2.0 license. It has 26.4 billion parameters, 3.4 billion active per token and a context of 1 million tokens. It was released on November 20, 2026.
+
+### Can a company use it for free?
+
+The license is Apache 2.0, which allows commercial use. The model card also links an acceptable use policy worth reviewing. Downloading costs nothing, but running it requires suitable hardware.
+
+### What hardware do I need?
+
+According to Ollama and Thinking Machines, a Mac with 32 GB of memory or a DGX Spark. Unsloth lists 17 to 18 GB for its 4-bit version and 24 GB for its 8-bit one, and offers versions from 9 GB with more quality loss.
+
+### Is it better than Qwen3.8-27B?
+
+According to Thinking Machines' tables, it ties on the Artificial Analysis index, wins on agentic coding and search and loses on scientific reasoning and on the rate of invented answers. These are the manufacturer's own data, not independently replicated.
+
+### Does it work well in Spanish?
+
+The model card lists general multilingual support and publishes no per-language results. Test it on your own texts.
+
+### What is a looped model?
+
+It is a model that reuses its middle layers several times per token with the same weights. Inkling 2 Mini runs 12 of its 24 layers three times, which gives more compute without increasing size on disk.
+
+### Does my data leave my company?
+
+With a local install, no. The model runs on your machine and needs no connection to any provider. Securing the machine remains your responsibility.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Anthropic sale a bolsa, qué dice el prospecto y qué supone para una pyme (20 NOVIEMBRE 2026)
     {
         slug: "anthropic-sale-a-bolsa-prospecto-ant-que-supone-para-pymes-claude",
