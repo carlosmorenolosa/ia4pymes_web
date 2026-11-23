@@ -8,6 +8,10 @@ interface RelatedServiceProps {
     lang: ServiceLang
 }
 
+/** Spanish posts about construction link to the dedicated landing (separate subdomain). */
+const CONSTRUCTION_POST = /constructora|construccion/
+const CONSTRUCTION_LANDING = "https://construccion.ia4pymes.tech"
+
 const COPY = {
     es: { heading: "Servicios relacionados", also: "Ver también:" },
     en: { heading: "Related services", also: "See also:" },
@@ -45,6 +49,15 @@ export function RelatedService({ post, lang }: RelatedServiceProps) {
                         <Link href={secondary.path} className="text-blue-400 hover:text-blue-300 transition-colors">
                             {secondary.name}
                         </Link>
+                    </p>
+                )}
+
+                {lang === "es" && CONSTRUCTION_POST.test(post.slug) && (
+                    <p className="mt-6 text-sm font-bold text-slate-400">
+                        ¿Tienes una constructora o empresa de reformas?{" "}
+                        <a href={CONSTRUCTION_LANDING} className="text-blue-400 hover:text-blue-300 transition-colors">
+                            IA para constructoras y empresas de reformas
+                        </a>
                     </p>
                 )}
             </div>
