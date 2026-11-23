@@ -4,6 +4,12 @@ import { NextResponse } from "next/server";
 // Tracks IP -> { count: number, resetTime: number }
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
 
+// Sender and inbox are configurable. Resend only lets "onboarding@resend.dev" email the owner of
+// the Resend account, so to reach any other inbox verify ia4pymes.tech in Resend and set
+// RESEND_FROM (e.g. "IA4PYMES Web <web@ia4pymes.tech>"). CONTACT_TO overrides the recipient.
+const FROM_ADDRESS = process.env.RESEND_FROM || "IA4PYMES Web <onboarding@resend.dev>";
+const TO_ADDRESS = process.env.CONTACT_TO || "alejandro@ia4pymes.tech";
+
 const MAX_REQUESTS = 3; // Max 3 form submissions per window (forms are heavier than chat)
 const WINDOW_MS = 60 * 1000; // 1 minute window
 
@@ -67,8 +73,8 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         // IMPORTANTE: Resend requiere que el From sea de un dominio verificado o onboarding@resend.dev para pruebas
-        from: "IA4PYMES Web <onboarding@resend.dev>",
-        to: "alejandro@ia4pymes.tech",
+        from: FROM_ADDRESS,
+        to: TO_ADDRESS,
         reply_to: email, // Permite contestar al lead directamente
         subject: emailSubject,
         html: `
@@ -99,7 +105,7 @@ export async function POST(request: Request) {
     const result = await response.json();
 
     if (!response.ok) {
-      console.error("Resend error:", result);
+      console.error("Resend error:", response.status, result);
       return NextResponse.json(
         { error: "Error al enviar el correo a través de Resend" },
         { status: response.status }
