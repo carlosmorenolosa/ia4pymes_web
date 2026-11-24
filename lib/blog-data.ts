@@ -129,7 +129,7 @@ Estas son las causas habituales de que una constructora no pueda demostrar el cu
 
 ## 6. Qué puede hacer la IA y qué no
 
-La solución que ofrecemos en IA4PYMES para constructoras sigue una lógica sencilla: el sistema lee los documentos que llegan, los clasifica por subcontrata y obra, extrae las fechas y muestra el estado de cada uno con palabras y color: **Al día**, **Caduca en 12 días** o **Falta**. Una persona de tu equipo revisa lo que el sistema marca como dudoso.
+La [solución que ofrecemos en IA4PYMES para constructoras](https://construccion.ia4pymes.tech) sigue una lógica sencilla: el sistema lee los documentos que llegan, los clasifica por subcontrata y obra, extrae las fechas y muestra el estado de cada uno con palabras y color: **Al día**, **Caduca en 12 días** o **Falta**. Una persona de tu equipo revisa lo que el sistema marca como dudoso.
 
 ### Lo que sí hace bien
 
@@ -162,7 +162,7 @@ Estos documentos contienen datos de personas: nombres, formación, a veces núme
 
 Si quieres ver cómo encaja con el resto de procesos de una constructora, lee nuestro [artículo sobre IA en constructoras](/blog/inteligencia-artificial-constructoras-control-costes-obra-presupuestos), donde repasamos presupuestos, albaranes y certificaciones.
 
-**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y montamos el control documental de tus subcontratas con tus propias obras, incluyendo la revisión de protección de datos.
+**[Reserva el diagnóstico gratuito de 30 minutos para tu constructora aquí](https://construccion.ia4pymes.tech)** y te decimos qué parte del control de tus subcontratas se puede automatizar en tus obras.
 
 ---
 
@@ -308,7 +308,7 @@ These are the usual reasons a construction company cannot prove compliance and a
 
 ## 6. What AI can and cannot do
 
-The solution we offer at IA4PYMES for construction companies follows a simple logic: the system reads the documents that arrive, sorts them by subcontractor and site, extracts the dates and shows the status of each in words and color: **Up to date**, **Expires in 12 days** or **Missing**. A person on your team reviews whatever the system flags as doubtful.
+The [solution we offer at IA4PYMES for construction companies](https://construccion.ia4pymes.tech) follows a simple logic: the system reads the documents that arrive, sorts them by subcontractor and site, extracts the dates and shows the status of each in words and color: **Up to date**, **Expires in 12 days** or **Missing**. A person on your team reviews whatever the system flags as doubtful.
 
 ### What it does well
 
@@ -341,7 +341,7 @@ These documents contain data about people: names, training, sometimes ID numbers
 
 To see how this fits with the rest of a construction company's processes, read our [article on AI for construction companies](/en/blog/ai-for-construction-companies-cost-control-project-estimating-margins), where we cover estimates, delivery notes and certifications.
 
-**[Book your 60-minute technical consultation here](/en#consultoria)** and we will set up document control for your subcontractors with your own sites, including the data protection review.
+**[Book the free 30-minute diagnostic for your construction company here](https://construccion.ia4pymes.tech)** and we will tell you which part of your subcontractor control can be automated on your own sites.
 
 ---
 
