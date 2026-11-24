@@ -16,6 +16,364 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Documentación de subcontratas en obra, qué exige la ley y cómo controlarla con IA (24 NOVIEMBRE 2026)
+    {
+        slug: "documentacion-subcontratas-obra-ley-32-2006-que-exige-y-como-controlarla-con-ia",
+        title: "Documentación de subcontratas en obra: qué exige la ley y cómo controlarla con IA",
+        description: "Qué documentos debe controlar una constructora de sus subcontratas según la Ley 32/2006, el Estatuto de los Trabajadores y Hacienda, qué sanciones prevé la ley y qué puede automatizar la IA.",
+        date: "2026-11-24",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Construcción y Obra Civil",
+        image: "/images/documentacion_subcontratas_obra_ley_32_2006_ia_2026_es.jpg",
+        lang: "es",
+        translationSlug: "subcontractor-documentation-construction-spain-law-32-2006-requirements-ai-control",
+        content: `
+Un martes por la mañana llega la Inspección de Trabajo a una obra de reforma y pide el Libro de Subcontratación y la documentación de los tres gremios que hay trabajando. El seguro de uno está en el correo del jefe de obra, el certificado de la Seguridad Social de otro caducó el mes pasado y del tercero nadie sabe si está inscrito en el registro de empresas acreditadas. La obra funciona, pero la constructora no puede demostrar que cumple.
+
+La ley española hace responsable a la constructora de lo que hagan, o dejen de hacer, las empresas que subcontrata. Este artículo recoge qué documentos tiene que controlar una pyme constructora, qué dice cada norma, qué sanciones prevé la ley y qué parte de ese control se puede automatizar con inteligencia artificial sin perder la revisión humana. Las normas citadas están leídas en el texto consolidado del BOE, consultado el 24 de noviembre de 2026. Esto no es asesoramiento jurídico: la aplicación a tu obra concreta la valida tu asesor laboral o tu técnico de prevención.
+
+---
+
+## 1. Por qué la constructora responde por sus subcontratas
+
+Hay cuatro normas que se solapan. Conviene tenerlas separadas.
+
+| Norma | Qué regula | Quién responde |
+| :--- | :--- | :--- |
+| [Ley 32/2006](https://www.boe.es/buscar/act.php?id=BOE-A-2006-18205), reguladora de la subcontratación en el sector de la construcción | Requisitos de las empresas, niveles de subcontratación, Libro de Subcontratación y registro de empresas acreditadas | Contratista y subcontratista que contrató incumpliendo |
+| [Estatuto de los Trabajadores, art. 42](https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430) | Deudas con la Seguridad Social y salarios de los contratistas | La empresa principal |
+| [Ley General Tributaria, art. 43.1.f](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) | Retenciones e IVA repercutido de las subcontratas | La empresa que paga |
+| [Real Decreto 171/2004](https://www.boe.es/buscar/act.php?id=BOE-A-2004-1848) y [Real Decreto 1627/1997](https://www.boe.es/buscar/act.php?id=BOE-A-1997-22614) | Coordinación de actividades empresariales y seguridad en obras | Empresario principal o contratista |
+
+### Responsabilidad solidaria por la Ley 32/2006
+
+El artículo 7 de la ley obliga a contratistas y subcontratistas a vigilar que las empresas con las que contratan cumplen la ley, en particular la acreditación y el registro del artículo 4.2 y los límites de subcontratación del artículo 5. Si un subcontratista incumple esas obligaciones, el subcontratista y el contratista responden solidariamente de las obligaciones laborales y de Seguridad Social del contrato que corresponden a ese subcontratista.
+
+### Responsabilidad por deudas con la Seguridad Social
+
+El artículo 42 del Estatuto de los Trabajadores fija dos plazos que conviene tener presentes. La empresa principal responde solidariamente de las deudas de Seguridad Social de sus contratistas y subcontratistas durante la vigencia de la contrata y los tres años siguientes a su terminación. De las deudas de naturaleza salarial responde durante el año siguiente a la finalización del encargo. El mismo artículo da una vía para protegerse: pedir por escrito a la Tesorería General de la Seguridad Social un certificado de que la empresa no tiene descubiertos. La Tesorería debe emitirlo en treinta días improrrogables y, si no lo hace, la empresa solicitante queda exonerada.
+
+El artículo excluye la responsabilidad cuando la obra es la construcción o reparación de la vivienda de una persona, o cuando quien encarga la obra no actúa por una actividad empresarial.
+
+### Responsabilidad por deudas con Hacienda
+
+El artículo 43.1.f de la Ley General Tributaria hace responsable subsidiario a quien contrata o subcontrata obras de su actividad económica principal por las retenciones y los tributos repercutidos de la parte contratada. Esa responsabilidad no se puede exigir si el contratista entregó al pagador un certificado específico de estar al corriente de sus obligaciones tributarias, emitido en los 12 meses anteriores al pago de cada factura. La responsabilidad se limita al importe de los pagos hechos sin certificado vigente. La Agencia Tributaria tiene tres días desde la solicitud para emitir el certificado o denegarlo.
+
+---
+
+## 2. La lista de documentos que cada subcontrata debe tener al día
+
+Esta es la lista de control que sale de las normas anteriores. Cada fila indica la base legal y el plazo que hay que vigilar.
+
+| Documento | Base legal | Qué vigilar |
+| :--- | :--- | :--- |
+| Inscripción en el Registro de Empresas Acreditadas (REA) | Ley 32/2006, art. 4.2.b y 6. Real Decreto 1109/2007, art. 6 | La inscripción vale tres años y se renueva pidiéndolo en los seis meses anteriores a su expiración. Si no se pide en plazo, se cancela automáticamente |
+| Certificación de inscripción en el REA | Real Decreto 1109/2007, art. 6.3 y 6.4 | Se pide dentro del mes anterior al inicio del contrato y debe emitirse en un máximo de diez días naturales |
+| Acreditación de formación en prevención y de organización preventiva | Ley 32/2006, art. 4.2.a. Real Decreto 1109/2007, art. 4.2 | Declaración firmada por el representante legal, más documentación de la organización preventiva |
+| Certificado de la Seguridad Social de no tener descubiertos | Estatuto de los Trabajadores, art. 42.1 | La Tesorería tiene 30 días para emitirlo. Conserva la fecha de solicitud |
+| Certificado de la Agencia Tributaria de estar al corriente | Ley General Tributaria, art. 43.1.f | Vale para las facturas pagadas en los 12 meses siguientes a su emisión |
+| Evaluación de riesgos, planificación preventiva, información y formación de los trabajadores | Real Decreto 171/2004, art. 10.2 | Acreditación por escrito antes de empezar en el centro de trabajo. En obras de construcción, esta obligación del empresario principal corresponde al contratista (disposición adicional primera) |
+| Plan de seguridad y salud | Real Decreto 1627/1997, art. 7 | Cada contratista elabora el suyo y debe aprobarlo el coordinador antes del inicio de la obra |
+| Documentación de la maquinaria que usa la empresa | Ley 32/2006, art. 8.2 | Debe poder presentarse en la obra |
+| Porcentaje de trabajadores indefinidos | Ley 32/2006, art. 4.4. Real Decreto 1109/2007, art. 11 | Para empresas contratadas habitualmente en obra, no menos del 30 por ciento de la plantilla |
+
+Dos aclaraciones sobre esta tabla. La primera: la certificación del REA tiene un efecto concreto. Según el artículo 6.3 del reglamento, cuando la empresa comitente obtiene la certificación de que su subcontratista está inscrito, se entiende que cumplió su deber de vigilancia sobre los requisitos de acreditación y registro, y queda exonerada de la responsabilidad del artículo 7.2 de la ley durante la vigencia del contrato y para una sola obra. La exoneración no alcanza a las responsabilidades de los artículos 42 y 43 del Estatuto de los Trabajadores. La segunda: los porcentajes de indefinidos y la documentación de maquinaria dependen de cada empresa. Confirma con tu asesor qué te corresponde exigir en cada contrato.
+
+### Los límites de la cadena de subcontratación
+
+El artículo 5 de la ley permite que el contratista subcontrate, que el primer y el segundo subcontratista vuelvan a subcontratar, y prohíbe subcontratar al tercer subcontratista y al trabajador autónomo. Tampoco pueden subcontratar los subcontratistas cuya organización consista fundamentalmente en aportar mano de obra, con herramientas manuales como único equipo propio. De forma excepcional se permite un nivel adicional en casos fortuitos justificados, con aprobación previa de la dirección facultativa anotada en el Libro de Subcontratación. El contratista debe comunicarlo a la autoridad laboral en los cinco días hábiles siguientes a la aprobación.
+
+---
+
+## 3. El Libro de Subcontratación
+
+Cada contratista debe tener un Libro de Subcontratación en cada obra. Según el artículo 8 de la ley, debe permanecer en la obra en todo momento y recoger por orden cronológico cada subcontratación, su nivel, la empresa comitente, el objeto del contrato, quién ejerce la dirección en cada subcontratista y las fechas de entrega del plan de seguridad. También recoge las instrucciones del coordinador y las aprobaciones de la dirección facultativa.
+
+El Real Decreto 1109/2007 añade detalles prácticos:
+
+* La autoridad laboral del territorio de la obra habilita el Libro. Es un trámite previo a la primera subcontratación.
+* El contratista anota cada subcontratación antes de que empiecen los trabajos y se la comunica al coordinador de seguridad y salud y a los representantes de los trabajadores.
+* Debe conservar el Libro en la obra hasta que termine su encargo y durante los cinco años siguientes a la finalización de su participación.
+* En obras de edificación, al terminar entrega una copia al director de obra para el Libro del Edificio.
+* Tienen acceso al Libro el promotor, la dirección facultativa, el coordinador, las empresas y autónomos de la obra, los técnicos y delegados de prevención, la autoridad laboral y los representantes de los trabajadores.
+
+El Libro no se automatiza con inteligencia artificial: es un documento habilitado por la autoridad laboral. Lo que sí se puede automatizar es que los datos que alimentan sus anotaciones estén completos antes de subcontratar.
+
+---
+
+## 4. Qué sanciones prevé la ley
+
+La Ley sobre Infracciones y Sanciones en el Orden Social clasifica estos incumplimientos como infracciones en materia de prevención de riesgos laborales. Consulta el [texto consolidado](https://www.boe.es/buscar/act.php?id=BOE-A-2000-15060) para el detalle de cada supuesto. Algunos ejemplos del artículo 12, infracciones graves:
+
+* **Del subcontratista (art. 12.27):** no acreditar la formación en prevención, la organización preventiva y la inscripción en el registro, o no verificarlo en los subcontratistas con los que contrata. También no comunicar los datos para que el contratista lleve el Libro, y superar los niveles de subcontratación sin aprobación de la dirección facultativa.
+* **Del contratista (art. 12.28):** no llevar el Libro de Subcontratación en orden y al día, o no hacerlo en los términos reglamentarios.
+* **Del promotor (art. 12.29):** permitir, a través de la dirección facultativa, la ampliación excepcional de la cadena cuando manifiestamente no concurren las causas previstas.
+
+El artículo 13 convierte estos incumplimientos en infracciones muy graves cuando se trata de trabajos con riesgos especiales, y tipifica también como muy grave que un subcontratista falsee los datos que comunica al contratista y dé lugar a trabajar incumpliendo el régimen de subcontratación.
+
+Según el artículo 40.2 de la misma ley, las infracciones graves en prevención se sancionan con multas de 2.451 a 49.180 euros y las muy graves con multas de 49.181 a 983.736 euros, graduadas según las circunstancias. Además, el artículo 42.3 establece que la empresa principal responde solidariamente con sus contratistas y subcontratistas de las obligaciones de la ley de prevención respecto a los trabajadores que ocupen en su centro de trabajo, cuando la infracción se produce allí.
+
+---
+
+## 5. Dónde falla el control manual
+
+Estas son las causas habituales de que una constructora no pueda demostrar el cumplimiento y todas tienen origen organizativo:
+
+1. **Documentos dispersos.** Llegan por correo, por WhatsApp o en papel, con nombres como "scan_0042.pdf".
+2. **Fechas que nadie vigila.** Cada documento tiene su propia caducidad y su propio plazo: tres años en el REA, 12 meses en el certificado de Hacienda, 30 días para que la Tesorería conteste.
+3. **Cambios de subcontrata sin comprobar.** Se incorpora una cuadrilla a media obra y entra a trabajar antes de que alguien revise sus papeles.
+4. **Multiplicación por obra.** Una pyme con cuatro obras y cinco subcontratas por obra, por ejemplo, gestiona veinte expedientes en paralelo.
+
+---
+
+## 6. Qué puede hacer la IA y qué no
+
+La solución que ofrecemos en IA4PYMES para constructoras sigue una lógica sencilla: el sistema lee los documentos que llegan, los clasifica por subcontrata y obra, extrae las fechas y muestra el estado de cada uno con palabras y color: **Al día**, **Caduca en 12 días** o **Falta**. Una persona de tu equipo revisa lo que el sistema marca como dudoso.
+
+### Lo que sí hace bien
+
+* **Leer y clasificar.** Un modelo de lenguaje con visión identifica si un PDF o una foto es un certificado de la Agencia Tributaria, un seguro o un justificante de formación, y extrae fecha de emisión, titular y vigencia.
+* **Comparar contra una lista.** Cada obra tiene su lista de documentos exigibles, como la de la sección 2, y el sistema detecta lo que falta antes de que la subcontrata empiece.
+* **Avisar a tiempo.** Los avisos de caducidad salen con el margen que se configure, al responsable interno y a la subcontrata, en lugar de descubrir el problema el día de la inspección.
+* **Dejar rastro.** Queda registrado qué documento se recibió, cuándo y quién lo revisó, útil si hay que justificar ante un tercero que se vigiló.
+
+### Lo que no hace
+
+* **No decide si un documento es válido en derecho.** Puede equivocarse al leer una fecha o confundir dos certificados parecidos. Por eso la propuesta incluye revisión humana: lo dudoso lo confirma una persona.
+* **No sustituye al coordinador de seguridad ni al técnico de prevención.** Aprobar el plan de seguridad corresponde al coordinador, según el artículo 7 del Real Decreto 1627/1997.
+* **No consigue los certificados oficiales.** Los emite la Agencia Tributaria, la Tesorería o la autoridad laboral. El sistema recuerda cuándo pedirlos, pero la solicitud la hace la empresa.
+* **No habilita el Libro de Subcontratación.** Eso lo hace la autoridad laboral.
+
+### Datos personales
+
+Estos documentos contienen datos de personas: nombres, formación, a veces números de documento. Su tratamiento entra en el reglamento europeo de protección de datos. Antes de subir documentos a cualquier sistema en la nube, comprueba dónde se tratan y qué contrato de encargado de tratamiento firma el proveedor. En nuestro caso, los datos se guardan en servidores europeos y firmamos con cada cliente un contrato de encargado de tratamiento. Ese punto se revisa con cada cliente antes de empezar.
+
+---
+
+## 7. Cómo empezar en una semana
+
+1. **Elige una obra activa.** No hace falta migrar todo el archivo.
+2. **Haz la lista de subcontratas y autónomos** que trabajan en ella y apunta qué documentos tiene cada una.
+3. **Marca tres estados** en una hoja de cálculo: al día, caduca en menos de 30 días, falta. Es el mínimo viable y ya te muestra el estado real.
+4. **Anota las fechas de renovación del REA** de cada subcontrata. Es el dato que más se olvida: hay que solicitar la renovación en los seis meses previos a la expiración.
+5. **Pide los certificados con el calendario legal en mente:** la certificación del REA dentro del mes anterior al inicio del contrato, la de Hacienda en los 12 meses anteriores a cada pago y la de la Seguridad Social con margen suficiente para los 30 días de la Tesorería.
+6. **Cuando la hoja de cálculo se quede corta**, es el momento de automatizar la lectura y los avisos.
+
+Si quieres ver cómo encaja con el resto de procesos de una constructora, lee nuestro [artículo sobre IA en constructoras](/blog/inteligencia-artificial-constructoras-control-costes-obra-presupuestos), donde repasamos presupuestos, albaranes y certificaciones.
+
+**[Reserva tu sesión de consultoría técnica de 60 minutos aquí](/#consultoria)** y montamos el control documental de tus subcontratas con tus propias obras, incluyendo la revisión de protección de datos.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Qué documentos tiene que pedir una constructora a sus subcontratas?
+
+Como mínimo: la inscripción en el Registro de Empresas Acreditadas, la acreditación de formación y organización preventiva, el certificado de la Seguridad Social de no tener descubiertos, el certificado de la Agencia Tributaria de estar al corriente, la acreditación escrita de evaluación de riesgos y formación, y su parte del plan de seguridad y salud.
+
+### ¿Cuánto tiempo vale la inscripción en el REA?
+
+Tres años, renovables por períodos iguales. La renovación se solicita dentro de los seis meses anteriores a la expiración. Si no se pide en plazo, la inscripción se cancela automáticamente.
+
+### ¿Cuánto vale el certificado de Hacienda para contratistas?
+
+Según el artículo 43.1.f de la Ley General Tributaria, el certificado sirve para las facturas pagadas en los 12 meses siguientes a su emisión. Si pasan 12 meses sin renovarlo, el pagador pierde la protección para los pagos posteriores.
+
+### ¿Cuántos niveles de subcontratación permite la ley en obra?
+
+El contratista, el primer subcontratista y el segundo pueden subcontratar. El tercer subcontratista y el trabajador autónomo no. Se admite un nivel adicional excepcional, con aprobación previa de la dirección facultativa anotada en el Libro de Subcontratación.
+
+### ¿Cuánto se multa por no llevar bien el Libro de Subcontratación?
+
+No llevar el Libro en orden y al día es una infracción grave del contratista. Las infracciones graves en prevención se sancionan con multas de 2.451 a 49.180 euros, según el artículo 40.2 de la Ley sobre Infracciones y Sanciones en el Orden Social. La cuantía concreta depende de las circunstancias.
+
+### ¿Puede la inteligencia artificial sustituir al responsable de documentación?
+
+No. Puede leer, clasificar y avisar, y reduce el trabajo manual, pero la validación de cada documento y las decisiones sobre quién entra en obra siguen siendo de una persona.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
+    // ARTICLE EN: Subcontractor documentation on construction sites, what the law requires and how to control it with AI (NOVEMBER 24 2026)
+    {
+        slug: "subcontractor-documentation-construction-spain-law-32-2006-requirements-ai-control",
+        title: "Subcontractor documentation on Spanish construction sites: what the law requires and how to control it with AI",
+        description: "Which documents a construction company must control from its subcontractors under Law 32/2006, the Workers' Statute and tax rules, what penalties apply and what AI can automate.",
+        date: "2026-11-24",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Construction & Real Estate",
+        image: "/images/documentacion_subcontratas_obra_ley_32_2006_ia_2026_en.jpg",
+        lang: "en",
+        translationSlug: "documentacion-subcontratas-obra-ley-32-2006-que-exige-y-como-controlarla-con-ia",
+        content: `
+On a Tuesday morning, the labor inspectorate arrives at a renovation site and asks for the Subcontracting Book (Libro de Subcontratación) and the paperwork of the three trades working there. One trade's insurance is in the site manager's inbox, another's Social Security certificate expired last month, and nobody knows whether the third is registered in the accredited companies register. The job is running fine, but the contractor cannot prove it complies.
+
+Spanish law makes the contractor answerable for what the companies it subcontracts do, or fail to do. This article covers which documents a small construction company has to control, what each rule says, what penalties the law provides and how much of that control can be automated with artificial intelligence while keeping human review. The rules cited were read in the consolidated text of the Spanish Official Gazette (BOE), consulted on November 24, 2026. This is not legal advice: your labor advisor or prevention technician validates how it applies to your specific site.
+
+---
+
+## 1. Why the contractor answers for its subcontractors
+
+Four rules overlap. It helps to keep them apart.
+
+| Rule | What it regulates | Who answers |
+| :--- | :--- | :--- |
+| [Law 32/2006](https://www.boe.es/buscar/act.php?id=BOE-A-2006-18205), regulating subcontracting in the construction sector | Company requirements, subcontracting levels, the Subcontracting Book and the accredited companies register | The contractor and the subcontractor that hired in breach |
+| [Workers' Statute (Estatuto de los Trabajadores), art. 42](https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430) | Social Security debts and wages of contractors | The principal company |
+| [General Tax Law (Ley General Tributaria), art. 43.1.f](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) | Withholdings and VAT charged by subcontractors | The company that pays |
+| [Royal Decree 171/2004](https://www.boe.es/buscar/act.php?id=BOE-A-2004-1848) and [Royal Decree 1627/1997](https://www.boe.es/buscar/act.php?id=BOE-A-1997-22614) | Coordination of business activities and safety on construction sites | The principal employer or the contractor |
+
+### Joint liability under Law 32/2006
+
+Article 7 of the law requires contractors and subcontractors to watch that the companies they contract with comply with it, in particular with the accreditation and registration of article 4.2 and the subcontracting limits of article 5. If a subcontractor breaches those obligations, that subcontractor and the contractor are jointly liable for the labor and Social Security obligations of the contract that fall to the subcontractor at fault.
+
+### Liability for Social Security debts
+
+Article 42 of the Workers' Statute sets two periods worth keeping in mind. The principal company is jointly liable for the Social Security debts of its contractors and subcontractors during the term of the contract and the three years after it ends. For wage debts it is liable during the year after the assignment ends. The same article offers a way to protect yourself: ask the Social Security Treasury (Tesorería General de la Seguridad Social) in writing for a certificate that the company has no arrears. The Treasury must issue it within thirty non-extendable days and, if it does not, the requesting company is released from liability.
+
+The article excludes liability when the work is construction or repair of a person's own home, or when the owner does not commission the work for a business activity.
+
+### Liability for tax debts
+
+Article 43.1.f of the General Tax Law makes anyone who contracts or subcontracts works within their main economic activity secondarily liable for the withholdings and taxes charged on the contracted part. That liability cannot be claimed if the contractor gave the payer a specific certificate of being up to date with tax obligations, issued in the 12 months before each invoice payment. The liability is limited to the amount of payments made without a valid certificate. The tax agency has three days from the request to issue the certificate or deny it.
+
+---
+
+## 2. The documents each subcontractor must keep up to date
+
+This is the checklist that comes out of the rules above. Each row shows the legal basis and the deadline to watch.
+
+| Document | Legal basis | What to watch |
+| :--- | :--- | :--- |
+| Registration in the Accredited Companies Register (REA, Registro de Empresas Acreditadas) | Law 32/2006, art. 4.2.b and 6. Royal Decree 1109/2007, art. 6 | Registration lasts three years and is renewed by applying within the six months before it expires. If it is not requested in time, it is cancelled automatically |
+| Certificate of REA registration | Royal Decree 1109/2007, art. 6.3 and 6.4 | Requested within the month before the contract starts and must be issued within ten calendar days |
+| Proof of prevention training and preventive organization | Law 32/2006, art. 4.2.a. Royal Decree 1109/2007, art. 4.2 | A declaration signed by the legal representative, plus documents on the preventive organization |
+| Social Security certificate of no arrears | Workers' Statute, art. 42.1 | The Treasury has 30 days to issue it. Keep the date of the request |
+| Tax agency certificate of being up to date | General Tax Law, art. 43.1.f | Covers invoices paid in the 12 months after its issue |
+| Risk assessment, preventive planning, and information and training of workers | Royal Decree 171/2004, art. 10.2 | Written proof before starting at the workplace. On construction sites, this duty of the principal employer falls on the contractor (first additional provision) |
+| Health and safety plan | Royal Decree 1627/1997, art. 7 | Each contractor prepares its own, and the coordinator must approve it before the work starts |
+| Documents proving ownership of the machinery the company uses | Law 32/2006, art. 8.2 | Must be available on site |
+| Share of permanent employees | Law 32/2006, art. 4.4. Royal Decree 1109/2007, art. 11 | For companies regularly hired for construction work, no less than 30 percent of the workforce |
+
+Two clarifications on this table. First, the REA certificate has a concrete effect. Under article 6.3 of the regulation, when the commissioning company obtains a certificate that its subcontractor is registered, it is deemed to have met its duty to watch over the accreditation and registration requirements, and it is released from the liability of article 7.2 of the law for the duration of the contract and for a single construction site. The release does not cover the liabilities of articles 42 and 43 of the Workers' Statute. Second, the share of permanent employees and the machinery documents depend on each company. Confirm with your advisor what you must require in each contract.
+
+### Limits on the subcontracting chain
+
+Article 5 of the law lets the contractor subcontract, lets the first and second subcontractors subcontract again, and prohibits the third subcontractor and the self-employed worker from subcontracting. Subcontractors whose organization consists mainly of supplying labor, with hand tools as their only own equipment, cannot subcontract either. Exceptionally, one additional level is allowed in justified unforeseen cases, with prior approval from the site management (dirección facultativa) recorded in the Subcontracting Book. The contractor must report it to the labor authority within five working days of the approval.
+
+---
+
+## 3. The Subcontracting Book
+
+Each contractor must keep a Subcontracting Book on every site. Under article 8 of the law, it must remain on site at all times and record, in chronological order, each subcontract, its level, the commissioning company, the subject of the contract, who exercises management at each subcontractor and the dates the safety plan was delivered. It also records the coordinator's instructions and the site management's approvals.
+
+Royal Decree 1109/2007 adds practical details:
+
+* The labor authority of the territory of the site authorizes the Book. This step comes before the first subcontract.
+* The contractor records each subcontract before the work starts and tells the safety and health coordinator and the workers' representatives.
+* It must keep the Book on site until its assignment ends and for the five years after its participation in the site ends.
+* On building works, at completion it hands a copy to the project director for the Building Book (Libro del Edificio).
+* Access to the Book is open to the developer, the site management, the coordinator, the companies and self-employed workers on site, prevention technicians and delegates, the labor authority and the workers' representatives.
+
+The Book is not something artificial intelligence automates: it is a document authorized by the labor authority. What can be automated is making sure the data that feeds its entries is complete before you subcontract.
+
+---
+
+## 4. What penalties the law provides
+
+The Law on Infractions and Sanctions in the Social Order (LISOS) classifies these breaches as occupational risk prevention infractions. See the [consolidated text](https://www.boe.es/buscar/act.php?id=BOE-A-2000-15060) for the detail of each case. Some examples from article 12, serious infractions:
+
+* **By the subcontractor (art. 12.27):** failing to prove prevention training, preventive organization and registration, or failing to verify it in the subcontractors it hires. Also failing to provide the data the contractor needs to keep the Book, and exceeding the subcontracting levels without approval from the site management.
+* **By the contractor (art. 12.28):** not keeping the Subcontracting Book in order and up to date, or not keeping it as the regulation requires.
+* **By the developer (art. 12.29):** allowing, through the site management, the exceptional extension of the chain when the grounds clearly do not exist.
+
+Article 13 turns these breaches into very serious infractions when the work involves special risks, and also classifies as very serious a subcontractor falsifying the data it reports to the contractor and leading to work done in breach of the subcontracting rules.
+
+Under article 40.2 of the same law, serious prevention infractions are fined between 2,451 and 49,180 euros and very serious ones between 49,181 and 983,736 euros, graded by circumstances. In addition, article 42.3 provides that the principal company is jointly liable with its contractors and subcontractors for the obligations of the prevention law regarding the workers they employ at the principal company's workplace, when the infraction occurs there.
+
+---
+
+## 5. Where manual control fails
+
+These are the usual reasons a construction company cannot prove compliance and all of them are organizational in origin:
+
+1. **Scattered documents.** They arrive by email, WhatsApp or on paper, with names like "scan_0042.pdf".
+2. **Dates nobody watches.** Each document has its own expiry and deadline: three years for the REA, 12 months for the tax certificate, 30 days for the Treasury to answer.
+3. **Subcontractor changes without checks.** A crew joins mid-job and starts work before anyone reviews its papers.
+4. **Multiplication per site.** A small firm with four sites and five subcontractors per site, for example, manages twenty files in parallel.
+
+---
+
+## 6. What AI can and cannot do
+
+The solution we offer at IA4PYMES for construction companies follows a simple logic: the system reads the documents that arrive, sorts them by subcontractor and site, extracts the dates and shows the status of each in words and color: **Up to date**, **Expires in 12 days** or **Missing**. A person on your team reviews whatever the system flags as doubtful.
+
+### What it does well
+
+* **Read and classify.** A language model with vision identifies whether a PDF or a photo is a tax agency certificate, an insurance policy or a training record, and extracts the issue date, holder and validity.
+* **Compare against a list.** Each site has its list of required documents, like the one in section 2, and the system detects what is missing before the subcontractor starts.
+* **Warn in time.** Expiry alerts go out with the margin you configure, to the internal manager and to the subcontractor, instead of finding the problem on inspection day.
+* **Leave a trail.** It records which document was received, when and who reviewed it, which helps if you need to show a third party that you exercised oversight.
+
+### What it does not do
+
+* **It does not decide whether a document is legally valid.** It can misread a date or confuse two similar certificates. That is why the proposal includes human review: a person confirms what is doubtful.
+* **It does not replace the safety coordinator or the prevention technician.** Approving the safety plan falls to the coordinator under article 7 of Royal Decree 1627/1997.
+* **It does not obtain the official certificates.** They are issued by the tax agency, the Treasury or the labor authority. The system reminds you when to request them, but the company files the request.
+* **It does not authorize the Subcontracting Book.** The labor authority does.
+
+### Personal data
+
+These documents contain data about people: names, training, sometimes ID numbers. Processing falls under the European data protection regulation. Before uploading documents to any cloud system, check where they are processed and what data processing agreement the provider signs. In our case, data is stored on European servers and we sign a data processing agreement with each client. That point is reviewed with each client before starting.
+
+---
+
+## 7. How to start in one week
+
+1. **Pick one active site.** You do not need to migrate the whole archive.
+2. **List the subcontractors and self-employed workers** on it and note which documents each one has.
+3. **Use three statuses** in a spreadsheet: up to date, expires in under 30 days, missing. It is the minimum viable version and already shows the real picture.
+4. **Note each subcontractor's REA renewal date.** It is the date most often forgotten: renewal must be requested in the six months before expiry.
+5. **Request certificates with the legal calendar in mind:** the REA certificate within the month before the contract starts, the tax certificate within the 12 months before each payment and the Social Security one with enough margin for the Treasury's 30 days.
+6. **When the spreadsheet falls short**, that is the moment to automate reading and alerts.
+
+To see how this fits with the rest of a construction company's processes, read our [article on AI for construction companies](/en/blog/ai-for-construction-companies-cost-control-project-estimating-margins), where we cover estimates, delivery notes and certifications.
+
+**[Book your 60-minute technical consultation here](/en#consultoria)** and we will set up document control for your subcontractors with your own sites, including the data protection review.
+
+---
+
+## Frequently asked questions
+
+### Which documents must a construction company request from its subcontractors?
+
+At a minimum: registration in the Accredited Companies Register, proof of prevention training and preventive organization, the Social Security certificate of no arrears, the tax agency certificate of being up to date, written proof of risk assessment and training, and its part of the health and safety plan.
+
+### How long is REA registration valid?
+
+Three years, renewable for equal periods. Renewal is requested within the six months before expiry. If it is not requested in time, the registration is cancelled automatically.
+
+### How long is the tax certificate for contractors valid?
+
+Under article 43.1.f of the General Tax Law, the certificate covers invoices paid in the 12 months after its issue. If 12 months pass without renewal, the payer loses protection for later payments.
+
+### How many subcontracting levels does the law allow on a construction site?
+
+The contractor, the first subcontractor and the second may subcontract. The third subcontractor and the self-employed worker may not. One exceptional additional level is allowed, with prior approval from the site management recorded in the Subcontracting Book.
+
+### What is the fine for not keeping the Subcontracting Book properly?
+
+Not keeping the Book in order and up to date is a serious infraction by the contractor. Serious prevention infractions are fined between 2,451 and 49,180 euros under article 40.2 of the LISOS. The exact amount depends on the circumstances.
+
+### Can artificial intelligence replace the person in charge of documents?
+
+No. It can read, classify and alert, and it reduces manual work, but validating each document and deciding who enters the site stay with a person.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Inkling 2 Mini, modelo abierto en local y guía de instalación (22 NOVIEMBRE 2026)
     {
         slug: "inkling-2-mini-thinking-machines-modelo-abierto-local-guia-instalar-pymes",
