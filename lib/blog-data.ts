@@ -16,6 +16,326 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     // ─────────────────────────────────────────────────────────
+    // ARTÍCULO ES: Albaranes y facturas en la constructora, plazos, factura electrónica e IA (26 NOVIEMBRE 2026)
+    {
+        slug: "albaranes-facturas-constructora-ia-plazos-pago-factura-electronica-verifactu",
+        title: "Albaranes y facturas en la constructora: plazos, factura electrónica y cómo automatizarlos con IA",
+        description: "El plazo de pago puede empezar con la entrega del material. Qué exige la ley sobre albaranes y facturas, el nuevo plazo de Verifactu, la factura electrónica y qué puede automatizar la IA.",
+        date: "2026-11-26",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Construcción y Obra Civil",
+        image: "/images/albaranes_facturas_construccion_ia_2026_es.jpg",
+        lang: "es",
+        translationSlug: "construction-delivery-notes-invoices-spain-ai-payment-terms-e-invoicing-verifactu",
+        content: `
+El camión descarga a las ocho de la mañana, alguien firma el albarán sobre el capó y el papel acaba en la guantera. Tres semanas después llega la factura del proveedor a la oficina y quien la registra no sabe si ese material llegó completo, a qué obra fue ni si el precio es el que se pactó. Para entonces el plazo de pago ya está corriendo.
+
+Este artículo explica qué dice la normativa española sobre los albaranes y las facturas que recibe una constructora, qué cambia con la factura electrónica y con Verifactu, y qué parte de ese trabajo puede hacer un sistema con inteligencia artificial. Las normas citadas están leídas en el BOE, consultado el 26 de noviembre de 2026. El calendario de Verifactu cambió el 25 de noviembre, así que muchas guías publicadas antes de esa fecha muestran plazos antiguos. Esto no es asesoramiento fiscal ni jurídico: la aplicación a tu empresa la valida tu asesor.
+
+---
+
+## 1. El plazo de pago empieza con la entrega
+
+El [artículo 4 de la Ley 3/2004](https://www.boe.es/buscar/act.php?id=BOE-A-2004-21830), de lucha contra la morosidad en las operaciones comerciales, se aplica a los pagos entre empresas, incluidos los de contratistas principales a proveedores y subcontratistas. Si el contrato no fija plazo, hay que pagar a los 30 días naturales de recibir la mercancía o la prestación del servicio, aunque la factura haya llegado antes.
+
+El mismo artículo fija el resto de las reglas:
+
+| Regla | Qué dice el artículo 4 |
+| :--- | :--- |
+| Máximo pactable | El plazo puede ampliarse por pacto, nunca por encima de 60 días naturales |
+| Envío de la factura | El proveedor debe hacerla llegar antes de 15 días naturales desde la recepción de la mercancía o del servicio |
+| Comprobación de conformidad | Si la ley o el contrato prevén un procedimiento de aceptación, no puede durar más de 30 días naturales desde la recepción, y el pago es 30 días después de la aceptación |
+| Factura electrónica con plazo pactado | La recepción por medios electrónicos inicia el cómputo si quedan garantizadas la identidad y autenticidad del firmante, la integridad de la factura y su recepción |
+| Agrupación de facturas | Se pueden agrupar periodos de hasta 15 días; el plazo cuenta desde la mitad del periodo y no supera los 60 días desde esa fecha |
+
+La fecha del albarán tiene, por tanto, consecuencias económicas. Cuando el cómputo arranca con la entrega, un albarán que tarda tres semanas en llegar a la oficina deja nueve días para registrarlo, comprobarlo y pagarlo dentro de un plazo de 30.
+
+## 2. Qué diferencia legal hay entre un albarán y una factura
+
+Para deducir el IVA que soportas necesitas la factura. El [artículo 97 de la Ley del IVA](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740) enumera los documentos que justifican el derecho a deducir. Para una compra nacional ordinaria es la factura original expedida por el proveedor o en su nombre, y un documento que no cumpla todos los requisitos no justifica la deducción hasta que se rectifique. El albarán no figura en esa lista.
+
+El albarán ayuda en otro punto, aunque el artículo que sigue no lo cita por su nombre. El [artículo 8 del Reglamento de facturación](https://www.boe.es/buscar/act.php?id=BOE-A-2012-14696) (Real Decreto 1619/2012) permite garantizar la autenticidad del origen y la integridad de una factura mediante los controles de gestión usuales de la empresa. Esos controles deben crear una pista de auditoría fiable que conecte la factura con la entrega de bienes o la prestación del servicio. Una cadena formada por pedido, albarán firmado y factura es la forma habitual de enseñar esa conexión.
+
+El mismo reglamento explica por qué en obra es tan frecuente recibir muchos albaranes y pocas facturas:
+
+* Cuando el cliente es una empresa, el proveedor debe expedir la factura antes del día 16 del mes siguiente al devengo del IVA (artículo 11).
+* Puede reunir en una sola factura recapitulativa las operaciones de un mismo mes natural para un mismo destinatario, también antes del día 16 del mes siguiente (artículo 13).
+
+Una factura de un almacén de materiales puede resumir decenas de entregas a distintas obras. Quien la revisa tiene que comprobar línea por línea que cada entrega existió, con esas cantidades y esos precios, y decidir a qué obra se imputa cada una. De esa asignación depende que tu [control de costes por obra](/blog/inteligencia-artificial-constructoras-control-costes-obra-presupuestos) refleje la realidad.
+
+## 3. Cuánto tiempo hay que guardarlos y en qué formato
+
+El artículo 30 del [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) obliga a conservar durante seis años, desde el último asiento de los libros, los libros, la correspondencia, la documentación y los justificantes del negocio. En el plano fiscal, el artículo 19 del Reglamento de facturación obliga a conservar las facturas recibidas durante el plazo de la Ley General Tributaria, cuyo [artículo 66](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) fija una prescripción general de cuatro años. Hay casos que alargan esos plazos, así que antes de borrar nada consulta con tu asesor.
+
+La conservación puede ser electrónica si garantiza la autenticidad del origen, la integridad, la legibilidad y el acceso de la Agencia Tributaria sin demora (artículos 20 y 21). Una foto hecha con el móvil sirve para trabajar con el dato, pero no te permite tirar la factura en papel. Para prescindir del original, la [Orden EHA/962/2007](https://www.boe.es/buscar/doc.php?id=BOE-A-2007-7866) regula la digitalización certificada: imagen fiel e íntegra, firma electrónica y un software homologado por la Agencia Tributaria, que publica la [información sobre esa homologación](https://sede.agenciatributaria.gob.es/Sede/procedimientos/FZ01.shtml). Si tu sistema no cumple esos requisitos, guarda los originales.
+
+## 4. Factura electrónica obligatoria: qué cambia para quien compra
+
+El [Real Decreto 238/2026](https://www.boe.es/buscar/act.php?id=BOE-A-2026-7295) desarrolla la factura electrónica obligatoria entre empresarios y profesionales. Sus plazos empezaron a contar con la [Orden HAC/1028/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20587), que regula la solución pública de facturación de la Agencia Tributaria, se publicó el 5 de octubre de 2026 y entró en vigor al día siguiente.
+
+| Quién | Cuándo se aplica |
+| :--- | :--- |
+| Empresarios y profesionales con volumen de operaciones superior a 8 millones de euros el año anterior | 12 meses después de la entrada en vigor de la orden: octubre de 2027 |
+| El resto | 24 meses después: octubre de 2028 |
+
+Para una constructora pequeña, el efecto puede llegar antes que su propia obligación de emitir. Los proveedores que superen los 8 millones empezarán en 2027 a facturar en electrónico a sus clientes empresariales. Durante los primeros 12 meses de esa fase deben acompañar la factura con un PDF legible, salvo que el destinatario acepte de forma expresa recibirla solo en el formato original. Pregunta a tus proveedores grandes cómo te la van a enviar.
+
+El real decreto también pone tareas a quien recibe la factura:
+
+* Informar al emisor de la aceptación o el rechazo comercial y del pago completo, con sus fechas (artículo 10).
+* Comunicar a la solución pública el rechazo o el pago completo de la factura (artículo 12).
+* Hacer ambas cosas en un máximo de cuatro días naturales, sin contar sábados, domingos ni festivos nacionales.
+
+El calendario de estas comunicaciones depende de tu situación. Las personas físicas y las entidades en atribución de rentas que no superen los 8 millones tienen 12 meses adicionales sobre la fase general para informar los estados de la factura que regula la disposición transitoria tercera. Confirma con tu asesor qué fecha te corresponde. En cualquier caso, para comunicar un pago a tiempo tienes que saber qué facturas has aceptado y cuándo las has pagado.
+
+## 5. Verifactu: nuevo plazo desde el 25 de noviembre de 2026
+
+El [Reglamento Verifactu](https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840) (Real Decreto 1007/2023) regula los programas con los que una empresa **expide** sus facturas. Registrar los albaranes y las facturas que recibes de tus proveedores es otra tarea, aunque un mismo programa de gestión pueda hacer las dos.
+
+Las fechas de 2027 que siguen apareciendo en muchas guías ya no son las que recoge el BOE. El [Real Decreto-ley 43/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701), de 24 de noviembre, publicado el día 25, cambió el plazo: los obligados que usan los programas deben tenerlos adaptados cuando venza el plazo de 24 meses de la factura electrónica, es decir, en octubre de 2028.
+
+Un real decreto-ley tiene que ser convalidado o derogado por el Congreso en los 30 días siguientes a su promulgación ([artículo 86 de la Constitución](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229)). A 26 de noviembre de 2026 esa votación está pendiente. Antes de aplazar un proyecto apoyándote en la nueva fecha, comprueba qué ha decidido el Congreso. El plazo de los fabricantes de software no se movió: sigue ligado a los nueve meses desde la orden ministerial de Verifactu.
+
+## 6. Dónde se pierde dinero en el circuito manual
+
+Estos son los fallos que conviene buscar en tu propio proceso:
+
+* El albarán se queda en la furgoneta o en el móvil del encargado.
+* La factura recapitulativa se aprueba por el total, sin casar cada línea con una entrega.
+* El precio facturado no se compara con el del pedido o la tarifa pactada.
+* Se paga material que llegó incompleto o que se devolvió, porque la incidencia se apuntó a mano en un albarán que nadie volvió a mirar.
+* El coste se imputa a la obra semanas tarde o a la obra equivocada.
+* La misma factura entra dos veces, una en papel y otra por correo.
+
+Para saber cuánto te afecta, toma las facturas de materiales del mes pasado y cuenta cuántas líneas puedes justificar con un albarán firmado y un precio acordado.
+
+## 7. Qué puede hacer la inteligencia artificial y qué se queda en tus manos
+
+Un sistema de lectura de documentos puede recibir la foto del albarán desde la obra o el correo con la factura, extraer proveedor, fecha, referencias, cantidades e importes y proponer la obra. Después, el cruce entre pedido, albarán y factura se resuelve con reglas explícitas: cantidad pedida frente a entregada, entregada frente a facturada y precio pactado frente a facturado.
+
+| Tarea | Quién la hace |
+| :--- | :--- |
+| Leer el documento y extraer los datos | La IA |
+| Proponer proveedor, obra y partida | La IA, con revisión de una persona |
+| Casar líneas y detectar diferencias o duplicados | Reglas programadas |
+| Avisar de vencimientos según la fecha de entrega y el plazo pactado | Reglas programadas |
+| Aprobar la factura, rechazarla y ordenar el pago | Una persona de tu empresa |
+| Decidir el tratamiento fiscal | Tu asesor |
+
+La lectura automática se equivoca. Un albarán arrugado, una cantidad corregida a bolígrafo, un sello encima del importe o una letra difícil pueden producir un dato falso con aspecto correcto. Por eso el sistema debe mostrar la imagen original junto a cada dato, marcar lo que no pudo leer con seguridad y comprobar lo comprobable: que las líneas sumen el total, que la base y el IVA cuadren y que el número de factura no esté repetido. Ninguna factura debería pagarse sin que una persona la apruebe. Antes de contratar, pide una prueba con tus propios albaranes, incluidos los peores, y cuenta los errores.
+
+Los albaranes y las facturas pueden incluir datos personales, como nombres, firmas, teléfonos o los datos de un proveedor autónomo. Pregunta dónde se procesan los documentos, quién actúa como encargado del tratamiento, cuánto tiempo se conservan y si se usan para entrenar modelos.
+
+La [solución que ofrecemos en IA4PYMES para constructoras](https://construccion.ia4pymes.tech) sigue ese reparto: haces una foto o reenvías el correo, el sistema lee proveedor, importes y obra, y tu equipo revisa y aprueba. Si además trabajas con subcontratas, el control de sus papeles es otro circuito, que explicamos en la [guía de documentación de subcontratas](/blog/documentacion-subcontratas-obra-ley-32-2006-que-exige-y-como-controlarla-con-ia).
+
+## 8. Cómo empezar esta semana
+
+1. Junta los albaranes y las facturas de materiales del último mes de una sola obra.
+2. Casa cada línea facturada con su albarán y marca las que no tengan respaldo o tengan otro precio.
+3. Anota cuántos días tardó cada albarán en llegar a la oficina.
+4. Revisa en tus contratos y condiciones de compra qué plazo de pago has pactado y desde cuándo cuenta.
+5. Pregunta a tus principales proveedores cuándo empezarán a enviarte factura electrónica y por qué canal.
+6. Fija una norma de obra: el albarán se fotografía en el momento de la entrega, con las incidencias anotadas antes de firmar.
+7. Con esos datos, decide qué automatizar primero.
+
+Los puntos 1 a 6 no necesitan ningún programa nuevo y te dirán cuántas líneas se quedan sin justificar.
+
+---
+
+## Preguntas frecuentes
+
+### ¿Puedo deducir el IVA solo con el albarán?
+
+No. El artículo 97 de la Ley del IVA exige el documento justificativo, que en una compra nacional ordinaria es la factura original que cumpla los requisitos reglamentarios. El albarán ayuda a demostrar que la entrega existió.
+
+### ¿Cuántos días tiene una constructora para pagar a un proveedor?
+
+Sin plazo pactado, 30 días naturales desde la recepción de la mercancía o del servicio. Por pacto se puede ampliar, sin superar 60 días naturales. Si hay un procedimiento de aceptación o se agrupan facturas, el cómputo sigue las reglas específicas del artículo 4 de la Ley 3/2004.
+
+### ¿Puedo tirar los albaranes y facturas en papel después de fotografiarlos?
+
+Una foto corriente no basta para prescindir de una factura original en papel. La Orden EHA/962/2007 exige digitalización certificada con software homologado. Para los albaranes y otros justificantes, consulta con tu asesor antes de destruir nada.
+
+### ¿Verifactu afecta a las facturas que recibo de mis proveedores?
+
+El reglamento regula los sistemas que se usan para expedir facturas. Si tu programa también registra las compras, comprueba con el fabricante qué parte está sujeta al reglamento.
+
+### ¿Cuándo es obligatoria la factura electrónica para una constructora pequeña?
+
+Si no supera los 8 millones de euros de volumen de operaciones, la fase de 24 meses cuenta desde la entrada en vigor de la Orden HAC/1028/2026, el 6 de octubre de 2026, y cae en octubre de 2028. Antes puede recibir facturas electrónicas de proveedores grandes, que empiezan en octubre de 2027.
+
+---
+
+## ¿Cuántas facturas de este mes puedes justificar línea por línea?
+
+Si la respuesta exige buscar en guanteras, correos y carpetas, podemos revisar contigo cómo viajan hoy tus albaranes desde la obra hasta la contabilidad.
+
+**[Reserva el diagnóstico gratuito de 30 minutos para tu constructora aquí](https://construccion.ia4pymes.tech)** y te decimos qué parte del registro y la comprobación de tus albaranes y facturas se puede automatizar.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
+    // ARTICLE EN: Construction delivery notes and invoices, deadlines, e-invoicing and AI (NOVEMBER 26 2026)
+    {
+        slug: "construction-delivery-notes-invoices-spain-ai-payment-terms-e-invoicing-verifactu",
+        title: "Delivery notes and invoices for Spanish construction firms: deadlines, e-invoicing and AI automation",
+        description: "The payment period can start when material is delivered. What Spanish law requires for delivery notes and invoices, the new Verifactu deadline, e-invoicing and what AI can automate.",
+        date: "2026-11-26",
+        author: "IA4PYMES",
+        readingTime: "13 min",
+        category: "Construction & Real Estate",
+        image: "/images/albaranes_facturas_construccion_ia_2026_en.jpg",
+        lang: "en",
+        translationSlug: "albaranes-facturas-constructora-ia-plazos-pago-factura-electronica-verifactu",
+        content: `
+The truck unloads at eight in the morning, someone signs the delivery note on the hood and the paper ends up in the glovebox. Three weeks later the supplier's invoice reaches the office, and the person recording it does not know whether the material arrived complete, which site it went to or whether the price matches what was agreed. By then the payment period is already running.
+
+This article covers what Spanish law says about the delivery notes and invoices a construction company receives, what changes with mandatory e-invoicing and Verifactu, and which part of the work an AI system can do. We read the cited rules in the Official State Gazette (BOE), consulted on November 26, 2026. The Verifactu calendar changed on November 25, so many guides published before that date show old deadlines. This is not tax or legal advice: have your advisor validate how it applies to your company.
+
+---
+
+## 1. The payment period starts at delivery
+
+[Article 4 of Law 3/2004](https://www.boe.es/buscar/act.php?id=BOE-A-2004-21830), on late payment in commercial transactions, applies to payments between businesses, including those from main contractors to suppliers and subcontractors. If the contract sets no term, payment is due 30 calendar days after receiving the goods or the service, even if the invoice arrived earlier.
+
+The same article sets the remaining rules:
+
+| Rule | What Article 4 says |
+| :--- | :--- |
+| Maximum that can be agreed | The parties may extend the term, never beyond 60 calendar days |
+| Sending the invoice | The supplier must get it to the customer within 15 calendar days of receipt of the goods or service |
+| Acceptance checks | If the law or the contract provides an acceptance procedure, it cannot exceed 30 calendar days from receipt, and payment is due 30 days after acceptance |
+| E-invoice with an agreed term | Electronic receipt starts the clock if the signer's identity and authenticity, the invoice's integrity and its receipt are guaranteed |
+| Grouped invoices | Periods of up to 15 days can be grouped; the term counts from the middle of the period and cannot exceed 60 days from that date |
+
+The date on the delivery note therefore has financial consequences. When the clock starts at delivery, a delivery note that takes three weeks to reach the office leaves nine days to record, check and pay it within a 30-day term.
+
+## 2. The legal difference between a delivery note and an invoice
+
+To deduct the VAT you pay, you need the invoice. [Article 97 of the Spanish VAT Law](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740) lists the documents that support the right to deduct. For an ordinary domestic purchase, that is the original invoice issued by the supplier or on their behalf, and a document that fails to meet all the requirements does not support the deduction until it is corrected. The delivery note is not on that list.
+
+The delivery note helps elsewhere, although the article that follows does not name it. [Article 8 of the Invoicing Regulation](https://www.boe.es/buscar/act.php?id=BOE-A-2012-14696) (Royal Decree 1619/2012) allows a company to guarantee the authenticity of origin and the integrity of an invoice through its usual business controls. Those controls must create a reliable audit trail linking the invoice to the delivery of goods or the provision of services. A chain made of purchase order, signed delivery note and invoice is the common way to show that link.
+
+The same regulation explains why construction companies often receive many delivery notes and few invoices:
+
+* When the customer is a business, the supplier must issue the invoice before the 16th of the month after the VAT becomes chargeable (Article 11).
+* The supplier can gather the transactions of one calendar month for the same customer into a single summary invoice, also before the 16th of the following month (Article 13).
+
+One invoice from a building materials warehouse can summarize dozens of deliveries to different sites. Whoever reviews it has to check line by line that each delivery happened, with those quantities and prices, and decide which site each one belongs to. Your [cost control per project](/en/blog/ai-for-construction-companies-cost-control-project-estimating-margins) reflects reality only if that allocation is right.
+
+## 3. How long to keep them and in what format
+
+Article 30 of the Spanish [Commercial Code](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) requires businesses to keep their books, correspondence, documentation and supporting records for six years from the last entry in the books. On the tax side, Article 19 of the Invoicing Regulation requires companies to keep received invoices for the period set in the General Tax Law, whose [Article 66](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) sets a general four-year limitation period. Some cases extend these periods, so ask your advisor before deleting anything.
+
+Records can be kept electronically if the system guarantees authenticity of origin, integrity, legibility and access for the Tax Agency without delay (Articles 20 and 21). A phone photo is fine for working with the data, but it does not let you throw away a paper invoice. To dispense with the original, [Order EHA/962/2007](https://www.boe.es/buscar/doc.php?id=BOE-A-2007-7866) regulates certified digitization: a faithful and complete image, an electronic signature and software approved by the Tax Agency, which publishes [information on that approval](https://sede.agenciatributaria.gob.es/Sede/procedimientos/FZ01.shtml). If your system does not meet those requirements, keep the originals.
+
+## 4. Mandatory e-invoicing: what changes for the buyer
+
+[Royal Decree 238/2026](https://www.boe.es/buscar/act.php?id=BOE-A-2026-7295) develops mandatory electronic invoicing between businesses and professionals. Its deadlines started running with [Order HAC/1028/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20587), which regulates the Tax Agency's public invoicing platform, was published on October 5, 2026 and took effect the next day.
+
+| Who | When it applies |
+| :--- | :--- |
+| Businesses and professionals whose turnover exceeded 8 million euros the previous year | 12 months after the order took effect: October 2027 |
+| Everyone else | 24 months after: October 2028 |
+
+For a small construction company, the effect can arrive before its own duty to issue. Suppliers above 8 million euros will start e-invoicing their business customers in 2027. During the first 12 months of that phase they must attach a readable PDF, unless the recipient expressly agrees to receive only the original format. Ask your large suppliers how they will send it to you.
+
+The royal decree also gives tasks to whoever receives the invoice:
+
+* Tell the issuer about commercial acceptance or rejection and about full payment, with their dates (Article 10).
+* Report rejection or full payment of the invoice to the public platform (Article 12).
+* Do both within four calendar days, excluding Saturdays, Sundays and national holidays.
+
+The calendar for these reports depends on your situation. Individuals and pass-through entities under income tax rules that do not exceed 8 million euros get 12 extra months beyond the general phase to report the invoice statuses covered by the third transitional provision. Ask your advisor which date applies to you. Either way, reporting a payment on time means knowing which invoices you accepted and when you paid them.
+
+## 5. Verifactu: a new deadline since November 25, 2026
+
+The [Verifactu Regulation](https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840) (Royal Decree 1007/2023) governs the software a company uses to **issue** its invoices. Recording the delivery notes and invoices you receive from suppliers is a different task, even if the same management program does both.
+
+The 2027 dates still shown in many guides are no longer the ones in the BOE. [Royal Decree-law 43/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701), of November 24 and published on the 25th, changed the deadline: taxpayers who use the software must have it adapted when the 24-month e-invoicing period expires, which is October 2028.
+
+Congress must vote to validate or repeal a royal decree-law within 30 days of its enactment ([Article 86 of the Constitution](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229)). As of November 26, 2026, that vote is pending. Before postponing a project because of the new date, check what Congress decided. The deadline for software makers did not move: it remains tied to the nine months following the Verifactu ministerial order.
+
+## 6. Where the manual process loses money
+
+Look for these failures in your own process:
+
+* The delivery note stays in the van or on the foreman's phone.
+* The summary invoice is approved by its total, without matching each line to a delivery.
+* The invoiced price is not compared with the purchase order or the agreed rate.
+* You pay for material that arrived incomplete or was returned, because the problem was handwritten on a delivery note nobody looked at again.
+* The cost reaches the project weeks late or lands on the wrong site.
+* The same invoice is entered twice, once on paper and once from email.
+
+To measure your exposure, take last month's material invoices and count how many lines you can support with a signed delivery note and an agreed price.
+
+## 7. What AI can do and what stays with you
+
+A document reading system can take the photo of a delivery note from the site or the email with the invoice, extract supplier, date, references, quantities and amounts, and suggest the project. After that, matching purchase order, delivery note and invoice runs on explicit rules: ordered against delivered quantity, delivered against invoiced, and agreed price against invoiced price.
+
+| Task | Who does it |
+| :--- | :--- |
+| Read the document and extract the data | AI |
+| Suggest supplier, project and cost line | AI, reviewed by a person |
+| Match lines and detect differences or duplicates | Programmed rules |
+| Warn about due dates based on delivery date and agreed term | Programmed rules |
+| Approve or reject the invoice and order payment | A person at your company |
+| Decide the tax treatment | Your advisor |
+
+Automated reading makes mistakes. A crumpled delivery note, a quantity corrected in pen, a stamp over the amount or difficult handwriting can produce wrong data that looks right. So the system should show the original image next to each value, flag what it could not read with confidence and check what can be checked: that lines add up to the total, that the taxable base and VAT agree and that the invoice number is not repeated. No invoice should be paid without a person approving it. Before buying, ask for a test with your own delivery notes, including the worst ones, and count the errors.
+
+Delivery notes and invoices can contain personal data, such as names, signatures, phone numbers or the details of a self-employed supplier. Ask where documents are processed, who acts as data processor, how long they are kept and whether they are used to train models.
+
+The [solution we offer construction companies at IA4PYMES](https://construccion.ia4pymes.tech) follows that split: you take a photo or forward the email, the system reads supplier, amounts and project, and your team reviews and approves. If you also work with subcontractors, controlling their paperwork is a separate process, covered in our [subcontractor documentation guide](/en/blog/subcontractor-documentation-construction-spain-law-32-2006-requirements-ai-control).
+
+## 8. How to start this week
+
+1. Gather last month's material delivery notes and invoices for a single project.
+2. Match each invoiced line to its delivery note and flag the ones with no support or a different price.
+3. Write down how many days each delivery note took to reach the office.
+4. Check in your contracts and purchase terms which payment period you agreed and when it starts counting.
+5. Ask your main suppliers when they will start sending you e-invoices and through which channel.
+6. Set a site rule: the delivery note is photographed at the moment of delivery, with problems written down before signing.
+7. With that information, decide what to automate first.
+
+Steps 1 to 6 need no new software, and they will tell you how many lines lack support.
+
+---
+
+## Frequently asked questions
+
+### Can I deduct VAT with only the delivery note?
+
+No. Article 97 of the VAT Law requires the supporting document, which for an ordinary domestic purchase is the original invoice meeting the regulatory requirements. The delivery note helps prove the delivery happened.
+
+### How many days does a construction company have to pay a supplier in Spain?
+
+With no agreed term, 30 calendar days from receipt of the goods or service. The parties can extend it by agreement, up to a maximum of 60 calendar days. If there is an acceptance procedure or invoices are grouped, the count follows the specific rules in Article 4 of Law 3/2004.
+
+### Can I throw away paper delivery notes and invoices after photographing them?
+
+An ordinary photo is not enough to dispense with an original paper invoice. Order EHA/962/2007 requires certified digitization with approved software. For delivery notes and other supporting records, ask your advisor before destroying anything.
+
+### Does Verifactu affect the invoices I receive from suppliers?
+
+The regulation governs the systems used to issue invoices. If your software also records purchases, check with its maker which part falls under the regulation.
+
+### When is e-invoicing mandatory for a small construction company in Spain?
+
+If turnover does not exceed 8 million euros, the 24-month phase counts from the day Order HAC/1028/2026 took effect, October 6, 2026, and falls in October 2028. Before that, the company may receive e-invoices from large suppliers, who start in October 2027.
+
+---
+
+## How many of this month's invoices can you support line by line?
+
+If answering means searching gloveboxes, inboxes and folders, we can review with you how your delivery notes travel from the site to accounting today.
+
+**[Book the free 30-minute diagnostic for your construction company here](https://construccion.ia4pymes.tech)** and we will tell you which part of recording and checking your delivery notes and invoices can be automated.
+        `.trim(),
+    },
+
+    // ─────────────────────────────────────────────────────────
     // ARTÍCULO ES: Documentación de subcontratas en obra, qué exige la ley y cómo controlarla con IA (24 NOVIEMBRE 2026)
     {
         slug: "documentacion-subcontratas-obra-ley-32-2006-que-exige-y-como-controlarla-con-ia",
